@@ -3,17 +3,30 @@
     "id": "5.9",
     "name": "Specialist and technical words in context",
     "codes": ["VC2E5LA08"],
-    "why": "Every field, from footy to science, has its own exact words, and knowing them lets you read and write like someone who knows the topic.",
-    "how": "Use the clues around a technical word to work out what it means here. When you write about a field, use the word an expert would use.",
+    "why": "Footy, science, art: each has exact words. Use them to sound like an expert.",
+    "how": "Use nearby clues to work out a technical word. Write with the word an expert uses.",
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "text": "Water evaporates when you heat it. It turns from a liquid into a gas.",
-        "lines": [
-          "Scientists have special words for exact jobs. Evaporate is one of them.",
-          "If I don't know it, I check the words around it. 'Turns from a liquid into a gas' tells me what it means.",
-          "Some everyday words get special meanings too. In science, a cell isn't a jail. It's a tiny building block of a living thing.",
-          "So when I read a technical word, I hunt for clues. When I write a report, I use the expert's word."
+        "beats": [
+          {
+            "say": "Scientists have special words for exact jobs.",
+            "show": "Water **evaporates** when you heat it."
+          },
+          {
+            "say": "Don't know it? Check the words around it.",
+            "show": "It **turns from a liquid into a gas**."
+          },
+          {
+            "say": "So evaporate means turning into a gas. Whoosh!"
+          },
+          {
+            "say": "Some everyday words change jobs. In science, a cell isn't a jail!",
+            "show": "A **cell** is a tiny building block of living things."
+          },
+          {
+            "say": "When you write a report, use the expert's word."
+          }
         ]
       },
       "weDo": [
@@ -36,7 +49,7 @@
           "text": "Tully took a mark right in front of goal.",
           "prompt": "In footy, what does 'mark' mean here?",
           "hint": "Think about what a player does with the ball.",
-          "success": "A clean catch from a kick. In footy, you take a mark when you catch the ball cleanly from a long kick.",
+          "success": "A clean catch from a kick. In footy, catching a long kick cleanly is called taking a mark.",
           "body": {
             "format": "choose",
             "options": [
@@ -69,7 +82,7 @@
         "format": "choose",
         "options": [
           { "text": "goal" },
-          { "text": "behind", "reason": "A behind is when the ball goes between a tall post and a short post. This kick went between the two tall ones." },
+          { "text": "behind", "reason": "A behind goes between a tall post and a short post. This kick went between the two tall ones." },
           { "text": "try", "reason": "A try is a rugby word for putting the ball down over the line. Tully kicked it through the posts." }
         ],
         "answer": 0
@@ -272,7 +285,7 @@
         "format": "build",
         "tiles": ["At low tide,", "At high tide,", "the rock pools", "are easy to explore."],
         "accept": ["At low tide, the rock pools are easy to explore."],
-        "reason": "At high tide the sea comes in and covers the rock pools. You can only explore them when the tide is low."
+        "reason": "At high tide the sea covers the rock pools. You can only explore them when the tide is low."
       }
     },
     {
@@ -318,7 +331,7 @@
       "topic": "sport",
       "frame": "The Termolin's bill is buzzing at one word in Tully's match report.",
       "prompt": "Tap the word that has a special footy meaning here, different from its everyday meaning.",
-      "success": "Mark. In footy, the mark is the spot where a player caught the ball, and an opponent has to stand on it.",
+      "success": "Mark. In footy, the mark is the spot where a player caught the ball. An opponent stands on it.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -355,7 +368,7 @@
       "topic": "music",
       "frame": "The word 'scale' means different things in different places. Help the Termolin sort them.",
       "prompt": "Match each sentence to the meaning 'scale' has in it.",
-      "success": "The clues around 'scale' tell you which meaning it has: notes on a piano, a weighing machine, or a plate on an animal's skin.",
+      "success": "The clues tell you which 'scale' it is: notes, a weighing machine, or a plate on an animal's skin.",
       "body": {
         "format": "sort",
         "bins": ["a set of notes going up or down", "a machine for weighing", "a small plate on an animal's skin"],
@@ -442,7 +455,7 @@
       "topic": "art",
       "frame": "The art show program describes Indi's landscape.",
       "prompt": "Tap the word that has a special art meaning here, different from its everyday meaning.",
-      "success": "Perspective. Every day it means a point of view, but in art it means drawing things smaller as they get further away, to show depth.",
+      "success": "Perspective. Usually it means a point of view. In art, it's drawing far-away things smaller to show depth.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -470,7 +483,7 @@
         "format": "build",
         "tiles": ["The farmer found", "a meteorite", "a meteor", "in her paddock", "the morning after", "the meteor shower."],
         "accept": ["The farmer found a meteorite in her paddock the morning after the meteor shower."],
-        "reason": "A meteor burns up in the sky, so nobody can find one in a paddock. A space rock that lands on the ground is a meteorite."
+        "reason": "A meteor burns up in the sky, so nobody can find one in a paddock. Landed space rocks are meteorites."
       }
     },
     {
@@ -479,7 +492,7 @@
       "topic": "sport",
       "frame": "The word 'pitch' turns up all over the island. The Termolin needs each one sorted.",
       "prompt": "Match each sentence to the meaning 'pitch' has in it.",
-      "success": "The clues tell you which pitch you're reading about: a playing field, how high a sound is, or a talk to win people over.",
+      "success": "Clues tell you which pitch: a playing field, how high a sound is, or a talk to win people over.",
       "body": {
         "format": "sort",
         "bins": ["a playing field", "how high or low a sound is", "a short talk to sell an idea"],
@@ -530,7 +543,7 @@
       "frame": "Maxx Vantablack is live, holding up a cage. Wren knows he's got his science word wrong.",
       "text": "'This creature is extinct!' Maxx shouted at the camera. 'There are only three of them left in the whole world, and I've got one.'",
       "prompt": "Which science word means what Maxx was trying to say?",
-      "success": "Endangered. An endangered species has only a few left and could die out. Extinct means there are none left at all.",
+      "success": "Endangered means only a few are left and it could die out. Extinct means none are left at all.",
       "body": {
         "format": "choose",
         "options": [

@@ -3,17 +3,31 @@
     "id": "5.7",
     "name": "Add detail after the noun (with a phrase or clause)",
     "codes": ["VC2E5LA06"],
-    "why": "Some details are too big to fit in front of a noun, so you hook them on after it to show the reader exactly which one you mean.",
-    "how": "Add a phrase (the dog with muddy paws) or a clause with its own verb (the dog that ate my lunch) straight after the noun. Keep the detail right next to the noun it's about.",
+    "why": "Big details won't fit in front of a noun, so hook them on after.",
+    "how": "Add a phrase or a clause straight after the noun it's about. Keep them together.",
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "text": "the wombat",
-        "lines": [
-          "Sometimes the detail I need won't fit in front of a noun. So I add it after.",
-          "The wombat with the sore paw. 'With the sore paw' is a phrase. It tells you which wombat.",
-          "The wombat that dug under the fence. That detail has its own verb, dug, so it's a clause.",
-          "Either way, the detail goes right after the noun it's about. Move it and the sentence goes wobbly."
+        "beats": [
+          {
+            "say": "Some details won't fit in front of a noun.",
+            "show": "the **wombat**"
+          },
+          {
+            "say": "So I hook them on after.",
+            "show": "the wombat **with the sore paw**"
+          },
+          {
+            "say": "That bit has no action word. It's a phrase."
+          },
+          {
+            "say": "This one has an action, dug. So it's a clause.",
+            "show": "the wombat that **dug** under the fence"
+          },
+          {
+            "say": "Keep it by its noun, or things get weird.",
+            "show": "I patted the fence **with the sore paw**. Poor fence!"
+          }
         ]
       },
       "weDo": [
@@ -274,11 +288,11 @@
       "topic": "robots",
       "frame": "Gus's party report is in pieces.",
       "prompt": "Put the pieces in order to make the sentence.",
-      "success": "The robot with the wobbly legs. The detail sits right after robot, so the legs belong to the robot, not the pool.",
+      "success": "The robot with the wobbly legs. The detail sits after robot, so the legs are the robot's, not the pool's.",
       "body": {
         "format": "order",
         "items": ["The robot", "with the wobbly legs", "fell into the pool", "at Gus's party."],
-        "reason": "The wobbly legs belong to the robot. If the detail comes after 'the pool', it sounds like the pool has legs."
+        "reason": "The wobbly legs belong to the robot. After 'the pool', it sounds like the pool has legs."
       }
     },
     {
@@ -306,7 +320,7 @@
       "topic": "ocean",
       "frame": "A Lyraffle is listening to the reef ranger's radio.",
       "prompt": "Tap the detail that tells you which shark.",
-      "success": "With the torn fin. It sits right after 'shark' and tells you which one. The other 'with' phrase tells you how it swam.",
+      "success": "With the torn fin. It sits after 'shark' and tells you which one. The other phrase tells how it swam.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -329,7 +343,7 @@
       "topic": "spooky",
       "frame": "Zed found a warning note tucked into a library book.",
       "prompt": "Tap the pieces in order to build the sentence.",
-      "success": "The ghost who haunts the library. The clause sits right after ghost, so you know which ghost to watch out for.",
+      "success": "The ghost who haunts the library. The clause sits right after ghost, so you know which ghost.",
       "body": {
         "format": "build",
         "tiles": ["The ghost", "who haunts the library", "only comes out", "on rainy Tuesdays."],
@@ -343,7 +357,7 @@
       "topic": "general",
       "frame": "Tully is describing the jetties along the bay for a fishing map.",
       "prompt": "Match each noun group to the right box.",
-      "success": "Detail can go in front of the noun, or after it as a phrase or a clause. A clause after the noun has its own verb.",
+      "success": "Detail goes in front, or after as a phrase or clause. A clause after the noun has its own verb.",
       "body": {
         "format": "sort",
         "bins": ["detail in front of the noun", "phrase after the noun", "clause after the noun"],
@@ -451,12 +465,12 @@
       "topic": "gross-science",
       "frame": "Gus is writing up his grossest discovery yet.",
       "prompt": "Tap the pieces in order to build the sentence.",
-      "success": "The beetle that Gus found in the compost bin. The clause sits right after beetle and tells you which beetle does the squirting.",
+      "success": "The clause sits right after beetle and tells you which beetle does the squirting.",
       "body": {
         "format": "build",
         "tiles": ["The beetle", "that Gus found in the compost bin", "can squirt", "a foul-smelling spray", "from its bottom."],
         "accept": ["The beetle that Gus found in the compost bin can squirt a foul-smelling spray from its bottom."],
-        "reason": "The clause 'that Gus found in the compost bin' tells you which beetle, so it has to sit right after 'The beetle'."
+        "reason": "'That Gus found in the compost bin' tells you which beetle, so it sits right after 'The beetle'."
       }
     },
     {
@@ -465,7 +479,7 @@
       "topic": "sport",
       "frame": "Tully is sorting the details from his match report.",
       "prompt": "Is each detail about a noun, or about the action? Match it to the right box.",
-      "success": "A detail about a noun sits right after that noun and tells you which one. A detail about the action tells you how, when or where it happened.",
+      "success": "Detail about a noun sits after it and says which one. Detail about the action says how, when or where.",
       "body": {
         "format": "sort",
         "bins": ["detail about a noun", "detail about the action"],
@@ -503,7 +517,7 @@
         "options": [
           { "text": "whose" },
           { "text": "which", "reason": "Which is for things, and 'the diver which tank was nearly empty' still doesn't show the tank is the diver's." },
-          { "text": "that", "reason": "'The diver that tank was nearly empty' doesn't make sense. You need a word that shows the tank belongs to the diver." },
+          { "text": "that", "reason": "'The diver that tank was nearly empty' makes no sense. You need to show the tank belongs to the diver." },
           { "text": "where", "reason": "Where is for places. The detail is about something the diver owns." }
         ],
         "answer": 0
@@ -515,14 +529,14 @@
       "topic": "robots",
       "frame": "Gus is selling a robot dog that only barks at cats. He needs his ad to say exactly that.",
       "prompt": "Which ad makes it clear that the dog is the one that barks at cats?",
-      "success": "The first ad. The clause 'that only barks at cats' sits right after 'robot dog', so the dog does the barking.",
+      "success": "The first ad. 'That only barks at cats' sits right after 'robot dog', so the dog does the barking.",
       "body": {
         "format": "choose",
         "options": [
           { "text": "For sale from a careful inventor: a robot dog that only barks at cats." },
           { "text": "For sale: a robot dog from a careful inventor who only barks at cats.", "reason": "'Who' points to a person, so this clause hooks onto 'inventor'. It says the inventor barks at cats." },
-          { "text": "For sale: a robot dog with two remote controls that only bark at cats.", "reason": "'Bark' goes with more than one thing, so this clause hooks onto 'remote controls'. It says the remotes bark at cats." },
-          { "text": "For sale from a careful inventor who only barks at cats: a robot dog.", "reason": "The clause sits straight after 'inventor', so this says the inventor barks at cats. The dog gets no detail at all." }
+          { "text": "For sale: a robot dog with two remote controls that only bark at cats.", "reason": "'Bark' goes with more than one thing, so the clause hooks onto 'remote controls'. Now the remotes bark at cats." },
+          { "text": "For sale from a careful inventor who only barks at cats: a robot dog.", "reason": "The clause sits straight after 'inventor', so the inventor barks at cats. The dog gets no detail." }
         ],
         "answer": 0
       }

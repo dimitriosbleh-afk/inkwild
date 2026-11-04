@@ -45,44 +45,55 @@ function charting(app: App, branch: BranchId): ScreenView {
   };
 }
 
+/** Text with **marked** parts lit up, each in its own colour, and every word tappable to hear. */
+function lit(text: string): HTMLElement {
+  const out = h('div', { class: 'reading show' });
+  text.split(/(\*\*[^*]+\*\*)/).forEach((part, i) => {
+    if (!part) return;
+    const m = part.match(/^\*\*([^*]+)\*\*$/);
+    if (m) out.append(h('span', { class: `hl hl-${(Math.floor(i / 2) % 3) + 1}` }, readable(m[1]!)));
+    else out.append(readable(part));
+  });
+  return out;
+}
+
 function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>): HTMLElement {
   const skill = content.skill(a.skill);
   const person = crew[skill.teach.crew];
-  const lines = skill.teach.iDo.lines;
-  let shown = 1;
-  const list = h('div', { class: 'reading' });
+  const beats = skill.teach.iDo.beats;
+  let at = 0;
+  const portrait = crewCanvas(skill.teach.crew, 6);
+  portrait.classList.add('bob');
+  const bubble = h('div', { class: 'speech beat' });
+  const dots = h('div', { class: 'dots' });
   const next = h('button', { class: 'big' }, 'NEXT');
-  const draw = () => {
-    list.replaceChildren(...lines.slice(0, shown).map((l) => h('p', { class: 'pop' }, readable(l))));
-    next.textContent = shown < lines.length ? 'NEXT' : 'MY TURN';
-  };
-  next.addEventListener('click', () => {
-    if (shown < lines.length) {
-      shown++;
-      draw();
-      return;
-    }
+  const skip = h('button', { class: 'ghost' }, 'GOT IT, LET ME TRY');
+  const go = () => {
     app.store.dispatch({ type: 'advance' });
     app.go({ name: 'activity', branch });
+  };
+  const draw = () => {
+    const beat = beats[at]!;
+    bubble.replaceChildren(h('b', {}, person.name.toUpperCase()), h('div', { class: 'reading pop' }, readable(beat.say)), ...(beat.show ? [lit(beat.show)] : []));
+    dots.replaceChildren(...beats.map((_, i) => h('i', { class: i <= at ? 'on' : '' })));
+    next.textContent = at < beats.length - 1 ? 'NEXT' : 'MY TURN';
+  };
+  next.addEventListener('click', () => {
+    if (at < beats.length - 1) {
+      at++;
+      draw();
+    } else go();
   });
+  skip.addEventListener('click', go);
   draw();
-  const why = h('div', { class: 'feedback good' }, h('b', {}, 'WHY IT MATTERS'), readable(skill.why), h('b', { style: 'margin-top:10px' }, 'HOW'), readable(skill.how));
-  const example = skill.teach.iDo.text ? passage({ text: skill.teach.iDo.text, prompt: '', success: '', body: { format: 'order', items: [], reason: '' } }) : null;
-  const portrait = crewCanvas(skill.teach.crew, 5);
-  portrait.classList.add('bob');
   return h(
     'div',
-    { class: 'panel' },
-    h(
-      'div',
-      { class: 'row', style: 'align-items:flex-start' },
-      portrait,
-      h('div', { style: 'flex:1;min-width:240px' }, h('div', { class: 'frame' }, `NEW MOVE · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()} SHOWS YOU`), h('h2', {}, skill.name.toUpperCase())),
-    ),
-    example,
-    list,
-    why,
-    h('div', { class: 'actions' }, next),
+    { class: 'panel teach' },
+    h('div', { class: 'frame' }, `NEW MOVE · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`),
+    h('h2', {}, skill.name.toUpperCase()),
+    h('div', { class: 'row teach-row' }, portrait, bubble),
+    h('div', { class: 'why' }, h('b', {}, 'WHY: '), readable(skill.why)),
+    h('div', { class: 'bar-actions' }, dots, h('div', { class: 'row' }, skip, next)),
   );
 }
 
@@ -90,7 +101,7 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
   const store = app.store;
   const task: Task = currentTask(content, a);
   const panel = h('div', { class: 'panel' });
-  const feedback = h('div');
+  const feedback = h('div', { class: 'task-foot' });
   let sprite: HTMLCanvasElement | null = null;
 
   if (a.kind === 'keeper') {

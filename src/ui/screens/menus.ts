@@ -49,7 +49,7 @@ export function firstRunScreen(app: App): ScreenView {
         const b = h(
           'button',
           {
-            class: `swatch${look[key] === i ? ' on' : ''}`,
+            class: `swatch${swatch ? '' : ' wide'}${look[key] === i ? ' on' : ''}`,
             style: swatch ? `background:${c}` : 'font-size:8px',
             onclick: () => {
               look[key] = i;

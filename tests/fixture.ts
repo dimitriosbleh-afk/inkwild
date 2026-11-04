@@ -27,7 +27,7 @@ function skillFile(id: `${number}.${number}`, perBand = 6): SkillFile {
       how: 'how',
       teach: {
         crew: 'nav',
-        iDo: { lines: ['watch me'] },
+        iDo: { beats: [{ say: 'watch me' }] },
         weDo: [
           { ...task(100), hint: 'hint 1' },
           { ...task(101), hint: 'hint 2' },

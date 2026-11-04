@@ -3,17 +3,27 @@
     "id": "5.8",
     "name": "Precise word for a vague one",
     "codes": ["VC2E5LA08"],
-    "why": "Vague words like nice, thing and big make the reader guess, while a precise word shows them exactly what you mean.",
-    "how": "Spot the vague word, then hunt the sentence for clues about what you really mean. Pick the word that matches every clue.",
+    "why": "Vague words like nice make readers guess. A precise word shows what you mean.",
+    "how": "Spot the vague word. Hunt for clues. Pick the word that fits every clue.",
     "teach": {
       "crew": "joker",
       "iDo": {
-        "text": "The soup was nice. It warmed me up on a freezing day.",
-        "lines": [
-          "Nice is a vague word. It tells you I liked the soup, but not how.",
-          "So I look for clues. 'Warmed me up' and 'freezing day' tell me the soup was hot.",
-          "Chilled soup wouldn't warm me up. Spicy might be true, but no clue says so.",
-          "So the precise word is steaming: the soup was steaming. The clues pick the word for me."
+        "beats": [
+          {
+            "say": "Nice is a vague word. Nice how?",
+            "show": "The soup was **nice**."
+          },
+          {
+            "say": "So I hunt for clues.",
+            "show": "It **warmed me up** on a **freezing day**."
+          },
+          {
+            "say": "Chilled? No, it warmed me up. Spicy? No clue says so."
+          },
+          {
+            "say": "Steaming fits every clue. That's the precise word!",
+            "show": "The soup was **steaming**."
+          }
         ]
       },
       "weDo": [
@@ -123,11 +133,11 @@
       "topic": "animals",
       "frame": "A Spikkit only dives for the most precise word. Line them up for it.",
       "prompt": "Put the words in order, from the vaguest to the most precise.",
-      "success": "Each word is a kind of the one before: a rainbow lorikeet is a parrot, a parrot is a bird, and a bird is an animal.",
+      "success": "A rainbow lorikeet is a parrot, a parrot is a bird, and a bird is an animal.",
       "body": {
         "format": "order",
         "items": ["animal", "bird", "parrot", "rainbow lorikeet"],
-        "reason": "Start with the word that covers the most things. Each word after it should be one kind of the word before."
+        "reason": "Start with the word that covers the most things. Each next word is a kind of the one before."
       }
     },
     {
@@ -269,11 +279,11 @@
       "topic": "general",
       "frame": "Tully is training a Spikkit to go from blurry to sharp.",
       "prompt": "Put the words in order, from the vaguest to the most precise.",
-      "success": "A fire truck is a kind of truck, a truck is a kind of vehicle, and a vehicle is a kind of thing.",
+      "success": "A fire truck is a kind of truck, a truck is a vehicle, and a vehicle is a thing.",
       "body": {
         "format": "order",
         "items": ["thing", "vehicle", "truck", "fire truck"],
-        "reason": "Start with the word that could mean the most things. Each word after it should be one kind of the word before."
+        "reason": "Start with the word that could mean the most things. Each next word is a kind of the one before."
       }
     },
     {
@@ -549,7 +559,7 @@
         "format": "choose",
         "options": [
           { "text": "brutal" },
-          { "text": "forgiving", "reason": "A forgiving game goes easy on you when you make mistakes. A hundred tries on the first level is the opposite." },
+          { "text": "forgiving", "reason": "A forgiving game goes easy on your mistakes. A hundred tries on level one is the opposite." },
           { "text": "confusing", "reason": "Confusing means hard to understand. The clues say it's hard to beat, not hard to understand." },
           { "text": "glitchy", "reason": "Glitchy means full of bugs. Nothing in the clues says the game is broken." }
         ],

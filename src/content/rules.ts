@@ -9,6 +9,9 @@ export interface Problem {
 
 export const ENCOUNTERS_PER_BAND = 6;
 
+/** Word limits for the words around a task, read by every Band, so a nine-year-old can follow them. */
+export const LIMITS = { beat: 12, show: 16, why: 14, how: 16, feedback: 20 } as const;
+
 export const BAND_TARGETS: Record<Band, { sentence: number; passage: [number, number] }> = {
   1: { sentence: 12, passage: [60, 120] },
   2: { sentence: 15, passage: [100, 180] },
@@ -49,6 +52,15 @@ function textOf(task: Task): string[] {
   if (b.format === 'order') out.push(...b.items, b.reason);
   if (b.format === 'build') out.push(...b.tiles, ...b.accept, b.reason);
   if (b.format === 'sort') out.push(...b.bins, ...b.items.flatMap((i) => [i.text, i.reason]));
+  return out;
+}
+
+function reasonsOf(b: Body): string[] {
+  const out: string[] = [];
+  if (b.format === 'choose' || b.format === 'fix') out.push(...b.options.flatMap((o) => (o.reason ? [o.reason] : [])));
+  if (b.format === 'tapText' || b.format === 'fix') out.push(...taps(b.parts).flatMap((t) => (t.reason ? [t.reason] : [])));
+  if (b.format === 'sort') out.push(...b.items.map((i) => i.reason));
+  if (b.format === 'order' || b.format === 'build') out.push(b.reason);
   return out;
 }
 
@@ -139,6 +151,10 @@ function taskProblems(task: Task, where: string, band?: Band): Problem[] {
   const add = (problem: string) => out.push({ where, problem });
   if (!task.prompt.trim()) add('empty prompt');
   if (!task.success.trim()) add('empty success line');
+  if (wordCount(task.success) > LIMITS.feedback) add(`success line is ${wordCount(task.success)} words; keep it to ${LIMITS.feedback}`);
+  for (const r of reasonsOf(task.body)) {
+    if (wordCount(r) > LIMITS.feedback) add(`a reason is ${wordCount(r)} words; keep it to ${LIMITS.feedback}: "${r.slice(0, 40)}..."`);
+  }
   bodyProblems(task.body).forEach(add);
   for (const t of textOf(task)) {
     const us = t.match(US_SPELLINGS);
@@ -169,7 +185,14 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
   } else add(id, 'not on the Skill list');
   if (!s.why.trim() || !s.how.trim()) add(id, 'needs a WHY line and a HOW line');
   if (!CREW.includes(s.teach.crew)) add(id, `unknown crew member ${s.teach.crew}`);
-  if (s.teach.iDo.lines.length < 2) add(id, 'I do needs at least 2 lines');
+  const beats = s.teach.iDo.beats ?? [];
+  if (beats.length < 3 || beats.length > 5) add(id, `I do needs 3 to 5 beats, not ${beats.length}`);
+  beats.forEach((b, i) => {
+    if (wordCount(b.say) > LIMITS.beat) add(`${id} I do beat ${i + 1}`, `says ${wordCount(b.say)} words; keep it to ${LIMITS.beat}`);
+    if (b.show && wordCount(b.show.replace(/\*/g, '')) > LIMITS.show) add(`${id} I do beat ${i + 1}`, `example is ${wordCount(b.show)} words; keep it to ${LIMITS.show}`);
+  });
+  if (wordCount(s.why) > LIMITS.why) add(id, `why is ${wordCount(s.why)} words; keep it to ${LIMITS.why}`);
+  if (wordCount(s.how) > LIMITS.how) add(id, `how is ${wordCount(s.how)} words; keep it to ${LIMITS.how}`);
   s.teach.weDo.forEach((t, i) => {
     if (!t.hint.trim()) add(`${id} we do ${i + 1}`, 'needs a hint');
     out.push(...taskProblems(t, `${id} we do ${i + 1}`));

@@ -78,7 +78,8 @@ export interface Encounter extends Task {
 
 export interface Teach {
   crew: CrewId;
-  iDo: { text?: string; lines: string[] };
+  /** One short beat at a time. `show` is an example; wrap the parts to light up in **double stars**. */
+  iDo: { beats: { say: string; show?: string }[] };
   weDo: [Task & { hint: string }, Task & { hint: string }];
 }
 

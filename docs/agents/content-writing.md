@@ -4,13 +4,23 @@ You are writing reading and writing tasks for Inkwild, a creature-collecting iPa
 
 ## What you produce
 
-One JSON file per Skill at `content/skills/<id>.json`. The shape is the `SkillFile` type in `src/content/bank.ts`, built from `src/content/types.ts`. `content/skills/5.3.json` is the model file. Match its depth, tone and structure.
+One JSON file per Skill at `content/skills/<id>.json`. The shape is the `SkillFile` type in `src/content/bank.ts`, built from `src/content/types.ts`. `content/skills/5.3.json` is the model for Encounters. For the Teach sequence, follow the beats format below, which replaced the older `lines` format in that file.
 
 Each file has:
 
 - `skill.name` and `skill.codes` copied exactly from `docs/curriculum/skill-list.md`.
-- `why`: one sentence on why the Skill matters to a reader or writer. `how`: one or two sentences on how to do it.
-- `teach`: a crew member (`content/crew.json` ids), an I do (a worked example told by that crew member in 3 to 5 short lines), and two We do tasks with a `hint`. Write the Teach sequence in plain Band 1 to 2 language.
+- `why`: why the Skill matters, in 14 words or fewer. `how`: how to do it, in 16 words or fewer.
+- `teach`: a crew member (`content/crew.json` ids), an I do, and two We do tasks with a `hint`.
+  - **I do is 3 to 5 beats**, shown one at a time. Each beat has `say`, at most 12 words, spoken by the crew member, and an optional `show`, an example of at most 16 words. In `show`, wrap the parts to light up in `**double stars**`, e.g. `"**The slime** **bubbled**."`.
+  - **Write for a nine-year-old who is a weak reader.** Use one idea per beat and everyday words. Introduce one grammar term at a time, and only after showing it. Prefer "the doer" and "the action" first, then the term.
+  - A strong reader can skip the I do, so don't pad it. Funny is good.
+
+  Example of the right size:
+  ```
+  { "say": "Every sentence needs someone doing something.", "show": "**The slime** **bubbled**." },
+  { "say": "That's one chunk. We call it a clause." },
+  { "say": "Glue two clauses with and, but or so.", "show": "The slime bubbled **and** Mo ran." }
+  ```
 - `creature`: an original Creature for this Skill. Base it loosely on Australian wildlife or landscape, never on First Nations cultural beings. Give it a two- or three-syllable invented name and an evolved name, both new words not used by any existing game or brand, and a blurb of one or two sentences that ties it to the Skill.
 - `encounters`: exactly 6 per Band, Bands 1 to 4, 24 in all. Ids are `<skill>-b<band>-<n>`.
 
@@ -31,7 +41,7 @@ Use at least three different formats in each Band (`choose`, `tapText`, `order`,
 
 1. **Exactly one defensible answer.** Before you finish an Encounter, try every wrong option and ask: could a careful adult argue this is also right? If yes, rewrite it. This is the rule that breaks trust when it fails. A separate reviewer will solve every task blind, without your answer key.
 2. **Every wrong option has its own reason.** One plain sentence saying why *that* option is wrong, written to the student, never "Wrong!" or "Try again".
-3. **The success line teaches.** It says why the answer is right, in one or two short sentences.
+3. **The success line teaches.** It says why the answer is right, in 20 words or fewer. Every reason is also 20 words or fewer. Students at every Band read these, so keep them plain.
 4. **Australian spelling and life:** colour, centre, realise, mum, footy, arvo, ute, thongs, lollies, Year 5.
 5. **No word work.** Never ask about spelling, phonics, syllables, prefixes, suffixes or morphemes. Those belong to the school's OG program.
 6. **Adult words.** Use the words adults really use. No baby talk.
@@ -43,6 +53,10 @@ Use at least three different formats in each Band (`choose`, `tapText`, `order`,
 12. **Sentence length counts everything the student reads:** passage, tappable text, the built sentence, sort and order items, and options of five words or more. Run-on Skills (5.13, 8.2) are exempt, because their long sentences are the point.
 13. **Bands 3 and 4 need 4 options** in choose tasks (sort bins can be 2 to 4 at any Band). When a Skill has only three categories, offer four sentences or four "type: reason" statements instead.
 14. **Students tap, never drag.** Prompts say "Match each...", "Put..." or "Tap...", never "Drag".
+
+## Reading Branches
+
+Branches 1 to 4 and 7 are about reading whole texts, so most of their Encounters need a passage in `text`. Passage lengths per Band: 60 to 120 words, 100 to 180, 150 to 250, then 200 to 350. Use original texts only: stories, diary entries, news reports, letters, ads, signs and Maxx Vantablack's streams. Vary the genre. The answer must be decidable from the passage alone, never from world knowledge the passage doesn't give.
 
 ## Check your work
 
