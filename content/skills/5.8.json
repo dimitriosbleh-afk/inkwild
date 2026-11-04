@@ -1,0 +1,560 @@
+{
+  "skill": {
+    "id": "5.8",
+    "name": "Precise word for a vague one",
+    "codes": ["VC2E5LA08"],
+    "why": "Vague words like nice, thing and big make the reader guess, while a precise word shows them exactly what you mean.",
+    "how": "Spot the vague word, then hunt the sentence for clues about what you really mean. Pick the word that matches every clue.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "text": "The soup was nice. It warmed me up on a freezing day.",
+        "lines": [
+          "Nice is a vague word. It tells you I liked the soup, but not how.",
+          "So I look for clues. 'Warmed me up' and 'freezing day' tell me the soup was hot.",
+          "Chilled soup wouldn't warm me up. Spicy might be true, but no clue says so.",
+          "So the precise word is steaming: the soup was steaming. The clues pick the word for me."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Gus put the thing on the table. It had pages and a hard cover.",
+          "prompt": "Which word could replace 'thing'?",
+          "hint": "What has pages and a hard cover?",
+          "success": "Book. Pages and a hard cover tell you exactly what the thing is.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "book" },
+              { "text": "plate", "reason": "A plate doesn't have pages." },
+              { "text": "box", "reason": "A box can have a hard lid, but it doesn't have pages." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the vague word.",
+          "hint": "Which word could mean almost anything?",
+          "success": "Stuff. It could mean anything at all, so the reader has no idea what else the kelpie herded.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Our ",
+              { "tap": "kelpie", "reason": "Kelpie is precise. It names the exact kind of dog." },
+              " herded ",
+              { "tap": "eleven", "reason": "Eleven is precise. It tells you the exact number." },
+              " sheep and some other ",
+              { "tap": "stuff" },
+              "."
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "spikkit",
+      "name": "Spikkit",
+      "evolved": "Spikkadart",
+      "blurb": "A sacred kingfisher that only dives when it can see exactly the right fish. Give it a blurry word and it stays on its branch."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.8-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is writing a review of his own cooking. Again.",
+      "text": "Mo's pie was bad. The middle was still frozen solid.",
+      "prompt": "Which word says exactly what was wrong with the pie?",
+      "success": "Half-frozen. The clue says the middle was still frozen, so that's exactly what was wrong.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "half-frozen" },
+          { "text": "burnt", "reason": "Burnt means cooked for too long. This pie wasn't cooked enough." },
+          { "text": "soggy", "reason": "Soggy means wet and floppy. Frozen solid means hard." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b1-2",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is posting his scores on the class board.",
+      "prompt": "Tap the vague word that doesn't tell you exactly how Zed did.",
+      "success": "Good. It doesn't tell you the score, so the reader can't tell if Zed did OK or broke a record.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed got a ",
+          { "tap": "good" },
+          " ",
+          { "tap": "score", "reason": "Score is precise. It names exactly what Zed got." },
+          " in the ",
+          { "tap": "final", "reason": "Final is precise. It tells you exactly which round." },
+          " round."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing up her zoo trip.",
+      "text": "Wren saw a big animal at the zoo. It had a long trunk and huge flappy ears.",
+      "prompt": "Which word could replace 'big animal'?",
+      "success": "Elephant. A long trunk and huge flappy ears tell you exactly which animal it was.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "elephant" },
+          { "text": "giraffe", "reason": "A giraffe has a long neck, not a trunk." },
+          { "text": "rhino", "reason": "A rhino has a horn and small ears, not a trunk." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b1-4",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Spikkit only dives for the most precise word. Line them up for it.",
+      "prompt": "Put the words in order, from the vaguest to the most precise.",
+      "success": "Each word is a kind of the one before: a rainbow lorikeet is a parrot, a parrot is a bird, and a bird is an animal.",
+      "body": {
+        "format": "order",
+        "items": ["animal", "bird", "parrot", "rainbow lorikeet"],
+        "reason": "Start with the word that covers the most things. Each word after it should be one kind of the word before."
+      }
+    },
+    {
+      "id": "5.8-b1-5",
+      "band": 1,
+      "topic": "art",
+      "frame": "Indi stuck a sign up next to her new artwork.",
+      "prompt": "Tap the vague word, then choose a precise one.",
+      "success": "Mural. A mural is a picture painted on a wall, so wet paint makes sense.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Please don't ",
+          { "tap": "touch", "reason": "Touch is fine. It says exactly what not to do." },
+          " the ",
+          { "tap": "stuff" },
+          " on the wall. The paint is still ",
+          { "tap": "wet", "reason": "Wet is precise. It tells you why you shouldn't touch." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "mural" },
+          { "text": "photo", "reason": "A photo isn't painted, so it can't have wet paint." },
+          { "text": "mirror", "reason": "A mirror is glass, not wet paint." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b1-6",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Spikkit is sorting fish. Blurry ones go back in the water.",
+      "prompt": "Match each word to the right bucket.",
+      "success": "Vague words could mean lots of things. Precise words mean one exact thing.",
+      "body": {
+        "format": "sort",
+        "bins": ["vague", "precise"],
+        "items": [
+          { "text": "stuff", "bin": 0, "reason": "Stuff could mean almost anything, so it's vague." },
+          { "text": "nice", "bin": 0, "reason": "Nice tells you something is good, but not how. It's vague." },
+          { "text": "thing", "bin": 0, "reason": "Thing could be any object at all, so it's vague." },
+          { "text": "spatula", "bin": 1, "reason": "Spatula names one exact kitchen tool, so it's precise." },
+          { "text": "drizzling", "bin": 1, "reason": "Drizzling means light, fine rain. That's precise." },
+          { "text": "kelpie", "bin": 1, "reason": "Kelpie names one exact kind of dog, so it's precise." }
+        ]
+      }
+    },
+    {
+      "id": "5.8-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Indi is writing about her first swim of the year.",
+      "text": "The water was cold. Indi's toes went numb as soon as she stepped in.",
+      "prompt": "Which word says exactly how cold the water was?",
+      "success": "Icy. Toes going numb straight away tells you the water was extremely cold.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "icy" },
+          { "text": "cool", "reason": "Cool means only a little cold. Cool water wouldn't make your toes go numb straight away." },
+          { "text": "lukewarm", "reason": "Lukewarm means a bit warm. It wouldn't make anyone's toes go numb." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is writing instructions for his new robot.",
+      "prompt": "Tap the vague word that Gus should replace.",
+      "success": "Thing. The reader can't picture it, so Gus should name exactly what's on the robot's head.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "robot", "reason": "Robot is precise enough. You know exactly what Gus built." },
+          " has a ",
+          { "tap": "thing" },
+          " on its head that ",
+          { "tap": "spins", "reason": "Spins is precise. It tells you exactly how it moves." },
+          " and ",
+          { "tap": "beeps", "reason": "Beeps is precise. It tells you exactly what sound it makes." },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.8-b2-3",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's match report has a vague word about the weather.",
+      "prompt": "Tap the vague word, then choose a precise one.",
+      "success": "Gusty. A hat blowing into the crowd tells you the wind was strong and came in bursts.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The weather was ",
+          { "tap": "bad" },
+          ", and the goal ",
+          { "tap": "umpire's", "reason": "Umpire's is precise. It tells you exactly whose hat it was." },
+          " hat blew into the ",
+          { "tap": "crowd", "reason": "Crowd is fine. It tells you where the hat ended up." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "gusty" },
+          { "text": "drizzly", "reason": "Drizzly means light rain. Rain doesn't blow a hat into the crowd." },
+          { "text": "foggy", "reason": "Foggy means it was hard to see. Fog doesn't blow a hat away." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b2-4",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed is complaining about his new speaker.",
+      "text": "Zed's speaker made a weird noise. It was high and sharp, like a pig squealing.",
+      "prompt": "Which word says exactly what the noise was?",
+      "success": "Screech. A screech is a high, sharp sound, just like a pig squealing.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "screech" },
+          { "text": "rumble", "reason": "A rumble is a deep, low sound. This noise was high and sharp." },
+          { "text": "hum", "reason": "A hum is a soft, steady sound. A squealing pig isn't soft." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b2-5",
+      "band": 2,
+      "topic": "general",
+      "frame": "Tully is training a Spikkit to go from blurry to sharp.",
+      "prompt": "Put the words in order, from the vaguest to the most precise.",
+      "success": "A fire truck is a kind of truck, a truck is a kind of vehicle, and a vehicle is a kind of thing.",
+      "body": {
+        "format": "order",
+        "items": ["thing", "vehicle", "truck", "fire truck"],
+        "reason": "Start with the word that could mean the most things. Each word after it should be one kind of the word before."
+      }
+    },
+    {
+      "id": "5.8-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is writing up what he found under his bed.",
+      "prompt": "Match each precise word to the vague word it could replace.",
+      "success": "Soaked, drenched and damp all say how wet. Putrid, musty and rank all say how smelly.",
+      "body": {
+        "format": "sort",
+        "bins": ["a precise word for 'wet'", "a precise word for 'smelly'"],
+        "items": [
+          { "text": "soaked", "bin": 0, "reason": "Soaked means wet right through." },
+          { "text": "damp", "bin": 0, "reason": "Damp means a little bit wet." },
+          { "text": "drenched", "bin": 0, "reason": "Drenched means completely wet, as if you've been in a downpour." },
+          { "text": "putrid", "bin": 1, "reason": "Putrid means smelling of something rotting." },
+          { "text": "musty", "bin": 1, "reason": "Musty means smelling old and stale, like a cupboard nobody has opened for years." },
+          { "text": "rank", "bin": 1, "reason": "Rank means smelling strong and nasty." }
+        ]
+      }
+    },
+    {
+      "id": "5.8-b3-1",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus left his footy socks in the rain overnight.",
+      "text": "Gus's sock was wet. When he squeezed it, water poured out and splashed all over the floor.",
+      "prompt": "Which word says exactly how wet the sock was?",
+      "success": "Soaked. Water pouring out when you squeeze it means the sock was wet right through.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "soaked" },
+          { "text": "damp", "reason": "Damp means only a little wet. Water wouldn't pour out of a damp sock." },
+          { "text": "moist", "reason": "Moist means slightly wet. Water wouldn't splash all over the floor." },
+          { "text": "humid", "reason": "Humid describes air that feels heavy with water, not a sock." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b3-2",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed is writing up his night in the old house.",
+      "text": "The noise in the attic was quiet. Zed had to hold his breath to hear it at all.",
+      "prompt": "Which word says exactly what the noise was like?",
+      "success": "Faint. A faint sound is so quiet you can only just hear it, which is why Zed held his breath.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "faint" },
+          { "text": "silent", "reason": "Silent means no sound at all. Zed could hear it, just barely." },
+          { "text": "shrill", "reason": "Shrill means high and piercing. You wouldn't need to hold your breath to hear it." },
+          { "text": "booming", "reason": "Booming means loud and deep. Zed could hardly hear this noise." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b3-3",
+      "band": 3,
+      "topic": "art",
+      "frame": "The school newsletter is writing about Indi's work.",
+      "prompt": "Tap the vague word that wastes the reader's time.",
+      "success": "Thing. The rest of the sentence shows it's a mural, so 'thing' tells the reader nothing.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Indi made a ",
+          { "tap": "thing" },
+          " for the entrance: a ",
+          { "tap": "giant", "reason": "Giant is precise. It tells you the painting is very big." },
+          " painting of a ",
+          { "tap": "whale", "reason": "Whale is precise. It names exactly what the painting shows." },
+          " that covers the ",
+          { "tap": "whole", "reason": "Whole is precise. It tells you exactly how much of the wall it covers." },
+          " wall."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's curry review uses a word that could mean two things.",
+      "prompt": "Tap the vague word, then choose a precise one.",
+      "success": "Spicy. The curry came cold from the fridge, so it was hot with chilli spice, not heat.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo served last night's ",
+          { "tap": "curry", "reason": "Curry is precise. It names exactly what Mo served." },
+          " cold, straight from the fridge. It was so ",
+          { "tap": "hot" },
+          " that the ",
+          { "tap": "chilli", "reason": "Chilli is precise, and it's the clue. It tells you what kind of hot the curry was." },
+          " made everyone's eyes ",
+          { "tap": "water", "reason": "Water is fine. Watery eyes are what chilli does to you." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "spicy" },
+          { "text": "steaming", "reason": "Steaming means hot enough to give off steam. This curry came cold from the fridge." },
+          { "text": "scalding", "reason": "Scalding means hot enough to burn your skin. This curry came cold from the fridge." },
+          { "text": "sizzling", "reason": "Sizzling means hot and hissing in the pan. This curry came cold from the fridge." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "Zed is sharpening the words in his space project.",
+      "prompt": "Match each precise word to the vague word it could replace.",
+      "success": "Colossal and immense sharpen big. Microscopic and minuscule sharpen small. Dazzling and blinding sharpen bright.",
+      "body": {
+        "format": "sort",
+        "bins": ["sharpens 'big'", "sharpens 'small'", "sharpens 'bright'"],
+        "items": [
+          { "text": "colossal", "bin": 0, "reason": "Colossal means enormous, so it sharpens big." },
+          { "text": "immense", "bin": 0, "reason": "Immense means hugely big, so it sharpens big." },
+          { "text": "microscopic", "bin": 1, "reason": "Microscopic means so small you need a microscope, so it sharpens small." },
+          { "text": "minuscule", "bin": 1, "reason": "Minuscule means extremely small, so it sharpens small." },
+          { "text": "dazzling", "bin": 2, "reason": "Dazzling means so bright it's hard to look at, so it sharpens bright." },
+          { "text": "blinding", "bin": 2, "reason": "Blinding means bright enough to stop you seeing, so it sharpens bright." }
+        ]
+      }
+    },
+    {
+      "id": "5.8-b3-6",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is describing his lucky footy jumper.",
+      "text": "Tully's jumper was old. It had holes in both elbows, and the threads on the cuffs had come loose.",
+      "prompt": "Which word matches the clues exactly?",
+      "success": "Tattered. Tattered means old and torn, with holes and loose threads.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "tattered" },
+          { "text": "faded", "reason": "Faded means the colour has gone pale. The clues are about holes and loose threads, not colour." },
+          { "text": "antique", "reason": "Antique means very old and valuable, usually over a hundred years. Nothing says the jumper is that old." },
+          { "text": "shrunken", "reason": "Shrunken means it has got smaller in the wash. The clues are about holes, not size." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The lighthouse keeper's logbook needs one sharper word.",
+      "text": "The sea was rough that morning. Waves the size of houses smashed against the cliffs and flung spray over the lighthouse.",
+      "prompt": "Which word matches the clues exactly?",
+      "success": "Mountainous. Waves the size of houses are towering, which is exactly what mountainous means.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "mountainous" },
+          { "text": "placid", "reason": "Placid means calm and still. This sea was smashing against cliffs." },
+          { "text": "glassy", "reason": "Glassy means smooth and flat, like glass. This sea was smashing against cliffs." },
+          { "text": "rippling", "reason": "Rippling means covered in tiny waves. These waves were huge." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus has edited his robot's repair log, but he missed one vague word.",
+      "prompt": "Tap the word that is still vague after Gus's edit.",
+      "success": "Stuff. Every other word tells you exactly what happened, but 'stuff' hides what the robot did to the engine.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus's ",
+          { "tap": "titanium", "reason": "Titanium is precise. It names exactly what the robot is made of." },
+          " robot welded the ",
+          { "tap": "cracked", "reason": "Cracked is precise. It tells you exactly what was wrong with the hull." },
+          " hull in ",
+          { "tap": "nine", "reason": "Nine is precise. It tells you exactly how many minutes." },
+          " minutes, then did some ",
+          { "tap": "stuff" },
+          " to the engine."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "5.8-b4-3",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren's vet report needs a precise word about the wombat's injury.",
+      "prompt": "Tap the vague word, then choose a precise one.",
+      "success": "Wounded. A wound is an injury that breaks the skin, like a deep cut.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "vet", "reason": "Vet is precise. It tells you exactly who checked the wombat." },
+          " said the wombat was ",
+          { "tap": "hurt" },
+          ", with a ",
+          { "tap": "deep", "reason": "Deep is precise. It's the clue that tells you what kind of injury it was." },
+          " cut along its back ",
+          { "tap": "leg", "reason": "Leg is precise. It tells you exactly where the cut was." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "wounded" },
+          { "text": "bruised", "reason": "A bruise is a dark mark under the skin. This wombat has a deep cut." },
+          { "text": "sprained", "reason": "A sprain is a twisted joint, like an ankle. This wombat has a cut." },
+          { "text": "fractured", "reason": "A fracture is a broken bone. The report only mentions a cut." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b4-4",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is bragging on his channel. Wren checks the numbers.",
+      "text": "Maxx claimed that 'heaps' of people watched his live stream. The counter showed exactly twelve viewers, and one of them was his mum.",
+      "prompt": "Which words tell the truth about how many people watched?",
+      "success": "A dozen. A dozen means exactly twelve, which is what the counter showed.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "a dozen" },
+          { "text": "dozens of", "reason": "Dozens of means at least twenty-four. The counter showed only twelve." },
+          { "text": "hundreds of", "reason": "Hundreds of is even more of an exaggeration than 'heaps'. The counter showed twelve." },
+          { "text": "a pair of", "reason": "A pair means two. The counter showed twelve viewers." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.8-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "Indi is labelling the sounds from Zed's band practice.",
+      "prompt": "Match each precise word to the vague word it could replace.",
+      "success": "Thunderous and blaring sharpen loud. Hushed and muted sharpen quiet. Sluggish and unhurried sharpen slow.",
+      "body": {
+        "format": "sort",
+        "bins": ["sharpens 'loud'", "sharpens 'quiet'", "sharpens 'slow'"],
+        "items": [
+          { "text": "thunderous", "bin": 0, "reason": "Thunderous means as loud as thunder, so it sharpens loud." },
+          { "text": "blaring", "bin": 0, "reason": "Blaring means harshly loud, like a car horn, so it sharpens loud." },
+          { "text": "hushed", "bin": 1, "reason": "Hushed means made quiet on purpose, like a crowd before a solo." },
+          { "text": "muted", "bin": 1, "reason": "Muted means softened and quiet, so it sharpens quiet." },
+          { "text": "sluggish", "bin": 2, "reason": "Sluggish means slow and lacking energy, so it sharpens slow." },
+          { "text": "unhurried", "bin": 2, "reason": "Unhurried means slow and relaxed, never rushing, so it sharpens slow." }
+        ]
+      }
+    },
+    {
+      "id": "5.8-b4-6",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed is writing a review of the hardest game he has ever played.",
+      "text": "Zed's new game is hard. Even the first level takes most players over a hundred tries, and nobody in the world has finished it yet.",
+      "prompt": "Which word matches the clues exactly?",
+      "success": "Brutal. A brutal game is punishingly difficult, which fits a hundred tries and nobody finishing.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "brutal" },
+          { "text": "forgiving", "reason": "A forgiving game goes easy on you when you make mistakes. A hundred tries on the first level is the opposite." },
+          { "text": "confusing", "reason": "Confusing means hard to understand. The clues say it's hard to beat, not hard to understand." },
+          { "text": "glitchy", "reason": "Glitchy means full of bugs. Nothing in the clues says the game is broken." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

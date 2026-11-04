@@ -1,0 +1,546 @@
+{
+  "skill": {
+    "id": "5.9",
+    "name": "Specialist and technical words in context",
+    "codes": ["VC2E5LA08"],
+    "why": "Every field, from footy to science, has its own exact words, and knowing them lets you read and write like someone who knows the topic.",
+    "how": "Use the clues around a technical word to work out what it means here. When you write about a field, use the word an expert would use.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "text": "Water evaporates when you heat it. It turns from a liquid into a gas.",
+        "lines": [
+          "Scientists have special words for exact jobs. Evaporate is one of them.",
+          "If I don't know it, I check the words around it. 'Turns from a liquid into a gas' tells me what it means.",
+          "Some everyday words get special meanings too. In science, a cell isn't a jail. It's a tiny building block of a living thing.",
+          "So when I read a technical word, I hunt for clues. When I write a report, I use the expert's word."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "When water vapour cools, it ___ into tiny drops on the cold window.",
+          "prompt": "Which science word fits?",
+          "hint": "A gas is turning into drops of liquid. Which word means that?",
+          "success": "Condenses. When a gas cools and turns into a liquid, it condenses.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "condenses" },
+              { "text": "evaporates", "reason": "Evaporates is the opposite: a liquid turning into a gas. Here a gas turns into drops." },
+              { "text": "melts", "reason": "Melts means a solid turning into a liquid, like ice. Water vapour is a gas." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "Tully took a mark right in front of goal.",
+          "prompt": "In footy, what does 'mark' mean here?",
+          "hint": "Think about what a player does with the ball.",
+          "success": "A clean catch from a kick. In footy, you take a mark when you catch the ball cleanly from a long kick.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "a clean catch from a kick" },
+              { "text": "a stain on his jumper", "reason": "That's the everyday meaning. 'Took a mark in front of goal' tells you it's part of the game." },
+              { "text": "a score out of ten", "reason": "That's a school meaning. You can't take a score out of ten in front of goal." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "termolin",
+      "name": "Termolin",
+      "evolved": "Termolith",
+      "blurb": "A platypus whose bill buzzes when it senses a specialist word. It can tell a footy mark from a mark on your homework."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.9-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is calling the game on footy radio.",
+      "text": "Tully kicked the ball between the two tall posts. That scored a ___.",
+      "prompt": "Which footy word fits?",
+      "success": "Goal. In footy, kicking the ball between the two tall posts scores a goal, worth six points.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "goal" },
+          { "text": "behind", "reason": "A behind is when the ball goes between a tall post and a short post. This kick went between the two tall ones." },
+          { "text": "try", "reason": "A try is a rugby word for putting the ball down over the line. Tully kicked it through the posts." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b1-2",
+      "band": 1,
+      "topic": "space",
+      "frame": "The Termolin's bill is buzzing at Zed's space poster.",
+      "prompt": "Tap the space word that names Earth's path around the Sun.",
+      "success": "Orbit. An orbit is the curved path one object takes around another in space.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Earth ",
+          { "tap": "travels", "reason": "Travels is an everyday word for moving. Which word names the path?" },
+          " in an ",
+          { "tap": "orbit" },
+          " around the Sun once a ",
+          { "tap": "year", "reason": "Year tells you how long the trip takes, not what the path is called." },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.9-b1-3",
+      "band": 1,
+      "topic": "music",
+      "frame": "The Termolin found a pile of words after band practice and footy training.",
+      "prompt": "Match each word to the right bag.",
+      "success": "Handball, ruck and behind are footy words. Tempo, chorus and rhythm are music words.",
+      "body": {
+        "format": "sort",
+        "bins": ["footy word", "music word"],
+        "items": [
+          { "text": "handball", "bin": 0, "reason": "A handball is passing the ball by punching it off your hand. That's footy." },
+          { "text": "ruck", "bin": 0, "reason": "The ruck is the tall player who jumps for the ball at a bounce. That's footy." },
+          { "text": "behind", "bin": 0, "reason": "In footy, a behind is a one-point score." },
+          { "text": "tempo", "bin": 1, "reason": "Tempo is how fast a piece of music goes." },
+          { "text": "chorus", "bin": 1, "reason": "The chorus is the part of a song that repeats." },
+          { "text": "rhythm", "bin": 1, "reason": "Rhythm is the pattern of beats in music." }
+        ]
+      }
+    },
+    {
+      "id": "5.9-b1-4",
+      "band": 1,
+      "topic": "gross-science",
+      "frame": "Gus wants to see the tiny germs in his slime.",
+      "prompt": "Build the sentence with the right tool for seeing tiny things.",
+      "success": "Microscope. A microscope makes tiny things look much bigger.",
+      "body": {
+        "format": "build",
+        "tiles": ["Gus looked at the slime", "under a", "microscope.", "telescope."],
+        "accept": ["Gus looked at the slime under a microscope."],
+        "reason": "A telescope makes faraway things look closer, like stars. A microscope makes tiny things look bigger."
+      }
+    },
+    {
+      "id": "5.9-b1-5",
+      "band": 1,
+      "topic": "art",
+      "frame": "Indi's art diary has the wrong art word.",
+      "prompt": "Tap the wrong art word, then choose the right one.",
+      "success": "Palette. A palette is the board artists mix their paints on.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi ",
+          { "tap": "mixed", "reason": "Mixed is right. Blue and yellow mixed together make green." },
+          " blue and yellow on her ",
+          { "tap": "easel" },
+          ", then painted the ",
+          { "tap": "canvas", "reason": "Canvas is right. It's the cloth artists paint their picture on." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "palette" },
+          { "text": "frame", "reason": "A frame goes around a finished picture. You don't mix paint on it." },
+          { "text": "apron", "reason": "An apron keeps paint off your clothes. You don't mix paint on it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Wren is reading the dive school's safety rules.",
+      "text": "The diver checked the current before she jumped in.",
+      "prompt": "What does 'current' mean here?",
+      "success": "The way the water is flowing. Divers check the current so it doesn't sweep them away.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the way the water is flowing" },
+          { "text": "what is happening right now", "reason": "That's the everyday meaning, as in 'current news'. A diver about to jump in checks the water." },
+          { "text": "the electricity in a wire", "reason": "That's what current means for electricity. The diver is about to jump into water, not touch a wire." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is writing up his worst experiment yet.",
+      "text": "Gus left some bread in a jar for two weeks. Fuzzy green ___ grew all over it.",
+      "prompt": "Which science word fits?",
+      "success": "Mould. Mould is a fungus that grows as fuzzy patches on old food.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "mould" },
+          { "text": "moss", "reason": "Moss is a small green plant that grows on rocks and trees, not on old bread." },
+          { "text": "algae", "reason": "Algae grows in water, like the green slime in a fish tank. This bread was in a dry jar." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed is reading the program for the school concert.",
+      "prompt": "Tap the specialist music word that means 'getting louder bit by bit'.",
+      "success": "Crescendo. A crescendo is a part of the music that grows gradually louder.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "band", "reason": "Band is an everyday word for a group of musicians." },
+          " finished with a long ",
+          { "tap": "crescendo" },
+          " that made the ",
+          { "tap": "windows", "reason": "Windows is an everyday word. It shows how loud the music got, but it isn't a music word." },
+          " rattle."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.9-b2-3",
+      "band": 2,
+      "topic": "space",
+      "frame": "Gus's science folder fell open. Help the Termolin sort the pages.",
+      "prompt": "Match each word to the right page.",
+      "success": "Orbit, comet and galaxy are space words. Skeleton, lungs and artery are words about the human body.",
+      "body": {
+        "format": "sort",
+        "bins": ["space", "the human body"],
+        "items": [
+          { "text": "orbit", "bin": 0, "reason": "An orbit is the path a planet or moon takes around something in space." },
+          { "text": "comet", "bin": 0, "reason": "A comet is a ball of ice and dust that travels through space." },
+          { "text": "galaxy", "bin": 0, "reason": "A galaxy is a huge group of stars, like the Milky Way." },
+          { "text": "skeleton", "bin": 1, "reason": "Your skeleton is all the bones in your body." },
+          { "text": "lungs", "bin": 1, "reason": "Your lungs are the parts of your body you breathe with." },
+          { "text": "artery", "bin": 1, "reason": "An artery carries blood away from your heart." }
+        ]
+      }
+    },
+    {
+      "id": "5.9-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus's robot repair notes name the wrong part.",
+      "prompt": "Tap the wrong word, then choose the right technical word.",
+      "success": "Sensor. A sensor is the part of a robot that detects things around it, like walls.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's robot keeps crashing. It can't ",
+          { "tap": "see", "reason": "See is the clue. The broken part must be the one that detects things." },
+          " the wall because its ",
+          { "tap": "engine" },
+          " is broken. Gus will fix it ",
+          { "tap": "tonight", "reason": "Tonight is fine. It just says when Gus will do the repair." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "sensor" },
+          { "text": "battery", "reason": "A flat battery would stop the robot moving at all. It couldn't keep crashing." },
+          { "text": "wheel", "reason": "Wheels help a robot move. A broken wheel can't stop it seeing the wall." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b2-5",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's rock pool guide says: when the tide goes out, the rock pools appear.",
+      "prompt": "Build the sentence that matches Wren's guide.",
+      "success": "At low tide. When the tide goes out, the water is low and the rock pools are uncovered.",
+      "body": {
+        "format": "build",
+        "tiles": ["At low tide,", "At high tide,", "the rock pools", "are easy to explore."],
+        "accept": ["At low tide, the rock pools are easy to explore."],
+        "reason": "At high tide the sea comes in and covers the rock pools. You can only explore them when the tide is low."
+      }
+    },
+    {
+      "id": "5.9-b2-6",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo is following a recipe for once.",
+      "text": "Mo has to ___ the cream: beat it fast until it's thick and fluffy.",
+      "prompt": "Which cooking word fits?",
+      "success": "Whip. To whip cream is to beat it fast until it's thick and fluffy.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "whip" },
+          { "text": "simmer", "reason": "Simmer means cook gently on a low heat. The recipe says to beat the cream fast." },
+          { "text": "knead", "reason": "Knead means press and fold dough with your hands. You can't knead cream." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is reading a sign at the wildlife park's bat house.",
+      "text": "Flying foxes are nocturnal. They sleep upside down through the day and fly out to feed after dark.",
+      "prompt": "What does 'nocturnal' mean here?",
+      "success": "Active at night. Sleeping through the day and feeding after dark is exactly what nocturnal animals do.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "active at night" },
+          { "text": "able to fly", "reason": "Flying foxes can fly, but the clues are about sleeping by day and feeding after dark. Nocturnal is about time." },
+          { "text": "sleeping upside down", "reason": "They do sleep upside down, but the clues point to when they're awake. Nocturnal is about time." },
+          { "text": "eating only fruit", "reason": "The sign doesn't say what they eat. The clues are about day and dark, so nocturnal is about time." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Termolin's bill is buzzing at one word in Tully's match report.",
+      "prompt": "Tap the word that has a special footy meaning here, different from its everyday meaning.",
+      "success": "Mark. In footy, the mark is the spot where a player caught the ball, and an opponent has to stand on it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Tully ",
+          { "tap": "stood", "reason": "Stood means the same in footy as anywhere else." },
+          " on the ",
+          { "tap": "mark" },
+          " while Jai lined up his ",
+          { "tap": "kick", "reason": "Kick means the same in footy as it does in the backyard." },
+          " from fifty ",
+          { "tap": "metres", "reason": "Metres is a measuring word. It means the same everywhere." },
+          " out."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.9-b3-3",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's nature notes say: a predator hunts other animals. Its prey is the animal it hunts.",
+      "prompt": "Build the sentence that matches Wren's notes.",
+      "success": "The fox hunts the rabbit, so the fox is the predator and the rabbit is its prey.",
+      "body": {
+        "format": "build",
+        "tiles": ["The fox is a", "predator,", "prey,", "and the rabbit is its", "prey.", "predator."],
+        "accept": ["The fox is a predator, and the rabbit is its prey."],
+        "reason": "Foxes hunt rabbits. The hunter is the predator, and the animal it hunts is its prey."
+      }
+    },
+    {
+      "id": "5.9-b3-4",
+      "band": 3,
+      "topic": "music",
+      "frame": "The word 'scale' means different things in different places. Help the Termolin sort them.",
+      "prompt": "Match each sentence to the meaning 'scale' has in it.",
+      "success": "The clues around 'scale' tell you which meaning it has: notes on a piano, a weighing machine, or a plate on an animal's skin.",
+      "body": {
+        "format": "sort",
+        "bins": ["a set of notes going up or down", "a machine for weighing", "a small plate on an animal's skin"],
+        "items": [
+          { "text": "Indi practised a scale on the piano.", "bin": 0, "reason": "Practising on a piano tells you it's a set of notes." },
+          { "text": "The singer warmed up with a scale before the show.", "bin": 0, "reason": "Singers warm up by singing notes up and down." },
+          { "text": "Gus weighed his slime on the kitchen scale.", "bin": 1, "reason": "Weighed tells you this scale is a weighing machine." },
+          { "text": "The vet put the puppy on the scale.", "bin": 1, "reason": "Vets weigh animals on a scale to check they're healthy." },
+          { "text": "The fish lost a scale when it scraped the rock.", "bin": 2, "reason": "A fish's skin is covered in small, hard plates called scales." },
+          { "text": "Each scale on the python's back overlaps the next one.", "bin": 2, "reason": "Snakes are covered in overlapping scales on their skin." }
+        ]
+      }
+    },
+    {
+      "id": "5.9-b3-5",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Indi's poster for the reef centre has one wrong word.",
+      "prompt": "Tap the word that makes the fact wrong, then choose the right one.",
+      "success": "Lack. Invertebrates have no backbone, which is how an octopus squeezes through tiny gaps.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Octopuses", "reason": "Octopuses is fine. The poster is about them." },
+          " are ",
+          { "tap": "invertebrates", "reason": "Invertebrates is the right word. The mistake is in what the poster says it means." },
+          ", which means they ",
+          { "tap": "have" },
+          " a backbone. That's how they ",
+          { "tap": "squeeze", "reason": "Squeeze is the clue. Only an animal with no bones could squeeze through tiny gaps." },
+          " through tiny gaps."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "lack" },
+          { "text": "need", "reason": "Invertebrates have no backbone at all, so they can't need one." },
+          { "text": "use", "reason": "Invertebrates have no backbone, so there's nothing to use." },
+          { "text": "break", "reason": "Invertebrates have no backbone, so there's nothing to break. And breaking one wouldn't help you squeeze." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b3-6",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is complaining about his game in the class group chat.",
+      "text": "My game lags when too many players join. The characters freeze for a second, then jump forward.",
+      "prompt": "What does 'lags' mean in gaming?",
+      "success": "Runs slowly and falls behind. The game can't keep up, so the characters freeze and then jump ahead.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "runs slowly and falls behind" },
+          { "text": "crashes and shuts down completely", "reason": "A crash would close the game. Here the characters freeze for a second and then keep going." },
+          { "text": "has a mistake in its code", "reason": "That's a bug. The clue is that it only happens when too many players join." },
+          { "text": "runs faster than normal", "reason": "The characters freeze, which is the opposite of running faster." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b4-1",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's volcano experiment report has a gap.",
+      "text": "When Gus mixed vinegar and bicarb soda, foam gushed out of the bottle. A chemical ___ had turned the two substances into something completely new.",
+      "prompt": "Which science word fits?",
+      "success": "Reaction. In a chemical reaction, substances change into a new substance, like the gas that made the foam.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "reaction" },
+          { "text": "solution", "reason": "A solution is one substance dissolved evenly in another, like salt in water. Nothing new is made." },
+          { "text": "mixture", "reason": "A mixture is things stirred together that could be separated again. Here something completely new was made." },
+          { "text": "formula", "reason": "A formula is the written code for a substance, like H2O for water. A formula can't turn anything into anything." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b4-2",
+      "band": 4,
+      "topic": "art",
+      "frame": "The art show program describes Indi's landscape.",
+      "prompt": "Tap the word that has a special art meaning here, different from its everyday meaning.",
+      "success": "Perspective. Every day it means a point of view, but in art it means drawing things smaller as they get further away, to show depth.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Indi ",
+          { "tap": "used", "reason": "Used means the same in art as anywhere else." },
+          " ",
+          { "tap": "perspective" },
+          " to make the ",
+          { "tap": "road", "reason": "Road is an everyday word. It's what Indi painted, not an art term." },
+          " ",
+          { "tap": "shrink", "reason": "Shrink means getting smaller, in art or anywhere else. It describes what perspective does." },
+          " towards the horizon, giving her flat painting real depth."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.9-b4-3",
+      "band": 4,
+      "topic": "space",
+      "frame": "Gus's space dictionary says: a meteor is a space rock burning up in our sky. A meteorite is one that survives and lands on the ground.",
+      "prompt": "Build the sentence that matches Gus's space dictionary.",
+      "success": "Meteorite. The rock reached the ground, and a space rock that lands is a meteorite.",
+      "body": {
+        "format": "build",
+        "tiles": ["The farmer found", "a meteorite", "a meteor", "in her paddock", "the morning after", "the meteor shower."],
+        "accept": ["The farmer found a meteorite in her paddock the morning after the meteor shower."],
+        "reason": "A meteor burns up in the sky, so nobody can find one in a paddock. A space rock that lands on the ground is a meteorite."
+      }
+    },
+    {
+      "id": "5.9-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "The word 'pitch' turns up all over the island. The Termolin needs each one sorted.",
+      "prompt": "Match each sentence to the meaning 'pitch' has in it.",
+      "success": "The clues tell you which pitch you're reading about: a playing field, how high a sound is, or a talk to win people over.",
+      "body": {
+        "format": "sort",
+        "bins": ["a playing field", "how high or low a sound is", "a short talk to sell an idea"],
+        "items": [
+          { "text": "The groundskeeper rolled the cricket pitch until it was flat and hard.", "bin": 0, "reason": "Rolled flat and hard tells you this pitch is the ground the game is played on." },
+          { "text": "Heavy rain flooded the pitch before the match could start.", "bin": 0, "reason": "A flooded pitch stops a match, so this is the playing field." },
+          { "text": "The soprano held a note at an astonishingly high pitch.", "bin": 1, "reason": "A high note tells you this pitch is about sound." },
+          { "text": "The violinist tightened her string until the pitch was perfect.", "bin": 1, "reason": "Tightening a string changes how high it sounds, so this pitch is about sound." },
+          { "text": "Zed's two-minute pitch convinced the judges to fund his game.", "bin": 2, "reason": "Convincing judges to fund something means this pitch was a talk to sell an idea." },
+          { "text": "The inventor practised her pitch before meeting the investors.", "bin": 2, "reason": "Investors decide whether to back an idea, so this pitch is a sales talk." }
+        ]
+      }
+    },
+    {
+      "id": "5.9-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus's coding notes for the robot dance-off have the wrong technical word.",
+      "prompt": "Tap the wrong word, then choose the right technical word.",
+      "success": "Loop. In coding, a loop is a set of instructions that repeats, which is why the move happened ten times.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's robot ",
+          { "tap": "repeated", "reason": "Repeated is the clue. Something in the code made the move happen again and again." },
+          " the same ",
+          { "tap": "dance", "reason": "Dance is fine. It's the move the robot was doing." },
+          " move ",
+          { "tap": "ten", "reason": "Ten is fine. It tells you how many times the move repeated." },
+          " times, because Gus had put the instruction inside a ",
+          { "tap": "pixel" },
+          "."
+        ],
+        "spot": 3,
+        "options": [
+          { "text": "loop" },
+          { "text": "variable", "reason": "A variable stores a value, like a score. It doesn't make instructions repeat." },
+          { "text": "sensor", "reason": "A sensor detects things around the robot. You can't put an instruction inside one." },
+          { "text": "password", "reason": "A password keeps something locked. It doesn't make instructions repeat." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.9-b4-6",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live, holding up a cage. Wren knows he's got his science word wrong.",
+      "text": "'This creature is extinct!' Maxx shouted at the camera. 'There are only three of them left in the whole world, and I've got one.'",
+      "prompt": "Which science word means what Maxx was trying to say?",
+      "success": "Endangered. An endangered species has only a few left and could die out. Extinct means there are none left at all.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "endangered" },
+          { "text": "nocturnal", "reason": "Nocturnal means active at night. Maxx is talking about how few are left." },
+          { "text": "invasive", "reason": "An invasive species spreads into places it doesn't belong. Maxx says there are only three left." },
+          { "text": "fossilised", "reason": "Fossilised means turned to stone over millions of years. Maxx's creature is alive in a cage." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

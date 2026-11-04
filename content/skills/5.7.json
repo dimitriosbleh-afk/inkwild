@@ -1,0 +1,531 @@
+{
+  "skill": {
+    "id": "5.7",
+    "name": "Add detail after the noun (with a phrase or clause)",
+    "codes": ["VC2E5LA06"],
+    "why": "Some details are too big to fit in front of a noun, so you hook them on after it to show the reader exactly which one you mean.",
+    "how": "Add a phrase (the dog with muddy paws) or a clause with its own verb (the dog that ate my lunch) straight after the noun. Keep the detail right next to the noun it's about.",
+    "teach": {
+      "crew": "rescuer",
+      "iDo": {
+        "text": "the wombat",
+        "lines": [
+          "Sometimes the detail I need won't fit in front of a noun. So I add it after.",
+          "The wombat with the sore paw. 'With the sore paw' is a phrase. It tells you which wombat.",
+          "The wombat that dug under the fence. That detail has its own verb, dug, so it's a clause.",
+          "Either way, the detail goes right after the noun it's about. Move it and the sentence goes wobbly."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Wren patted the dog ___.",
+          "prompt": "Which detail tells you which dog Wren patted?",
+          "hint": "Which one answers the question 'which dog?'",
+          "success": "With the spotty ears. It sits right after dog and tells you which one.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "with the spotty ears" },
+              { "text": "very gently", "reason": "Very gently tells you how Wren patted, not which dog." },
+              { "text": "yesterday", "reason": "Yesterday tells you when Wren patted, not which dog." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Who is wearing the red cap? Tap the noun that 'in the red cap' is about.",
+          "hint": "The detail sits right after the noun it's about.",
+          "success": "Girl. 'In the red cap' comes straight after girl, so it tells you which girl.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "The ",
+              { "tap": "girl" },
+              " in the red cap kicked the ",
+              { "tap": "ball", "reason": "A ball can't wear a cap. The detail sits right after the noun it's about." },
+              " over the fence."
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "lyraffle",
+      "name": "Lyraffle",
+      "evolved": "Lyrafferon",
+      "blurb": "A lyrebird whose long tail trails behind it. Hook the right detail on after the noun and the tail fans out."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.7-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Lyraffle is perched on a sign at the animal shelter.",
+      "text": "The puppy ___ is mine.",
+      "prompt": "Which detail fits after the noun?",
+      "success": "With the floppy ears. It's a detail about the puppy, so it tells you which puppy is yours.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "with the floppy ears" },
+          { "text": "quickly", "reason": "'The puppy quickly is mine' doesn't make sense. Quickly can't describe a puppy." },
+          { "text": "yesterday", "reason": "'The puppy yesterday is mine' doesn't make sense. Yesterday tells you when, not which puppy." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is reading out the footy news.",
+      "prompt": "Tap the detail that tells you which player.",
+      "success": "In the green boots. It comes straight after 'player' and tells you which one.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The player ",
+          { "tap": "in the green boots" },
+          " ",
+          { "tap": "scored", "reason": "Scored tells you what she did, not which player she is." },
+          " ",
+          { "tap": "in the last minute", "reason": "This tells you when she scored, not which player she is." },
+          "."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is getting rid of his worst pie. The Lyraffle holds the pieces.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "The pie with the burnt crust. The detail sits right after pie, so you know which pie Gus got.",
+      "body": {
+        "format": "build",
+        "tiles": ["Mo gave", "the pie", "with the burnt crust", "to Gus."],
+        "accept": ["Mo gave the pie with the burnt crust to Gus."],
+        "reason": "The burnt crust belongs to the pie, so 'with the burnt crust' has to go right after 'the pie'."
+      }
+    },
+    {
+      "id": "5.7-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is sorting the bosses in his new game.",
+      "prompt": "Match each noun group to the right box.",
+      "success": "A phrase adds detail without a verb. A clause adds detail with its own verb.",
+      "body": {
+        "format": "sort",
+        "bins": ["detail is a phrase (no verb)", "detail is a clause (has a verb)"],
+        "items": [
+          { "text": "the boss with three heads", "bin": 0, "reason": "'With three heads' has no verb, so it's a phrase." },
+          { "text": "the boss who never sleeps", "bin": 1, "reason": "'Who never sleeps' has a verb, sleeps, so it's a clause." },
+          { "text": "the level under the sea", "bin": 0, "reason": "'Under the sea' has no verb, so it's a phrase." },
+          { "text": "the coin that opens the door", "bin": 1, "reason": "'That opens the door' has a verb, opens, so it's a clause." }
+        ]
+      }
+    },
+    {
+      "id": "5.7-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo wrote a note about his cat. One little word makes it silly.",
+      "prompt": "Tap the word that makes the sentence silly, then choose a better one.",
+      "success": "With. The whiskers belong to the cat, so 'with' hooks them on.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The cat ",
+          { "tap": "under" },
+          " the long whiskers is ",
+          { "tap": "asleep", "reason": "Asleep is fine. Look at the little word that hooks the detail onto 'cat'." },
+          " on the ",
+          { "tap": "sofa", "reason": "Sofa is fine. Cats sleep on sofas all the time." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "with" },
+          { "text": "into", "reason": "'The cat into the long whiskers' doesn't make sense. The whiskers belong to the cat." },
+          { "text": "from", "reason": "'The cat from the long whiskers' sounds like the cat came out of some whiskers." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Gus's beach diary got wet and the pieces floated apart.",
+      "prompt": "Put the pieces in order to make the sentence.",
+      "success": "The crab that lives under the jetty. The detail sits right after crab, so you know which crab did it.",
+      "body": {
+        "format": "order",
+        "items": ["The crab", "that lives under the jetty", "pinched Gus's toe."],
+        "reason": "The crab lives under the jetty, not the toe. Put the detail right after 'The crab'."
+      }
+    },
+    {
+      "id": "5.7-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Gus is watching a moonwalk on the big screen.",
+      "text": "Two astronauts climbed out of the ship. One carried a flag. The other carried a rock.",
+      "prompt": "Gus wants to talk to the one holding the rock. Which noun group picks her out?",
+      "success": "The astronaut with the rock. Only one of them has a rock, so this picks out exactly the right one.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the astronaut with the rock" },
+          { "text": "the astronaut with the flag", "reason": "That's the other astronaut. Gus wants the one holding the rock." },
+          { "text": "the astronaut from the ship", "reason": "Both astronauts came out of the ship, so this could mean either one." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b2-2",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi is reading the results from the art show.",
+      "prompt": "Which noun does 'of a giant snail' tell you more about?",
+      "success": "Painting. The detail comes straight after painting and tells you what it shows.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "painting" },
+          " of a giant snail won first ",
+          { "tap": "prize", "reason": "The detail comes before prize, not after it. And a prize isn't of a snail." },
+          " at the art ",
+          { "tap": "show", "reason": "Show is at the end of the sentence, a long way from the detail." },
+          "."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b2-3",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus has labelled his lab shelf. The Lyraffle wants the label put back together.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "The jar on the top shelf. The detail sits right after jar and tells you which jar to avoid.",
+      "body": {
+        "format": "build",
+        "tiles": ["The jar", "on the top shelf", "is full of", "Gus's old snot samples."],
+        "accept": ["The jar on the top shelf is full of Gus's old snot samples."],
+        "reason": "'On the top shelf' tells you which jar, so it has to sit right after 'The jar'."
+      }
+    },
+    {
+      "id": "5.7-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren is sorting her notes on the animals in the backyard.",
+      "prompt": "Match each noun group to the right box.",
+      "success": "If the detail after the noun has its own verb, it's a clause. If not, it's a phrase.",
+      "body": {
+        "format": "sort",
+        "bins": ["detail is a phrase (no verb)", "detail is a clause (has a verb)"],
+        "items": [
+          { "text": "the magpie on the clothesline", "bin": 0, "reason": "'On the clothesline' has no verb, so it's a phrase." },
+          { "text": "the magpie that stole my chips", "bin": 1, "reason": "'That stole my chips' has a verb, stole, so it's a clause." },
+          { "text": "the possum in the roof", "bin": 0, "reason": "'In the roof' has no verb, so it's a phrase." },
+          { "text": "the possum that wakes us up", "bin": 1, "reason": "'That wakes us up' has a verb, wakes, so it's a clause." },
+          { "text": "the snake near the woodpile", "bin": 0, "reason": "'Near the woodpile' has no verb, so it's a phrase." }
+        ]
+      }
+    },
+    {
+      "id": "5.7-b2-5",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed wrote about the school concert. One noun doesn't fit its detail.",
+      "prompt": "Tap the word that doesn't fit, then choose a better one.",
+      "success": "Singer. The detail 'who sang the loudest' has to fit the noun it's hooked onto, and only a person sings.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "trumpet" },
+          " who sang the loudest was ",
+          { "tap": "Indi's", "reason": "Indi's is fine. It tells you whose sister it was." },
+          " ",
+          { "tap": "sister", "reason": "Sister is fine. Look at the noun the detail 'who sang the loudest' is hooked onto." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "singer" },
+          { "text": "guitar", "reason": "A guitar can't sing, and it can't be Indi's sister." },
+          { "text": "microphone", "reason": "A microphone picks up singing, but it doesn't sing. And it can't be Indi's sister." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b2-6",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus's party report is in pieces.",
+      "prompt": "Put the pieces in order to make the sentence.",
+      "success": "The robot with the wobbly legs. The detail sits right after robot, so the legs belong to the robot, not the pool.",
+      "body": {
+        "format": "order",
+        "items": ["The robot", "with the wobbly legs", "fell into the pool", "at Gus's party."],
+        "reason": "The wobbly legs belong to the robot. If the detail comes after 'the pool', it sounds like the pool has legs."
+      }
+    },
+    {
+      "id": "5.7-b3-1",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is yelling instructions from the shower.",
+      "text": "Mo baked four iced cakes and lined them up on the bench. Only one of them has candles on it.",
+      "prompt": "Which noun group tells Gus exactly which cake to bring out?",
+      "success": "The cake with the candles. Only one cake has candles, so this detail picks out exactly one.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the cake with the candles" },
+          { "text": "the cake on the bench", "reason": "All four cakes are on the bench, so Gus still can't tell which one." },
+          { "text": "the cake that Mo baked", "reason": "Mo baked all four, so this could be any of them." },
+          { "text": "the cake with the icing", "reason": "All four cakes are iced, so this could be any of them." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b3-2",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "A Lyraffle is listening to the reef ranger's radio.",
+      "prompt": "Tap the detail that tells you which shark.",
+      "success": "With the torn fin. It sits right after 'shark' and tells you which one. The other 'with' phrase tells you how it swam.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The shark ",
+          { "tap": "with the torn fin" },
+          " ",
+          { "tap": "circled", "reason": "Circled tells you what the shark did, not which shark it is." },
+          " ",
+          { "tap": "the boat", "reason": "The boat is a different noun. It's what the shark circled, not a detail about the shark." },
+          " ",
+          { "tap": "with a slow, lazy swish", "reason": "This tells you how the shark circled. It doesn't tell you which shark." },
+          "."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b3-3",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed found a warning note tucked into a library book.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "The ghost who haunts the library. The clause sits right after ghost, so you know which ghost to watch out for.",
+      "body": {
+        "format": "build",
+        "tiles": ["The ghost", "who haunts the library", "only comes out", "on rainy Tuesdays."],
+        "accept": ["The ghost who haunts the library only comes out on rainy Tuesdays."],
+        "reason": "'Who haunts the library' tells you which ghost, so it has to sit right after 'The ghost'."
+      }
+    },
+    {
+      "id": "5.7-b3-4",
+      "band": 3,
+      "topic": "general",
+      "frame": "Tully is describing the jetties along the bay for a fishing map.",
+      "prompt": "Match each noun group to the right box.",
+      "success": "Detail can go in front of the noun, or after it as a phrase or a clause. A clause after the noun has its own verb.",
+      "body": {
+        "format": "sort",
+        "bins": ["detail in front of the noun", "phrase after the noun", "clause after the noun"],
+        "items": [
+          { "text": "a rickety wooden jetty", "bin": 0, "reason": "Rickety and wooden both come before jetty, so the detail is in front." },
+          { "text": "the old jetty", "bin": 0, "reason": "Old comes before jetty, so the detail is in front." },
+          { "text": "the jetty near the boat ramp", "bin": 1, "reason": "'Near the boat ramp' comes after jetty and has no verb, so it's a phrase." },
+          { "text": "the jetty at the end of the beach", "bin": 1, "reason": "'At the end of the beach' comes after jetty and has no verb, so it's a phrase." },
+          { "text": "the jetty that the storm wrecked", "bin": 2, "reason": "'That the storm wrecked' comes after jetty and has a verb, wrecked, so it's a clause." },
+          { "text": "the jetty where we catch squid", "bin": 2, "reason": "'Where we catch squid' comes after jetty and has a verb, catch, so it's a clause." }
+        ]
+      }
+    },
+    {
+      "id": "5.7-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's game review has a linking word that doesn't work.",
+      "prompt": "Tap the word that doesn't work, then choose a better one.",
+      "success": "That. 'The boss that breathes fire' hooks a clause onto boss, and the clause tells you which boss.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Zed finally ",
+          { "tap": "beat", "reason": "Beat is fine. Look at the word that hooks the detail onto 'boss'." },
+          " the ",
+          { "tap": "boss", "reason": "Boss is the right noun. The detail after it is about the boss." },
+          " ",
+          { "tap": "where" },
+          " breathes fire."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "that" },
+          { "text": "when", "reason": "When is for a time. The detail is about a boss, not a time." },
+          { "text": "whose", "reason": "Whose needs something the boss owns, as in 'whose breath is fire'. Here the boss does the breathing itself." },
+          { "text": "what", "reason": "'The boss what breathes fire' isn't how careful writers hook on a clause. They use that." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b3-6",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren rescued a kitten with a broken leg. Her report needs to say so clearly.",
+      "prompt": "Which sentence makes it clear that the kitten has the broken leg?",
+      "success": "The first one. 'With a broken leg' sits right after kitten, so the leg belongs to the kitten.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Wren rescued a kitten with a broken leg from a tree." },
+          { "text": "Wren rescued a kitten from a tree with a broken leg.", "reason": "The detail sits right after 'tree', so it sounds like the tree has a broken leg." },
+          { "text": "With a broken leg, Wren rescued a kitten from a tree.", "reason": "Starting with the detail makes it sound like Wren has the broken leg." },
+          { "text": "Wren, with a broken leg, rescued a kitten from a tree.", "reason": "The detail sits right after 'Wren', so it says Wren has the broken leg." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "Mission control is writing an urgent bulletin.",
+      "text": "Mission control is tracking two satellites in orbit around Earth. One was launched in 2019 and still works perfectly. The other broke down last year and is now drifting towards the atmosphere.",
+      "prompt": "Which noun group should the bulletin use for the satellite that's in trouble?",
+      "success": "The satellite that broke down last year. Only the satellite in trouble broke down, so this clause picks it out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the satellite that broke down last year" },
+          { "text": "the satellite launched in 2019", "reason": "That's the one that still works perfectly. It isn't in trouble." },
+          { "text": "the satellite in orbit around Earth", "reason": "Both satellites are in orbit around Earth, so this could mean either." },
+          { "text": "the satellite that mission control is tracking", "reason": "Mission control is tracking both satellites, so this could mean either." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b4-2",
+      "band": 4,
+      "topic": "music",
+      "frame": "Indi's newsletter piece has a clause that adds detail to one noun.",
+      "prompt": "Which noun does 'that had been out of tune all term' tell you about?",
+      "success": "Piano. The clause sits straight after 'piano', and a piano is something that can be out of tune.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "In the ",
+          { "tap": "music room", "reason": "Music room comes first and tells you where the fixing happened. The clause sits after a different noun." },
+          ", ",
+          { "tap": "Indi", "reason": "Indi did the fixing. The clause sits a long way after Indi, straight after a different noun." },
+          " finally fixed the old ",
+          { "tap": "piano" },
+          " that had been out of tune all ",
+          { "tap": "term", "reason": "Term is inside the clause itself. It tells you how long, not what was out of tune." },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.7-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing up his grossest discovery yet.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "The beetle that Gus found in the compost bin. The clause sits right after beetle and tells you which beetle does the squirting.",
+      "body": {
+        "format": "build",
+        "tiles": ["The beetle", "that Gus found in the compost bin", "can squirt", "a foul-smelling spray", "from its bottom."],
+        "accept": ["The beetle that Gus found in the compost bin can squirt a foul-smelling spray from its bottom."],
+        "reason": "The clause 'that Gus found in the compost bin' tells you which beetle, so it has to sit right after 'The beetle'."
+      }
+    },
+    {
+      "id": "5.7-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is sorting the details from his match report.",
+      "prompt": "Is each detail about a noun, or about the action? Match it to the right box.",
+      "success": "A detail about a noun sits right after that noun and tells you which one. A detail about the action tells you how, when or where it happened.",
+      "body": {
+        "format": "sort",
+        "bins": ["detail about a noun", "detail about the action"],
+        "items": [
+          { "text": "'with the bandaged knee' in: The player with the bandaged knee kicked the goal.", "bin": 0, "reason": "It sits right after 'player' and tells you which player." },
+          { "text": "'with a perfect drop punt' in: She kicked the goal with a perfect drop punt.", "bin": 1, "reason": "It tells you how she kicked the goal, not which goal." },
+          { "text": "'in the front row' in: The fans in the front row cheered.", "bin": 0, "reason": "It sits right after 'fans' and tells you which fans." },
+          { "text": "'in the last quarter' in: The Bombers scored in the last quarter.", "bin": 1, "reason": "It tells you when they scored." },
+          { "text": "'who kicked the winning goal' in: The player who kicked the winning goal was only fifteen.", "bin": 0, "reason": "It sits right after 'player' and tells you which player." },
+          { "text": "'after the siren' in: She kicked it after the siren.", "bin": 1, "reason": "It tells you when she kicked it." }
+        ]
+      }
+    },
+    {
+      "id": "5.7-b4-5",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The dive school's safety report has a linking word that doesn't work.",
+      "prompt": "Tap the word that doesn't work, then choose a better one.",
+      "success": "Whose. The tank belongs to the diver, and whose is the word that hooks on something a person owns.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "diver", "reason": "Diver is the right noun. The detail after it is about the diver's tank." },
+          " ",
+          { "tap": "who" },
+          " tank was nearly empty swam ",
+          { "tap": "slowly", "reason": "Slowly is fine. Swimming slowly saves air." },
+          " back to the ",
+          { "tap": "boat", "reason": "Boat is fine. Look at the word that hooks the detail onto 'diver'." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "whose" },
+          { "text": "which", "reason": "Which is for things, and 'the diver which tank was nearly empty' still doesn't show the tank is the diver's." },
+          { "text": "that", "reason": "'The diver that tank was nearly empty' doesn't make sense. You need a word that shows the tank belongs to the diver." },
+          { "text": "where", "reason": "Where is for places. The detail is about something the diver owns." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.7-b4-6",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is selling a robot dog that only barks at cats. He needs his ad to say exactly that.",
+      "prompt": "Which ad makes it clear that the dog is the one that barks at cats?",
+      "success": "The first ad. The clause 'that only barks at cats' sits right after 'robot dog', so the dog does the barking.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "For sale from a careful inventor: a robot dog that only barks at cats." },
+          { "text": "For sale: a robot dog from a careful inventor who only barks at cats.", "reason": "'Who' points to a person, so this clause hooks onto 'inventor'. It says the inventor barks at cats." },
+          { "text": "For sale: a robot dog with two remote controls that only bark at cats.", "reason": "'Bark' goes with more than one thing, so this clause hooks onto 'remote controls'. It says the remotes bark at cats." },
+          { "text": "For sale from a careful inventor who only barks at cats: a robot dog.", "reason": "The clause sits straight after 'inventor', so this says the inventor barks at cats. The dog gets no detail at all." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

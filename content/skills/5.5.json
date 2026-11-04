@@ -1,0 +1,542 @@
+{
+  "skill": {
+    "id": "5.5",
+    "name": "Embedded clauses: who, which, that",
+    "codes": ["VC2E6LA05"],
+    "why": "An embedded clause tucks extra detail inside a sentence, so you can say more without starting a new one or losing track of who you're talking about.",
+    "how": "Put the clause straight after the noun it tells you about, starting with who for people or which for animals and things. That works for both, but never straight after a comma.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "text": "The mural that Indi painted has a secret door.",
+        "lines": [
+          "'The mural has a secret door' is the main clause. 'That Indi painted' is tucked inside it.",
+          "That's an embedded clause. It sits right after the noun it tells you about, mural, and tells you which mural.",
+          "Who is for people: the boy who sneezed. Which is for animals and things: the bus, which was late.",
+          "That works for people or things too, as long as there are no commas around the clause."
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Tap the embedded clause.",
+          "hint": "Find the part that starts with who and tells you which kid.",
+          "success": "'Who sits next to me' is tucked in right after kid. It tells you which kid has the lizard.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              { "tap": "The kid", "reason": "This is who the sentence is about. The embedded clause comes straight after it." },
+              " ",
+              { "tap": "who sits next to me" },
+              " ",
+              { "tap": "keeps a lizard in his pocket.", "reason": "This is part of the main clause: the kid keeps a lizard in his pocket." }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "text": "Our neighbour, ___ grows giant pumpkins, won a ribbon at the show.",
+          "prompt": "Which word fits?",
+          "hint": "Is the neighbour a person or a thing?",
+          "success": "Who is for people. 'Who grows giant pumpkins' tells you more about your neighbour.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "who" },
+              { "text": "which", "reason": "Which is for animals and things. Your neighbour is a person." },
+              { "text": "what", "reason": "What doesn't start a clause about a noun like this. For a person, use who." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "tuckbill",
+      "name": "Tuckbill",
+      "evolved": "Tuckadore",
+      "blurb": "A pelican that tucks extra detail into the middle of a sentence the way it tucks fish into its pouch, right behind the noun it belongs to."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.5-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "A Tuckbill has tucked something into Mo's bake-off report.",
+      "prompt": "Tap the embedded clause.",
+      "success": "'That Mo baked' is tucked inside the sentence. It tells you which pie.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "The pie", "reason": "This is the thing the sentence is about. The embedded clause tells you which pie." },
+          " ",
+          { "tap": "that Mo baked" },
+          " ",
+          { "tap": "was still frozen", "reason": "This is part of the main clause: the pie was still frozen." },
+          " in the middle."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.5-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is writing up the grand final. A word is missing.",
+      "text": "The player ___ kicked the winning goal got a medal.",
+      "prompt": "Which word fits?",
+      "success": "Who is for people. 'Who kicked the winning goal' tells you which player.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "who" },
+          { "text": "which", "reason": "Which is for animals and things. The player is a person." },
+          { "text": "where", "reason": "Where is for places, and a player isn't a place." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b1-3",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo is writing about his family. The Tuckbill wants each gap filled.",
+      "prompt": "Match each one to the word that fills its gap.",
+      "success": "Who is for people. Which is for things.",
+      "body": {
+        "format": "sort",
+        "bins": ["who", "which"],
+        "items": [
+          { "text": "my uncle, ___ snores like a chainsaw", "bin": 0, "reason": "Your uncle is a person, so use who." },
+          { "text": "the fridge, ___ hums all night", "bin": 1, "reason": "A fridge is a thing, so use which." },
+          { "text": "our principal, ___ dressed up as a banana", "bin": 0, "reason": "A principal is a person, so use who." },
+          { "text": "the trampoline, ___ squeaks every time I land", "bin": 1, "reason": "A trampoline is a thing, so use which." }
+        ]
+      }
+    },
+    {
+      "id": "5.5-b1-4",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "The Tuckbill wants to tuck some detail into Indi's beach diary.",
+      "prompt": "Tap the pieces in order to tuck the extra detail inside the sentence.",
+      "success": "'Which took all morning' sits right after sandcastle, so you know it's the sandcastle that took all morning.",
+      "body": {
+        "format": "build",
+        "tiles": ["The sandcastle,", "which took all morning,", "who took all morning,", "washed away in one wave."],
+        "accept": ["The sandcastle, which took all morning, washed away in one wave."],
+        "reason": "A sandcastle is a thing, so the clause starts with which. Tuck it straight after 'The sandcastle,'."
+      }
+    },
+    {
+      "id": "5.5-b1-5",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is reading out her notes about a noisy neighbour.",
+      "text": "The wombat that lives under our house snores at night.",
+      "prompt": "What does the embedded clause tell you?",
+      "success": "'That lives under our house' tells you which wombat. It's tucked in right after wombat.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "which wombat it is" },
+          { "text": "what time it snores", "reason": "'At night' tells you when, and that's in the main clause, not the embedded clause." },
+          { "text": "why it snores", "reason": "The sentence never says why the wombat snores." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b1-6",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Gus wrote an ad for his newest invention. One word is wrong.",
+      "prompt": "Tap the wrong word, then choose a better one.",
+      "success": "Which is for things. A robot arm is a thing, even if it's a very helpful one.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus built a ",
+          { "tap": "robot arm", "reason": "Robot arm is the thing being described. Look for the word that starts the embedded clause." },
+          " ",
+          { "tap": "who" },
+          " scratches your ",
+          { "tap": "back", "reason": "Back is fine. Look for the word that starts the embedded clause." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "which" },
+          { "text": "where", "reason": "Where is for places, not things." },
+          { "text": "what", "reason": "What doesn't start a clause about a noun like this." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Gus's bottle rocket made the local news. The Tuckbill is pointing its beak at one word.",
+      "prompt": "Tap the noun that the embedded clause tells you about.",
+      "success": "'That Gus built from bottles' sits right after rocket and tells you which rocket.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "rocket" },
+          " that ",
+          { "tap": "Gus", "reason": "Gus is inside the embedded clause. The clause tells you about the rocket." },
+          " built from ",
+          { "tap": "bottles", "reason": "Bottles is inside the embedded clause too. The clause is about the rocket." },
+          " landed in Mrs Lee's ",
+          { "tap": "veggie patch", "reason": "The veggie patch is where it landed. The embedded clause comes right after rocket." },
+          "."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi is writing about the school assembly. One word fell out.",
+      "text": "The song ___ we played at assembly got stuck in everyone's head.",
+      "prompt": "Which word fits?",
+      "success": "That works for things. 'That we played at assembly' tells you which song.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "that" },
+          { "text": "who", "reason": "Who is for people. A song is a thing." },
+          { "text": "what", "reason": "'The song what we played' isn't standard English. For a thing, use that or which." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b2-3",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is very excited about a fossil. The Tuckbill is sorting his notes.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "An embedded clause sits right after a noun and tells you more about it. A question with who, or that pointing at something, isn't one.",
+      "body": {
+        "format": "sort",
+        "bins": ["has an embedded clause", "doesn't"],
+        "items": [
+          { "text": "The girl who found the fossil was on the news.", "bin": 0, "reason": "'Who found the fossil' is tucked in after girl and tells you which girl." },
+          { "text": "Who found the fossil?", "bin": 1, "reason": "This is a question. Who is asking, not tucking detail in after a noun." },
+          { "text": "That fossil is actually dinosaur poo.", "bin": 1, "reason": "Here that just points at the fossil. There's no clause tucked in." },
+          { "text": "The poo that she found is millions of years old.", "bin": 0, "reason": "'That she found' is tucked in after poo and tells you which poo." },
+          { "text": "The museum paid a fortune for it.", "bin": 1, "reason": "This is one plain clause. Nothing is tucked inside it." }
+        ]
+      }
+    },
+    {
+      "id": "5.5-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi has two sentences about the art show. The Tuckbill wants them as one.",
+      "text": "The statue was made of butter. It melted in the sun.",
+      "prompt": "Tap the pieces in order to make one sentence with an embedded clause.",
+      "success": "'Which was made of butter' is tucked in after statue, between commas. That turns two sentences into one.",
+      "body": {
+        "format": "build",
+        "tiles": ["The statue,", "which was made of butter,", "that was made of butter,", "melted in the sun."],
+        "accept": ["The statue, which was made of butter, melted in the sun."],
+        "reason": "When the clause sits between commas, use which, not that."
+      }
+    },
+    {
+      "id": "5.5-b2-5",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren's report from the wildlife clinic has a wrong word.",
+      "prompt": "Tap the wrong word, then choose a better one.",
+      "success": "Who is for people. 'Who had warm hands' tells you more about the vet.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "vet", "reason": "Vet is the person being described. Look for the word that starts the embedded clause." },
+          ", ",
+          { "tap": "which" },
+          " had warm ",
+          { "tap": "hands", "reason": "Hands is fine. Look for the word that starts the embedded clause." },
+          ", checked the ",
+          { "tap": "koala", "reason": "Koala is fine. Look for the word that starts the embedded clause." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "who" },
+          { "text": "that", "reason": "That doesn't go straight after a comma. The vet is a person, so use who." },
+          { "text": "whose", "reason": "Whose shows belonging, as in 'whose hands were warm'. Here you need who." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b2-6",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Maxx Vantablack claims all his sentences have embedded clauses. The Tuckbill checks one of Zed's instead.",
+      "prompt": "Which sentence has an embedded clause?",
+      "success": "'That Zed designed' is tucked in right after level. It tells you which level has no floor.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The level that Zed designed has no floor." },
+          { "text": "Zed designed a level, and it has no floor.", "reason": "This joins two main clauses with and. Nothing is tucked inside." },
+          { "text": "Zed's level has no floor at all.", "reason": "This has only one clause. There's nothing tucked inside it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b3-1",
+      "band": 3,
+      "topic": "music",
+      "frame": "The Tuckbill is reviewing the talent show. Something is tucked into this sentence.",
+      "prompt": "Tap the embedded clause.",
+      "success": "'Who had been hiding in the piano' is tucked in right after dancer and tells you which dancer took a bow.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "When the lights came on,", "reason": "This is a dependent clause, but it sits at the front of the sentence. It isn't tucked in after a noun." },
+          " ",
+          { "tap": "the dancer", "reason": "This is who the sentence is about. The embedded clause comes straight after it." },
+          " ",
+          { "tap": "who had been hiding in the piano" },
+          " ",
+          { "tap": "took a bow.", "reason": "This is part of the main clause: the dancer took a bow." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.5-b3-2",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The Tuckbill found a newspaper story washed up on the beach.",
+      "text": "The diver who spotted the giant squid had only been diving for a week.",
+      "prompt": "What does the embedded clause tell you?",
+      "success": "'Who spotted the giant squid' tells you which diver the sentence is about.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "which diver the sentence is about" },
+          { "text": "how long the diver had been diving", "reason": "That's in the main clause: had only been diving for a week." },
+          { "text": "where the giant squid lives", "reason": "The sentence never says where the squid lives." },
+          { "text": "why the diver went diving", "reason": "The sentence never gives a reason for diving." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b3-3",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Someone left the gate open and the dog is gone. The Tuckbill is sorting the clues.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "Who, which and that can do other jobs too. They only start an embedded clause when they come right after a noun and tell you more about it.",
+      "body": {
+        "format": "sort",
+        "bins": ["has an embedded clause", "doesn't"],
+        "items": [
+          { "text": "Who left the gate open?", "bin": 1, "reason": "This is a question. Who is asking, not tucking detail in after a noun." },
+          { "text": "The kid who left the gate open has to catch the dog.", "bin": 0, "reason": "'Who left the gate open' is tucked in after kid and tells you which kid." },
+          { "text": "That gate has been broken for years.", "bin": 1, "reason": "Here that just points at the gate. There's no clause tucked in." },
+          { "text": "The gate that Dad fixed is broken again.", "bin": 0, "reason": "'That Dad fixed' is tucked in after gate and tells you which gate." },
+          { "text": "Dad fixed the gate, but it broke again.", "bin": 1, "reason": "This joins two main clauses with but. Nothing is tucked inside." },
+          { "text": "Which way did the dog go?", "bin": 1, "reason": "This is a question. Which is asking, not starting an embedded clause." }
+        ]
+      }
+    },
+    {
+      "id": "5.5-b3-4",
+      "band": 3,
+      "topic": "space",
+      "frame": "The Tuckbill wants to join two space facts into one sentence.",
+      "text": "The planet is covered in ice. Scientists discovered it last year.",
+      "prompt": "Tap the pieces in order to make one sentence with an embedded clause.",
+      "success": "'That scientists discovered last year' sits right after planet and tells you which planet is covered in ice.",
+      "body": {
+        "format": "build",
+        "tiles": ["The planet", "that scientists discovered last year", "who scientists discovered last year", "is covered in ice."],
+        "accept": ["The planet that scientists discovered last year is covered in ice."],
+        "reason": "A planet is a thing, so who doesn't fit. Tuck the that clause straight after 'The planet'."
+      }
+    },
+    {
+      "id": "5.5-b3-5",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's report on the netball final has a wrong word.",
+      "prompt": "Tap the wrong word, then choose a better one.",
+      "success": "Who is right for a person, and it can sit after a comma. That can't.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "coach", "reason": "Coach is the person being described. Look for the word that starts the embedded clause." },
+          ", ",
+          { "tap": "that" },
+          " never ",
+          { "tap": "smiles", "reason": "Smiles is fine. Look for the word that starts the embedded clause." },
+          ", ",
+          { "tap": "grinned", "reason": "Grinned is the main verb, and it's fine. Look for the word that starts the embedded clause." },
+          " when we won."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "who" },
+          { "text": "which", "reason": "Which is for animals and things. The coach is a person." },
+          { "text": "whose", "reason": "Whose shows belonging, as in 'whose team won'. Here you need a word for the coach." },
+          { "text": "what", "reason": "What can't start a clause about a person." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b3-6",
+      "band": 3,
+      "topic": "general",
+      "frame": "Indi is writing a complaint about the school bus. A word is missing.",
+      "text": "Our school bus, ___ has no air conditioning, turns into an oven in February.",
+      "prompt": "Which word fits?",
+      "success": "Which is for things, and it can sit straight after a comma. 'Which has no air conditioning' adds extra detail about the bus.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "which" },
+          { "text": "that", "reason": "That doesn't go straight after a comma. When the clause sits between commas, use which." },
+          { "text": "who", "reason": "Who is for people. A bus is a thing." },
+          { "text": "where", "reason": "Where is for places. This clause is telling you about the bus itself." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b4-1",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "The Tuckbill is reading a science magazine about the creatures that live in sloth fur.",
+      "prompt": "Tap the embedded clause.",
+      "success": "'Who studies sloth fur' is tucked in right after scientist. It tells you which scientist made the discovery.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Although nobody believed her at first,", "reason": "This is a dependent clause, but it sits at the front of the sentence. It isn't tucked in after a noun." },
+          " ",
+          { "tap": "the scientist", "reason": "This is who the sentence is about. The embedded clause comes straight after it." },
+          " ",
+          { "tap": "who studies sloth fur" },
+          " ",
+          { "tap": "has found three new kinds of moth there.", "reason": "This is part of the main clause: the scientist has found three new kinds of moth." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.5-b4-2",
+      "band": 4,
+      "topic": "general",
+      "frame": "The island's history book has four sentences about the old bridge.",
+      "prompt": "Each sentence has an embedded clause tucked in after 'bridge'. In which sentence does that clause hint at why the bridge collapsed?",
+      "success": "'Which had been built in a hurry' is tucked in after bridge. A rushed bridge is a weak bridge, and that hints at why it collapsed.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The bridge, which had been built in a hurry, collapsed in the first big storm." },
+          { "text": "The bridge that was named after the town's founder collapsed in the first big storm.", "reason": "This embedded clause tells you which bridge. A name can't make a bridge fall down." },
+          { "text": "The bridge, which was painted bright green, collapsed in the first big storm.", "reason": "This embedded clause tells you the bridge's colour. Green paint can't make a bridge fall down." },
+          { "text": "The bridge, which the whole town loved, collapsed in the first big storm.", "reason": "This embedded clause tells you how the town felt. Being loved can't make a bridge fall down." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b4-3",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren is writing a guide to the penguin enclosure. The Tuckbill wants the clauses sorted by what they do.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "With no commas, the clause tells you which one. Between commas, it adds extra information about something you can already pick out.",
+      "body": {
+        "format": "sort",
+        "bins": ["tells you which one", "adds extra information"],
+        "items": [
+          { "text": "The penguin that bit Wren is called Biscuit.", "bin": 0, "reason": "No commas: 'that bit Wren' tells you which penguin." },
+          { "text": "Biscuit, which is the smallest penguin, bit Wren on the thumb.", "bin": 1, "reason": "The commas show it's extra. You already know which penguin: Biscuit." },
+          { "text": "The keeper who feeds the seals wears earplugs.", "bin": 0, "reason": "No commas: 'who feeds the seals' tells you which keeper." },
+          { "text": "The head keeper, who has worked here for forty years, still gets bitten.", "bin": 1, "reason": "The commas show it's extra. 'The head keeper' already tells you who." },
+          { "text": "The fish that the seals won't eat go to the gulls.", "bin": 0, "reason": "No commas: 'that the seals won't eat' tells you which fish." },
+          { "text": "The gulls, which steal everything, are always waiting.", "bin": 1, "reason": "The commas show it's extra. It adds a fact about the gulls." }
+        ]
+      }
+    },
+    {
+      "id": "5.5-b4-4",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus's delivery drone has had a bad day. The Tuckbill wants the whole story in one sentence.",
+      "prompt": "Tap the pieces in order to make one sentence with an embedded clause.",
+      "success": "'Which Gus had programmed in a hurry' sits between commas after drone. It adds a detail that explains the mess.",
+      "body": {
+        "format": "build",
+        "tiles": ["The delivery drone,", "which Gus had programmed in a hurry,", "that Gus had programmed in a hurry,", "dropped a family-sized pizza", "into the principal's lap."],
+        "accept": ["The delivery drone, which Gus had programmed in a hurry, dropped a family-sized pizza into the principal's lap."],
+        "reason": "The clause sits between commas, so it needs which, not that. Tuck it straight after 'The delivery drone,'."
+      }
+    },
+    {
+      "id": "5.5-b4-5",
+      "band": 4,
+      "topic": "space",
+      "frame": "The planetarium's fact sheet has one wrong word.",
+      "prompt": "Tap the wrong word, then choose a better one.",
+      "success": "Which is for things, and it can sit after a comma. 'Which has the tallest volcano in the solar system' adds extra detail about Mars.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Mars", "reason": "Mars is the planet being described. Look for the word that starts the embedded clause." },
+          ", ",
+          { "tap": "that" },
+          " has the ",
+          { "tap": "tallest", "reason": "Tallest is fine. Look for the word that starts the embedded clause." },
+          " volcano in the solar system, is about ",
+          { "tap": "half", "reason": "Half is fine. Look for the word that starts the embedded clause." },
+          " the size of Earth."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "which" },
+          { "text": "who", "reason": "Who is for people. Mars is a planet." },
+          { "text": "where", "reason": "Where needs its own doer after it, as in 'where you'll find the tallest volcano'. Here you need a word that stands for Mars itself." },
+          { "text": "whose", "reason": "Whose shows belonging, as in 'whose volcano is the tallest'. Here you need a word that stands for Mars itself." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.5-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed is writing the label for a creepy painting in the haunted manor. He wants to say the portrait was painted in 1850.",
+      "prompt": "Which version says that clearly?",
+      "success": "'Which was painted in 1850' sits right after portrait, so it can only be the portrait that was painted then.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The portrait, which was painted in 1850, hangs above the fireplace in the hall." },
+          { "text": "The portrait hangs above the fireplace, which was painted in 1850, in the hall.", "reason": "The clause sits after fireplace, so it sounds like the fireplace was painted in 1850." },
+          { "text": "The portrait hangs above the fireplace in the hall, which was painted in 1850.", "reason": "The clause sits after hall, so it sounds like the hall was painted in 1850." },
+          { "text": "The portrait, who was painted in 1850, hangs above the fireplace in the hall.", "reason": "Who is for people. A portrait is a thing, even if its eyes seem to follow you." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

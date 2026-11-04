@@ -1,0 +1,541 @@
+{
+  "skill": {
+    "id": "5.11",
+    "name": "Adverb groups: how, when, where, why",
+    "codes": ["VC2E6LA06"],
+    "why": "Adverb groups add the how, when, where and why, so the reader isn't left guessing.",
+    "how": "Work out which question your reader needs answered: how, when, where or why. Then add a group of words that answers exactly that question.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "text": "I painted a mural.",
+        "lines": [
+          "This sentence is true, but it leaves my reader with questions.",
+          "I can add a group of words to answer each one. When? 'On Saturday.' Where? 'On the canteen wall.' How? 'With a giant roller.'",
+          "Why? 'To cover up Maxx's ugly poster.' Each group answers one question, and only one.",
+          "So before I add a group, I ask which question my reader most needs answered."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Wren found the lost puppy ___.",
+          "prompt": "Which group tells the reader where?",
+          "hint": "Where means a place. Which one could you point to?",
+          "success": "Under the school bus is a place, so it tells the reader where.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "under the school bus" },
+              { "text": "after lunch", "reason": "After lunch tells you when she found it, not where." },
+              { "text": "with a torch", "reason": "With a torch tells you how she found it, not where." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the group that tells you why.",
+          "hint": "Why is about a reason. Look for the word 'because'.",
+          "success": "Because of the stinky slime is the reason, so it tells you why.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              { "tap": "In the lab", "reason": "In the lab is a place. It tells you where." },
+              ", Gus ",
+              { "tap": "quickly", "reason": "Quickly tells you how he clipped on the peg." },
+              " clipped a peg on his nose ",
+              { "tap": "because of the stinky slime" },
+              "."
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "kelpwick",
+      "name": "Kelpwick",
+      "evolved": "Kelpwyvern",
+      "blurb": "A leafy seadragon with a frond for how, when, where and why. Hang the right words on the right frond and it glides."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.11-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is writing the footy club newsletter. Parents keep asking when training is.",
+      "text": "We have footy training ___.",
+      "prompt": "Which group tells the reader when?",
+      "success": "Every Tuesday night is a time, so it tells the reader when.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "every Tuesday night" },
+          { "text": "at the big oval", "reason": "At the big oval is a place. It tells you where, not when." },
+          { "text": "with the new balls", "reason": "With the new balls tells you how you train, not when." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Kelpwick is reading a sign at the wildlife park.",
+      "prompt": "Tap the group that tells you where.",
+      "success": "In the backyard is a place, so it tells you where.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "At night", "reason": "At night tells you when the possum looks, not where." },
+          ", ",
+          { "tap": "the possum", "reason": "The possum is who the sentence is about. It isn't a place." },
+          " looks for fruit ",
+          { "tap": "in the backyard" },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.11-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mum asked Mo where he hid the lollies. His note answers the wrong question.",
+      "prompt": "Mum asked where. Tap the group that answers the wrong question, then choose one that answers hers.",
+      "success": "In the washing basket is a place. Now Mum can find the lollies (and the socks).",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mum, I ",
+          { "tap": "hid", "reason": "Hid is what Mo did. Look for the group that should say where." },
+          " the ",
+          { "tap": "lollies", "reason": "Lollies is what Mo hid. Look for the group that should say where." },
+          " ",
+          { "tap": "after dinner" },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "in the washing basket" },
+          { "text": "very quickly", "reason": "Very quickly tells you how Mo hid them. Mum still doesn't know where." },
+          { "text": "to keep them safe", "reason": "To keep them safe tells you why Mo hid them. Mum still doesn't know where." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game map has clues scattered everywhere. Help the Kelpwick sort them.",
+      "prompt": "Match each group to the question it answers.",
+      "success": "Places tell you where, times tell you when, and the way something is done tells you how.",
+      "body": {
+        "format": "sort",
+        "bins": ["how?", "when?", "where?"],
+        "items": [
+          { "text": "in the castle", "bin": 2, "reason": "In the castle is a place, so it tells you where." },
+          { "text": "at midnight", "bin": 1, "reason": "Midnight is a time, so it tells you when." },
+          { "text": "very carefully", "bin": 0, "reason": "Very carefully is the way you do something, so it tells you how." },
+          { "text": "under the bridge", "bin": 2, "reason": "Under the bridge is a place, so it tells you where." },
+          { "text": "after level three", "bin": 1, "reason": "After level three is a point in the game's time, so it tells you when." },
+          { "text": "with a magic sword", "bin": 0, "reason": "With a magic sword is what you use to do it, so it tells you how." }
+        ]
+      }
+    },
+    {
+      "id": "5.11-b1-5",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "The Kelpwick wants a sentence that tells the reader where the turtle swam.",
+      "prompt": "Tap the pieces in order to make a sentence that tells the reader where.",
+      "success": "Under the jetty is a place, so the reader knows where the turtle swam.",
+      "body": {
+        "format": "build",
+        "tiles": ["The turtle", "swam", "under the jetty.", "on Sunday."],
+        "accept": ["The turtle swam under the jetty."],
+        "reason": "On Sunday tells you when. The Kelpwick wants a place, so use the group that tells you where."
+      }
+    },
+    {
+      "id": "5.11-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo is telling his favourite joke, but he forgot the why bit.",
+      "text": "The chicken crossed the road ___.",
+      "prompt": "Which group tells the reader why?",
+      "success": "To get to the other side is the reason, so it tells you why. Mo still thinks it's hilarious.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "to get to the other side" },
+          { "text": "on a sunny morning", "reason": "On a sunny morning tells you when the chicken crossed, not why." },
+          { "text": "very slowly", "reason": "Very slowly tells you how the chicken crossed, not why." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Mission control's safety checklist is missing a detail. The astronauts need to know how.",
+      "text": "Astronauts must close the airlock door ___.",
+      "prompt": "Which group tells the reader how?",
+      "success": "With both hands is the way to close it, so it tells the reader how.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "with both hands" },
+          { "text": "after every spacewalk", "reason": "After every spacewalk tells you when to close the door, not how." },
+          { "text": "at the back of the station", "reason": "At the back of the station tells you where the door is, not how to close it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is reading his lab notes aloud. The Kelpwick wants the why.",
+      "prompt": "Tap the group that tells you why.",
+      "success": "For a science experiment is the reason Gus kept it, so it tells you why. His locker still smells.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Last week", "reason": "Last week tells you when Gus kept the sandwich, not why." },
+          ", Gus kept a mouldy sandwich ",
+          { "tap": "in his locker", "reason": "In his locker is a place. It tells you where." },
+          " ",
+          { "tap": "for a science experiment" },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.11-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi asked Zed how he fixed the band's broken guitar. His answer misses the point.",
+      "prompt": "Indi asked how. Tap the group that answers the wrong question, then choose one that answers hers.",
+      "success": "With sticky tape and a shoelace tells Indi how. She may not want to play it now.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I ",
+          { "tap": "fixed", "reason": "Fixed is what Zed did. Look for the group that should say how." },
+          " the ",
+          { "tap": "guitar", "reason": "Guitar is what he fixed. Look for the group that should say how." },
+          " ",
+          { "tap": "last night" },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "with sticky tape and a shoelace" },
+          { "text": "in my bedroom", "reason": "In my bedroom tells Indi where he fixed it. She asked how." },
+          { "text": "because it was broken", "reason": "Because it was broken tells Indi why he fixed it. She asked how." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The cleaning robot's error log is a mess. Sort the groups for the Kelpwick.",
+      "prompt": "Match each group to the question it answers.",
+      "success": "When groups give a time, where groups give a place, and why groups give a reason.",
+      "body": {
+        "format": "sort",
+        "bins": ["when?", "where?", "why?"],
+        "items": [
+          { "text": "before the battery runs out", "bin": 0, "reason": "Before the battery runs out is a point in time, so it tells you when." },
+          { "text": "behind the charging station", "bin": 1, "reason": "Behind the charging station is a place, so it tells you where." },
+          { "text": "to save power", "bin": 2, "reason": "To save power is the reason the robot does something, so it tells you why." },
+          { "text": "as soon as the alarm beeps", "bin": 0, "reason": "As soon as the alarm beeps is a moment in time, so it tells you when." },
+          { "text": "inside the robot's chest", "bin": 1, "reason": "Inside the robot's chest is a place, so it tells you where." },
+          { "text": "because its sensors were dusty", "bin": 2, "reason": "Because its sensors were dusty gives a reason, so it tells you why." }
+        ]
+      }
+    },
+    {
+      "id": "5.11-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed is writing a ghost story. The Kelpwick says the reader needs to know where.",
+      "text": "A strange green light flickered ___.",
+      "prompt": "Which group tells the reader where?",
+      "success": "Behind the old shed is a place, so the reader knows where to look (if they dare).",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "behind the old shed" },
+          { "text": "just after midnight", "reason": "Just after midnight is a time. It tells you when the light flickered, not where." },
+          { "text": "without a sound", "reason": "Without a sound tells you how the light flickered, not where." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b2-6",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's art teacher wants a sentence that says when Indi painted the fence.",
+      "prompt": "Tap the pieces in order to make a sentence that tells the reader when.",
+      "success": "After school is a time, so the reader knows when Indi painted.",
+      "body": {
+        "format": "build",
+        "tiles": ["After school,", "With her toes,", "Indi painted the fence."],
+        "accept": ["After school, Indi painted the fence."],
+        "reason": "With her toes tells you how Indi painted. The teacher wants to know when."
+      }
+    },
+    {
+      "id": "5.11-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The coach's note to the team has a gap. She wants to tell them how to run out.",
+      "text": "Run onto the ground ___ so the other team knows we mean business.",
+      "prompt": "Which group tells the reader how?",
+      "success": "At full speed is the way to run, so it tells you how. The other groups give a time or a place.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "at full speed" },
+          { "text": "at the start of the game", "reason": "It starts with 'at', but the start of the game is a time. It tells you when, not how." },
+          { "text": "at the far end of the oval", "reason": "The far end of the oval is a place. It tells you where, not how." },
+          { "text": "in front of the crowd", "reason": "In front of the crowd is a place. It tells you where you'll be, not how to run." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's rescue notes from the beach. The Kelpwick is hunting for the how.",
+      "prompt": "Tap the group that tells you how.",
+      "success": "With tiny scissors is what Wren used to do the job, so it tells you how.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Just before dawn", "reason": "Just before dawn is a time. It tells you when Wren found the pelican." },
+          ", Wren found a pelican tangled in fishing line. ",
+          { "tap": "On the wet sand", "reason": "On the wet sand is a place. It tells you where Wren snipped the line." },
+          ", she snipped the line ",
+          { "tap": "with tiny scissors" },
+          " ",
+          { "tap": "so that it could fly again", "reason": "So that it could fly again is the reason she did it. It tells you why." },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.11-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Tully asked Mo, 'Why did you put chilli in the custard?' Mo's reply misses the point.",
+      "prompt": "Tully asked why. Tap the group that answers the wrong question, then choose one that answers his.",
+      "success": "To give it a surprise kick is the reason, so now Tully knows why. He still won't eat it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I ",
+          { "tap": "put", "reason": "Put is what Mo did. Look for the group that should say why." },
+          " chilli in the ",
+          { "tap": "custard", "reason": "Custard is what he put the chilli in. Look for the group that should say why." },
+          " ",
+          { "tap": "last Tuesday" },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "to give it a surprise kick" },
+          { "text": "while nobody was looking", "reason": "While nobody was looking tells Tully when Mo did it. He still doesn't know why." },
+          { "text": "with a big wooden spoon", "reason": "With a big wooden spoon tells Tully how Mo did it, not why." },
+          { "text": "in Nan's kitchen", "reason": "In Nan's kitchen is a place. It tells Tully where, not why." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b3-4",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The Kelpwick's fronds are tangled with groups from a reef report. Sort them out.",
+      "prompt": "Match each group to the question it answers.",
+      "success": "How groups show the way something is done, when groups give a time, and why groups give a reason.",
+      "body": {
+        "format": "sort",
+        "bins": ["how?", "when?", "why?"],
+        "items": [
+          { "text": "with one flick of its tail", "bin": 0, "reason": "With one flick of its tail is the way the fish moved, so it tells you how." },
+          { "text": "at low tide", "bin": 1, "reason": "It starts with 'at', but low tide is a time of day. It tells you when." },
+          { "text": "to escape the shark", "bin": 2, "reason": "To escape the shark is the reason for moving, so it tells you why." },
+          { "text": "once the sun went down", "bin": 1, "reason": "Once the sun went down is a moment in time, so it tells you when." },
+          { "text": "without making a ripple", "bin": 0, "reason": "Without making a ripple is the way it moved, so it tells you how." },
+          { "text": "because the water was too warm", "bin": 2, "reason": "Because the water was too warm gives a reason, so it tells you why." }
+        ]
+      }
+    },
+    {
+      "id": "5.11-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's speedrun notes need to say why he skipped the bonus level.",
+      "prompt": "Tap the pieces in order to make a sentence that tells the reader why.",
+      "success": "To save eleven seconds is the reason, so the reader knows why Zed skipped it.",
+      "body": {
+        "format": "build",
+        "tiles": ["Zed skipped the bonus level", "to save eleven seconds.", "with one clever jump.", "on his third try."],
+        "accept": ["Zed skipped the bonus level to save eleven seconds."],
+        "reason": "With one clever jump tells you how, and on his third try tells you when. Only one group gives the reason."
+      }
+    },
+    {
+      "id": "5.11-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo's late note for his teacher. She wants to know why he was late.",
+      "text": "Mo was late to school ___.",
+      "prompt": "Which group tells the reader why?",
+      "success": "Because a magpie stole his shoe gives the reason, so the teacher knows why. Whether she believes it is another story.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "because a magpie stole his shoe" },
+          { "text": "after the bell had already rung", "reason": "After the bell had already rung is a time. It tells you when, not why." },
+          { "text": "on a wobbly scooter", "reason": "On a wobbly scooter tells you how Mo got there, not why he was late." },
+          { "text": "in his pyjamas", "reason": "In his pyjamas tells you how Mo turned up, not why he was late." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b4-1",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed's ghost story needs one more detail. The Kelpwick says the reader must know when.",
+      "text": "___, the lighthouse lamp began to turn again, though nobody had touched it for fifty years.",
+      "prompt": "Which group tells the reader when?",
+      "success": "Just as the last light faded from the sky is a moment in time, so it tells the reader when.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Just as the last light faded from the sky" },
+          { "text": "Without a single creak or groan", "reason": "Without a single creak or groan is the way the lamp turned. It tells you how, not when." },
+          { "text": "High above the jagged rocks", "reason": "High above the jagged rocks is a place. It tells you where, not when." },
+          { "text": "For reasons nobody could explain", "reason": "For reasons nobody could explain is about the reason, even if it's a mystery. It tells you why, not when." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "A news broadcast crackles in from the Mars base. The Kelpwick wants the why.",
+      "prompt": "Tap the group that tells you why.",
+      "success": "In the hope of finding ancient ice is the reason the rover kept drilling, so it tells you why.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Beneath the red dust", "reason": "Beneath the red dust is a place. It tells you where the rover drilled." },
+          ", the rover drilled ",
+          { "tap": "slowly and patiently", "reason": "Slowly and patiently is the way it drilled. It tells you how." },
+          " ",
+          { "tap": "in the hope of finding ancient ice" },
+          " ",
+          { "tap": "until its drill snapped", "reason": "Until its drill snapped tells you when the drilling stopped. It's about time." },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.11-b4-3",
+      "band": 4,
+      "topic": "music",
+      "frame": "A reporter asked where the orchestra would perform. The press release answers the wrong question.",
+      "prompt": "The reporter asked where. Tap the group that answers the wrong question, then choose one that answers it.",
+      "success": "In the old wool shed on the hill is a place, so now the reporter knows where to go.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "orchestra", "reason": "Orchestra is who is performing. Look for the group that should say where." },
+          " will ",
+          { "tap": "perform", "reason": "Perform is what the orchestra will do. Look for the group that should say where." },
+          " its new piece ",
+          { "tap": "with a choir of two hundred voices" },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "in the old wool shed on the hill" },
+          { "text": "to raise money for the koala hospital", "reason": "To raise money for the koala hospital is the reason for the concert. It tells you why, not where." },
+          { "text": "as soon as the hall is repaired", "reason": "As soon as the hall is repaired is about time. It mentions a hall, but it tells you when, not where." },
+          { "text": "without a single rehearsal", "reason": "Without a single rehearsal tells you how they'll perform, not where." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.11-b4-4",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The security robot's program is full of adverb groups. Sort them for the Kelpwick.",
+      "prompt": "Match each group to the question it answers.",
+      "success": "Where groups give a place, when groups give a time, and why groups give a reason or purpose, even when they're whole clauses.",
+      "body": {
+        "format": "sort",
+        "bins": ["where?", "when?", "why?"],
+        "items": [
+          { "text": "wherever the signal is strongest", "bin": 0, "reason": "Wherever the signal is strongest points to a place, so it tells you where." },
+          { "text": "after the last cleaner goes home", "bin": 1, "reason": "After the last cleaner goes home tells you the time the patrol starts, so it tells you when." },
+          { "text": "so that no intruder slips past", "bin": 2, "reason": "So that no intruder slips past is the purpose, so it tells you why." },
+          { "text": "before the factory doors open", "bin": 1, "reason": "Before the factory doors open is a point in time, so it tells you when." },
+          { "text": "along the edge of the roof", "bin": 0, "reason": "Along the edge of the roof is a place, so it tells you where." },
+          { "text": "because the night guard is on holiday", "bin": 2, "reason": "Because the night guard is on holiday gives the reason for the patrol, so it tells you why." }
+        ]
+      }
+    },
+    {
+      "id": "5.11-b4-5",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi's gallery label needs to say how she made her sculpture.",
+      "prompt": "Tap the pieces in order to make a sentence that tells the reader how.",
+      "success": "By twisting together forty old coat hangers is the method, so the reader knows how she built it.",
+      "body": {
+        "format": "build",
+        "tiles": ["Indi built the sculpture", "by twisting together forty old coat hangers.", "during the summer holidays.", "for the school fete."],
+        "accept": ["Indi built the sculpture by twisting together forty old coat hangers."],
+        "reason": "During the summer holidays tells you when, and for the school fete tells you why. The label needs to say how."
+      }
+    },
+    {
+      "id": "5.11-b4-6",
+      "band": 4,
+      "topic": "food",
+      "frame": "Mo's restaurant review has one detail missing. The Kelpwick wants the how.",
+      "text": "The waiter carried the towering pavlova to our table ___, as though one wrong step might bring the whole thing down.",
+      "prompt": "Which group tells the reader how?",
+      "success": "With painfully slow, careful steps is the way he carried it, so it tells you how.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "with painfully slow, careful steps" },
+          { "text": "the moment the lights dimmed", "reason": "The moment the lights dimmed is a time. It tells you when he carried it, not how." },
+          { "text": "past the crowded kitchen doors", "reason": "Past the crowded kitchen doors is a place on his route. It tells you where, not how." },
+          { "text": "to celebrate Nan's eightieth birthday", "reason": "To celebrate Nan's eightieth birthday is the reason for the pavlova. It tells you why, not how." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

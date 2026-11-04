@@ -1,0 +1,833 @@
+{
+  "skill": {
+    "id": "5.3",
+    "name": "The joining word that gives the right meaning (because, although, unless, until)",
+    "codes": [
+      "VC2E5LA05"
+    ],
+    "why": "Readers can't see inside your head. The joining word tells them exactly how your two ideas connect.",
+    "how": "Ask what the link is: a reason (because), a surprise (although), a time (until) or a condition (unless). Then pick the word that says it.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "text": "I wore my boots ___ it was muddy.",
+        "lines": [
+          "Joining words aren't just glue. Each one tells the reader how two ideas connect.",
+          "Here I ask: what's the link between boots and mud? The mud is the reason I wore boots. A reason means because.",
+          "Now flip it: I wore my thongs ___ it was muddy. Thongs in the mud? That's a surprise. A surprise means although.",
+          "So before I choose, I always ask: reason, surprise, time or condition?"
+        ]
+      },
+      "weDo": [
+        {
+          "text": "The shop stays open ___ the last customer leaves.",
+          "prompt": "Which joining word fits?",
+          "hint": "Is this about a reason, a surprise or a time?",
+          "success": "Until is about time. The shop stays open up to the moment the last customer leaves.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "until"
+              },
+              {
+                "text": "because",
+                "reason": "Because would make the customer leaving the reason the shop is open. It's really about when it closes."
+              },
+              {
+                "text": "although",
+                "reason": "Although sets up a surprise, and nothing here is surprising."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "Mo laughed ___ the joke was terrible.",
+          "prompt": "Which joining word fits?",
+          "hint": "Would a terrible joke normally make you laugh?",
+          "success": "Although. You wouldn't expect anyone to laugh at a terrible joke, so it's a surprise.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "although"
+              },
+              {
+                "text": "because",
+                "reason": "Because would mean the joke being terrible is why Mo laughed. Terrible jokes don't usually get laughs, so it's a surprise."
+              },
+              {
+                "text": "unless",
+                "reason": "Unless sets a condition, as in 'only if not'. Mo already laughed, so there's no condition."
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "hingeling",
+      "name": "Hingeling",
+      "evolved": "Hingemaw",
+      "blurb": "A hermit crab that joins two broken shells into one. It only holds if you choose the right hinge."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.3-b1-1",
+      "band": 1,
+      "topic": "general",
+      "frame": "A Hingeling is stuck between two halves of a shell.",
+      "text": "We stayed inside ___ it was pouring with rain.",
+      "prompt": "Which joining word fits?",
+      "success": "Because gives the reason. The rain is why you stayed in.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "because"
+          },
+          {
+            "text": "although",
+            "reason": "Although sets up a surprise, but staying in when it rains is no surprise."
+          },
+          {
+            "text": "until",
+            "reason": "Until is about time. It would mean you stayed inside only up to the moment it rained."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is reading out a footy report, but a word has fallen out.",
+      "text": "Jai kept practising his kicks ___ he could hit the post.",
+      "prompt": "Which joining word fits?",
+      "success": "Until is about time. He practised up to the point where he could hit the post.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "until"
+          },
+          {
+            "text": "because",
+            "reason": "Because would mean hitting the post is why he practised. It's the other way round: practising got him there."
+          },
+          {
+            "text": "although",
+            "reason": "Although signals a surprise, and there's nothing surprising here."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren found a sign at the penguin enclosure with a hole in it.",
+      "text": "You can't feed the penguins ___ the keeper says it's OK.",
+      "prompt": "Which joining word fits?",
+      "success": "Unless sets the condition. Feeding is only allowed if the keeper says yes.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "unless"
+          },
+          {
+            "text": "because",
+            "reason": "Because would make the keeper's OK the reason you can't feed them. That makes no sense."
+          },
+          {
+            "text": "although",
+            "reason": "Although would mean you still can't feed them even when the keeper says it's OK. The OK is the condition, so you need unless."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b1-4",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Hingeling holds out its pieces. Build the sentence.",
+      "prompt": "Tap the pieces in order to make a sentence that makes sense.",
+      "success": "Because gives the reason. Pelting rain is exactly why you'd wear a raincoat.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Mia wore her raincoat",
+          "because",
+          "although",
+          "the rain was pelting down."
+        ],
+        "accept": [
+          "Mia wore her raincoat because the rain was pelting down."
+        ],
+        "reason": "Ask why Mia wore her raincoat. Pelting rain is the reason, so it needs the reason word."
+      }
+    },
+    {
+      "id": "5.3-b1-5",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's diary has a word that doesn't make sense.",
+      "prompt": "Tap the word that gives the wrong meaning, then choose a better one.",
+      "success": "Because. Being starving is the reason Mo ate early.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I ",
+          {
+            "tap": "ate",
+            "reason": "Ate is fine. Look for the word that joins the two ideas."
+          },
+          " my lunch ",
+          {
+            "tap": "early",
+            "reason": "Early is fine. Look for the word that joins the two ideas."
+          },
+          " ",
+          {
+            "tap": "although"
+          },
+          " I was ",
+          {
+            "tap": "starving",
+            "reason": "Starving is fine. Look for the word that joins the two ideas."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "because"
+          },
+          {
+            "text": "until",
+            "reason": "Until is about time. It would mean Mo ate only up to the moment of being starving."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition. Mo already ate, so there's no condition to meet."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b1-6",
+      "band": 1,
+      "topic": "general",
+      "frame": "Two shells, two kinds of sentence. Help the Hingeling sort them.",
+      "prompt": "Match each sentence to the right shell.",
+      "success": "Because answers 'why?'. Although warns you a surprise is coming.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "gives a reason",
+          "sets up a surprise"
+        ],
+        "items": [
+          {
+            "text": "We left early because the bus was full.",
+            "bin": 0,
+            "reason": "'The bus was full' is why you left early, so it's a reason."
+          },
+          {
+            "text": "We left early although the party was fun.",
+            "bin": 1,
+            "reason": "You wouldn't expect to leave a fun party early, so it's a surprise."
+          },
+          {
+            "text": "The game stopped because it was raining.",
+            "bin": 0,
+            "reason": "The rain is why the game stopped, so it's a reason."
+          },
+          {
+            "text": "Ava smiled although her knee hurt.",
+            "bin": 1,
+            "reason": "A sore knee doesn't usually make you smile, so it's a surprise."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.3-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus has stuck a safety sign to the lab door. One word has melted off.",
+      "text": "Nobody is allowed in the slime lab ___ they are wearing goggles.",
+      "prompt": "Which joining word fits?",
+      "success": "Unless sets the condition. You only get in if you're wearing goggles.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "unless"
+          },
+          {
+            "text": "because",
+            "reason": "Because would mean wearing goggles is the reason nobody's allowed in. Goggles should get you in, not keep you out."
+          },
+          {
+            "text": "although",
+            "reason": "Although would mean you're kept out even when you wear goggles. The goggles are the condition, so you need unless."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is writing up his latest experiment.",
+      "text": "___ the slime smelled like old socks, Gus happily took a big sniff.",
+      "prompt": "Which joining word fits?",
+      "success": "Although. A sock smell should put you off, so happily sniffing it is a surprise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Although"
+          },
+          {
+            "text": "Because",
+            "reason": "Because would make the sock smell the reason he sniffed happily. 'Happily' tells you he did it in spite of the smell."
+          },
+          {
+            "text": "Unless",
+            "reason": "Unless sets a condition. Gus already sniffed it, so there's nothing to wait for."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b2-3",
+      "band": 2,
+      "topic": "space",
+      "frame": "A message is crackling in from the Mars rover team.",
+      "text": "The rover will keep sending pictures ___ its batteries run flat.",
+      "prompt": "Which joining word fits?",
+      "success": "Until is about time. The pictures keep coming up to the moment the batteries die.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "until"
+          },
+          {
+            "text": "because",
+            "reason": "Because would make flat batteries the reason it sends pictures. Flat batteries would stop it."
+          },
+          {
+            "text": "although",
+            "reason": "Although sets up a surprise. Here the sentence is telling you when the pictures will stop."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "The Hingeling has a sentence in pieces from Tully's match report.",
+      "prompt": "Tap the pieces in order to make a sentence that makes sense.",
+      "success": "Even though. Aching legs would normally make you stop, so keeping going is a surprise.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The players",
+          "kept running",
+          "even though",
+          "because",
+          "their legs were aching."
+        ],
+        "accept": [
+          "The players kept running even though their legs were aching."
+        ],
+        "reason": "Aching legs would normally make you stop. Keeping going is a surprise, so you need the surprise word."
+      }
+    },
+    {
+      "id": "5.3-b2-5",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Zed's beach plan has a word that gives the wrong meaning.",
+      "prompt": "Tap the word that gives the wrong meaning, then choose a better one.",
+      "success": "If. Going to the beach depends on the rain stopping, so it's a condition.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "We can ",
+          {
+            "tap": "go",
+            "reason": "Go is fine. Look for the word that joins the two ideas."
+          },
+          " to the ",
+          {
+            "tap": "beach",
+            "reason": "Beach is fine. Look for the word that joins the two ideas."
+          },
+          " ",
+          {
+            "tap": "although"
+          },
+          " it stops ",
+          {
+            "tap": "raining",
+            "reason": "Raining is fine. Look for the word that joins the two ideas."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "if"
+          },
+          {
+            "text": "because",
+            "reason": "Because would mean the rain stopping is why you're allowed to go. The trip depends on it, which is a condition."
+          },
+          {
+            "text": "even though",
+            "reason": "Even though sets up a surprise, but going to the beach when the rain stops is no surprise."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b2-6",
+      "band": 2,
+      "topic": "general",
+      "frame": "Three shells this time. The Hingeling needs each half-sentence in the right one.",
+      "prompt": "Match each half-sentence to the right shell.",
+      "success": "Reason answers 'why?', time answers 'when?', and a condition means 'only if'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a reason (why?)",
+          "a time (when?)",
+          "a condition (only if)"
+        ],
+        "items": [
+          {
+            "text": "because the gate was open",
+            "bin": 0,
+            "reason": "'Because' gives the reason why something happened."
+          },
+          {
+            "text": "until the bell rang",
+            "bin": 1,
+            "reason": "'Until' tells you when something stopped."
+          },
+          {
+            "text": "unless you have a ticket",
+            "bin": 2,
+            "reason": "'Unless' means it only happens if you don't meet the condition."
+          },
+          {
+            "text": "after the match finished",
+            "bin": 1,
+            "reason": "'After' tells you when something happened."
+          },
+          {
+            "text": "if the tide is low",
+            "bin": 2,
+            "reason": "'If' sets a condition that has to be true first."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.3-b3-1",
+      "band": 3,
+      "topic": "general",
+      "frame": "Captain's log, written in a hurry. One word is smudged.",
+      "text": "The ferry left without us ___ we were only two minutes late.",
+      "prompt": "Which joining word fits?",
+      "success": "Even though. 'Only two minutes' tells you it shouldn't have mattered, so the ferry leaving is a surprise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "even though"
+          },
+          {
+            "text": "because",
+            "reason": "The word 'only' is a clue: being two minutes late shouldn't have been enough to miss it. That makes it a surprise, not a reason."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition, but the ferry had already left. There's nothing left to depend on."
+          },
+          {
+            "text": "until",
+            "reason": "Until is about time running up to a point. It would mean the ferry stopped leaving once we were late."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b3-2",
+      "band": 3,
+      "topic": "general",
+      "frame": "The Hingeling found an overdue notice from the island library.",
+      "text": "___ you return the book by Friday, you will have to pay a fine.",
+      "prompt": "Which joining word fits?",
+      "success": "Unless. The fine only happens if the book doesn't come back, so it's a condition.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Unless"
+          },
+          {
+            "text": "Although",
+            "reason": "Although would mean you pay the fine even after returning the book. The return is the condition that saves you."
+          },
+          {
+            "text": "Because",
+            "reason": "Because would make returning the book the reason you get fined. Returning it is what stops the fine."
+          },
+          {
+            "text": "Since",
+            "reason": "Since gives a reason or a starting time. Returning the book is neither: it's the condition."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b3-3",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is writing up last night's rescue.",
+      "text": "Wren stayed with the injured wombat ___ the vet finally arrived at midnight.",
+      "prompt": "Which joining word fits?",
+      "success": "Until. She stayed up to the moment the vet arrived. 'Finally' tells you it was a long wait.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "until"
+          },
+          {
+            "text": "although",
+            "reason": "Although sets up a surprise, but there's no surprise in staying with a hurt animal until help comes."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition. The vet did arrive, so the sentence is about time, not a condition."
+          },
+          {
+            "text": "because",
+            "reason": "Because would make the vet arriving the reason she stayed. She stayed to look after the wombat, and the vet arriving is when she could stop."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b3-4",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Indi is labelling a poster for the reef centre.",
+      "text": "Dolphins breathe air like we do, ___ they spend their whole lives in the water.",
+      "prompt": "Which joining word fits?",
+      "success": "Although. You'd expect an air-breather to live on land, so living in water is a surprise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "although"
+          },
+          {
+            "text": "so",
+            "reason": "So would mean breathing air is why dolphins live in water. It's actually the surprising part."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition, but this sentence is stating two facts that seem to clash."
+          },
+          {
+            "text": "because",
+            "reason": "Because would make living in water the reason they breathe air. The two facts clash rather than explain each other."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b3-5",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's weather report has fallen to bits.",
+      "prompt": "Tap the pieces in order to make a sentence that makes sense.",
+      "success": "Although. Promised storms should have stopped the match, so going ahead is a surprise.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The match went ahead",
+          "as planned",
+          "although",
+          "because",
+          "the forecast had promised storms."
+        ],
+        "accept": [
+          "The match went ahead as planned although the forecast had promised storms."
+        ],
+        "reason": "Storms usually stop a match. A match going ahead despite the forecast is a surprise, not a reason."
+      }
+    },
+    {
+      "id": "5.3-b3-6",
+      "band": 3,
+      "topic": "art",
+      "frame": "A sign at the fair has the wrong joining word. Fix it for Indi.",
+      "prompt": "Tap the word that gives the wrong meaning, then choose a better one.",
+      "success": "Although. Never painting a mural before should make it harder, so winning is a surprise.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Because"
+          },
+          " Indi had ",
+          {
+            "tap": "never",
+            "reason": "Never is fine. It's the clue that makes the result surprising."
+          },
+          " painted a ",
+          {
+            "tap": "mural",
+            "reason": "Mural is fine. Look for the word that joins the two ideas."
+          },
+          " before, it was the ",
+          {
+            "tap": "best",
+            "reason": "Best is fine. Look for the word that joins the two ideas."
+          },
+          " thing at the fair."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "Although"
+          },
+          {
+            "text": "Unless",
+            "reason": "Unless sets a condition, but the mural is already done and judged."
+          },
+          {
+            "text": "Until",
+            "reason": "Until is about time running up to a point. The sentence is about a surprising result."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "A torn page from an explorer's journal washes up on the reef.",
+      "text": "The expedition pressed on towards the summit ___ two of the climbers had already turned back with frostbite.",
+      "prompt": "Which joining word fits?",
+      "success": "Even though. Losing two climbers to frostbite should stop an expedition, so pressing on is a surprise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "even though"
+          },
+          {
+            "text": "so that",
+            "reason": "So that gives a purpose. The climbers turning back wasn't the goal of pressing on."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition, but both things have already happened. The sentence is about a surprising choice."
+          },
+          {
+            "text": "because",
+            "reason": "Because would make the frostbite the reason they pressed on. You'd expect frostbite to make a team turn back."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b4-2",
+      "band": 4,
+      "topic": "animals",
+      "frame": "The Hingeling is reading a museum display about new discoveries.",
+      "text": "Scientists cannot name a new species ___ they have compared it with every closely related animal on record.",
+      "prompt": "Which joining word fits?",
+      "success": "Unless. Naming is only allowed once the comparison is done, so it's a condition.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "unless"
+          },
+          {
+            "text": "although",
+            "reason": "Although would mean they still can't name it after comparing. The comparison is what allows the name."
+          },
+          {
+            "text": "because",
+            "reason": "Because would make the comparing the reason they can't name it. Comparing is what makes naming possible."
+          },
+          {
+            "text": "whereas",
+            "reason": "Whereas compares two different things side by side. Here, one thing depends on the other."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b4-3",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed found a creepy fact on an old poster.",
+      "text": "Some people find spiders terrifying, ___ others keep them as pets and even give them names.",
+      "prompt": "Which joining word fits?",
+      "success": "Whereas. It sets two groups side by side to show how different they are.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "whereas"
+          },
+          {
+            "text": "because",
+            "reason": "Because would make some people's fear the reason others keep spiders as pets. The two groups aren't connected like that."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition. Neither group depends on the other."
+          },
+          {
+            "text": "until",
+            "reason": "Until is about time running up to a point. These are two groups of people being compared."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "A concert review has a gap. Read the whole sentence before you choose.",
+      "text": "The orchestra kept playing ___ the lights had failed, because every musician knew the piece by heart.",
+      "prompt": "Which joining word fits?",
+      "success": "Even though. Playing in the dark is surprising, and the end of the sentence explains how they managed it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "even though"
+          },
+          {
+            "text": "until",
+            "reason": "Until would mean they stopped when the lights failed. The end of the sentence says they could keep going because they knew it by heart."
+          },
+          {
+            "text": "unless",
+            "reason": "Unless sets a condition, but the lights had already failed. The sentence explains how they kept playing anyway."
+          },
+          {
+            "text": "so that",
+            "reason": "So that gives a purpose. The orchestra didn't keep playing in order to make the lights fail."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.3-b4-5",
+      "band": 4,
+      "topic": "space",
+      "frame": "Mission control's announcement has been scrambled.",
+      "prompt": "Tap the pieces in order to make a sentence that makes sense.",
+      "success": "Provided that. The launch depends on the weather, which makes it a condition.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Provided that",
+          "Although",
+          "the weather holds,",
+          "the launch will go ahead",
+          "at dawn."
+        ],
+        "accept": [
+          "Provided that the weather holds, the launch will go ahead at dawn."
+        ],
+        "reason": "The launch depends on the weather holding. That's a condition, so it needs a condition word. 'Although' would set up a clash, but good weather and a launch don't clash."
+      }
+    },
+    {
+      "id": "5.3-b4-6",
+      "band": 4,
+      "topic": "general",
+      "frame": "Three shells, and the Hingeling is getting fussy.",
+      "prompt": "Match each half-sentence to the right shell.",
+      "success": "Contrast sets two things against each other, a condition must be met first, and a cause explains why.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "contrast",
+          "condition",
+          "cause"
+        ],
+        "items": [
+          {
+            "text": "whereas the north of the state is dry",
+            "bin": 0,
+            "reason": "'Whereas' sets one thing against another, so it's a contrast."
+          },
+          {
+            "text": "provided that the form is signed",
+            "bin": 1,
+            "reason": "'Provided that' means only if, so it's a condition."
+          },
+          {
+            "text": "given that the road was closed",
+            "bin": 2,
+            "reason": "'Given that' explains why something happened, so it's a cause."
+          },
+          {
+            "text": "even though nobody clapped",
+            "bin": 0,
+            "reason": "'Even though' sets up a surprise against what you'd expect, so it's a contrast."
+          },
+          {
+            "text": "as long as you're careful",
+            "bin": 1,
+            "reason": "'As long as' means only if, so it's a condition."
+          },
+          {
+            "text": "because the power failed",
+            "bin": 2,
+            "reason": "'Because' gives the reason why something happened, so it's a cause."
+          }
+        ]
+      }
+    }
+  ]
+}

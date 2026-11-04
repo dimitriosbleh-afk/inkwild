@@ -1,0 +1,820 @@
+{
+  "skill": {
+    "id": "5.4",
+    "name": "Lead with the dependent clause for effect",
+    "codes": [
+      "VC2E5LA05"
+    ],
+    "why": "The order of your clauses decides what the reader meets first and what lands last. Leading with the dependent clause can set the scene, give a warning first or make the reader wait for the big moment.",
+    "how": "Move the dependent clause to the front and put a comma after it, with no extra and or but. Then check that the reader gets the when, if or why first and the main news last.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "text": "The floor gave way as Zed reached the last level.",
+        "lines": [
+          "This sentence gives away the big moment first: the floor gave way. Then it tells you when.",
+          "Watch what happens if I lead with the dependent clause: As Zed reached the last level, the floor gave way.",
+          "Now you wait. You're on the last level with me, and the big moment lands at the very end.",
+          "When I move the dependent clause to the front, I put a comma after it. The comma does the joining, so I don't need and or but as well."
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which version leads with the dependent clause?",
+          "hint": "Look for the version that starts with when.",
+          "success": "'When the whistle blew' comes first, then a comma, then the main clause.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "When the whistle blew, the crowd went silent."
+              },
+              {
+                "text": "The crowd went silent when the whistle blew.",
+                "reason": "This one leads with the main clause. The dependent clause comes last."
+              },
+              {
+                "text": "The whistle blew, and the crowd went silent.",
+                "reason": "This joins two main clauses with and. There's no dependent clause to lead with."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Build the sign so the condition comes first.",
+          "hint": "Which part tells you when the rule applies?",
+          "success": "The if part comes first, so everyone knows when to move before they're told where to go.",
+          "body": {
+            "format": "build",
+            "tiles": [
+              "If the alarm rings,",
+              "walk straight",
+              "to the oval."
+            ],
+            "accept": [
+              "If the alarm rings, walk straight to the oval."
+            ],
+            "reason": "Start with the condition, 'If the alarm rings,'. The instruction comes after the comma."
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "frillip",
+      "name": "Frillip",
+      "evolved": "Frillavant",
+      "blurb": "A frill-necked lizard that flares its frill before it makes its move, so you're already on the edge of your seat when the main action lands."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.4-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "A Frillip is flaring its frill at Tully's match report.",
+      "prompt": "Which version leads with the dependent clause?",
+      "success": "'Before the siren went' comes first. A comma marks where the main clause starts.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Before the siren went, Tully kicked the goal."
+          },
+          {
+            "text": "Tully kicked the goal before the siren went.",
+            "reason": "This leads with the main clause. The dependent clause is at the end."
+          },
+          {
+            "text": "Tully kicked the goal, and the siren went.",
+            "reason": "And joins two main clauses. There's no dependent clause here."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren wrote her rescue notes two ways. The Frillip wants them sorted.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "Same clauses, different order. Leading with the dependent clause puts the when or why first.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "leads with the dependent clause",
+          "leads with the main clause"
+        ],
+        "items": [
+          {
+            "text": "When the possum hissed, Wren jumped.",
+            "bin": 0,
+            "reason": "'When the possum hissed' comes first, so it leads with the dependent clause."
+          },
+          {
+            "text": "Wren jumped when the possum hissed.",
+            "bin": 1,
+            "reason": "'Wren jumped' comes first. That's the main clause."
+          },
+          {
+            "text": "Because the joey was cold, we wrapped it up.",
+            "bin": 0,
+            "reason": "The because part comes first, so it leads with the dependent clause."
+          },
+          {
+            "text": "We wrapped the joey up because it was cold.",
+            "bin": 1,
+            "reason": "'We wrapped the joey up' comes first. That's the main clause."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.4-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's cooking diary is in pieces again.",
+      "prompt": "Tap the pieces in order. Lead with the dependent clause.",
+      "success": "Leading with 'While Mo was cooking' sets the scene. Then the smoke alarm lands at the end, like a punchline.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "While Mo was cooking,",
+          "the smoke alarm",
+          "went off."
+        ],
+        "accept": [
+          "While Mo was cooking, the smoke alarm went off."
+        ],
+        "reason": "Start with the part that leaves you waiting, 'While Mo was cooking,'. Then add the main clause."
+      }
+    },
+    {
+      "id": "5.4-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed is writing a space story. He wants you to wait for the big moment.",
+      "prompt": "Which version makes you wait, so 'eyeball' is the very last word?",
+      "success": "Leading with 'As the hatch creaked open' makes you wait. 'Eyeball' is the very last word you read.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As the hatch creaked open, we met a giant eyeball."
+          },
+          {
+            "text": "We met a giant eyeball as the hatch creaked open.",
+            "reason": "This gives away the eyeball first, so there's nothing left to wait for."
+          },
+          {
+            "text": "The hatch creaked open.",
+            "reason": "This is only one clause. It never gets to the eyeball at all."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The Frillip found a spooky sentence in pieces under the old piano.",
+      "prompt": "Put the pieces in order so the sentence leads with the dependent clause.",
+      "success": "The when part goes first and sets the scene. Then the piano surprises you at the end.",
+      "body": {
+        "format": "order",
+        "items": [
+          "When the clock struck twelve,",
+          "the old piano",
+          "began to play by itself."
+        ],
+        "reason": "Start with the part that leaves you waiting, 'When the clock struck twelve,'. The main clause comes after the comma."
+      }
+    },
+    {
+      "id": "5.4-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game guide has three tips. The Frillip only likes one of them.",
+      "prompt": "Tap the sentence that leads with a dependent clause.",
+      "success": "'If you fall in the lava' comes first, so you get the warning before the bad news.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Collect the gold key first.",
+            "reason": "This is just one main clause. There's no dependent clause to lead with."
+          },
+          " ",
+          {
+            "tap": "If you fall in the lava, you lose a life."
+          },
+          " ",
+          {
+            "tap": "The dragon sleeps until you ring the bell.",
+            "reason": "This leads with the main clause. 'Until you ring the bell' comes at the end."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.4-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Frillip is reading the lifeguard's sign at the beach.",
+      "text": "If you see a bluebottle, don't touch it.",
+      "prompt": "Why does the sign lead with the dependent clause?",
+      "success": "Leading with the if part tells you the situation first, so the instruction makes sense the moment you read it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "So you know the situation before you get the instruction."
+          },
+          {
+            "text": "Because a dependent clause always has to go first.",
+            "reason": "Dependent clauses can go first or last. The sign writer chose to put this one first."
+          },
+          {
+            "text": "So the instruction is the first thing you read.",
+            "reason": "The instruction comes last here. The situation, seeing a bluebottle, comes first."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "The school band's concert review is a mess. The Frillip is sorting the sentences.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "If the sentence opens with a word like after, although or until and a comma follows the clause, it leads with the dependent clause.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "leads with the dependent clause",
+          "leads with the main clause"
+        ],
+        "items": [
+          {
+            "text": "After the drummer counted in, the whole band started at once.",
+            "bin": 0,
+            "reason": "'After the drummer counted in' comes first, then the main clause."
+          },
+          {
+            "text": "The crowd went wild when the guitarist jumped off the stage.",
+            "bin": 1,
+            "reason": "'The crowd went wild' comes first. That's the main clause."
+          },
+          {
+            "text": "Although she had a sore throat, the singer hit every note.",
+            "bin": 0,
+            "reason": "The although part comes first, so it leads with the dependent clause."
+          },
+          {
+            "text": "The lights went out just as the chorus began.",
+            "bin": 1,
+            "reason": "'The lights went out' is the main clause, and it comes first."
+          },
+          {
+            "text": "Until the last note faded, nobody moved.",
+            "bin": 0,
+            "reason": "'Until the last note faded' comes first, then the main clause."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.4-b2-3",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is writing a warning for his robot's door. He wants the condition first.",
+      "prompt": "Build Gus's warning so the condition comes first.",
+      "success": "The unless part comes first, so visitors know about the password before they reach the door.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Unless you say the password,",
+          "the robot won't open the door.",
+          "The robot won't open the door",
+          "unless you say the password."
+        ],
+        "accept": [
+          "Unless you say the password, the robot won't open the door."
+        ],
+        "reason": "The condition is the unless part. Put it first, then the main clause after the comma."
+      }
+    },
+    {
+      "id": "5.4-b2-4",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo moved his dependent clause to the front but forgot to take out the old joining word.",
+      "prompt": "Tap the part with the extra joining word, then choose a fix.",
+      "success": "Although has already done the joining. After the comma, the main clause starts straight away: it tasted like cardboard.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Although the pie looked ",
+          {
+            "tap": "amazing",
+            "reason": "Amazing is fine. Look for a second joining word after the comma."
+          },
+          ", ",
+          {
+            "tap": "but it"
+          },
+          " tasted like ",
+          {
+            "tap": "cardboard",
+            "reason": "Cardboard is the funny part, and it's fine. Look for a second joining word after the comma."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "it"
+          },
+          {
+            "text": "and it",
+            "reason": "And is another joining word. Although has already done the joining, so you don't need a second one."
+          },
+          {
+            "text": "so it",
+            "reason": "So is another joining word, and it gives the wrong meaning. Although has already done the joining."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b2-5",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren wants readers to know when it happened before they find out what happened.",
+      "prompt": "Which version does that?",
+      "success": "'After the storm had passed' sets the scene first. Then the owl in the letterbox is the surprise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "After the storm had passed, a baby owl was sitting in our letterbox."
+          },
+          {
+            "text": "A baby owl was sitting in our letterbox after the storm had passed.",
+            "reason": "This tells you what happened first and leaves the when until the end."
+          },
+          {
+            "text": "A baby owl, after the storm, was sitting in our letterbox.",
+            "reason": "This starts with the owl, which is what happened. The when is squeezed into the middle."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b2-6",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Maxx Vantablack says Tully's report is boring. The Frillip has found the line that proves him wrong.",
+      "prompt": "Tap the sentence that leads with a dependent clause.",
+      "success": "'Just as the final siren sounded' comes first, so you wait for the winning goal at the very end.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "We were winning by a goal when the rain started.",
+            "reason": "This has a dependent clause, but it comes last. 'We were winning by a goal' leads."
+          },
+          " ",
+          {
+            "tap": "Our captain slipped over in the mud.",
+            "reason": "This is just one main clause. There's no dependent clause to lead with."
+          },
+          " ",
+          {
+            "tap": "Just as the final siren sounded, Jai kicked the winning goal from fifty metres."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.4-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed has four drafts of the scariest line in his story. The Frillip is shaking.",
+      "prompt": "Which version keeps the cold hand a secret until the very end?",
+      "success": "Leading with the long as clause keeps you creeping down the hallway. The cold hand is the last thing you read.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As Zed crept down the dark hallway towards the humming noise, a cold hand grabbed his ankle."
+          },
+          {
+            "text": "A cold hand grabbed Zed's ankle as he crept down the dark hallway towards the humming noise.",
+            "reason": "The cold hand comes straight away, so there's nothing left to wait for."
+          },
+          {
+            "text": "A cold hand grabbed Zed's ankle in the dark hallway.",
+            "reason": "The cold hand is the first thing you read, so the scare comes too early."
+          },
+          {
+            "text": "A cold hand, as Zed crept down the dark hallway, grabbed his ankle.",
+            "reason": "You meet the cold hand before anything else, so it's not a secret for long."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b3-2",
+      "band": 3,
+      "topic": "general",
+      "frame": "Tully's holiday diary has a sentence he's very proud of.",
+      "text": "Although the ferry had left and the last bus was gone, the twins made it home for dinner.",
+      "prompt": "Why does this sentence lead with the dependent clause?",
+      "success": "The problems pile up first, so you expect the twins to be stuck. Then the good news lands at the end.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It piles up the problems first, so the good news at the end is a surprise."
+          },
+          {
+            "text": "It tells you how the twins got home.",
+            "reason": "The sentence never says how they got home. It only says they made it."
+          },
+          {
+            "text": "A sentence with although must always start with although.",
+            "reason": "Although can go in the middle too: 'The twins made it home, although the ferry had left.'"
+          },
+          {
+            "text": "It makes the sentence shorter.",
+            "reason": "Moving the clause doesn't change the number of words. It changes what you read first."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b3-3",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The marine park's fact cards are mixed up. The Frillip wants three piles.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "A dependent clause has its own doer and verb. 'During the storm' has no verb, so it's a phrase, not a clause.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "dependent clause first",
+          "dependent clause last",
+          "no dependent clause"
+        ],
+        "items": [
+          {
+            "text": "When the tide turned, the seals slid back into the water.",
+            "bin": 0,
+            "reason": "'When the tide turned' comes first, then the main clause."
+          },
+          {
+            "text": "The seals slid back into the water when the tide turned.",
+            "bin": 1,
+            "reason": "The main clause comes first, and 'when the tide turned' comes last."
+          },
+          {
+            "text": "The tide turned, and the seals slid back into the water.",
+            "bin": 2,
+            "reason": "Both parts can stand alone, joined by and. Neither one is dependent."
+          },
+          {
+            "text": "Because the coral was bleached, the divers took photos for the scientists.",
+            "bin": 0,
+            "reason": "The because part comes first, so the dependent clause leads."
+          },
+          {
+            "text": "The divers took photos for the scientists because the coral was bleached.",
+            "bin": 1,
+            "reason": "The because part comes at the end, after the main clause."
+          },
+          {
+            "text": "During the storm, the boat rocked wildly.",
+            "bin": 2,
+            "reason": "'During the storm' has no verb, so it's a phrase. There's only one clause here."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.4-b3-4",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus wants the reason first, so the gross bit lands last.",
+      "prompt": "Build Gus's sentence so it leads with the dependent clause.",
+      "success": "The reason comes first and you start to worry. Then the fur coat lands at the end. Gross.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Because the fridge had been off for a week,",
+          "the yoghurt had grown a fur coat.",
+          "The yoghurt had grown a fur coat",
+          "because the fridge had been off for a week."
+        ],
+        "accept": [
+          "Because the fridge had been off for a week, the yoghurt had grown a fur coat."
+        ],
+        "reason": "Put the reason first, 'Because the fridge had been off for a week,', so the gross part comes last."
+      }
+    },
+    {
+      "id": "5.4-b3-5",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Frillip spotted a sentence on the footy club noticeboard with one joining word too many.",
+      "prompt": "Tap the part with the extra joining word, then choose a fix.",
+      "success": "Because has already joined the two ideas. After the comma, the main clause starts straight away: the umpires called off the match.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Because the ground was ",
+          {
+            "tap": "waterlogged",
+            "reason": "Waterlogged is fine. Look for an extra joining word after the comma."
+          },
+          ", ",
+          {
+            "tap": "so the"
+          },
+          " umpires ",
+          {
+            "tap": "called off",
+            "reason": "Called off is fine. Look for an extra joining word after the comma."
+          },
+          " the match."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "the"
+          },
+          {
+            "text": "and the",
+            "reason": "And adds a second joining word. Because has already linked the two ideas."
+          },
+          {
+            "text": "but the",
+            "reason": "But adds a second joining word and suggests a surprise that isn't there."
+          },
+          {
+            "text": "then the",
+            "reason": "Then isn't needed after a because clause. The comma already shows where the main clause starts."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b3-6",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi's gallery tour has four sentences. Only one leads with a dependent clause.",
+      "prompt": "Tap the sentence that leads with a dependent clause.",
+      "success": "'Once everyone could see it' has its own doer and verb, and it can't stand alone. That's a dependent clause leading the way.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "After lunch, Indi unveiled her mural.",
+            "reason": "'After lunch' has no verb, so it's a phrase, not a clause."
+          },
+          " ",
+          {
+            "tap": "Slowly, the curtain slid to the floor.",
+            "reason": "Slowly is a single word that says how. It isn't a clause."
+          },
+          " ",
+          {
+            "tap": "Once everyone could see it, the room went quiet."
+          },
+          " ",
+          {
+            "tap": "Then someone sneezed, and the whole wall of paint slid off.",
+            "reason": "This leads with a main clause, 'someone sneezed'. Then is just a time word."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.4-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "Mission control wants the crew to read the condition before the order. The Frillip is checking the drafts.",
+      "prompt": "Which sentence opens with the condition?",
+      "success": "The if clause comes first, so the crew knows exactly when the order applies before they read it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "If oxygen levels fall below twenty per cent, the crew must return to the capsule immediately."
+          },
+          {
+            "text": "The crew must return to the capsule immediately if oxygen levels fall below twenty per cent.",
+            "reason": "This gives the order first and leaves the condition until the end."
+          },
+          {
+            "text": "The crew, if oxygen levels fall below twenty per cent, must return to the capsule immediately.",
+            "reason": "This opens with 'The crew'. The condition is squeezed into the middle."
+          },
+          {
+            "text": "Immediately, the crew must return to the capsule if oxygen levels fall below twenty per cent.",
+            "reason": "This opens with immediately, and the condition is left until the very end."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b4-2",
+      "band": 4,
+      "topic": "music",
+      "frame": "A music critic wrote this about a young pianist. The Frillip wants to know why it works.",
+      "text": "Even though the hall was half empty and the piano was out of tune, the pianist played like a star.",
+      "prompt": "What does leading with the dependent clause do here?",
+      "success": "The problems come first, so you expect a flop. Then the brilliant playing lands at the end as the payoff.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It sets up the problems first, so the brilliant playing at the end feels like a payoff."
+          },
+          {
+            "text": "It shows that the empty hall was the main news of the evening.",
+            "reason": "The main clause is about the pianist, not the hall. The hall is the setting-up part."
+          },
+          {
+            "text": "It explains why the piano was out of tune.",
+            "reason": "The sentence never says why the piano was out of tune."
+          },
+          {
+            "text": "It tells the reader the pianist played badly.",
+            "reason": "'Played like a star' means she played brilliantly, not badly."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b4-3",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is commentating the robot championships. The Frillip wants his openers sorted.",
+      "prompt": "Match each sentence to the right pile.",
+      "success": "Both can open a sentence, but only a clause has its own doer and verb. 'Despite a missing wheel' has no verb, so it's a phrase.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "leads with a dependent clause",
+          "leads with a phrase"
+        ],
+        "items": [
+          {
+            "text": "Whenever the arena lights flicker, the robots freeze in place.",
+            "bin": 0,
+            "reason": "'Whenever the arena lights flicker' has a doer and a verb, so it's a dependent clause."
+          },
+          {
+            "text": "Despite a missing wheel, Gus's robot reached the final.",
+            "bin": 1,
+            "reason": "'Despite a missing wheel' has no verb, so it's a phrase."
+          },
+          {
+            "text": "As soon as the buzzer sounded, both robots charged at the cone.",
+            "bin": 0,
+            "reason": "'As soon as the buzzer sounded' has a doer and a verb, so it's a dependent clause."
+          },
+          {
+            "text": "Without warning, the champion robot reversed into the wall.",
+            "bin": 1,
+            "reason": "'Without warning' has no verb, so it's a phrase."
+          },
+          {
+            "text": "Although its arm had fallen off, the little robot kept pushing.",
+            "bin": 0,
+            "reason": "'Although its arm had fallen off' has a doer and a verb, so it's a dependent clause."
+          },
+          {
+            "text": "By the final round, only three robots were still moving.",
+            "bin": 1,
+            "reason": "'By the final round' has no verb, so it's a phrase."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.4-b4-4",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The dive boat skipper is writing the safety rules. The Frillip is helping.",
+      "prompt": "Build the skipper's rule so it leads with the dependent clause.",
+      "success": "The until clause comes first, so nobody misses the condition. 'Under no circumstances' then takes a small u, because it no longer starts the sentence.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Until every diver is back on board,",
+          "under no circumstances",
+          "Under no circumstances",
+          "should the boat leave the reef."
+        ],
+        "accept": [
+          "Until every diver is back on board, under no circumstances should the boat leave the reef."
+        ],
+        "reason": "Lead with 'Until every diver is back on board,'. The rest follows the comma, so it starts with a small letter."
+      }
+    },
+    {
+      "id": "5.4-b4-5",
+      "band": 4,
+      "topic": "space",
+      "frame": "The observatory's newsletter fronted a dependent clause but kept an extra joining word.",
+      "prompt": "Tap the part with the extra joining word, then choose a fix.",
+      "success": "Since has already joined the two ideas. After the comma, the main clause starts straight away: astronomers stayed up all night.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Since the comet would not return for another ",
+          {
+            "tap": "seventy-six",
+            "reason": "Seventy-six is fine. Look for an extra joining word after the comma."
+          },
+          " years, ",
+          {
+            "tap": "so astronomers"
+          },
+          " stayed up all ",
+          {
+            "tap": "night",
+            "reason": "Night is fine. Look for an extra joining word after the comma."
+          },
+          " to watch it."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "astronomers"
+          },
+          {
+            "text": "and astronomers",
+            "reason": "And adds a second joining word. Since has already linked the two ideas."
+          },
+          {
+            "text": "but astronomers",
+            "reason": "But adds a second joining word and signals a surprise that isn't there."
+          },
+          {
+            "text": "or astronomers",
+            "reason": "Or adds a second joining word and offers a choice that makes no sense here."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.4-b4-6",
+      "band": 4,
+      "topic": "animals",
+      "frame": "The zoo newsletter tells the story of a new keeper's first day.",
+      "prompt": "Tap the sentence that leads with a dependent clause.",
+      "success": "'Because the gate had been left unlatched' comes first, so the emu chase lands at the end as the surprise.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The zoo's new keeper was nervous on her first day.",
+            "reason": "This is just one main clause. There's no dependent clause to lead with."
+          },
+          " ",
+          {
+            "tap": "She fed the penguins before she cleaned the seal pool.",
+            "reason": "This has a dependent clause, but it comes last. 'She fed the penguins' leads."
+          },
+          " ",
+          {
+            "tap": "Because the gate had been left unlatched, she spent the afternoon chasing an emu around the car park."
+          },
+          " ",
+          {
+            "tap": "The emu, which seemed to be enjoying itself, refused to slow down.",
+            "reason": "The which part is tucked into the middle. The sentence leads with 'The emu', which belongs to the main clause."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,862 @@
+{
+  "skill": {
+    "id": "5.10",
+    "name": "Strong verbs",
+    "codes": [
+      "VC2E6LA06"
+    ],
+    "why": "A strong verb paints the whole picture in one word, so the reader sees exactly what happened.",
+    "how": "Hunt for the clues about how it happened: how fast, how loud, how big, what feeling. Then pick the verb that matches every clue.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "text": "Jai went across the oval as fast as he could.",
+        "lines": [
+          "Weak verbs like went, got and said tell you something happened. Strong verbs show you how it happened.",
+          "Here, went is true but flat. The clue is 'as fast as he could'.",
+          "Fast, on his feet, across an oval? That's sprinted. 'Jai sprinted across the oval.' Now you can see him, and I don't even need 'as fast as he could'.",
+          "So I always hunt for the clues first. Then I pick the verb that fits all of them."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "The baby ___ across the kitchen floor on her hands and knees.",
+          "prompt": "Which verb fits the clues?",
+          "hint": "Look at 'on her hands and knees'. What moves like that?",
+          "success": "Crawled. Moving on your hands and knees is exactly what crawling is.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "crawled"
+              },
+              {
+                "text": "marched",
+                "reason": "You march on your feet, swinging your arms. She's on her hands and knees."
+              },
+              {
+                "text": "sprinted",
+                "reason": "Sprinting is running flat out on your feet. Nobody sprints on their hands and knees."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "'Shh, Nan's having a nap,' Mo ___.",
+          "prompt": "Which verb fits the clues?",
+          "hint": "Would Mo be loud or quiet here?",
+          "success": "Whispered. 'Shh' and a napping nan tell you Mo kept his voice right down.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "whispered"
+              },
+              {
+                "text": "bellowed",
+                "reason": "Bellowing is shouting in a big, deep voice. That would wake Nan straight up."
+              },
+              {
+                "text": "shrieked",
+                "reason": "A shriek is a loud, high scream. It's the last thing you'd do next to a sleeping nan."
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "biffoon",
+      "name": "Biffoon",
+      "evolved": "Biffadon",
+      "blurb": "A mantis shrimp that punches flat, weak verbs off the reef. Feed it the one verb that fits the clues and it hits like a cannon."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.10-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Biffoon is guarding a sign at the wildlife park. One word has been knocked off.",
+      "text": "The kangaroo ___ over the fence in one huge leap.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Bounded. A bound is a big, springy leap, which is exactly how a kangaroo moves.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "bounded"
+          },
+          {
+            "text": "crawled",
+            "reason": "Crawling is slow and close to the ground. You can't crawl over a fence in one huge leap."
+          },
+          {
+            "text": "tiptoed",
+            "reason": "Tiptoeing is small, careful steps. One huge leap is the opposite."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is reading out his dinner review. A word has fallen out.",
+      "text": "The soup was boiling hot, so Mo ___ it slowly.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Sipped. A sip is a tiny, careful mouthful, just right for boiling soup.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "sipped"
+          },
+          {
+            "text": "gulped",
+            "reason": "Gulping is swallowing big mouthfuls fast. 'Slowly' and 'boiling hot' tell you he took tiny ones."
+          },
+          {
+            "text": "crunched",
+            "reason": "Crunching is for hard, crispy food like chips. Soup has nothing to crunch."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy report has a weak verb. Help the Biffoon punch it out.",
+      "prompt": "Tap the weak verb, then choose the verb that fits the clues.",
+      "success": "Soared. To soar is to fly high through the air, which is exactly what the ball did.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          {
+            "tap": "ball",
+            "reason": "Ball isn't a verb. It's the thing that moved."
+          },
+          " ",
+          {
+            "tap": "went"
+          },
+          " ",
+          {
+            "tap": "high",
+            "reason": "High is a clue about where the ball went. Look for the verb."
+          },
+          " over the ",
+          {
+            "tap": "goalposts",
+            "reason": "Goalposts is a thing, not a verb."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "soared"
+          },
+          {
+            "text": "dribbled",
+            "reason": "A dribble is a low kick that rolls along the ground. 'High' tells you the ball was way up in the air."
+          },
+          {
+            "text": "sank",
+            "reason": "Sinking means dropping down. The ball went high, not down."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b1-4",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Biffoon's ears are ringing. Help it sort the verbs by how loud they are.",
+      "prompt": "Match each verb to the right rock.",
+      "success": "Each of these verbs tells you how loud someone was, so you don't need to add 'loudly' or 'quietly'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "loud",
+          "quiet"
+        ],
+        "items": [
+          {
+            "text": "shouted",
+            "bin": 0,
+            "reason": "Shouting is using a big, loud voice."
+          },
+          {
+            "text": "whispered",
+            "bin": 1,
+            "reason": "Whispering is talking with hardly any voice at all."
+          },
+          {
+            "text": "roared",
+            "bin": 0,
+            "reason": "A roar is a huge, loud sound, like a lion or a footy crowd."
+          },
+          {
+            "text": "sighed",
+            "bin": 1,
+            "reason": "A sigh is a soft breath out, hardly louder than breathing."
+          },
+          {
+            "text": "shrieked",
+            "bin": 0,
+            "reason": "A shriek is a loud, high scream."
+          },
+          {
+            "text": "murmured",
+            "bin": 1,
+            "reason": "A murmur is a soft, low voice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.10-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is writing the story for the sneaking level of his game. The Biffoon has the pieces.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the clues.",
+      "success": "Crept. Creeping is moving slowly and silently, perfect for sneaking past a sleeping guard.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The ninja",
+          "crept",
+          "stomped",
+          "past the sleeping guard."
+        ],
+        "accept": [
+          "The ninja crept past the sleeping guard."
+        ],
+        "reason": "Stomping is loud and heavy. On a sneaking level, past a sleeping guard, you need a quiet verb."
+      }
+    },
+    {
+      "id": "5.10-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Wren is reading a sign at the rock pool to the Biffoon.",
+      "prompt": "Tap the verb that shows the crab moved fast.",
+      "success": "Darted. To dart is to move suddenly and fast, like a crab escaping a hungry gull.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The crab ",
+          {
+            "tap": "poked",
+            "reason": "Poked is about its eyes coming out. It doesn't tell you the crab went anywhere."
+          },
+          " out its eyes. It ",
+          {
+            "tap": "spotted",
+            "reason": "Spotted means it saw the gull. Seeing isn't moving."
+          },
+          " a gull and ",
+          {
+            "tap": "darted"
+          },
+          " under a rock."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.10-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is writing up what happened to his slime volcano.",
+      "text": "The slime ___ slowly down the side of the volcano, thick and gloopy.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Oozed. Oozing is a slow, thick flow, exactly like gloopy slime sliding down a volcano.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "oozed"
+          },
+          {
+            "text": "gushed",
+            "reason": "Gushing is a fast, strong rush of liquid. 'Slowly' and 'thick' tell you this slime was taking its time."
+          },
+          {
+            "text": "splashed",
+            "reason": "Splashing is liquid flying about in drops. Thick, gloopy slime doesn't fly. It slides."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b2-2",
+      "band": 2,
+      "topic": "space",
+      "frame": "Mission control's launch log has a gap in it.",
+      "text": "With a deafening roar, the rocket ___ off the launch pad and into the sky.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Blasted. A deafening roar and a launch are both loud and powerful, and blasted says both.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "blasted"
+          },
+          {
+            "text": "drifted",
+            "reason": "Drifting is slow and gentle, like a leaf on water. A deafening roar tells you this was nothing gentle."
+          },
+          {
+            "text": "hovered",
+            "reason": "Hovering means staying in one place in the air. This rocket went off the pad and up into the sky."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "A concert review has a weak verb in it. The Biffoon wants it gone.",
+      "prompt": "Tap the weak verb, then choose the verb that fits the clues.",
+      "success": "Pounded. Pounding is hitting hard again and again, hard enough to snap a stick.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          {
+            "tap": "drummer",
+            "reason": "Drummer is the person, not the verb."
+          },
+          " ",
+          {
+            "tap": "played"
+          },
+          " the drums so ",
+          {
+            "tap": "hard",
+            "reason": "Hard is a clue about how she played. Look for the verb it's describing."
+          },
+          " that a stick ",
+          {
+            "tap": "snapped",
+            "reason": "Snapped is already strong. You can hear the stick crack."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "pounded"
+          },
+          {
+            "text": "tapped",
+            "reason": "Tapping is light and gentle. You don't snap a stick with a tap."
+          },
+          {
+            "text": "stroked",
+            "reason": "Stroking is soft and smooth, like patting a cat. It wouldn't snap anything."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The robot's speed settings have been jumbled. Help the Biffoon put them back.",
+      "prompt": "Put the verbs in order from slowest to fastest.",
+      "success": "Crawled, strolled, jogged, sprinted. Each verb tells you the speed without needing an extra word.",
+      "body": {
+        "format": "order",
+        "items": [
+          "crawled",
+          "strolled",
+          "jogged",
+          "sprinted"
+        ],
+        "reason": "Picture a person doing each one. Crawling is the slowest, a stroll is a relaxed walk, a jog is a gentle run, and a sprint is flat out."
+      }
+    },
+    {
+      "id": "5.10-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed found a page from a ghost story in the old lighthouse.",
+      "prompt": "Tap the verb that shows something small moved quickly.",
+      "success": "Scuttled. Scuttling is quick, short, scrambling steps, like a crab or a cockroach.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The door ",
+          {
+            "tap": "creaked",
+            "reason": "Creaked is the sound the door made as it opened. It isn't something small moving across the floor."
+          },
+          " open, a candle ",
+          {
+            "tap": "flickered",
+            "reason": "Flickered shows the candle's light wobbling. The candle didn't go anywhere."
+          },
+          " and something ",
+          {
+            "tap": "scuttled"
+          },
+          " across the floor."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.10-b2-6",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's class is painting a stormy sea. Build the label for her painting.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the clues.",
+      "success": "Smashed. Huge waves hit the rocks with great force, and smashed shows that force.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Huge waves",
+          "smashed",
+          "lapped",
+          "against the rocks."
+        ],
+        "accept": [
+          "Huge waves smashed against the rocks."
+        ],
+        "reason": "Lapping is small, gentle waves. Huge waves in a storm hit hard, so you need a verb with force."
+      }
+    },
+    {
+      "id": "5.10-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's rescue notes from the bush track. One word is smudged.",
+      "text": "The injured wallaby ___ along the track, keeping its weight off one sore leg.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Limped. Limping is walking unevenly because one leg hurts, which matches every clue.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "limped"
+          },
+          {
+            "text": "bounded",
+            "reason": "Bounding is big, strong leaps. An injured wallaby saving a sore leg can't bound."
+          },
+          {
+            "text": "strutted",
+            "reason": "Strutting is a proud, showy walk. Nothing about a sore leg is showy."
+          },
+          {
+            "text": "scampered",
+            "reason": "Scampering is quick, light running. 'Injured' and 'sore leg' tell you it was slow and painful."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's cooking diary, Tuesday. A verb has fallen out.",
+      "text": "Starving after footy, Mo ___ three pies in under a minute and reached for a fourth.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Wolfed. To wolf food is to eat it hungrily and fast, like a starving wolf.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "wolfed"
+          },
+          {
+            "text": "nibbled",
+            "reason": "Nibbling is taking tiny bites. Three pies in under a minute is the opposite of tiny."
+          },
+          {
+            "text": "savoured",
+            "reason": "Savouring is eating slowly to enjoy every bite. Under a minute is far too fast to savour anything."
+          },
+          {
+            "text": "picked at",
+            "reason": "Picking at food is eating little bits without much interest. A starving Mo reaching for a fourth pie is very interested."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b3-3",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's match report has one verb letting it down.",
+      "prompt": "Tap the weak verb, then choose the verb that fits the clues.",
+      "success": "Scooped. A scoop is one quick, curved movement that lifts something up, just right for grabbing a loose ball.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In the final seconds, the captain ",
+          {
+            "tap": "got"
+          },
+          " the ball up off the ground. She ",
+          {
+            "tap": "booted",
+            "reason": "Booted is already strong. It shows a big, hard kick."
+          },
+          " it ",
+          {
+            "tap": "fifty",
+            "reason": "Fifty tells you how far. It isn't a verb."
+          },
+          " metres to win the game."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "scooped"
+          },
+          {
+            "text": "dragged",
+            "reason": "Dragging is pulling something heavy along the ground. The ball came up off the ground, and a footy is light."
+          },
+          {
+            "text": "rolled",
+            "reason": "Rolling moves the ball along the ground, not up off it."
+          },
+          {
+            "text": "lugged",
+            "reason": "Lugging is carrying something heavy with a lot of effort. A footy is light, and in the final seconds the captain had to be quick."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b3-4",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The reef creatures are all talking at once. Help the Biffoon work out how each one feels.",
+      "prompt": "Match each line to the feeling its verb shows.",
+      "success": "The verb does the work. Snapped and fumed show anger, stammered shows nerves, and boasted and bragged show off.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "angry",
+          "nervous",
+          "showing off"
+        ],
+        "items": [
+          {
+            "text": "'Get out of my rock pool!' the crab snapped.",
+            "bin": 0,
+            "reason": "Snapping is saying something sharply and crossly, so the crab is angry."
+          },
+          {
+            "text": "'I-I think there's a shark,' the fish stammered.",
+            "bin": 1,
+            "reason": "Stammering is tripping over your words, which people do when they're nervous."
+          },
+          {
+            "text": "'I'm the fastest fish on the reef,' the tuna boasted.",
+            "bin": 2,
+            "reason": "Boasting is talking proudly about yourself, so the tuna is showing off."
+          },
+          {
+            "text": "'Fine. Have the whole reef,' the octopus fumed.",
+            "bin": 0,
+            "reason": "Fuming is being so angry you're almost steaming."
+          },
+          {
+            "text": "'Look at my amazing stripes,' the angelfish bragged.",
+            "bin": 2,
+            "reason": "Bragging is showing off about yourself."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.10-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is writing the intro for his racing game. The Biffoon is holding the pieces.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the clues.",
+      "success": "Screeched. You can hear the tyres squealing and feel the speed in one word.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The kart",
+          "screeched",
+          "trundled",
+          "crawled",
+          "around the corner,",
+          "tyres smoking."
+        ],
+        "accept": [
+          "The kart screeched around the corner, tyres smoking."
+        ],
+        "reason": "Smoking tyres mean the kart was going flat out. Trundling and crawling are slow, so pick the verb that sounds fast and loud."
+      }
+    },
+    {
+      "id": "5.10-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo is telling the crew what happened to the birthday cake. Only one verb gives Dad's mood away.",
+      "prompt": "Tap the verb that shows Dad was angry.",
+      "success": "Stormed. To storm somewhere is to march there angrily, like a storm about to break.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Dad ",
+          {
+            "tap": "opened",
+            "reason": "Opened just tells you what Dad did to the fridge. It shows no feeling at all."
+          },
+          " the fridge, ",
+          {
+            "tap": "spotted",
+            "reason": "Spotted means he saw the empty tin. It shows he noticed, not how he felt."
+          },
+          " the empty cake tin and ",
+          {
+            "tap": "stormed"
+          },
+          " down the hall to ",
+          {
+            "tap": "find",
+            "reason": "Find tells you why he went down the hall, not how he felt about it."
+          },
+          " Mo."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.10-b4-1",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "A page from an old diary, found under the floorboards of Maxx's abandoned studio.",
+      "text": "The ancient floorboards ___ under every step, so sneaking past the guard dog in the hallway was hopeless.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Creaked. A creak is the groaning sound old wood makes under weight, and it would give any sneaker away.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "creaked"
+          },
+          {
+            "text": "rustled",
+            "reason": "Rustling is the soft, dry sound of leaves or paper. Old wood under your feet groans rather than rustles."
+          },
+          {
+            "text": "sizzled",
+            "reason": "Sizzling is the sound of food frying in a pan. No floorboard sizzles."
+          },
+          {
+            "text": "jangled",
+            "reason": "Jangling is metal things like keys or bells shaking together. Floorboards are wood."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "The Biffoon is watching a video message from an astronaut on the space station.",
+      "text": "Without gravity to pull it down, the spilled orange juice ___ across the cabin in wobbling, shining blobs.",
+      "prompt": "Which verb fits the clues?",
+      "success": "Floated. With no gravity to pull it down, the juice just hangs in the air and drifts along in blobs.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "floated"
+          },
+          {
+            "text": "dripped",
+            "reason": "Dripping is falling in drops. Without gravity, nothing falls."
+          },
+          {
+            "text": "trickled",
+            "reason": "Trickling is a thin, slow stream running downhill. Without gravity there's no downhill, and the juice is in blobs, not a stream."
+          },
+          {
+            "text": "seeped",
+            "reason": "Seeping is soaking slowly through something, like water through a cloth. The juice is moving through open air."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's lab report is accurate but dull. One verb needs replacing.",
+      "prompt": "Tap the weak verb, then choose the verb that fits the clues.",
+      "success": "Splattered. One word tells you the egg burst and flung stinking gunk everywhere.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The rotten egg ",
+          {
+            "tap": "slipped",
+            "reason": "Slipped is already strong. It shows the egg sliding out of Gus's grip."
+          },
+          " from Gus's fingers, ",
+          {
+            "tap": "went"
+          },
+          " all over the tiles and sent a green stink ",
+          {
+            "tap": "drifting",
+            "reason": "Drifting is just right for a smell moving slowly through the air."
+          },
+          " through the lab."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "splattered"
+          },
+          {
+            "text": "bounced",
+            "reason": "A rotten egg breaks when it lands. Bouncing would mean it stayed in one piece, and then there'd be no stink."
+          },
+          {
+            "text": "trickled",
+            "reason": "Trickling is a thin, slow flow. An egg hitting the tiles bursts all at once."
+          },
+          {
+            "text": "rolled",
+            "reason": "Rolling is turning over and over in one piece. 'All over the tiles' and the stink tell you it burst."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.10-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is writing two scenes for the club newsletter and needs the Biffoon's verbs.",
+      "prompt": "Match each verb to the scene it fits.",
+      "success": "Crept, stalked and slunk are slow, silent and sneaky. Roared, erupted and cheered are loud and sudden.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a cat sneaking up on a bird",
+          "a footy crowd after a goal"
+        ],
+        "items": [
+          {
+            "text": "crept",
+            "bin": 0,
+            "reason": "Creeping is moving slowly and silently, like a cat getting close to a bird."
+          },
+          {
+            "text": "roared",
+            "bin": 1,
+            "reason": "A roar is a huge, loud sound, like thousands of fans after a goal."
+          },
+          {
+            "text": "stalked",
+            "bin": 0,
+            "reason": "Stalking is following prey slowly and secretly."
+          },
+          {
+            "text": "erupted",
+            "bin": 1,
+            "reason": "Erupting is bursting out suddenly, like a volcano. A crowd erupts when a goal goes through."
+          },
+          {
+            "text": "slunk",
+            "bin": 0,
+            "reason": "Slinking is moving low and quietly so nobody notices you."
+          },
+          {
+            "text": "cheered",
+            "bin": 1,
+            "reason": "Cheering is shouting with joy, which is what a crowd does after a goal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5.10-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The ancient robot in the reef caves has a scrambled voice box. Rebuild its description.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the clues.",
+      "success": "Lurched. A lurch is a sudden, unsteady jerk, which is all a robot with rusty, grinding joints can manage.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The ancient robot",
+          "lurched",
+          "glided",
+          "pranced",
+          "forward,",
+          "its rusty joints grinding with every shaky step."
+        ],
+        "accept": [
+          "The ancient robot lurched forward, its rusty joints grinding with every shaky step."
+        ],
+        "reason": "Rusty, grinding joints and shaky steps can't be smooth or light. Gliding is smooth and prancing is light and lively, so pick the verb for a sudden, jerky, unsteady move."
+      }
+    },
+    {
+      "id": "5.10-b4-6",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi is reading the crew a review of her new mural.",
+      "prompt": "Tap the verb that shows the visitors weren't interested yet.",
+      "success": "Wandered. Wandering is walking along with no real aim, so the mural hadn't grabbed anyone yet.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "At first, visitors ",
+          {
+            "tap": "wandered"
+          },
+          " past the wall. Then a few ",
+          {
+            "tap": "paused",
+            "reason": "Pausing shows something caught their eye. That's the first sign they were interested."
+          },
+          ", and soon a crowd had ",
+          {
+            "tap": "gathered",
+            "reason": "Gathering in a crowd shows lots of people were interested."
+          },
+          " so close that the wet paint ",
+          {
+            "tap": "smudged",
+            "reason": "Smudged is what happened to the paint, not the visitors."
+          },
+          "."
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inkwild - visual sample</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--line:#0b0f22;--panel:#1f2850;--ink:#f4f1e8;--gold:#f2c14e;--soft:#3a4688}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#2b3678,#0d1126 70%) fixed;color:var(--ink);
+  font-family:"Press Start 2P",ui-monospace,monospace;font-size:11px;line-height:1.8;padding:24px;max-width:1040px;margin:auto}
+h1{font-size:30px;color:var(--gold);text-shadow:4px 4px 0 var(--line);margin:8px 0 6px;letter-spacing:3px}
+h2{font-size:13px;color:var(--gold);margin:40px 0 14px;text-shadow:3px 3px 0 var(--line)}
+.note{font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;opacity:.85;max-width:780px;margin:6px 0}
+.panel{background:var(--panel);border:4px solid var(--line);box-shadow:inset 0 0 0 4px var(--soft),6px 6px 0 var(--line);padding:18px}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.dex{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.card{text-align:center;padding:14px 8px}
+.card canvas{margin:0 auto;animation:idle 1.2s steps(2) infinite}
+.card:nth-child(2n) canvas{animation-delay:.3s}
+@keyframes idle{50%{transform:translateY(-6px)}}
+.name{margin-top:10px;font-size:11px}
+.type{display:inline-block;padding:5px 8px;margin-top:8px;font-size:8px;border:3px solid var(--line);color:#111;box-shadow:2px 2px 0 var(--line)}
+.shiny{position:relative}
+.shiny::after{content:"SHINY";position:absolute;top:8px;right:8px;font-size:8px;color:#111;background:var(--gold);padding:3px 5px;border:2px solid var(--line)}
+#island{width:100%;height:auto;border:4px solid var(--line);box-shadow:6px 6px 0 var(--line)}
+.row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.speech{flex:1;min-width:260px}
+.sentence{font-family:system-ui,-apple-system,sans-serif;font-size:20px;line-height:1.6;background:#f4f1e8;color:#1b1f3a;padding:14px;border:4px solid var(--line);margin:12px 0}
+.blank{display:inline-block;min-width:110px;border-bottom:4px dashed #6b74b8;text-align:center;color:#2b3a67}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+button{font:inherit;font-size:12px;color:#111;background:var(--gold);border:4px solid var(--line);padding:12px 16px;
+  box-shadow:0 5px 0 #a8792a,0 5px 0 4px var(--line);cursor:pointer;transition:transform .05s}
+button:active{transform:translateY(4px);box-shadow:0 1px 0 #a8792a,0 1px 0 4px var(--line)}
+button.alt{background:#8fd3ff;box-shadow:0 5px 0 #4b8fbf,0 5px 0 4px var(--line)}
+.msg{min-height:58px;margin-top:14px;font-family:system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.45}
+.msg b{font-family:"Press Start 2P",monospace;font-size:10px;color:var(--gold);display:block;margin-bottom:4px}
+.stage{position:relative}
+.fx{position:absolute;inset:0;pointer-events:none;width:100%;height:100%}
+.battle{background:linear-gradient(#7cc4ff 0 55%,#9bd16a 55% 100%);border:4px solid var(--line);box-shadow:6px 6px 0 var(--line);
+  height:300px;position:relative;overflow:hidden}
+.bx{position:absolute}
+.hp{background:#f4f1e8;color:#1b1f3a;border:4px solid var(--line);padding:8px 10px;font-size:10px;width:230px;box-shadow:4px 4px 0 var(--line)}
+.bar{height:10px;background:#333;border:2px solid var(--line);margin-top:6px}
+.bar i{display:block;height:100%;background:#45d16b;transition:width .6s steps(8)}
+.pad{position:absolute;width:150px;height:28px;border-radius:50%;background:#7aa957;border:4px solid #5a8a3f}
+.shake{animation:shake .35s steps(2) 2}
+@keyframes shake{25%{transform:translate(-8px,2px)}75%{transform:translate(8px,-2px)}}
+.flash{animation:flash .5s steps(2) 3}
+@keyframes flash{50%{opacity:0}}
+.why{font-family:system-ui,-apple-system,sans-serif;font-size:14px;opacity:.75;margin-top:10px}
+</style>
+</head>
+<body>
+
+<h1>INKWILD</h1>
+<p class="note"><b>Visual sample only</b>, not the game. It shows the art direction: chunky pixel art with modern polish (idle bounce, outlines, particles, screen shake, animated water). Tap the answers in sections 3 and 4.</p>
+
+<h2>1. CREATURES (one per Branch type)</h2>
+<div class="dex panel">
+  <div class="card"><canvas id="c-peerlet"></canvas><div class="name">PEERLET</div><span class="type" style="background:#f2c14e">READING BETWEEN</span></div>
+  <div class="card"><canvas id="c-quillby"></canvas><div class="name">QUILLBY</div><span class="type" style="background:#8fd3ff">SENTENCE</span></div>
+  <div class="card"><canvas id="c-lyrabble"></canvas><div class="name">LYRABBLE</div><span class="type" style="background:#ff9a7a">CONVINCE</span></div>
+  <div class="card"><canvas id="c-driftleaf"></canvas><div class="name">DRIFTLEAF</div><span class="type" style="background:#b7e07a">PICTURE-WORD</span></div>
+  <div class="card shiny"><canvas id="c-peerlet-shiny"></canvas><div class="name">PEERLET</div><span class="type" style="background:#f2c14e">READING BETWEEN</span></div>
+</div>
+<p class="note">Loosely inspired by Australian wildlife: a tawny frogmouth that notices what others miss, an echidna whose quills are pen nibs, a lyrebird that mimics any voice (perfect for persuasion), a leafy sea dragon that looks like something it isn't (metaphor). The last card is a rare shiny variant.</p>
+
+<h2>2. AN ISLAND</h2>
+<canvas id="island"></canvas>
+<p class="note">The <b>!</b> in the grass is a wild creature waiting. The boat takes you to the next island.</p>
+
+<h2>3. AN ENCOUNTER (the task is the encounter)</h2>
+<div class="panel stage">
+  <div class="row">
+    <canvas id="enc-sprite"></canvas>
+    <div class="speech">
+      <div>A wild QUILLBY is tangled in a sentence!</div>
+      <div class="note" style="margin-top:8px">Pick the joiner that gives the <b>reason</b>, and it will trust you.</div>
+      <div class="sentence">The ferry left without us <span class="blank" id="blank">&nbsp;</span> we were five minutes late.</div>
+      <div class="chips">
+        <button data-w="although">although</button>
+        <button data-w="because">because</button>
+        <button data-w="until">until</button>
+      </div>
+    </div>
+  </div>
+  <div class="msg" id="enc-msg"></div>
+  <canvas class="fx" id="enc-fx"></canvas>
+</div>
+
+<h2>4. A KEEPER BATTLE</h2>
+<div class="battle" id="battle">
+  <div class="pad" style="right:70px;top:120px"></div>
+  <div class="pad" style="left:60px;bottom:28px;width:190px"></div>
+  <canvas class="bx" id="b-enemy" style="right:85px;top:20px"></canvas>
+  <canvas class="bx" id="b-mine" style="left:70px;bottom:36px"></canvas>
+  <div class="hp bx" style="left:20px;top:20px">KEEPER'S LYRABBLE<div class="bar"><i id="hp-enemy" style="width:100%"></i></div></div>
+  <div class="hp bx" style="right:20px;bottom:24px">YOUR PEERLET<div class="bar"><i style="width:82%"></i></div></div>
+</div>
+<div class="panel" style="margin-top:14px">
+  <div>LYRABBLE used BARE CLAIM!</div>
+  <div class="sentence">"Everyone knows the new skate park is a total waste of money."</div>
+  <div>Block it! Which move works?</div>
+  <div class="chips" style="margin-top:12px">
+    <button class="alt" data-m="0">"Who says? Show me the proof."</button>
+    <button class="alt" data-m="1">"No, YOU are a waste of money!"</button>
+    <button class="alt" data-m="2">"That sentence is too long."</button>
+  </div>
+  <div class="msg" id="bat-msg"></div>
+</div>
+<p class="why">Content check: sections 3 and 4 hit VC2E5LA05 (complex sentence giving a reason) and VC2E5LA02 (moving beyond bare assertions).</p>
+
+<script>
+const OUT = '#0b0f22';
+
+const SPRITES = {
+  peerlet: { pal:{d:'#5a4030',b:'#8a6a4f',l:'#c4a684',y:'#f5c542',k:'#1b1b1b',w:'#ffffff',o:'#d9b48a'}, rows:[
+    "................",
+    "...dd......dd...",
+    "...dbd....dbd...",
+    "..dbbbbbbbbbbd..",
+    ".dbllbbbbbbllbd.",
+    ".byyyybbbbyyyyb.",
+    ".bykwybbbbykwyb.",
+    ".bykkybbbbykkyb.",
+    ".byyyyboobyyyyb.",
+    ".dbbbboooobbbbd.",
+    "..dbllllllllbd..",
+    "..dblbllllblbd..",
+    "...dbllllllbd...",
+    "....dbbbbbbd....",
+    ".....oo..oo.....",
+    "................"]},
+  quillby: { pal:{n:'#2f4a8a',m:'#4a68b0',q:'#1a2340',g:'#f2c14e',s:'#efcfa6',k:'#111111',w:'#ffffff',p:'#f28aa0'}, rows:[
+    "................",
+    ".....g..g..g....",
+    "..g..q..q..q....",
+    "...qqqqqqqqqg...",
+    ".g.qnqnqnqnqq...",
+    "..qnmnnmnnnnq...",
+    ".qnnnnmnnnnssss.",
+    ".qnmnnnnnnsswkss",
+    ".qnnnnnmnnsskkss",
+    ".qnnmnnnnnspsssss",
+    "..qnnnnnnnnsss..",
+    "..qnnnnmnnnnn...",
+    "...nnnnnnnnnn...",
+    "...ss..ss.ss....",
+    "................",
+    "................"]},
+  lyrabble: { pal:{b:'#7b5b3a',l:'#a98058',t:'#ece6d6',r:'#c0613a',k:'#111111',o:'#3a2a1a',w:'#ffffff'}, rows:[
+    ".........t..t..t",
+    "........t..t..t.",
+    "........t.t..t.r",
+    "...bb...tt..t.r.",
+    "..bbbb...tt.trr.",
+    ".obkbb...ttrr...",
+    "oobbbb....rr....",
+    "..bbbl...rr.....",
+    "..bblll.rr......",
+    "..bbllllr.......",
+    "...bbllll.......",
+    "....bbbll.......",
+    ".....bbb........",
+    ".....r.r........",
+    "....rr.rr.......",
+    "................"]},
+  driftleaf: { pal:{g:'#6fbf4a',d:'#3e8a3a',y:'#f2d45c',p:'#9b6fd1',k:'#111111'}, rows:[
+    "......dd........",
+    ".....dggd..d....",
+    "ggggggggkd.dd...",
+    ".....dgggdd.....",
+    "......dgyg.d....",
+    "....d..gyg..dd..",
+    "...dd.ggygg.....",
+    "......gyygg.d...",
+    "..dd..ggygg.dd..",
+    ".......gygg.....",
+    "....d..gyg..d...",
+    "...dd...gg......",
+    ".........gg.....",
+    "..........gp....",
+    ".........pp.....",
+    "................"]},
+  player: { pal:{r:'#d9443b',h:'#5a3a22',s:'#f0c49a',k:'#1b1b1b',b:'#3c7bd9',p:'#2b2f4a'}, rows:[
+    "................",
+    "......rrrr......",
+    ".....rrrrrrr....",
+    ".....hsssh......",
+    ".....skssk......",
+    ".....sssss......",
+    "......sss.......",
+    "....bbbbbbb.....",
+    "...sbbbbbbbs....",
+    "...s.bbbbb.s....",
+    ".....bbbbb......",
+    ".....pp.pp......",
+    ".....pp.pp......",
+    "....kk...kk.....",
+    "................",
+    "................"]},
+  gum: { pal:{l:'#6e8f4e',L:'#93b56a',t:'#e8e2d4',T:'#b9ad98'}, rows:[
+    "....llll.lll....",
+    "..llllllllllll..",
+    ".llLlllllLlllll.",
+    "lllllLllllllLlll",
+    ".lllllllLlllll..",
+    "..llLllllllll...",
+    "....lllttlll....",
+    ".......tt.......",
+    "......ttT.......",
+    ".......tt.......",
+    ".......tTt......",
+    "......ttt.......",
+    "......tttt......",
+    ".....tt..tt.....",
+    "................",
+    "................"]},
+  boat: { pal:{w:'#f4f1e8',b:'#a0522d',B:'#7a3b1f',r:'#d9443b'}, rows:[
+    "................",
+    "......r.........",
+    "......w.........",
+    "......ww........",
+    "......www.......",
+    "......wwww......",
+    "......wwwww.....",
+    "......w.........",
+    ".bbbbbbbbbbbbbb.",
+    "..BbbbbbbbbbbB..",
+    "...BBBBBBBBBB...",
+    "................"]},
+};
+
+function makeSprite(rows, pal, scale, outline = true){
+  const w = Math.max(...rows.map(r => r.length)), h = rows.length;
+  const c = document.createElement('canvas');
+  c.width = (w + 2) * scale; c.height = (h + 2) * scale;
+  const x = c.getContext('2d');
+  const at = (i, j) => (rows[j] && rows[j][i] && rows[j][i] !== '.') ? rows[j][i] : null;
+  if (outline){
+    x.fillStyle = OUT;
+    for (let j = -1; j <= h; j++) for (let i = -1; i <= w; i++){
+      if (at(i, j)) continue;
+      if (at(i-1,j) || at(i+1,j) || at(i,j-1) || at(i,j+1)) x.fillRect((i+1)*scale, (j+1)*scale, scale, scale);
+    }
+  }
+  for (let j = 0; j < h; j++) for (let i = 0; i < w; i++){
+    const ch = at(i, j); if (!ch) continue;
+    x.fillStyle = pal[ch] || '#ff00ff';
+    x.fillRect((i+1)*scale, (j+1)*scale, scale, scale);
+  }
+  return c;
+}
+function paint(id, sprite, scale, palOverride, flip){
+  const s = SPRITES[sprite];
+  const src = makeSprite(s.rows, {...s.pal, ...(palOverride||{})}, scale);
+  const c = document.getElementById(id);
+  c.width = src.width; c.height = src.height;
+  const x = c.getContext('2d');
+  if (flip){ x.translate(c.width, 0); x.scale(-1, 1); }
+  x.drawImage(src, 0, 0);
+}
+
+paint('c-peerlet', 'peerlet', 8);
+paint('c-quillby', 'quillby', 8);
+paint('c-lyrabble', 'lyrabble', 8);
+paint('c-driftleaf', 'driftleaf', 8);
+paint('c-peerlet-shiny', 'peerlet', 8, {d:'#2a3f6b', b:'#4f7fc4', l:'#a8d4ff', o:'#f2c14e'});
+paint('enc-sprite', 'quillby', 9);
+paint('b-enemy', 'lyrabble', 8);
+paint('b-mine', 'peerlet', 9, null, true);
+
+// ---------- Island scene ----------
+const MAP = [
+  "~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~ssssss~~~~~~~~~",
+  "~~~~~ssggggggss~~~~~~~",
+  "~~~~sggTggggTggs~~~~~~",
+  "~~~~sgggggggg!gs~~~~~~",
+  "~~~sggTggggPgggs~~B~~~",
+  "~~~sgggggggggggs~~~~~~",
+  "~~~~sggggTggggs~~~~~~~",
+  "~~~~~sssssssss~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~"];
+const T = 16, S = 3;
+const island = document.getElementById('island');
+island.width = MAP[0].length * T * S; island.height = MAP.length * T * S;
+const ix = island.getContext('2d'); ix.imageSmoothingEnabled = false;
+const spr = {
+  gum: makeSprite(SPRITES.gum.rows, SPRITES.gum.pal, S),
+  player: makeSprite(SPRITES.player.rows, SPRITES.player.pal, S),
+  boat: makeSprite(SPRITES.boat.rows, SPRITES.boat.pal, S),
+};
+function rnd(a, b){ const n = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return n - Math.floor(n); }
+function px(x, y, c){ ix.fillStyle = c; ix.fillRect(x * S, y * S, S, S); }
+function tile(tx, ty, kind, t){
+  const ox = tx * T, oy = ty * T;
+  if (kind === '~'){
+    ix.fillStyle = '#2f6fd1'; ix.fillRect(ox*S, oy*S, T*S, T*S);
+    for (let k = 0; k < 3; k++){
+      const wx = (Math.floor(rnd(tx, ty + k) * 12) + Math.floor(t / 400)) % 14;
+      const wy = 3 + k * 5;
+      px(ox + wx, oy + wy, '#6fa8f0'); px(ox + wx + 1, oy + wy, '#6fa8f0');
+    }
+    return;
+  }
+  if (kind === 's'){
+    ix.fillStyle = '#e9d39a'; ix.fillRect(ox*S, oy*S, T*S, T*S);
+    for (let k = 0; k < 6; k++) px(ox + Math.floor(rnd(tx+k, ty)*16), oy + Math.floor(rnd(tx, ty+k)*16), '#d1b675');
+    return;
+  }
+  ix.fillStyle = '#5fae4a'; ix.fillRect(ox*S, oy*S, T*S, T*S);
+  for (let k = 0; k < 7; k++){
+    const gx = ox + Math.floor(rnd(tx+k, ty+3)*15), gy = oy + Math.floor(rnd(tx+5, ty+k)*14);
+    px(gx, gy, '#4a8f3a'); px(gx, gy + 1, '#4a8f3a');
+  }
+}
+let sparkles = [];
+function drawIsland(t){
+  for (let y = 0; y < MAP.length; y++) for (let x = 0; x < MAP[0].length; x++){
+    const k = MAP[y][x];
+    tile(x, y, k === '~' || k === 'B' ? '~' : k === 's' ? 's' : 'g', t);
+  }
+  // shoreline foam
+  for (let y = 0; y < MAP.length; y++) for (let x = 0; x < MAP[0].length; x++){
+    if (MAP[y][x] !== 's') continue;
+    for (const [dx, dy] of [[1,0],[-1,0],[0,1],[0,-1]]){
+      const n = MAP[y+dy] && MAP[y+dy][x+dx];
+      if (n === '~'){
+        const phase = Math.floor(t / 500 + x + y) % 2;
+        ix.fillStyle = '#d8ecff';
+        if (dx) ix.fillRect(((x+dx)*T + (dx > 0 ? 0 : T - 2 - phase)) * S, y*T*S, (2+phase)*S, T*S);
+        else ix.fillRect(x*T*S, ((y+dy)*T + (dy > 0 ? 0 : T - 2 - phase)) * S, T*S, (2+phase)*S);
+      }
+    }
+  }
+  for (let y = 0; y < MAP.length; y++) for (let x = 0; x < MAP[0].length; x++){
+    const k = MAP[y][x], X = x*T*S, Y = y*T*S;
+    if (k === 'T') ix.drawImage(spr.gum, X - S, Y - 8*S);
+    if (k === 'P') ix.drawImage(spr.player, X - S, Y - S + (Math.floor(t/500)%2)*S);
+    if (k === 'B') ix.drawImage(spr.boat, X - S, Y + Math.round(Math.sin(t/400)*2)*S);
+    if (k === '!'){
+      const hop = Math.floor(t/250) % 2;
+      // rustling grass tuft
+      ix.fillStyle = '#3c7a2e';
+      for (const gx of [3,6,9,12]) ix.fillRect(X + (gx + hop)*S, Y + 8*S, S, 6*S);
+      // ! bubble
+      ix.fillStyle = OUT; ix.fillRect(X + 4*S, Y - 10*S - hop*S, 8*S, 12*S);
+      ix.fillStyle = '#ffffff'; ix.fillRect(X + 5*S, Y - 9*S - hop*S, 6*S, 10*S);
+      ix.fillStyle = '#d9443b'; ix.fillRect(X + 7*S, Y - 8*S - hop*S, 2*S, 5*S); ix.fillRect(X + 7*S, Y - 2*S - hop*S, 2*S, 2*S);
+    }
+  }
+  if (Math.random() < 0.08) sparkles.push({x: Math.random()*island.width, y: Math.random()*island.height, life: 20});
+  sparkles = sparkles.filter(s => s.life-- > 0);
+  for (const s of sparkles){
+    const xx = Math.floor(s.x / S), yy = Math.floor(s.y / S);
+    const mx = Math.floor(xx / T), my = Math.floor(yy / T);
+    if (!MAP[my] || MAP[my][mx] !== '~') continue;
+    ix.fillStyle = 'rgba(255,255,255,' + (s.life/20) + ')';
+    ix.fillRect(xx*S, yy*S, S, S); ix.fillRect((xx-1)*S, yy*S, S, S); ix.fillRect((xx+1)*S, yy*S, S, S);
+    ix.fillRect(xx*S, (yy-1)*S, S, S); ix.fillRect(xx*S, (yy+1)*S, S, S);
+  }
+  requestAnimationFrame(drawIsland);
+}
+requestAnimationFrame(drawIsland);
+
+// ---------- Pixel particles ----------
+function burst(canvas, cx, cy, colours){
+  const r = canvas.getBoundingClientRect();
+  canvas.width = r.width; canvas.height = r.height;
+  const g = canvas.getContext('2d');
+  let parts = Array.from({length: 70}, () => ({
+    x: cx, y: cy, vx: (Math.random() - .5) * 12, vy: -Math.random() * 12 - 2,
+    s: 4 + Math.floor(Math.random()*3)*2, c: colours[Math.floor(Math.random()*colours.length)], life: 50 + Math.random()*20 }));
+  (function step(){
+    g.clearRect(0, 0, canvas.width, canvas.height);
+    parts = parts.filter(p => p.life-- > 0);
+    for (const p of parts){ p.x += p.vx; p.y += p.vy; p.vy += .45; p.vx *= .98;
+      g.fillStyle = p.c; g.fillRect(Math.round(p.x/2)*2, Math.round(p.y/2)*2, p.s, p.s); }
+    if (parts.length) requestAnimationFrame(step); else g.clearRect(0, 0, canvas.width, canvas.height);
+  })();
+}
+
+// ---------- Encounter ----------
+const ENC_WHY = {
+  although: "<b>SECOND LOOK</b>\"although\" sets up a surprise. Being late isn't a surprise here. It's <i>why</i> the ferry left. Try again.",
+  until: "<b>SECOND LOOK</b>\"until\" is about time: when something stops. We need the reason the ferry left. Try again.",
+};
+let encDone = false;
+document.querySelectorAll('[data-w]').forEach(b => b.addEventListener('click', () => {
+  if (encDone) return;
+  const w = b.dataset.w, msg = document.getElementById('enc-msg');
+  if (w === 'because'){
+    encDone = true;
+    document.getElementById('blank').textContent = 'because';
+    msg.innerHTML = "<b>QUILLBY JOINED YOUR CREW!</b>\"because\" gives the reason: we were late, so the ferry left without us.";
+    const sp = document.getElementById('enc-sprite'), fx = document.getElementById('enc-fx');
+    const sr = sp.getBoundingClientRect(), pr = fx.parentElement.getBoundingClientRect();
+    burst(fx, sr.left - pr.left + sr.width/2, sr.top - pr.top + sr.height/2, ['#f2c14e','#ffffff','#8fd3ff','#f28aa0']);
+    sp.classList.add('flash');
+  } else {
+    msg.innerHTML = ENC_WHY[w];
+    const sp = document.getElementById('enc-sprite');
+    sp.classList.remove('shake'); void sp.offsetWidth; sp.classList.add('shake');
+  }
+}));
+
+// ---------- Battle ----------
+const BAT = [
+  "<b>DIRECT HIT!</b>Asking for proof is the counter to a bare claim. \"Everyone knows\" isn't evidence, so the claim crumbles.",
+  "<b>SECOND LOOK</b>Shouting back is just another bare claim. It doesn't test whether theirs is true. Try a move that does.",
+  "<b>SECOND LOOK</b>Length isn't the problem. The problem is that it says \"everyone knows\" with nothing to back it up. Try again.",
+];
+let batDone = false;
+document.querySelectorAll('[data-m]').forEach(b => b.addEventListener('click', () => {
+  if (batDone) return;
+  const m = +b.dataset.m;
+  document.getElementById('bat-msg').innerHTML = BAT[m];
+  const arena = document.getElementById('battle');
+  arena.classList.remove('shake'); void arena.offsetWidth; arena.classList.add('shake');
+  if (m === 0){
+    batDone = true;
+    document.getElementById('hp-enemy').style.width = '25%';
+    const e = document.getElementById('b-enemy'); e.classList.add('flash');
+  }
+}));
+</script>
+</body>
+</html>

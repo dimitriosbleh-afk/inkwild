@@ -1,0 +1,530 @@
+{
+  "skill": {
+    "id": "5.13",
+    "name": "Run-ons and fragments: make it a sentence",
+    "codes": ["L4", "VC2E5LA05"],
+    "why": "Readers need to know where each thought starts and stops. A run-on crams thoughts together, and a fragment leaves part of one missing.",
+    "how": "Check that each sentence says who or what, says what they did or are, and makes sense on its own. If two complete thoughts are jammed together, split them with a full stop or join them with a joining word.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "text": "The slime exploded it went all over the ceiling.",
+        "lines": [
+          "A sentence is one complete thought. It says who or what, says what they did, and makes sense on its own.",
+          "This one has two complete thoughts jammed together: 'The slime exploded' and 'it went all over the ceiling'. That's a run-on.",
+          "I can split it with a full stop: 'The slime exploded. It went all over the ceiling.' Or join it properly: 'The slime exploded, and it went all over the ceiling.'",
+          "A fragment is the opposite. 'All over the ceiling.' is only part of a thought. What went all over the ceiling? It needs the rest."
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which one is a complete sentence?",
+          "hint": "A complete sentence says who, says what they did, and stops at the end of one thought.",
+          "success": "'Gus sneezed into the slime.' It says who and what he did, and it's one complete thought.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "Gus sneezed into the slime." },
+              { "text": "Sneezing into the slime.", "reason": "This is a fragment. Who was sneezing? It doesn't say." },
+              { "text": "Gus sneezed into the slime it turned green.", "reason": "This is a run-on. Two complete thoughts are jammed together with nothing between them." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "The bus was late we missed the start of the movie.",
+          "prompt": "Which version fixes the run-on?",
+          "hint": "Two complete thoughts need a full stop between them, or a comma and a joining word.",
+          "success": "A comma plus 'so' joins the two thoughts properly and shows that one caused the other.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "The bus was late, so we missed the start of the movie." },
+              { "text": "The bus was late, we missed the start of the movie.", "reason": "A comma on its own can't hold two complete thoughts together. You need a full stop, or a joining word like so." },
+              { "text": "Because the bus was late. We missed the start of the movie.", "reason": "'Because the bus was late.' is a fragment. It leaves you waiting for what happened." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "mendlet",
+      "name": "Mendlet",
+      "evolved": "Mendlestar",
+      "blurb": "A reef sea star that can grow back a lost arm. It makes broken bits whole and snips run-ons where they should stop."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.13-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote three versions of his footy report. A Mendlet wants the one that's a sentence.",
+      "prompt": "Which one is a complete sentence?",
+      "success": "'Our team won the match.' It says who and what they did, and it's one complete thought.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Our team won the match." },
+          { "text": "Won the match on Saturday.", "reason": "Who won? This is a fragment. It's missing who the sentence is about." },
+          { "text": "Our team won the match we got pies.", "reason": "This is a run-on. Two complete thoughts are jammed together with nothing between them." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's sign for the animal shelter has a broken bit. The Mendlet can feel it.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "'Because they get bored.' is a fragment. It gives a reason, but it doesn't make sense on its own.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Our shelter has twelve dogs.", "reason": "This is complete. It says what (our shelter) and what it has." },
+          " ",
+          { "tap": "They all need a walk every day.", "reason": "This is complete. It says who (they) and what they need." },
+          " ",
+          { "tap": "Because they get bored." },
+          " ",
+          { "tap": "Can you help?", "reason": "This is complete. It's a question, and it says who (you) and what (help)." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.13-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's cooking diary has a run-on in it. The Mendlet wants it snipped.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "A full stop splits the two thoughts. 'The cheese melted.' 'It dripped everywhere.'",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Mo made cheese toast.", "reason": "This is complete. It says who (Mo) and what he did." },
+          " ",
+          { "tap": "The cheese melted it dripped everywhere." },
+          " ",
+          { "tap": "The smoke alarm went off.", "reason": "This is complete. It says what (the smoke alarm) and what it did." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "The cheese melted. It dripped everywhere." },
+          { "text": "The cheese melted, it dripped everywhere.", "reason": "A comma on its own can't hold two complete thoughts together." },
+          { "text": "The cheese melted it. Dripped everywhere.", "reason": "The full stop is in the wrong place. 'Dripped everywhere.' doesn't say what dripped." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game chat is a mess. Help the Mendlet sort the messages.",
+      "prompt": "Match each message to the right rock.",
+      "success": "A sentence is one complete thought. A fragment is part of one, and a run-on is two jammed together.",
+      "body": {
+        "format": "sort",
+        "bins": ["complete sentence", "fragment", "run-on"],
+        "items": [
+          { "text": "Zed beat the boss.", "bin": 0, "reason": "This says who (Zed) and what he did, so it's complete." },
+          { "text": "Behind the castle door.", "bin": 1, "reason": "This only says where. Nobody is doing anything, so it's a fragment." },
+          { "text": "Zed jumped the boss fell over.", "bin": 2, "reason": "'Zed jumped' and 'the boss fell over' are two thoughts jammed together." },
+          { "text": "The game froze.", "bin": 0, "reason": "This says what (the game) and what it did, so it's complete." },
+          { "text": "After level two.", "bin": 1, "reason": "This only says when. Nobody is doing anything, so it's a fragment." },
+          { "text": "The screen went black Zed yelled.", "bin": 2, "reason": "'The screen went black' and 'Zed yelled' are two thoughts jammed together." }
+        ]
+      }
+    },
+    {
+      "id": "5.13-b1-5",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "The Mendlet found a broken bit on the beach: 'Under the jetty.' Build it into a complete sentence.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "'A big crab hid under the jetty.' Now it says who, what it did and where.",
+      "body": {
+        "format": "build",
+        "tiles": ["A big crab", "hiding", "hid", "under the jetty."],
+        "accept": ["A big crab hid under the jetty."],
+        "reason": "'A big crab hiding under the jetty.' is still a fragment. The crab needs a verb that finishes the thought, like hid."
+      }
+    },
+    {
+      "id": "5.13-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo's excuse note is a run-on. The Mendlet is twitching.",
+      "text": "My dog ate my homework he burped loudly.",
+      "prompt": "Which version fixes the run-on?",
+      "success": "A full stop splits it into two complete sentences. Each one says who and what they did.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "My dog ate my homework. He burped loudly." },
+          { "text": "My dog ate my homework he. Burped loudly.", "reason": "The full stop is in the wrong place. 'Burped loudly.' doesn't say who burped." },
+          { "text": "My dog ate my homework, he burped loudly.", "reason": "A comma on its own can't hold two complete thoughts together." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Mission control has three drafts of a message to Earth. Only one is a sentence.",
+      "prompt": "Which one is a complete sentence?",
+      "success": "'The astronauts floated out of the airlock.' It says who and what they did, and it's one thought.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The astronauts floated out of the airlock." },
+          { "text": "Floating slowly out of the airlock.", "reason": "This is a fragment. Who was floating? It doesn't say." },
+          { "text": "The astronauts floated out of the airlock they waved.", "reason": "This is a run-on. 'They waved' is a second thought jammed onto the first." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's lab notes are one long run-on. The Mendlet wants to snip it in the right place.",
+      "prompt": "Tap the word where the first sentence should end.",
+      "success": "Jar. 'Gus opened the jar.' is complete, and so is 'A terrible smell filled the lab.'",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus ",
+          { "tap": "opened", "reason": "'Gus opened.' doesn't say what he opened, and 'The jar a terrible smell...' wouldn't make sense." },
+          " the ",
+          { "tap": "jar" },
+          " a terrible ",
+          { "tap": "smell", "reason": "Stopping here leaves 'Filled the lab.', which doesn't say what filled it." },
+          " filled the ",
+          { "tap": "lab", "reason": "That's the end of the whole thing. The first sentence ends earlier." },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.13-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "The band's flyer has a broken bit. Help the Mendlet mend it.",
+      "prompt": "Tap the part that is not a complete sentence, then choose the fix.",
+      "success": "'It's in the school hall.' Now it says what (it) and what it is (in the hall).",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Our band is playing on Friday.", "reason": "This is complete. It says who (our band) and what they're doing." },
+          " ",
+          { "tap": "In the school hall." },
+          " ",
+          { "tap": "Bring your earplugs!", "reason": "This is complete. It's an instruction, and instructions are sentences. The 'you' is understood." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "It's in the school hall." },
+          { "text": "In the school hall at lunch.", "reason": "Still a fragment. It says where and when, but not what is happening." },
+          { "text": "It's in the school hall, it starts at lunch.", "reason": "This is a run-on. Two complete thoughts are held together by just a comma." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The cleaning robot's error log is a jumble. Help the Mendlet sort it.",
+      "prompt": "Match each line to the right rock.",
+      "success": "Complete sentences stand alone. Fragments are missing part of a thought, and run-ons cram two thoughts together.",
+      "body": {
+        "format": "sort",
+        "bins": ["complete sentence", "fragment", "run-on"],
+        "items": [
+          { "text": "The robot rolled into the kitchen.", "bin": 0, "reason": "This says what (the robot) and what it did, so it's complete." },
+          { "text": "Because its battery was low.", "bin": 1, "reason": "This gives a reason but leaves you waiting for what happened, so it's a fragment." },
+          { "text": "The robot beeped twice it shut down.", "bin": 2, "reason": "'The robot beeped twice' and 'it shut down' are two thoughts jammed together." },
+          { "text": "Beeping and flashing its lights.", "bin": 1, "reason": "This doesn't say what was beeping, so it's a fragment." },
+          { "text": "Its arm fell off, it kept cleaning.", "bin": 2, "reason": "Two complete thoughts are held together by just a comma, so it's a run-on." },
+          { "text": "Nobody noticed.", "bin": 0, "reason": "It's short, but it says who (nobody) and what they did, so it's complete." }
+        ]
+      }
+    },
+    {
+      "id": "5.13-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed's ghost story has a fragment in it. The Mendlet has picked out three fixes.",
+      "text": "The lights went out. Then a creak from the stairs.",
+      "prompt": "Which version fixes the fragment?",
+      "success": "'Then a creak came from the stairs.' Adding the verb 'came' tells you what the creak did.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The lights went out. Then a creak came from the stairs." },
+          { "text": "The lights went out. Then a creak from the dark stairs.", "reason": "Still a fragment. A creak did what? It needs a verb." },
+          { "text": "The lights went out a creak came from the stairs.", "reason": "This is a run-on. Two complete thoughts are jammed together with nothing between them." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b2-6",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's art label just says 'Painted in one afternoon.' That's a fragment. Build it into a sentence.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "'Indi painted this mural in one afternoon.' It says who and what she did.",
+      "body": {
+        "format": "build",
+        "tiles": ["Indi", "painted", "painting", "this mural in one afternoon."],
+        "accept": ["Indi painted this mural in one afternoon."],
+        "reason": "'Indi painting this mural' is still a fragment. You need a verb that finishes the thought, like painted."
+      }
+    },
+    {
+      "id": "5.13-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's umpire report has four drafts. The Mendlet will only accept one.",
+      "prompt": "Which version is written correctly?",
+      "success": "The 'although' part can't stand alone, so a comma attaches it to the complete thought 'the players kept arguing'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Although the umpire blew the whistle, the players kept arguing." },
+          { "text": "Although the umpire blew the whistle. The players kept arguing.", "reason": "'Although the umpire blew the whistle.' is a fragment. An 'although' part can't stand on its own." },
+          { "text": "The umpire blew the whistle, the players kept arguing.", "reason": "A comma on its own can't hold two complete thoughts together. That's a run-on." },
+          { "text": "The umpire blew the whistle the players kept arguing.", "reason": "Two complete thoughts are jammed together with nothing between them. That's a run-on." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's article for the school paper has one broken part. The Mendlet is twitching.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "'Which is faster than most people.' is a fragment. A 'which' part has to hang off a sentence, not stand alone.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Wombats are surprisingly fast.", "reason": "This is complete. It says what (wombats) and what they are." },
+          " ",
+          { "tap": "They can run at forty kilometres an hour.", "reason": "This is complete. It says who (they) and what they can do." },
+          " ",
+          { "tap": "Which is faster than most people." },
+          " ",
+          { "tap": "Their poo is shaped like cubes.", "reason": "This is complete, and true. It says what (their poo) and what it is like." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.13-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's pie review has a run-on. The Mendlet is ready to fix it.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "A comma plus 'and' joins the two complete thoughts properly.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "The pie looked amazing.", "reason": "This is complete. It says what (the pie) and how it looked." },
+          " ",
+          { "tap": "Mo cut it open, a cloud of steam burst out." },
+          " ",
+          { "tap": "Then he burnt his tongue.", "reason": "This is complete. It says who (he) and what happened." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "Mo cut it open, and a cloud of steam burst out." },
+          { "text": "Mo cut it open a cloud of steam burst out.", "reason": "Taking the comma out makes it worse. Now the two thoughts are jammed together with nothing at all." },
+          { "text": "Mo cut it open. A cloud of steam.", "reason": "'A cloud of steam.' is a fragment. It doesn't say what the steam did." },
+          { "text": "When Mo cut it open.", "reason": "This is a fragment. 'When Mo cut it open' leaves you waiting for what happened." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b3-4",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The Mendlet's rock pool is full of washed-up writing. Sort it out.",
+      "prompt": "Match each one to the right rock.",
+      "success": "Check each one for a complete thought that stands alone. Starting with 'when' or 'out on' doesn't stop it being complete.",
+      "body": {
+        "format": "sort",
+        "bins": ["complete sentence", "fragment", "run-on"],
+        "items": [
+          { "text": "As the tide went out.", "bin": 1, "reason": "An 'as' part leaves you waiting for what happened, so it's a fragment." },
+          { "text": "The tide went out, the rock pools appeared.", "bin": 2, "reason": "Two complete thoughts are held together by just a comma, so it's a run-on." },
+          { "text": "When the tide went out, the rock pools appeared.", "bin": 0, "reason": "The 'when' part is attached to the complete thought 'the rock pools appeared', so it's complete." },
+          { "text": "Hundreds of tiny crabs scuttling over the rocks.", "bin": 1, "reason": "'Scuttling' on its own doesn't finish the thought. It needs 'were scuttling' or 'scuttled'." },
+          { "text": "A gull swooped down it grabbed a crab.", "bin": 2, "reason": "'A gull swooped down' and 'it grabbed a crab' are jammed together with nothing between them." },
+          { "text": "Out on the reef, a turtle surfaced.", "bin": 0, "reason": "It starts with a place, but 'a turtle surfaced' says who and what it did, so it's complete." }
+        ]
+      }
+    },
+    {
+      "id": "5.13-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's game tip is a fragment: 'If you find the gold key.' Build it into a complete sentence.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "The 'if' part now has a complete thought to hang off: the secret door opens.",
+      "body": {
+        "format": "build",
+        "tiles": ["If you find the gold key,", "If you find the gold key.", "the secret door opens.", "opening the secret door."],
+        "accept": ["If you find the gold key, the secret door opens."],
+        "reason": "An 'if' part can't stand alone. It needs a comma and then a complete thought that says what happens."
+      }
+    },
+    {
+      "id": "5.13-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo's assembly report ends with a fragment. The Mendlet has four fixes.",
+      "text": "Nobody laughed at Mo's joke. Except the principal, who snorted so hard her glasses fell off.",
+      "prompt": "Which version fixes the fragment?",
+      "success": "Joining 'except the principal' onto the first sentence gives it a complete thought to belong to.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Nobody laughed at Mo's joke except the principal, who snorted so hard her glasses fell off." },
+          { "text": "Nobody laughed at Mo's joke. Except the principal, who was snorting so hard.", "reason": "Still a fragment. 'Except the principal' has nothing to hang off." },
+          { "text": "Nobody laughed at Mo's joke, the principal snorted so hard her glasses fell off.", "reason": "This is a run-on. Two complete thoughts are held together by just a comma." },
+          { "text": "Nobody laughed at Mo's joke except. The principal snorted so hard her glasses fell off.", "reason": "'Nobody laughed at Mo's joke except.' stops halfway. Except who?" }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "The observatory's newsletter has four drafts of its headline story. Only one is a sentence.",
+      "prompt": "Which version is written correctly?",
+      "success": "The 'which' part sits inside the sentence, and 'the comet blazed across the sky' is the complete thought around it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The comet, which had not been seen for seventy-six years, blazed across the sky." },
+          { "text": "The comet, which had not been seen for seventy-six years.", "reason": "This is a fragment. It tells you about the comet but never says what the comet did." },
+          { "text": "The comet had not been seen for seventy-six years, it blazed across the sky.", "reason": "This is a run-on. Two complete thoughts are held together by just a comma." },
+          { "text": "Blazing across the sky after seventy-six years unseen.", "reason": "This is a fragment. It never says what was blazing." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b4-2",
+      "band": 4,
+      "topic": "music",
+      "frame": "A review of the reef concert has one broken part. The Mendlet has found it, but wants you to.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "'Who had never played to a crowd before.' is a fragment. A 'who' part describes someone, so it needs to be attached to the sentence about the cellist.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "The orchestra had rehearsed for months.", "reason": "This is complete. It says who (the orchestra) and what they had done." },
+          " ",
+          { "tap": "When the conductor finally raised her baton, the hall fell silent.", "reason": "This is complete. It starts with 'when', but 'the hall fell silent' finishes the thought." },
+          " ",
+          { "tap": "Every eye turned to the young cellist in the front row.", "reason": "This is complete. It says what (every eye) and what it did." },
+          " ",
+          { "tap": "Who had never played to a crowd before." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "5.13-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's report on fungi has one sentence that runs on. Fix it before the Mendlet loses an arm.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "'Which' turns the second thought into extra information about the first, so the sentence holds together.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Fungi are not plants.", "reason": "This is complete. It says what (fungi) and what they are not." },
+          " ",
+          { "tap": "Unlike plants, they cannot make their own food from sunlight.", "reason": "This is complete. It starts with a comparison, but 'they cannot make their own food' finishes the thought." },
+          " ",
+          { "tap": "Some fungi break down rotting logs, this returns nutrients to the soil." },
+          " ",
+          { "tap": "Without them, the forest floor would be buried in waste.", "reason": "This is complete. 'The forest floor would be buried' says what and what would happen." }
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "Some fungi break down rotting logs, which returns nutrients to the soil." },
+          { "text": "Some fungi break down rotting logs this returns nutrients to the soil.", "reason": "Taking the comma out leaves two complete thoughts jammed together with nothing at all." },
+          { "text": "Some fungi break down rotting logs. Which returns nutrients to the soil.", "reason": "'Which returns nutrients to the soil.' is a fragment. A 'which' part can't stand alone." },
+          { "text": "Some fungi break down rotting logs, this returning nutrients to the soil.", "reason": "'This returning nutrients' doesn't work as English. 'This' needs a proper verb, like 'returns', and then it's a run-on again." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.13-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's grand final report is a mess of broken and jammed sentences. Help the Mendlet sort it.",
+      "prompt": "Match each one to the right rock.",
+      "success": "Length doesn't decide it. A long group of words can still be a fragment, and a short one can still be complete.",
+      "body": {
+        "format": "sort",
+        "bins": ["complete sentence", "fragment", "run-on"],
+        "items": [
+          { "text": "Despite the howling wind and the freezing rain that had lashed the ground all week.", "bin": 1, "reason": "It's long, but it never gets to the main thought. Despite all that, what happened?" },
+          { "text": "The captain called her team into a huddle, they listened in silence.", "bin": 2, "reason": "Two complete thoughts are held together by just a comma, so it's a run-on." },
+          { "text": "Although they were two goals down, the team refused to give up.", "bin": 0, "reason": "The 'although' part is attached to the complete thought 'the team refused to give up'." },
+          { "text": "Hoping for one last miracle as the clock ticked down.", "bin": 1, "reason": "This never says who was hoping, so it's a fragment." },
+          { "text": "The siren sounded the crowd poured onto the ground.", "bin": 2, "reason": "'The siren sounded' and 'the crowd poured onto the ground' are jammed together with nothing between them." },
+          { "text": "Exhausted but proud, the players shook hands with their opponents.", "bin": 0, "reason": "It opens with a description, but 'the players shook hands' says who and what they did." }
+        ]
+      }
+    },
+    {
+      "id": "5.13-b4-5",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren's field notes are all fragments: 'Platypus. At dusk. Hunting for yabbies.' Build one complete sentence.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "'Dived' is the verb that finishes the thought. Now the sentence says who, what it did, when and why.",
+      "body": {
+        "format": "build",
+        "tiles": ["At dusk,", "the platypus", "dived", "diving", "having dived", "to the bottom of the creek in search of yabbies."],
+        "accept": ["At dusk, the platypus dived to the bottom of the creek in search of yabbies."],
+        "reason": "'Diving' and 'having dived' can't finish a thought on their own, so they leave a fragment. The platypus needs a verb that says what it did."
+      }
+    },
+    {
+      "id": "5.13-b4-6",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Maxx Vantablack's latest post is a run-on, and a lie. The Mendlet can only fix one of those.",
+      "text": "My robots rescue Creatures every day they love it here.",
+      "prompt": "Which version fixes the run-on?",
+      "success": "A comma plus 'and' joins the two complete thoughts properly. It's still a lie, but now it's a well-built one.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "My robots rescue Creatures every day, and they love it here." },
+          { "text": "My robots rescue Creatures every day, they love it here.", "reason": "A comma on its own can't hold two complete thoughts together. That's still a run-on." },
+          { "text": "My robots rescue Creatures every day. Loving it here.", "reason": "'Loving it here.' is a fragment. It doesn't say who is loving it." },
+          { "text": "My robots, rescuing Creatures every day, they love it here.", "reason": "'My robots' is left hanging with nothing to do, and 'they' starts the thought all over again. It's tangled." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "skill": {
+    "id": "5.12",
+    "name": "Tense that tells the reader when",
+    "codes": ["VC2E6LA06"],
+    "why": "The verb tells the reader whether something is over, happening now or still to come, so the wrong tense sends them to the wrong time.",
+    "how": "Find the time clue, like yesterday, right now, by the time or next week. Then choose the verb form that matches it.",
+    "teach": {
+      "crew": "rescuer",
+      "iDo": {
+        "text": "Yesterday I ___ a baby echidna.",
+        "lines": [
+          "Verbs carry time. They tell the reader if something is over, happening now or still to come.",
+          "Here the clue is 'yesterday'. That's over and done, so I need the past: 'Yesterday I rescued a baby echidna.'",
+          "If the clue changes to 'right now', the verb changes too: 'Right now I am feeding a baby echidna.'",
+          "And 'tomorrow' hasn't happened yet: 'Tomorrow I will release it.' So I find the clue first, then match the verb."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Last Saturday, our team ___ the grand final.",
+          "prompt": "Which verb fits the time?",
+          "hint": "Is last Saturday over, happening now or still to come?",
+          "success": "Won. Last Saturday is over, so the verb goes in the past.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "won" },
+              { "text": "will win", "reason": "Will win is for the future. Last Saturday is already over." },
+              { "text": "is winning", "reason": "Is winning means it's happening right now. Last Saturday is in the past." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "Look out the window! It ___ right now.",
+          "prompt": "Which verb fits the time?",
+          "hint": "Find the time clue at the end of the sentence.",
+          "success": "Is hailing. 'Right now' means it's happening at this very moment.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "is hailing" },
+              { "text": "hailed", "reason": "Hailed is the past, so the hail would already be over. 'Right now' means it's happening this moment." },
+              { "text": "will hail", "reason": "Will hail is the future, so it hasn't started. 'Right now' means it's happening this moment." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "tocktle",
+      "name": "Tocktle",
+      "evolved": "Tockwarden",
+      "blurb": "A flatback turtle with a clock face on its shell. Give its verb the right time and the hands tick the right way."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.12-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Tocktle found a page from Wren's rescue diary.",
+      "text": "Yesterday, Wren ___ a lost joey.",
+      "prompt": "Which verb fits the time?",
+      "success": "Rescued. Yesterday is over, so the verb goes in the past.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "rescued" },
+          { "text": "will rescue", "reason": "Will rescue is the future. Yesterday has already happened." },
+          { "text": "is rescuing", "reason": "Is rescuing means it's happening right now. Yesterday is in the past." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b1-2",
+      "band": 1,
+      "topic": "space",
+      "frame": "Mission control is planning tomorrow's launch.",
+      "text": "Tomorrow morning, the rocket ___ to the Moon.",
+      "prompt": "Which verb fits the time?",
+      "success": "Will fly. Tomorrow hasn't happened yet, so the verb looks ahead.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "will fly" },
+          { "text": "flew", "reason": "Flew is the past. Tomorrow hasn't happened yet." },
+          { "text": "has flown", "reason": "Has flown means it's already done. Tomorrow hasn't happened yet." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "The Tocktle's shell has three hands: past, now and future. Sort Tully's footy sentences.",
+      "prompt": "Match each sentence to when it happens.",
+      "success": "The verb tells you when. Cheered is over, is cheering is now, and will cheer is still to come.",
+      "body": {
+        "format": "sort",
+        "bins": ["already happened", "happening now", "still to come"],
+        "items": [
+          { "text": "The crowd cheered.", "bin": 0, "reason": "Cheered is the past, so it already happened." },
+          { "text": "The crowd is cheering.", "bin": 1, "reason": "Is cheering means it's happening right now." },
+          { "text": "The crowd will cheer.", "bin": 2, "reason": "Will cheer looks ahead, so it's still to come." },
+          { "text": "Tully kicked a goal.", "bin": 0, "reason": "Kicked is the past, so it already happened." },
+          { "text": "Tully is running onto the ground.", "bin": 1, "reason": "Is running means it's happening right now." },
+          { "text": "Tully will play on Saturday.", "bin": 2, "reason": "Will play looks ahead, so it's still to come." }
+        ]
+      }
+    },
+    {
+      "id": "5.12-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's party invitation has a verb in the wrong time.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Will bake. Next Friday hasn't happened yet, so the verb has to look ahead.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Next ",
+          { "tap": "Friday", "reason": "Friday is part of the time clue, and it's fine. Look at the verb." },
+          ", I ",
+          { "tap": "baked" },
+          " a giant ",
+          { "tap": "cake", "reason": "Cake is what Mo is baking. Look at the verb." },
+          " for my party."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "will bake" },
+          { "text": "have baked", "reason": "Have baked means it's already done. Next Friday hasn't happened yet." },
+          { "text": "was baking", "reason": "Was baking is the past. Next Friday is still to come." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is streaming live. Build what he's telling his viewers.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the time.",
+      "success": "Am fighting. 'Right now' means the fight is happening at this very moment.",
+      "body": {
+        "format": "build",
+        "tiles": ["Right now,", "I am fighting", "I fought", "the final boss!"],
+        "accept": ["Right now, I am fighting the final boss!"],
+        "reason": "Fought is the past, so the fight would be over. 'Right now' means it's happening at this moment."
+      }
+    },
+    {
+      "id": "5.12-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "The Tocktle is reading the dolphin sign at the aquarium.",
+      "prompt": "Tap the verb that tells you something is still to come.",
+      "success": "Will perform. Will tells you it hasn't happened yet. The show is at three.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The dolphins ",
+          { "tap": "swam", "reason": "Swam is the past. That already happened this morning." },
+          " all morning. Now they ",
+          { "tap": "are resting", "reason": "Are resting is happening right now." },
+          ". At three o'clock, they ",
+          { "tap": "will perform" },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.12-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is filming his experiment and talking to the camera as it happens.",
+      "text": "Quick, look! The slime ___ bigger right now.",
+      "prompt": "Which verb fits the time?",
+      "success": "Is growing. 'Quick, look!' and 'right now' tell you it's happening in front of the camera.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "is growing" },
+          { "text": "grew", "reason": "Grew is the past, so the growing would be over. 'Right now' means it's still going." },
+          { "text": "had grown", "reason": "Had grown is for something finished before another past event. 'Right now' means it's happening this moment." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "The band's diary from last week's concert has a gap.",
+      "text": "We ___ our first song when the power suddenly went out.",
+      "prompt": "Which verb fits the time?",
+      "success": "Were playing. The song was still going when the power cut in, and it was all in the past.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "were playing" },
+          { "text": "will play", "reason": "Will play is the future. 'Went out' tells you this all happened in the past." },
+          { "text": "are playing", "reason": "Are playing means it's happening right now. 'Went out' tells you this was in the past." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b2-3",
+      "band": 2,
+      "topic": "space",
+      "frame": "The space station's log has slipped into the wrong time.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Repaired. 'Two hours ago' is finished time, so the verb goes in the past.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Two hours ",
+          { "tap": "ago", "reason": "Ago is part of the time clue. It tells you this is in the past, so it's fine." },
+          ", the crew ",
+          { "tap": "will repair" },
+          " the broken solar ",
+          { "tap": "panel", "reason": "Panel is what the crew fixed. Look at the verb." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "repaired" },
+          { "text": "are repairing", "reason": "Are repairing means it's happening right now. 'Two hours ago' is in the past." },
+          { "text": "repair", "reason": "Repair is the present, for things that happen now or regularly. 'Two hours ago' is finished time." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b2-4",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo's cooking show has been jumbled. Put it back in time order for the Tocktle.",
+      "prompt": "Put the sentences in order from earliest to latest.",
+      "success": "Burnt is over, is scraping is happening now, and will serve is still to come.",
+      "body": {
+        "format": "order",
+        "items": ["Mo burnt the toast.", "Mo is scraping off the black bits.", "Mo will serve it to the judges anyway."],
+        "reason": "Use the verbs. The past comes first, then what is happening now, then what will happen."
+      }
+    },
+    {
+      "id": "5.12-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed found a note pinned to the door of the haunted house.",
+      "prompt": "Tap the verb that tells you what is happening these days.",
+      "success": "Haunt. The present tells you what they do now, these days.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "We ",
+          { "tap": "lived", "reason": "Lived is the past. It tells you how things used to be." },
+          " here for fifty years. Now we ",
+          { "tap": "haunt" },
+          " the attic. Soon we ",
+          { "tap": "will visit", "reason": "Will visit is the future. It hasn't happened yet (lucky you)." },
+          " your room."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "5.12-b2-6",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The robot's voice box is scrambled. Rebuild its warning so it talks about the future.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the time.",
+      "success": "Will run out. 'In five minutes' hasn't happened yet, so the verb looks ahead.",
+      "body": {
+        "format": "build",
+        "tiles": ["In five minutes,", "the battery", "will run out.", "ran out."],
+        "accept": ["In five minutes, the battery will run out."],
+        "reason": "Ran out is the past. 'In five minutes' hasn't happened yet, so you need a verb that looks ahead."
+      }
+    },
+    {
+      "id": "5.12-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is commentating live from the grand final. The siren has just sounded.",
+      "text": "And the siren has just gone! The Reef Rays ___ the premiership by two points!",
+      "prompt": "Which verb fits the time?",
+      "success": "Have won. The win is complete, and it has only just happened, so it matters right now.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "have won" },
+          { "text": "will win", "reason": "Will win looks ahead, but the siren has already gone. The game is over." },
+          { "text": "were winning", "reason": "Were winning means they were ahead at some point earlier. The siren has gone, so the win is complete." },
+          { "text": "are winning", "reason": "Are winning means the game is still going. The siren has gone, so it's over." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's rescue notes, written at the end of a long night.",
+      "text": "By the time the vet arrived, Wren ___ the wombat's sore leg.",
+      "prompt": "Which verb fits the time?",
+      "success": "Had already bandaged. The bandaging was finished before the vet arrived, and both are in the past.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "had already bandaged" },
+          { "text": "has already bandaged", "reason": "Has already bandaged links to right now. 'Arrived' puts this in the past, so you need the earlier past." },
+          { "text": "is already bandaging", "reason": "Is already bandaging is happening right now. 'Arrived' tells you this is all in the past." },
+          { "text": "will have bandaged", "reason": "Will have bandaged looks ahead to the future. 'Arrived' tells you this is all in the past." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b3-3",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's profile page has a verb in the wrong time. The Tocktle's hands are spinning.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Streams. 'These days' and 'every Saturday' tell you it's a habit that's still going, so you need the present.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "These days", "reason": "These days is the time clue, and it's fine. It tells you which time the verb needs." },
+          ", Zed ",
+          { "tap": "streamed" },
+          " his ",
+          { "tap": "speedruns", "reason": "Speedruns is what Zed streams. Look at the verb." },
+          " every Saturday."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "streams" },
+          { "text": "will stream", "reason": "Will stream is the future. 'These days' is about now." },
+          { "text": "had streamed", "reason": "Had streamed is for something finished before another past event. 'These days' is about now." },
+          { "text": "was streaming", "reason": "Was streaming is the past. 'These days' means it's still happening." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b3-4",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The Tocktle's clock has three hands. Sort the lines from today's reef report.",
+      "prompt": "Match each sentence to when it happens.",
+      "success": "Had dived and scuttled are finished. Were exploring and were sunbaking were in progress. Will turn and is going to leave are still to come.",
+      "body": {
+        "format": "sort",
+        "bins": ["done and finished", "was in the middle of happening", "hasn't happened yet"],
+        "items": [
+          { "text": "The whale had already dived.", "bin": 0, "reason": "Had already dived tells you the dive was finished." },
+          { "text": "The divers were exploring the wreck.", "bin": 1, "reason": "Were exploring shows the divers were in the middle of it at a past moment." },
+          { "text": "The tide will turn at noon.", "bin": 2, "reason": "Will turn looks ahead, so it hasn't happened yet." },
+          { "text": "A crab scuttled under a rock.", "bin": 0, "reason": "Scuttled is the simple past. It happened and it's over." },
+          { "text": "The seals were sunbaking on the rocks.", "bin": 1, "reason": "Were sunbaking shows the seals were in the middle of it at a past moment." },
+          { "text": "The boat is going to leave soon.", "bin": 2, "reason": "Is going to leave looks ahead, so it hasn't happened yet." }
+        ]
+      }
+    },
+    {
+      "id": "5.12-b3-5",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi's art show is next week. Build her poster sentence so it talks about the future.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the time.",
+      "success": "Will unveil. Next Friday hasn't happened yet, so the verb has to look ahead.",
+      "body": {
+        "format": "build",
+        "tiles": ["Next Friday,", "Indi", "will unveil", "unveiled", "has unveiled", "her giant mural."],
+        "accept": ["Next Friday, Indi will unveil her giant mural."],
+        "reason": "Next Friday hasn't happened yet. Unveiled and has unveiled both say it's already done."
+      }
+    },
+    {
+      "id": "5.12-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo is explaining the kitchen to the crew. One verb shows something was still going on.",
+      "prompt": "Tap the verb that shows an action was still going on when something else happened.",
+      "success": "Was juggling. The juggling was in progress when Dad walked in and interrupted it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo ",
+          { "tap": "was juggling" },
+          " eggs when Dad ",
+          { "tap": "walked", "reason": "Walked in happened at one moment. It's the thing that interrupted the juggling." },
+          " in. Now the floor ",
+          { "tap": "is", "reason": "Is tells you how the floor is right now, not what was going on in the past." },
+          " a disaster, and Mo ",
+          { "tap": "will scrub", "reason": "Will scrub is the future. Mo hasn't started scrubbing yet." },
+          " it all weekend."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "A page from a retired astronaut's memoir, on display in the space museum.",
+      "text": "When the capsule finally splashed down in the Pacific, we ___ in space for almost two hundred days.",
+      "prompt": "Which verb fits the time?",
+      "success": "Had been. The two hundred days came before the splashdown, and the splashdown is already in the past.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "had been" },
+          { "text": "have been", "reason": "Have been links the past to right now. 'Splashed down' puts the whole story in the past, so you need the earlier past." },
+          { "text": "will have been", "reason": "Will have been looks into the future. The splashdown already happened." },
+          { "text": "are", "reason": "Are is the present. The memoir is about a trip that is long over." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b4-2",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's poster about slime moulds has a gap in it.",
+      "text": "Scientists ___ slime moulds since the 1800s, and they still find new surprises every year.",
+      "prompt": "Which verb fits the time?",
+      "success": "Have studied. 'Since the 1800s' stretches from then right up to now, and 'still' tells you the work hasn't stopped.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "have studied" },
+          { "text": "studied", "reason": "'Since the 1800s' means from then until now. Studied would cut the story off in the past." },
+          { "text": "had studied", "reason": "Had studied is for something finished before another past event. 'Still find' tells you the work goes on today." },
+          { "text": "will study", "reason": "Will study is the future, but they've already been at it since the 1800s." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b4-3",
+      "band": 4,
+      "topic": "music",
+      "frame": "A music magazine interview has a verb that tells the wrong time.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Had practised. The practising was finished before she walked on stage, and the whole night is in the past.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Before she ",
+          { "tap": "walked", "reason": "Walked is right. She stepped on stage at one moment on that night in the past." },
+          " on stage that night, the singer ",
+          { "tap": "practises" },
+          " the chorus a hundred times, so she ",
+          { "tap": "knew", "reason": "Knew is right. It tells you what was true for her on that night." },
+          " every note."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "had practised" },
+          { "text": "has practised", "reason": "Has practised links to right now, but 'that night' is over. You need the earlier past." },
+          { "text": "will practise", "reason": "Will practise is the future, but 'that night' already happened." },
+          { "text": "is practising", "reason": "Is practising means right now. The interview is about one night in the past." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.12-b4-4",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren's rescue report has been shuffled. The verbs will tell you what really happened first.",
+      "prompt": "Put the sentences in the order the events happened, earliest first.",
+      "success": "Had raided is the earliest past. Found is the plain past that came after it, is patching is happening now, and will fix is still to come.",
+      "body": {
+        "format": "order",
+        "items": [
+          "During the night, a fox had raided the henhouse.",
+          "Behind the shed, Wren found three frightened chickens.",
+          "Right now, she is patching the hole in the fence.",
+          "Tomorrow, she will fix the broken gate."
+        ],
+        "reason": "Had raided tells you the raid was over before Wren found the chickens. Found is in the past, is patching is happening now, and will fix hasn't happened yet."
+      }
+    },
+    {
+      "id": "5.12-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The robot butler is sending a message to its owner. Build it so the timing is clear.",
+      "prompt": "Tap the pieces in order. Use the verb that fits the time.",
+      "success": "Will have cleaned. The cleaning will be finished at a point that is still in the future: when you get home.",
+      "body": {
+        "format": "build",
+        "tiles": ["By the time you get home,", "I", "will have cleaned", "had cleaned", "have cleaned", "the whole house."],
+        "accept": ["By the time you get home, I will have cleaned the whole house."],
+        "reason": "'By the time you get home' is still in the future. You need a verb that looks ahead to a job that will be finished by then."
+      }
+    },
+    {
+      "id": "5.12-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed found a diary in the abandoned lighthouse. The Tocktle has gone very quiet.",
+      "prompt": "Tap the verb that shows something was finished before the rest of the story began.",
+      "success": "Had locked. The past perfect tells you the locking was done before the climb and the creak.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The keeper ",
+          { "tap": "had locked" },
+          " every door before sunset, yet as I ",
+          { "tap": "was climbing", "reason": "Was climbing shows something in progress in the past, while the door creaked." },
+          " the stairs, a door ",
+          { "tap": "creaked", "reason": "Creaked happened at one moment, during the climb." },
+          " open behind me. I ",
+          { "tap": "am writing", "reason": "Am writing is happening now, as the diary is being written." },
+          " this by candlelight."
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

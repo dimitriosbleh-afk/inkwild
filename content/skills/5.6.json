@@ -1,0 +1,537 @@
+{
+  "skill": {
+    "id": "5.6",
+    "name": "Expand a noun group",
+    "codes": ["VC2E5LA06"],
+    "why": "A bare noun like 'a dog' gives the reader a blurry picture, and the words you build in front of it bring it into focus.",
+    "how": "Find the main noun, then add words in front of it that say which one or how many, what it's like and what kind. The main noun stays at the end.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "text": "a car",
+        "lines": [
+          "A noun group is a noun plus the words that build it up. 'A car' is a noun group, but a pretty thin one.",
+          "I can add what it's like: a rusty car. Then what kind: a rusty racing car.",
+          "I can say whose or how many: Dad's rusty racing car, or two rusty racing cars.",
+          "Car stays at the end. Everything I add goes in front of it and paints the picture."
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Mia pulled on ___.",
+          "prompt": "Which noun group tells you what the boots are for?",
+          "hint": "Look for the word that names a sport.",
+          "success": "Her muddy footy boots. Footy tells you what the boots are for, and muddy tells you what they look like.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "her muddy footy boots" },
+              { "text": "her muddy boots", "reason": "Muddy tells you what the boots look like, not what they're for." },
+              { "text": "her boots", "reason": "This doesn't tell you anything about the boots at all." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the main noun in this noun group.",
+          "hint": "Ask: three sleepy what?",
+          "success": "Koalas. It's the thing itself, and three and sleepy build it up.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "the ",
+              { "tap": "three", "reason": "Three tells you how many. It's building up the main noun." },
+              " ",
+              { "tap": "sleepy", "reason": "Sleepy tells you what they're like. Which word names the thing itself?" },
+              " ",
+              { "tap": "koalas" }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "trinklet",
+      "name": "Trinklet",
+      "evolved": "Trinkastor",
+      "blurb": "A bowerbird that piles shiny words in front of a plain noun until everyone stops to look."
+    }
+  },
+  "encounters": [
+    {
+      "id": "5.6-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing up today's rescue in her notebook.",
+      "text": "Wren found ___ under the deck.",
+      "prompt": "Which noun group tells you how many and what they look like?",
+      "success": "Three spiky echidnas. Three tells you how many, and spiky tells you what they look like.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "three spiky echidnas" },
+          { "text": "spiky echidnas", "reason": "Spiky tells you what they look like, but nothing tells you how many." },
+          { "text": "the echidnas", "reason": "This doesn't tell you how many there were or what they looked like." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is commentating his own backyard kick.",
+      "prompt": "Tap the main noun in the noun group 'the old leather footy'.",
+      "success": "Footy is the main noun. Old and leather both build it up.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Tully kicked the ",
+          { "tap": "old", "reason": "Old tells you what the footy is like. It's building up the main noun." },
+          " ",
+          { "tap": "leather", "reason": "Leather tells you what the footy is made of. Which word names the thing he kicked?" },
+          " ",
+          { "tap": "footy" },
+          " over the fence."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.6-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "The Trinklet is decorating a sentence from Mo's cooking diary.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "A huge chocolate cake. Huge says what it's like, chocolate says what kind, and cake comes last.",
+      "body": {
+        "format": "build",
+        "tiles": ["Mo made", "a", "huge", "chocolate", "cake."],
+        "accept": ["Mo made a huge chocolate cake."],
+        "reason": "The word that says what it's like (huge) goes before the word that says what kind (chocolate). The noun, cake, goes last."
+      }
+    },
+    {
+      "id": "5.6-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's loot bag is a mess. Every word here can go in front of 'coins'.",
+      "prompt": "Match each word to the right bag.",
+      "success": "Number words tell you how many coins. Describing words tell you what the coins are like.",
+      "body": {
+        "format": "sort",
+        "bins": ["tells you how many", "tells you what it's like"],
+        "items": [
+          { "text": "five", "bin": 0, "reason": "Five coins: five is a number, so it tells you how many." },
+          { "text": "glowing", "bin": 1, "reason": "Glowing coins: glowing tells you what they look like." },
+          { "text": "a dozen", "bin": 0, "reason": "A dozen means twelve, so it tells you how many." },
+          { "text": "rusty", "bin": 1, "reason": "Rusty coins: rusty tells you what they're like." }
+        ]
+      }
+    },
+    {
+      "id": "5.6-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo's diary has a word in a noun group that clashes with the next sentence.",
+      "prompt": "Tap the word that doesn't fit, then choose a better one.",
+      "success": "Giant. The slippers were so huge he kept tripping, so they can't be tiny.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo wore his ",
+          { "tap": "tiny" },
+          " ",
+          { "tap": "fluffy", "reason": "Fluffy is fine. Nothing in the diary says the slippers aren't fluffy." },
+          " ",
+          { "tap": "slippers", "reason": "Slippers is the main noun, and it's right. Look at the words that build it up." },
+          ". They were so huge he kept tripping over them."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "giant" },
+          { "text": "small", "reason": "Small means nearly the same as tiny. The slippers were huge." },
+          { "text": "dainty", "reason": "Dainty means small and delicate. These slippers were huge." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b1-6",
+      "band": 1,
+      "topic": "space",
+      "frame": "The words on Zed's space poster have slipped out of order.",
+      "prompt": "Put the words in order to make the noun group.",
+      "success": "The two enormous space rockets. How many, then what they're like, then what kind, then the noun.",
+      "body": {
+        "format": "order",
+        "items": ["the", "two", "enormous", "space", "rockets"],
+        "reason": "Start with 'the', then how many, then what they're like, then what kind. The main noun goes last."
+      }
+    },
+    {
+      "id": "5.6-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The lifesavers need a warning sign for a sneaky jellyfish.",
+      "text": "Swimmers, watch out! This jellyfish is tiny and almost see-through.",
+      "prompt": "Which noun group should go on the sign?",
+      "success": "The tiny clear jellyfish. Both words match the warning, so swimmers know what to look for.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the tiny clear jellyfish" },
+          { "text": "the tiny purple jellyfish", "reason": "Tiny fits, but purple doesn't. The jellyfish is almost see-through." },
+          { "text": "the huge clear jellyfish", "reason": "Clear fits, but huge doesn't. The warning says it's tiny." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi is reading a review of her brother's first gig.",
+      "prompt": "Tap the word that tells you what kind of guitar it is.",
+      "success": "Electric. It tells you what kind of guitar, so it sits right next to the noun.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "He played a ",
+          { "tap": "battered", "reason": "Battered tells you what the guitar looks like after lots of use, not what kind it is." },
+          " ",
+          { "tap": "old", "reason": "Old tells you its age. Plenty of kinds of guitar can be old." },
+          " ",
+          { "tap": "electric" },
+          " guitar all night."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "5.6-b2-3",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's field notes have been chopped into pieces.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "The three slimy garden slugs. Garden says what kind, so it sits right next to slugs.",
+      "body": {
+        "format": "build",
+        "tiles": ["Gus poked", "the", "three", "slimy", "garden", "slugs."],
+        "accept": ["Gus poked the three slimy garden slugs."],
+        "reason": "Say how many first, then what they're like, then what kind. The kind word (garden) sits right next to the noun."
+      }
+    },
+    {
+      "id": "5.6-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "The Trinklet sorts its shiny words into two piles.",
+      "prompt": "Match each word to the right pile.",
+      "success": "Some words describe what an animal is like right now. Others name what kind of animal it is.",
+      "body": {
+        "format": "sort",
+        "bins": ["what it's like", "what kind it is"],
+        "items": [
+          { "text": "'sleepy' in a sleepy shark", "bin": 0, "reason": "Any shark can be sleepy. It tells you what this one is like." },
+          { "text": "'tiger' in a tiger shark", "bin": 1, "reason": "A tiger shark is a kind of shark, so tiger names the kind." },
+          { "text": "'hungry' in a hungry crab", "bin": 0, "reason": "Any crab can be hungry. It tells you what this one is like." },
+          { "text": "'ghost' in a ghost crab", "bin": 1, "reason": "A ghost crab is a kind of crab, so ghost names the kind." },
+          { "text": "'grumpy' in a grumpy possum", "bin": 0, "reason": "Any possum can be grumpy. It tells you what this one is like." },
+          { "text": "'ringtail' in a ringtail possum", "bin": 1, "reason": "A ringtail possum is a kind of possum, so ringtail names the kind." }
+        ]
+      }
+    },
+    {
+      "id": "5.6-b2-5",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's match report has a noun group that doesn't match the game.",
+      "prompt": "Tap the word that doesn't fit, then choose a better one.",
+      "success": "Netball. She's running onto a netball court, so she needs netball shoes.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Ava laced up her ",
+          { "tap": "new", "reason": "New is fine. Nothing in the report says her shoes are old." },
+          " ",
+          { "tap": "swimming" },
+          " shoes and ran onto the ",
+          { "tap": "netball", "reason": "Netball is right. It's the clue that tells you which shoes she needs." },
+          " court."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "netball" },
+          { "text": "ballet", "reason": "Ballet shoes are for dancing on a stage, not sprinting round a court." },
+          { "text": "bowling", "reason": "Bowling shoes are for sliding at a bowling alley. Ava is on a netball court." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b2-6",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus's invention list has its words jumbled.",
+      "prompt": "Put the words in order to make the noun group.",
+      "success": "The four clumsy kitchen robots. How many, what they're like, what kind, then the noun.",
+      "body": {
+        "format": "order",
+        "items": ["the", "four", "clumsy", "kitchen", "robots"],
+        "reason": "Start with 'the', then how many, then what they're like. The kind word (kitchen) goes right before the noun."
+      }
+    },
+    {
+      "id": "5.6-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed is writing a ghost story about the house at the end of his street.",
+      "text": "Nobody has lived in the house for fifty years. Its windows are cracked and its gate hangs off one hinge.",
+      "prompt": "Which noun group fits the text without clashing with any of it?",
+      "success": "The crumbling empty house. Cracked windows and a broken gate show it's falling apart, and fifty years with nobody in it makes it empty.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the crumbling empty house" },
+          { "text": "the crumbling crowded house", "reason": "Crowded clashes with the text. Nobody has lived there for fifty years." },
+          { "text": "the tidy empty house", "reason": "Tidy clashes with the cracked windows and the gate hanging off its hinge." },
+          { "text": "the brand-new empty house", "reason": "Brand-new clashes with the text. The house has been empty for fifty years." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b3-2",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi has put up a lost-property notice in the art room.",
+      "prompt": "Tap the main noun in Indi's noun group.",
+      "success": "Pencil. Every other word builds it up: whose, what she thinks of it, what it's like, what it's made of and what it's for.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Lost: Indi's ",
+          { "tap": "favourite", "reason": "Favourite tells you what Indi thinks of it. It builds up the main noun." },
+          " ",
+          { "tap": "chunky", "reason": "Chunky tells you what it looks like. It builds up the main noun." },
+          " ",
+          { "tap": "charcoal", "reason": "Charcoal tells you what it's made of. It builds up the main noun." },
+          " ",
+          { "tap": "drawing", "reason": "Drawing tells you what it's for. Ask: a drawing what?" },
+          " ",
+          { "tap": "pencil" },
+          "."
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "5.6-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "The Trinklet is rebuilding the saddest sentence in Mo's cooking diary.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "His last two homemade meat pies. Which ones, how many, what they're like, what kind, then the noun.",
+      "body": {
+        "format": "build",
+        "tiles": ["Mo burnt", "his", "last", "two", "homemade", "meat", "pies."],
+        "accept": ["Mo burnt his last two homemade meat pies."],
+        "reason": "Whose comes first, then which ones (last) and how many (two). Homemade says what they're like, and meat says what kind, right before the noun."
+      }
+    },
+    {
+      "id": "5.6-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's new level has a noun group in every room. Sort the words that build them up.",
+      "prompt": "Match each word to the right chest.",
+      "success": "Which one or how many comes first, what it's like comes next, and what kind sits right next to the noun.",
+      "body": {
+        "format": "sort",
+        "bins": ["which one or how many", "what it's like", "what kind"],
+        "items": [
+          { "text": "'Zed's' in Zed's rusty pirate ship", "bin": 0, "reason": "Zed's tells you whose ship, so it tells you which one." },
+          { "text": "'every' in every locked door", "bin": 0, "reason": "Every tells you how many doors: all of them." },
+          { "text": "'rusty' in Zed's rusty pirate ship", "bin": 1, "reason": "Rusty tells you what the ship is like." },
+          { "text": "'enormous' in an enormous treasure chest", "bin": 1, "reason": "Enormous tells you what the chest is like." },
+          { "text": "'pirate' in Zed's rusty pirate ship", "bin": 2, "reason": "A pirate ship is a kind of ship, so pirate names the kind." },
+          { "text": "'treasure' in an enormous treasure chest", "bin": 2, "reason": "A treasure chest is a kind of chest, so treasure names the kind." }
+        ]
+      }
+    },
+    {
+      "id": "5.6-b3-5",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Indi's whale-watching diary has one word that clashes with the rest.",
+      "prompt": "Tap the word that doesn't fit, then choose a better one.",
+      "success": "Massive. A whale as long as a bus is huge, so tiny has to go.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "We watched a ",
+          { "tap": "tiny" },
+          " ",
+          { "tap": "grey", "reason": "Grey is fine. Humpbacks are grey, and nothing in the diary says otherwise." },
+          " ",
+          { "tap": "humpback", "reason": "Humpback tells you what kind of whale it is, and nothing clashes with it." },
+          " whale leap out of the water. It was as long as a bus."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "massive" },
+          { "text": "little", "reason": "Little means nearly the same as tiny. This whale was as long as a bus." },
+          { "text": "stubby", "reason": "Stubby means short and thick. This whale was as long as a bus." },
+          { "text": "miniature", "reason": "Miniature means a very small copy of something. This whale was as long as a bus." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b3-6",
+      "band": 3,
+      "topic": "general",
+      "frame": "Dad is writing a note for the beach lost-property hut.",
+      "text": "Dad left ___ on the sand near the flags.",
+      "prompt": "Which noun group says whose it is, what it looks like and what kind it is?",
+      "success": "His stripy beach towel. His says whose, stripy says what it looks like, and beach says what kind.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "his stripy beach towel" },
+          { "text": "a stripy beach towel", "reason": "A doesn't say whose towel it is. It could be anyone's." },
+          { "text": "his stripy towel", "reason": "This says whose and what it looks like, but not what kind of towel." },
+          { "text": "his beach towel", "reason": "This says whose and what kind, but not what it looks like." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "A message is crackling in from a deep-space probe.",
+      "text": "The probe's camera picked out a moon no wider than a city. Its surface was pitted with thousands of craters.",
+      "prompt": "Which noun group fits everything the probe saw?",
+      "success": "A tiny pockmarked moon. Tiny matches 'no wider than a city', and pockmarked matches the craters.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "a tiny pockmarked moon" },
+          { "text": "a vast pockmarked moon", "reason": "Pockmarked fits the craters, but vast clashes with 'no wider than a city'." },
+          { "text": "a tiny glassy moon", "reason": "Tiny fits, but glassy means smooth and shiny. This surface is covered in craters." },
+          { "text": "a tiny pockmarked planet", "reason": "The describing words fit, but the main noun is wrong. The probe saw a moon." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b4-2",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren's rescue log from the bay has one long noun group in it.",
+      "prompt": "Tap the main noun in the noun group that starts with 'the four'.",
+      "success": "Turtles. Four, exhausted, baby and loggerhead all build it up, and the main noun comes last.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren released the four ",
+          { "tap": "exhausted", "reason": "Exhausted tells you what the animals are like. It builds up the main noun." },
+          " ",
+          { "tap": "baby", "reason": "Baby tells you how old they are. Ask: four exhausted baby what?" },
+          " ",
+          { "tap": "loggerhead", "reason": "Loggerhead tells you what kind of turtle. It sits right next to the main noun, which comes after it." },
+          " ",
+          { "tap": "turtles" },
+          " back into the ",
+          { "tap": "bay", "reason": "Bay is a noun, but it's in a different part of the sentence. Which word do four and exhausted build up?" },
+          "."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "5.6-b4-3",
+      "band": 4,
+      "topic": "music",
+      "frame": "Zed's concert review fell off the stage in pieces.",
+      "prompt": "Tap the pieces in order to build the sentence.",
+      "success": "His last two booming drum solos. Which ones, how many, what they're like, what kind, then the noun.",
+      "body": {
+        "format": "build",
+        "tiles": ["Zed hammered out", "his", "last", "two", "booming", "drum", "solos", "before the speakers blew."],
+        "accept": ["Zed hammered out his last two booming drum solos before the speakers blew."],
+        "reason": "Whose and which ones come first, then how many. Booming says what they're like, and drum says what kind, right before the noun."
+      }
+    },
+    {
+      "id": "5.6-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi is labelling the paintings for the school art show.",
+      "prompt": "Match each word to the right easel.",
+      "success": "Which one or how many leads the noun group, what it's like comes next, and what kind sits right next to the noun.",
+      "body": {
+        "format": "sort",
+        "bins": ["which one or how many", "what it's like", "what kind"],
+        "items": [
+          { "text": "'both' in both smudged watercolour landscapes", "bin": 0, "reason": "Both tells you how many: the two of them." },
+          { "text": "'Indi's' in Indi's vivid portrait sketches", "bin": 0, "reason": "Indi's tells you whose sketches, so it tells you which ones." },
+          { "text": "'smudged' in both smudged watercolour landscapes", "bin": 1, "reason": "Smudged tells you what the landscapes look like." },
+          { "text": "'vivid' in Indi's vivid portrait sketches", "bin": 1, "reason": "Vivid tells you what the sketches are like: bright and bold." },
+          { "text": "'watercolour' in both smudged watercolour landscapes", "bin": 2, "reason": "Watercolour names the kind of painting, so it sits right next to the noun." },
+          { "text": "'portrait' in Indi's vivid portrait sketches", "bin": 2, "reason": "Portrait names the kind of sketch: a drawing of a person." }
+        ]
+      }
+    },
+    {
+      "id": "5.6-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus's robot logbook has a noun group that clashes with what the robot did.",
+      "prompt": "Tap the word that doesn't fit, then choose a better one.",
+      "success": "Aerial. The drone is soaring over the treetops, so it's a flying drone, not an underwater one.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus launched his ",
+          { "tap": "sleek", "reason": "Sleek tells you what the drone looks like, and nothing in the logbook clashes with it." },
+          " ",
+          { "tap": "underwater" },
+          " drone, and it soared over the treetops, scanning the ",
+          { "tap": "forest", "reason": "Forest is right. Treetops tell you the drone is above a forest." },
+          " below."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "aerial" },
+          { "text": "submarine", "reason": "Submarine means it works under the water. This drone is in the air." },
+          { "text": "deep-sea", "reason": "A deep-sea drone explores the bottom of the ocean. This one is above the trees." },
+          { "text": "amphibious", "reason": "Amphibious means it works on land and in water. Neither one lets it soar over treetops." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "5.6-b4-6",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Mo is at the vet to collect Biscuit, and there are three dogs in the waiting room.",
+      "text": "The dogs waiting are a fluffy white poodle, a fluffy brown poodle and a short-haired brown terrier. Biscuit is a poodle with a coat the colour of milk chocolate, and she has just eaten six socks.",
+      "prompt": "Which noun group should Mo tell the nurse, so she brings out Biscuit and no other dog?",
+      "success": "The fluffy brown poodle. Biscuit is a poodle with a brown coat, and only one poodle is brown, so this noun group picks out Biscuit exactly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "the fluffy brown poodle" },
+          { "text": "the brown dog", "reason": "Two of the dogs are brown, so the nurse might bring out the terrier." },
+          { "text": "the fluffy poodle", "reason": "Both poodles are fluffy, so the nurse might bring out the white one." },
+          { "text": "the short-haired brown terrier", "reason": "Biscuit is a poodle, so Biscuit can't be the terrier." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}
