@@ -2,7 +2,7 @@ import { content, crew } from '../../app/content';
 import { captainCanvas } from '../../art/captain';
 import { crewCanvas } from '../../art/crew';
 import { creatureCanvas } from '../../art/creatures';
-import type { BranchId, Response, Task } from '../../content/types';
+import type { BranchId, Response, Skill, SkillId, Task } from '../../content/types';
 import { currentTask, KEEPER_HP, type GameEvent } from '../../core/game';
 import type { Activity } from '../../core/save';
 import type { App, ScreenView } from '../app';
@@ -10,6 +10,7 @@ import { h } from '../dom';
 import { passage, widget } from '../formats';
 import { burst, shake } from '../fx';
 import { readable } from '../speech';
+import '../task.css';
 import { nextPrompt, writeScreen } from './write';
 
 export function activityScreen(app: App, { branch }: { branch: BranchId }): ScreenView {
@@ -23,9 +24,7 @@ export function activityScreen(app: App, { branch }: { branch: BranchId }): Scre
     if (events.some((e) => e.type === 'empty') || !store.save.activity) return charting(app, branch);
   }
   const a = store.save.activity!;
-  const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' ? 'RETREAT' : 'ISLAND');
-  const header = h('div', { class: 'row spread' }, back, h('div', { class: 'frame' }, content.branch(branch).island.toUpperCase()));
-  const el = h('div', { class: 'centre' }, header);
+  const el = h('div', { class: 'centre task-screen' }, header(app, branch, a));
 
   if (a.kind === 'teach' && a.step === 0) {
     el.append(iDo(app, branch, a));
@@ -33,6 +32,17 @@ export function activityScreen(app: App, { branch }: { branch: BranchId }): Scre
   }
   el.append(taskView(app, branch, a));
   return { el };
+}
+
+function header(app: App, branch: BranchId, a: Activity): HTMLElement {
+  const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' ? 'RETREAT' : 'ISLAND');
+  const teaching = a.kind === 'teach' && a.step === 0;
+  const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(moveCardFor(content.skill(skillOf(a)))) }, 'MOVE CARD');
+  return h('div', { class: 'row spread task-head' }, h('div', { class: 'row' }, back, card), h('div', { class: 'frame' }, content.branch(branch).island.toUpperCase()));
+}
+
+function skillOf(a: Activity): SkillId {
+  return a.kind === 'teach' ? a.skill : content.encounter(a.id).skill;
 }
 
 function leave(app: App, branch: BranchId): void {
@@ -62,6 +72,39 @@ function lit(text: string): HTMLElement {
   return out;
 }
 
+/** What a Move card shows. Kept apart from Skill so a later teaching redesign can feed it something else. */
+export interface MoveCard {
+  name: string;
+  beats: readonly { say: string; show?: string }[];
+  why: string;
+}
+
+export function moveCardFor(skill: Skill): MoveCard {
+  return { name: skill.name, beats: skill.teach.iDo.beats, why: skill.why };
+}
+
+export function openMoveCard(card: MoveCard): void {
+  const close = h('button', { class: 'big', onclick: () => overlay.remove() }, 'CLOSE');
+  const overlay = h(
+    'div',
+    { class: 'overlay move-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': `Move card: ${card.name}` },
+    h(
+      'div',
+      { class: 'panel pop move-card-panel' },
+      h('div', { class: 'frame' }, 'MOVE CARD'),
+      h('h2', {}, card.name.toUpperCase()),
+      h(
+        'ol',
+        { class: 'move-beats' },
+        card.beats.map((b) => h('li', {}, h('div', { class: 'reading' }, readable(b.say)), b.show ? lit(b.show) : null)),
+      ),
+      h('div', { class: 'why' }, h('b', {}, 'WHY: '), readable(card.why)),
+      h('div', { class: 'actions move-card-close' }, close),
+    ),
+  );
+  document.body.append(overlay);
+}
+
 function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>): HTMLElement {
   const skill = content.skill(a.skill);
   const person = crew[skill.teach.crew];
@@ -72,11 +115,6 @@ function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>
   const bubble = h('div', { class: 'speech beat' });
   const dots = h('div', { class: 'dots' });
   const next = h('button', { class: 'big' }, 'NEXT');
-  const skip = h('button', { class: 'ghost' }, 'GOT IT, LET ME TRY');
-  const go = () => {
-    app.store.dispatch({ type: 'advance' });
-    app.go({ name: 'activity', branch });
-  };
   const draw = () => {
     const beat = beats[at]!;
     bubble.replaceChildren(h('b', {}, person.name.toUpperCase()), h('div', { class: 'reading pop' }, readable(beat.say)), ...(beat.show ? [lit(beat.show)] : []));
@@ -87,9 +125,11 @@ function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>
     if (at < beats.length - 1) {
       at++;
       draw();
-    } else go();
+      return;
+    }
+    app.store.dispatch({ type: 'advance' });
+    app.go({ name: 'activity', branch });
   });
-  skip.addEventListener('click', go);
   draw();
   return h(
     'div',
@@ -98,39 +138,79 @@ function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>
     h('h2', {}, skill.name.toUpperCase()),
     h('div', { class: 'row teach-row' }, portrait, bubble),
     h('div', { class: 'why' }, h('b', {}, 'WHY: '), readable(skill.why)),
-    h('div', { class: 'bar-actions' }, dots, h('div', { class: 'row' }, skip, next)),
+    h('div', { class: 'bar-actions' }, dots, next),
   );
+}
+
+function said(cls: string, text: string): HTMLElement {
+  return h('div', { class: `reading ${cls}` }, readable(text));
+}
+
+function bubble(name: string, lines: (HTMLElement | null)[], cls = ''): HTMLElement {
+  return h('div', { class: `speech task-speech ${cls}` }, h('b', {}, name.toUpperCase()), ...lines);
+}
+
+/** Who is talking to the Student: the crew member who taught the move, or the Keeper in a battle. */
+function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extract<Activity, { kind: 'teach' }>, task: Task): { el: HTMLElement; sprite: HTMLCanvasElement | null } {
+  const frame = task.frame ? said('say-frame', task.frame) : null;
+  const prompt = said('say-prompt', task.prompt);
+
+  if (a.kind === 'keeper') {
+    const b = content.branch(a.branch);
+    const skill = content.skill(content.encounter(a.id).skill);
+    const el = h(
+      'div',
+      { class: 'stage stage-keeper' },
+      arena(app, a),
+      h('div', { class: 'frame keeper-call' }, `${b.keeper.name.toUpperCase()} USES ${skill.name.toUpperCase()}! BLOCK IT RIGHT FIRST TIME FOR A FULL HIT.`),
+      frame,
+      bubble(b.keeper.name, [said('say-prompt', task.prompt.replace(/\.$/, '!'))], 'from-foe'),
+    );
+    return { el, sprite: null };
+  }
+
+  if (a.kind === 'encounter') {
+    const skill = content.skill(content.encounter(a.id).skill);
+    const p = app.store.save.skills[skill.id];
+    const wild = creatureCanvas(skill.creature.id, { scale: 5, evolved: !!p?.mastered, shiny: app.store.save.shinies.includes(skill.creature.id) });
+    wild.classList.add('bob');
+    const guide = crewCanvas(skill.teach.crew, 5);
+    guide.classList.add('stage-guide');
+    const el = h(
+      'div',
+      { class: 'stage stage-wild' },
+      guide,
+      bubble(crew[skill.teach.crew].name, [frame, prompt]),
+      h('div', { class: 'wild-spot' }, wild, h('div', { class: 'wild-pad' })),
+    );
+    return { el, sprite: wild };
+  }
+
+  const crewId = content.skill(a.skill).teach.crew;
+  const person = crew[crewId];
+  const sprite = crewCanvas(crewId, 6);
+  sprite.classList.add('bob');
+  const hint = 'hint' in task && typeof task.hint === 'string' ? said('say-hint', `Hint: ${task.hint}`) : null;
+  const el = h(
+    'div',
+    { class: 'stage stage-crew' },
+    h('div', { class: 'frame' }, `WE DO · ${person.name.toUpperCase()} IS HELPING`),
+    h('div', { class: 'stage-row' }, sprite, bubble(person.name, [frame, prompt, hint])),
+  );
+  return { el, sprite };
 }
 
 function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extract<Activity, { kind: 'teach' }>): HTMLElement {
   const store = app.store;
   const task: Task = currentTask(content, a);
-  const panel = h('div', { class: 'panel' });
+  const panel = h('div', { class: 'panel task' });
   const feedback = h('div', { class: 'task-foot' });
-  let sprite: HTMLCanvasElement | null = null;
+  const on = stage(app, a, task);
+  const sprite = on.sprite;
+  panel.append(on.el);
 
-  if (a.kind === 'keeper') {
-    const b = content.branch(a.branch);
-    const skill = content.skill(content.encounter(a.id).skill);
-    panel.append(arena(app, a), h('div', { class: 'frame', style: 'color:var(--gold)' }, `${b.keeper.name.toUpperCase()} USES ${skill.name.toUpperCase()}! BLOCK IT RIGHT FIRST TIME FOR A FULL HIT.`));
-  }
-  else if (a.kind === 'encounter') {
-    const skill = content.skill(content.encounter(a.id).skill);
-    const p = store.save.skills[skill.id];
-    sprite = creatureCanvas(skill.creature.id, { scale: 6, evolved: !!p?.mastered, shiny: store.save.shinies.includes(skill.creature.id) });
-    sprite.classList.add('bob');
-  } else {
-    sprite = crewCanvas(content.skill(a.skill).teach.crew, 4);
-    sprite.classList.add('bob');
-    panel.append(h('div', { class: 'frame' }, `WE DO · ${crew[content.skill(a.skill).teach.crew].name.toUpperCase()} IS HELPING`));
-  }
-
-  const intro = h('div', { style: 'flex:1;min-width:240px' }, task.frame ? h('div', { class: 'frame' }, task.frame) : null);
-  panel.append(h('div', { class: 'row', style: 'align-items:flex-start' }, sprite, intro));
   const text = passage(task);
   if (text) panel.append(text);
-  panel.append(h('div', { class: 'prompt' }, readable(task.prompt)));
-  if (a.kind === 'teach' && 'hint' in task) panel.append(h('div', { class: 'hint' }, `Hint: ${(task as Task & { hint: string }).hint}`));
 
   const w = widget(task.body, (response: Response) => {
     const events = store.dispatch({ type: 'answer', response });
@@ -148,11 +228,12 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
         w.wrong();
         app.sfx('look');
         if (sprite) shake(sprite);
-        feedback.replaceChildren(h('div', { class: 'feedback look pop' }, h('b', {}, 'SECOND LOOK'), readable(e.reason)));
+        const note = w.lookNote?.();
+        feedback.replaceChildren(h('div', { class: 'feedback look pop' }, h('b', {}, 'SECOND LOOK'), readable(e.reason), note ? h('div', { class: 'look-count' }, readable(note)) : null));
       }
       if (e.type === 'hit') hit(panel, e.target, e.amount, app);
       if (e.type === 'resolved') {
-        w.reveal();
+        w.reveal(e.outcome);
         if (task.body.format === 'choose' && text) {
           const blank = text.querySelector('.blank');
           if (blank) {

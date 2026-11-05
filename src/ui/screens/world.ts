@@ -1,34 +1,28 @@
+import '../world.css';
 import { chapters, content, crew } from '../../app/content';
 import { unreadChapters } from '../../story/chapters';
 import { onHomeScreen } from '../../app/persist';
 import { today } from '../../app/store';
 import { CREW_LOOKS } from '../../art/crew';
 import { creatureCanvas } from '../../art/creatures';
+import { iconCanvas } from '../../art/icons';
 import { drawMap, type MapIsland } from '../../art/map';
 import { backupDue } from '../../backup/code';
 import type { BranchId } from '../../content/types';
-import { isUnlocked, keeperOpen, unlockedSkills } from '../../core/route';
-import { skillProgress, type Activity } from '../../core/save';
-import { Scene, type Dir, type Poi, type PoiKind } from '../../world/scene';
+import { isUnlocked, keeperOpen } from '../../core/route';
+import { skillProgress } from '../../core/save';
+import { activityBranch, alertsFor, charted, goalFor, islandProgress, placeState, type Goal } from '../../world/goal';
+import { Scene, type Poi, type PoiKind } from '../../world/scene';
 import { themeFor } from '../../world/themes';
 import type { App, ScreenView } from '../app';
 import { h } from '../dom';
 
-export function activityBranch(a: Activity): BranchId {
-  if (a.kind === 'keeper') return a.branch;
-  const skill = a.kind === 'teach' ? a.skill : content.encounter(a.id).skill;
-  return content.skill(skill).branch;
-}
-
-function ready(branch: BranchId): boolean {
-  return content.skillsOf(branch).length > 0;
-}
-
 export function continueTo(app: App): void {
   const s = app.store.save;
-  if (s.activity) return app.go({ name: 'activity', branch: activityBranch(s.activity) });
-  if (s.tide && !s.tide.done && s.tide.day === today() && ready(s.tide.branch)) return app.go({ name: 'activity', branch: s.tide.branch });
-  app.go({ name: 'activity', branch: ready(app.lastBranch) ? app.lastBranch : 'sentence' });
+  if (s.activity) return app.go({ name: 'activity', branch: activityBranch(content, s.activity) });
+  const tide = placeState(content, s, 'home', today()).tide;
+  if (tide) return app.go({ name: 'activity', branch: tide });
+  app.go({ name: 'activity', branch: charted(content, app.lastBranch) ? app.lastBranch : 'sentence' });
 }
 
 /** Where the captain was standing on each Island, so coming back from an Encounter doesn't reset the walk. */
@@ -46,32 +40,70 @@ const ACTION_LABEL: Record<PoiKind, string> = {
   board: 'READ',
 };
 
-function dpad(scene: Scene): HTMLElement {
-  const pad = h('div', { class: 'dpad' });
-  const arrows: [Dir, string][] = [['up', '▲'], ['left', '◀'], ['right', '▶'], ['down', '▼']];
-  for (const [dir, glyph] of arrows) {
-    const b = h('button', { class: `pad-${dir}`, 'aria-label': `walk ${dir}` }, glyph);
-    const press = (e: Event) => {
-      e.preventDefault();
-      scene.hold(dir);
-      b.classList.add('down');
-    };
-    const release = (e: Event) => {
-      e.preventDefault();
-      scene.hold(null);
-      b.classList.remove('down');
-    };
-    b.addEventListener('pointerdown', press);
-    b.addEventListener('pointerup', release);
-    b.addEventListener('pointercancel', release);
-    b.addEventListener('pointerleave', release);
-    pad.append(b);
-  }
-  return pad;
+const STICK_RADIUS = 60;
+const DEAD_ZONE = 0.12;
+const TAP_MS = 250;
+const TAP_PX = 10;
+/** World pixels: generous, because a finger covers far more than one sprite. */
+const TAP_POI = 14;
+
+/**
+ * A floating stick, Minecraft style: it appears wherever the finger lands on the surface and steers the scene.
+ * A short, still touch is a tap instead.
+ */
+function joystick(scene: Scene, surface: HTMLElement, onTap: (clientX: number, clientY: number) => void): HTMLElement {
+  const knob = h('div', { class: 'stick-knob' });
+  const stick = h('div', { class: 'stick' }, h('div', { class: 'stick-ring' }), knob);
+  let held: { id: number; x: number; y: number; t: number; far: number } | null = null;
+
+  surface.addEventListener('pointerdown', (e) => {
+    if (held) return;
+    e.preventDefault();
+    held = { id: e.pointerId, x: e.clientX, y: e.clientY, t: e.timeStamp, far: 0 };
+    surface.setPointerCapture(e.pointerId);
+    stick.style.left = `${e.clientX}px`;
+    stick.style.top = `${e.clientY}px`;
+    knob.style.transform = '';
+    stick.classList.add('on');
+  });
+  surface.addEventListener('pointermove', (e) => {
+    if (!held || e.pointerId !== held.id) return;
+    const dx = e.clientX - held.x, dy = e.clientY - held.y, len = Math.hypot(dx, dy);
+    held.far = Math.max(held.far, len);
+    const clamp = len > STICK_RADIUS ? STICK_RADIUS / len : 1;
+    knob.style.transform = `translate(${Math.round(dx * clamp)}px, ${Math.round(dy * clamp)}px)`;
+    const m = Math.min(1, len / STICK_RADIUS);
+    const speed = (m - DEAD_ZONE) / (1 - DEAD_ZONE);
+    scene.steer(m < DEAD_ZONE ? null : { x: (dx / len) * speed, y: (dy / len) * speed });
+  });
+  const release = (e: PointerEvent) => {
+    if (!held || e.pointerId !== held.id) return;
+    const tap = e.type === 'pointerup' && e.timeStamp - held.t < TAP_MS && held.far < TAP_PX;
+    held = null;
+    stick.classList.remove('on');
+    scene.steer(null);
+    if (tap) onTap(e.clientX, e.clientY);
+  };
+  for (const type of ['pointerup', 'pointercancel', 'lostpointercapture'] as const) surface.addEventListener(type, release);
+  return stick;
+}
+
+/** The POI under a tap. Sprites stand above their POI point, so aim a little higher. */
+function poiAt(scene: Scene, world: { x: number; y: number }): Poi | undefined {
+  const d = (q: Poi) => Math.hypot(q.x - world.x, q.y - 6 - world.y);
+  return scene.pois.filter((q) => d(q) < TAP_POI).sort((a, b) => d(a) - d(b))[0];
 }
 
 function say(box: HTMLElement, who: string, text: string, buttons: HTMLElement[] = []): void {
   box.replaceChildren(h('div', { class: 'speech pop' }, h('b', {}, who), h('div', { class: 'reading' }, text), buttons.length ? h('div', { class: 'actions' }, buttons) : null));
+}
+
+function settingsButton(app: App): HTMLElement {
+  return h('button', { class: 'ghost', onclick: () => app.go({ name: 'settings' }) }, iconCanvas('gear', 2), 'SETTINGS');
+}
+
+function goalBanner(goal: Goal, go: (() => void) | null): HTMLElement {
+  return h('div', { class: 'goal-banner' }, h('b', {}, 'NEXT:'), h('span', { class: 'goal-line' }, goal.line), go ? h('button', { class: 'go', onclick: go }, 'GO') : null);
 }
 
 export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }): ScreenView {
@@ -84,25 +116,21 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
   const el = h('div', { class: 'play' }, canvas);
   const firstSkill = b ? content.skillsOf(b.id)[0] : undefined;
   const crewId = firstSkill?.teach.crew ?? 'nav';
-  const open = !home && ready(branch as BranchId);
+  const st = placeState(content, s, branch, today());
+  const goal = goalFor(content, s, branch, today());
 
-  const kinds: PoiKind[] = home ? ['hut', 'board'] : open ? ['crew', 'sign', ...(b?.marked ? (['keeper'] as const) : [])] : ['sign'];
+  const kinds: PoiKind[] = home ? ['hut', 'board'] : st.open ? ['crew', 'sign', ...(b?.marked ? (['keeper'] as const) : [])] : ['sign'];
   const scene = new Scene(canvas, {
     theme: themeFor(branch),
     ...(s.captain ? { look: s.captain } : {}),
     crewLook: CREW_LOOKS[crewId],
     kinds,
-    grass: home ? 1 : open ? 3 : 0,
+    grass: home ? 1 : st.open ? 3 : 0,
     ...(positions.get(branch) ? { start: positions.get(branch)! } : {}),
   });
-
-  const teachDue = () => open && unlockedSkills(content, s, branch as BranchId).some((sk) => !skillProgress(s, sk.id).taught);
-  const tideOpen = () => !!(s.tide && !s.tide.done && s.tide.day === today() && ready(s.tide.branch));
-  const keeperReady = () => open && keeperOpen(content, s, branch as BranchId) && !s.branches[branch as BranchId].keeper;
-  const midway = () => !!s.activity && !home && activityBranch(s.activity) === branch;
-  scene.setAlert('crew', teachDue() || (midway() && s.activity?.kind === 'teach'));
-  scene.setAlert('grass', home ? tideOpen() : open && (!teachDue() || (midway() && s.activity?.kind !== 'teach')));
-  scene.setAlert('keeper', keeperReady());
+  const alerts = alertsFor(content, s, branch, today());
+  for (const kind of Object.keys(alerts) as PoiKind[]) scene.setAlert(kind, alerts[kind]);
+  scene.setGoal({ kind: goal.kind, label: goal.label });
 
   const play = () => {
     positions.set(branch, { x: scene.player.x, y: scene.player.y });
@@ -112,39 +140,40 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
     app.store.dispatch({ type: 'keeper', branch: branch as BranchId });
     play();
   };
+  const sailTide = (label: string) => h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch: st.tide! }) }, label);
+  const person = crew[crewId];
 
-  const use = (poi: Poi) => {
-    const person = crew[crewId];
-    switch (poi.kind) {
-      case 'boat':
-        positions.delete(branch);
-        return app.go({ name: 'map' });
-      case 'grass':
-        if (home) {
-          if (tideOpen()) return say(speech, 'TIDE QUEST', `Something is stirring on ${content.branch(s.tide!.branch).island}. Sail there to find it.`, [h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch: s.tide!.branch }) }, 'GO NOW')]);
-          return say(speech, 'THE LONG GRASS', 'Nothing here today. Sail to an island to find wild creatures.');
-        }
-        if (teachDue() && !midway()) return say(speech, person.name.toUpperCase(), "Hey captain! Come and learn a new move first. I'm by the path.");
-        return play();
-      case 'crew':
-        if (teachDue() || (midway() && s.activity?.kind === 'teach')) return play();
-        return say(speech, person.name.toUpperCase(), 'You know every move I can teach right now. Search the long grass for wild creatures!');
-      case 'keeper': {
-        if (!b) return;
-        if (s.branches[b.id].keeper) return say(speech, b.keeper.name.toUpperCase(), 'You beat me fair and square. Fancy a rematch?', [h('button', { class: 'big', onclick: battle }, 'REMATCH')]);
-        if (keeperOpen(content, s, b.id)) return battle();
-        const left = content.skillsOf(b.id).slice(0, b.keeperAfter).filter((sk) => !skillProgress(s, sk.id).mastered).length;
-        return say(speech, b.keeper.name.toUpperCase(), `Ha! Come back when you've mastered ${left} more move${left === 1 ? '' : 's'}.`);
-      }
-      case 'sign':
-        return showRoute(app, speech, branch as BranchId);
-      case 'hut':
-        return app.go({ name: 'guide' });
-      case 'board':
-        if (tideOpen()) return say(speech, 'TIDE QUEST', `Today's tide points to ${content.branch(s.tide!.branch).island}. Finish a creature there for double XP.`, [h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch: s.tide!.branch }) }, 'SAIL THERE')]);
-        return say(speech, 'TIDE QUEST', s.tide?.done ? 'Tide quest done for today. Nice work!' : 'No tide quest today.');
-    }
+  const uses: Record<PoiKind, () => void> = {
+    boat: () => {
+      positions.delete(branch);
+      app.go({ name: 'map' });
+    },
+    grass: () => {
+      if (home && st.tide) return say(speech, 'TIDE QUEST', `Something is stirring on ${content.branch(st.tide).island}. Sail there to find it.`, [sailTide('GO NOW')]);
+      if (home) return say(speech, 'THE LONG GRASS', 'Nothing here today. Sail to an island to find wild creatures.');
+      if (st.teachDue && !st.midway) return say(speech, person.name.toUpperCase(), "Hey captain! Come and learn a new move first. I'm by the path.");
+      play();
+    },
+    crew: () => {
+      if (st.teachDue || st.midway === 'teach') return play();
+      say(speech, person.name.toUpperCase(), 'You know every move I can teach right now. Search the long grass for wild creatures!');
+    },
+    keeper: () => {
+      if (!b) return;
+      if (s.branches[b.id].keeper) return say(speech, b.keeper.name.toUpperCase(), 'You beat me fair and square. Fancy a rematch?', [h('button', { class: 'big', onclick: battle }, 'REMATCH')]);
+      if (keeperOpen(content, s, b.id)) return battle();
+      const left = content.skillsOf(b.id).slice(0, b.keeperAfter).filter((sk) => !skillProgress(s, sk.id).mastered).length;
+      say(speech, b.keeper.name.toUpperCase(), `Ha! Come back when you've mastered ${left} more move${left === 1 ? '' : 's'}.`);
+    },
+    sign: () => showRoute(app, speech, branch as BranchId),
+    hut: () => app.go({ name: 'guide' }),
+    board: () => {
+      if (st.tide) return say(speech, 'TIDE QUEST', `Today's tide points to ${content.branch(st.tide).island}. Finish a creature there for double XP.`, [sailTide('SAIL THERE')]);
+      say(speech, 'TIDE QUEST', s.tide?.done ? 'Tide quest done for today. Nice work!' : 'No tide quest today.');
+    },
   };
+  const use = (poi: Poi) => uses[poi.kind]();
+  const walkAndUse = (poi: Poi) => scene.walkTo(poi, () => use(poi));
 
   scene.onNear = (poi) => {
     action.disabled = !poi;
@@ -159,25 +188,40 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
     if (poi) use(poi);
   });
 
+  const stick = joystick(scene, canvas, (x, y) => {
+    const world = scene.screenToWorld(x, y);
+    const poi = poiAt(scene, world);
+    if (poi) walkAndUse(poi);
+    else scene.walkTo(world);
+  });
+  const goalPoi = () => scene.closest(goal.kind);
+
   const unread = unreadChapters(content, s, chapters).length;
   const title = home ? 'HOME ISLAND' : b!.island.toUpperCase();
   const sub = home ? `${content.branches.filter((x) => s.branches[x.id].keeper).length}/9 BADGES · ${s.daysPlayed} DAYS` : b!.name.toUpperCase();
   el.append(
+    stick,
     h(
       'div',
       { class: 'hud top' },
-      h('div', { class: 'chip-hud' }, h('div', { class: 'label' }, title), h('div', {}, sub)),
       h(
         'div',
-        { class: 'row' },
-        home ? h('button', { class: 'alt', onclick: () => continueTo(app) }, 'QUICK PLAY') : h('button', { class: 'alt', onclick: () => app.go({ name: 'map' }) }, 'MAP'),
-        h('button', { class: 'alt', onclick: () => app.go({ name: 'guide' }) }, 'FIELD GUIDE'),
-        h('button', { class: 'alt', onclick: () => app.go({ name: 'story' }) }, 'LOGBOOK', unread > 0 ? h('span', { class: 'tide-tag' }, String(unread)) : null),
-        h('button', { class: 'ghost', onclick: () => app.go({ name: 'settings' }) }, '⚙ SETTINGS'),
+        { class: 'hud-row' },
+        h('div', { class: 'chip-hud' }, h('div', { class: 'label' }, title), h('div', {}, sub)),
+        h(
+          'div',
+          { class: 'row' },
+          h('button', { class: 'primary', onclick: () => app.go({ name: 'map' }) }, iconCanvas('map', 2), 'MAP'),
+          home ? h('button', { class: 'alt', onclick: () => continueTo(app) }, 'QUICK PLAY') : null,
+          h('button', { class: 'alt', onclick: () => app.go({ name: 'guide' }) }, 'FIELD GUIDE'),
+          h('button', { class: 'alt', onclick: () => app.go({ name: 'story' }) }, 'LOGBOOK', unread > 0 ? h('span', { class: 'tide-tag' }, String(unread)) : null),
+          settingsButton(app),
+        ),
       ),
+      goalBanner(goal, goalPoi() ? () => walkAndUse(goalPoi()!) : null),
     ),
     speech,
-    h('div', { class: 'hud bottom controls' }, dpad(scene), action),
+    h('div', { class: 'hud bottom controls' }, action),
   );
 
   if (!tipShown) {
@@ -186,9 +230,13 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
       speech,
       'HOW TO PLAY',
       home
-        ? 'Walk with the arrows. The big button uses things. Walk onto the dock and tap SAIL to visit an island.'
-        : 'Walk with the arrows. A ! means something is waiting for you. Walk into long grass with a ! to find a creature.',
+        ? 'Drag anywhere to walk, or tap where you want to go. Not sure what to do? Read the NEXT box at the top, or tap GO.'
+        : 'Drag anywhere to walk, or tap where you want to go. A ! means something is waiting for you. Tap GO to head to your next job.',
     );
+    const tip = speech.firstElementChild;
+    const closeTip = () => speech.firstElementChild === tip && speech.replaceChildren();
+    speech.addEventListener('click', closeTip, { once: true });
+    setTimeout(closeTip, 8000);
   }
   if (home && !onHomeScreen() && !sessionStorage.getItem('a2hs')) {
     el.append(prompt('ADD ME TO YOUR HOME SCREEN', 'Tap Share, then "Add to Home Screen". Open me from there, or Safari may delete your progress after a week away.', 'GOT IT', () => sessionStorage.setItem('a2hs', '1')));
@@ -275,31 +323,34 @@ export function mapScreen(app: App): ScreenView {
   const canvas = h('canvas', { class: 'world' });
   const islands: MapIsland[] = [
     { kind: 'home', x: SPOTS.home[0], y: SPOTS.home[1], r: SPOTS.home[2], charted: true },
-    ...content.branches.map((b) => ({ kind: b.id, x: SPOTS[b.id][0], y: SPOTS[b.id][1], r: SPOTS[b.id][2], charted: ready(b.id) })),
+    ...content.branches.map((b) => ({ kind: b.id, x: SPOTS[b.id][0], y: SPOTS[b.id][1], r: SPOTS[b.id][2], charted: charted(content, b.id) })),
   ];
   const at = SPOTS[app.lastBranch] ?? SPOTS.home;
   const el = h('div', { class: 'play' }, canvas);
   const stop = drawMap(canvas, islands, { x: at[0] - at[2] * 0.9, y: at[1] + at[2] * 0.6 });
-  const target = (key: BranchId | 'home', label: string, go: () => void, fog: boolean, extra?: HTMLElement | null) => {
+  const target = (key: BranchId | 'home', name: string, aria: string, go: () => void, fog: boolean, extras: (HTMLElement | null)[] = []) => {
     const [x, y, r] = SPOTS[key];
     return h(
       'button',
-      { class: `map-hit${fog ? ' fog' : ''}`, style: `left:${x * 100}%;top:${y * 100}%;width:${r * 260}vw;height:${r * 260}vw`, onclick: go, 'aria-label': label },
-      h('span', { class: 'map-label' }, label, extra ?? null),
+      { class: `map-hit${fog ? ' fog' : ''}`, style: `left:${x * 100}%;top:${y * 100}%;width:${r * 260}vw;height:${r * 260}vw`, onclick: go, 'aria-label': aria },
+      h('span', { class: 'map-label' }, name, extras),
     );
   };
+  const island = (id: BranchId) => {
+    const b = content.branch(id);
+    const open = charted(content, id);
+    const pct = Math.round(islandProgress(content, s, id) * 100);
+    const name = b.island.toUpperCase();
+    return target(id, name, open ? `${name}, ${pct}% done` : name, () => app.go({ name: 'island', branch: id }), !open, [
+      open ? h('span', { class: 'map-pct' }, `${pct}%`) : null,
+      s.branches[id].keeper ? iconCanvas('star', 2) : null,
+      s.tide?.branch === id && !s.tide.done && open ? h('span', { class: 'tide-tag' }, 'TIDE') : null,
+    ]);
+  };
   el.append(
-    ...content.branches.map((b) =>
-      target(
-        b.id,
-        `${s.branches[b.id].keeper ? '★ ' : ''}${b.island.toUpperCase()}`,
-        () => app.go({ name: 'island', branch: b.id }),
-        !ready(b.id),
-        s.tide?.branch === b.id && !s.tide.done && ready(b.id) ? h('span', { class: 'tide-tag' }, 'TIDE') : null,
-      ),
-    ),
-    target('home', 'HOME', () => app.go({ name: 'home' }), false),
-    h('div', { class: 'hud top' }, h('div', { class: 'chip-hud' }, h('div', { class: 'label' }, 'THE ARCHIPELAGO'), h('div', {}, 'Tap an island to sail there')), h('button', { class: 'ghost', onclick: () => app.go({ name: 'settings' }) }, '⚙ SETTINGS')),
+    ...content.branches.map((b) => island(b.id)),
+    target('home', 'HOME', 'HOME', () => app.go({ name: 'home' }), false),
+    h('div', { class: 'hud top' }, h('div', { class: 'hud-row' }, h('div', { class: 'chip-hud' }, h('div', { class: 'label' }, 'THE ARCHIPELAGO'), h('div', {}, 'Tap an island to sail there')), settingsButton(app))),
   );
   return { el, stop };
 }

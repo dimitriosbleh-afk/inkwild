@@ -49,7 +49,7 @@
           "text": "We stayed inside because it was hailing.",
           "prompt": "What kind of sentence is this?",
           "hint": "Could 'because it was hailing' be a sentence on its own?",
-          "success": "Complex. 'Because it was hailing' can't stand alone. It hangs on to the main clause, 'we stayed inside'.",
+          "success": "Complex. 'Because it was hailing' can't stand alone. It needs 'we stayed inside', the part that can stand alone.",
           "body": {
             "format": "choose",
             "options": [
@@ -172,7 +172,7 @@
       "frame": "A message from the space station pops up on Quillby's screen.",
       "text": "When the rocket landed, the crowd cheered.",
       "prompt": "What kind of sentence is this?",
-      "success": "Complex. 'When the rocket landed' can't stand alone. It needs the main clause, 'the crowd cheered'.",
+      "success": "Complex. 'When the rocket landed' can't stand alone. It needs 'the crowd cheered', which can.",
       "body": {
         "format": "choose",
         "options": [
@@ -253,7 +253,7 @@
           { "text": "The possum bit my finger, and I yelled.", "bin": 1, "reason": "Two clauses that could each stand alone, joined by and." },
           { "text": "Because the echidna was cold, we wrapped it in a towel.", "bin": 2, "reason": "'Because the echidna was cold' can't stand alone, so this is complex." },
           { "text": "The lizard was tiny, but it was very angry.", "bin": 1, "reason": "Two clauses joined by but. Each one could be a sentence." },
-          { "text": "When the vet arrived, the wallaby hid under the bed.", "bin": 2, "reason": "'When the vet arrived' leaves you waiting. It needs the main clause, so this is complex." }
+          { "text": "When the vet arrived, the wallaby hid under the bed.", "bin": 2, "reason": "'When the vet arrived' leaves you waiting. It needs the part that can stand alone, so this is complex." }
         ]
       }
     },
@@ -311,7 +311,7 @@
         "format": "choose",
         "options": [
           { "text": "After the launch, the astronauts floated around the cabin." },
-          { "text": "After the rocket launched, the astronauts floated around the cabin.", "reason": "'After the rocket launched' has its own doer and verb, so it's a dependent clause. That makes the sentence complex." },
+          { "text": "After the rocket launched, the astronauts floated around the cabin.", "reason": "'After the rocket launched' has its own doer and verb, but can't stand alone. That makes the sentence complex." },
           { "text": "The rocket launched, and the astronauts floated around the cabin.", "reason": "Two clauses that could each stand alone are joined by and. That's compound." },
           { "text": "The astronauts floated around the cabin while the rocket climbed.", "reason": "'While the rocket climbed' is a clause that can't stand alone, so this is complex." }
         ],
@@ -330,9 +330,9 @@
         "format": "choose",
         "options": [
           { "text": "simple: it has only one clause" },
-          { "text": "complex: 'because of the smell' is a dependent clause", "reason": "'Because of the smell' has no verb of its own, so it's a phrase, not a clause." },
+          { "text": "complex: 'because of the smell' is a part that can't stand alone", "reason": "'Because of the smell' has no verb of its own, so it's a phrase, not a clause." },
           { "text": "compound: because joins two clauses", "reason": "Because never joins two equals, and there's only one doer and verb here: Gus wore." },
-          { "text": "complex: 'for the whole experiment' is a dependent clause", "reason": "'For the whole experiment' has no verb, so it's a phrase, not a clause." }
+          { "text": "complex: 'for the whole experiment' is a part that can't stand alone", "reason": "'For the whole experiment' has no verb, so it's a phrase, not a clause." }
         ],
         "answer": 0
       }
@@ -389,7 +389,7 @@
         "format": "build",
         "tiles": ["The pie", "was still frozen", "even though", "but", "Mo had baked it for an hour."],
         "accept": ["The pie was still frozen even though Mo had baked it for an hour."],
-        "reason": "Complex needs a dependent clause. Even though makes one. But would join two equal clauses: compound."
+        "reason": "Complex needs a clause that can't stand alone. Even though makes one. But would join two equal clauses: compound."
       }
     },
     {
@@ -398,7 +398,7 @@
       "topic": "spooky",
       "frame": "Zed wants the first line of his ghost story to be a complex sentence.",
       "prompt": "Tap the word to change, then choose the replacement that makes the sentence complex.",
-      "success": "As soon as makes 'the ghost drifted through the wall' depend on the main clause, so now it's complex.",
+      "success": "As soon as turns 'the ghost drifted through the wall' into a part that can't stand alone. Now it's complex.",
       "body": {
         "format": "fix",
         "parts": [
@@ -451,10 +451,10 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "complex: 'since the bridge collapsed during the storm' depends on the main clause" },
+          { "text": "complex: 'since the bridge collapsed during the storm' depends on the part that can stand alone" },
           { "text": "simple: since is about time, so it starts a phrase", "reason": "Since is about time, but 'the bridge collapsed' has its own doer and verb. So it's a clause." },
           { "text": "compound: both parts could stand alone as sentences", "reason": "'Since the bridge collapsed during the storm' can't stand alone. It leaves you waiting for the rest." },
-          { "text": "complex: 'during the storm' is the dependent clause", "reason": "'During the storm' has no verb, so it's a phrase. The dependent clause is the whole 'since' part." }
+          { "text": "complex: 'during the storm' is the clause that can't stand alone", "reason": "'During the storm' has no verb, so it's a phrase. The whole 'since' part can't stand alone." }
         ],
         "answer": 0
       }
@@ -485,7 +485,7 @@
       "topic": "animals",
       "frame": "Quillby is narrating a nature documentary about its cousin, the platypus.",
       "prompt": "Tap the only simple sentence.",
-      "success": "The body-weight sentence has just one doer and one verb group, can eat. That's simple.",
+      "success": "The body-weight sentence has just one doer and one action, 'can eat'. That's simple.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -506,12 +506,12 @@
       "topic": "music",
       "frame": "A concert review needs this sentence to be complex. Quillby has its nib ready.",
       "prompt": "Tap the joining word, then choose the replacement that makes one clause depend on the other.",
-      "success": "Even though makes 'her top string had snapped' depend on the main clause. Now it's complex.",
+      "success": "Even though makes 'her top string had snapped' depend on the part that can stand alone. Now it's complex.",
       "body": {
         "format": "fix",
         "parts": [
           "The violinist ",
-          { "tap": "finished", "reason": "Finished is the verb in the main clause. Change the word that joins the clauses." },
+          { "tap": "finished", "reason": "Finished is the verb in the part that can stand alone. Change the word that joins the clauses." },
           " the piece on three strings, ",
           { "tap": "but" },
           " her top ",
@@ -536,7 +536,7 @@
       "topic": "ocean",
       "frame": "The wreck divers' log is in pieces. Quillby needs a complex sentence from them.",
       "prompt": "Tap the pieces in order to make a complex sentence.",
-      "success": "Although can join a whole clause, 'the water was barely above freezing', and make it depend on the main clause.",
+      "success": "Although turns 'the water was barely above freezing' into a part that can't stand alone.",
       "body": {
         "format": "build",
         "tiles": ["The divers", "kept exploring the wreck", "although", "despite", "the water was barely above freezing."],

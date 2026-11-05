@@ -149,9 +149,9 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
 
 .hud { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 14px; pointer-events: none; }
 .hud > * { pointer-events: auto; }
-.hud.top { top: env(safe-area-inset-top); }
+.hud.top { top: env(safe-area-inset-top); flex-direction: column; align-items: stretch; }
 .hud.bottom { bottom: env(safe-area-inset-bottom); align-items: flex-end; }
-.chip-hud { background: rgba(15, 20, 48, 0.86); border: 4px solid var(--line); padding: 10px 12px; box-shadow: 4px 4px 0 var(--line); font-size: 10px; }
+.chip-hud { background: rgba(15, 20, 48, 0.86); border: 4px solid var(--line); padding: 10px 12px; box-shadow: 4px 4px 0 var(--line); font-size: 12px; }
 .chip-hud .label { color: var(--gold); }
 .world { position: absolute; inset: 0; width: 100%; height: 100%; }
 
@@ -194,7 +194,7 @@ textarea.piece {
 .arena .pad { position: absolute; width: 170px; height: 30px; border-radius: 50%; background: #7aa957; border: 4px solid #5a8a3f; }
 .arena .bx { position: absolute; }
 .map-label {
-  font-size: 10px; line-height: 1.5; padding: 6px 9px; min-height: 36px;
+  font-size: 12px; line-height: 1.5; padding: 8px 10px; min-height: 44px;
   background: rgba(15, 20, 48, 0.88); color: var(--ink); box-shadow: 3px 3px 0 var(--line); white-space: nowrap;
 }
 .map-label.fog { opacity: 0.6; }
@@ -207,17 +207,7 @@ html, body, #app { height: 100%; height: 100dvh; }
 html { touch-action: manipulation; }
 .play { position: absolute; inset: 0; overflow: hidden; padding: 0; touch-action: none; }
 .play .world { position: absolute; inset: 0; width: 100%; height: 100%; }
-.controls { padding: 18px 22px max(18px, env(safe-area-inset-bottom)); }
-.dpad { display: grid; grid-template-columns: repeat(3, 72px); grid-template-rows: repeat(3, 72px); gap: 2px; }
-.dpad button {
-  width: 72px; height: 72px; padding: 0; font-size: 26px; color: var(--ink); background: rgba(15, 20, 48, 0.82);
-  box-shadow: 0 4px 0 #05081a, 0 4px 0 4px var(--line); touch-action: none;
-}
-.dpad button.down { transform: translateY(3px); box-shadow: 0 1px 0 #05081a, 0 1px 0 4px var(--line); background: var(--soft); }
-.dpad .pad-up { grid-column: 2; grid-row: 1; }
-.dpad .pad-left { grid-column: 1; grid-row: 2; }
-.dpad .pad-right { grid-column: 3; grid-row: 2; }
-.dpad .pad-down { grid-column: 2; grid-row: 3; }
+.controls { padding: 18px 22px max(18px, env(safe-area-inset-bottom)); justify-content: flex-end; }
 .action { width: 132px; height: 132px; border-radius: 50%; font-size: 15px; }
 .action:disabled { opacity: 0.35; }
 .speech-box { position: absolute; left: 50%; bottom: 190px; transform: translateX(-50%); width: min(640px, 92vw); z-index: 5; }
@@ -227,8 +217,9 @@ html { touch-action: manipulation; }
 .route-panel { max-height: 55vh; overflow-y: auto; }
 .route-panel .node { background: #e8e3d6; }
 .route-panel .node .name { color: var(--paper-ink); }
-.hud .row button { font-size: 11px; }
-.map-hit { position: absolute; transform: translate(-50%, -50%); border-radius: 50%; background: transparent; box-shadow: none; border: none; padding: 0; display: flex; align-items: flex-end; justify-content: center; }
+.hud.top button { min-height: 60px; font-size: 14px; padding: 12px 18px; display: inline-flex; align-items: center; gap: 10px; }
+.hud.top button.primary { font-size: 18px; padding: 12px 26px; }
+.map-hit { position: absolute; transform: translate(-50%, -50%); border-radius: 50%; background: transparent; box-shadow: none; border: none; padding: 0; display: flex; align-items: flex-end; justify-content: center; min-width: 110px; min-height: 110px; }
 .map-hit:active:not(:disabled) { transform: translate(-50%, -48%); box-shadow: none; background: rgba(255, 255, 255, 0.08); }
 .map-hit .map-label { position: static; transform: translateY(40%); pointer-events: none; display: inline-block; }
 .map-hit.fog .map-label { opacity: 0.6; }
@@ -255,7 +246,7 @@ html { touch-action: manipulation; }
 .swatch.wide { width: auto; padding: 0 12px; font-size: 9px; }
 .action { flex: none; }
 .hud.top { flex-wrap: nowrap; }
-.hud.top .row { flex-wrap: nowrap; justify-content: flex-end; }
+.hud.top .row { flex-wrap: wrap; justify-content: flex-end; gap: 12px; }
 .hud.top .chip-hud { white-space: nowrap; }
 .chapter p { margin: 0 0 14px; } .chapter { max-width: 70ch; }
 

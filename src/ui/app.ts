@@ -2,6 +2,7 @@ import { chapters, content } from '../app/content';
 import { unreadChapters } from '../story/chapters';
 import { Store } from '../app/store';
 import { creatureCanvas } from '../art/creatures';
+import { iconCanvas } from '../art/icons';
 import type { BranchId, SkillId } from '../content/types';
 import type { GameEvent } from '../core/game';
 import { h } from './dom';
@@ -71,7 +72,8 @@ export class App {
     if (this.store.save.settings.sound) blip(kind);
   }
 
-  private announced = new Set<string>();
+  /** Chapters already announced on this iPad, so a NEW CHAPTER! pop-up shows once, not every launch. */
+  private announced = new Set<string>(JSON.parse(localStorage.getItem('inkwild.announced') ?? '[]') as string[]);
 
   private queueMoments(events: GameEvent[]): void {
     for (const e of events) {
@@ -81,7 +83,8 @@ export class App {
     for (const c of unreadChapters(content, this.store.save, chapters)) {
       if (this.announced.has(c.id)) continue;
       this.announced.add(c.id);
-      this.moments.push(h('div', {}, h('h2', {}, 'NEW CHAPTER!'), h('div', { style: 'font-size:48px;margin:8px' }, '📖'), h('p', { class: 'note' }, `"${c.title}" is waiting in your Logbook.`)));
+      localStorage.setItem('inkwild.announced', JSON.stringify([...this.announced]));
+      this.moments.push(h('div', {}, h('h2', {}, 'NEW CHAPTER!'), iconCanvas('book', 6), h('p', { class: 'note' }, `"${c.title}" is waiting in your Logbook.`)));
     }
     if (!this.showing) setTimeout(() => this.nextMoment(), 450);
   }
@@ -135,7 +138,7 @@ export class App {
       }
       case 'badge': {
         const b = content.branch(e.branch);
-        return h('div', {}, h('h2', {}, 'BADGE WON!'), h('div', { style: 'font-size:60px;margin:10px' }, '★'), h('p', { class: 'note' }, `You beat ${b.keeper.name}. The far side of ${b.island} is open.`));
+        return h('div', {}, h('h2', {}, 'BADGE WON!'), iconCanvas('star', 7), h('p', { class: 'note' }, `You beat ${b.keeper.name}. The far side of ${b.island} is open.`));
       }
       case 'tide':
         return h('div', {}, h('h2', {}, 'TIDE QUEST DONE'), h('p', { class: 'note' }, 'Double XP today on this island, and a better chance of finding a shiny.'));

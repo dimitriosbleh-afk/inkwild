@@ -2,6 +2,7 @@ import { content, GAME_TITLE } from '../../app/content';
 import { today } from '../../app/store';
 import { captainCanvas, HAIR_COLOURS, HAIRS, OUTFITS, randomLook, SKINS } from '../../art/captain';
 import { creatureCanvas } from '../../art/creatures';
+import { iconCanvas } from '../../art/icons';
 import { parseCode, restorable, restore, toCode } from '../../backup/code';
 import { INTERESTS, type Interest } from '../../content/types';
 import { befriended } from '../../core/creatures';
@@ -305,7 +306,7 @@ export function progressScreen(app: App): ScreenView {
       ),
       branches.map((b) => {
         const mastered = content.skillsOf(b.id).filter((sk) => s.skills[sk.id]?.mastered);
-        return h('div', { class: 'panel' }, h('h3', {}, `${b.name.toUpperCase()}${s.branches[b.id].keeper ? '  ★' : ''}`), mastered.length ? h('ul', { class: 'note' }, mastered.map((m) => h('li', {}, m.name))) : h('p', { class: 'note' }, 'Nothing mastered here yet.'));
+        return h('div', { class: 'panel' }, h('h3', {}, b.name.toUpperCase(), s.branches[b.id].keeper ? iconCanvas('star', 2) : null), mastered.length ? h('ul', { class: 'note' }, mastered.map((m) => h('li', {}, m.name))) : h('p', { class: 'note' }, 'Nothing mastered here yet.'));
       }),
     ),
   };

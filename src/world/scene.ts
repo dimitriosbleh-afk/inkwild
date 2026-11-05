@@ -122,8 +122,16 @@ function withHead(rows: string[], look?: CaptainLook): string[] {
 const SPEED = 46;
 const NEAR = 13;
 const ZOOM = 2;
+const CELL = 3;
+const LOOKAHEAD = 40;
+const ARROWS: Record<string, [number, number]> = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
+const STEPS: [number, number][] = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]];
 
-/** A walkable Island: terrain, collision, points of interest, and a player the student moves with a D-pad. */
+type Vec = { x: number; y: number };
+type Route = { points: Vec[]; poi: Poi | null; arrive: (() => void) | null };
+const dist = (a: Vec, b: Vec) => Math.hypot(a.x - b.x, a.y - b.y);
+
+/** A walkable Island: terrain, collision, points of interest, and a player the student steers or sends walking. */
 export class Scene {
   readonly pois: Poi[] = [];
   player: { x: number; y: number; dir: Dir; moving: boolean };
@@ -138,16 +146,19 @@ export class Scene {
   private walk: Uint8Array;
   private draws: { y: number; draw: (t: number) => void }[] = [];
   private renderTerrain: (t: number) => void = () => {};
-  private held: Dir | null = null;
+  private stick: Vec | null = null;
+  private route: Route | null = null;
+  private arrows = new Set<string>();
+  private camera = { x: 0, y: 0, w: 1, h: 1 };
+  private goal: { kind: PoiKind; label: string } | null = null;
+  private stopped = false;
   private raf = 0;
   private last = 0;
   private near: Poi | null = null;
   private stepping: Poi | null = null;
   private sprites: Record<'front' | 'step' | 'back', HTMLCanvasElement>;
-  private keys = (e: KeyboardEvent) => this.key(e);
-  private keysUp = (e: KeyboardEvent) => {
-    if (e.key.startsWith('Arrow')) this.held = null;
-  };
+  private keys = (e: KeyboardEvent) => this.key(e, true);
+  private keysUp = (e: KeyboardEvent) => this.key(e, false);
 
   constructor(private view: HTMLCanvasElement, setup: SceneSetup) {
     const rect = { w: view.clientWidth || innerWidth, h: view.clientHeight || innerHeight };
@@ -182,6 +193,9 @@ export class Scene {
   }
 
   stop(): void {
+    this.stopped = true;
+    this.route = null;
+    this.arrows.clear();
     cancelAnimationFrame(this.raf);
     removeEventListener('keydown', this.keys);
     removeEventListener('keyup', this.keysUp);
@@ -193,25 +207,56 @@ export class Scene {
     this.render(t);
   }
 
-  hold(dir: Dir | null): void {
-    this.held = dir;
+  /** Analog steering: v has length up to 1 and speed scales with it. Any real steer cancels a tap-to-walk route. */
+  steer(v: Vec | null): void {
+    const len = v ? Math.hypot(v.x, v.y) : 0;
+    this.stick = v && len > 0 ? (len > 1 ? { x: v.x / len, y: v.y / len } : { x: v.x, y: v.y }) : null;
+    if (this.stick) this.route = null;
+  }
+
+  /** Walks a found path to a world point. If the point is a POI, stops within reach of it and then calls arrive. */
+  walkTo(world: Vec, arrive?: () => void): void {
+    const poi = this.pois.find((q) => dist(q, world) < 1) ?? null;
+    const points = this.findPath(world, poi ? NEAR - 2 : CELL);
+    this.route = { points, poi, arrive: arrive ?? null };
+  }
+
+  screenToWorld(clientX: number, clientY: number): Vec {
+    const r = this.view.getBoundingClientRect(), c = this.camera;
+    return { x: c.x + ((clientX - r.left) / r.width) * c.w, y: c.y + ((clientY - r.top) / r.height) * c.h };
   }
 
   setAlert(kind: PoiKind, alert: boolean): void {
     for (const p of this.pois) if (p.kind === kind) p.alert = alert;
   }
 
+  /** The POI the off-screen arrow points at, with its tag. */
+  setGoal(goal: { kind: PoiKind; label: string } | null): void {
+    this.goal = goal;
+  }
+
   nearest(): Poi | null {
     return this.near;
   }
 
-  private key(e: KeyboardEvent): void {
-    const map: Record<string, Dir> = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
-    const d = map[e.key];
-    if (d) {
-      this.held = d;
-      e.preventDefault();
+  /** The POI of this kind closest to the player. */
+  closest(kind: PoiKind): Poi | undefined {
+    const p = this.player;
+    return this.pois.filter((q) => q.kind === kind).sort((a, b) => dist(a, p) - dist(b, p))[0];
+  }
+
+  private key(e: KeyboardEvent, down: boolean): void {
+    if (!ARROWS[e.key]) return;
+    e.preventDefault();
+    if (down) this.arrows.add(e.key);
+    else this.arrows.delete(e.key);
+    let x = 0, y = 0;
+    for (const k of this.arrows) {
+      x += ARROWS[k]![0];
+      y += ARROWS[k]![1];
     }
+    const len = Math.hypot(x, y);
+    this.steer(len ? { x: x / len, y: y / len } : null);
   }
 
   private canStand(x: number, y: number): boolean {
@@ -222,20 +267,97 @@ export class Scene {
     return true;
   }
 
-  private update(dt: number): void {
-    const p = this.player;
-    p.moving = false;
-    if (this.held) {
-      p.dir = this.held;
-      const step = SPEED * dt;
-      const moves: Record<Dir, [number, number]> = { up: [0, -step], down: [0, step], left: [-step, 0], right: [step, 0] };
-      const [dx, dy] = moves[this.held];
-      if (this.canStand(p.x + dx, p.y + dy)) {
-        p.x += dx;
-        p.y += dy;
-        p.moving = true;
+  /** Breadth-first search over CELL-sized cells. Unreachable targets get the nearest reachable cell instead. */
+  private findPath(target: Vec, reach: number): Vec[] {
+    const cols = Math.ceil(this.W / CELL), rows = Math.ceil(this.H / CELL);
+    const centre = (c: number): Vec => ({ x: (c % cols) * CELL + CELL / 2, y: Math.floor(c / cols) * CELL + CELL / 2 });
+    const cellAt = (v: Vec) => Math.min(rows - 1, Math.max(0, Math.floor(v.y / CELL))) * cols + Math.min(cols - 1, Math.max(0, Math.floor(v.x / CELL)));
+    const from = new Int32Array(cols * rows).fill(-1);
+    const start = cellAt(this.player);
+    from[start] = start;
+    const queue = [start];
+    let best = start, bestD = Infinity;
+    for (let qi = 0; qi < queue.length; qi++) {
+      const c = queue[qi]!, d = dist(centre(c), target);
+      if (d < bestD) [best, bestD] = [c, d];
+      if (d <= reach) break;
+      const cx = c % cols, cy = Math.floor(c / cols);
+      for (const [ox, oy] of STEPS) {
+        const nx = cx + ox, ny = cy + oy, n = ny * cols + nx;
+        if (nx < 0 || ny < 0 || nx >= cols || ny >= rows || from[n] !== -1) continue;
+        const m = centre(n);
+        if (!this.canStand(m.x, m.y)) continue;
+        if (ox && oy && !(this.canStand(m.x - ox * CELL, m.y) && this.canStand(m.x, m.y - oy * CELL))) continue;
+        from[n] = c;
+        queue.push(n);
       }
     }
+    const path: Vec[] = [];
+    for (let c = best; c !== start; c = from[c]!) path.push(centre(c));
+    return this.smooth(path.reverse());
+  }
+
+  /** Drops waypoints the player can walk straight past, so routes run in lines rather than grid zigzags. */
+  private smooth(points: Vec[]): Vec[] {
+    const out: Vec[] = [];
+    let at: Vec = this.player;
+    for (let i = 0; i < points.length; ) {
+      let j = Math.min(points.length - 1, i + LOOKAHEAD);
+      while (j > i && !this.clearLine(at, points[j]!)) j--;
+      at = points[j]!;
+      out.push(at);
+      i = j + 1;
+    }
+    return out;
+  }
+
+  private clearLine(a: Vec, b: Vec): boolean {
+    const n = Math.ceil(dist(a, b));
+    for (let k = 1; k <= n; k++) if (!this.canStand(a.x + ((b.x - a.x) * k) / n, a.y + ((b.y - a.y) * k) / n)) return false;
+    return true;
+  }
+
+  /** Full move, else slide along x, else along y. Facing follows the stronger axis. */
+  private move(v: Vec, dt: number): boolean {
+    const p = this.player;
+    if (Math.abs(v.x) > Math.abs(v.y)) p.dir = v.x < 0 ? 'left' : 'right';
+    else if (v.y) p.dir = v.y < 0 ? 'up' : 'down';
+    const dx = v.x * SPEED * dt, dy = v.y * SPEED * dt;
+    for (const [mx, my] of [[dx, dy], [dx, 0], [0, dy]] as const) {
+      if ((mx || my) && this.canStand(p.x + mx, p.y + my)) {
+        p.x += mx;
+        p.y += my;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private routeStep(dt: number): Vec | null {
+    const r = this.route, p = this.player;
+    if (!r) return null;
+    while (r.points[0] && dist(p, r.points[0]) < 0.75) r.points.shift();
+    const next = r.points[0];
+    if (!next) return null;
+    const d = dist(p, next), full = SPEED * dt;
+    const k = full > 0 ? Math.min(1, d / full) / d : 1 / d;
+    return { x: (next.x - p.x) * k, y: (next.y - p.y) * k };
+  }
+
+  private arrival(): void {
+    const r = this.route;
+    if (!r || this.stopped) return;
+    const there = r.poi ? dist(this.player, r.poi) <= NEAR - 1 : r.points.length === 0;
+    if (!there && r.points.length) return;
+    this.route = null;
+    if (there) r.arrive?.();
+  }
+
+  private update(dt: number): void {
+    const p = this.player;
+    const v = this.stick ?? this.routeStep(dt);
+    p.moving = !!v && this.move(v, dt);
+    if (v && dt > 0 && !p.moving && !this.stick) this.route = null;
     let best: Poi | null = null, bestD = NEAR;
     for (const poi of this.pois) {
       const d = Math.hypot(poi.x - p.x, poi.y - p.y);
@@ -254,6 +376,7 @@ export class Scene {
       this.onStep(onGrass);
     }
     if (!onGrass) this.stepping = null;
+    this.arrival();
   }
 
   private render(t: number): void {
@@ -283,8 +406,15 @@ export class Scene {
     const VH = (VW * this.view.height) / this.view.width;
     const cx = Math.round(Math.max(0, Math.min(this.W - VW, p.x - VW / 2)));
     const cy = Math.round(Math.max(0, Math.min(this.H - VH, p.y - VH / 2)));
+    this.camera = { x: cx, y: cy, w: VW, h: VH };
     this.vctx.drawImage(this.lo, cx, cy, VW, VH, 0, 0, this.view.width, this.view.height);
     this.drawPointer(cx, cy, VW, VH, t);
+  }
+
+  private pointerTarget(): Poi | undefined {
+    if (this.goal) return this.closest(this.goal.kind);
+    const p = this.player;
+    return this.pois.filter((q) => q.alert).sort((a, b) => dist(a, p) - dist(b, p))[0];
   }
 
   private drawAlerts(t: number): void {
@@ -303,19 +433,18 @@ export class Scene {
     }
   }
 
-  /** When the nearest ! is off screen, an arrow at the edge points the way. */
+  /** When the goal is off screen, an arrow at the edge points the way, tagged with the goal's label. */
   private drawPointer(cx: number, cy: number, VW: number, VH: number, t: number): void {
-    const p = this.player;
-    const target = this.pois
-      .filter((q) => q.alert)
-      .sort((a, b) => Math.hypot(a.x - p.x, a.y - p.y) - Math.hypot(b.x - p.x, b.y - p.y))[0];
+    const target = this.pointerTarget();
     if (!target) return;
     const sx = (target.x - cx) / VW, sy = (target.y - 10 - cy) / VH;
     if (sx > 0.05 && sx < 0.95 && sy > 0.05 && sy < 0.95) return;
     const vw = this.view.width, vh = this.view.height;
     const ang = Math.atan2(sy - 0.5, sx - 0.5);
     const r = 0.42 + 0.01 * Math.sin(t / 150);
-    const ax = vw * (0.5 + Math.cos(ang) * r * 0.95), ay = vh * (0.5 + Math.sin(ang) * r * 0.9);
+    const ax = vw * (0.5 + Math.cos(ang) * r * 0.95);
+    // Kept below the goal banner and above the action button, so the arrow never hides behind the HUD.
+    const ay = vh * Math.max(0.3, Math.min(0.82, 0.5 + Math.sin(ang) * r * 0.9));
     const c = this.vctx;
     const size = vw / 40;
     c.save();
@@ -335,6 +464,26 @@ export class Scene {
     c.lineTo(-size * 0.6, size * 0.7);
     c.closePath();
     c.fill();
+    c.restore();
+    if (this.goal) this.drawTag(this.goal.label, ax, ay, ang, size);
+  }
+
+  /** The label sits on the inward side of the arrow, so it never runs off the edge. */
+  private drawTag(label: string, ax: number, ay: number, ang: number, size: number): void {
+    const c = this.vctx, px = Math.round(size * 0.7), pad = Math.round(px * 0.5);
+    c.save();
+    c.font = `${px}px 'Press Start 2P', monospace`;
+    c.textBaseline = 'middle';
+    const w = Math.ceil(c.measureText(label).width) + pad * 2, hgt = px + pad * 2;
+    const x = ax - Math.cos(ang) * (size * 1.8 + w / 2), y = ay - Math.sin(ang) * (size * 1.8 + hgt / 2);
+    const left = Math.round(Math.max(4, Math.min(this.view.width - w - 4, x - w / 2)));
+    const top = Math.round(Math.max(4, Math.min(this.view.height - hgt - 4, y - hgt / 2)));
+    c.fillStyle = '#0b0f22';
+    c.fillRect(left - 3, top - 3, w + 6, hgt + 6);
+    c.fillStyle = '#1f2850';
+    c.fillRect(left, top, w, hgt);
+    c.fillStyle = '#f2c14e';
+    c.fillText(label, left + pad, top + hgt / 2 + 1);
     c.restore();
   }
 

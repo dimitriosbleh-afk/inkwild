@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { buildContent } from '../src/content/bank';
 import { readContentFiles } from '../src/content/files';
+import { untaughtTerms } from '../src/content/jargon';
 import { parseSkillList, skillFileProblems } from '../src/content/rules';
 import { BRANCH_IDS } from '../src/content/types';
 import { LAYOUTS, CURRENT_VERSION, layoutOf } from '../src/backup/code';
@@ -24,6 +25,11 @@ describe('content bank', () => {
   it('passes every rule check', () => {
     const problems = files.flatMap((f) => skillFileProblems(f, listed.get(f.skill.id)));
     expect(problems.map((p) => `${p.where}: ${p.problem}`)).toEqual([]);
+  });
+
+  it('never shows a grammar term before a crew member on that Island has taught it', () => {
+    const hits = files.flatMap((f) => untaughtTerms(f, files).map((u) => `${f.skill.id} ${u.where}: ${u.term}`));
+    expect(hits).toEqual([]);
   });
 
   it('keeps every Branch route within the published Backup code layout', () => {
