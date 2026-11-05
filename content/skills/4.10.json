@@ -1,0 +1,957 @@
+{
+  "skill": {
+    "id": "4.10",
+    "name": "Fresh or tired: swap a cliché for a fresh image",
+    "codes": [
+      "VC2E5LE05",
+      "VC2E6LA08"
+    ],
+    "why": "Readers skip comparisons they've heard before. Fresh ones make them see your scene.",
+    "how": "Spot the comparison you've heard a hundred times. Swap in one that fits your details.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Some comparisons are so old they're worn out.",
+            "show": "My feet were **as cold as ice**."
+          },
+          {
+            "say": "A worn-out comparison is called a cliché."
+          },
+          {
+            "say": "Readers have heard it so often, they skip right past."
+          },
+          {
+            "say": "Swap it for a fresh picture that fits the scene.",
+            "show": "At the footy, my feet were **as cold as two meat pies from the freezer**."
+          },
+          {
+            "say": "Footy, so meat pies. The fresh picture fits where you are."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which one is a cliché?",
+          "hint": "Which one have you heard many, many times?",
+          "success": "As busy as a bee. You've heard it so often that it's worn out.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "as busy as a canteen at lunchtime",
+                "reason": "This one is fresh. You can picture the queue and the chaos."
+              },
+              {
+                "text": "as busy as a bee"
+              },
+              {
+                "text": "as busy as an ant nest after rain",
+                "reason": "This one is fresh. It isn't a saying everyone already knows."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "text": "Gus opened his locker. His footy boots had been in there since the start of term. Mo pinched his nose. 'They smell...' he said.",
+          "prompt": "Which fresh picture fits what Mo smells?",
+          "hint": "Old boots smell bad. Which picture smells bad too?",
+          "success": "Cheese left in a hot ute smells awful, just like boots that have been locked away all term.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "like a bakery at sunrise",
+                "reason": "Bakeries smell lovely. Mo is pinching his nose."
+              },
+              {
+                "text": "like a field of roses",
+                "reason": "Roses smell lovely. Boots left in a locker all term don't."
+              },
+              {
+                "text": "like cheese left in a hot ute"
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "swishbill",
+      "name": "Swishbill",
+      "evolved": "Swishcrown",
+      "blurb": "A royal spoonbill that sweeps its bill through the mangrove mud. It spits out tired old sayings and gulps down fresh pictures that fit."
+    }
+  },
+  "encounters": [
+    {
+      "id": "4.10-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Swishbill is sweeping through Wren's wildlife diary, looking for something tired.",
+      "text": "Wren's diary, Monday. Today I met Lulu, a baby wombat. She is round and fluffy. Her fur is as soft as a new paintbrush. She waddles everywhere, and she loves carrots. When she is asleep, she is as quiet as a mouse. Then she starts to snore. Her snores sound like a tiny lawnmower. Mo says she snores better than he does.",
+      "prompt": "Which comparison in Wren's diary is a cliché?",
+      "success": "As quiet as a mouse. People say it all the time, so it's worn out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "as soft as a new paintbrush",
+            "reason": "This one is fresh. You don't hear it every day."
+          },
+          {
+            "text": "as quiet as a mouse"
+          },
+          {
+            "text": "like a tiny lawnmower",
+            "reason": "This one is fresh. It's a new, funny picture of a wombat snoring."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote about her footy match. The Swishbill wants to spit out one tired line.",
+      "prompt": "Tap the cliché.",
+      "success": "Ran like the wind. It's been said so many times that readers skip right past it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Saturday was the big footy match. ",
+          {
+            "tap": "The grass was as soggy as cereal left in the bowl.",
+            "reason": "This one is fresh. Soggy cereal is a new picture for wet grass."
+          },
+          " The siren went. Tully got the ball. ",
+          {
+            "tap": "She ran like the wind."
+          },
+          " She kicked hard. ",
+          {
+            "tap": "The ball wobbled through the air like a lost duck.",
+            "reason": "This one is fresh. A lost duck is a new, funny picture."
+          },
+          " It still went through the posts! The crowd went wild. Her team won by two points. Tully did a cartwheel."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "The Swishbill is sorting Mo's menu descriptions. It only eats the fresh ones.",
+      "prompt": "Put each comparison in the right bin.",
+      "success": "Bees and hot cakes are worn-out comparisons. Canteens, freezer pies and beach snowmen are new pictures.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "cliché",
+          "fresh"
+        ],
+        "items": [
+          {
+            "text": "as busy as a bee",
+            "bin": 0,
+            "reason": "Everyone has heard this one. It's a cliché."
+          },
+          {
+            "text": "selling like hot cakes",
+            "bin": 0,
+            "reason": "People say this about anything that sells fast. It's worn out."
+          },
+          {
+            "text": "as busy as a canteen at lunchtime",
+            "bin": 1,
+            "reason": "This is a new picture. You can almost hear the queue."
+          },
+          {
+            "text": "as cold as a pie straight from the freezer",
+            "bin": 1,
+            "reason": "This is a new picture, not a saying everyone knows."
+          },
+          {
+            "text": "melting like a snowman at the beach",
+            "bin": 1,
+            "reason": "This is a new, funny picture for something melting fast."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.10-b1-4",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Mo wrote about campfire night. The Swishbill found one tired comparison.",
+      "prompt": "Tap the cliché, then choose a fresh picture made from something in the story.",
+      "success": "Gus is holding a marshmallow, so that fresh picture fits the campfire story exactly.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The crew sat around the campfire, toasting marshmallows. Mo told a ghost story. A twig snapped in the dark. ",
+          {
+            "tap": "The fire crackled like a bowl of breakfast cereal.",
+            "reason": "This one is fresh. It isn't a saying people use all the time."
+          },
+          " Then a white shape floated past the trees. ",
+          {
+            "tap": "Gus's face went as white as a sheet."
+          },
+          " He dropped his marshmallow in the fire. ",
+          {
+            "tap": "He hid behind Wren like a joey diving into a pouch.",
+            "reason": "This one is fresh. It's a new, funny picture."
+          },
+          " The shape was only Indi in a beach towel. Gus did not laugh."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "as white as snow",
+            "reason": "That's another cliché. People have said it a million times."
+          },
+          {
+            "text": "as white as a brand-new pair of sneakers",
+            "reason": "That's fresh, but nobody in the story has new sneakers. Pick something from the campfire."
+          },
+          {
+            "text": "as white as the marshmallow he was holding"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.10-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed is writing back to Mo from a space station. The Swishbill is reading over his shoulder.",
+      "text": "Zed was spending a week on the Starhopper space station. At night, the crew slept in sleeping bags strapped to the wall. The lights were turned down low. Outside the window, the stars didn't twinkle. They just shone. The only sound was the soft hum of the air fan. Zed floated by the window, writing in his diary. Mo had sent him a message: 'Bet you're sleeping like a log up there!'",
+      "prompt": "Mo used a cliché. Which fresh picture fits how the crew sleeps on the station?",
+      "success": "Sleeping bags strapped to a wall hang there just like coats on hooks.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "like coats hung up on hooks"
+          },
+          {
+            "text": "like a log",
+            "reason": "That's the cliché Mo used. Readers have heard it far too often."
+          },
+          {
+            "text": "like a cat curled up on a couch",
+            "reason": "There are no couches up there. The crew sleep in bags strapped to the wall."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.10-b1-6",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Gus wrote a poster for his new robot. The Swishbill wants to spit out the tired bit.",
+      "prompt": "Tap the cliché.",
+      "success": "As strong as an ox. It's an old saying that everyone has heard, so it's a cliché.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Meet Bolt, my brand-new robot! ",
+          {
+            "tap": "Its eyes glow like two lollies in a jar.",
+            "reason": "This one is fresh. Lollies in a jar is a new picture."
+          },
+          " Bolt can carry the whole crew's shopping. ",
+          {
+            "tap": "It is as strong as an ox."
+          },
+          " It can also make toast. When the toast is ready, ",
+          {
+            "tap": "it beeps as loudly as a microwave that has finished a pie.",
+            "reason": "This one is fresh. It's not a saying everyone already knows."
+          },
+          " Bolt only cost me two dollars and a bag of bolts. Come and see Bolt at the science fair!"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Mo is writing a postcard to his nan. The Swishbill spotted a tired comparison.",
+      "text": "Dear Nan, today the crew went snorkelling off the far end of Mirage Mangroves. I wore the flippers you gave me, and I only fell over twice. The water was as clear as crystal. We could see the sandy bottom five metres down, and I could count the stripes on every single fish. A school of tiny blue ones swam right past my mask, so close I could see their eyes. Wren found a sea star and let me hold it. Indi drew it on her waterproof notepad. Gus said the water was perfect for science. I said it was perfect for lunch. Love, Mo",
+      "prompt": "'As clear as crystal' is a cliché. Which fresh picture fits Mo's snorkelling trip?",
+      "success": "You can see every fish in a clean fish tank, just like Mo counting the stripes.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "as clear as a puddle on the oval after training",
+            "reason": "Puddles after training are brown and muddy. Mo can count every stripe on every fish."
+          },
+          {
+            "text": "as clear as mud",
+            "reason": "That's another cliché, and it means not clear at all. Mo can see five metres down."
+          },
+          {
+            "text": "as clear as the glass of a clean fish tank"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.10-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus wrote up Experiment 23 for the crew. The Swishbill wants to spit out the tired line.",
+      "prompt": "Tap the cliché.",
+      "success": "Like a shot. It's been said so often that readers don't picture anything any more.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Experiment 23: What grows in a lunchbox? I left a cheese sandwich in my lunchbox for six weeks. On Friday, I opened the lid. ",
+          {
+            "tap": "The smell was like a footy sock that had been left in the sun.",
+            "reason": "This one is fresh. It's a new picture, not a saying everyone knows."
+          },
+          " Green fuzz covered the bread. ",
+          {
+            "tap": "It quivered like a sea anemone when I poked it.",
+            "reason": "This one is fresh. A poked sea anemone is a new picture for wobbly fuzz."
+          },
+          " Little bubbles rose on top. ",
+          {
+            "tap": "Each one was as shiny as a fish's eye.",
+            "reason": "This one is fresh. It's a new way to describe the bubbles."
+          },
+          " Mo was standing next to me. ",
+          {
+            "tap": "He took off like a shot."
+          },
+          " He stayed outside in the fresh air and did not come back until dinner. Conclusion: a lot grows in a lunchbox. Next week, I will try a banana."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "4.10-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Mo wrote about playing in the school band at the footy. The Swishbill found one tired comparison.",
+      "prompt": "Tap the cliché, then choose a fresh picture made from something in the story.",
+      "success": "Mo's trumpet has been out in the freezing rain, so it fits his fingers exactly.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The school band was playing at half-time of the winter grand final. It was the coldest day of the year, and rain was blowing sideways across the oval. Mo played the trumpet. ",
+          {
+            "tap": "The drums thumped like a giant walking past.",
+            "reason": "This one is fresh. A giant walking past is a new picture for drums."
+          },
+          " The wind blew the music sheets off their stands. ",
+          {
+            "tap": "Mo's fingers were as cold as ice."
+          },
+          " He could barely press the buttons on his trumpet. ",
+          {
+            "tap": "The tuba player's cheeks puffed up as round as a pufferfish.",
+            "reason": "This one is fresh. It's a new, funny picture of a tuba player."
+          },
+          " The crowd huddled under umbrellas. Somehow, the band finished the song. Mo said it was the bravest thing he had ever done, apart from eating Gus's soup."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "as stiff as a board",
+            "reason": "That's another cliché. People say it all the time."
+          },
+          {
+            "text": "as cold as the trumpet he was holding"
+          },
+          {
+            "text": "as cold as fish fingers in a freezer",
+            "reason": "That's fresh, but there's no freezer at the footy. Choose something from Mo's day."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's footy report is full of comparisons. The Swishbill is sorting the tired from the fresh.",
+      "prompt": "Put each line from Tully's footy report in the right bin.",
+      "success": "Fiddles, glue and peacocks are worn-out comparisons. Soap, eskies, kettles and hoses are new pictures.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "cliché",
+          "fresh"
+        ],
+        "items": [
+          {
+            "text": "Jax was as fit as a fiddle.",
+            "bin": 0,
+            "reason": "This is a very old saying. It's a cliché."
+          },
+          {
+            "text": "Our full-back stuck to her player like glue.",
+            "bin": 0,
+            "reason": "People say this all the time. It's worn out."
+          },
+          {
+            "text": "Tully was as proud as a peacock.",
+            "bin": 0,
+            "reason": "This is said all the time. It's a cliché."
+          },
+          {
+            "text": "The wet ball skidded like soap in the bath.",
+            "bin": 1,
+            "reason": "This is a new picture. It isn't a saying everyone knows."
+          },
+          {
+            "text": "The ruckman was as tall as six eskies stacked up.",
+            "bin": 1,
+            "reason": "Six stacked eskies is a new, footy-day picture."
+          },
+          {
+            "text": "The umpire's whistle was as shrill as a cranky kettle.",
+            "bin": 1,
+            "reason": "A cranky kettle is a fresh picture for a whistle."
+          },
+          {
+            "text": "The rain came down like a hose left on all night.",
+            "bin": 1,
+            "reason": "This is a new picture, not an old saying."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.10-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's art class painted at the mangroves. The Swishbill is checking their notes for tired comparisons.",
+      "text": "On Thursday, Indi's art class took their easels down to the mangroves. The afternoon light was soft and golden. The water was as smooth as a fresh sheet of paper. Indi painted the sunset. When Ms Rao saw it, she said it looked like a million dollars. Indi was pleased, but secretly she thought it looked a bit like a squashed mango. Wren painted a heron that stood on one leg like a coat hanger with feathers. Gus didn't paint at all. He collected mud samples. Mo painted a fish. At least, he said it was a fish. Everyone else thought it was a sausage.",
+      "prompt": "Which comparison from the art class is a cliché?",
+      "success": "Like a million dollars. It's an old saying people use without thinking, so it's a cliché.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "as smooth as a fresh sheet of paper",
+            "reason": "This one is fresh. It's a new picture that suits an art class."
+          },
+          {
+            "text": "like a coat hanger with feathers",
+            "reason": "This one is fresh. It's a new, funny picture of a heron."
+          },
+          {
+            "text": "looked like a million dollars"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.10-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Tully wrote about breakfast on the Soggy Biscuit. The Swishbill wants to spit out the tired line.",
+      "prompt": "Tap the cliché.",
+      "success": "As old as the hills. It's such an old saying that it's a cliché, just like Mo's joke.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Every morning, Mo tells the crew the same joke. 'Why did the pelican get kicked out of the cafe? Because it had a very big bill!' ",
+          {
+            "tap": "His joke is as old as the hills."
+          },
+          " Everyone has heard it about four hundred times. Tully has kept count. ",
+          {
+            "tap": "The crew's groan is as long as a school assembly.",
+            "reason": "This one is fresh. A long school assembly is a new picture for a groan."
+          },
+          " ",
+          {
+            "tap": "Zed's eyes roll like two marbles in a bowl.",
+            "reason": "This one is fresh. Marbles in a bowl is a new picture."
+          },
+          " Even the Swishbill sighs. But every single morning, Tully laughs. ",
+          {
+            "tap": "Her laugh bursts out like a sneeze in a library.",
+            "reason": "This one is fresh. It's not a saying everyone already knows."
+          },
+          " Then she pretends she didn't, and Mo grins all day. Tomorrow he says he has a new joke. Nobody believes him."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.10-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Mo is writing a Field Guide entry about a tawny frogmouth. The Swishbill thinks he can do better.",
+      "text": "Field Guide entry: Tawny frogmouth. We found this bird on our second night at Mirage Mangroves. Wren spotted it first, which is lucky, because nobody else could see it at all. It was perched at the end of a broken branch, with its eyes squeezed shut and its beak pointing up at the sky. Its feathers were grey and streaky, exactly like the bark around it. For nearly an hour, it didn't move a single feather, even when a mozzie landed on its head. Mo held the torch while Wren took notes. Gus said it was pretending to be part of the tree, so that owls and snakes wouldn't notice it. Frogmouths are not owls, even though everyone thinks they are. At midnight, it finally opened one yellow eye, snapped up a moth and went straight back to being a branch. In my notes I wrote that it was as still as a statue. Wren says I can do better than that.",
+      "prompt": "'As still as a statue' is a cliché. Which fresh picture fits this frogmouth?",
+      "success": "The frogmouth is pretending to be part of that broken branch, so the picture fits exactly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "as still as a kid on the last day of term",
+            "reason": "Kids on the last day of term can't sit still. This bird doesn't move a feather."
+          },
+          {
+            "text": "as still as the broken branch it was perched on"
+          },
+          {
+            "text": "as still as a statue",
+            "reason": "That's the cliché Mo wrote. Wren wants something fresher."
+          },
+          {
+            "text": "as still as a goldfish darting round its bowl",
+            "reason": "A darting goldfish never stops moving. The frogmouth stays still for an hour."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is reviewing his own picnic. The Swishbill has found a tired comparison among the crumbs.",
+      "prompt": "Tap the cliché, then choose a fresh picture made from something at the picnic.",
+      "success": "The wind kept lifting the picnic rug, and now it lifts the pavlova, so the rug picture fits.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "For Indi's birthday, Mo made a pavlova and carried it all the way down to the beach. It was so windy that the picnic rug kept trying to fly away. ",
+          {
+            "tap": "The sand stung their legs like a swarm of tiny bees.",
+            "reason": "This one is fresh. It's a new picture, not an old saying."
+          },
+          " Mo set the pavlova down on a plate and stepped back to admire it. It was tall and white, with strawberries on top. ",
+          {
+            "tap": "The cream was piled as high as a wave about to break.",
+            "reason": "This one is fresh. It isn't a worn-out saying."
+          },
+          " Then a gust of wind lifted the whole thing an inch off the plate. ",
+          {
+            "tap": "It was as light as a feather."
+          },
+          " Indi grabbed it with both hands just in time. ",
+          {
+            "tap": "Her fingers sank in like boots into fresh snow.",
+            "reason": "This one is fresh. Boots in fresh snow is a new picture for soft meringue."
+          },
+          " Everyone ate it with sand on top. Mo said the sand was extra crunch. Nobody believed him, but nobody stopped eating either. Indi said it was the best pavlova she had ever eaten, and also the sandiest. Tully counted forty-three grains of sand on her slice."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "as light as the picnic rug flapping in the wind"
+          },
+          {
+            "text": "as light as air",
+            "reason": "That's another cliché. People say it all the time."
+          },
+          {
+            "text": "as light as a paper plane on a breezy day",
+            "reason": "That's fresh, but nobody has a paper plane at this picnic. Choose something from the beach."
+          },
+          {
+            "text": "as light as a balloon at a birthday party",
+            "reason": "It's Indi's birthday, but there are no balloons in the story. Look for what the wind kept lifting."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.10-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "Zed is writing a story set on a Moon base. The Swishbill is sweeping it for tired comparisons.",
+      "prompt": "Tap the cliché.",
+      "success": "Twinkled like diamonds. Stars have been compared to diamonds so often that the picture is worn out.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Commander Vee stepped out of the airlock and onto the grey dust of the Moon. The base had been her home for three months, and she had always liked the quiet. Tonight it felt different. Her boots left prints as deep as a thumb pressed into cake icing. ",
+          {
+            "tap": "The base behind her glowed like a fridge left open in a dark kitchen.",
+            "reason": "This one is fresh. It's a new picture, not a saying everyone knows."
+          },
+          " Above her, Earth hung in the black sky, blue and white and very far away. Her shadow stretched out long and thin across the dust. ",
+          {
+            "tap": "The stars twinkled like diamonds."
+          },
+          " She switched on her radio. ",
+          {
+            "tap": "It crackled like a packet of chips being opened.",
+            "reason": "This one is fresh. It's a new picture for radio noise."
+          },
+          " 'Base, this is Vee,' she said. 'I'm going to check the solar panels.' Nobody answered. ",
+          {
+            "tap": "The silence pressed in like a hand over her helmet.",
+            "reason": "This one is fresh. It's a new, creepy picture of silence."
+          },
+          " She checked her oxygen, then checked it again. Then, very slowly, she turned around. The door of the airlock had closed behind her. Somewhere inside, a light blinked off."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed reviewed a new game on his stream. The Swishbill is sorting his comparisons.",
+      "prompt": "Put each line from Zed's game review in the right bin.",
+      "success": "Larry, gold, houses and logs are worn-out comparisons. Trolleys, fish tanks and cinema floors are new pictures.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "cliché",
+          "fresh"
+        ],
+        "items": [
+          {
+            "text": "My little brother was as good as gold while I played.",
+            "bin": 0,
+            "reason": "This is a very old saying. It's a cliché."
+          },
+          {
+            "text": "I was as happy as Larry when I won.",
+            "bin": 0,
+            "reason": "Everyone in Australia has heard this one. It's worn out."
+          },
+          {
+            "text": "The final boss was as big as a house.",
+            "bin": 0,
+            "reason": "This is said about anything big. It's a cliché."
+          },
+          {
+            "text": "After six hours of gaming, I slept like a log.",
+            "bin": 0,
+            "reason": "People say this all the time. It's a cliché."
+          },
+          {
+            "text": "Lag made my character steer like a shopping trolley with a bad wheel.",
+            "bin": 1,
+            "reason": "This is a new picture that anyone who has pushed a trolley will see."
+          },
+          {
+            "text": "The underwater level glowed like a fish tank at midnight.",
+            "bin": 1,
+            "reason": "This is a new picture, not an old saying."
+          },
+          {
+            "text": "My controller was as sticky as a cinema floor after a kids' movie.",
+            "bin": 1,
+            "reason": "This is a fresh, funny picture. It isn't a saying everyone knows."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.10-b3-5",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus wrote a report on his robot's first race. The Swishbill is hunting for the tired line.",
+      "text": "Robot Race Report, by Gus. Bolt lined up on the start line next to six other robots. There were prizes for first, second and third, and a special prize for any robot that didn't explode. The crowd was mostly parents and one very excited dog. Its silver arms swung like a gate in a gale as it warmed up, and its wheels were as quiet as a fridge at midnight. When the flag dropped, the robot next to Bolt fell over, and two others crashed into each other. Bolt didn't even flinch. It shot past them like greased lightning. At the halfway mark, it beeped like a supermarket checkout to tell me it was low on battery. I had forgotten to charge it. Bolt still came second, and it only stopped once to make toast. I am very proud of it. Next year, I am charging it the night before.",
+      "prompt": "Which comparison in Gus's report is a cliché?",
+      "success": "Like greased lightning. People have said it so many times that it's worn out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "swung like a gate in a gale",
+            "reason": "This one is fresh. It's a new picture of Bolt's arms."
+          },
+          {
+            "text": "as quiet as a fridge at midnight",
+            "reason": "This one is fresh. It isn't a saying people use all the time."
+          },
+          {
+            "text": "beeped like a supermarket checkout",
+            "reason": "This one is fresh. It's a new picture for Bolt's beep."
+          },
+          {
+            "text": "shot past like greased lightning"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "4.10-b3-6",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Indi is writing a spooky story about the old boatshed. The Swishbill wants her to swap out a tired comparison.",
+      "text": "Under the old boatshed at Crooked Creek there is a cellar that nobody has opened for fifty years. Nobody in town will say why. It smells of rope, salt and old fishing nets. The walls are lined with rusty hooks and tackle boxes, and the floor is covered in dried-up bait. On Saturday, Indi and Zed lifted the trapdoor and shone their torch down the ladder. Indi's torch flickered twice. The beam only reached the third rung. Zed said he could hear dripping, but he couldn't tell where it was coming from. Below that, there was nothing to see at all. They decided to come back another day, with a much bigger torch. Indi wrote the whole thing down as soon as they got back to the boat. In her first draft, Indi wrote that the cellar was as dark as night. Zed said that was a cliché, and that she should use something from the boatshed instead.",
+      "prompt": "Which fresh picture from the boatshed fits Indi's cellar?",
+      "success": "A shut tackle box is pitch-dark inside, and tackle boxes line the cellar walls.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "as dark as the inside of a shut tackle box"
+          },
+          {
+            "text": "as black as coal",
+            "reason": "That's another cliché, and Zed wants something from the boatshed."
+          },
+          {
+            "text": "as dark as a cinema before the film starts",
+            "reason": "A cinema is dark, but it isn't in the boatshed. Zed asked for something from there."
+          },
+          {
+            "text": "as dark as a beach at lunchtime in summer",
+            "reason": "A summer beach at lunchtime is blazing with light, and it isn't in the boatshed."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.10-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Tully is writing up last night's storm in the ship's log. The Swishbill is perched on her pencil.",
+      "text": "By midnight, the storm had turned the bay into something none of the crew had seen before. The Soggy Biscuit climbed each wave slowly, groaning, until it hung at the very top for one horrible second, and then it plunged down the other side so fast that Mo's saucepans flew off their hooks. From the deck, Tully could see the tip of the mast against the lightning. Every wave that rolled towards them was taller than the mast itself, a black wall of water with white foam spilling off its top. The rain came sideways and stung their faces. Zed had tied himself to the wheel with a skipping rope. Indi gave up on her sketchbook after the third page blew away. Wren had wrapped the Creatures in towels and wedged them into the bunks. Gus was being sick into a bucket, which he said was a perfectly normal scientific reaction. Nobody slept. In the morning, when the sea was flat again and everyone was eating dry toast, Tully wrote up the night in the ship's log. Her first sentence said that the waves had been as big as houses. She crossed it out, chewed her pencil, and looked up at the mast.",
+      "prompt": "Tully crossed out a cliché. Which fresh picture comes from what she saw that night?",
+      "success": "Tully watched every wave rise higher than the mast, so a picture built on the mast fits exactly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "waves as tall as a stack of breakfast pancakes",
+            "reason": "A stack of pancakes is small. These waves were taller than the mast."
+          },
+          {
+            "text": "waves as big as houses",
+            "reason": "That's the cliché Tully crossed out. Readers have heard it many times."
+          },
+          {
+            "text": "waves as tall as the Soggy Biscuit's own mast"
+          },
+          {
+            "text": "waves as tall as the lighthouse on Pelican Point",
+            "reason": "That's fresh, but there's no lighthouse in Tully's night. She was looking up at the mast."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.10-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully cut this report out of the Hollowgum Herald. The Swishbill has found one tired comparison in it.",
+      "prompt": "Tap the cliché.",
+      "success": "As solid as a rock. It has described goalkeepers and best friends so often that it's completely worn out.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The Under-12 girls' soccer final at Mirage Park was decided in the very last minute, after an hour in which neither team could find a way through. More than four hundred people had squeezed around the field, many of them holding umbrellas. Pine Gully attacked again and again, and every time the ball came near the Hollowgum goal, ",
+          {
+            "tap": "their defenders got to it as fast as seagulls get to a dropped chip.",
+            "reason": "This one is fresh. Seagulls and a dropped chip are a new picture."
+          },
+          " In goal for Hollowgum, Year 6 student Lani Petersen made eleven saves. ",
+          {
+            "tap": "She was as solid as a rock."
+          },
+          " Pine Gully's coach spent the last five minutes chewing the cord of her whistle. With seconds left, Hollowgum won a corner. Captain Mia Rossi stepped up and took a long, slow breath. ",
+          {
+            "tap": "Her kick curved through the air like a boomerang that had changed its mind,",
+            "reason": "This one is fresh. It's a new picture, not an old saying."
+          },
+          " dipped over the goalkeeper's gloves and dropped into the top corner of the net. ",
+          {
+            "tap": "The Hollowgum crowd's cheer rolled across the park like a summer storm breaking.",
+            "reason": "This one is fresh. It isn't a saying people use all the time."
+          },
+          " Rossi was buried under her whole team within seconds. It was the first time Hollowgum had won the trophy in twelve years. Afterwards, she told the Herald that she had practised that kick every afternoon for a year, mostly against her nan's garage door. Her nan has asked for a new garage door."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi wrote about sketching the mudflats. The Swishbill has spotted a tired comparison in the mud.",
+      "prompt": "Tap the cliché, then choose a fresh picture made from something in Indi's morning.",
+      "success": "The mud is smooth, flat and grey, just like the sketchbook page Indi is pressing her pencil into.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "At low tide, the water drains out of Mirage Mangroves and leaves behind a mudflat that stretches almost to the horizon. Indi went out at sunrise with her sketchbook and a pencil, determined to draw it before the tide came back. The air smelled of salt and rotten eggs. She had borrowed Mo's gumboots, which were three sizes too big, and twice she nearly lost one in the mud. ",
+          {
+            "tap": "The mangrove roots poked up out of the mud like the bristles of an old toothbrush.",
+            "reason": "This one is fresh. An old toothbrush is a new picture for the roots."
+          },
+          " Crabs scuttled everywhere, each one waving a single claw. A heron stalked past, ignoring her completely. ",
+          {
+            "tap": "Hundreds of crabs clicked their claws together as busily as knitting needles.",
+            "reason": "This one is fresh. It isn't a worn-out saying."
+          },
+          " The mud itself was smooth and grey, with no hills or bumps anywhere. ",
+          {
+            "tap": "It was as flat as a pancake."
+          },
+          " Indi pressed her pencil against the grey page of her sketchbook and frowned. ",
+          {
+            "tap": "The rising sun crept across the mud like orange cordial poured into water.",
+            "reason": "This one is fresh. Cordial spreading through water is a new picture for slow light."
+          },
+          " She had drawn the mangroves a hundred times before, but she had never noticed how much the mud looked like her own sketchbook paper: grey, smooth and waiting for someone to make a mark on it. By the time the tide came back, she had filled six pages. Her sneakers were never the same again."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "as smooth as silk",
+            "reason": "That's another cliché. People say it all the time."
+          },
+          {
+            "text": "as flat and grey as a school car park",
+            "reason": "That's fresh, but there's no car park on Indi's mudflat. Choose something from her morning."
+          },
+          {
+            "text": "as flat and grey as a page in her sketchbook"
+          },
+          {
+            "text": "as flat and grey as the heron stalking past",
+            "reason": "The heron is in Indi's morning, but a tall bird isn't flat. The mud has no bumps anywhere."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.10-b4-4",
+      "band": 4,
+      "topic": "general",
+      "frame": "The Hollowgum Primary newsletter is full of comparisons this week. The Swishbill is sorting them.",
+      "prompt": "Put each line from the school newsletter in the right bin.",
+      "success": "Ducks, snails and bones are worn-out comparisons. Pythons, cornflakes, ferry horns and ballerinas are new pictures.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "cliché",
+          "fresh"
+        ],
+        "items": [
+          {
+            "text": "Our new principal, Ms Adeyemi, has taken to the job like a duck to water.",
+            "bin": 0,
+            "reason": "People say this about anyone who is good at something new. It's a cliché."
+          },
+          {
+            "text": "On pizza day, the canteen queue moved at a snail's pace.",
+            "bin": 0,
+            "reason": "People say 'a snail's pace' about anything slow. It's worn out."
+          },
+          {
+            "text": "After the long summer, the oval was as dry as a bone.",
+            "bin": 0,
+            "reason": "This is said about anything dry. It's a cliché."
+          },
+          {
+            "text": "The canteen queue curled around the building like a sleepy python.",
+            "bin": 1,
+            "reason": "A sleepy python is a new picture for a long, slow queue."
+          },
+          {
+            "text": "The dry grass on the oval was as crunchy as a bowl of cornflakes.",
+            "bin": 1,
+            "reason": "This is a new picture you can hear, not an old saying."
+          },
+          {
+            "text": "Ms Adeyemi's voice carries across the yard as clearly as a ferry horn on a foggy morning.",
+            "bin": 1,
+            "reason": "A ferry horn in fog is a fresh picture for a voice that carries."
+          },
+          {
+            "text": "The broken classroom fan wobbled round and round like a tired ballerina.",
+            "bin": 1,
+            "reason": "A tired ballerina is a fresh, funny picture for a wobbly fan."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.10-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "The crew is watching Maxx Vantablack's live stream from the Vantadome. The Swishbill's bill is twitching.",
+      "text": "'Maxx it out, Vantafam!' The live stream opened on Maxx Vantablack standing on the top deck of the Vantadome, with the glass dome glittering behind him and the waterslide curling off the back like a gold ribbon. Behind him, two Goldies in gold tracksuits held up a banner that said RESCUE SANCTUARY in glitter. Thirty-eight million people were watching. He flashed a smile so white that viewers all over the world reached for their sunnies. His silver hair had been sprayed into a wave as stiff as a frozen ocean, and it didn't move once, even when a seagull landed on it. 'Today,' he purred, in a voice as smooth as a gold jet ski gliding over a glassy bay, 'I unveil my brand-new Creature Rescue Sanctuary.' The MaxxCam drone swung around to show a row of very small cages. 'They'll be as snug as a bug in a rug in there,' he added, patting the bars. Something inside one of the cages whimpered. Maxx turned up the music. Comments poured in, mostly hearts. 'Smash that heart button like it owes you money!' On the Soggy Biscuit, Wren switched off the screen without a word. Gus wrote down the time, Zed took a screenshot, and Indi started sketching every cage.",
+      "prompt": "Which comparison in Maxx's stream is a cliché?",
+      "success": "As snug as a bug in a rug. It's so worn out that nobody stops to picture those tiny cages.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a smile so white that viewers reached for their sunnies",
+            "reason": "This one is fresh. Reaching for sunnies is a new, funny picture."
+          },
+          {
+            "text": "as snug as a bug in a rug"
+          },
+          {
+            "text": "hair as stiff as a frozen ocean",
+            "reason": "This one is fresh. A frozen ocean is a new picture for a sprayed wave of hair."
+          },
+          {
+            "text": "a voice as smooth as a jet ski on a glassy bay",
+            "reason": "This one is fresh. It isn't a saying people use all the time."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.10-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Wren is writing about the morning the fog came in. The Swishbill wants her to swap out a tired comparison.",
+      "text": "On the crew's fourth morning at Mirage Mangroves, they woke to find that the island had disappeared. A fog had rolled in overnight, so thick and white that from the deck of the Soggy Biscuit you couldn't see the end of the gangplank. Mo was standing at the little stove on deck, stirring a pot of porridge so thick that the spoon stood up by itself. Every so often it gave a slow, heavy bloop. Wren and Zed set off along the boardwalk to check on the Creatures. After ten steps, the boat behind them had vanished. After twenty, they could barely see each other's faces, and the only way to stay on the boardwalk was to keep one hand on the rail. Even the birds had gone quiet. Wren called out, and her voice sounded small and flat. Somewhere close by, something splashed. It turned out to be the Swishbill, fishing for breakfast. Neither of them said much on the way back. Back on board, Wren started writing about it in her diary. Her first sentence said the fog was as thick as pea soup. Indi read it over her shoulder and said, 'That's a cliché. Use something from this morning instead.' Wren looked across the deck at Mo's stove.",
+      "prompt": "Which fresh picture fits the fog Wren is writing about?",
+      "success": "The fog was so thick they couldn't see, and Mo's porridge was thick enough to hold up a spoon.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "as thick as pea soup",
+            "reason": "That's the cliché Wren wrote first. Indi asked for something from this morning."
+          },
+          {
+            "text": "as thick as thieves",
+            "reason": "That's a cliché about close friends, not about fog."
+          },
+          {
+            "text": "as thin as the steam from a cup of tea",
+            "reason": "Steam is thin and see-through. This fog hid the end of the gangplank."
+          },
+          {
+            "text": "as thick as the porridge bubbling on Mo's stove"
+          }
+        ],
+        "answer": 3
+      }
+    }
+  ]
+}

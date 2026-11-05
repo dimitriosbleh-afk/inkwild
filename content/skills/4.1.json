@@ -1,0 +1,958 @@
+{
+  "skill": {
+    "id": "4.1",
+    "name": "Simile: what is compared, and why",
+    "codes": [
+      "VC2E5LE04",
+      "VC2E6LA08"
+    ],
+    "why": "A simile helps you picture something by linking it to something you know.",
+    "how": "Find like or as. Name the two things. Ask what they share.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Writers help you picture things by comparing them.",
+            "show": "**The mud** was like **chocolate pudding**."
+          },
+          {
+            "say": "Spot the joining word: like or as. That's a simile.",
+            "show": "The mud was **like** chocolate pudding."
+          },
+          {
+            "say": "Now ask why. What do mud and pudding share?",
+            "show": "My boots **sank right in**."
+          },
+          {
+            "say": "Both are soft and gooey! That's why the writer chose it."
+          },
+          {
+            "say": "Careful. 'I like pudding' isn't a simile. Nothing is compared.",
+            "show": "I **like** pudding."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "The egret stood on one leg in the shallow water. It was as still as a statue. It didn't even blink.",
+          "prompt": "What is the egret compared to?",
+          "hint": "Find the word as. What comes after 'as still as'?",
+          "success": "A statue. 'As still as a statue' links the egret to something that never moves.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "a statue"
+              },
+              {
+                "text": "the water",
+                "reason": "The egret stands in the water, but it isn't compared to it."
+              },
+              {
+                "text": "one leg",
+                "reason": "Its leg is part of the egret. Look after 'as still as'."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the simile.",
+          "hint": "Find like. Is it comparing two different things?",
+          "success": "The sandwich's smell is compared to old socks, using like. Pee-yew.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Gus opened his lunchbox. ",
+              {
+                "tap": "He likes cheese sandwiches best.",
+                "reason": "Here 'likes' means enjoys. Nothing is being compared."
+              },
+              " ",
+              {
+                "tap": "The sandwich smelled like old socks."
+              },
+              " ",
+              {
+                "tap": "He ate it anyway.",
+                "reason": "This just says what Gus did. There's no comparison."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "likkaby",
+      "name": "Likkaby",
+      "evolved": "Likkabound",
+      "blurb": "A mudskipper that hops from one thing to another and links them with like or as. Catch it by asking what the two things share."
+    }
+  },
+  "encounters": [
+    {
+      "id": "4.1-b1-1",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "A Likkaby is sitting on a soggy postcard it found in the mangrove roots.",
+      "text": "Dear Nan, We went snorkelling at the reef today. The water was warm and clear. A huge turtle swam right under me. Its shell was as wide as our kitchen table. It didn't seem to mind me at all. It just munched on some seagrass and swam away slowly. Dad took a photo with his new camera, but his finger was over the lens. I'll draw it for you instead. Love, Kit",
+      "prompt": "What is the turtle's shell compared to?",
+      "success": "A kitchen table. 'As wide as our kitchen table' helps you picture how huge the shell was.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a patch of seagrass",
+            "reason": "The turtle munches seagrass. Its shell isn't compared to it."
+          },
+          {
+            "text": "a kitchen table"
+          },
+          {
+            "text": "Dad's camera",
+            "reason": "Dad's camera is in the postcard, but the shell isn't compared to it."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b1-2",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The crew rowed into Mirage Mangroves at night. The Likkaby hid in Wren's pocket.",
+      "prompt": "Tap the simile.",
+      "success": "The roots are compared to bony fingers, using like. It makes them sound creepy.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The crew rowed into the mangroves after dark. ",
+          {
+            "tap": "Mo said he liked spooky places.",
+            "reason": "Here 'liked' means enjoyed. Nothing is being compared."
+          },
+          " Nobody believed him. The roots stuck up out of the mud. ",
+          {
+            "tap": "They looked like long, bony fingers."
+          },
+          " Something splashed nearby. ",
+          {
+            "tap": "Gus dropped his torch into the water.",
+            "reason": "This says what Gus did. It doesn't compare two things."
+          },
+          " It glowed green on the bottom. ",
+          {
+            "tap": "Then Mo screamed and jumped into Tully's lap.",
+            "reason": "This tells you what Mo did. There's no like or as."
+          },
+          " It was only a crab. A tiny one."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Tully wrote a note about Mo's pancakes. One word is wrong.",
+      "text": "Mo made pancakes for the crew. The first one was a disaster. It was as hard as a brick. Tully tapped it with a spoon. The spoon bounced off. Gus tried to cut it with a knife. The knife bent. Then Mo made a second pancake. This one was as flat and floppy as a wet sock. Zed hung it over the rail to dry. A seagull flew off with it. 'Breakfast is cancelled,' said Mo.",
+      "prompt": "Tap the word Tully got wrong, then choose a better one.",
+      "success": "Brick. 'As hard as a brick' shows the first pancake was rock solid.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo's first pancake was as hard as a ",
+          {
+            "tap": "sock"
+          },
+          ". His second pancake was as ",
+          {
+            "tap": "floppy",
+            "reason": "That's right. It was as flat and floppy as a wet sock."
+          },
+          " as a wet sock. A ",
+          {
+            "tap": "seagull",
+            "reason": "That's right. A seagull flew off with it."
+          },
+          " took it."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "knife",
+            "reason": "Gus cut it with a knife, but the pancake isn't compared to a knife."
+          },
+          {
+            "text": "spoon",
+            "reason": "Tully tapped it with a spoon. Look after 'as hard as'."
+          },
+          {
+            "text": "brick"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.1-b1-4",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing a Field Guide page about the Likkaby's wild cousins.",
+      "text": "FIELD GUIDE: MUDSKIPPER. This little fish can live out of the water. It hops across the mud on its front fins. Its eyes sit right on top of its head. They poke up like the periscope on a submarine. That way, it can hide in a puddle and still see all around. Mudskippers are very fast. If you try to grab one, it's gone.",
+      "prompt": "Why does the writer compare the eyes to a periscope?",
+      "success": "A periscope pokes up so a hidden submarine can look around. The eyes do the same.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "They are shiny and made of hard, smooth glass.",
+            "reason": "Nothing says the eyes are glass. The point is that they poke up to look around."
+          },
+          {
+            "text": "They poke up so it can look around while hiding."
+          },
+          {
+            "text": "They close up tight whenever the mudskipper sleeps.",
+            "reason": "The page never mentions sleep. It says the eyes poke up so it can see."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b1-5",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote a footy report. The Likkaby wants the similes.",
+      "prompt": "Put each sentence where it belongs.",
+      "success": "A simile compares two different things with like or as. 'Likes' meaning enjoys doesn't count.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "simile",
+          "not a simile"
+        ],
+        "items": [
+          {
+            "text": "Our ruck jumped like a kangaroo.",
+            "bin": 0,
+            "reason": "It compares the ruck to a kangaroo, using like."
+          },
+          {
+            "text": "The ball flew like a rocket.",
+            "bin": 0,
+            "reason": "It compares the ball to a rocket, using like."
+          },
+          {
+            "text": "The mud was as thick as porridge.",
+            "bin": 0,
+            "reason": "It compares the mud to porridge, using as."
+          },
+          {
+            "text": "Sam likes kicking goals.",
+            "bin": 1,
+            "reason": "'Likes' means enjoys here. Nothing is being compared."
+          },
+          {
+            "text": "We won by six points.",
+            "bin": 1,
+            "reason": "This just gives the score. There's no comparison."
+          },
+          {
+            "text": "Coach gave us orange slices.",
+            "bin": 1,
+            "reason": "This says what Coach did. Nothing is compared."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "This poster is nailed to a mangrove tree. The Likkaby is tapping its foot.",
+      "text": "Come to Mangrove Music Night! Saturday at six, on the boardwalk. Meet the Mudflat Band. Their drummer plays like thunder. Their singer can hit any note. Bring a picnic rug and a torch. There will be hot chips and lemonade. Entry is a gold coin. Kids under five get in free. All money goes to the crab rescue centre. Don't be late!",
+      "prompt": "What two things does the poster compare?",
+      "success": "The drummer's playing and thunder. 'Plays like thunder' tells you the drums will be loud.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "the hot chips and the lemonade",
+            "reason": "Chips and lemonade are both on sale. They're listed, not compared."
+          },
+          {
+            "text": "the singer and her notes",
+            "reason": "The singer can hit any note. There's no like or as there."
+          },
+          {
+            "text": "the drummer's playing and thunder"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.1-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "A Likkaby hopped out of Zed's backpack with a page of his Space Camp diary.",
+      "text": "Space Camp diary, Night 2. Tonight it was finally our turn on the big telescope. I had to stand on a milk crate to reach it. First we found the Moon. It was so bright and white that I had to squint. Its surface was covered in round holes, like the top of a crumpet. Our guide said the holes are craters, made by space rocks smashing into it. Then we found Saturn. It was much smaller than I expected, but I could see its rings! I wanted to stay all night. Then Jonah bumped the telescope with his elbow, and we spent ten minutes finding Saturn again. Best night ever.",
+      "prompt": "Why does Zed compare the Moon to the top of a crumpet?",
+      "success": "A crumpet's top is covered in little round holes. So is the Moon, thanks to its craters.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Both are a warm, golden-brown colour.",
+            "reason": "Zed says the Moon was bright and white. The comparison is about the holes."
+          },
+          {
+            "text": "Both look soft and squishy enough to eat.",
+            "reason": "Nothing says the Moon looks soft. Zed talks about its round holes."
+          },
+          {
+            "text": "Both are covered in little round holes."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.1-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed is streaming Swamp Quest for the crew. The Likkaby is on his shoulder.",
+      "prompt": "Tap the simile.",
+      "success": "The crab's lurching walk is compared to a wonky shopping trolley, using like.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed was playing his new game, Swamp Quest, for the crew. ",
+          {
+            "tap": "As soon as he pressed start, the screen went green.",
+            "reason": "'As soon as' tells you when something happened. It doesn't compare two things."
+          },
+          " His little hero splashed through a swamp full of frogs and floating logs. ",
+          {
+            "tap": "Zed likes games with lots of secret levels.",
+            "reason": "'Likes' means enjoys here. Nothing is being compared."
+          },
+          " He found three of them in ten minutes. Then the music changed, and the boss appeared. It was a giant mud crab with one enormous claw. ",
+          {
+            "tap": "It lurched sideways like a shopping trolley with a wonky wheel."
+          },
+          " Mo laughed so hard that he spilled his drink. ",
+          {
+            "tap": "Tully was much better at games than Mo.",
+            "reason": "This compares Tully and Mo with 'better than', not like or as. It's a plain fact."
+          },
+          " She leaned over and pointed at the crab's soft belly. 'Hit it there,' she said. Zed did. The crab flipped onto its back, and gold coins sprayed across the screen. 'New record!' Zed yelled."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.1-b2-3",
+      "band": 2,
+      "topic": "art",
+      "frame": "Wren wrote a note about Indi's new mural. One word is wrong.",
+      "text": "ART NEWS: Indi's mural is finished! Indi spent three weeks painting the side of the old boat shed. The mural shows the mangroves at sunset. She used twelve tins of paint and one jar of glitter. The tree roots twist down into the mud like strands of spaghetti. The water shines like crinkled tinfoil. Indi made it shine by mixing silver paint with a little white. In one corner, a mangrove crab waves its claw at you. Mo has already asked if he can paint a moustache on it. The answer was no. Come and see the mural before the wet season starts. Bring your sunnies, because the glitter is very bright.",
+      "prompt": "Tap the word Wren got wrong, then choose a better one.",
+      "success": "Tinfoil. The article says the water 'shines like crinkled tinfoil'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In the mural, the roots twist like ",
+          {
+            "tap": "spaghetti",
+            "reason": "That's right. The roots twist like strands of spaghetti."
+          },
+          ". The water shines like ",
+          {
+            "tap": "glitter"
+          },
+          ". Indi used ",
+          {
+            "tap": "silver paint",
+            "reason": "That's right. She mixed silver paint with a little white."
+          },
+          " to make it shine."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "white paint",
+            "reason": "Indi mixed in white paint, but the water isn't compared to it."
+          },
+          {
+            "text": "tinfoil"
+          },
+          {
+            "text": "spaghetti",
+            "reason": "Spaghetti is what the roots are compared to, not the water."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "This letter blew into the Soggy Biscuit. The Likkaby is reading over Gus's shoulder.",
+      "text": "Dear RoboHome Shop, Last week I bought your Zoom-Clean robot vacuum. The box promised it would clean my whole house in ten minutes. It does not. It moves like a snail. It took two hours to cross the lounge room rug. It took all afternoon to reach the kitchen. By the time it got to the hallway, the dog had shed again. I will say this for it: the floor is spotless wherever it has been. It also never gets stuck under the couch. But I need a vacuum that finishes before bedtime. Please send me my money back, or a robot that actually zooms. Yours, Mrs Ada Fenn",
+      "prompt": "What does 'It moves like a snail' tell you about the vacuum?",
+      "success": "It's very slow. Two hours for one rug shows why the writer chose a snail.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It leaves a sticky trail.",
+            "reason": "Snails leave trails, but she says the floor is spotless. She's complaining about speed."
+          },
+          {
+            "text": "It is very slow."
+          },
+          {
+            "text": "It hides under the furniture.",
+            "reason": "She says it never gets stuck under the couch. The problem is how slowly it moves."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b2-5",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus has written up his slime experiment. The Likkaby is stuck to page two.",
+      "prompt": "Match each simile to what it shows about Gus's slime.",
+      "success": "The action word gives it away: clung shows sticky, smelled shows stinky, jiggled shows wobbly.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "sticky",
+          "stinky",
+          "wobbly"
+        ],
+        "items": [
+          {
+            "text": "The slime clung to my fingers like chewing gum.",
+            "bin": 0,
+            "reason": "Chewing gum clings to fingers. The slime is sticky."
+          },
+          {
+            "text": "It held onto the ceiling like a fridge magnet.",
+            "bin": 0,
+            "reason": "A magnet holds on tight. The slime sticks to the ceiling."
+          },
+          {
+            "text": "It smelled like a rubbish bin on a hot day.",
+            "bin": 1,
+            "reason": "A hot bin smells awful. The slime is stinky."
+          },
+          {
+            "text": "The blob stank like Mo's old footy socks.",
+            "bin": 1,
+            "reason": "Old footy socks stink. So does the blob."
+          },
+          {
+            "text": "It jiggled like jelly when I poked it.",
+            "bin": 2,
+            "reason": "Jelly jiggles when you poke it. The slime is wobbly."
+          },
+          {
+            "text": "The blob shook like a bowl of custard on a bumpy bus.",
+            "bin": 2,
+            "reason": "Custard on a bumpy bus shakes about. The blob is wobbly."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo is telling the crew about his last camping trip. The Likkaby has its fins over its ears.",
+      "text": "Every night at camp, Grandpa fell asleep first. Then the snoring began. It started low and rumbly, like a truck waiting at the lights. Then it got louder and louder. The tent walls shook. A possum ran out of the tree above us. My little sister put her pillow over her head. Even the frogs by the creek went quiet. Mum tried poking Grandpa with a stick, but he just rolled over and kept going. In the morning, Grandpa said he had slept beautifully. 'Did anyone else hear that noise in the night?' he asked. We all just looked at him. Next time, Mum is bringing her phone to record it.",
+      "prompt": "What is Grandpa's snoring compared to?",
+      "success": "A truck waiting at the lights. 'Low and rumbly, like a truck' helps you hear it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a possum running out of a tree",
+            "reason": "A possum runs away from the noise, but the snoring isn't compared to it."
+          },
+          {
+            "text": "a truck waiting at the lights"
+          },
+          {
+            "text": "a storm shaking the tent walls",
+            "reason": "The tent walls shake, but the story never mentions a storm. Look after 'like'."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b3-1",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Wren wrote this dive log after a night on the reef. The Likkaby is jealous it couldn't come.",
+      "text": "Dive log, Tuesday. We dropped into the sunny shallows just after lunch, and within five minutes Tully spotted a cuttlefish hovering above the sand. It was about as long as my forearm, with a frilly fin running all the way around its body. At first it was a plain sandy brown, so it almost disappeared against the seafloor. Then it noticed us. Its skin flashed red, then white, then striped, then spotty, like a TV screen flicking through the channels. Gus was so surprised that he let out a cloud of bubbles. The cuttlefish didn't seem bothered. It drifted closer, waved two of its arms at Zed's mask, and turned a deep purple. Then, as quickly as it had arrived, it shot backwards and vanished into the seagrass. We searched for twenty minutes but never saw it again. Indi has already started a painting of it, though she says she'll need every colour she owns.",
+      "prompt": "Why does Wren compare the cuttlefish's skin to a TV screen flicking through the channels?",
+      "success": "Flicking channels makes the picture change fast. The cuttlefish's colours changed fast, one after another.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It glowed brightly, the way a screen does at night.",
+            "reason": "The dive was in sunny shallows after lunch. The simile is about the colours changing fast."
+          },
+          {
+            "text": "Its colours changed quickly, one after another."
+          },
+          {
+            "text": "Its body was flat, with straight, square edges.",
+            "reason": "Wren describes a frilly fin all round its body, not square edges. It's about the flicking colours."
+          },
+          {
+            "text": "It was showing the crew pictures of the reef.",
+            "reason": "That's taking it too literally. The skin only changed colour, the way channels change."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b3-2",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Tully found this story in the old jetty hut. The Likkaby won't go near it.",
+      "prompt": "Tap the simile.",
+      "success": "The fog is compared to an old woolly jumper, using as. You can picture how thick and grey it was.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Nobody had used the old jetty for years, but every night at eleven, a lantern glowed at the end of it. ",
+          {
+            "tap": "Just as the clock in the village struck eleven, Ruby crept down to the water.",
+            "reason": "'Just as' tells you when Ruby crept down. It doesn't compare two things."
+          },
+          " She had brought everything a ghost hunter needs, like a torch, a notebook and a packet of lollies for courage. ",
+          {
+            "tap": "The fog was as thick and grey as an old woolly jumper."
+          },
+          " She could barely see her own boots. ",
+          {
+            "tap": "As she reached the first plank, the lantern flickered and went out.",
+            "reason": "'As she reached' tells you when it happened. Nothing is compared here."
+          },
+          " Ruby froze. Somewhere ahead, a plank creaked, then another. ",
+          {
+            "tap": "She wished she had stayed home, as her brother had told her to.",
+            "reason": "This 'as' means 'like he said'. It isn't comparing two different things."
+          },
+          " Then a voice came out of the fog, croaky and very close. 'Have you got any lollies?' it said. It was old Mr Bartlett, who fished off the jetty every night and had dropped his lantern in the water. Ruby gave him the whole packet, and they walked home together."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Gus wrote a note about the Mangrove Cafe review. One word is wrong.",
+      "text": "MANGROVE CAFE REVIEW, by Priya, age eleven. I ordered the famous raspberry pavlova, and it arrived on a tiny plate, still a little warm from the oven. It was a small slice, but it was the best thing I have ever eaten. The pav was bright pink and so light that it nearly floated off the plate, like a cloud. It wasn't too sweet, either, which surprised me. On top was a thick swirl of passionfruit and a pile of fresh raspberries. Underneath was a layer of vanilla custard as smooth as silk. My brother ordered the fish and chips, which he said were fine. Fine! I don't know how anyone can say fine when there is pavlova on the menu. Service was quick, and the waiter laughed at my dad's jokes, which nobody ever does. My only complaint is that the chairs were wobbly, but I was too busy eating to care. Five stars, and I'm coming back on my birthday.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Light. The pav 'nearly floated off the plate, like a cloud'. Clouds float because they're light.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Priya says the pavlova was like a ",
+          {
+            "tap": "cloud",
+            "reason": "That's right. She says it nearly floated off the plate, like a cloud."
+          },
+          " because it was so ",
+          {
+            "tap": "sweet"
+          },
+          ". She says the custard was as smooth as ",
+          {
+            "tap": "silk",
+            "reason": "That's right. The custard was 'as smooth as silk'."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "pink",
+            "reason": "The pav was pink, but clouds aren't. The cloud is about floating."
+          },
+          {
+            "text": "warm",
+            "reason": "It was a little warm, but clouds aren't warm. Think about floating."
+          },
+          {
+            "text": "big",
+            "reason": "Priya says it was a small slice. The cloud is about how it nearly floated."
+          },
+          {
+            "text": "light"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "4.1-b3-4",
+      "band": 3,
+      "topic": "music",
+      "frame": "Poet Pip has written a review of the school concert. The Likkaby is sorting it out.",
+      "prompt": "Put each sentence where it belongs.",
+      "success": "A simile compares two different things. 'As soon as', 'just as' and 'like' meaning 'such as' don't compare.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "simile",
+          "not a simile"
+        ],
+        "items": [
+          {
+            "text": "The tuba player's cheeks puffed up like two pink balloons.",
+            "bin": 0,
+            "reason": "It compares the cheeks to balloons, using like."
+          },
+          {
+            "text": "The choir's last note was as soft as a feather landing.",
+            "bin": 0,
+            "reason": "It compares the note to a landing feather, using as."
+          },
+          {
+            "text": "The drumroll rattled on like hail on a tin roof.",
+            "bin": 0,
+            "reason": "It compares the drumroll to hail on a tin roof, using like."
+          },
+          {
+            "text": "As soon as the curtain opened, the band began to play.",
+            "bin": 1,
+            "reason": "'As soon as' tells you when. Nothing is being compared."
+          },
+          {
+            "text": "We heard instruments like the flute, the violin and the cello.",
+            "bin": 1,
+            "reason": "Here 'like' means 'such as'. It gives examples instead of comparing."
+          },
+          {
+            "text": "Just as the last song ended, the power went out.",
+            "bin": 1,
+            "reason": "'Just as' tells you when. Nothing is being compared."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1-b3-5",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Tully is reading out a page from a bird-watcher's diary. The Likkaby is ducking.",
+      "text": "Saturday, 6 a.m. I set up my folding chair on the boardwalk at low tide and waited for the mangrove kingfisher. The water in the channel was so still that it was like a mirror, and I could see every root reflected in it. A fisherman went past in a dinghy, and the ripples spread out behind him for ages. At half past six, I heard a sharp call above me. The kingfisher was sitting on a branch, its feathers as blue as a jewel in the early sun. It stared down at the water for a long time without moving. Then it tipped forward and dropped into the water like a thrown dart. There was a tiny splash. A second later, it was back on its branch with a crab in its beak, looking very pleased with itself. I was so excited that I knocked my thermos off the boardwalk. It's still down there somewhere.",
+      "prompt": "What does the writer compare the kingfisher's dive to?",
+      "success": "A thrown dart. It 'dropped into the water like a thrown dart': fast, straight and sharp.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a mirror",
+            "reason": "The still water is compared to a mirror, not the kingfisher's dive."
+          },
+          {
+            "text": "a jewel",
+            "reason": "The kingfisher's blue feathers are compared to a jewel, not its dive."
+          },
+          {
+            "text": "a thrown dart"
+          },
+          {
+            "text": "a fisherman's dinghy",
+            "reason": "A dinghy goes past in the diary, but nothing is compared to it."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.1-b3-6",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wrote a netball report for the crew. She's very proud of one simile.",
+      "text": "The Reef Rays were down by two goals with a minute to play, and the ball was at the wrong end of the court. That's when Priya took over. She's the tallest player on our team, but she never seems to leave the ground, and she hardly says a word during a game. She grabbed the ball from their goal attack and turned. Then she darted between the defenders like a sparrow through the branches of a tree. Three players tried to block her, and not one of them got close enough to touch the ball. She passed to Jess, who passed to Ana, who scored. We won the centre pass, and Priya did it all again. When the final whistle blew, we had won by one goal. Priya just shrugged, tied her shoelace and asked if there were any orange slices left. Coach says it was the best minute of netball she has seen in thirty years of coaching.",
+      "prompt": "What does the sparrow simile tell you about the way Priya moved?",
+      "success": "Sparrows flit through branches without hitting them. Priya slipped quickly through the defenders, and nobody touched her.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She moved quickly, and the defenders couldn't stop her."
+          },
+          {
+            "text": "She jumped high into the air to catch the ball.",
+            "reason": "Sparrows fly, but Tully says Priya never seems to leave the ground."
+          },
+          {
+            "text": "She was the smallest and lightest player on court.",
+            "reason": "Sparrows are small, but Tully says Priya is the tallest player on the team."
+          },
+          {
+            "text": "She chatted and called out to her team the whole time.",
+            "reason": "Sparrows chirp, but Tully says Priya hardly says a word during a game."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.1-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "Commander Rhee's log from the space station has been beamed to the Soggy Biscuit's radio.",
+      "text": "Station log, day forty-one. This morning we passed over the middle of Australia just as the sun came up, and I floated by the window for the whole twelve minutes it took to cross. From four hundred kilometres up, the desert looked enormous and completely empty, a rusty brown that stretched from one edge of the window to the other. Then I spotted the river. It is one of the longest rivers on the continent, thousands of kilometres from end to end, yet from up here it wound across the desert like a loose thread dropped on a brown carpet. It was a thin, dark green line, curling back on itself again and again, and in places it almost disappeared. I tried to photograph it, but the camera kept focusing on a smudge where my nose had touched the glass. My crewmate Jo says I spend more time at the window than at my experiments. She is probably right. Tomorrow we pass over the reef, and I have already cleaned the glass. Jo has asked me to stop pressing my face against it, but I can't promise anything. The reef is meant to be the best view of the whole mission, and I don't intend to miss a second of it.",
+      "prompt": "Why does the commander compare the river to a loose thread dropped on a brown carpet?",
+      "success": "A dropped thread looks thin and wiggly on a carpet. So did the river on the huge desert.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The desert below looked soft enough to lie down on.",
+            "reason": "The desert is the carpet, but the simile is about the river's shape, not how soft anything looks."
+          },
+          {
+            "text": "The river looked so short you could pick it up.",
+            "reason": "That's too literal. The log says it's thousands of kilometres long. It only looked thin from so high."
+          },
+          {
+            "text": "The river was the same rusty brown as the desert.",
+            "reason": "The log says the river was a dark green line, not brown like the desert."
+          },
+          {
+            "text": "The river looked thin and winding across the huge land."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "4.1-b4-2",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's lab notebook is open on the galley table. The Likkaby has been told not to touch anything.",
+      "prompt": "Tap the simile that shows how slowly the blob moved.",
+      "success": "Cold honey oozes very slowly off a spoon. That simile is about the blob's speed.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Experiment 14: the Mangrove Mud Monster. I mixed three cups of mud from the riverbank with glue, a sprinkle of borax and a spoonful of Mo's leftover gravy, which nobody else was going to eat. Within an hour, the mixture had become a single gleaming blob. ",
+          {
+            "tap": "Its surface was as green and shiny as a wet frog.",
+            "reason": "This simile is about the blob's colour and shine, not how fast it moved."
+          },
+          " I poked it with a ruler, and it shuddered. ",
+          {
+            "tap": "The smell was like a bucket of prawns left out in the sun.",
+            "reason": "This simile is about the smell, not the speed. A bucket of prawns doesn't move."
+          },
+          " Mo said it was the best gravy I had ever made. When I tilted the tray, the blob slid towards the edge. ",
+          {
+            "tap": "It crept over the rim like cold honey off a spoon."
+          },
+          " It took nearly ten minutes to reach the bench. Then it reached Zed's sandwich, which was a mistake on Zed's part. ",
+          {
+            "tap": "Zed shrieked like a smoke alarm and leapt onto a chair.",
+            "reason": "This simile is about Zed's shriek, not the blob's movement."
+          },
+          " By morning the blob had dried into a hard green pancake. I have named it Kevin, and it now lives in a jar on the shelf, next to my snot collection, where it belongs. Mo has asked for the recipe. I have said no, for everyone's safety, and hidden the gravy. Zed has not forgiven me."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.1-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Zed wrote a note about Indi's gallery review. One word is wrong.",
+      "text": "MIRAGE MANGROVES GALLERY: a review by Indi. The new exhibition, Tidelines, fills one long room with paintings of the mangroves at different times of day, and the first one stopped me in my tracks. It shows the channel at dawn. The artist has painted the mist as pale and delicate as tissue paper, so thin that the trees behind it show through, like shadows behind a curtain. In the next painting the tide is out, and the mudflats gleam like wet liquorice, dark and glossy, with crab holes dotted everywhere. A small sign beside it explains that the artist spent a whole winter on it. My favourite is the last painting, of the channel at night. The artist has used only black, deep blue and a few flecks of silver, and somehow it feels perfectly calm. I stood in front of it for ten minutes, and the gallery attendant asked if I was feeling all right. The only painting I didn't love was a giant portrait of Maxx Vantablack on his jet ski, which the gallery says he donated himself. Admission is free, so go before the exhibition closes at the end of the month. Bring a friend, and leave plenty of time for the night painting.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Glossy. Wet liquorice is dark and shiny, and Indi says the mudflats were 'dark and glossy'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi says the mist was as delicate as ",
+          {
+            "tap": "tissue paper",
+            "reason": "That's right. The mist was 'as pale and delicate as tissue paper'."
+          },
+          ". She compares the mudflats to wet liquorice because they were dark and ",
+          {
+            "tap": "sticky"
+          },
+          ". The night painting uses black, deep blue and ",
+          {
+            "tap": "silver",
+            "reason": "That's right. It has a few flecks of silver."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "sweet",
+            "reason": "Liquorice is sweet, but Indi is describing how the mudflats look, not how they taste."
+          },
+          {
+            "text": "glossy"
+          },
+          {
+            "text": "chewy",
+            "reason": "Liquorice is chewy, but Indi only describes how the mudflats look: dark and glossy."
+          },
+          {
+            "text": "pale",
+            "reason": "The mist was pale. The mudflats were dark, like liquorice."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "Poet Pip has pinned this concert review to the Mirage Mangroves noticeboard.",
+      "text": "The Mangrove Youth Orchestra played its end-of-year concert on Saturday night, in a tent pitched right on the edge of the mudflats. It was a bold choice of venue. Halfway through the first piece, the tide came in, and the cellists had to lift their feet onto their chairs. Nobody stopped playing. The highlight was a new piece called Storm Over the Channel, written by the orchestra's youngest member, a Year 6 student named Felix. It began with the violins playing so quietly that the notes were as faint as a mosquito in the next room. Slowly the drums joined in, and the whole tent seemed to tremble. By the final minute, the brass section was blasting out notes like foghorns across the bay, and a family of egrets took off from the trees in alarm. When the last note ended, there was a moment of complete silence. Then the audience burst into applause that drummed on and on, like heavy rain on a tin roof. Felix bowed three times and then, to everyone's delight, fell off the stage into the mud. The mud washed off his suit eventually, but the story will last a lot longer. He has already asked for three copies of this review.",
+      "prompt": "What does the reviewer compare the audience's applause to?",
+      "success": "Heavy rain on a tin roof. The applause 'drummed on and on, like heavy rain on a tin roof'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "foghorns blasting across the bay",
+            "reason": "The brass section's notes are compared to foghorns, not the applause."
+          },
+          {
+            "text": "heavy rain on a tin roof"
+          },
+          {
+            "text": "a mosquito in the next room",
+            "reason": "The quiet violin notes are compared to a mosquito, not the applause."
+          },
+          {
+            "text": "the tide rolling in across the mudflats",
+            "reason": "The tide really did come in. It isn't used in a comparison."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.1-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is testing four of Maxx's stolen robot guards. The Likkaby is keeping well back.",
+      "prompt": "Match each simile to what it tells you about the robot.",
+      "success": "Each simile picks something famous for one quality: a cheetah's speed, an elephant's size, a siren's noise, a mirror's shine.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "how fast it is",
+          "how big it is",
+          "how loud it is",
+          "how shiny it is"
+        ],
+        "items": [
+          {
+            "text": "The Goldbot X shot across the deck like a cheetah chasing its dinner.",
+            "bin": 0,
+            "reason": "Cheetahs are famous for speed, so this tells you the robot is fast."
+          },
+          {
+            "text": "The cleaning drone zipped between the cabins like a dragonfly over a pond.",
+            "bin": 0,
+            "reason": "Dragonflies zip about quickly, so this tells you the drone is fast."
+          },
+          {
+            "text": "The guard robot was as large as an elephant standing on its hind legs.",
+            "bin": 1,
+            "reason": "An elephant on its hind legs is huge, so this is about size."
+          },
+          {
+            "text": "Its alarm wailed like a fire engine's siren in a narrow tunnel.",
+            "bin": 2,
+            "reason": "A siren in a tunnel is deafening, so this is about how loud it is."
+          },
+          {
+            "text": "The beeping went off like a dozen alarm clocks at once.",
+            "bin": 2,
+            "reason": "A dozen alarm clocks make a racket, so this is about loudness."
+          },
+          {
+            "text": "Its gold armour gleamed like a freshly polished mirror.",
+            "bin": 3,
+            "reason": "A polished mirror shines, so this is about how shiny it is."
+          },
+          {
+            "text": "The spy drone darted round the mast like a swallow chasing midges.",
+            "bin": 0,
+            "reason": "Swallows dart about at speed, so this tells you the drone is fast."
+          },
+          {
+            "text": "The cargo robot filled the corridor like a fridge stuck in a lift.",
+            "bin": 1,
+            "reason": "A fridge in a lift fills the whole space, so this is about size."
+          },
+          {
+            "text": "Its visor glittered like sunlight on a swimming pool.",
+            "bin": 3,
+            "reason": "Sunlight on a pool sparkles, so this is about how shiny it is."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1-b4-6",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live-streaming from Green Screen Swamp. Zed is recording it for evidence.",
+      "text": "What's up, Vantafam! Maxx here, coming to you live from the wildest, muddiest swamp in the whole archipelago, and before you ask, yes, the hair is still perfect. I've been out here rescuing Creatures for six hours straight, and not one strand has moved. My hair is as stiff as a dried-out paintbrush. I sprayed it into this wave at five o'clock this morning, and since then I've been through a mud slide, a crab attack and a jet ski crash, and look at it. Solid. A pelican actually landed on it earlier and couldn't get a grip. Then it slid off into a puddle, and honestly, Vantafam, I felt terrible, so I gave it a signed photo. My stylist says she uses three whole cans of spray every morning, which is apparently a world record, so that's Maxx-imum content right there. Anyway, behind me you can see some adorable wild Creatures that I have totally just found, definitely not in cages, and definitely not on a film set. Tomorrow I'll show you my morning hair routine, step by step, all ninety minutes of it. Grab some Maxx-Hold hairspray from the Vantamart, only forty dollars a can. Two Xs, because one X is for losers. Stay gold!",
+      "prompt": "What does Maxx mean when he says his hair is as stiff as a dried-out paintbrush?",
+      "success": "His hair never moves. A dried-out brush is rigid, and Maxx says 'not one strand has moved'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "His hair is so stiff that nothing makes it move."
+          },
+          {
+            "text": "He combs his hair with an old paintbrush.",
+            "reason": "That's taking it literally. He's describing how stiff his hair is, not what he combs it with."
+          },
+          {
+            "text": "His hair is thin and spiky, like a brush's bristles.",
+            "reason": "He says it's sprayed into one big wave, not spikes. 'Stiff' is the point."
+          },
+          {
+            "text": "He has been painting the swamp for his fans.",
+            "reason": "He mentions a mud slide and a jet ski crash, but no painting. The simile is about stiffness."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

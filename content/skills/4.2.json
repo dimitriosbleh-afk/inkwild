@@ -1,0 +1,968 @@
+{
+  "skill": {
+    "id": "4.2",
+    "name": "Metaphor: what is meant",
+    "codes": [
+      "VC2E5LE04",
+      "VC2E6LA08"
+    ],
+    "why": "Metaphors pack a big picture into a few words. You have to unpack them.",
+    "how": "Spot what can't be really true. Ask what the two things share.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A metaphor says one thing IS another thing.",
+            "show": "Zed's bedroom **is a rubbish tip**."
+          },
+          {
+            "say": "It isn't really true. His room isn't a real tip."
+          },
+          {
+            "say": "So ask: what do his room and a tip share?"
+          },
+          {
+            "say": "Both are full of junk! That's what it means.",
+            "show": "Zed's bedroom is **very messy**."
+          },
+          {
+            "say": "No like or as. That's how it differs from a simile.",
+            "show": "Simile: his room is **like** a tip."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "After the cross-country race, Tully's legs were two wet noodles. She flopped onto the grass and couldn't get up.",
+          "prompt": "What does 'Tully's legs were two wet noodles' mean?",
+          "hint": "Her legs can't really be noodles. What are wet noodles like?",
+          "success": "Weak and floppy. Wet noodles flop about, and Tully can't even stand up.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Her legs felt weak and floppy."
+              },
+              {
+                "text": "Her legs were covered in noodles.",
+                "reason": "That's taking it literally. Nobody spilled noodles on her."
+              },
+              {
+                "text": "Her legs were long and thin.",
+                "reason": "The point is she flopped and couldn't get up. Her legs felt floppy."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Put each sentence with the device it uses.",
+          "hint": "Look for like or as first. No like or as? Check if it says one thing IS another.",
+          "success": "Similes say one thing is like another. Metaphors say one thing is another.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "metaphor",
+              "simile"
+            ],
+            "items": [
+              {
+                "text": "The moon was a silver coin.",
+                "bin": 0,
+                "reason": "It says the moon IS a coin, with no like or as."
+              },
+              {
+                "text": "Gus's room is a swamp.",
+                "bin": 0,
+                "reason": "It says his room IS a swamp, with no like or as."
+              },
+              {
+                "text": "The moon was like a silver coin.",
+                "bin": 1,
+                "reason": "It uses like, so it's a simile."
+              },
+              {
+                "text": "Gus's room smells like a swamp.",
+                "bin": 1,
+                "reason": "It uses like, so it's a simile."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "metapince",
+      "name": "Metapince",
+      "evolved": "Metapinchor",
+      "blurb": "A mangrove crab that never says something is like anything. It says it IS something, then waits for you to work out what it means."
+    }
+  },
+  "encounters": [
+    {
+      "id": "4.2-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo cooked dinner. The Metapince is hiding under the table.",
+      "text": "Mo's soup was a swamp. It was green and brown, with lumps floating in it. Something bubbled up from the bottom. Gus poked it with a spoon. 'I think it moved,' he said. Tully held her nose. Mo said it was his nan's recipe. 'Did your nan like it?' asked Zed. 'Nobody knows,' said Mo. 'She never tried it.' Everyone had toast for dinner instead.",
+      "prompt": "What does 'Mo's soup was a swamp' mean?",
+      "success": "It looked murky and gross. Green, brown and lumpy, just like a swamp.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo cooked the soup in a swamp.",
+            "reason": "The soup isn't really a swamp, and Mo didn't cook in one. It just looked like one."
+          },
+          {
+            "text": "The soup looked murky and gross."
+          },
+          {
+            "text": "The soup was hot and spicy.",
+            "reason": "The story never says how it tasted. It tells you how it looked."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.2-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is watching a mangrove crab. The Metapince is showing off.",
+      "prompt": "Tap the metaphor.",
+      "success": "The claw isn't really garden shears. Saying it IS shears shows how big and sharp it is.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren sat on the boardwalk at low tide. ",
+          {
+            "tap": "A big mud crab crept out of its hole.",
+            "reason": "This just says what the crab did. Nothing is said to be something else."
+          },
+          " It looked around. Then it waved its huge claw. ",
+          {
+            "tap": "That claw was a pair of garden shears."
+          },
+          " ",
+          {
+            "tap": "It snapped a mangrove leaf in half.",
+            "reason": "This really happened. It isn't saying one thing is another."
+          },
+          " Wren pulled her toes in fast. ",
+          {
+            "tap": "She did not want to lose one.",
+            "reason": "This tells you what Wren wanted. It's not a metaphor."
+          },
+          " The crab went back into its hole. It took the leaf with it."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.2-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Zed wrote a note about Tully's soccer report. One word is wrong.",
+      "text": "Our soccer team played the Crab Creek Pinchers on Saturday. Sam was in goal for us. She is the smallest player on our team. But Sam was a brick wall. Ball after ball bounced off her. Not one goal got past her all game. She laughed and cheered the whole time. We won two goals to nil. Coach gave Sam the player of the match medal.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Unbeatable. A brick wall stops everything, and nothing got past Sam all game.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Sam played in ",
+          {
+            "tap": "goal",
+            "reason": "That's right. Sam was in goal."
+          },
+          ". The writer calls her a brick wall because she was ",
+          {
+            "tap": "slow"
+          },
+          ". She let in ",
+          {
+            "tap": "no",
+            "reason": "That's right. Not one goal got past her."
+          },
+          " goals."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "heavy",
+            "reason": "Sam is the smallest on the team. The wall is about nothing getting past."
+          },
+          {
+            "text": "grumpy",
+            "reason": "Sam laughed and cheered all game. The wall is about stopping every ball."
+          },
+          {
+            "text": "unbeatable"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Indi found a poem in the Soggy Biscuit's logbook. The Metapince is looking up.",
+      "text": "Camping Out. The sky was a black blanket. It covered the whole bush. It was full of tiny holes. Light shone through each one. Dad pointed at the brightest hole. 'That's Sirius,' he said. 'It's the brightest star of all.' The fire popped. The frogs croaked. I counted the holes until I fell asleep. Dad fell asleep first. I got to forty-two.",
+      "prompt": "In the poem, what are the tiny holes?",
+      "success": "Stars. The sky is a blanket, and the stars are holes with light shining through.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "rips in the tent",
+            "reason": "The holes are in the sky-blanket, not a tent. Dad says one is a star."
+          },
+          {
+            "text": "drops of rain",
+            "reason": "Rain doesn't shine. Light shines through the holes, and Dad says one is a star."
+          },
+          {
+            "text": "the stars"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is writing about his gaming night. The Metapince wants to sort it.",
+      "prompt": "Put each sentence with the device it uses.",
+      "success": "Similes say one thing is like another. Metaphors say it IS the other thing. Plain facts do neither.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "metaphor",
+          "simile",
+          "neither"
+        ],
+        "items": [
+          {
+            "text": "Zed's controller was a magic wand.",
+            "bin": 0,
+            "reason": "It says the controller IS a wand, with no like or as."
+          },
+          {
+            "text": "Zed's bedroom was a dark cave.",
+            "bin": 0,
+            "reason": "It says the bedroom IS a cave, with no like or as."
+          },
+          {
+            "text": "Mo was a statue on the couch.",
+            "bin": 0,
+            "reason": "It says Mo IS a statue, with no like or as."
+          },
+          {
+            "text": "The screen glowed like a campfire.",
+            "bin": 1,
+            "reason": "It compares using like, so it's a simile."
+          },
+          {
+            "text": "Zed's thumbs were as quick as mice.",
+            "bin": 1,
+            "reason": "It compares using as, so it's a simile."
+          },
+          {
+            "text": "Zed likes games with loud music.",
+            "bin": 2,
+            "reason": "Here 'likes' means enjoys. Nothing is being compared."
+          },
+          {
+            "text": "Mo was the winner of the first game.",
+            "bin": 2,
+            "reason": "This is really true. Mo won, so it's a plain fact."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "A page from Leo's diary blew onto the Soggy Biscuit. The Metapince has its claws over its ears.",
+      "text": "Dear Diary, My sister Bea got a violin for her birthday. It is brand new and shiny. She practises every afternoon in the lounge room. Her violin is a squeaky gate. Every note makes the dog howl. Dad has started wearing earmuffs. Mum says Bea will get better. I hope Mum is right. I also hope it's soon. Bea says I am just jealous. I'm not.",
+      "prompt": "What does 'Her violin is a squeaky gate' mean?",
+      "success": "It sounds awful. A squeaky gate screeches, and the dog howls at every note.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It is old and falling apart.",
+            "reason": "The diary says it's brand new and shiny. The writer means the sound."
+          },
+          {
+            "text": "It makes a horrible, screechy sound."
+          },
+          {
+            "text": "It gets stuck and won't open.",
+            "reason": "A violin doesn't open. The writer is talking about the noise it makes."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.2-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren wrote about her first snorkel at the outer reef. The Metapince is reading it upside down.",
+      "text": "The water was so clear that I could see all the way to the sandy bottom. Then I put my face in, and I forgot to breathe. The reef was a busy city. Hundreds of fish zipped past in every direction. A parrotfish crunched on coral, while tiny cleaner fish darted in and out of its mouth. Crabs scuttled along the cracks. An octopus slid out of one hole and squeezed into another. Not one of them stopped to look at me. They all had somewhere to be. Underwater, it was completely silent, except for the sound of my own breathing. I stayed out there until my fingers went wrinkly.",
+      "prompt": "What does 'The reef was a busy city' mean?",
+      "success": "It was crowded and busy. Hundreds of creatures rushed about, all with somewhere to be, like people in a city.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The water around the reef was dirty and polluted.",
+            "reason": "Wren says the water was so clear she could see the bottom. The city is about busyness."
+          },
+          {
+            "text": "The reef was noisy, with lots of loud traffic.",
+            "reason": "Wren says it was completely silent underwater. The city is about crowds rushing about."
+          },
+          {
+            "text": "The reef was crowded with creatures rushing about."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus built a robot to wash the dishes. The Metapince is hiding in the cupboard.",
+      "prompt": "Tap the metaphor.",
+      "success": "The robot wasn't really a tornado. Calling it one shows how fast and wild it wrecked the kitchen.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus spent a whole week building a robot to wash the dishes for the crew. ",
+          {
+            "tap": "It had six long arms and a sponge for a hand.",
+            "reason": "This describes how Gus built it. A sponge for a hand is really true here."
+          },
+          " On Monday night he switched it on and stood back proudly. ",
+          {
+            "tap": "It beeped like a microwave and started spinning.",
+            "reason": "This uses like, so it's a simile, not a metaphor."
+          },
+          " At first, things went well. It scrubbed one plate until it sparkled. Then it scrubbed the bench, the fridge and Mo. ",
+          {
+            "tap": "That robot was a tornado in the kitchen."
+          },
+          " Bubbles flew everywhere, and cups crashed onto the floor. ",
+          {
+            "tap": "Tully pulled the plug out of the wall.",
+            "reason": "This is what Tully really did. It doesn't say one thing is another."
+          },
+          " The robot gave one last sad beep and stopped. Mo was the cleanest he had been in months, but every single cup was broken. 'It needs a few changes,' Gus said."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b2-3",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Indi wrote a note about Tully's crew report on Mo. One word is wrong.",
+      "text": "CREW REPORT: Mo, ship's cook. Mo is a good cook, if you like your custard crunchy. He is also the ship's comedian, whether we want one or not. Mo's jokes are boomerangs. He tells the same five jokes every single week. The one about the cow crossing the road has come back at least forty times. We groan every time, and he laughs every time. He never explains a joke, even when nobody gets it. Last week, Gus tried hiding Mo's joke book. It didn't help. Mo has memorised every one. Gus says it's the worst thing about living on a boat. Zed says it's the leaks.",
+      "prompt": "Tap the word Indi got wrong, then choose a better one.",
+      "success": "Repeats. Boomerangs keep coming back, and so do Mo's same five jokes, every single week.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Tully says Mo's jokes are boomerangs because he ",
+          {
+            "tap": "hides"
+          },
+          " them every week. He tells the same ",
+          {
+            "tap": "five",
+            "reason": "That's right. He tells the same five jokes every week."
+          },
+          " jokes, and the crew ",
+          {
+            "tap": "groans",
+            "reason": "That's right. They groan every time."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "explains",
+            "reason": "Tully says Mo never explains a joke. Boomerangs are about coming back."
+          },
+          {
+            "text": "throws",
+            "reason": "That's taking it literally. Mo tells jokes; he doesn't throw them."
+          },
+          {
+            "text": "repeats"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "The Metapince is watching an egret fish in the shallows. Wren is taking notes.",
+      "text": "FIELD NOTES, Mirage Mangroves, 7 a.m. A great egret landed in the shallow water at the edge of the channel this morning. It is the tallest bird I have seen on the island, and it is completely white. Its legs were two chopsticks, poking straight down into the water. It didn't move for nearly five minutes. Then its neck shot forward, and it came up with a small silver fish. It swallowed the fish whole, head first. A second later, it was standing perfectly still again, waiting for the next one. When a dinghy came past, it spread its wings and flew off across the mangroves.",
+      "prompt": "What does 'Its legs were two chopsticks' tell you?",
+      "success": "Its legs were long, thin and straight. That's what chopsticks are like, poking straight down.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Its legs were long, thin and straight."
+          },
+          {
+            "text": "Its legs were made of thin pieces of wood.",
+            "reason": "That's taking it literally. The legs only look like chopsticks: long, thin and straight."
+          },
+          {
+            "text": "It used its legs to pick up the fish.",
+            "reason": "The egret caught the fish with its neck shooting forward, not its legs."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.2-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's sketchbook has captions under every drawing. The Metapince is sorting them.",
+      "prompt": "Put each caption with the device it uses.",
+      "success": "Metaphors say one thing is another. Similes use like or as. The rest just say what's there.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "metaphor",
+          "simile",
+          "neither"
+        ],
+        "items": [
+          {
+            "text": "The sunset was a bowl of orange soup.",
+            "bin": 0,
+            "reason": "It says the sunset IS soup, with no like or as."
+          },
+          {
+            "text": "The mudflat was a shiny brown mirror.",
+            "bin": 0,
+            "reason": "It says the mudflat IS a mirror, with no like or as."
+          },
+          {
+            "text": "The sea shone like a brand new coin.",
+            "bin": 1,
+            "reason": "It compares the sea to a coin using like."
+          },
+          {
+            "text": "The rocks were as black as burnt toast.",
+            "bin": 1,
+            "reason": "It compares the rocks to toast using as."
+          },
+          {
+            "text": "I painted the sunset with three shades of orange.",
+            "bin": 2,
+            "reason": "This just says what paints Indi used. Nothing is compared."
+          },
+          {
+            "text": "I like drawing clouds best.",
+            "bin": 2,
+            "reason": "Here 'like' means enjoy. Nothing is compared."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed found this story in a bottle. The Metapince doesn't like the sound of it.",
+      "text": "It was a warm, still night when Ollie rowed out to find the old shipwreck. His torch was in his pocket, and his heart was thumping. Halfway across the bay, the fog rolled in. Within a minute, the fog was a grey wall. Ollie couldn't see the shore. He couldn't see the wreck. He could barely see the end of his own oars. Somewhere close by, he heard a slow splash, then another. He held his breath and switched on his torch. The beam bounced straight back at him. Then something bumped the side of the boat. It was a pelican, looking very annoyed.",
+      "prompt": "What does 'the fog was a grey wall' mean?",
+      "success": "You couldn't see through it. Ollie can't even see the end of his oars.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The fog was freezing cold and damp.",
+            "reason": "The story says it was a warm night. The wall is about not being able to see through."
+          },
+          {
+            "text": "The fog was too thick to see through."
+          },
+          {
+            "text": "The fog was hard enough to bump into.",
+            "reason": "That's taking it literally. Something bumps the boat, but it's a pelican, not the fog."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.2-b3-1",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is writing up the worst gaming night of his life. The Metapince is helping him tidy up.",
+      "text": "Mum asked me to mind my little brother, Theo, for ten minutes while she hung out the washing. Theo is two, and he only comes up to my knees. I was halfway through the final level of Swamp Quest, so I sat him on the rug with a box of blocks and told him to be good. That was my first mistake. Theo was a hurricane in the lounge room. In five minutes he had tipped out the toy box, pulled every cushion off the couch, emptied a packet of crackers onto the carpet and unplugged the console, right before the boss fight. He did all of it without making a sound. When I finally turned around, he was sitting in the middle of the mess, giggling and wearing a cracker box as a hat. Mum walked in, looked at the room, then looked at me. I have lost my console for a week.",
+      "prompt": "What does Zed mean when he says Theo was a hurricane in the lounge room?",
+      "success": "A hurricane wrecks everything fast. In five minutes, Theo made a huge mess of the whole room.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Theo was angry with Zed and wanted to get back at him.",
+            "reason": "Theo is giggling the whole time. The hurricane is about how fast he wrecked the room."
+          },
+          {
+            "text": "Theo was loud, screaming and crashing about the room.",
+            "reason": "Zed says Theo did it all without making a sound. The hurricane is about the mess."
+          },
+          {
+            "text": "Theo made a huge mess of the whole room very quickly."
+          },
+          {
+            "text": "Theo was big and strong enough to knock things over.",
+            "reason": "Theo is two and only comes up to Zed's knees. The hurricane is about the mess he made."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b3-2",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi is writing about her favourite artist. The Metapince is covered in paint.",
+      "prompt": "Tap the metaphor.",
+      "success": "Her studio isn't really a rainbow. Calling it an exploded rainbow shows colour splattered everywhere.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "My aunt Rosa lives at the end of the jetty, in the only purple house on the island. ",
+          {
+            "tap": "Aunt Rosa is a painter, and she sells her work at the Saturday market.",
+            "reason": "This is really true. Rosa's job is painting, so it isn't a metaphor."
+          },
+          " ",
+          {
+            "tap": "Her studio was once an old boat shed with a tin roof.",
+            "reason": "This is really true too. The studio used to be a boat shed."
+          },
+          " Inside, there is paint on everything: the floor, the windows, the ceiling, the cat. ",
+          {
+            "tap": "Her studio is a rainbow that has exploded."
+          },
+          " Every surface is covered in splats of blue, gold and green. ",
+          {
+            "tap": "Her brushes stand in jars like bunches of strange flowers.",
+            "reason": "This compares the brushes to flowers using like, so it's a simile."
+          },
+          " Last summer, she let me paint a whole wall by myself. I painted the mangroves at sunset, with Mo in a tiny boat in the corner. Rosa says it's the best wall in the house. Mo says his nose is too big. I said it's art, so it doesn't have to be accurate. Rosa just laughed and gave me a bigger brush. Next summer, I'm painting the ceiling."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "Tully wrote a note about an astronaut's spacewalk diary. One word is wrong.",
+      "text": "Spacewalk diary, Day 12. Today I went outside the space station for the first time, to fix a broken solar panel. Getting into the suit took nearly an hour. It is heavy, about 120 kilograms on Earth, although up here it floats. It is also surprisingly roomy, so I could wriggle my arms right out of the sleeves. Once I was outside, the sun beat down on me with nothing to block it. Inside, my suit was an oven. Sweat ran into my eyes, and I couldn't wipe it away because my helmet was in the way. It took me three hours to fix the panel. When I finally came back inside, my crewmates cheered, and I drank two whole bags of cold water in a row. Then I fell asleep, floating in my sleeping bag, before I had even finished my dinner. Tomorrow I'm going back out to fix the second panel.",
+      "prompt": "Tap the word Tully got wrong, then choose a better one.",
+      "success": "Hot. An oven is hot, and she was sweating so much it ran into her eyes.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The astronaut says her suit was an oven because it was so ",
+          {
+            "tap": "heavy"
+          },
+          ". She spent three hours fixing the ",
+          {
+            "tap": "solar panel",
+            "reason": "That's right. She went out to fix a broken solar panel."
+          },
+          ". Afterwards she drank two bags of ",
+          {
+            "tap": "water",
+            "reason": "That's right. She drank two bags of cold water."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "tight",
+            "reason": "She says the suit was roomy. An oven isn't tight; it's hot."
+          },
+          {
+            "text": "hot"
+          },
+          {
+            "text": "dark",
+            "reason": "The sun beat down on her with nothing to block it. The oven is about heat."
+          },
+          {
+            "text": "noisy",
+            "reason": "She never mentions noise. She talks about sweat, so the oven is about heat."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.2-b3-4",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is commentating the Reef Rays game on the radio. The Metapince has three tickets.",
+      "prompt": "Put each line of Tully's commentary with the device it uses.",
+      "success": "Metaphors say something IS something else. Similes use like or as. Plain facts aren't comparisons at all.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "metaphor",
+          "simile",
+          "neither"
+        ],
+        "items": [
+          {
+            "text": "The Reef Rays' captain is a bulldozer through the middle of the ground.",
+            "bin": 0,
+            "reason": "She isn't really a bulldozer. Saying she IS one shows how she pushes through."
+          },
+          {
+            "text": "The Reef Rays' ruck is a giraffe in the centre square.",
+            "bin": 0,
+            "reason": "The ruck isn't really a giraffe. Saying he IS one shows how tall he is."
+          },
+          {
+            "text": "Their full-forward leaps like a dolphin out of the pack.",
+            "bin": 1,
+            "reason": "It compares the leap to a dolphin using like, so it's a simile."
+          },
+          {
+            "text": "The ground is as slippery as a freshly mopped floor today.",
+            "bin": 1,
+            "reason": "It compares the ground to a mopped floor using as, so it's a simile."
+          },
+          {
+            "text": "Their rover darts around the packs like a mosquito at a barbecue.",
+            "bin": 1,
+            "reason": "It compares the rover to a mosquito using like, so it's a simile."
+          },
+          {
+            "text": "The Reef Rays' captain pushes hard through the middle of the ground.",
+            "bin": 2,
+            "reason": "This says plainly what she does. Nothing is compared to anything."
+          },
+          {
+            "text": "Players like Jess and Ana have kicked three goals each.",
+            "bin": 2,
+            "reason": "Here 'like' means 'such as'. It gives examples, not a comparison."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2-b3-5",
+      "band": 3,
+      "topic": "music",
+      "frame": "Poet Pip is reviewing the Mudflat Band. The Metapince is tapping along.",
+      "text": "The Mudflat Band played on the boardwalk last night, and I have been humming ever since. There are four of them: a singer, two guitarists and a drummer called Barney. Barney is not the most popular member of the band. The others complain that he eats all the snacks before every show and never helps carry the speakers. But Barney is the heartbeat of the band. He sits at the back, playing softly and perfectly calm, and he never misses a beat. When the singer forgot her words in the third song, the guitarists watched Barney's sticks and stayed in time until she remembered. When the power cut out for a moment, Barney kept on drumming, and the whole band picked up again the second the lights came back. The crowd hardly noticed. Afterwards, the singer thanked everybody except Barney, who was already eating the leftover sausage rolls. I'll be at their next show, and I'm bringing my own snacks.",
+      "prompt": "What does the reviewer mean by 'Barney is the heartbeat of the band'?",
+      "success": "A heartbeat is steady and keeps everything going. Barney's steady beat keeps the whole band together.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He is the band member that everyone loves most.",
+            "reason": "The others complain about him and the singer doesn't thank him. It's about his steady beat."
+          },
+          {
+            "text": "He plays so loudly that the crowd feels it in their chests.",
+            "reason": "The review says he plays softly. The heartbeat is about keeping a steady beat."
+          },
+          {
+            "text": "He keeps a steady beat that the whole band follows."
+          },
+          {
+            "text": "He gets so nervous that his heart pounds on stage.",
+            "reason": "The review says Barney is perfectly calm. The metaphor is about his drumming."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b3-6",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo got a job helping in the school canteen. The Metapince is hiding in the bain-marie.",
+      "text": "On my first day helping in the Crab Creek Primary canteen, Mrs Patel handed me an apron and said, 'Good luck.' I thought she was joking. Then the lunch bell rang. The canteen was a beehive. Three hundred kids squeezed through the door at once, all talking, all waving coins, all trying to get to the front. Mrs Patel buzzed from the oven to the till to the fridge without stopping. Two Year 6 helpers took orders, wrapped sausage rolls and poured drinks so fast I could hardly see their hands. The whole room smelled of hot chips and tomato sauce. Everyone was perfectly friendly. Nobody pushed, and a Prep kid even said thank you three times. But by the end of lunch, I had sold two hundred meat pies and dropped one on my foot. Mrs Patel says I can come back next week. I think I need a lie down.",
+      "prompt": "What does Mo mean when he says the canteen was a beehive?",
+      "success": "A beehive is crowded and busy, with bees rushing everywhere. So was the canteen at lunch.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It was crowded and busy, with everyone rushing about."
+          },
+          {
+            "text": "It was full of angry people, ready to sting.",
+            "reason": "Bees can sting, but Mo says everyone was perfectly friendly. Nobody even pushed."
+          },
+          {
+            "text": "It smelled sweet, like honey and sugary treats.",
+            "reason": "Mo says it smelled of hot chips and tomato sauce. The beehive is about the busy crowd."
+          },
+          {
+            "text": "It was painted yellow, with black stripes on the walls.",
+            "reason": "Mo never describes the walls. The beehive is about the crowd and the rush."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.2-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "This sign stands at the start of the Mirage Mangroves boardwalk. The Metapince lives under it.",
+      "text": "WELCOME TO THE MIRAGE MANGROVES BOARDWALK. Please stay on the boardwalk and keep dogs on a lead. Look down between the planks and you will see a tangle of roots poking out of the mud, some thin and some thick. It may look like a muddy, smelly swamp, but this forest is the nursery of the sea. When the tide comes in, thousands of baby fish, prawns and crabs swim in among the roots. The roots are too tight and twisted for big hungry fish to follow, so the babies can feed and grow in safety. Some will spend months here. When they are big enough, they swim out through the channel to the open water and the reef beyond, and many of the fish caught off the end of the jetty started their lives right under your feet. Nobody plants these trees or sells them; they have grown here on their own for hundreds of years. Scientists have counted more than fifty kinds of fish living in this one small forest. Please do not pull up seedlings, dig for crabs or throw rubbish into the water. Without these trees, there would be far fewer fish in the sea, so please help us protect them. Thank you for visiting.",
+      "prompt": "What does the sign mean when it calls the mangrove forest 'the nursery of the sea'?",
+      "success": "A nursery is where babies are kept safe while they grow. Baby sea creatures grow up safely among the roots.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It is a place where people grow young trees to sell.",
+            "reason": "That's a plant nursery. The sign says nobody plants or sells these trees. It's about baby sea creatures."
+          },
+          {
+            "text": "It is the youngest and newest part of the ocean.",
+            "reason": "The sign says the forest has grown there for hundreds of years. It's about the babies it shelters."
+          },
+          {
+            "text": "It is a safe place where baby sea creatures grow up."
+          },
+          {
+            "text": "It is a noisy, messy place full of little creatures.",
+            "reason": "The sign never says the forest is noisy. The point is that the babies are safe there."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's radio commentary of the grand final is being played over the ship's speakers. The Metapince has its claws over its ears.",
+      "prompt": "Tap the metaphor that shows how loud the crowd was.",
+      "success": "A jet engine roars so loudly you can't hear yourself think. That metaphor is about the crowd's noise.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Welcome back to the grand final, where the Reef Rays and the Crab Creek Pinchers are level with two minutes to go. It has rained all afternoon, and the players are covered in mud from head to toe. ",
+          {
+            "tap": "The ball is a bar of wet soap out there, shooting out of every pair of hands.",
+            "reason": "This metaphor is about how slippery the ball is, not the crowd."
+          },
+          " The Rays' captain, Priya, has been calling instructions all day, and her teammates have followed her every word. ",
+          {
+            "tap": "She is a lighthouse for this young team, guiding them through every storm.",
+            "reason": "This metaphor is about how Priya guides her team, not how loud anything is."
+          },
+          " Now Jess has the ball, fifty metres out, and she runs. She bounces once, twice, and every single person in the stadium is standing. ",
+          {
+            "tap": "The crowd is a jet engine, and I can't hear my own voice in this box!"
+          },
+          " Jess steadies and kicks. It's high, it's long, it's straight through the middle! The siren goes, and the Reef Rays have won by a single point. ",
+          {
+            "tap": "My co-commentator, Bruce, is a melted puddle in the corner of the box.",
+            "reason": "This metaphor is about Bruce flopping over, worn out by the excitement. It isn't about the noise."
+          },
+          " I need to sit down. Actually, I need to stand up. Folks, I don't know what I need, but that was the greatest finish I have ever seen. Somebody get Bruce a glass of water. And somebody get me one too."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b4-3",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Gus wrote a note about Ruby's ghost story. One word is wrong.",
+      "text": "Ruby had promised her cousins that she would walk through the old Mangrove Point cemetery at midnight, and she was not the kind of girl who broke a promise, even a stupid one. The night was dry and warm, and a light breeze carried the smell of salt up from the water. At the cemetery gate, she switched off her torch, because that was the rule. The path through the cemetery was a tunnel. The branches of the huge fig trees on either side met high above her head, so thick that not one scrap of moonlight got through. She could still feel the breeze on her arms, and she could hear everything: the owls calling, the crabs clicking in the mud, her own heart thudding in her ears. She walked with one hand out in front of her, counting her steps. At step one hundred and twelve, something cold and wet touched her fingers. Ruby screamed so loudly that every owl in the trees took off at once. Then she heard a familiar voice. 'Sorry,' said her cousin Archie, holding out a melting icy pole. 'I brought you a snack.' It was lime. Ruby ate it anyway, and her cousins have never let her forget it.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Moonlight. Like a tunnel roof, the branches met overhead, and 'not one scrap of moonlight got through'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Ruby calls the path a tunnel because the branches met overhead and shut out the ",
+          {
+            "tap": "owls"
+          },
+          ". At step one hundred and ",
+          {
+            "tap": "twelve",
+            "reason": "That's right. Something touched her at step one hundred and twelve."
+          },
+          ", her cousin gave her an ",
+          {
+            "tap": "icy pole",
+            "reason": "That's right. Archie held out a melting icy pole."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "breeze",
+            "reason": "Ruby could still feel the breeze on her arms. The branches only blocked the light."
+          },
+          {
+            "text": "noise",
+            "reason": "Ruby could hear everything, from owls to crabs. The branches blocked the light."
+          },
+          {
+            "text": "rain",
+            "reason": "The night was dry and warm. The tunnel is about the branches blocking the moonlight."
+          },
+          {
+            "text": "moonlight"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "4.2-b4-4",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Wren is writing a safety report on Gus's lab. The Metapince refuses to go in.",
+      "prompt": "Match each metaphor to what it tells you about Gus's lab.",
+      "success": "Ask what the second thing is best known for: junk, stink, noise or heat. That's what the metaphor means.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "messy",
+          "smelly",
+          "loud",
+          "hot"
+        ],
+        "items": [
+          {
+            "text": "Gus's lab bench was a junkyard of wires, jars and half-eaten sandwiches.",
+            "bin": 0,
+            "reason": "A junkyard is full of piled-up rubbish. The bench is messy."
+          },
+          {
+            "text": "His side of the cabin was a jumble sale, with clothes and books piled everywhere.",
+            "bin": 0,
+            "reason": "A jumble sale is piles of stuff everywhere. His cabin is messy."
+          },
+          {
+            "text": "The fish-guts experiment was a stink bomb that filled the whole ship.",
+            "bin": 1,
+            "reason": "A stink bomb is made to smell foul. The experiment is smelly."
+          },
+          {
+            "text": "Gus's old sneakers were a pair of rotting fish under the bunk.",
+            "bin": 1,
+            "reason": "Rotting fish are known for their stench. The sneakers are smelly."
+          },
+          {
+            "text": "The explosion was a thunderclap that rattled every window on the ship.",
+            "bin": 2,
+            "reason": "A thunderclap is a huge bang. The explosion was loud."
+          },
+          {
+            "text": "His burp was a foghorn echoing round the galley.",
+            "bin": 2,
+            "reason": "A foghorn is very loud. So was the burp."
+          },
+          {
+            "text": "With every burner on, the lab was a sauna, and sweat dripped off our noses.",
+            "bin": 3,
+            "reason": "A sauna is a very hot room. So was the lab."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live from Green Screen Swamp. Zed is recording it for evidence.",
+      "text": "Vantafam! Maxx here, live from deep in the Mirage Mangroves, on my most dangerous rescue mission EVER. And I'm going to be honest with you, guys, because honesty is my brand: this swamp is a sauna. It's forty degrees, the air is thick and wet, and steam is literally rising off the mud. My makeup artist has redone my face four times, and I've sweated through three gold tracksuits since breakfast. Even my hairspray has given up. I haven't had one second to sit down and relax, because I've been rescuing Creatures nonstop, and before you ask, no, there's nowhere to wash out here either. I'm covered in mud from my sneakers to my eyebrows. My assistant has been fanning me with a palm leaf, but it's just pushing the hot air around. Honestly, I don't know how the Creatures survive in this. Which is why I'm rescuing them, obviously, and taking them somewhere with air-conditioning, like my yacht. Tomorrow I'm doing a special stream on my new cooling fan, the Maxx-Breeze, only ninety-nine dollars in the Vantamart. Anyway, smash that heart button so I know you care, and remember, two Xs, because one X is for losers. Stay gold!",
+      "prompt": "What does Maxx mean when he says 'this swamp is a sauna'?",
+      "success": "A sauna is a hot, steamy room. Maxx means the swamp is boiling hot, wet and steamy.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The swamp is a relaxing place to sit back and unwind.",
+            "reason": "Some people relax in saunas, but Maxx says he hasn't had one second to sit down and relax."
+          },
+          {
+            "text": "The swamp is a good place to wash and get clean.",
+            "reason": "Maxx says there's nowhere to wash, and he's covered in mud. The sauna is about the heat."
+          },
+          {
+            "text": "The swamp is boiling hot, wet and steamy."
+          },
+          {
+            "text": "The swamp has wooden benches and a heater.",
+            "reason": "That's taking it literally. Maxx is describing the heat and steam, not furniture."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.2-b4-6",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed wrote this for the school newsletter. The Metapince is pressing all the buttons.",
+      "text": "In the corner of the fish and chip shop on the jetty, there is an arcade machine called Pelican Panic. It is older than my parents. The paint on the side has faded, the joystick wobbles, and you need an actual coin to play, which my little sister thinks is hilarious. But it works perfectly, and every time I play it, I am five years old again. When I was little, my grandpa used to bring me to the jetty every Friday after school. He would buy us a bucket of chips, lift me onto an upturned milk crate, and let me play Pelican Panic while he read the paper. He always cheered when I beat level three, even though I'm fairly sure he never once looked up. Grandpa moved to Queensland last year, and I miss him a lot. So now, whenever I'm at the jetty, I put one coin in, and for those few minutes I can almost smell his newspaper and feel the milk crate wobbling under my feet. For me, that old arcade machine is a time machine. Some kids say it's a waste of a coin. They're wrong. I still have never beaten level four, but my little sister has, which she mentions often.",
+      "prompt": "What does Zed mean when he says the arcade machine is a time machine?",
+      "success": "A time machine takes you back to the past. Playing the game brings back Zed's memories of Fridays with Grandpa.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It is broken, and its clock shows the wrong date.",
+            "reason": "Zed says the machine works perfectly. The metaphor is about the memories it brings back."
+          },
+          {
+            "text": "It brings back his memories of Fridays with his grandpa."
+          },
+          {
+            "text": "It is the fastest, most exciting game he has played.",
+            "reason": "Zed never says it's fast. It's special because it takes him back to being five."
+          },
+          {
+            "text": "It has games in it that come from the future.",
+            "reason": "The machine is older than Zed's parents. It takes him back, not forward."
+          }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

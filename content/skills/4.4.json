@@ -1,0 +1,961 @@
+{
+  "skill": {
+    "id": "4.4",
+    "name": "Idioms: the meaning isn't the words",
+    "codes": [
+      "VC2E6LA08"
+    ],
+    "why": "Idioms are everywhere in talk and stories. Taken literally, they make no sense.",
+    "how": "Notice when the words can't be literally true. Use the story around it.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Some sayings don't mean what the words say.",
+            "show": "Mo **spilled the beans**."
+          },
+          {
+            "say": "Did Mo drop a tin of beans? Not this time!"
+          },
+          {
+            "say": "Check the story around it for clues.",
+            "show": "Mo **spilled the beans** about Tully's **surprise** party."
+          },
+          {
+            "say": "So it means Mo told a secret. That's an idiom."
+          },
+          {
+            "say": "Aussies love them. 'Spit the dummy' means throw a tantrum.",
+            "show": "Zed **spat the dummy** when he lost."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Gus was feeling under the weather, so he stayed in his bunk all day with a blanket and a hot lemon drink.",
+          "prompt": "What does 'under the weather' mean?",
+          "hint": "Gus stays in bed with a hot lemon drink. Why might someone do that?",
+          "success": "Feeling sick. Staying in bed with a blanket and a hot lemon drink is what sick people do.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "standing out in the rain",
+                "reason": "Gus stayed in his bunk all day. He wasn't outside."
+              },
+              {
+                "text": "feeling sick"
+              },
+              {
+                "text": "happy and excited",
+                "reason": "Happy, excited people don't stay in bed all day with a hot lemon drink."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the idiom.",
+          "hint": "Which words mean something different from what they say?",
+          "success": "'Keep your chin up' doesn't mean lift your chin. It means stay cheerful.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Tully's footy team lost their first game. ",
+              {
+                "tap": "Coach said they would do better next time.",
+                "reason": "This means just what it says. There's no hidden meaning."
+              },
+              " ",
+              {
+                "tap": "'Keep your chin up,' she told them."
+              },
+              " ",
+              {
+                "tap": "They trained every day after school.",
+                "reason": "This is a plain fact about what they did."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "archiom",
+      "name": "Archiom",
+      "evolved": "Archiomancer",
+      "blurb": "An archerfish that spits sayings instead of water. Take them literally and you'll miss. Read the clues around them and you'll hit the target."
+    }
+  },
+  "encounters": [
+    {
+      "id": "4.4-b1-1",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is telling the crew about the new game quiz at school. The Archiom is listening from the bucket.",
+      "text": "On Friday, our class had a quiz about video games. Mr Lee wrote ten questions on the board. Most kids groaned. Zed grinned. He knew every single answer. He finished in two minutes and put his pen down. 'How was it?' asked Tully at lunch. 'A piece of cake,' said Zed. He got ten out of ten. Mr Lee gave him a sticker.",
+      "prompt": "What does Zed mean by 'A piece of cake'?",
+      "success": "It was very easy. Zed knew every answer and finished in two minutes.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The quiz was very easy."
+          },
+          {
+            "text": "He ate cake at lunch.",
+            "reason": "Tully asked about the quiz. Zed is talking about the quiz, not food."
+          },
+          {
+            "text": "The quiz was very hard.",
+            "reason": "Zed knew every answer and finished in two minutes. It wasn't hard for him."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.4-b1-2",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The crew is camping on Mirage Mangroves. The Archiom is snoozing in the cooler.",
+      "prompt": "Tap the idiom.",
+      "success": "'Hit the hay' doesn't mean punching hay. It means go to bed.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The crew sat around the campfire telling ghost stories. ",
+          {
+            "tap": "Mo told one about a headless crab.",
+            "reason": "This means just what it says. Mo told a story."
+          },
+          " Gus told one about a slimy hand. ",
+          {
+            "tap": "Then Wren yawned and stretched.",
+            "reason": "This is just what Wren did. There's no hidden meaning."
+          },
+          " ",
+          {
+            "tap": "'I'm going to hit the hay,' she said."
+          },
+          " She went into her tent. ",
+          {
+            "tap": "The others put out the fire.",
+            "reason": "This is a plain fact. They really put out the fire."
+          },
+          " Five minutes later, everyone was in Wren's tent. Nobody wanted to sleep alone."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Gus wrote a note about Wren's turtle hunt. One part is wrong.",
+      "text": "Wren took the crew out in the dinghy. 'There's a green turtle in this bay,' she said. 'Keep your eyes peeled.' Everyone stared at the water. Nobody said a word. Tully watched the left side. Gus watched the right. After ten minutes, Zed pointed. A small head popped up next to the boat. It blinked at them. Then it dived back down.",
+      "prompt": "Tap the part Gus got wrong, then choose a better one.",
+      "success": "Watch very carefully. That's why everyone stared at the water and nobody spoke.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "'Keep your eyes peeled' means ",
+          {
+            "tap": "look out for sharks"
+          },
+          ". The crew was looking for a ",
+          {
+            "tap": "turtle",
+            "reason": "That's right. Wren said there was a green turtle in the bay."
+          },
+          ". Zed saw it ",
+          {
+            "tap": "first",
+            "reason": "That's right. Zed was the one who pointed."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "keep very quiet",
+            "reason": "Everyone was quiet, but 'eyes peeled' is about eyes. It means watch very carefully."
+          },
+          {
+            "text": "watch very carefully"
+          },
+          {
+            "text": "put on your sunnies",
+            "reason": "Nobody puts on sunnies. Wren wants them to look hard for the turtle."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.4-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is telling the crew about his little brother. The Archiom is eating Mo's chips.",
+      "text": "Mo took his little brother Sami to the shops. Sami wanted an ice cream. Mo said no, because it was nearly dinner time. Sami chucked a wobbly. He lay on the floor and kicked his legs. He screamed so loudly that a lady dropped her shopping. Mo's cheeks went bright red. In the end, Mo carried Sami home. Sami had peas for dinner. He did not like them either.",
+      "prompt": "What does 'Sami chucked a wobbly' mean?",
+      "success": "He threw a tantrum. Lying on the floor, kicking and screaming is what a tantrum looks like.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He threw a jelly.",
+            "reason": "Nobody throws food. Sami lies on the floor, kicking and screaming."
+          },
+          {
+            "text": "He threw a tantrum."
+          },
+          {
+            "text": "He fell over by accident.",
+            "reason": "Sami lay down and kicked on purpose, because he was cross."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.4-b1-5",
+      "band": 1,
+      "topic": "general",
+      "frame": "Tully wrote these sentences. Some use idioms. The Archiom wants them sorted.",
+      "prompt": "Put each sentence where it belongs.",
+      "success": "An idiom means something different from its words. The other sentences mean exactly what they say.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "idiom",
+          "means what it says"
+        ],
+        "items": [
+          {
+            "text": "Mo let the cat out of the bag about the party.",
+            "bin": 0,
+            "reason": "There's no cat. It means Mo told the secret."
+          },
+          {
+            "text": "Gus got cold feet and didn't go on stage.",
+            "bin": 0,
+            "reason": "His feet aren't cold. It means he got too nervous to do it."
+          },
+          {
+            "text": "Wren climbed over the back fence.",
+            "bin": 1,
+            "reason": "This means just what it says. Wren really climbed a fence."
+          },
+          {
+            "text": "Mo let the cat out of the house.",
+            "bin": 1,
+            "reason": "This means just what it says. The cat went outside."
+          },
+          {
+            "text": "Gus got cold feet from paddling in the creek.",
+            "bin": 1,
+            "reason": "His feet really got cold in the water."
+          },
+          {
+            "text": "Tully was on the ball in today's maths quiz.",
+            "bin": 0,
+            "reason": "There's no ball in a maths quiz. It means she was sharp and alert."
+          },
+          {
+            "text": "Tully kicked the ball over the back fence.",
+            "bin": 1,
+            "reason": "This means just what it says. The ball really went over the fence."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.4-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo is up to his old tricks. The Archiom is trying not to laugh.",
+      "text": "Mo ran onto the deck. 'Quick!' he yelled. 'There's a shark in the kitchen sink!' Gus dropped his spanner. Tully grabbed a mop. They raced to the galley. The sink was full of dishes. There was no shark. Mo was laughing so hard he had to sit down. 'I'm just pulling your leg,' he said. Tully threw the mop at him.",
+      "prompt": "What does Mo mean by 'I'm just pulling your leg'?",
+      "success": "He was joking. There was no shark, and Mo was laughing at his trick.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He was hurting their legs.",
+            "reason": "Mo never touched anyone's leg. He's laughing at his trick."
+          },
+          {
+            "text": "He was only joking."
+          },
+          {
+            "text": "He was telling the truth.",
+            "reason": "There was no shark in the sink. Mo made it up."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.4-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Tully is reading out a story from the Space Club newsletter. The Archiom keeps splashing.",
+      "text": "The Space Club had spent six weeks building a model rocket. On launch day, they carried it out to the middle of the footy oval. Jasper was so excited that he grabbed the remote and reached for the big red button. 'Hold your horses!' said Ms Nguyen. 'We haven't checked the wind yet, and Mr Ford is still mowing the far end of the oval.' Jasper's finger froze just above the button. Ms Nguyen licked her finger and held it up. Then she waited until Mr Ford had parked his mower behind the shed. 'Right,' she said. 'Now you can launch.' The rocket shot up so high that it disappeared into a cloud. Nobody has found it yet.",
+      "prompt": "What does Ms Nguyen mean by 'Hold your horses!'?",
+      "success": "Wait. She stops Jasper pressing the button until the wind is checked and the mower has gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Hurry up and press the button.",
+            "reason": "She makes Jasper wait until the mower is gone, so she isn't telling him to hurry."
+          },
+          {
+            "text": "Hold on tight to the rocket.",
+            "reason": "Nobody is holding the rocket. She wants Jasper to wait before he presses the button."
+          },
+          {
+            "text": "Wait, and don't do it yet."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus has been building robots again. The Archiom is hiding in the sink.",
+      "prompt": "Tap the idiom.",
+      "success": "'In hot water' doesn't mean a hot bath. It means in trouble, and Gus is in big trouble.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus built a robot called Scrubba to clean the ship's deck. ",
+          {
+            "tap": "On its first day, Scrubba filled a bucket with hot water and soap.",
+            "reason": "This means just what it says. The bucket really held hot, soapy water."
+          },
+          " Then it scrubbed the deck until it shone. Everyone was impressed. On its second day, though, Scrubba scrubbed the paint off the deck, the name off the side of the ship and the stripes off Tully's footy jumper. ",
+          {
+            "tap": "Tully marched up to Gus holding her jumper.",
+            "reason": "This is a plain fact about what Tully did. No hidden meaning."
+          },
+          " ",
+          {
+            "tap": "Gus knew he was in hot water."
+          },
+          " ",
+          {
+            "tap": "He switched Scrubba off and hid it behind a barrel.",
+            "reason": "This means just what it says. He really switched it off and hid it."
+          },
+          " 'It just needs a few adjustments,' he said. Tully said Scrubba could stay if it learned to wash footy jumpers properly."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b2-3",
+      "band": 2,
+      "topic": "food",
+      "frame": "Indi wrote a note about the Mystery of the Missing Pie. One part is wrong.",
+      "text": "Mo had baked a meat pie for dinner and left it on the bench to cool. When he came back, half of it was gone. Mo was sure it was Gus, because Gus is always hungry. 'Admit it!' Mo said. 'You ate my pie.' Gus held up his hands. 'I've been in the engine room all afternoon,' he said. 'Ask Zed. He was with me.' Zed nodded. 'You're barking up the wrong tree, Mo.' Just then, a seagull flew past the porthole with a chunk of pastry in its beak. Mo shook his fist at it. Gus asked if he could have the other half.",
+      "prompt": "Tap the part Indi got wrong, then choose a better one.",
+      "success": "Blaming the wrong person. Gus was in the engine room, and a seagull really took the pie.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo thought ",
+          {
+            "tap": "Gus",
+            "reason": "That's right. Mo was sure Gus ate the pie."
+          },
+          " ate the pie. When Zed says Mo is barking up the wrong tree, he means Mo is ",
+          {
+            "tap": "being too noisy"
+          },
+          ". The real thief was a ",
+          {
+            "tap": "seagull",
+            "reason": "That's right. A seagull flew past with pastry in its beak."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "blaming the wrong person"
+          },
+          {
+            "text": "asking too many questions",
+            "reason": "Mo only asks Gus once. Zed means Mo is blaming the wrong person."
+          },
+          {
+            "text": "being rude to the seagull",
+            "reason": "Zed says this before the seagull appears. He means Mo is blaming Gus wrongly."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.4-b2-4",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi is reading Poet Pip's music blog. The Archiom is drumming its fins.",
+      "text": "This term, Kenji decided to learn the guitar, the drums, the trumpet and the violin, all at once. He also joined the choir and signed up to play a solo at the end-of-term concert. His mum warned him that he might be biting off more than he could chew. Kenji said he'd be fine. By week three, he was practising until nine every night and falling asleep in class. He mixed up his trumpet lesson with his drum lesson and turned up with the wrong instrument twice. His violin teacher said he hadn't practised at all. In week five, Kenji dropped everything except the drums. He is now very good at the drums, and much better rested.",
+      "prompt": "What did Kenji's mum mean when she said he was biting off more than he could chew?",
+      "success": "He was taking on too much. Four instruments, a choir and a solo left him exhausted and muddled.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He was eating too much food at once.",
+            "reason": "The blog is about Kenji's music, not food. He tried to learn too many things."
+          },
+          {
+            "text": "He was trying to do too many things at once."
+          },
+          {
+            "text": "He wasn't trying hard enough at music.",
+            "reason": "Kenji practised until nine every night. His problem was doing too much, not too little."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.4-b2-5",
+      "band": 2,
+      "topic": "general",
+      "frame": "The crew wrote their diaries. The Archiom wants to sort out what they meant.",
+      "prompt": "Match each idiom to what it means.",
+      "success": "You matched the meaning, not the words. Nobody really had butterflies inside, or a heart in their mouth.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "very busy",
+          "very easy",
+          "very nervous"
+        ],
+        "items": [
+          {
+            "text": "Mum has been flat out at work all week.",
+            "bin": 0,
+            "reason": "'Flat out' is Aussie for very busy, not lying flat."
+          },
+          {
+            "text": "Wren has been run off her feet at the rescue centre.",
+            "bin": 0,
+            "reason": "'Run off her feet' means so busy she never stops."
+          },
+          {
+            "text": "Fixing that leak was child's play for Gus.",
+            "bin": 1,
+            "reason": "'Child's play' means so easy that a little kid could do it."
+          },
+          {
+            "text": "Zed said the maths test was a breeze.",
+            "bin": 1,
+            "reason": "'A breeze' means very easy, not a wind."
+          },
+          {
+            "text": "Indi had butterflies in her stomach before the art show.",
+            "bin": 2,
+            "reason": "There are no real butterflies. It means a nervous, fluttery feeling."
+          },
+          {
+            "text": "Mo's heart was in his mouth as he waited for the judges.",
+            "bin": 2,
+            "reason": "His heart didn't really move. It means he was very nervous."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.4-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Gus is telling the crew about his aunt's wedding. The Archiom thinks it sounds fancy.",
+      "text": "My aunt got married in a fancy hotel in the city. Before we went in, Mum gave me a serious look. 'Mind your p's and q's tonight,' she said. So I did. I said please and thank you to every waiter. I put my napkin on my lap and chewed with my mouth closed. I didn't burp once, not even after the fizzy drink. I even asked the lady next to me how her day had been. Then she asked me about my hobbies, so I told her all about my fish-guts experiment. She moved to another table. Mum says I did really well until dessert.",
+      "prompt": "What does Mum mean by 'Mind your p's and q's'?",
+      "success": "Use your best manners. So Gus says please and thank you, and doesn't burp once.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Use your very best manners."
+          },
+          {
+            "text": "Stay quiet and don't talk to anyone.",
+            "reason": "Gus chats to the lady next to him, and Mum says he did well. It's about manners."
+          },
+          {
+            "text": "Eat everything that is on your plate.",
+            "reason": "Mum never mentions food. Gus shows good manners: please, thank you and no burping."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "4.4-b3-1",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Wren wrote about the first morning of reef camp. The Archiom was there too.",
+      "text": "On the first morning of reef camp, twelve kids who had never met before sat in a circle on the deck of the dive boat. Nobody said a word. Some stared at their flippers, and one boy pretended to read the safety sign for ten whole minutes. The silence was awful. Then Mo, who had come along as the camp cook, stood up with a plate of his fish-finger custard. 'Who wants to be brave first?' he asked. One girl laughed, then another. Soon everyone was arguing about whether fish fingers belonged anywhere near custard, and swapping stories about the worst food they had ever eaten. By lunchtime, the whole group was chatting and laughing together. The camp leader told Mo later that he had really broken the ice. Mo was so pleased that he made a second batch. Nobody ate that one either, but it gave them something else to talk about.",
+      "prompt": "What does the camp leader mean when she says Mo broke the ice?",
+      "success": "He got everyone relaxed and talking. The silence ended, and soon all the kids were chatting happily.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He made the awkward silence even worse.",
+            "reason": "After Mo's custard, everyone laughs and starts chatting. He ended the silence."
+          },
+          {
+            "text": "He got everyone relaxed and talking to each other."
+          },
+          {
+            "text": "He smashed the ice in the drinks cooler.",
+            "reason": "There's no ice in the story. The leader is talking about how the kids started chatting."
+          },
+          {
+            "text": "He started an argument that upset the group.",
+            "reason": "They argued about custard, but in a fun way. By lunchtime they were all chatting happily."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.4-b3-2",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is stuck on the hardest level of Tide Runner. The Archiom is watching from the fish tank.",
+      "prompt": "Tap the idiom.",
+      "success": "'Threw in the towel' doesn't mean throwing a real towel. It means he gave up.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed had been stuck on level nine of Tide Runner for three days. Every time he reached the giant crab, it snapped him up in one bite. ",
+          {
+            "tap": "He wiped his sweaty hands on a towel and pressed restart.",
+            "reason": "This means just what it says. Zed really wiped his hands on a towel."
+          },
+          " He tried jumping. He tried hiding behind a rock. ",
+          {
+            "tap": "He tried sneaking past the crab like a cat.",
+            "reason": "This compares Zed to a cat using like. It's a simile, not an idiom."
+          },
+          " Nothing worked. On Sunday night, after his two hundredth try, ",
+          {
+            "tap": "Zed finally threw in the towel."
+          },
+          " ",
+          {
+            "tap": "He switched off the console and went to the kitchen for a snack.",
+            "reason": "This is a plain fact about what Zed did next. No hidden meaning."
+          },
+          " Then Wren walked past the screen, picked up the controller and beat the crab on her first try. She didn't say a word. She just put the controller down and went back to reading her book. Zed has not spoken about level nine since. Wren later admitted she had watched him try for three days and taken notes. 'I just copied what you got right,' she said. Zed says that doesn't count."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Gus wrote a note about the Great Biscuit Argument. One word is wrong.",
+      "text": "It started with one chocolate biscuit. There was only one left in the tin, and Tully and Zed both reached for it at the same moment. Tully said she had called it at breakfast. Zed said that didn't count because nobody was listening at breakfast. Within five minutes, they were both shouting, Gus had taken Zed's side, Indi had taken Tully's, and Mo had started a list on the fridge of who owed whom a biscuit going back to last March. The argument went on through lunch. Then Wren walked into the galley, looked at the tin and sighed. 'This is a storm in a teacup,' she said. 'It's one biscuit.' She broke it neatly in half and handed a piece to each of them. Tully and Zed looked at their halves, then at each other, and started to laugh. Mo took his list off the fridge. He kept it, though, just in case.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Unimportant. A storm in a teacup is a big fuss about something small, like one biscuit.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren calls the fight a storm in a teacup. She means it was a big fuss about something ",
+          {
+            "tap": "dangerous"
+          },
+          ". She broke the biscuit in ",
+          {
+            "tap": "half",
+            "reason": "That's right. She broke it neatly in half."
+          },
+          " and gave it to Tully and ",
+          {
+            "tap": "Zed",
+            "reason": "That's right. Tully and Zed each got a piece."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "secret",
+            "reason": "Everyone knows what the fight is about. Wren means it's about something small."
+          },
+          {
+            "text": "unfair",
+            "reason": "Tully and Zed argue about what's fair, but Wren's point is that it's only one biscuit."
+          },
+          {
+            "text": "unimportant"
+          },
+          {
+            "text": "delicious",
+            "reason": "The biscuit might be tasty, but Wren's point is that it's only one biscuit."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b3-4",
+      "band": 3,
+      "topic": "general",
+      "frame": "The Archiom has found pairs of sentences that use the same words. Only some are idioms.",
+      "prompt": "Put each sentence where it belongs.",
+      "success": "The same words can be an idiom or plain. The rest of the sentence tells you which.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "idiom",
+          "means what it says"
+        ],
+        "items": [
+          {
+            "text": "Zed got cold feet and pulled out of the talent show at the last minute.",
+            "bin": 0,
+            "reason": "His feet weren't cold. It means he got too nervous to go ahead."
+          },
+          {
+            "text": "Gus hit the nail on the head when he guessed Maxx's password.",
+            "bin": 0,
+            "reason": "There's no nail. It means Gus guessed exactly right."
+          },
+          {
+            "text": "Indi broke the ice by asking everyone's name and favourite food.",
+            "bin": 0,
+            "reason": "There's no ice. It means she got everyone talking."
+          },
+          {
+            "text": "Zed got cold feet from paddling in the creek without his boots.",
+            "bin": 1,
+            "reason": "His feet really got cold in the creek water."
+          },
+          {
+            "text": "Gus hit the nail on the head with his hammer and fixed the shelf.",
+            "bin": 1,
+            "reason": "Gus really hammered a nail. That's just what happened."
+          },
+          {
+            "text": "Indi broke the ice on the bird bath so the magpies could drink.",
+            "bin": 1,
+            "reason": "There really was ice on the bird bath, and she broke it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.4-b3-5",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Tully is telling the crew about Sunday lunch at her nan's. The Archiom is under the table.",
+      "text": "Every Sunday, my whole family squeezes around Nan's dining table for roast chicken. Last Sunday, my little cousin Archie decided he was a comedian. When Nan put the gravy on the table, he said it was the colour of swamp water. When Uncle Ray told a story about his fishing trip, Archie yawned loudly and said, 'Wake me up when the fish gets away.' Then he poked Nan's famous pudding with his spoon and asked if it was meant to be that colour. Everyone went quiet. Nan put down her spoon, looked at Archie over the top of her glasses and said, 'Pull your head in, young man.' Archie went bright red. He said sorry to Nan, ate two bowls of pudding without another word, and even offered to do the dishes. Nan gave him a third bowl. That's how you know she has forgiven you. Archie has been very polite ever since. Mostly.",
+      "prompt": "What does Nan mean when she tells Archie to pull his head in?",
+      "success": "Stop being cheeky and rude. Archie had been insulting the food and the stories, so Nan told him off.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Duck down so you don't bump your head.",
+            "reason": "Archie is sitting at the table. Nothing could bump his head. Nan is cross about his cheek."
+          },
+          {
+            "text": "Stop daydreaming and pay attention.",
+            "reason": "Archie isn't daydreaming. He's paying attention so he can make cheeky comments."
+          },
+          {
+            "text": "Stop being cheeky and rude to everyone."
+          },
+          {
+            "text": "Think harder before you answer a question.",
+            "reason": "Nobody asked Archie a question. Nan wants him to stop being rude."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b3-6",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wrote up the Year 6 relay race for the school newsletter. The Archiom is still laughing.",
+      "text": "The Year 6 relay was the last race of the athletics carnival, and the Blue team was in the lead. Ruby was running the final leg. She stood in her lane, bouncing on her toes, waiting for Eli to bring her the baton. When Eli was still halfway down the track, Ruby heard the crowd cheering and thought it was for her. She took off, sprinting as hard as she could, all the way to the finish line. She crossed it with her arms in the air, before Eli had even reached the changeover. Then she turned around and saw that her hands were empty. Eli was standing at the changeover, holding out the baton to nobody. 'You jumped the gun,' said Coach Ellis, shaking her head. Ruby had to walk all the way back and run the leg again. Blue came third, but Ruby still says she ran the fastest leg of the day, twice.",
+      "prompt": "What does Coach Ellis mean when she says Ruby jumped the gun?",
+      "success": "Ruby went too soon. She ran before Eli gave her the baton.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Ruby leapt over the starter's gun on the track.",
+            "reason": "Nobody jumps over anything. Ruby ran before Eli had given her the baton."
+          },
+          {
+            "text": "Ruby started running before she should have."
+          },
+          {
+            "text": "Ruby ran much more slowly than the others.",
+            "reason": "Ruby sprinted as hard as she could. The problem was when she started, not her speed."
+          },
+          {
+            "text": "Ruby got such a fright that she ran away.",
+            "reason": "Ruby wasn't scared. She thought the cheering meant it was her turn to run."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "4.4-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "Indi found this letter in the Soggy Biscuit's mailbag. The Archiom is drying it out.",
+      "text": "Dear Aunty Bec, Guess what? My team won the Junior Space Challenge! We had to design a base for astronauts living on the Moon, with enough water, food and air for four people for a whole year, and then present it to a panel of real scientists. The competition was on Friday morning, and on Monday we still hadn't finished. So for the last four nights, we burned the midnight oil. Every evening after dinner, the three of us crowded around the kitchen table at Priya's house, surrounded by cardboard tubes and glue, working until nearly midnight while her parents brought us cups of hot chocolate. The lights were on the whole time, so we could see every tiny piece. On Thursday night, Priya's dad found us asleep on top of the model, with glue in our hair. We slept in on Friday morning and nearly missed the bus, but we made it, and the judges said our water recycling tank was the cleverest design they had seen all year. The prize is a trip to the space centre in the holidays. Mum says next time we should start earlier, and she is probably right. Priya's dad says next time we should use less glue. Love, Ava",
+      "prompt": "What does Ava mean when she says her team burned the midnight oil?",
+      "success": "They worked late into the night. Every evening they worked until nearly midnight to finish the base.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "They lit oil lamps, because the power had gone out.",
+            "reason": "Ava says the lights were on the whole time. Nothing was really burning."
+          },
+          {
+            "text": "They got up very early each morning to work.",
+            "reason": "They worked in the evenings, until nearly midnight. They even slept in on Friday."
+          },
+          {
+            "text": "They wasted a lot of time and energy on the project.",
+            "reason": "Their hard work paid off: the judges loved their design. Nothing was wasted."
+          },
+          {
+            "text": "They worked very late at night to finish their project."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "4.4-b4-2",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed and Gus are playing Mangrove Rafters. The Archiom is backseat driving.",
+      "prompt": "Tap the idiom.",
+      "success": "They still had both paddles, so it can't be literal. It means in big trouble, with no way out.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mangrove Rafters is a two-player game where you steer a raft through a maze of channels, collecting gold coins and dodging crocodiles. Whoever reaches the finish line first wins the Golden Paddle. Zed and Gus had been playing it all afternoon. ",
+          {
+            "tap": "Their raft floated slowly up the creek, past a sleeping crocodile.",
+            "reason": "This means just what it says. In the game, the raft really travels up a creek."
+          },
+          " ",
+          {
+            "tap": "Gus steered like a learner driver on his very first day.",
+            "reason": "This compares Gus to a learner driver using like. That's a simile, not an idiom."
+          },
+          " Then, on the very last level, everything went wrong at once. A storm hit, a log smashed into their raft, and they lost their last two lives to a crocodile they hadn't noticed. Their health bar was flashing red, and the final boss, a giant mud crab, was scuttling towards them. Both paddles were still in the raft, but that didn't help one bit. ",
+          {
+            "tap": "They were well and truly up the creek without a paddle."
+          },
+          " ",
+          {
+            "tap": "Zed pressed every button on the controller as he tried to escape.",
+            "reason": "This means just what it says. Zed really pressed all the buttons."
+          },
+          " The crab caught them three metres from the finish line. GAME OVER flashed across the screen in huge red letters. Gus put the controller down very carefully, walked out onto the deck and stared at the real mangroves for a long time. Zed pressed restart. 'Best of three,' he called out. Gus didn't come back inside until dinner, and even then he wouldn't look at the console."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b4-3",
+      "band": 4,
+      "topic": "food",
+      "frame": "Tully wrote a note about Mo's family lunch. One part is wrong.",
+      "text": "For Nan's eightieth birthday, Mo offered to make the dessert, and the family was too polite to say no. He decided on a pavlova, a giant one, decorated with kiwi fruit and passionfruit. Unfortunately, he left it in the oven for three hours instead of one. When he carried it out to the table, it was black on top and smoking slightly, and the whole house smelled of smoke. Nobody said a word about it. Nan talked about her new hat, which had a feather in it. Uncle Ray talked about the weather, and how much rain they'd had in March. Aunty Jo talked about her neighbour's dog, which had learned to open the fridge. Everyone cut themselves a tiny slice of the black pavlova and pushed it slowly around their plates, while they talked and talked about anything else. The burnt pavlova was the elephant in the room, sitting right in the middle of the table. At last, Mo's little cousin Pip, who was four, pointed at it and said, 'Why is the cake on fire?' Everyone burst out laughing, including Mo, and Nan said it was the most memorable birthday cake she had ever had. They ordered pizza.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "The burnt pavlova. It was the huge, obvious problem that everyone could see but nobody mentioned.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The elephant in the room was ",
+          {
+            "tap": "the neighbour's dog"
+          },
+          ". Nobody talked about it until little ",
+          {
+            "tap": "Pip",
+            "reason": "That's right. Pip, who was four, finally pointed at it."
+          },
+          " pointed at it. In the end, the family ordered ",
+          {
+            "tap": "pizza",
+            "reason": "That's right. They ordered pizza."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "Nan's new hat",
+            "reason": "Nan talked about her hat. The elephant in the room is the thing nobody talks about."
+          },
+          {
+            "text": "the rain in March",
+            "reason": "Uncle Ray talked about the rain. The elephant is the problem nobody mentions."
+          },
+          {
+            "text": "the burnt pavlova"
+          },
+          {
+            "text": "Uncle Ray's story",
+            "reason": "Uncle Ray's story was talked about. Nobody would mention the black, smoking pavlova."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b4-4",
+      "band": 4,
+      "topic": "general",
+      "frame": "The Archiom has been eavesdropping on the crew all week.",
+      "prompt": "Match each idiom to what it means.",
+      "success": "Each idiom has a meaning its words don't show. The story around each one helps you work it out.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "stop trying",
+          "in big trouble",
+          "do something hard or scary",
+          "very rarely"
+        ],
+        "items": [
+          {
+            "text": "After the sixth failed experiment, Gus finally called it quits and went to bed.",
+            "bin": 0,
+            "reason": "'Called it quits' means he stopped trying."
+          },
+          {
+            "text": "After an hour of missed kicks, Tully threw in the towel and went inside.",
+            "bin": 0,
+            "reason": "There's no towel. 'Threw in the towel' means she gave up."
+          },
+          {
+            "text": "Zed knew he was in deep water when his teacher found the drawing of her.",
+            "bin": 1,
+            "reason": "He wasn't swimming. 'In deep water' means in serious trouble."
+          },
+          {
+            "text": "'If Mum finds out we broke her vase, we're toast,' Indi whispered.",
+            "bin": 1,
+            "reason": "They won't turn into toast. It means they'll be in big trouble."
+          },
+          {
+            "text": "Gus is in hot water with Mo for flooding the galley again.",
+            "bin": 1,
+            "reason": "He isn't in a bath. 'In hot water' means he's in trouble."
+          },
+          {
+            "text": "Wren bit the bullet and rang the vet, even though she was dreading the news.",
+            "bin": 2,
+            "reason": "There's no bullet. It means she bravely did something hard."
+          },
+          {
+            "text": "Mo finally took the plunge and put his name down for the talent show.",
+            "bin": 2,
+            "reason": "Nobody dived anywhere. It means he bravely did something scary."
+          },
+          {
+            "text": "Gus cleans his bunk once in a blue moon, and it shows.",
+            "bin": 3,
+            "reason": "Blue moons are rare. It means he almost never cleans it."
+          },
+          {
+            "text": "The Reef Rays win a grand final once in a blue moon.",
+            "bin": 3,
+            "reason": "This means they hardly ever win one."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.4-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live, and he is not happy. Zed is recording it for evidence.",
+      "text": "Vantafam, Maxx here, and today I need to talk about something serious. Some of you have been leaving comments saying my rescues are fake. Fake! Me! After everything I've done for the Creatures of this archipelago! One person said the swamp behind me is painted on a board. Another said they could see a camera crew in the reflection of my sunnies. Someone even said the Creature I rescued last week had a price tag on its tail. Come on, guys, fair crack of the whip! I have spent six years building this channel. I have rescued more Creatures than anyone in history, probably. I deserve a chance to show you what I really do before you start writing nasty comments about me. So this week, I'm doing something special. I'm going to film a rescue from start to finish, with no editing at all, so you can all see for yourselves. Well, a little bit of editing. For the lighting. And the sound. And maybe a couple of the bits in the middle. But apart from that, totally real. Smash that heart button if you believe in me, and remember, two Xs, because one X is for losers. Stay gold!",
+      "prompt": "What does Maxx mean when he says 'fair crack of the whip'?",
+      "success": "Give me a fair chance. Maxx says he deserves a chance to show what he really does.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Punish the people who write mean comments.",
+            "reason": "Maxx wants something for himself, not punishment for others. He says he deserves a chance."
+          },
+          {
+            "text": "Hurry up and make up your minds about me.",
+            "reason": "Maxx wants viewers to wait and watch first, before they start writing comments."
+          },
+          {
+            "text": "Give me a fair chance before you judge me."
+          },
+          {
+            "text": "Stop making jokes about my rescue videos.",
+            "reason": "The comments aren't jokes. People think his rescues are fake, and he wants a fair chance."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "4.4-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is telling the crew about a family mystery. The Archiom has its fins crossed.",
+      "text": "In my grandpa's lounge room, there is a glass cabinet full of footy trophies, and right in the middle stands the biggest one of all, the 1978 Mangrove Cup. It has a crack running all the way down one side, and someone has glued the handle back on, a bit crooked. Nobody in my family will say how it happened. Last weekend, while Grandpa was out walking his dog, I asked Gran about it. She was sitting on the back step, shelling peas. She stopped for a moment, looked at the cabinet through the window, and then went back to her peas. 'Some things are better left alone, love,' she said. 'Let sleeping dogs lie.' I tried asking Uncle Ray instead, but he suddenly remembered he had to mow the lawn, even though he had mowed it that morning. Aunty Jo just laughed until she had to sit down. When Grandpa came home with the dog, I opened my mouth to ask him, and Gran gave me a very stern look. So I closed it again. I still don't know what happened to that trophy, but I have a feeling Grandpa does. And I have a feeling it's a very good story.",
+      "prompt": "What does Gran mean when she says 'Let sleeping dogs lie'?",
+      "success": "Leave it alone and don't stir up an old problem. Gran says some things are better left alone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Don't wake up Grandpa's dog while it's resting.",
+            "reason": "Grandpa's dog is out walking with him, not asleep. Gran is talking about the trophy."
+          },
+          {
+            "text": "Leave the old story alone and don't bring it up."
+          },
+          {
+            "text": "Wait until tomorrow morning and then ask again.",
+            "reason": "Gran doesn't say to ask later. She says some things are better left alone."
+          },
+          {
+            "text": "Go and ask Grandpa, because he knows the truth.",
+            "reason": "Gran gives Tully a look to stop her asking Grandpa. She wants it left alone."
+          }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}
