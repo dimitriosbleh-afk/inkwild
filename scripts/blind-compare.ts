@@ -14,7 +14,8 @@ interface Answer {
 
 const { files } = await readContentFiles(new URL('../content/', import.meta.url));
 const dir = new URL('../.scratch/blind/', import.meta.url);
-const same = (a: unknown, b: string) => typeof a === 'string' && normalise(a).toLowerCase() === normalise(b).toLowerCase();
+const bare = (t: string) => normalise(t.replace(/^\[(.*)\]$/, '$1')).toLowerCase();
+const same = (a: unknown, b: string) => typeof a === 'string' && bare(a) === bare(b);
 
 /** The tap a solver meant: exact text, or text#n for the n-th of several identical taps. */
 function tapLabel(parts: Part[], index: number): string {
