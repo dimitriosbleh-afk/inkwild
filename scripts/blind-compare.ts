@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { readContentFiles } from '../src/content/files';
-import { normalise, taps } from '../src/core/check';
+import { joinTiles, normalise, taps } from '../src/core/check';
 import type { Encounter, Part } from '../src/content/types';
 
 /** Compares a blind solver's answers with the key. Any mismatch, low confidence or second defensible answer is flagged. */
@@ -35,7 +35,7 @@ function agrees(e: Encounter, answer: unknown): boolean {
     case 'order':
       return Array.isArray(answer) && answer.length === b.items.length && b.items.every((it, i) => same(answer[i], it));
     case 'build':
-      return b.accept.some((a) => same(answer, a));
+      return b.accept.some((a) => same(Array.isArray(answer) ? joinTiles(answer.map(String)) : answer, a));
     case 'fix': {
       const a = answer as { spot?: string; replacement?: string } | null;
       return !!a && same(a.spot, tapLabel(b.parts, b.spot)) && same(a.replacement, b.options[b.answer]!.text);

@@ -1,0 +1,599 @@
+{
+  "skill": {
+    "id": "8.1",
+    "name": "Read it back: find what doesn't make sense",
+    "codes": ["VC2E5LY06", "VC2E5LY11"],
+    "why": "Writers miss their own slips. Reading it back catches them before readers do.",
+    "how": "Read slowly, one sentence at a time. Ask: does this make sense with the rest?",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "beats": [
+          { "say": "Every writer slips. Editors read the draft back, slowly." },
+          { "say": "Listen for a missing word.", "show": "Mo walked to **the** and bought pies." },
+          { "say": "Listen for words in a jumble.", "show": "**The bin took out Mo.**" },
+          { "say": "Listen for ideas that clash.", "show": "It was pouring, **so we left our raincoats at home**." },
+          { "say": "Found one? Tap it, then fix it." }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Tap the sentence that doesn't make sense.",
+          "hint": "Read each sentence back. Does it fit with what the others say about the slime?",
+          "success": "The slime is runny, so it couldn't bounce. Runny slime would drip off the ceiling.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              { "tap": "Gus mixed glue and water in a bowl.", "reason": "This makes sense. It says what Gus did." },
+              " ",
+              { "tap": "The slime came out very runny.", "reason": "This makes sense. It's the fact the other sentences have to fit." },
+              " ",
+              { "tap": "It dripped off his spoon like soup.", "reason": "This makes sense. Runny slime drips." },
+              " ",
+              { "tap": "He threw it at the ceiling, and it bounced back." },
+              " ",
+              { "tap": "Mo had to mop it up.", "reason": "This makes sense. Runny slime makes a mess." }
+            ],
+            "answer": 3
+          }
+        },
+        {
+          "text": "Tully ran down the wing. A goal kicked Tully. The crowd went wild.",
+          "prompt": "Which edit makes the draft make sense?",
+          "hint": "Who did the kicking? The doer should come first.",
+          "success": "Tully is the doer, so she comes first. A goal can't kick anyone.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "Tully kicked a goal." },
+              { "text": "A goal kicked by Tully.", "reason": "This doesn't finish the thought. It never says what happened." },
+              { "text": "A goal kicked the crowd.", "reason": "This is still jumbled. A goal can't kick anyone." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "nodrake",
+      "name": "Nodrake",
+      "evolved": "Nodrakon",
+      "blurb": "A tawny rock dragon that bobs its head along with every sentence as it reads a draft back. When one stops making sense, it stops bobbing and stares."
+    }
+  },
+  "encounters": [
+    {
+      "id": "8.1-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo wrote a report for the volcano newsroom. A Nodrake has stopped nodding at one sentence.",
+      "prompt": "Tap the sentence that doesn't make sense.",
+      "success": "Six take away two, then two more, leaves two pancakes. Four doesn't add up.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Mo made six pancakes for the crew.", "reason": "This makes sense. It tells you how many pancakes there were." },
+          " ",
+          { "tap": "He ate two of them straight away.", "reason": "This makes sense. Six take away two leaves four." },
+          " ",
+          { "tap": "Then he gave two to Gus.", "reason": "This makes sense. Four take away two leaves two." },
+          " ",
+          { "tap": "That left four pancakes for Wren." },
+          " ",
+          { "tap": "Wren said they tasted like socks.", "reason": "This makes sense. Mo's cooking is famously bad." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.1-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's rescue diary is on the editing desk. The Nodrake says one word has slipped.",
+      "prompt": "Tap the word that doesn't make sense, then choose a word that fits.",
+      "success": "Towel. You can wrap a cold possum in a warm towel, but not in a fridge.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Today we found a ",
+          { "tap": "baby", "reason": "Baby makes sense. A possum can be a baby." },
+          " possum under a log. It was ",
+          { "tap": "cold", "reason": "Cold makes sense. That's why Wren warms it up." },
+          " and shaking. Wren wrapped it in a warm ",
+          { "tap": "fridge" },
+          ". Then she fed it milk from a ",
+          { "tap": "tiny", "reason": "Tiny makes sense. A baby possum needs a tiny cup." },
+          " cup."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "towel" },
+          { "text": "puddle", "reason": "You can't wrap anything in a puddle. It's just water on the ground." },
+          { "text": "oven", "reason": "You can't wrap anything in an oven, and an oven would burn the possum." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "8.1-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy report is missing a word. The Nodrake wants it found before the paper goes out.",
+      "text": "The Reef Rays played the Sharks on Saturday. Tully kicked the first goal. Then the Sharks two goals. The Rays won by one point.",
+      "prompt": "Which edit fixes the sentence with a missing word?",
+      "success": "The sentence needed an action. 'Kicked' tells you what the Sharks did.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Then the Sharks two kicked goals.", "reason": "The words are still jumbled. Kicked has to come before two goals." },
+          { "text": "Then the Sharks kicked two goals." },
+          { "text": "Then kicked the Sharks two goals.", "reason": "The words are in the wrong order. Say who kicked first, then kicked." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.1-b1-4",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Indi's comic caption says: 'The bin took out Mo on Monday.' The Nodrake nearly fell off its rock.",
+      "prompt": "Tap the pieces in order so the caption makes sense.",
+      "success": "Mo took out the bin. Now the doer comes first, and the bin is the thing taken out.",
+      "body": {
+        "format": "build",
+        "tiles": ["Mo", "took out", "the bin", "on Monday."],
+        "accept": ["Mo took out the bin on Monday."],
+        "reason": "A bin can't take anyone out. Start with who did it: Mo."
+      }
+    },
+    {
+      "id": "8.1-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed wrote a Moon story for the newsroom. Read it back with the Nodrake.",
+      "prompt": "Tap the sentence that doesn't make sense.",
+      "success": "Zed kept his helmet on the whole time he was outside, so he can't have taken it off.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Zed's rocket landed on the Moon at lunchtime.", "reason": "This makes sense. It tells you where and when." },
+          " ",
+          { "tap": "There is no air on the Moon.", "reason": "This makes sense. It's the fact the rest of the story needs." },
+          " ",
+          { "tap": "Zed kept his helmet on the whole time he was outside.", "reason": "This makes sense. With no air, he needs his helmet." },
+          " ",
+          { "tap": "He bounced across the grey dust.", "reason": "This makes sense. It's what you'd do on the Moon." },
+          " ",
+          { "tap": "Then he took off his helmet to sniff the dust." },
+          " ",
+          { "tap": "At last, he climbed back into the rocket.", "reason": "This makes sense. It doesn't clash with anything." }
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "8.1-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game review has a sentence that doesn't add up. The Nodrake has three fixes.",
+      "text": "Zed was one jump away from beating the boss. He cheered because the game froze. He had to start the whole level again.",
+      "prompt": "Which edit makes the draft make sense?",
+      "success": "Groaned. The game froze just before he won, so he'd be upset, not happy.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "He cheered because the game crashed.", "reason": "Crashing is just as bad as freezing. Nobody cheers when their game crashes." },
+          { "text": "He cheered because it froze again.", "reason": "Freezing again is even worse. Nobody cheers when a game freezes." },
+          { "text": "He groaned because the game froze." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.1-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's turtle report is due at the newsroom. The Nodrake has spotted one word that doesn't fit.",
+      "prompt": "Tap the word that doesn't make sense.",
+      "success": "Flew. Turtles have flippers, not wings. She crawled back to the sea, just as she crawled up.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The turtle crawled ",
+          { "tap": "slowly", "reason": "Slowly makes sense. Turtles are slow on sand." },
+          " up the beach after dark. She dug a ",
+          { "tap": "deep", "reason": "Deep makes sense. Eggs need a deep hole to stay safe." },
+          " hole in the sand and laid about a ",
+          { "tap": "hundred", "reason": "Hundred makes sense. It's how many eggs, and nothing clashes with it." },
+          " eggs. When she finished, she covered them with ",
+          { "tap": "sand", "reason": "Sand makes sense. She dug the hole in sand, so she fills it with sand." },
+          " and ",
+          { "tap": "flew" },
+          " back to the sea."
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "8.1-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's banana experiment is going in the science page. The Nodrake smells a problem.",
+      "prompt": "Tap the sentence that doesn't make sense, then choose one that fits.",
+      "success": "The banana rots more every day, so by day fourteen it should be even worse, not fresh.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Gus left a banana in a jar for two weeks.", "reason": "This makes sense. It sets up the experiment." },
+          " ",
+          { "tap": "On day one, it was bright yellow.", "reason": "This makes sense. A fresh banana is yellow." },
+          " ",
+          { "tap": "By day five, brown spots had appeared.", "reason": "This makes sense. Bananas go spotty as they rot." },
+          " ",
+          { "tap": "By day ten, the whole banana was black and squishy.", "reason": "This makes sense. It keeps rotting, day after day." },
+          " ",
+          { "tap": "On day fourteen, it was bright yellow and fresh again." },
+          " ",
+          { "tap": "Mo opened the jar and ran out of the room.", "reason": "This makes sense. A rotten banana would smell terrible." }
+        ],
+        "spot": 4,
+        "options": [
+          { "text": "On day fourteen, it looked as fresh as the day Gus bought it.", "reason": "A rotting banana can't turn fresh again. It was already black by day ten." },
+          { "text": "On day fourteen, it was a black puddle with white fuzz on top." },
+          { "text": "On day fourteen, it was firm and yellow with a few brown spots.", "reason": "It was black and squishy on day ten. It can't go back to a few spots." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.1-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi's assembly report has a hole in it. The Nodrake has stopped bobbing.",
+      "text": "Our band played at assembly on Friday. We had practised every arvo for a week. The drummer hit so hard that one of his broke in half. Everyone laughed, even the principal.",
+      "prompt": "One sentence is missing a word. Which edit fixes it?",
+      "success": "Sticks. 'One of his' needs a thing after it, and drumsticks can snap when you hit hard.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The drummer hit so hard that one of his sticks broke in half." },
+          { "text": "The drummer hit so hard that one of his broke a stick in half.", "reason": "'One of his' still doesn't say one of his what. The word is still missing." },
+          { "text": "The drummer hit so hard that one of his songs broke in half.", "reason": "A song can't break in half. Something he hits with has to break." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "8.1-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The robot club's newsletter says: 'After lunch, the floor swept the robot.' The Nodrake is staring at it.",
+      "prompt": "Tap the pieces in order so the sentence makes sense.",
+      "success": "The robot swept the floor. The doer comes first, then the action, then the thing it swept.",
+      "body": {
+        "format": "build",
+        "tiles": ["After lunch,", "the floor", "the robot", "swept", "the floor.", "the robot."],
+        "accept": ["After lunch, the robot swept the floor."],
+        "reason": "A floor can't sweep anything. The robot is the doer, so it comes before swept."
+      }
+    },
+    {
+      "id": "8.1-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's article about her new mural is on the editing desk. The Nodrake has gone quiet.",
+      "prompt": "Tap the sentence that doesn't make sense.",
+      "success": "Having lots of blue paint left is no reason to paint the sky green. She had run out.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Indi painted a mural on the canteen wall.", "reason": "This makes sense. It tells you what Indi made and where." },
+          " ",
+          { "tap": "It shows the whole crew sailing on the Soggy Biscuit.", "reason": "This makes sense. It tells you what's in the mural." },
+          " ",
+          { "tap": "Halfway through, she ran out of blue paint.", "reason": "This makes sense. It explains why the sky isn't blue." },
+          " ",
+          { "tap": "The sky is green because she had lots of blue paint left." },
+          " ",
+          { "tap": "Mo says it looks like the sky has a tummy bug.", "reason": "This makes sense. A green sky does look a bit sick." },
+          " ",
+          { "tap": "Indi says that's the whole point.", "reason": "This makes sense. It's Indi's answer to Mo's joke." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.1-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed's ghost story is going in the Halloween edition. The Nodrake caught a slip.",
+      "text": "Zed and Tully crept into the old lighthouse at midnight. Zed carried their only torch. Halfway up the stairs, a door slammed shut. Tully screamed and dropped the torch. Everything went black.",
+      "prompt": "Which edit makes the draft make sense?",
+      "success": "Zed carried their only torch, so he's the one who could drop it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Tully screamed and dropped a torch.", "reason": "Tully has no torch to drop. Zed is carrying their only one." },
+          { "text": "Tully screamed and dropped Zed's torch.", "reason": "Zed is the one carrying the torch, so Tully can't drop it." },
+          { "text": "Zed screamed and dropped the torch." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.1-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's match report is nearly ready for the front page. The Nodrake has its eye on one word.",
+      "prompt": "Tap the word that doesn't make sense, then choose a word that fits.",
+      "success": "Thrilled. After a whole year of waiting, a win would make fans happy, not bored.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The Reef Rays had lost ",
+          { "tap": "every", "reason": "Every makes sense. It's why this win matters so much." },
+          " game this season, and most fans had stopped coming. On Saturday, they ",
+          { "tap": "finally", "reason": "Finally makes sense. They had waited all season to win." },
+          " beat the Sharks by a single point. The few fans in the stands were ",
+          { "tap": "bored" },
+          ", because they had waited all year for a win. Tully hugged a ",
+          { "tap": "stranger", "reason": "Stranger makes sense. People hug anyone nearby when their team wins." },
+          " in the next seat."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "grumpy", "reason": "Their team finally won, so the fans had nothing to be grumpy about." },
+          { "text": "thrilled" },
+          { "text": "sleepy", "reason": "A win after a year of waiting would wake anyone up, not send them to sleep." },
+          { "text": "worried", "reason": "The game was over and the Rays had won, so there was nothing left to worry about." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.1-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's rescue report has to make sense before it goes to print. Read it back with the Nodrake.",
+      "prompt": "Tap the sentence that doesn't make sense.",
+      "success": "The wing takes six weeks to heal, and it's only been one. The eagle can't fly yet.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Last week, a farmer found a wedge-tailed eagle beside the road with a broken wing.", "reason": "This makes sense. It tells you how the eagle was found." },
+          " ",
+          { "tap": "The vet put the wing in a bandage and said it would take six weeks to heal.", "reason": "This makes sense. It tells you how long the eagle can't fly." },
+          " ",
+          { "tap": "Until then, the eagle has to stay in a big cage on the ground.", "reason": "This makes sense. A bird with a broken wing can't fly." },
+          " ",
+          { "tap": "Wren feeds her raw chicken twice a day, wearing long gloves to keep her fingers safe.", "reason": "This makes sense. It doesn't clash with anything." },
+          " ",
+          { "tap": "Yesterday, the eagle flew to the top of a gum tree to watch the sunset." },
+          " ",
+          { "tap": "In a few weeks, the vet will take off the bandage and check the bone.", "reason": "This makes sense. The wing is still healing." },
+          " ",
+          { "tap": "If it has healed, Wren will release the eagle where the farmer found her.", "reason": "This makes sense. It's the plan for when she's better." }
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "8.1-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "Gus's report on life in space is missing a word. The Nodrake won't let it go to print.",
+      "text": "Astronauts on a space station can't take a shower, because the water would float away in wobbly blobs. Instead, they wipe themselves clean with wet cloths. To wash their hair, they rub in a special shampoo that doesn't need. Then they dry their hair with a towel and comb out the tangles.",
+      "prompt": "One sentence is missing a word at the end. Which edit fixes it?",
+      "success": "Rinsing. You rinse shampoo out with water, and water floats away on a space station.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "To wash their hair, they rub in a special shampoo that doesn't need rubbing.", "reason": "The same sentence says they rub the shampoo in, so the shampoo does need rubbing." },
+          { "text": "To wash their hair, they rub in a special shampoo that doesn't need combing.", "reason": "The next sentence says they comb out the tangles, so their hair does need combing." },
+          { "text": "To wash their hair, they rub in a special shampoo that doesn't need rinsing." },
+          { "text": "To wash their hair, they rub in a special shampoo that doesn't need drying.", "reason": "The next sentence says they dry their hair with a towel, so their hair does need drying." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.1-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's party report says: 'Mo served pies to the guests covered in tomato sauce.' The Nodrake pictures very sticky guests.",
+      "prompt": "Rebuild Mo's sentence so the sauce is on the pies, not the guests.",
+      "success": "The describing words now sit right next to the pies, so the guests stay clean.",
+      "body": {
+        "format": "build",
+        "tiles": ["Mo served", "pies", "covered in tomato sauce", "to the guests."],
+        "accept": ["Mo served pies covered in tomato sauce to the guests."],
+        "reason": "Put 'covered in tomato sauce' right after pies, so it's clear the pies are the saucy ones."
+      }
+    },
+    {
+      "id": "8.1-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's walkthrough for Lava Lab is going in the games column. The Nodrake has found a joining word that doesn't fit.",
+      "prompt": "Tap the word that doesn't make sense, then choose one that fits.",
+      "success": "Until. Zed couldn't get in before he found the key. 'Because' makes finding the key the problem.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In level ",
+          { "tap": "four", "reason": "Four makes sense. It just says which level." },
+          " of Lava Lab, the ",
+          { "tap": "gold", "reason": "Gold makes sense. It's the key that opens the door." },
+          " key opens the secret door to the treasure room. Zed couldn't open the secret door ",
+          { "tap": "because" },
+          " he had found the gold key. He searched for ",
+          { "tap": "twenty", "reason": "Twenty makes sense. It's how long he searched, and nothing clashes with it." },
+          " minutes and finally spotted it behind a waterfall of lava. Inside the treasure room were ",
+          { "tap": "three", "reason": "Three makes sense. It's how many chests, and nothing clashes with it." },
+          " chests of coins."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "since", "reason": "Since means the same as because here, so it still makes finding the key the problem." },
+          { "text": "although", "reason": "The key opens the door, so finding it should help. 'Although' says it didn't." },
+          { "text": "until" },
+          { "text": "once", "reason": "Once means as soon as. He'd be stuck the moment he found the key, which is backwards." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.1-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "A classmate's review of the crater choir concert is on the editing desk. The Nodrake is checking the times.",
+      "text": "The Redpen Volcano choir held its first concert in the crater hall on Saturday night. The concert started at seven o'clock sharp, and the doors were locked as soon as the first song began. Mo arrived at six o'clock, half an hour late, and had to listen from the car park. Inside, forty singers in red robes sang songs about lava, ash and rocks. The loudest song made the windows rattle, and some people blocked their ears. Afterwards, the choir served hot chocolate in cups shaped like little volcanoes.",
+      "prompt": "Which sentence doesn't make sense?",
+      "success": "The concert started at seven. Arriving at six would be an hour early, not half an hour late.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The concert started at seven o'clock sharp, and the doors were locked as soon as the first song began.", "reason": "This makes sense. It explains why late people were locked out." },
+          { "text": "Mo arrived at six o'clock, half an hour late, and had to listen from the car park." },
+          { "text": "The loudest song made the windows rattle, and some people blocked their ears.", "reason": "This makes sense. Very loud singing can rattle windows." },
+          { "text": "Afterwards, the choir served hot chocolate in cups shaped like little volcanoes.", "reason": "This makes sense. It doesn't clash with anything in the review." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.1-b4-1",
+      "band": 4,
+      "topic": "robots",
+      "frame": "A classmate's review of a cleaning robot is on the editing desk. The Nodrake has gone very still.",
+      "prompt": "Tap the sentence that doesn't make sense.",
+      "success": "The robot can't climb a single step, so it couldn't have rolled up the stairs to the bedrooms.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "The Dustwhirl is a round cleaning robot about the size of a dinner plate, and it promises to keep your floors spotless.", "reason": "This makes sense. It introduces the robot." },
+          " ",
+          { "tap": "Because it rolls on three small wheels, it can't climb even a single step, so it only ever cleans the floor it starts on.", "reason": "This makes sense. It's the fact the rest of the review has to agree with." },
+          " ",
+          { "tap": "We left it in the kitchen overnight, and by morning it had sucked up a whole week of crumbs.", "reason": "This makes sense. The kitchen is the floor it started on." },
+          " ",
+          { "tap": "It also found two lost marbles and a very old chip under the fridge.", "reason": "This makes sense. It's still cleaning the kitchen floor." },
+          " ",
+          { "tap": "Its only real problem is the noise, because it hums like an angry bee whenever it bumps into a chair leg.", "reason": "This makes sense. It's a complaint, and it doesn't clash with anything." },
+          " ",
+          { "tap": "On the second night, it rolled up the stairs and cleaned every bedroom on the top floor." },
+          " ",
+          { "tap": "Overall, we would give it four stars out of five, and five if it were quieter.", "reason": "This makes sense. It sums up the review." }
+        ],
+        "answer": 5
+      }
+    },
+    {
+      "id": "8.1-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Wren's guide to the rock pools at the foot of the volcano is nearly ready. The Nodrake has spotted a slip.",
+      "prompt": "Tap the word that doesn't make sense, then choose a word that fits.",
+      "success": "Low. The pools only appear when the sea pulls back, and that happens at low tide.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Rock pools appear when the sea pulls back from the shore and leaves water trapped among the rocks. The best time to explore them is at ",
+          { "tap": "high" },
+          " tide, when the pools are uncovered and easy to reach. Look closely and you might spot a ",
+          { "tap": "crimson", "reason": "Crimson makes sense. It's a shade of red, and anemones can be red." },
+          " anemone, a hermit crab or even a tiny octopus. If you lift a rock, lower it ",
+          { "tap": "gently", "reason": "Gently makes sense. You don't want to squash the creatures underneath." },
+          " back into exactly the same spot. Check the tide times before you go, because the sea can cover the rocks again within ",
+          { "tap": "minutes", "reason": "Minutes makes sense. A returning tide can move surprisingly fast." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "rising", "reason": "A rising tide is coming in, so it is about to cover the pools." },
+          { "text": "king", "reason": "A king tide is an extra-high tide, so the pools would be deep underwater." },
+          { "text": "low" },
+          { "text": "full", "reason": "A full tide is another way of saying high tide, so the pools would be covered." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.1-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's report on rumbling stomachs is going in the science page. The Nodrake's tummy is rumbling too.",
+      "text": "Your stomach muscles squeeze all day long, mixing food and pushing it along into your gut. When your stomach is full, the food muffles that squeezing, so you hardly hear a thing. When it is empty, only gas and juices are left sloshing around, and the squeezing echoes like a drum. The rumble is loudest right after a big meal, when your stomach is completely empty. So a loud growl is really your body's way of announcing that it's snack time.",
+      "prompt": "One sentence doesn't make sense. Which edit fixes it?",
+      "success": "Hours after a meal, the stomach is nearly empty, and the report says that's when it gurgles loudest.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The rumble is loudest right after a big meal, when your stomach is almost empty.", "reason": "Right after a big meal, your stomach is full, not empty." },
+          { "text": "The rumble is loudest hours after a meal, when your stomach is stuffed full.", "reason": "Hours after a meal, your stomach has emptied. And a full stomach is the quiet one." },
+          { "text": "The rumble is loudest right after a big meal, when your stomach is full of food.", "reason": "The report says food muffles the noise, so a full stomach is quiet." },
+          { "text": "The rumble is loudest hours after a meal, when your stomach is almost empty." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.1-b4-4",
+      "band": 4,
+      "topic": "space",
+      "frame": "A classmate's space report says: 'The astronomer with a long glowing tail spotted a comet through her telescope.' The Nodrake is trying not to laugh.",
+      "prompt": "Rebuild the sentence so the tail belongs to the comet.",
+      "success": "Now the describing words sit right next to the comet, so the astronomer doesn't grow a tail.",
+      "body": {
+        "format": "build",
+        "tiles": ["Through her telescope,", "the astronomer", "a comet", "spotted", "with a long glowing tail."],
+        "accept": ["Through her telescope, the astronomer spotted a comet with a long glowing tail."],
+        "reason": "The tail belongs to the comet, so 'with a long glowing tail' must come straight after 'a comet'."
+      }
+    },
+    {
+      "id": "8.1-b4-5",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Indi's spooky story for the newsroom's writing competition has one slip. The Nodrake's spines are standing up.",
+      "text": "Indi and her little brother Sam crept into the old lava tube with just one candle between them. Sam was scared of the dark, and he refused to let go of the candle, even for a second. Deep inside the tube, a cold wind whistled past their ears. Indi's candle flickered and went out, and Sam grabbed her hand in the dark. Somewhere ahead, something began to drip, slowly and steadily, like a ticking clock.",
+      "prompt": "One sentence doesn't make sense. Which edit fixes it?",
+      "success": "Sam never let go of their only candle, so the candle that went out was the one Sam held.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Indi's candle flickered and went out, and Sam dropped his own in fright.", "reason": "Sam can't have his own candle as well. They had only one between them." },
+          { "text": "Sam's candle flickered and went out, and he grabbed Indi's hand in the dark." },
+          { "text": "Indi's second candle flickered and went out, and Sam grabbed her hand.", "reason": "They had only one candle between them, so Indi can't have a second one." },
+          { "text": "The candle in Indi's hand flickered and went out, and Sam grabbed her arm tightly.", "reason": "Sam refused to let go of the candle, so it can't be in Indi's hand." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.1-b4-6",
+      "band": 4,
+      "topic": "food",
+      "frame": "Mo's bread roll recipe is going in the cooking column. The Nodrake has read it back twice.",
+      "prompt": "Tap the word that doesn't make sense.",
+      "success": "Freezer. The dough needs somewhere warm to rise, and the freezer is the coldest place in the kitchen.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mix the flour, yeast, salt and warm water in a large bowl until it forms a soft, slightly sticky dough. Knead it on a floured bench for five minutes, until it feels ",
+          { "tap": "smooth", "reason": "Smooth makes sense. Kneading makes dough smooth." },
+          " and springy. Then leave it somewhere ",
+          { "tap": "warm", "reason": "Warm makes sense. Dough with yeast rises best somewhere warm." },
+          " to rise, such as a sunny windowsill or the ",
+          { "tap": "freezer" },
+          ". After about an hour, it should have doubled in ",
+          { "tap": "size", "reason": "Size makes sense. Rising dough gets bigger." },
+          ". Bake the rolls in a hot oven until the crust is golden and they sound ",
+          { "tap": "hollow", "reason": "Hollow makes sense. Cooked bread sounds hollow when you tap it." },
+          " when you tap the bottom."
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

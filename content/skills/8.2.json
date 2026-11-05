@@ -1,0 +1,590 @@
+{
+  "skill": {
+    "id": "8.2",
+    "name": "Fix run-ons and fragments in a draft",
+    "codes": ["VC2E5LY11"],
+    "why": "Readers need to know where each thought stops. Run-ons and fragments blur it.",
+    "how": "Read each sentence aloud. Two whole thoughts jammed? Snip them. Half a thought? Finish it.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          { "say": "A sentence is one whole thought. Who did what?", "show": "**The lava** **bubbled**." },
+          { "say": "Two thoughts jammed together make a run-on.", "show": "**The lava bubbled** **it smelt like eggs**." },
+          { "say": "Snip it with a full stop and a capital.", "show": "The lava bubbled**.** **It** smelt like eggs." },
+          { "say": "Half a thought is a fragment. It can't stand alone.", "show": "It smelt awful. **Because of the gas.**" },
+          { "say": "Read the draft back aloud. Fix the one you hear." }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Tap the sentence that runs on.",
+          "hint": "Read each one aloud. Where do you hear two whole thoughts with nothing between them?",
+          "success": "'The foam shot up' and 'it covered the judges' are two whole thoughts jammed together.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              { "tap": "Gus built a volcano for the science fair.", "reason": "This is complete. It says who (Gus) and what he did." },
+              " ",
+              { "tap": "He filled it with vinegar.", "reason": "This is complete. It says who (he) and what he did." },
+              " ",
+              { "tap": "The foam shot up it covered the judges." },
+              " ",
+              { "tap": "They gave him a ribbon anyway.", "reason": "This is complete. It says who (they) and what they did." }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "text": "Mo baked a cake for Tully. Because it was her birthday. She loved it.",
+          "prompt": "Which edit fixes the fragment?",
+          "hint": "A 'because' part can't stand alone. What can it hang on to?",
+          "success": "The 'because' part now hangs on to a whole thought: Mo baked a cake for Tully.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "Mo baked a cake for Tully. Because it was her big birthday.", "reason": "'Because it was her big birthday.' is still a fragment. It can't stand alone." },
+              { "text": "Mo baked a cake for Tully because it was her birthday." },
+              { "text": "Mo baked a cake for Tully, it was her birthday.", "reason": "A comma on its own can't hold two whole thoughts together. That's a run-on." }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "pinchion",
+      "name": "Pinchion",
+      "evolved": "Pinchionyx",
+      "blurb": "A rock scorpion that hides under warm stones on the crater rim. Its pincers snip run-ons apart, and its curled tail hooks broken bits back onto a sentence."
+    }
+  },
+  "encounters": [
+    {
+      "id": "8.2-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's toastie recipe is on the editing desk. A Pinchion is clicking its pincers at one line.",
+      "prompt": "Tap the sentence that runs on.",
+      "success": "'The cheese melts' and 'it oozes out the sides' are two whole thoughts jammed together.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Butter two slices of bread.", "reason": "This is complete. It's an instruction, and the 'you' is understood." },
+          " ",
+          { "tap": "The butter goes on the outside.", "reason": "This is complete. It says what (the butter) and where it goes." },
+          " ",
+          { "tap": "Put cheese in the middle.", "reason": "This is complete. It's an instruction, and the 'you' is understood." },
+          " ",
+          { "tap": "The cheese melts it oozes out the sides." },
+          " ",
+          { "tap": "Mo always burns his.", "reason": "This is complete. It's short, but it says who (Mo) and what he does." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.2-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's nature diary has a broken bit. The Pinchion's tail is ready to hook it back on.",
+      "prompt": "Tap the part that is not a complete sentence, then choose the fix.",
+      "success": "'It was under a hot rock.' Now it says what (it) and where it was.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Wren found a blue-tongue lizard.", "reason": "This is complete. It says who (Wren) and what she did." },
+          " ",
+          { "tap": "Under a hot rock." },
+          " ",
+          { "tap": "It was fast asleep.", "reason": "This is complete. It says what (it) and how it was." },
+          " ",
+          { "tap": "She took a photo.", "reason": "This is complete. It says who (she) and what she did." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "Under a hot, flat rock.", "reason": "Still a fragment. It only says where. It never says who or what." },
+          { "text": "It was under a hot rock, it looked sleepy.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
+          { "text": "It was under a hot rock." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy training report has a run-on. The Pinchion wants it snipped.",
+      "text": "The Reef Rays trained on Tuesday. Tully kicked the ball it flew over the fence. Everyone laughed.",
+      "prompt": "The second sentence runs on. Which edit fixes it?",
+      "success": "A full stop and a capital split it into two whole thoughts. Each one says who and what.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Tully kicked the ball, it flew over the fence.", "reason": "A comma on its own can't hold two whole thoughts together." },
+          { "text": "Tully kicked the ball. It flew over the fence." },
+          { "text": "Tully kicked the ball it. Flew over the fence.", "reason": "The full stop is in the wrong place. 'Flew over the fence.' doesn't say what flew." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.2-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed's space diary just says 'On the Moon.' That's a fragment. The Pinchion wants a whole sentence.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "'Zed's rocket landed on the Moon.' Now it says what, what it did and where.",
+      "body": {
+        "format": "build",
+        "tiles": ["Zed's rocket", "landed", "landing", "on the Moon."],
+        "accept": ["Zed's rocket landed on the Moon."],
+        "reason": "'Zed's rocket landing on the Moon' isn't finished. It needs a verb that says what it did, like landed."
+      }
+    },
+    {
+      "id": "8.2-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game review is going in the newsroom paper. The Pinchion has found half a thought.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "'A giant lava snake with three heads.' names the boss, but never says what it does.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Dragon Dash is my favourite game.", "reason": "This is complete. It says what (Dragon Dash) and what it is." },
+          " ",
+          { "tap": "You fly a dragon over a volcano.", "reason": "This is complete. It says who (you) and what you do." },
+          " ",
+          { "tap": "The best part is the boss.", "reason": "This is complete. It says what (the best part) and what it is." },
+          " ",
+          { "tap": "A giant lava snake with three heads." },
+          " ",
+          { "tap": "I give it ten stars.", "reason": "This is complete. It says who (I) and what I do." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.2-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Indi's lunchtime report ends with a fragment. The Pinchion has three fixes.",
+      "text": "Mo told a joke at lunch. Nobody laughed. Except Gus.",
+      "prompt": "'Except Gus.' is a fragment. Which edit fixes it?",
+      "success": "Joining 'except Gus' onto 'Nobody laughed' gives it a whole thought to belong to.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Nobody laughed, Gus did.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
+          { "text": "Nobody laughed. Except for Gus.", "reason": "'Except for Gus.' is still a fragment. It has nothing to hang on to." },
+          { "text": "Nobody laughed except Gus." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's snorkelling report has one sentence held together by a comma. The Pinchion is not impressed.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "A comma plus 'and' joins the two whole thoughts properly.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "We went snorkelling at the reef.", "reason": "This is complete. It says who (we) and what we did." },
+          " ",
+          { "tap": "The water was clear, we could see the bottom." },
+          " ",
+          { "tap": "A turtle swam right past us.", "reason": "This is complete. It says what (a turtle) and what it did." },
+          " ",
+          { "tap": "Wren took twenty photos of it.", "reason": "This is complete. It says who (Wren) and what she did." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "The water was clear we could see the bottom.", "reason": "Taking the comma out makes it worse. Now nothing at all sits between the two thoughts." },
+          { "text": "The water was clear, and we could see the bottom." },
+          { "text": "The water was clear. Could see the bottom.", "reason": "'Could see the bottom.' is a fragment. It doesn't say who could see." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.2-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's lab notes are going in the science page. The Pinchion found one sentence that runs on.",
+      "prompt": "Tap the sentence that runs on.",
+      "success": "'Foam shot up to the ceiling' and 'it dripped on Mo's head' are jammed together with nothing between.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Gus dropped a mint into a bottle of fizzy drink.", "reason": "This is complete. It says who (Gus) and what he did." },
+          " ",
+          { "tap": "When the mint hit the bottom, the drink exploded.", "reason": "This is complete. The 'when' part hangs on to 'the drink exploded'." },
+          " ",
+          { "tap": "Foam shot up to the ceiling it dripped on Mo's head." },
+          " ",
+          { "tap": "Mo was not impressed.", "reason": "This is complete. It says who (Mo) and how he felt." },
+          " ",
+          { "tap": "Gus wrote down every sticky detail.", "reason": "This is complete. It says who (Gus) and what he did." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi's review of the crater fair has a 'when' part left hanging. The Pinchion's tail is twitching.",
+      "text": "Indi's band played at the crater fair. The crowd went wild. When the drummer threw his sticks into the air. One of them landed in Mo's fairy floss.",
+      "prompt": "Which edit fixes the fragment?",
+      "success": "The 'when' part now hangs on to a whole thought: the crowd went wild.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The crowd went wild. When the drummer threw his sticks high into the air.", "reason": "'When the drummer threw his sticks high into the air.' is still a fragment." },
+          { "text": "The crowd went wild when the drummer threw his sticks into the air." },
+          { "text": "The crowd went wild, the drummer threw his sticks into the air.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.2-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The robot club's report says: 'Because its battery was flat.' The Pinchion wants it hooked onto a whole thought.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "The 'because' part now hangs on to a whole thought: the robot stopped.",
+      "body": {
+        "format": "build",
+        "tiles": ["The robot", "stopped", "because its battery was flat.", "Because its battery was flat."],
+        "accept": ["The robot stopped because its battery was flat."],
+        "reason": "A 'because' part can't stand alone. Say who did what first, then add the reason."
+      }
+    },
+    {
+      "id": "8.2-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's gallery label has half a thought in it. The Pinchion has found it.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "'Red, black and a tiny bit of orange.' names colours, but never says who did what.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "This painting shows the volcano at night.", "reason": "This is complete. It says what (this painting) and what it shows." },
+          " ",
+          { "tap": "Indi used only three colours.", "reason": "This is complete. It says who (Indi) and what she did." },
+          " ",
+          { "tap": "Red, black and a tiny bit of orange." },
+          " ",
+          { "tap": "It took her two whole weeks.", "reason": "This is complete. It says what (it) and how long it took." },
+          " ",
+          { "tap": "Sadly, it is not for sale.", "reason": "This is complete. It says what (it) and what it is not." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed's spooky story for the newsroom has a run-on. The Pinchion is ready to snip.",
+      "text": "Zed heard a scratching noise under his bed. He turned on his torch a pair of eyes stared back at him. It was only the cat.",
+      "prompt": "The second sentence runs on. Which edit fixes it?",
+      "success": "A comma plus 'and' joins the two whole thoughts properly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "He turned on his torch, a pair of eyes stared back at him.", "reason": "A comma on its own can't hold two whole thoughts together." },
+          { "text": "He turned on his torch and. A pair of eyes stared back at him.", "reason": "'He turned on his torch and.' stops halfway. And what?" },
+          { "text": "He turned on his torch, and a pair of eyes stared back at him." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's grand final report is nearly ready for the front page. The Pinchion found one sentence that runs on.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "A comma plus 'but' joins the two whole thoughts and shows the surprise: losing, yet not giving up.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "The grand final was played in pouring rain.", "reason": "This is complete. It says what (the grand final) and what happened." },
+          " ",
+          { "tap": "At half-time, Tully's team was losing by ten points they refused to give up." },
+          " ",
+          { "tap": "In the last quarter, they kicked three goals in a row.", "reason": "This is complete. It starts with when, but 'they kicked three goals' finishes the thought." },
+          " ",
+          { "tap": "The siren went just as the winning ball sailed through.", "reason": "This is complete. 'The siren went' is the main thought, and the rest says when." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "At half-time, Tully's team was losing by ten points, they refused to give up.", "reason": "A comma on its own can't hold two whole thoughts together. That's still a run-on." },
+          { "text": "At half-time, Tully's team was losing by ten points, but they refused to give up." },
+          { "text": "At half-time, Tully's team was losing by ten points. But refused to give up.", "reason": "'But refused to give up.' is a fragment. It doesn't say who refused." },
+          { "text": "Although Tully's team was losing by ten points at half-time. They refused to give up.", "reason": "The 'although' part is cut off by a full stop, so it's a fragment." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.2-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's echidna fact sheet has one broken part. The Pinchion is poking it with a pincer.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "'Which is bad news for any hungry dingo.' can't stand alone. A 'which' part must hang on to a sentence.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Echidnas are one of only two kinds of mammal that lay eggs.", "reason": "This is complete. It says what (echidnas) and what they are." },
+          " ",
+          { "tap": "The other is the platypus, which also lives in Australia.", "reason": "This is complete. The 'which' part hangs on to 'the other is the platypus'." },
+          " ",
+          { "tap": "When danger comes near, an echidna digs straight down into the soil.", "reason": "This is complete. The 'when' part hangs on to 'an echidna digs'." },
+          " ",
+          { "tap": "Only its sharp spines are left sticking up like a pincushion.", "reason": "This is complete. It says what (its spines) and how they are." },
+          " ",
+          { "tap": "Which is bad news for any hungry dingo." },
+          " ",
+          { "tap": "Echidnas can live for up to fifty years.", "reason": "This is complete. It says what (echidnas) and what they can do." }
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "8.2-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "A classmate's report on the Mars rover has a fragment in it. The Pinchion has four fixes.",
+      "text": "The rover landed on Mars in March. Although its wheels were stuck in red dust for a week. It is rolling again now. Scientists are thrilled.",
+      "prompt": "The second sentence is a fragment. Which edit fixes it?",
+      "success": "The 'although' part now hangs on to a whole thought, joined by a comma: it is rolling again now.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Although its wheels were stuck in red dust for a week. It is rolling again now.", "reason": "Nothing has changed. The 'although' part is still cut off by a full stop." },
+          { "text": "Its wheels were stuck in red dust for a week, it is rolling again now.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
+          { "text": "Although its wheels were stuck in red dust for a week, it is rolling again now." },
+          { "text": "Although its wheels were stuck in red dust for a week, and it is rolling again now.", "reason": "'Although' and 'and' together leave no main thought. Use only one joining word." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's soup recipe warns: 'If you leave the lid off.' Off what? The Pinchion wants the whole thought.",
+      "prompt": "Tap the pieces in order to make a complete sentence.",
+      "success": "The 'if' part now hangs on to a whole thought, after a comma: the soup will boil over.",
+      "body": {
+        "format": "build",
+        "tiles": ["If you leave the lid off,", "If you leave the lid off.", "the soup", "the lid", "will boil over."],
+        "accept": ["If you leave the lid off, the soup will boil over."],
+        "reason": "An 'if' part can't stand alone. It needs a comma, then a whole thought that says what happens."
+      }
+    },
+    {
+      "id": "8.2-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's review of Crater Quest is going in the games column. The Pinchion found a comma doing a full stop's job.",
+      "prompt": "Tap the sentence that runs on.",
+      "success": "'The hardest level is the ash cave' and 'the lights go out' are two thoughts held by just a comma.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "In Crater Quest, you play a lost explorer who has to escape a volcano before it erupts.", "reason": "This is complete. It's long, but 'you play a lost explorer' is one whole thought." },
+          " ",
+          { "tap": "If you touch the lava, you go straight back to the last checkpoint.", "reason": "This is complete. The 'if' part hangs on to 'you go straight back'." },
+          " ",
+          { "tap": "The hardest level is the ash cave, the lights go out every ten seconds." },
+          " ",
+          { "tap": "Although the game is short, it is packed with secret rooms.", "reason": "This is complete. The 'although' part hangs on to 'it is packed with secret rooms'." },
+          " ",
+          { "tap": "Zed found all twelve secrets in one weekend.", "reason": "This is complete. It says who (Zed) and what he did." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "Gus's report on the crater talent show has a sentence with nobody in it. The Pinchion has four fixes.",
+      "prompt": "Tap the part that is not a complete sentence, then choose the fix.",
+      "success": "'He finished the song on just three strings.' Now it says who (he) and what he did.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Mo entered the crater talent show with his ukulele.", "reason": "This is complete. It says who (Mo) and what he did." },
+          " ",
+          { "tap": "He had practised for a whole month.", "reason": "This is complete. It says who (he) and what he had done." },
+          " ",
+          { "tap": "Halfway through his song, a string snapped.", "reason": "This is complete. It says what (a string) and what it did." },
+          " ",
+          { "tap": "Finished the song on just three strings." },
+          " ",
+          { "tap": "The judges gave him a prize for bravery.", "reason": "This is complete. It says who (the judges) and what they did." }
+        ],
+        "spot": 3,
+        "options": [
+          { "text": "Finished the whole song on just three strings.", "reason": "Still a fragment. It still doesn't say who finished the song." },
+          { "text": "He finished the song, he had just three strings.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
+          { "text": "He finished the song on just three strings." },
+          { "text": "On just three strings, the whole song.", "reason": "Still a fragment. Now there's no doer and no action at all." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b4-1",
+      "band": 4,
+      "topic": "robots",
+      "frame": "A classmate's article about the school's new library robot is on the editing desk. The Pinchion has found the sentence that runs on.",
+      "prompt": "Tap the sentence that runs on.",
+      "success": "'It had sorted every book by colour' and 'the librarian nearly fainted' are jammed together with nothing between.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "The library's new robot, which the Year 6s named Shelf, was meant to make borrowing faster.", "reason": "This is complete. The 'which' part sits inside, and 'the robot was meant to' is the main thought." },
+          " ",
+          { "tap": "On its first morning, Shelf scanned four hundred books before the bell rang.", "reason": "This is complete. It says who (Shelf) and what it did." },
+          " ",
+          { "tap": "Unfortunately, nobody had explained where each book was supposed to go.", "reason": "This is complete. It says who (nobody) and what they hadn't done." },
+          " ",
+          { "tap": "By lunchtime it had sorted every book by colour the librarian nearly fainted." },
+          " ",
+          { "tap": "Although the shelves now look like a rainbow, nobody can find anything.", "reason": "This is complete. The 'although' part hangs on to 'nobody can find anything'." },
+          " ",
+          { "tap": "Next week, the Year 6s are teaching Shelf the alphabet.", "reason": "This is complete. It says who (the Year 6s) and what they're doing." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.2-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Wren's dive report for the newsroom has a 'however' doing a job it can't do. The Pinchion has four fixes.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "'However' can't join two sentences on its own. A full stop before it splits the two whole thoughts properly.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Last week, our class joined a marine scientist on a trip to the reef at the foot of the volcano.", "reason": "This is complete. It says who (our class) and what they did." },
+          " ",
+          { "tap": "The reef looked healthy from the boat, however up close many of the corals had turned white." },
+          " ",
+          { "tap": "Bleached coral is still alive, but it is starving, because the tiny algae that feed it have left.", "reason": "This is complete. 'But' and 'because' join each part to a whole thought properly." },
+          " ",
+          { "tap": "Our class is now measuring the water temperature every week.", "reason": "This is complete. It says who (our class) and what they're doing." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "The reef looked healthy from the boat, however, up close, many of the corals had turned white.", "reason": "Commas around 'however' still leave two whole thoughts held together by commas. It's still a run-on." },
+          { "text": "The reef looked healthy from the boat however up close many of the corals had turned white.", "reason": "Taking the comma out makes it worse. Now the two thoughts are jammed together." },
+          { "text": "The reef looked healthy from the boat. However, up close, many of the corals had turned white." },
+          { "text": "The reef looked healthy from the boat. However, up close many of the corals. Had turned white.", "reason": "The second full stop makes two fragments. 'Had turned white.' doesn't say what turned white." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.2-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's report on blowflies is going in the science page. It has a fragment, and the Pinchion is holding its nose.",
+      "text": "Blowflies can smell a dead animal from kilometres away. Within minutes of finding it, they lay hundreds of eggs. Even though the smell would make most people gag. To a blowfly, rotting meat is the perfect nursery.",
+      "prompt": "The third sentence is a fragment. Which edit fixes it?",
+      "success": "The 'even though' part now hangs on to a whole thought: rotting meat is the perfect nursery.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Even though the smell would make most people gag. Rotting meat is a perfect nursery for blowflies.", "reason": "The 'even though' part is still cut off by a full stop, so it's still a fragment." },
+          { "text": "The smell would make most people gag, rotting meat is the perfect nursery for a blowfly.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
+          { "text": "Even though the smell would make most people gag, but rotting meat is the perfect nursery for a blowfly.", "reason": "'Even though' and 'but' together leave no main thought. Use only one joining word." },
+          { "text": "Even though the smell would make most people gag, rotting meat is the perfect nursery for a blowfly." }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.2-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's sports page says: 'The semi-final at Crater Oval was postponed the ground had been flooded by overnight rain.' The Pinchion wants it joined properly.",
+      "prompt": "Tap the pieces in order to join the run-on with a word that shows why.",
+      "success": "'Because' joins the two thoughts and shows the flooding is the reason the match was postponed.",
+      "body": {
+        "format": "build",
+        "tiles": ["The semi-final at Crater Oval was postponed", "although", "because", "the ground had been flooded by overnight rain."],
+        "accept": ["The semi-final at Crater Oval was postponed because the ground had been flooded by overnight rain."],
+        "reason": "'Although' means 'in spite of', but the flooding is the reason for the delay. Use 'because'."
+      }
+    },
+    {
+      "id": "8.2-b4-5",
+      "band": 4,
+      "topic": "art",
+      "frame": "A classmate's review of the lava sculpture show has one broken part. The Pinchion has found it under a warm stone.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "It names a dragon and describes its eyes, but it never says what the dragon does or is.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "The new exhibition in the crater gallery is made entirely of cooled lava.", "reason": "This is complete. It says what (the exhibition) and what it is made of." },
+          " ",
+          { "tap": "Each sculpture began as molten rock, which the artist poured into moulds made of wet sand.", "reason": "This is complete. The 'which' part hangs on to 'each sculpture began as molten rock'." },
+          " ",
+          { "tap": "As it cooled, the rock hardened into shapes that looked like curled-up animals.", "reason": "This is complete. The 'as' part hangs on to 'the rock hardened'." },
+          " ",
+          { "tap": "The most popular piece, a sleeping wombat the size of a small car, sits by the entrance.", "reason": "This is complete. The middle part describes the piece, and 'the most popular piece sits' is the main thought." },
+          " ",
+          { "tap": "A glossy black dragon with ruby-red eyes that glow whenever sunlight hits them." },
+          " ",
+          { "tap": "Visitors may not touch the sculptures, because some edges are as sharp as glass.", "reason": "This is complete. The 'because' part hangs on to 'visitors may not touch the sculptures'." }
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "8.2-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed's article on the haunted observatory has a run-on. The Pinchion has four ways to snip it, but only one is right.",
+      "prompt": "Tap the run-on, then choose the fix.",
+      "success": "A full stop after 'investigate' splits the two whole thoughts. Each one now says who or what, and what happened.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "The old observatory on the crater rim has been empty for forty years.", "reason": "This is complete. It says what (the observatory) and how long it's been empty." },
+          " ",
+          { "tap": "On still nights, a faint blue light flickers in its dome.", "reason": "This is complete. It says what (a faint blue light) and what it does." },
+          " ",
+          { "tap": "Last Friday, Zed and Wren climbed the rusty stairs to investigate the light turned out to be a firefly trapped in a jar." },
+          " ",
+          { "tap": "Somebody had left it there as a prank, and the poor thing had been glowing for help.", "reason": "This is complete. A comma plus 'and' joins the two whole thoughts properly." },
+          " ",
+          { "tap": "Wren set it free on the spot.", "reason": "This is complete. It says who (Wren) and what she did." }
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "Last Friday, Zed and Wren climbed the rusty stairs to investigate the light. Turned out to be a firefly trapped in a jar.", "reason": "'Turned out to be a firefly trapped in a jar.' is a fragment. It doesn't say what turned out." },
+          { "text": "Last Friday, Zed and Wren climbed the rusty stairs to investigate, the light turned out to be a firefly trapped in a jar.", "reason": "A comma on its own can't hold two whole thoughts together. That's still a run-on." },
+          { "text": "Last Friday, Zed and Wren climbed the rusty stairs to investigate. The light turned out to be a firefly trapped in a jar." },
+          { "text": "Last Friday, Zed and Wren climbed the rusty stairs to investigate the light turned. Out to be a firefly trapped in a jar.", "reason": "The full stop is in the wrong place. 'Out to be a firefly in a jar' makes no sense alone." }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

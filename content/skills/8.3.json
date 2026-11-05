@@ -1,0 +1,602 @@
+{
+  "skill": {
+    "id": "8.3",
+    "name": "Fix tense slips",
+    "codes": ["VC2E5LY11", "VC2E6LA06"],
+    "why": "When verbs jump between times, readers lose track of when things happened.",
+    "how": "Find the draft's time first. Then check every verb stays in that time.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          { "say": "A story picks a time and sticks to it.", "show": "Mo **burnt** the toast. Smoke **filled** the kitchen." },
+          { "say": "Uh oh. One verb slipped into right now.", "show": "Mo burnt the toast. Smoke **fills** the kitchen." },
+          { "say": "That's a tense slip. Tense is the time in a verb." },
+          { "say": "Find the draft's time clue first.", "show": "**Yesterday**, Mo **cooked**. He **opens** a window." },
+          { "say": "Then snap the slipped verb back.", "show": "Yesterday, Mo cooked. He **opened** a window." }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Tap the verb in the wrong time.",
+          "hint": "'Last night' tells you the story is in the past. Which verb says it's happening now?",
+          "success": "Screams is happening now. Last night is over, so it should be screamed.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Last night, Gus ",
+              { "tap": "made", "reason": "Made is past, like the rest of the story." },
+              " a slime bomb. It ",
+              { "tap": "exploded", "reason": "Exploded is past, like the rest of the story." },
+              " in the kitchen. Mum ",
+              { "tap": "screams" },
+              " at him. Gus ",
+              { "tap": "cleaned", "reason": "Cleaned is past, like the rest of the story." },
+              " it all up."
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "text": "Every morning, Tully runs to the beach. She swims for an hour. Then she ate breakfast.",
+          "prompt": "Which edit fixes the tense slip?",
+          "hint": "'Every morning' means it happens again and again. Which edit keeps every verb in the present?",
+          "success": "Eats. Runs and swims are present, so breakfast is in the present too.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "Then she will eat breakfast.", "reason": "Will eat is the future. The draft is about what she does every morning." },
+              { "text": "Then she eats breakfast." },
+              { "text": "Then she was eating breakfast.", "reason": "Was eating is past. Runs and swims are in the present." }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "clinkit",
+      "name": "Clinkit",
+      "evolved": "Clinkarmour",
+      "blurb": "A cinder-coloured beetle that trundles along one warm crack in the volcano's rock and never steps off it. It keeps a story's verbs on one track of time."
+    }
+  },
+  "encounters": [
+    {
+      "id": "8.3-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy report is on the editing desk. A Clinkit has wandered onto one verb.",
+      "prompt": "Tap the verb in the wrong time.",
+      "success": "Trips is happening now. The match was on Saturday, so it should be tripped.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "On Saturday, the Rays ",
+          { "tap": "played", "reason": "Played is past. Saturday is over, so it fits." },
+          " the Sharks. Tully ",
+          { "tap": "kicked", "reason": "Kicked is past, like the rest of the report." },
+          " two goals. Then she ",
+          { "tap": "trips" },
+          " over the ball. The crowd ",
+          { "tap": "laughed", "reason": "Laughed is past, like the rest of the report." },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's cooking diary is going in the newsroom paper. The Clinkit found a verb off the track.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Smoked. Yesterday is over, and every other verb in the diary is past.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Yesterday, Mo ",
+          { "tap": "baked", "reason": "Baked is past. Yesterday is over, so it fits." },
+          " a pie. He ",
+          { "tap": "filled", "reason": "Filled is past, like the rest of the diary." },
+          " it with fish and jam. Then the oven ",
+          { "tap": "smokes" },
+          ". Gus ",
+          { "tap": "opened", "reason": "Opened is past, like the rest of the diary." },
+          " every window."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "will smoke", "reason": "Will smoke is the future. This all happened yesterday." },
+          { "text": "is smoking", "reason": "Is smoking means right now. This all happened yesterday." },
+          { "text": "smoked" }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's fact sheet on rock wallabies has one verb in the wrong time. The Clinkit has three fixes.",
+      "text": "Rock wallabies live on steep, rocky cliffs. They jump from ledge to ledge. Their feet had thick pads for grip. Their long tails help them balance.",
+      "prompt": "Which edit fixes the tense slip?",
+      "success": "Have. The fact sheet tells you what wallabies are like now, so every verb is present.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Their feet will have thick pads for grip.", "reason": "Will have is the future. The sheet tells you what wallabies are like now." },
+          { "text": "Their feet grew thick pads for grip.", "reason": "Grew is past. The sheet tells you what wallabies are like now." },
+          { "text": "Their feet have thick pads for grip." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed's star diary says: 'Last night, Zed sees a shooting star.' The Clinkit wants the verb back on track.",
+      "prompt": "Tap the pieces in order so the verb fits the time.",
+      "success": "Saw. Last night is over, so the verb has to be past.",
+      "body": {
+        "format": "build",
+        "tiles": ["Last night,", "Zed", "sees", "saw", "a shooting star."],
+        "accept": ["Last night, Zed saw a shooting star."],
+        "reason": "Sees means right now. 'Last night' is over, so use the past: saw."
+      }
+    },
+    {
+      "id": "8.3-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is live on the newsroom stream. Gus is typing up what happens, and the Clinkit is checking.",
+      "prompt": "Tap the verb in the wrong time.",
+      "success": "Opened is past. The stream is happening right now, so it should be opens.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Right now, Zed ",
+          { "tap": "is playing", "reason": "Is playing fits. It's happening right now." },
+          " Lava Run. He ",
+          { "tap": "jumps", "reason": "Jumps is present. It's happening right now." },
+          " over a pool of lava. He ",
+          { "tap": "grabs", "reason": "Grabs is present. It's happening right now." },
+          " the gold key. Then he ",
+          { "tap": "opened" },
+          " the secret door. The chat ",
+          { "tap": "goes", "reason": "Goes is present. It's happening right now." },
+          " wild."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.3-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Indi's notice about tomorrow's contest has a verb in the wrong time. The Clinkit is on it.",
+      "text": "Tomorrow, the crew will have a pie-eating contest. Mo will bake the pies. Gus was judging the winner. Everyone will need a nap after.",
+      "prompt": "Which edit fixes the tense slip?",
+      "success": "Will judge. The contest is tomorrow, so the judging hasn't happened yet.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Gus judged the winner.", "reason": "Judged is past, but the contest is tomorrow." },
+          { "text": "Gus will judge the winner." },
+          { "text": "Gus has judged the winner.", "reason": "Has judged means it's already done, but the contest hasn't happened yet." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.3-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's whale-watching report is nearly ready. The Clinkit has found one verb off the track.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Crashed. The trip was last Sunday, and every other verb in the report is past.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Last Sunday, we ",
+          { "tap": "went", "reason": "Went is past. Last Sunday is over, so it fits." },
+          " whale watching off the volcano. A huge humpback ",
+          { "tap": "leapt", "reason": "Leapt is past, like the rest of the report." },
+          " out of the water. It ",
+          { "tap": "crashes" },
+          " back down with an enormous splash. Everyone on the boat ",
+          { "tap": "got", "reason": "Got is past, like the rest of the report." },
+          " soaked."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "crashed" },
+          { "text": "has crashed", "reason": "Has crashed doesn't go with a finished time like 'last Sunday'. Use crashed." },
+          { "text": "will crash", "reason": "Will crash is the future, but the trip was last Sunday." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "8.3-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "A classmate wrote about the newsroom's night robot. The Clinkit has found a verb in the wrong time.",
+      "prompt": "Tap the verb in the wrong time.",
+      "success": "Printed is past. 'Every night' means it happens again and again, so it should be prints.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Every night, the newsroom robot, Inky, ",
+          { "tap": "works", "reason": "Works is present. It's something Inky does every night." },
+          " while the crew sleeps. First, it ",
+          { "tap": "sorts", "reason": "Sorts is present, like the rest of the report." },
+          " the letters into trays. Next, it ",
+          { "tap": "printed" },
+          " tomorrow's paper. Then it ",
+          { "tap": "sweeps", "reason": "Sweeps is present, like the rest of the report." },
+          " up the ash. At sunrise, it ",
+          { "tap": "plugs", "reason": "Plugs is present, like the rest of the report." },
+          " itself in to charge."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi's review of the crater fair has a verb in the wrong time. The Clinkit has three fixes.",
+      "text": "Indi's band played at the crater fair last Friday. Halfway through, the singer forgot the words. So the fans are singing them for her. Afterwards, everyone begged for one more song.",
+      "prompt": "Which edit fixes the tense slip?",
+      "success": "Sang. The fair was last Friday, and every other verb in the review is past.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "So the fans sing them for her.", "reason": "Sing is present. The fair was last Friday, so use the past." },
+          { "text": "So the fans will sing them for her.", "reason": "Will sing is the future, but the fair was last Friday." },
+          { "text": "So the fans sang them for her." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b2-4",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed's ghost story is told in the past. One sentence says: 'The door creaks open, and a cold wind blew in.' The Clinkit is twitching.",
+      "prompt": "Tap the pieces in order so both verbs are in the same time.",
+      "success": "Creaked. Blew is past, and so is the rest of the story, so the door creaked.",
+      "body": {
+        "format": "build",
+        "tiles": ["The door", "creaks", "creaked", "open, and a cold wind blew in."],
+        "accept": ["The door creaked open, and a cold wind blew in."],
+        "reason": "Creaks means right now, but blew is past. Keep both in the past: creaked."
+      }
+    },
+    {
+      "id": "8.3-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi wrote a diary of her mural week for the newsroom. The Clinkit spotted a verb off the track.",
+      "prompt": "Tap the verb in the wrong time.",
+      "success": "Paints is present. The mural was painted last week, so it should be painted.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Last week, Indi painted a mural. On Monday, she ",
+          { "tap": "washed", "reason": "Washed is past. Last week is over, so it fits." },
+          " the newsroom wall. On Tuesday, she ",
+          { "tap": "sketched", "reason": "Sketched is past, like the rest of the diary." },
+          " a giant volcano. On Wednesday, she ",
+          { "tap": "paints" },
+          " the lava bright orange. On Thursday, she ",
+          { "tap": "added", "reason": "Added is past, like the rest of the diary." },
+          " the whole crew. On Friday, everyone ",
+          { "tap": "cheered", "reason": "Cheered is past, like the rest of the diary." },
+          "."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's report on snail slime has one verb in the wrong time. The Clinkit is leaving a trail towards it.",
+      "text": "Snails make slime to help them slide along. The slime protects their soft bodies from sharp rocks. At night, they were leaving a shiny trail on the path. In the morning, you can follow it to find them.",
+      "prompt": "Which edit fixes the tense slip?",
+      "success": "Leave. The report tells you what snails do every night, so the verb stays in the present.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "At night, they left a shiny trail on the path.", "reason": "Left is past. The report tells you what snails do now, every night." },
+          { "text": "At night, they leave a shiny trail on the path." },
+          { "text": "At night, they have left a shiny trail on the path.", "reason": "Have left means it's already done. The report is about what snails do every night." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.3-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's semi-final report is nearly ready for the front page. The Clinkit has found one verb off the track.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Grabbed. The match was last Saturday, and every other verb in the report is past.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Last Saturday, the Reef Rays ",
+          { "tap": "met", "reason": "Met is past. Last Saturday is over, so it fits." },
+          " the Sharks in the semi-final. With a minute left, the scores ",
+          { "tap": "were", "reason": "Were is past, like the rest of the report." },
+          " level. Tully ",
+          { "tap": "grabs" },
+          " the ball from a pack of players. From the boundary, she ",
+          { "tap": "kicked", "reason": "Kicked is past, like the rest of the report." },
+          " the goal that won the game. The crowd ",
+          { "tap": "roared", "reason": "Roared is past, like the rest of the report." },
+          " so loudly that birds flew off the roof."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "has grabbed", "reason": "Has grabbed doesn't go with a finished time like 'last Saturday'. Use grabbed." },
+          { "text": "is grabbing", "reason": "Is grabbing means right now, but the match was last Saturday." },
+          { "text": "grabbed" },
+          { "text": "will grab", "reason": "Will grab is the future, but the match is already over." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's platypus fact sheet is going in the nature page. The Clinkit has found a verb in the wrong time.",
+      "prompt": "Tap the verb in the wrong time.",
+      "success": "Stored is past. The sheet says what a platypus does every time it hunts, so it should be stores.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "A platypus ",
+          { "tap": "hunts", "reason": "Hunts is present. The sheet tells you what a platypus always does." },
+          " underwater with its eyes, ears and nose shut tight. It ",
+          { "tap": "finds", "reason": "Finds is present, like the rest of the fact sheet." },
+          " food by sensing tiny electric signals with its bill. It ",
+          { "tap": "stored" },
+          " each worm and shrimp in its cheek pouches until it ",
+          { "tap": "surfaces", "reason": "Surfaces is present, like the rest of the fact sheet." },
+          ". Then it ",
+          { "tap": "floats", "reason": "Floats is present, like the rest of the fact sheet." },
+          " on its back and munches its meal."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "An astronaut's diary drifted into the newsroom. The Clinkit thinks one sentence slipped out of its time.",
+      "text": "Day 40 on the space station. This morning, Raj and I fixed a leaking water pipe in the kitchen. The escaped water floated around in wobbly blobs the size of marbles. We chase the blobs around the cabin with a towel. After that, we finally sat down to a lunch of squeezy tacos. Tonight, I'm writing this diary by the window, with the Earth glowing below.",
+      "prompt": "Which sentence has a tense slip?",
+      "success": "The blob chase happened this morning, like the pipe and the lunch, so it should be chased.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "This morning, Raj and I fixed a leaking water pipe in the kitchen.", "reason": "Fixed is past, and this morning is already over. It fits." },
+          { "text": "We chase the blobs around the cabin with a towel." },
+          { "text": "After that, we finally sat down to a lunch of squeezy tacos.", "reason": "Sat is past, like the morning's other events." },
+          { "text": "Tonight, I'm writing this diary by the window, with the Earth glowing below.", "reason": "This is fine. She is writing tonight, as she tells us, so the present fits." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.3-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's cooking show is live, so his script is in the present. One line says: 'Now I whisked the eggs until they go frothy.'",
+      "prompt": "Tap the pieces in order so the verb fits the script's time.",
+      "success": "Whisk. The show is happening right now, and 'go' is present, so whisk is too.",
+      "body": {
+        "format": "build",
+        "tiles": ["Now I", "whisked", "whisk", "the eggs until they go frothy."],
+        "accept": ["Now I whisk the eggs until they go frothy."],
+        "reason": "Whisked is past, but the show is live and 'go' is present. Use whisk."
+      }
+    },
+    {
+      "id": "8.3-b3-5",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's preview of the Crater Gaming Cup has one verb in the wrong time. The Clinkit has four fixes.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Will take. The cup is next Saturday, so nobody has won the prize yet.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Next Saturday, Zed ",
+          { "tap": "will compete", "reason": "Will compete is the future. Next Saturday hasn't happened yet, so it fits." },
+          " in the Crater Gaming Cup. Sixteen players ",
+          { "tap": "will battle", "reason": "Will battle is the future, like the rest of the preview." },
+          " it out on giant screens in the newsroom. The final ",
+          { "tap": "will start", "reason": "Will start is the future, like the rest of the preview." },
+          " at four o'clock. The winner ",
+          { "tap": "took" },
+          " home a golden controller and a year's supply of lava popcorn."
+        ],
+        "spot": 3,
+        "options": [
+          { "text": "has taken", "reason": "Has taken means it's already happened, but the cup is still to come." },
+          { "text": "was taking", "reason": "Was taking is past, but the cup is next Saturday." },
+          { "text": "had taken", "reason": "Had taken is past, but nobody can win before the cup is played." },
+          { "text": "will take" }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.3-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "Gus's gig review for the newsroom has one verb in the wrong time. The Clinkit has four fixes.",
+      "text": "Last night, the Ash Rattlers played their loudest gig ever in the crater hall. The bass player's amp blew up halfway through the first song. Nobody cared, and the crowd danced even harder. In the last song, the drummer is tossing his sticks into the crowd. Mo caught one and refused to give it back.",
+      "prompt": "Which edit fixes the tense slip?",
+      "success": "Tossed. The gig was last night, and every other verb in the review is past.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "In the last song, the drummer tosses his sticks into the crowd.", "reason": "Tosses is present. The gig was last night, so use the past." },
+          { "text": "In the last song, the drummer has tossed his sticks into the crowd.", "reason": "Has tossed doesn't go with a finished time like 'last night'. Use tossed." },
+          { "text": "In the last song, the drummer tossed his sticks into the crowd." },
+          { "text": "In the last song, the drummer will toss his sticks into the crowd.", "reason": "Will toss is the future, but the gig was last night." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.3-b4-1",
+      "band": 4,
+      "topic": "robots",
+      "frame": "A classmate's article about the robotics championships is on the editing desk. The Clinkit has found the one verb that slipped.",
+      "prompt": "Tap the verb in the wrong time.",
+      "success": "Works is present, but the race against the timer happened last month. It should be worked.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Last month, the Year 6 robotics team ",
+          { "tap": "entered", "reason": "Entered is past. Last month is over, so it fits." },
+          " the island championships with a robot called Grub. Grub was built to sort recycling, which ",
+          { "tap": "is", "reason": "Is fits. Sorting recycling is always hard, then and now, so the present works here." },
+          " harder than it sounds. In the first round, a greasy pizza box ",
+          { "tap": "jammed", "reason": "Jammed is past, like the rest of the championship story." },
+          " its claw. The team ",
+          { "tap": "works" },
+          " frantically to free it before the timer ran out. In the end, Grub ",
+          { "tap": "sorted", "reason": "Sorted is past, like the rest of the championship story." },
+          " forty items in three minutes and the team came second."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.3-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The crew is making a nature film, and Wren's voice-over script is in the present. The Clinkit has found a slip.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Flashes. The whole script happens before our eyes in the present, so the skin flashes too.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Deep in the kelp forest, a giant cuttlefish ",
+          { "tap": "drifts", "reason": "Drifts is present, like the rest of the script." },
+          " just above the sand. As a crab ",
+          { "tap": "scuttles", "reason": "Scuttles is present, like the rest of the script." },
+          " past, the cuttlefish's skin ",
+          { "tap": "flashed" },
+          " with ripples of purple and gold. The crab ",
+          { "tap": "freezes", "reason": "Freezes is present, like the rest of the script." },
+          ", hypnotised by the light show. In a blink, the cuttlefish shoots out two long tentacles and ",
+          { "tap": "snatches", "reason": "Snatches is present, like the rest of the script." },
+          " its dinner."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "was flashing", "reason": "Was flashing is past, but the script tells everything as it happens." },
+          { "text": "flashes" },
+          { "text": "will flash", "reason": "Will flash is the future, but the crab is scuttling past right now." },
+          { "text": "had flashed", "reason": "Had flashed is past, but the script tells everything as it happens." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.3-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's report on snot is going in the science page. The Clinkit thinks one sentence has slipped, but not the one about long ago.",
+      "text": "Your nose makes around a cup of mucus every single day, and most of it slides down your throat without you noticing. This sticky goo traps dust, pollen and germs before they can reach your lungs. When you catch a cold, your nose made extra mucus to flush germs out. That is why a box of tissues can vanish so quickly in winter. Long ago, some doctors treated colds by putting mustard on people's feet. Today, we know that snot is one of the body's cleverest defences.",
+      "prompt": "Which sentence has a tense slip?",
+      "success": "The report explains what your nose does every time you catch a cold, so it should be makes.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "This sticky goo traps dust, pollen and germs before they can reach your lungs.", "reason": "Traps is present, like the rest of the report about how your nose works." },
+          { "text": "When you catch a cold, your nose made extra mucus to flush germs out." },
+          { "text": "That is why a box of tissues can vanish so quickly in winter.", "reason": "Is and can vanish are present, like the rest of the report." },
+          { "text": "Long ago, some doctors treated colds by putting mustard on people's feet.", "reason": "This is fine. 'Long ago' is a time in the past, so treated is right here." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.3-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's grand final report is all in the past, except for one verb: 'As the siren sounds, the Rays' captain booted the ball through the posts.'",
+      "prompt": "Tap the pieces in order so both verbs are in the same time.",
+      "success": "Sounded. Booted is past, and so is the whole report, so the siren sounded.",
+      "body": {
+        "format": "build",
+        "tiles": ["As the siren", "sounds,", "sounded,", "the Rays' captain booted the ball through the posts."],
+        "accept": ["As the siren sounded, the Rays' captain booted the ball through the posts."],
+        "reason": "Sounds means right now, but booted is past. Keep both in the past: sounded."
+      }
+    },
+    {
+      "id": "8.3-b4-5",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi's article about finishing her mural is nearly ready. The Clinkit has found a verb that doesn't fit its time clue.",
+      "prompt": "Tap the verb in the wrong time, then choose one that fits.",
+      "success": "Finished. 'Yesterday afternoon' is a finished time, and 'has finished' can't go with a finished time.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "For three weeks, Indi ",
+          { "tap": "worked", "reason": "Worked is past, and the three weeks are over. It fits." },
+          " on a mural along the side of the newsroom. Each morning, she ",
+          { "tap": "climbed", "reason": "Climbed is past, like the rest of the article." },
+          " a wobbly ladder with a bucket of paint hooked over her arm. Yesterday afternoon, she ",
+          { "tap": "has finished" },
+          " the last brushstroke, a tiny Mo hiding behind a lava rock. The whole crew ",
+          { "tap": "gathered", "reason": "Gathered is past, like the rest of the article." },
+          " on the footpath to watch, and Mo ",
+          { "tap": "pretended", "reason": "Pretended is past, like the rest of the article." },
+          " not to be thrilled."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "finishes", "reason": "Finishes is present, but yesterday afternoon is already over." },
+          { "text": "is finishing", "reason": "Is finishing means right now, but yesterday afternoon is already over." },
+          { "text": "will finish", "reason": "Will finish is the future, but yesterday afternoon is already over." },
+          { "text": "finished" }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.3-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed's lava cave story is going in the spooky column. The Clinkit has four fixes for the verb that slipped.",
+      "text": "Wren and Zed had been exploring the lava caves for an hour when their torch began to flicker. The air turned cold and damp, and every footstep echoed off the black walls. Somewhere in the flooded tunnel ahead, something is splashing slowly towards them. Zed grabbed Wren's arm so hard that she yelped. Then a soggy and very confused wombat waddled into the torchlight.",
+      "prompt": "Which edit fixes the tense slip?",
+      "success": "Splashed. The whole story is told in the past, so the splashing is past too.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Somewhere in the flooded tunnel ahead, something will splash slowly towards them.", "reason": "Will splash is the future, but the story is told in the past." },
+          { "text": "Somewhere in the flooded tunnel ahead, something splashed slowly towards them." },
+          { "text": "Somewhere in the flooded tunnel ahead, something splashes slowly towards them.", "reason": "Splashes is present, but every other verb in the story is past." },
+          { "text": "Somewhere in the flooded tunnel ahead, something has splashed slowly towards them.", "reason": "Has splashed doesn't fit a story told in the past. Grabbed and waddled come straight after." }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

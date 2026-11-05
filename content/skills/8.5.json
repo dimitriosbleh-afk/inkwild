@@ -1,0 +1,602 @@
+{
+  "skill": {
+    "id": "8.5",
+    "name": "Sharpen vague words in a draft",
+    "codes": ["VC2E5LY11", "VC2E5LA08"],
+    "why": "Blurry words make readers guess. Sharp words show exactly what you mean.",
+    "how": "Find the blurry word. Read the clues around it. Swap in the word that fits.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Editors hunt for blurry words, like thing.",
+            "show": "The **thing** woke me up."
+          },
+          {
+            "say": "Thing could mean anything. So read the clues.",
+            "show": "It **ticked** all night and **rang at seven**."
+          },
+          {
+            "say": "A phone? Phones don't tick. A clock fits every clue."
+          },
+          {
+            "say": "Swap it in. Now the reader can picture it.",
+            "show": "The **alarm clock** woke me up."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Tap the blurry word, then choose a sharper one.",
+          "hint": "What do a black crust and a smoky smell tell you?",
+          "success": "Burnt. A black crust and a smoky smell mean the pie cooked far too long.",
+          "body": {
+            "format": "fix",
+            "parts": [
+              "Mo's ",
+              { "tap": "pie", "reason": "Pie is already sharp. It names exactly what Mo cooked." },
+              " was ",
+              { "tap": "bad" },
+              ". The crust was black, and it ",
+              { "tap": "smelled", "reason": "Smelled is fine here. The smoke tells you exactly what it smelled like." },
+              " like smoke."
+            ],
+            "spot": 1,
+            "options": [
+              { "text": "raw", "reason": "Raw means not cooked enough. A black, smoky crust was cooked too long." },
+              { "text": "burnt" },
+              { "text": "stale", "reason": "Stale means old and dry. Smoke and a black crust mean too much heat." }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "text": "Tully's team did well. They won every single game this season.",
+          "prompt": "Which words say exactly how the team did?",
+          "hint": "Which one matches winning every single game?",
+          "success": "Went unbeaten. Winning every single game means nobody beat them all season.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "came second", "reason": "Coming second means they lost at least once. They won every game." },
+              { "text": "improved", "reason": "Improved only means better than before. It doesn't say they won every game." },
+              { "text": "went unbeaten" }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "whetwing",
+      "name": "Whetwing",
+      "evolved": "Whetstrike",
+      "blurb": "A peregrine falcon that sharpens its claws on the crater's black rock. Blurry words make it squint, but a sharp one sends it diving."
+    }
+  },
+  "encounters": [
+    {
+      "id": "8.5-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Gus wrote about his drink for the Redpen Times. The Whetwing is squinting at one word.",
+      "prompt": "Tap the blurry word, then choose a sharper one.",
+      "success": "Icy. Frost on the glass tells you the drink was freezing cold.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's drink was ",
+          { "tap": "good" },
+          ". It was so ",
+          { "tap": "cold", "reason": "Cold is already sharp. It's the clue that tells you how the drink felt." },
+          " that ",
+          { "tap": "frost", "reason": "Frost is exact. It names what covered the glass." },
+          " covered the ",
+          { "tap": "glass", "reason": "Glass is exact. It tells you what the drink was in." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "steaming", "reason": "Steaming means hot. This drink was so cold that frost covered the glass." },
+          { "text": "lukewarm", "reason": "Lukewarm means a bit warm. The draft says the drink was so cold." },
+          { "text": "icy" }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's wombat report is on the editing desk. The Whetwing found a blurry word.",
+      "prompt": "Tap the blurry word in Wren's draft.",
+      "success": "Lots. It doesn't say how many carrots, so the reader can't picture it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren's ",
+          { "tap": "wombat", "reason": "Wombat is sharp. It names the exact animal." },
+          " ate ",
+          { "tap": "lots" },
+          " of carrots by the ",
+          { "tap": "fence", "reason": "Fence is sharp. It tells you exactly where the wombat ate." },
+          " in ",
+          { "tap": "ten", "reason": "Ten is sharp. It tells you exactly how many minutes." },
+          " minutes."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.5-b1-3",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game review uses a blurry word. The Whetwing won't dive until it's fixed.",
+      "text": "Zed's new game is weird. You play a sandwich that fights pigeons, and it made Zed laugh until he cried.",
+      "prompt": "Which word says exactly what Zed's game is like?",
+      "success": "Hilarious. A game that makes you laugh until you cry is very funny.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "terrifying", "reason": "Terrifying means very scary. The game made Zed laugh, not scream." },
+          { "text": "hilarious" },
+          { "text": "boring", "reason": "Boring means dull. A game that makes you cry laughing isn't dull." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.5-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed's space report is full of sentences. The Whetwing only likes the sharp ones.",
+      "prompt": "Match each sentence to the right bin.",
+      "success": "Blurry sentences use words like okay, lots and things. Sharp sentences show exactly what happened.",
+      "body": {
+        "format": "sort",
+        "bins": ["blurry", "sharp"],
+        "items": [
+          { "text": "The launch went okay.", "bin": 0, "reason": "Okay doesn't say what happened at the launch. The reader can't picture it." },
+          { "text": "The rocket roared off the launch pad.", "bin": 1, "reason": "Roared tells you exactly how the rocket left." },
+          { "text": "The astronaut saw lots of things.", "bin": 0, "reason": "Lots of things could be anything at all, so the reader has to guess." },
+          { "text": "A comet streaked past the window.", "bin": 1, "reason": "Comet and streaked tell you exactly what went past and how." },
+          { "text": "The food in space was a bit weird.", "bin": 0, "reason": "A bit weird doesn't say what the food was like. Was it dry? Runny?" }
+        ]
+      }
+    },
+    {
+      "id": "8.5-b1-5",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is writing about her footy boots. The Whetwing wants one word sharper.",
+      "prompt": "Tap the blurry word, then choose a sharper one.",
+      "success": "Worn-out. A hole that lets the mud in means the boots are old and used up.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Tully's ",
+          { "tap": "footy", "reason": "Footy is sharp. It tells you exactly what kind of boots." },
+          " boots were ",
+          { "tap": "bad" },
+          ". The ",
+          { "tap": "left", "reason": "Left is sharp. It tells you exactly which boot." },
+          " one had a hole, and mud got in."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "worn-out" },
+          { "text": "brand-new", "reason": "Brand-new boots wouldn't have a hole in them already." },
+          { "text": "spotless", "reason": "Spotless means perfectly clean. These boots let the mud in." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "8.5-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "Indi wrote up assembly for the school page. The Whetwing is circling one word.",
+      "text": "Mo sang a song at assembly. It was loud. Kids at the back covered their ears, and the windows rattled.",
+      "prompt": "Which word says exactly how loud the song was?",
+      "success": "Deafening. A song that makes kids cover their ears and rattles windows is extremely loud.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "soft", "reason": "Soft means quiet. Nobody covers their ears for a soft song." },
+          { "text": "muffled", "reason": "Muffled means hard to hear. Kids covered their ears, so it was easy to hear." },
+          { "text": "deafening" }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Mo's beach report has a blurry word. The Whetwing has spotted it from the cliff.",
+      "prompt": "Tap the blurry word, then choose a sharper one.",
+      "success": "Octopus. Eight arms and a squirt of ink tell you exactly what washed up.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "A ",
+          { "tap": "thing" },
+          " washed up on the ",
+          { "tap": "beach", "reason": "Beach is sharp. It tells you exactly where it washed up." },
+          ". It had eight ",
+          { "tap": "arms", "reason": "Arms is sharp, and it's a clue. It tells you how many arms." },
+          " and squirted ink at Mo."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "jellyfish", "reason": "A jellyfish has stinging tentacles, but it can't squirt ink." },
+          { "text": "starfish", "reason": "A starfish usually has five arms, not eight, and it has no ink." },
+          { "text": "octopus" }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b2-2",
+      "band": 2,
+      "topic": "food",
+      "frame": "Indi edited her shopping report, but the Whetwing says one word is still blurry.",
+      "prompt": "Tap the word that is still blurry after Indi's edit.",
+      "success": "Some. Every other word is exact, but some doesn't say how many bread rolls she bought.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Indi ",
+          { "tap": "sprinted", "reason": "Sprinted is sharp. It tells you exactly how she moved." },
+          " to the ",
+          { "tap": "bakery", "reason": "Bakery is sharp. It names exactly where she went." },
+          " and bought ",
+          { "tap": "six", "reason": "Six is sharp. It tells you exactly how many lamingtons." },
+          " lamingtons and ",
+          { "tap": "some" },
+          " bread rolls."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.5-b2-3",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren's story about her cat needs one sharper verb. The Whetwing knows a hunter when it sees one.",
+      "text": "Wren's cat moved towards the bird. It crept low, one slow paw at a time, without making a sound.",
+      "prompt": "Which word says exactly how the cat moved?",
+      "success": "Stalked. To stalk is to creep slowly and silently towards something you're hunting.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "bounded", "reason": "Bounded means leaping along. This cat crept slowly and silently." },
+          { "text": "stalked" },
+          { "text": "scampered", "reason": "Scampered means running quickly with little steps. This cat moved one slow paw at a time." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.5-b2-4",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed's band review says: 'The drums were loud and the singer was good.' The Whetwing wants both words sharper.",
+      "prompt": "Match each sharp word to the blurry word it could replace.",
+      "success": "Booming and thunderous sharpen loud. Tuneful, talented and pitch-perfect sharpen good.",
+      "body": {
+        "format": "sort",
+        "bins": ["sharpens 'loud'", "sharpens 'good'"],
+        "items": [
+          { "text": "booming", "bin": 0, "reason": "Booming means deep and very loud, like a big drum." },
+          { "text": "tuneful", "bin": 1, "reason": "Tuneful means nice to listen to and in tune. That's how a singer is good." },
+          { "text": "thunderous", "bin": 0, "reason": "Thunderous means as loud as thunder." },
+          { "text": "pitch-perfect", "bin": 1, "reason": "Pitch-perfect means hitting every note exactly. That's a sharp way to say good." },
+          { "text": "talented", "bin": 1, "reason": "Talented means having a real gift. It says how the singer is good." }
+        ]
+      }
+    },
+    {
+      "id": "8.5-b2-5",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus's robot diary needs one sharper verb before it goes to print.",
+      "text": "Gus's robot went across the floor. Its wheels had fallen off, so it dragged itself along on its belly.",
+      "prompt": "Build the first sentence again, swapping 'went' for the verb that fits the clues.",
+      "success": "Gus's robot crawled across the floor. With no wheels, dragging itself on its belly is crawling.",
+      "body": {
+        "format": "build",
+        "tiles": ["Gus's robot", "crawled", "zoomed", "rolled", "went", "across the floor", "."],
+        "accept": ["Gus's robot crawled across the floor."],
+        "reason": "The wheels fell off, so it can't roll or zoom. It dragged itself on its belly."
+      }
+    },
+    {
+      "id": "8.5-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed's ghost story has a blurry noise in it. The Whetwing's feathers are standing up.",
+      "text": "Zed heard a noise in the attic. It was long and slow, like an old door opening.",
+      "prompt": "Which word says exactly what the noise was?",
+      "success": "Creak. A creak is the long, slow sound an old door makes as it opens.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "creak" },
+          { "text": "bang", "reason": "A bang is short and sudden. This noise was long and slow." },
+          { "text": "giggle", "reason": "A giggle is a laugh. This noise sounded like a door, not a person." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "8.5-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's match report has one blurry verb. The Whetwing is watching it from the grandstand.",
+      "prompt": "Tap the blurry word, then choose a sharper one.",
+      "success": "Limped. Leaning on the coach with a swollen knee means Tully walked unevenly, favouring one leg.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Tully ",
+          { "tap": "walked" },
+          " off the ",
+          { "tap": "field", "reason": "Field is sharp enough. It tells you exactly where Tully was." },
+          " after the final siren. Her ",
+          { "tap": "knee", "reason": "Knee is sharp. It tells you exactly where she was hurt." },
+          " was ",
+          { "tap": "swollen", "reason": "Swollen is sharp, and it's a clue. It tells you how badly her knee was hurt." },
+          ", so she leaned on the coach and could hardly put any weight on her sore leg."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "marched", "reason": "Marched means walking with strong, steady steps. Tully could hardly use one leg." },
+          { "text": "strolled", "reason": "Strolled means walking slowly and happily, as if nothing hurt." },
+          { "text": "limped" },
+          { "text": "jogged", "reason": "Jogged means running slowly. Tully could hardly put weight on her leg." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b3-2",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi's gallery label is almost ready. The Whetwing found one word that's still blurry.",
+      "prompt": "Tap the word that is still blurry in Indi's label.",
+      "success": "Great. Every other word paints a clear picture, but great doesn't say what the lyrebird looks like.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Indi's ",
+          { "tap": "charcoal", "reason": "Charcoal is sharp. It tells you exactly what she drew with." },
+          " drawing shows a ",
+          { "tap": "great" },
+          " ",
+          { "tap": "lyrebird", "reason": "Lyrebird is sharp. It names the exact bird." },
+          " fanning its ",
+          { "tap": "silver", "reason": "Silver is sharp. It tells you exactly what colour the tail is." },
+          " tail across a ",
+          { "tap": "mossy", "reason": "Mossy is sharp. It tells you exactly what the log looks like." },
+          " log."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.5-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "The space station's diary landed on the Redpen desk. The Whetwing wants a name for what they saw.",
+      "text": "The astronauts saw something out of the window. It had a glowing head and a long, bright tail that stretched behind it as it streaked past the Sun.",
+      "prompt": "Which word says exactly what the astronauts saw?",
+      "success": "Comet. A comet has a glowing head and a long, bright tail as it passes the Sun.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "asteroid", "reason": "An asteroid is a rocky lump. It doesn't have a glowing tail." },
+          { "text": "satellite", "reason": "A satellite is a machine circling a planet. It doesn't glow with a long tail." },
+          { "text": "comet" },
+          { "text": "planet", "reason": "Planets don't have tails, and they don't streak past." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote a menu for the Redpen Volcano canteen. The Whetwing is checking every line.",
+      "prompt": "Match each line of Mo's menu to the right bin.",
+      "success": "Blurry lines hide behind words like really good, things and okay. Sharp lines tell diners exactly what they'll get.",
+      "body": {
+        "format": "sort",
+        "bins": ["blurry: needs an edit", "sharp: leave it"],
+        "items": [
+          { "text": "Our seaweed spag bol comes with a really good sauce.", "bin": 0, "reason": "Really good doesn't say what the sauce is like. Is it creamy? Spicy?" },
+          { "text": "The prawn icy poles are dipped in lime juice and rolled in salt.", "bin": 1, "reason": "Lime juice and salt tell you exactly what's on the icy pole." },
+          { "text": "The beetroot damper is crusty outside and pink inside.", "bin": 1, "reason": "Crusty and pink tell you exactly what it looks and feels like." },
+          { "text": "Mo's custard has some things floating in it.", "bin": 0, "reason": "Things could be anything. Diners need to know what's floating in there." },
+          { "text": "The sardine trifle tastes okay if you like fish.", "bin": 0, "reason": "Okay doesn't say what the trifle tastes like. Is it salty? Sweet?" },
+          { "text": "Each gum-leaf pancake is drizzled with honey.", "bin": 1, "reason": "Drizzled and honey tell you exactly what's on top." },
+          { "text": "The chips come in a paper cone with tomato sauce on the side.", "bin": 1, "reason": "Paper cone and tomato sauce tell you exactly how the chips arrive." }
+        ]
+      }
+    },
+    {
+      "id": "8.5-b3-5",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus's science report has a blurry verb. The Whetwing wants it as sharp as its claws.",
+      "text": "Gus's volcano went all over the kitchen. Pink foam shot up out of the top and sprayed the ceiling.",
+      "prompt": "Build the first sentence again, swapping 'went' for the verb that fits the clues.",
+      "success": "Gus's volcano erupted all over the kitchen. Foam shooting up to the ceiling is an eruption.",
+      "body": {
+        "format": "build",
+        "tiles": ["Gus's volcano", "erupted", "dribbled", "oozed", "fizzled", "went", "all over the kitchen", "."],
+        "accept": ["Gus's volcano erupted all over the kitchen."],
+        "reason": "The foam shot up and sprayed the ceiling. Dribbling and oozing are slow, and fizzling means it failed."
+      }
+    },
+    {
+      "id": "8.5-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Indi wrote up Mo's latest joke for the funny page. The Whetwing wants one verb sharper.",
+      "prompt": "Tap the blurry word, then choose a sharper one.",
+      "success": "Whispered. Tully had to lean in and still only caught the end, so Mo spoke very softly.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo ",
+          { "tap": "said" },
+          " his ",
+          { "tap": "joke", "reason": "Joke is sharp. It tells you exactly what Mo told." },
+          " so quietly that Tully had to ",
+          { "tap": "lean", "reason": "Lean is sharp, and it's a clue. It shows how hard the joke was to hear." },
+          " in. Even then, she only caught the ",
+          { "tap": "punchline", "reason": "Punchline is sharp. It names exactly which part she heard." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "bellowed", "reason": "Bellowed means shouted loudly. Tully had to lean in to hear it." },
+          { "text": "whispered" },
+          { "text": "announced", "reason": "Announced means said loudly so everyone hears. Tully could hardly hear it." },
+          { "text": "chanted", "reason": "Chanted means said over and over in a rhythm. Mo told it once, quietly." }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.5-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The lighthouse keeper sent a weather report to the Redpen Times. The Whetwing is frowning at one word.",
+      "text": "The sea was strange that morning. There was no wind at all, and the water lay so flat and still that it reflected every cloud like a mirror.",
+      "prompt": "Which word says exactly what the sea was like?",
+      "success": "Glassy. Flat, still water that reflects the clouds like a mirror looks just like glass.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "choppy", "reason": "Choppy means covered in short, rough waves. This water was flat and still." },
+          { "text": "murky", "reason": "Murky means dark and cloudy. This water was clear enough to reflect the sky." },
+          { "text": "churning", "reason": "Churning means stirred up and swirling. There was no wind to stir it." },
+          { "text": "glassy" }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.5-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus's robot kept the whole crew awake. His complaint letter has a blurry word.",
+      "prompt": "Tap the blurry word, then choose a sharper one.",
+      "success": "Droning. A drone is a low, steady hum that goes on and on without changing.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "At midnight, Gus's robot started making a ",
+          { "tap": "funny" },
+          " noise. It was a ",
+          { "tap": "low", "reason": "Low is sharp, and it's a clue. It tells you how deep the sound was." },
+          ", steady hum that went on for hours without ",
+          { "tap": "changing", "reason": "Changing is a clue. It tells you the sound stayed the same." },
+          " once, like a ",
+          { "tap": "fridge", "reason": "Fridge is sharp. It gives the reader a sound they already know." },
+          " that couldn't sleep."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "shrill", "reason": "Shrill means high and piercing. This hum was low." },
+          { "text": "rattling", "reason": "Rattling means quick knocking sounds, like loose parts. This was a smooth, steady hum." },
+          { "text": "droning" },
+          { "text": "stuttering", "reason": "Stuttering means stopping and starting. This hum never changed once." }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b4-3",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed's ghost story is nearly sharp enough for the Halloween edition. The Whetwing found one last blurry word.",
+      "prompt": "Tap the word that is still blurry in Zed's story.",
+      "success": "Went. Every other word is sharp, but went doesn't show how Zed moved towards the attic.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "floorboards", "reason": "Floorboards is sharp. It names exactly what was under Zed's feet." },
+          " ",
+          { "tap": "groaned", "reason": "Groaned is sharp. It tells you exactly what sound they made." },
+          " under Zed's boots as he ",
+          { "tap": "went" },
+          " towards the attic, where claws were ",
+          { "tap": "scratching", "reason": "Scratching is sharp. It tells you exactly what the sound was." },
+          " behind the ",
+          { "tap": "locked", "reason": "Locked is sharp. It tells you exactly why Zed can't just open the door." },
+          " door."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.5-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi's draft review says: 'The gallery was big. The paintings were bright. The building was old.' The Whetwing wants all three sharper.",
+      "prompt": "Match each sharp word to the blurry word it could replace.",
+      "success": "Cavernous, towering and sprawling sharpen big. Dazzling and vivid sharpen bright. Ancient sharpens old.",
+      "body": {
+        "format": "sort",
+        "bins": ["sharpens 'big'", "sharpens 'bright'", "sharpens 'old'"],
+        "items": [
+          { "text": "cavernous", "bin": 0, "reason": "Cavernous means huge and hollow inside, like a cave." },
+          { "text": "dazzling", "bin": 1, "reason": "Dazzling means so bright it's hard to look at." },
+          { "text": "ancient", "bin": 2, "reason": "Ancient means extremely old, from long, long ago." },
+          { "text": "towering", "bin": 0, "reason": "Towering means very tall, so it sharpens big." },
+          { "text": "vivid", "bin": 1, "reason": "Vivid means strong and bright, like fresh paint." },
+          { "text": "sprawling", "bin": 0, "reason": "Sprawling means spread out over a huge area, so it sharpens big." }
+        ]
+      }
+    },
+    {
+      "id": "8.5-b4-5",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's report on the Reef Rays' final needs one sharper verb at the big moment.",
+      "text": "With seconds left, Tully got the ball high in the air. She leapt higher than anyone, held it tight in both hands and kept hold as two defenders crashed into her.",
+      "prompt": "Build the first sentence again, swapping 'got' for the verb that fits the clues.",
+      "success": "Caught. Holding it tight in both hands as defenders crash in means she caught it cleanly.",
+      "body": {
+        "format": "build",
+        "tiles": ["With seconds left,", "Tully", "caught", "fumbled", "punched", "got", "the ball high in the air", "."],
+        "accept": ["With seconds left, Tully caught the ball high in the air."],
+        "reason": "She held it tight and kept hold. Fumbling means dropping it, and punching means hitting it away."
+      }
+    },
+    {
+      "id": "8.5-b4-6",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's lab notes are on the editing desk. The Whetwing is holding its beak.",
+      "text": "Gus's experiment smelled pretty gross. It was a sour, eye-watering stink, like milk that had been left in a hot car for a week.",
+      "prompt": "Which word says exactly how the experiment smelled?",
+      "success": "Rancid. Rancid is the sour, sickening smell of milk or fat that has gone off.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "musty", "reason": "Musty means stale and damp, like an old cupboard. This smelled like sour milk." },
+          { "text": "rancid" },
+          { "text": "smoky", "reason": "Smoky means smelling like a fire. This smelled like milk gone off." },
+          { "text": "fishy", "reason": "Fishy means smelling like fish. This smelled like milk left in a hot car." }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

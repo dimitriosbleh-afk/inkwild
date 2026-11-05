@@ -1,0 +1,949 @@
+{
+  "skill": {
+    "id": "8.4",
+    "name": "Cut \"and then... and then\" and repeated words",
+    "codes": [
+      "VC2E5LY11"
+    ],
+    "why": "Repeats make readers drift off. Cut them and every word earns its place.",
+    "how": "Spot the repeat. Cut it or swap it. Check every event and detail survived.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "This draft keeps saying and then. Readers get bored.",
+            "show": "We ate **and then** we swam **and then** we slept."
+          },
+          {
+            "say": "Cut the extra joins. Keep every event.",
+            "show": "We **ate**, **swam** and **slept**."
+          },
+          {
+            "say": "Repeated words drag too. Spot the one that keeps coming back.",
+            "show": "**The slime** grew. **The slime** stank."
+          },
+          {
+            "say": "Swap the second one for it. Same meaning, less drag.",
+            "show": "The slime grew. **It** stank."
+          },
+          {
+            "say": "Last check: did every event survive? Then the edit works."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Gus found a bug. And then he caught the bug. And then he named the bug Kevin.",
+          "prompt": "Which edit cuts the repeats but keeps every event?",
+          "hint": "Does the edit still have Gus finding, catching and naming the bug, in that order?",
+          "success": "It keeps finding, catching and naming, in order, with no and then and no repeats.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Gus found a bug and named the bug Kevin.",
+                "reason": "The catching is gone, and the bug still comes up twice."
+              },
+              {
+                "text": "Gus found a bug, caught it and named it Kevin."
+              },
+              {
+                "text": "Gus caught a bug, found it and named it Kevin.",
+                "reason": "This mixes up the order. Gus found the bug before he caught it."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the sentence that only repeats what the report already said.",
+          "hint": "Which sentence tells you something you already know?",
+          "success": "It says the Rays won again, with less detail. Cutting it loses nothing.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              {
+                "tap": "The Reef Rays won the final by forty points.",
+                "reason": "This is the main news. Cut it and the report says nothing."
+              },
+              " ",
+              {
+                "tap": "Tully screamed until she lost her voice.",
+                "reason": "This adds something new: how Tully felt about it."
+              },
+              " ",
+              {
+                "tap": "The Reef Rays won the final by lots of points."
+              },
+              " ",
+              {
+                "tap": "Then the whole team sang on the bus home.",
+                "reason": "This adds something new: what happened after the game."
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "snipwing",
+      "name": "Snipwing",
+      "evolved": "Snipwraith",
+      "blurb": "A ghost bat that hunts in the volcano's lava tubes by listening to its own echo. Every 'and then, and then' bounces round its cave, so it snips the extras off."
+    }
+  },
+  "encounters": [
+    {
+      "id": "8.4-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo wrote up his breakfast for the Redpen Times. The Snipwing is twitching.",
+      "text": "Mo made pancakes. Then Mo flipped the pancakes. Then Mo dropped the pancakes on the floor.",
+      "prompt": "Which edit cuts the repeats but keeps what happened?",
+      "success": "It keeps making, flipping and dropping, and says Mo and pancakes only once.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo made pancakes and dropped them on the floor.",
+            "reason": "The flipping is gone, so this changes what happened."
+          },
+          {
+            "text": "Mo made pancakes, then Mo flipped the pancakes and then dropped the pancakes.",
+            "reason": "Pancakes still comes up three times, and now there's an and then too."
+          },
+          {
+            "text": "Mo made pancakes, flipped them and dropped them on the floor."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.4-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's rescue report has a sentence that's just an echo.",
+      "prompt": "Tap the sentence that says the same thing again.",
+      "success": "We already know the possum fits in her hand, so 'very small' adds nothing. Cut it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Wren found a baby possum.",
+            "reason": "This starts the report. Without it, we don't know about the possum."
+          },
+          " ",
+          {
+            "tap": "It was small enough to fit in her hand.",
+            "reason": "This tells you exactly how small it was. That's new."
+          },
+          " ",
+          {
+            "tap": "It was very small."
+          },
+          " ",
+          {
+            "tap": "She wrapped it in a warm towel.",
+            "reason": "This tells you what Wren did next. That's new."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.4-b1-3",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed's space story keeps saying the same word. The Snipwing hears it echo.",
+      "prompt": "Tap the word that repeats, then choose what to swap it for.",
+      "success": "It. The reader already knows what 'it' is, so you don't need to say rocket three times.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Zed built a rocket. The rocket was ",
+          {
+            "tap": "silver",
+            "reason": "Silver is only used once. It tells you the colour."
+          },
+          ". He stuck a ",
+          {
+            "tap": "flag",
+            "reason": "Flag is only used once, so it isn't a repeat."
+          },
+          " on ",
+          {
+            "tap": "the rocket"
+          },
+          " and ",
+          {
+            "tap": "launched",
+            "reason": "Launched is new. It tells you what Zed did next."
+          },
+          " it."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "them",
+            "reason": "Them is for more than one thing. Zed built one rocket."
+          },
+          {
+            "text": "it"
+          },
+          {
+            "text": "him",
+            "reason": "Him means a boy or a man, so it sounds like Zed stuck a flag on a person."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.4-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy report is on the editing desk. The Snipwing wants the echoes gone.",
+      "prompt": "Match each sentence to the right bin.",
+      "success": "Cut repeats that add nothing. A sentence where every word says something new can stay.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "needs a cut",
+          "fine as it is"
+        ],
+        "items": [
+          {
+            "text": "Tully scored a goal. Yes, Tully scored a goal.",
+            "bin": 0,
+            "reason": "The second sentence just says the first one again. Cut it."
+          },
+          {
+            "text": "Tully kicked a goal in the last minute.",
+            "bin": 1,
+            "reason": "Every word says something new. Nothing repeats."
+          },
+          {
+            "text": "The game was over. The game had finished.",
+            "bin": 0,
+            "reason": "Both sentences say the game ended. One of them can go."
+          },
+          {
+            "text": "The umpire blew the whistle and the crowd cheered.",
+            "bin": 1,
+            "reason": "The umpire and the crowd are different. Nothing repeats."
+          },
+          {
+            "text": "Zed took a big mark right in front of goal.",
+            "bin": 1,
+            "reason": "Every word adds to the picture. Nothing is said twice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8.4-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo's diary is going in the Redpen Times. The Snipwing wants one tidy sentence.",
+      "text": "Mo burnt the toast. And then Mo ate the toast.",
+      "prompt": "Build one sentence that keeps both events, in order, with no repeats.",
+      "success": "Mo burnt the toast and ate it. Mo and the toast each appear once.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Mo",
+          "burnt the toast",
+          "and",
+          "ate it",
+          ".",
+          "ate the toast",
+          "then Mo"
+        ],
+        "accept": [
+          "Mo burnt the toast and ate it."
+        ],
+        "reason": "Say Mo once and the toast once. Then it can stand for the toast."
+      }
+    },
+    {
+      "id": "8.4-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "Indi's band diary is on the desk. The Snipwing is counting the and thens.",
+      "text": "Indi went to band practice. And then she tuned her guitar. And then she played a song.",
+      "prompt": "Which edit cuts the and thens but keeps every event?",
+      "success": "It keeps all three events in order and drops both and thens.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Indi went to band practice, tuned her guitar and played a song."
+          },
+          {
+            "text": "Indi went to band practice and then she played a song.",
+            "reason": "The tuning is gone, so this changes what happened."
+          },
+          {
+            "text": "Indi tuned her guitar, went to band practice and played a song.",
+            "reason": "This mixes up the order. She tuned her guitar at practice."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "8.4-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's snorkelling diary is going in the Redpen Times. The Snipwing can hear it echoing.",
+      "text": "We paddled out to the reef. And then we saw a turtle. And then the turtle swam under the boat. And then the turtle disappeared.",
+      "prompt": "Which edit cuts the repeats but keeps every event?",
+      "success": "Every event stays in order, the and thens are gone, and it stands in for the turtle.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "We paddled out to the reef and saw a turtle, and then the turtle swam under the boat and disappeared.",
+            "reason": "And then is still there, and the turtle still comes up twice."
+          },
+          {
+            "text": "We paddled out to the reef and saw a turtle. It swam under the boat and disappeared."
+          },
+          {
+            "text": "We paddled out to the reef and saw a turtle. It swam under the boat.",
+            "reason": "The turtle disappearing is gone, so the ending has changed."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.4-b2-2",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's match report keeps naming the same player. The Snipwing is flapping.",
+      "prompt": "Tap the name that repeats, then choose what to swap it for.",
+      "success": "He. Zed is the only boy in the report, so he can only mean Zed.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Tully",
+            "reason": "Tully is only named once, so she isn't a repeat."
+          },
+          " passed the footy to Zed at the fifty-metre line. Zed took a strong ",
+          {
+            "tap": "mark",
+            "reason": "Mark is only used once. It tells you how Zed caught the footy."
+          },
+          ", and ",
+          {
+            "tap": "Zed"
+          },
+          " ran straight towards ",
+          {
+            "tap": "goal",
+            "reason": "Goal is only used once, so it isn't a repeat."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "she",
+            "reason": "She would mean Tully, but Zed is the one running."
+          },
+          {
+            "text": "they",
+            "reason": "They means more than one person. Only Zed ran towards goal."
+          },
+          {
+            "text": "he"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.4-b2-3",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed's game review is on the editing desk. One sentence is an echo.",
+      "prompt": "Tap the sentence that only repeats something the review already said.",
+      "success": "The review already said each level is harder than the one before. Cutting the echo loses nothing.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Zed's new game, Lava Leap, has forty levels.",
+            "reason": "This tells you the game's name and size. That's new."
+          },
+          " ",
+          {
+            "tap": "Each level is harder than the one before.",
+            "reason": "This is the first time the review says the levels get harder."
+          },
+          " ",
+          {
+            "tap": "Level forty has a dragon that breathes ice instead of fire.",
+            "reason": "This adds a new detail about the last level."
+          },
+          " ",
+          {
+            "tap": "The levels get harder and harder as you go."
+          },
+          " ",
+          {
+            "tap": "Zed has beaten thirty-nine of them so far.",
+            "reason": "This adds something new: how far Zed has got."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.4-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren wrote captions for a wildlife page. The Snipwing is sorting out the echoes.",
+      "prompt": "Match each caption to the right bin.",
+      "success": "Cut the repeats that add nothing. Captions where every word is new can stay.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "cut the repeat",
+          "keep it"
+        ],
+        "items": [
+          {
+            "text": "The wombat dug a hole. The wombat's hole was huge.",
+            "bin": 0,
+            "reason": "The wombat is named twice. Its hole was huge says the same thing."
+          },
+          {
+            "text": "The emu chased Mo all the way across the paddock.",
+            "bin": 1,
+            "reason": "Nothing repeats. Every word adds to the picture."
+          },
+          {
+            "text": "The lizard sat on a warm rock, and the lizard sunbaked all arvo.",
+            "bin": 0,
+            "reason": "The lizard comes up twice. The second one can go."
+          },
+          {
+            "text": "Wren fed the joey, then tucked it into a cloth pouch.",
+            "bin": 1,
+            "reason": "The joey is named once, and it does the rest. Nothing repeats."
+          },
+          {
+            "text": "The possum climbed the tree and then it ate a leaf and then it fell asleep.",
+            "bin": 0,
+            "reason": "And then comes twice. Climbed, ate a leaf and fell asleep says it faster."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8.4-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's art diary needs one tidy sentence before it goes to print.",
+      "text": "Indi drew a dragon. And then Indi coloured the dragon purple.",
+      "prompt": "Build one sentence that keeps both events, in order, with no repeats.",
+      "success": "Indi drew a dragon and coloured it purple. Indi and the dragon each appear once.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Indi",
+          "drew a dragon",
+          "and",
+          "coloured it",
+          "purple",
+          ".",
+          "coloured the dragon",
+          "then Indi"
+        ],
+        "accept": [
+          "Indi drew a dragon and coloured it purple."
+        ],
+        "reason": "Name Indi and the dragon once each. Then it can stand for the dragon."
+      }
+    },
+    {
+      "id": "8.4-b2-6",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo's food column has one word he can't stop using. The Snipwing is wincing.",
+      "text": "Mo's seaweed spag bol was slimy. It was so slimy that the slimy noodles slid off every fork.",
+      "prompt": "Which edit cuts the repeats but keeps the meaning?",
+      "success": "Slimy appears once, and the noodles still slide off every fork. Nothing is lost.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo's seaweed spag bol was slimy, and the slimy noodles slid off every fork.",
+            "reason": "Slimy still comes up twice."
+          },
+          {
+            "text": "Mo's seaweed spag bol was so slimy that the noodles slid off the big serving plate.",
+            "reason": "The noodles slid off the forks, not the plate. This changes what happened."
+          },
+          {
+            "text": "Mo's seaweed spag bol was so slimy that the noodles slid off every fork."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.4-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed's ghost story is going in the Halloween edition. The Snipwing can't stop hearing 'and then'.",
+      "text": "Zed crept into the old lighthouse. And then he heard a creak. And then he heard another creak, and then the door slammed shut behind him.",
+      "prompt": "Which edit cuts the repeats but keeps every event?",
+      "success": "Both creaks and the slamming door stay, in order, and every and then is gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Zed crept into the old lighthouse and heard a creak before the door slammed shut behind him.",
+            "reason": "One creak is gone. Zed heard two before the door slammed."
+          },
+          {
+            "text": "Zed crept into the old lighthouse and heard a creak, then another, before the door slammed shut behind him."
+          },
+          {
+            "text": "Zed crept into the old lighthouse, then heard a creak, then another creak, then the door slammed shut behind him.",
+            "reason": "The and thens became thens, so then still repeats three times."
+          },
+          {
+            "text": "The door slammed shut behind Zed as he crept into the old lighthouse and heard a creak, then another.",
+            "reason": "Now the door slams first. In the draft it slams last."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.4-b3-2",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Wren's turtle rescue report has one repeat too many. The Snipwing is circling it.",
+      "prompt": "Tap the words that repeat, then choose what to swap them for.",
+      "success": "Them. Wren rescued three turtles, so them is the word that stands for all of them.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren found three baby turtles tangled in an old fishing ",
+          {
+            "tap": "net",
+            "reason": "Net is only used once, so it isn't a repeat."
+          },
+          ". She snipped the turtles free with her ",
+          {
+            "tap": "scissors",
+            "reason": "Scissors is only used once. It tells you how she cut them free."
+          },
+          ", then carried ",
+          {
+            "tap": "the turtles"
+          },
+          " down to the ",
+          {
+            "tap": "water",
+            "reason": "Water is only used once. It tells you where she took them."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "it",
+            "reason": "It is for one thing. Wren found three turtles."
+          },
+          {
+            "text": "her",
+            "reason": "Her would mean Wren or another girl, not the turtles."
+          },
+          {
+            "text": "them"
+          },
+          {
+            "text": "us",
+            "reason": "Us would mean the writer was carried too. Wren only carried the turtles."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.4-b3-3",
+      "band": 3,
+      "topic": "general",
+      "frame": "Chief Editor Krak wrote a notice for the front page. Even the boss repeats things sometimes.",
+      "prompt": "Tap the sentence that only repeats something the notice already said.",
+      "success": "The notice already said Friday's paper will be in colour. Saying it again in other words adds nothing.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The Redpen Times will print its first colour edition this Friday.",
+            "reason": "This is the main news. Cut it and the notice says nothing."
+          },
+          " ",
+          {
+            "tap": "Until now, every page has been printed in black and white.",
+            "reason": "This is new. It tells you what the paper was like before."
+          },
+          " ",
+          {
+            "tap": "Readers have been asking for colour comics for years.",
+            "reason": "This is new. It tells you why the paper is changing."
+          },
+          " ",
+          {
+            "tap": "From Friday, the paper will no longer be printed only in black and white."
+          },
+          " ",
+          {
+            "tap": "Indi is designing a bright new front page for the big day.",
+            "reason": "This is new. It tells you who is designing the first page."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.4-b3-4",
+      "band": 3,
+      "topic": "music",
+      "frame": "Indi wrote up the school concert. The Snipwing is sorting what to snip.",
+      "prompt": "Match each sentence to the right bin.",
+      "success": "Cut repeated words and and thens that add nothing. Sentences where every word adds something new can stay.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "cut a repeat",
+          "keep it as it is"
+        ],
+        "items": [
+          {
+            "text": "The choir sang a song, and the song they sang was a song about the sea.",
+            "bin": 0,
+            "reason": "Song comes up three times. The choir sang a song about the sea says it once."
+          },
+          {
+            "text": "The violin squeaked, the cello groaned, and the triangle went ding.",
+            "bin": 1,
+            "reason": "Each instrument is different, and so is each sound. Nothing repeats."
+          },
+          {
+            "text": "The band played and then the band bowed and then the band walked off.",
+            "bin": 0,
+            "reason": "The band comes up three times, with two and thens. Played, bowed and walked off is faster."
+          },
+          {
+            "text": "Zed tuned his guitar, then played it for the whole school.",
+            "bin": 1,
+            "reason": "The guitar is named once, and it does the rest. Then is only used once."
+          },
+          {
+            "text": "The trumpet solo lasted ten minutes, and it went for ten whole minutes.",
+            "bin": 0,
+            "reason": "Lasted ten minutes and went for ten whole minutes say the same fact. Cut one."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8.4-b3-5",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus's snail experiment is going in the science page. The Snipwing wants one clean sentence.",
+      "text": "Gus put a snail on the table. And then the snail slid across the table and left a trail of slime across the table.",
+      "prompt": "Build one sentence that keeps every event, in order, with no repeats.",
+      "success": "The snail and the table appear once each, and it stands in for the snail.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Gus put a snail on the table,",
+          "and",
+          "it",
+          "slid across",
+          ",",
+          "leaving a trail of slime",
+          ".",
+          "and then the snail",
+          "the snail slid across the table"
+        ],
+        "accept": [
+          "Gus put a snail on the table, and it slid across, leaving a trail of slime."
+        ],
+        "reason": "Name the snail and the table once. After that, it can stand for the snail."
+      }
+    },
+    {
+      "id": "8.4-b3-6",
+      "band": 3,
+      "topic": "space",
+      "frame": "A space station log landed on the editing desk. The Snipwing counts four astronauts, but there's only one.",
+      "text": "The astronaut opened the hatch. The astronaut floated out into space. Then the astronaut fixed the broken solar panel, and then the astronaut floated back inside.",
+      "prompt": "Which edit cuts the repeats but keeps every event?",
+      "success": "All four events stay in order, the astronaut is named once, and no then is left dragging.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The astronaut floated out, opened the hatch, fixed the broken solar panel and floated back inside.",
+            "reason": "Now the astronaut floats out before opening the hatch."
+          },
+          {
+            "text": "The astronaut opened the hatch, then floated out, then fixed the broken solar panel, then floated back inside.",
+            "reason": "The and then is gone, but then still repeats three times."
+          },
+          {
+            "text": "The astronaut opened the hatch and floated out to fix the broken solar panel.",
+            "reason": "Floating back inside is gone, so the ending has changed."
+          },
+          {
+            "text": "The astronaut opened the hatch, floated out, fixed the broken solar panel and floated back inside."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.4-b4-1",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack's team sent the Redpen Times his 'rescue' story. Even his waving needs editing.",
+      "text": "Maxx rode his gold jet ski up to the rescue boat. And then Maxx waved to the camera, and then Maxx waved to the camera again, and then Maxx finally climbed aboard.",
+      "prompt": "Which edit cuts the repeats but keeps every event and detail?",
+      "success": "Twice keeps both waves in one word, and every event stays in the right order.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx rode his gold jet ski up to the rescue boat, waved to the camera and finally climbed aboard.",
+            "reason": "Maxx waved twice in the draft. Dropping the second wave loses a detail."
+          },
+          {
+            "text": "Maxx rode his gold jet ski up to the rescue boat, then waved to the camera, then waved again, then finally climbed aboard.",
+            "reason": "The and thens became thens, so the sentence still drags with three of them."
+          },
+          {
+            "text": "Maxx rode his gold jet ski up to the rescue boat, waved to the camera twice and finally climbed aboard."
+          },
+          {
+            "text": "Maxx waved to the camera twice, rode his gold jet ski up to the rescue boat and finally climbed aboard.",
+            "reason": "Now he waves before he arrives. In the draft, he waves once he reaches the boat."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "8.4-b4-2",
+      "band": 4,
+      "topic": "art",
+      "frame": "The arts page has a review of Indi's new mural. One sentence is an echo in disguise.",
+      "prompt": "Tap the sentence that only repeats something the review already said.",
+      "success": "The first sentence already said the mural covers the whole wall. Different words, same fact.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Indi's new mural covers the entire back wall of the Hollowgum swimming pool.",
+            "reason": "This is the first time the review says where the mural is and how big it is."
+          },
+          " ",
+          {
+            "tap": "It shows a pod of dolphins chasing a school of silver fish through a kelp forest.",
+            "reason": "This is new. It tells you what the mural shows."
+          },
+          " ",
+          {
+            "tap": "She painted it over six weekends, mostly with a roller tied to a broom handle.",
+            "reason": "This is new. It tells you how long it took and how she did it."
+          },
+          " ",
+          {
+            "tap": "Every centimetre of that wall, from one end to the other, is now covered in paint."
+          },
+          " ",
+          {
+            "tap": "Swimmers say the dolphins seem to move whenever the water ripples.",
+            "reason": "This is new. It tells you what swimmers think."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "8.4-b4-3",
+      "band": 4,
+      "topic": "food",
+      "frame": "Mo is writing about his own cooking again. The Snipwing has spotted a name used one time too many.",
+      "prompt": "Tap the words that repeat, then choose what to swap them for.",
+      "success": "Their. It stands for Tully and Zed together, so you don't need their names twice.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Tully and Zed have always dreaded ",
+          {
+            "tap": "Mo's",
+            "reason": "Mo is named only once. After that, his takes over."
+          },
+          " cooking. Last night, they pretended to adore his banana-and-tuna pie, then quietly fed ",
+          {
+            "tap": "Tully and Zed's"
+          },
+          " ",
+          {
+            "tap": "slices",
+            "reason": "Slices is only used once. It tells you what they fed away."
+          },
+          " to the ",
+          {
+            "tap": "seagulls",
+            "reason": "Seagulls is only used once. It tells you who ate the pie."
+          },
+          " behind the boat."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "his",
+            "reason": "His would mean only one boy fed his slice away. Tully and Zed both did."
+          },
+          {
+            "text": "their"
+          },
+          {
+            "text": "her",
+            "reason": "Her would mean only Tully's slice went to the seagulls."
+          },
+          {
+            "text": "our",
+            "reason": "Our would mean the writer fed slices away too. Only Tully and Zed did."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "8.4-b4-4",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed's speedrun write-up is due at the printer. The Snipwing is snipping the echoes.",
+      "prompt": "Match each sentence to the right bin.",
+      "success": "Cut words that say the same thing twice. Keep sentences where every word adds something.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "needs a cut",
+          "every word earns its place"
+        ],
+        "items": [
+          {
+            "text": "The final boss filled the whole screen, and it took up all of the screen.",
+            "bin": 0,
+            "reason": "Filled the whole screen and took up all of the screen say the same thing. Cut one."
+          },
+          {
+            "text": "The game crashed twice, but Zed restarted it each time.",
+            "bin": 1,
+            "reason": "Each part adds something new: the crashes and what Zed did about them."
+          },
+          {
+            "text": "Zed reached the final boss, and then he beat the final boss, and then he saved his game.",
+            "bin": 0,
+            "reason": "The final boss comes up twice, with two and thens. Reached, beat and saved is faster."
+          },
+          {
+            "text": "The new level, which Zed calls Magma Maze, takes about an hour to finish.",
+            "bin": 1,
+            "reason": "Nothing repeats. The name and the time are both new details."
+          },
+          {
+            "text": "Zed's controller was sticky because Mo had borrowed it while eating lollies.",
+            "bin": 1,
+            "reason": "Nothing repeats. Every word helps explain the sticky controller."
+          },
+          {
+            "text": "Zed played all night long, and he kept on playing the whole night through.",
+            "bin": 0,
+            "reason": "All night long and the whole night through say the same thing. Cut one."
+          },
+          {
+            "text": "Tully timed the run on her watch, which she had set to beep at ten minutes.",
+            "bin": 1,
+            "reason": "Tully is named once, then she and her do the rest. Nothing needs cutting."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8.4-b4-5",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren wrote about a Snipwing's night out. It wants its own story snipped properly.",
+      "text": "The ghost bat swooped out of the lava tube at dusk. And then the ghost bat snatched a moth. And then the ghost bat flew back into the lava tube.",
+      "prompt": "Build one sentence that keeps every event in order, without 'and then' or naming the bat or the lava tube twice.",
+      "success": "The bat and the lava tube are named once each, and all three events stay in order.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The ghost bat",
+          "swooped out of the lava tube at dusk",
+          ",",
+          "snatched a moth",
+          "and",
+          "flew back inside",
+          ".",
+          "and then",
+          "the ghost bat",
+          "flew back into the lava tube"
+        ],
+        "accept": [
+          "The ghost bat swooped out of the lava tube at dusk, snatched a moth and flew back inside."
+        ],
+        "reason": "Name the bat and the lava tube once. Join the three actions with a comma and and."
+      }
+    },
+    {
+      "id": "8.4-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's report on the Reef Rays' final quarter is crowded with Reef Rays.",
+      "text": "In the final quarter, the Reef Rays kicked three goals. The Reef Rays' captain kicked two of the three goals, and the Reef Rays' youngest player kicked the other goal.",
+      "prompt": "Which edit cuts the repeats but keeps every fact?",
+      "success": "Reef Rays appears once, and who kicked how many goals stays exactly the same.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "In the final quarter, the Reef Rays kicked three goals: two from their youngest player and one from their captain.",
+            "reason": "This swaps the players. The captain kicked two goals, not one."
+          },
+          {
+            "text": "In the final quarter, the Reef Rays kicked three goals: two from their captain and one from a young player.",
+            "reason": "A young player could be anyone on the team. The draft says it was their youngest."
+          },
+          {
+            "text": "In the final quarter, the Reef Rays kicked three goals: two from their captain and one from their youngest player."
+          },
+          {
+            "text": "In the final quarter, the Reef Rays kicked three goals, and the Reef Rays' captain kicked two of the Reef Rays' goals.",
+            "reason": "Reef Rays still comes up three times, and the youngest player's goal is gone."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}
