@@ -34,7 +34,7 @@ function agrees(e: Encounter, answer: unknown): boolean {
     case 'sort': {
       const a = answer as Record<string, string> | null;
       return !!a && b.items.every((it) => {
-        const key = Object.keys(a).find((k) => same(k, it.text));
+        const key = Object.keys(a).find((k) => normalise(k) === normalise(it.text)) ?? Object.keys(a).find((k) => same(k, it.text));
         return key !== undefined && same(a[key], b.bins[it.bin]!);
       });
     }

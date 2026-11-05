@@ -1,0 +1,897 @@
+{
+  "skill": {
+    "id": "6.4",
+    "name": "Comma between a dependent and a main clause",
+    "codes": [
+      "VC2E6LA09"
+    ],
+    "why": "The comma shows readers where the 'if' part stops and the main part starts.",
+    "how": "Starts with when, if, because or although? Put a comma where that part ends.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Some sentences start with a part that can't stand alone.",
+            "show": "**When the bell rang**, we ran."
+          },
+          {
+            "say": "That's a dependent clause. It leans on the main part.",
+            "show": "When the bell rang, **we ran**."
+          },
+          {
+            "say": "Put a comma where the dependent clause ends.",
+            "show": "When the bell rang**,** we ran."
+          },
+          {
+            "say": "Miss it, and the crew seems to eat the yeti!",
+            "show": "While the crew ate the yeti watched."
+          },
+          {
+            "say": "Comma in. Now the yeti is just watching.",
+            "show": "While the crew ate**,** the yeti watched."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which version is punctuated right?",
+          "hint": "Find the part that can't stand alone. Where does it end?",
+          "success": "'When the snow stopped' can't stand alone. The comma goes where it ends, before 'we'.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "When the snow stopped, we built a fort."
+              },
+              {
+                "text": "When the snow stopped we, built a fort.",
+                "reason": "The comma splits 'we' from what we did. It goes after 'stopped'."
+              },
+              {
+                "text": "When the snow stopped. We built a fort.",
+                "reason": "'When the snow stopped.' can't stand alone, so it can't be a sentence."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Which version is punctuated so the penguin is safe?",
+          "hint": "Read each one aloud. Is anyone cooking the penguin?",
+          "success": "The comma after 'cooking' ends the dependent clause. Mo cooks, and the penguin just dances.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "While Mo was cooking, the penguin danced."
+              },
+              {
+                "text": "While Mo was cooking the penguin danced.",
+                "reason": "With no comma, it first reads as if Mo was cooking the penguin!"
+              },
+              {
+                "text": "While Mo was cooking the penguin, danced.",
+                "reason": "Now Mo really is cooking the penguin, and 'danced' has no doer."
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "floeppa",
+      "name": "Floeppa",
+      "evolved": "Floepparch",
+      "blurb": "An alpine tree frog that hops from ice floe to ice floe. When the 'when' floe comes first, it needs a comma to land on."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.4-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is writing about dinner at his gran's place. One comma saves Grandma.",
+      "prompt": "Which version is punctuated so nobody eats Grandma?",
+      "success": "The comma after 'eating' ends the 'when' part. Then Grandma is the one making tea.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "When we finished eating, Grandma made tea."
+          },
+          {
+            "text": "When we finished eating Grandma made tea.",
+            "reason": "With no comma, it first reads as if we finished eating Grandma!"
+          },
+          {
+            "text": "When we finished eating Grandma, made tea.",
+            "reason": "Now we really did eat Grandma, and 'made tea' has no doer."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy report has a comma that hopped too far.",
+      "prompt": "Tap the part with the comma in the wrong place, then choose the fix.",
+      "success": "'When the siren went' can't stand alone. The comma goes where it ends, before 'the crowd'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "When the",
+            "reason": "This is the start of the 'when' part. No comma goes here."
+          },
+          " siren ",
+          {
+            "tap": "went the crowd,"
+          },
+          " ",
+          {
+            "tap": "cheered.",
+            "reason": "This is the end of the sentence, and the full stop is right."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "went, the crowd"
+          },
+          {
+            "text": "went, the crowd,",
+            "reason": "The first comma is right, but the one after 'crowd' splits the doer from the action."
+          },
+          {
+            "text": "went. The crowd",
+            "reason": "'When the siren went.' can't stand alone. It needs a comma, not a full stop."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Floeppa's sunny day story got scattered on the ice.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'When the sun came out' can't stand alone. A comma joins it to the main part.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "When the sun came out",
+          ",",
+          ".",
+          "the frog",
+          "hopped onto a rock",
+          "."
+        ],
+        "accept": [
+          "When the sun came out, the frog hopped onto a rock."
+        ],
+        "reason": "The 'when' part can't stand alone, so it needs a comma, not a full stop."
+      }
+    },
+    {
+      "id": "6.4-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed's game tip needs a comma. The Floeppa is waiting to hop.",
+      "prompt": "Tap where the comma should go.",
+      "success": "'If you find the gold key' can't stand alone. The comma goes where it ends.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "If you",
+            "reason": "This is the start of the 'if' part. The comma comes where it ends."
+          },
+          " find the gold ",
+          {
+            "tap": "key you"
+          },
+          " ",
+          {
+            "tap": "unlock a",
+            "reason": "This is inside the main part. A comma here would split the action."
+          },
+          " secret level."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.4-b1-5",
+      "band": 1,
+      "topic": "general",
+      "frame": "Each Floeppa needs its comma floe in the right spot.",
+      "prompt": "Match each sentence to the right ice floe.",
+      "success": "The comma goes where the dependent part ends: after 'snowed', 'cold' and 'left'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "comma in the right place",
+          "comma in the wrong place"
+        ],
+        "items": [
+          {
+            "text": "When it snowed, we stayed in.",
+            "bin": 0,
+            "reason": "'When it snowed' can't stand alone, and the comma comes where it ends."
+          },
+          {
+            "text": "When it, snowed we stayed in.",
+            "bin": 1,
+            "reason": "The comma splits the 'when' part. It goes after 'snowed'."
+          },
+          {
+            "text": "If you're cold, grab a blanket.",
+            "bin": 0,
+            "reason": "'If you're cold' can't stand alone, and the comma comes where it ends."
+          },
+          {
+            "text": "If you're cold grab, a blanket.",
+            "bin": 1,
+            "reason": "The comma splits 'grab a blanket'. It goes after 'cold'."
+          },
+          {
+            "text": "After the bus left, Mo woke up.",
+            "bin": 0,
+            "reason": "'After the bus left' can't stand alone, and the comma comes where it ends."
+          },
+          {
+            "text": "After the bus left Mo, woke up.",
+            "bin": 1,
+            "reason": "The comma splits Mo from what he did. It goes after 'left'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.4-b1-6",
+      "band": 1,
+      "topic": "space",
+      "frame": "Gus wrote about the rocket launch he watched from the ice base.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'As the rocket took off' can't stand alone. The comma goes where it ends, before 'the ground'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As the rocket took off, the ground shook."
+          },
+          {
+            "text": "As the rocket took off the ground, shook.",
+            "reason": "Now the rocket took off the ground, and 'shook' has no doer."
+          },
+          {
+            "text": "As the rocket, took off the ground shook.",
+            "reason": "The comma splits the rocket from what it did. It goes after 'off'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b2-1",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren's diary from the animal shelter. One comma changes who got washed.",
+      "prompt": "Which version is punctuated so you know Wren wasn't washing the dog?",
+      "success": "The comma after 'washing' ends the 'while' part. Then the dog is the one shaking mud everywhere.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "While Wren was washing, the dog shook mud everywhere."
+          },
+          {
+            "text": "While Wren was washing the dog shook mud everywhere.",
+            "reason": "With no comma, it first reads as if Wren was washing the dog."
+          },
+          {
+            "text": "While Wren was washing the dog, shook mud everywhere.",
+            "reason": "Now Wren is washing the dog, and 'shook mud everywhere' has no doer."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b2-2",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo's cooking diary is missing a comma. Again.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "'Because the oven was broken' can't stand alone. The comma goes where it ends, before 'Mo'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Because the",
+            "reason": "This is the start of the 'because' part. The comma comes where it ends."
+          },
+          " oven was ",
+          {
+            "tap": "broken Mo"
+          },
+          " cooked the pizza ",
+          {
+            "tap": "on the heater.",
+            "reason": "This is the end of the sentence, and the full stop is right."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "broken, Mo"
+          },
+          {
+            "text": "broken. Mo",
+            "reason": "'Because the oven was broken.' can't stand alone. It needs a comma, not a full stop."
+          },
+          {
+            "text": "broken Mo,",
+            "reason": "That comma splits Mo from what he did. It belongs after 'broken'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed's concert review got chopped up by the Floeppa.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'Although Zed forgot the words' can't stand alone. A comma joins it to the main part.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Although Zed forgot the words",
+          ",",
+          "the crowd",
+          "The crowd",
+          "kept singing",
+          "."
+        ],
+        "accept": [
+          "Although Zed forgot the words, the crowd kept singing."
+        ],
+        "reason": "Start with the 'although' part, then a comma, then the main part in small letters."
+      }
+    },
+    {
+      "id": "6.4-b2-4",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's rock pool notes need one comma.",
+      "prompt": "Tap where the comma should go.",
+      "success": "'As soon as the tide went out' can't stand alone. The comma goes where it ends.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "As soon",
+            "reason": "This is the start of the dependent part. The comma comes where it ends."
+          },
+          " as the ",
+          {
+            "tap": "tide went",
+            "reason": "The tide is still going out here. The dependent part isn't finished yet."
+          },
+          " ",
+          {
+            "tap": "out the"
+          },
+          " ",
+          {
+            "tap": "crabs scuttled",
+            "reason": "The crabs are the doers. A comma here would split them from what they did."
+          },
+          " across the sand."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.4-b2-5",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The snow robot's manual has lost its commas. Which lines need one?",
+      "prompt": "Match each sentence to the right ice floe.",
+      "success": "When the dependent part comes first, a comma follows it. When the main part comes first, none is needed.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "needs a comma",
+          "no comma needed"
+        ],
+        "items": [
+          {
+            "text": "When the robot beeps it needs charging.",
+            "bin": 0,
+            "reason": "The 'when' part comes first, so a comma goes after 'beeps'."
+          },
+          {
+            "text": "The robot needs charging when it beeps.",
+            "bin": 1,
+            "reason": "The main part comes first, so the 'when' part can follow without a comma."
+          },
+          {
+            "text": "If the robot falls over it can't get up.",
+            "bin": 0,
+            "reason": "The 'if' part comes first, so a comma goes after 'over'."
+          },
+          {
+            "text": "The robot can't get up if it falls over.",
+            "bin": 1,
+            "reason": "The main part comes first, so the 'if' part can follow without a comma."
+          },
+          {
+            "text": "Before the robot sweeps it plays a song.",
+            "bin": 0,
+            "reason": "The 'before' part comes first, so a comma goes after 'sweeps'."
+          },
+          {
+            "text": "The robot plays a song before it sweeps.",
+            "bin": 1,
+            "reason": "The main part comes first, so the 'before' part can follow without a comma."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.4-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed is reading his ghost story aloud. The page has to be right.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'Although the hut looked empty' can't stand alone. The comma goes where it ends.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Although the hut looked empty, we heard footsteps upstairs."
+          },
+          {
+            "text": "Although the hut looked empty we, heard footsteps upstairs.",
+            "reason": "The comma splits 'we' from what we heard. It goes after 'empty'."
+          },
+          {
+            "text": "Although the hut, looked empty we heard footsteps upstairs.",
+            "reason": "The comma splits the hut from what it did. It goes after 'empty'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b3-1",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's restaurant review has four drafts. Only one keeps the soup in the right place.",
+      "prompt": "Which version is punctuated right?",
+      "success": "The comma after 'stirring' ends the 'when' part. Then 'the soup boiled over' reads clearly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "When the chef stopped stirring, the soup boiled over."
+          },
+          {
+            "text": "When the chef stopped stirring the soup boiled over.",
+            "reason": "With no comma, you first read 'stirring the soup', then 'boiled over' has no doer."
+          },
+          {
+            "text": "When the chef stopped, stirring the soup boiled over.",
+            "reason": "The comma cuts 'stirring' away from the chef, so now the stirring boiled over."
+          },
+          {
+            "text": "When the chef, stopped stirring the soup boiled over.",
+            "reason": "The comma splits the chef from the action. It goes after 'stirring'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b3-2",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus's lab notes are wobbling. One comma is missing.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "'Whenever Gus sneezes in the lab' can't stand alone. The comma goes after 'lab'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Whenever Gus",
+            "reason": "This is the start of the 'whenever' part. The comma comes where it ends."
+          },
+          " sneezes in the ",
+          {
+            "tap": "lab the slime"
+          },
+          " ",
+          {
+            "tap": "samples wobble",
+            "reason": "The slime samples are the doers. A comma here would split them from the action."
+          },
+          " like jelly."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "lab, the slime"
+          },
+          {
+            "text": "lab. The slime",
+            "reason": "'Whenever Gus sneezes in the lab.' can't stand alone. It needs a comma, not a full stop."
+          },
+          {
+            "text": "lab the, slime",
+            "reason": "That comma splits 'the slime samples'. It belongs after 'lab'."
+          },
+          {
+            "text": "lab the slime,",
+            "reason": "That comma splits 'slime samples'. It belongs after 'lab'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b3-3",
+      "band": 3,
+      "topic": "art",
+      "frame": "The plaque for Indi's ice sculpture has cracked into pieces.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'Even though her hands were freezing' can't stand alone, so a comma joins it to the main part.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Even though her hands",
+          "were freezing",
+          ",",
+          "Indi kept carving",
+          "the ice owl",
+          ".",
+          "."
+        ],
+        "accept": [
+          "Even though her hands were freezing, Indi kept carving the ice owl."
+        ],
+        "reason": "The 'even though' part can't stand alone. It needs a comma before the main part, not a full stop."
+      }
+    },
+    {
+      "id": "6.4-b3-4",
+      "band": 3,
+      "topic": "general",
+      "frame": "The ferry notice at Comma Cay harbour needs one comma.",
+      "prompt": "Tap where the comma should go.",
+      "success": "The 'unless' part runs to 'morning'. The comma goes there, before the main part about the ferry.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Unless the",
+            "reason": "This is the start of the 'unless' part. The comma comes where it ends."
+          },
+          " wind ",
+          {
+            "tap": "drops by",
+            "reason": "'By morning' still belongs to the 'unless' part. Keep reading."
+          },
+          " ",
+          {
+            "tap": "morning the"
+          },
+          " ",
+          {
+            "tap": "ferry to",
+            "reason": "'The ferry to Comma Cay' is the doer. A comma here would split it."
+          },
+          " Comma Cay will stay in port."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.4-b3-5",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's season notes got soaked. The Floeppa is sorting the lines.",
+      "prompt": "Match each sentence to the right ice floe.",
+      "success": "When the dependent part comes first, the comma goes exactly where it ends.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "comma missing",
+          "comma in the wrong place"
+        ],
+        "items": [
+          {
+            "text": "Because the pitch was frozen, the match was called off.",
+            "bin": 0,
+            "reason": "The 'because' part ends at 'frozen', and the comma is there."
+          },
+          {
+            "text": "Because the pitch was frozen the match was called off.",
+            "bin": 1,
+            "reason": "The 'because' part comes first, so it needs a comma after 'frozen'."
+          },
+          {
+            "text": "Because the pitch, was frozen the match was called off.",
+            "bin": 2,
+            "reason": "The comma splits the 'because' part. It belongs after 'frozen'."
+          },
+          {
+            "text": "Until the umpire blew the whistle, nobody moved.",
+            "bin": 0,
+            "reason": "The 'until' part ends at 'whistle', and the comma is there."
+          },
+          {
+            "text": "Until the umpire blew the whistle nobody moved.",
+            "bin": 1,
+            "reason": "The 'until' part comes first, so it needs a comma after 'whistle'."
+          },
+          {
+            "text": "Until the umpire blew the whistle nobody, moved.",
+            "bin": 2,
+            "reason": "The comma splits 'nobody' from the action. It belongs after 'whistle'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.4-b3-6",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is writing a cheat guide for a penguin game.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'Whenever Zed's character jumps' can't stand alone. The comma goes where it ends.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Whenever Zed's character jumps, a tiny penguin appears on the screen."
+          },
+          {
+            "text": "Whenever Zed's character, jumps a tiny penguin appears on the screen.",
+            "reason": "The comma splits the character from what it does. It goes after 'jumps'."
+          },
+          {
+            "text": "Whenever Zed's character jumps a tiny penguin, appears on the screen.",
+            "reason": "The comma splits the penguin from what it does. It goes after 'jumps'."
+          },
+          {
+            "text": "Whenever Zed's character jumps. A tiny penguin appears on the screen.",
+            "reason": "The 'whenever' part can't stand alone. It needs a comma, not a full stop."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b4-1",
+      "band": 4,
+      "topic": "animals",
+      "frame": "A ranger's report from the high country has four drafts of one sentence.",
+      "prompt": "Which version is punctuated right?",
+      "success": "The comma after 'circled' ends the 'as' part, so the lambs are clearly the ones who bolted.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As the wedge-tailed eagle circled, the lambs bolted for the shelter of the snow gums."
+          },
+          {
+            "text": "As the wedge-tailed eagle circled the lambs bolted for the shelter of the snow gums.",
+            "reason": "With no comma, you first read 'circled the lambs', then 'bolted' has no doer."
+          },
+          {
+            "text": "As the wedge-tailed eagle circled the lambs, bolted for the shelter of the snow gums.",
+            "reason": "Now the eagle circled the lambs, and 'bolted' has no doer."
+          },
+          {
+            "text": "As the wedge-tailed, eagle circled the lambs bolted for the shelter of the snow gums.",
+            "reason": "The comma splits 'wedge-tailed eagle', and the 'as' part is never closed."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The icebreaker's captain is writing up a bad week.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "The 'although' part runs all the way to 'pack ice'. The comma goes there, before 'the frozen sea'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Although the",
+            "reason": "This is the start of the 'although' part. The comma comes where it ends."
+          },
+          " research ship was built to ",
+          {
+            "tap": "smash through",
+            "reason": "'Through pack ice' still belongs to the 'although' part. Keep reading."
+          },
+          " pack ",
+          {
+            "tap": "ice the"
+          },
+          " ",
+          {
+            "tap": "frozen sea",
+            "reason": "The frozen sea is the doer in the main part. A comma here would split it."
+          },
+          " held it fast for eleven days."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "ice, the"
+          },
+          {
+            "text": "ice. The",
+            "reason": "The 'although' part can't stand alone. It needs a comma, not a full stop."
+          },
+          {
+            "text": "ice the,",
+            "reason": "That comma splits 'the frozen sea'. It belongs after 'ice'."
+          },
+          {
+            "text": "ice, the,",
+            "reason": "The first comma is right, but the second splits 'the frozen sea'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.4-b4-3",
+      "band": 4,
+      "topic": "space",
+      "frame": "The space station's emergency plan was shredded by a printer fault.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'If the solar storm reaches the station' can't stand alone. The comma goes where it ends.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "If the solar storm",
+          "reaches the station",
+          ",",
+          "the astronauts",
+          "will shelter in the core module",
+          ".",
+          "."
+        ],
+        "accept": [
+          "If the solar storm reaches the station, the astronauts will shelter in the core module."
+        ],
+        "reason": "The 'if' part can't stand alone. Put a comma, not a full stop, where it ends."
+      }
+    },
+    {
+      "id": "6.4-b4-4",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed found a legend pinned to the lighthouse door.",
+      "prompt": "Tap where the comma should go.",
+      "success": "The 'although' part runs to 'fifty years'. The comma goes there, before 'a lantern'.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Although nobody",
+            "reason": "This is the start of the 'although' part. The comma comes where it ends."
+          },
+          " had lived in the ",
+          {
+            "tap": "lighthouse for",
+            "reason": "'For fifty years' still belongs to the 'although' part. Keep reading."
+          },
+          " fifty ",
+          {
+            "tap": "years a"
+          },
+          " ",
+          {
+            "tap": "lantern still",
+            "reason": "The lantern is the doer in the main part. A comma here would split it."
+          },
+          " glowed at the top every night."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.4-b4-5",
+      "band": 4,
+      "topic": "general",
+      "frame": "The camp safety sheet has lost its commas. The Floeppa wants to know which lines need one.",
+      "prompt": "Match each sentence to the right ice floe.",
+      "success": "A dependent part at the start needs a comma after it. When the main part leads, none is needed.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "needs a comma",
+          "no comma needed"
+        ],
+        "items": [
+          {
+            "text": "Whenever the yeti hums the icicles start to rattle.",
+            "bin": 0,
+            "reason": "The 'whenever' part comes first, so a comma goes after 'hums'."
+          },
+          {
+            "text": "The icicles start to rattle whenever the yeti hums.",
+            "bin": 1,
+            "reason": "The main part comes first, so the 'whenever' part can follow without a comma."
+          },
+          {
+            "text": "If you hear a strange crunching noise outside the tent stay perfectly still.",
+            "bin": 0,
+            "reason": "The 'if' part comes first, so a comma goes after 'tent'."
+          },
+          {
+            "text": "Stay perfectly still if you hear a strange crunching noise.",
+            "bin": 1,
+            "reason": "The main part comes first, so the 'if' part can follow without a comma."
+          },
+          {
+            "text": "Until the storm passes we'll be playing cards in the hut.",
+            "bin": 0,
+            "reason": "The 'until' part comes first, so a comma goes after 'passes'."
+          },
+          {
+            "text": "We'll be playing cards in the hut until the storm passes.",
+            "bin": 1,
+            "reason": "The main part comes first, so the 'until' part can follow without a comma."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.4-b4-6",
+      "band": 4,
+      "topic": "music",
+      "frame": "The orchestra's program notes need checking before the winter concert.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'As soon as the conductor raised her baton' can't stand alone. The comma goes where it ends.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As soon as the conductor raised her baton, the whole orchestra fell silent."
+          },
+          {
+            "text": "As soon as the conductor raised her baton the whole orchestra, fell silent.",
+            "reason": "The comma splits the orchestra from what it did. It goes after 'baton'."
+          },
+          {
+            "text": "As soon as the conductor, raised her baton the whole orchestra fell silent.",
+            "reason": "The comma splits the conductor from what she did. It goes after 'baton'."
+          },
+          {
+            "text": "As soon as the conductor raised her baton. The whole orchestra fell silent.",
+            "reason": "The 'as soon as' part can't stand alone. It needs a comma, not a full stop."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

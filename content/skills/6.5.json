@@ -1,0 +1,904 @@
+{
+  "skill": {
+    "id": "6.5",
+    "name": "Commas around extra information",
+    "codes": [
+      "VC2E6LA09",
+      "L7"
+    ],
+    "why": "Commas hug extra information, so readers can tell it's a bonus detail.",
+    "how": "Lift the extra part out. If the sentence still works, put commas around it.",
+    "teach": {
+      "crew": "rescuer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Some sentences carry a bonus detail.",
+            "show": "Gus, **who hates snow**, went skiing."
+          },
+          {
+            "say": "Lift it out. The sentence still works.",
+            "show": "**Gus went skiing.**"
+          },
+          {
+            "say": "So the extra part gets a comma on each side.",
+            "show": "Gus**,** who hates snow**,** went skiing."
+          },
+          {
+            "say": "Miss the second comma and the snow went skiing!",
+            "show": "Gus, who hates **snow went skiing**."
+          },
+          {
+            "say": "At the end, the full stop does the closing job.",
+            "show": "We met Gus**,** who hates snow**.**"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which version is punctuated right?",
+          "hint": "Find the extra part. Does it have a comma on both sides?",
+          "success": "'The worst cook in Comma Cay' is extra. It has a comma on each side.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Mo, the worst cook in Comma Cay, made dinner."
+              },
+              {
+                "text": "Mo the worst cook in Comma Cay, made dinner.",
+                "reason": "The extra part needs a comma at both ends. One is missing after 'Mo'."
+              },
+              {
+                "text": "Mo the worst cook, in Comma Cay made dinner.",
+                "reason": "The comma splits the extra part in half. The commas go after 'Mo' and after 'Cay'."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the extra information the commas mark off.",
+          "hint": "Which part could you lift out and still have a whole sentence?",
+          "success": "'A famous dancer' is a bonus detail. Lift it out and 'The yeti hates thongs' still works.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              {
+                "tap": "The yeti",
+                "reason": "This is who the sentence is about. Without it, nothing makes sense."
+              },
+              ", ",
+              {
+                "tap": "a famous dancer"
+              },
+              ", ",
+              {
+                "tap": "hates thongs",
+                "reason": "This is what the yeti does. The sentence needs it."
+              },
+              "."
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "wombrace",
+      "name": "Wombrace",
+      "evolved": "Wombrastor",
+      "blurb": "A snow wombat that carries bonus details in its pouch. It zips them in with a comma on each side so nothing falls out."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.5-b1-1",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Wren is writing about Mo's hidden talent.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'My best mate' is extra. It has a comma on each side, so the sentence reads clearly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo, my best mate, can burp the alphabet."
+          },
+          {
+            "text": "Mo my best mate, can burp the alphabet.",
+            "reason": "The extra part needs a comma at both ends. One is missing after 'Mo'."
+          },
+          {
+            "text": "Mo, my best, mate can burp the alphabet.",
+            "reason": "The comma splits 'my best mate' in half. It goes after 'mate'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren wrote a fact card about the Wombrace.",
+      "prompt": "Tap the extra information the commas mark off.",
+      "success": "'A very sleepy wombat' is a bonus detail. Lift it out and the sentence still works.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The Wombrace",
+            "reason": "This is who the sentence is about. Without it, nothing makes sense."
+          },
+          ", ",
+          {
+            "tap": "a very sleepy wombat"
+          },
+          ", ",
+          {
+            "tap": "dug a snow cave",
+            "reason": "This is what the Wombrace did. The sentence needs it."
+          },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.5-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "The footy club's newsletter blew apart in the wind.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'Our captain' is extra, so it sits between two commas.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Tully",
+          ",",
+          "our captain",
+          ",",
+          "kicked",
+          "six goals",
+          "."
+        ],
+        "accept": [
+          "Tully, our captain, kicked six goals."
+        ],
+        "reason": "Put the extra part, 'our captain', after Tully, with a comma on each side."
+      }
+    },
+    {
+      "id": "6.5-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's dinner report is missing a comma.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "'A frozen brick' is extra. It needs a closing comma after 'brick'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Mo's pie,",
+            "reason": "This comma opens the extra part. It's in the right place."
+          },
+          " a frozen ",
+          {
+            "tap": "brick sat"
+          },
+          " on ",
+          {
+            "tap": "the table.",
+            "reason": "This is the end of the sentence, and the full stop is right."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "brick, sat"
+          },
+          {
+            "text": "brick. Sat",
+            "reason": "A full stop ends the sentence too soon. The extra part needs a closing comma."
+          },
+          {
+            "text": "brick sat,",
+            "reason": "That comma splits 'sat' from 'on the table'. It belongs after 'brick'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b1-5",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Wombrace only zips up pouches that are done right.",
+      "prompt": "Match each sentence to the right pouch.",
+      "success": "Extra information needs a comma on each side, like a zip that closes at both ends.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "commas right",
+          "a comma is missing"
+        ],
+        "items": [
+          {
+            "text": "Gus, who loves slime, sneezed.",
+            "bin": 0,
+            "reason": "'Who loves slime' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Gus who loves slime, sneezed.",
+            "bin": 1,
+            "reason": "A comma is missing after 'Gus'. The extra part needs one on each side."
+          },
+          {
+            "text": "Our dog, a fluffy mutt, ate the snow.",
+            "bin": 0,
+            "reason": "'A fluffy mutt' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Our dog a fluffy mutt, ate the snow.",
+            "bin": 1,
+            "reason": "A comma is missing after 'dog'. The extra part needs one on each side."
+          },
+          {
+            "text": "Indi, the best artist here, drew a yeti.",
+            "bin": 0,
+            "reason": "'The best artist here' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Indi the best artist here, drew a yeti.",
+            "bin": 1,
+            "reason": "A comma is missing after 'Indi'. The extra part needs one on each side."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.5-b1-6",
+      "band": 1,
+      "topic": "art",
+      "frame": "Indi is labelling her mural for the lodge.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'A giant snow gum' is extra. It has a comma on each side.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Indi's mural, a giant snow gum, covers the wall."
+          },
+          {
+            "text": "Indi's mural, a giant snow gum covers the wall.",
+            "reason": "The extra part needs a closing comma after 'gum'."
+          },
+          {
+            "text": "Indi's mural a giant, snow gum covers the wall.",
+            "reason": "The comma splits 'giant snow gum'. The commas go after 'mural' and after 'gum'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b2-1",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren heard a lyrebird in the snow gums and wrote it down.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'Which can copy almost any sound' is extra. It needs a comma on each side.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The lyrebird, which can copy almost any sound, copied Zed's phone."
+          },
+          {
+            "text": "The lyrebird, which can copy almost any sound copied Zed's phone.",
+            "reason": "The extra part needs a closing comma after 'sound'."
+          },
+          {
+            "text": "The lyrebird which, can copy almost any sound, copied Zed's phone.",
+            "reason": "The first comma is in the wrong spot. It goes before 'which', not after it."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b2-2",
+      "band": 2,
+      "topic": "space",
+      "frame": "Gus's space poster has a bonus fact tucked inside a sentence.",
+      "prompt": "Tap the extra information the commas mark off.",
+      "success": "'Which has no air at all' is a bonus fact. Lift it out and the sentence still works.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The Moon",
+            "reason": "This is what the sentence is about. Without it, nothing makes sense."
+          },
+          ", ",
+          {
+            "tap": "which has no air at all"
+          },
+          ", ",
+          {
+            "tap": "is covered",
+            "reason": "This is the main part. The sentence needs it."
+          },
+          " in ",
+          {
+            "tap": "grey dust",
+            "reason": "This tells you what covers the Moon. It sits outside the commas."
+          },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.5-b2-3",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed's gaming diary got scrambled. He'd rather you didn't fix this one.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'Who never loses' is extra about Zed. It sits between two commas.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Zed",
+          ",",
+          "who never loses",
+          ",",
+          "lost",
+          "to his gran",
+          "."
+        ],
+        "accept": [
+          "Zed, who never loses, lost to his gran."
+        ],
+        "reason": "Put the extra part straight after Zed, with a comma on each side."
+      }
+    },
+    {
+      "id": "6.5-b2-4",
+      "band": 2,
+      "topic": "music",
+      "frame": "The concert program has a comma missing.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "'Which had practised only once' is extra. It needs a closing comma after 'once'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "The school band,",
+            "reason": "This comma opens the extra part. It's in the right place."
+          },
+          " which had practised only ",
+          {
+            "tap": "once played"
+          },
+          " for the ",
+          {
+            "tap": "whole lodge.",
+            "reason": "This is the end of the sentence, and the full stop is right."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "once, played"
+          },
+          {
+            "text": "once. Played",
+            "reason": "A full stop ends the sentence too soon. The extra part needs a closing comma."
+          },
+          {
+            "text": "once played,",
+            "reason": "That comma splits 'played' from where they played. It belongs after 'once'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b2-5",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Wombrace is checking the fact cards at the polar aquarium.",
+      "prompt": "Match each sentence to the right pouch.",
+      "success": "Extra information needs a comma on each side, and nowhere inside it.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "commas right",
+          "needs a fix"
+        ],
+        "items": [
+          {
+            "text": "The blue whale, the biggest animal ever, eats tiny krill.",
+            "bin": 0,
+            "reason": "'The biggest animal ever' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "The blue whale, the biggest animal ever eats tiny krill.",
+            "bin": 1,
+            "reason": "The extra part needs a closing comma after 'ever'."
+          },
+          {
+            "text": "Antarctica, the coldest place on Earth, has no trees.",
+            "bin": 0,
+            "reason": "'The coldest place on Earth' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Antarctica the coldest place on Earth, has no trees.",
+            "bin": 1,
+            "reason": "The extra part needs an opening comma after 'Antarctica'."
+          },
+          {
+            "text": "Penguins, which cannot fly, are excellent swimmers.",
+            "bin": 0,
+            "reason": "'Which cannot fly' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Penguins which, cannot fly are excellent swimmers.",
+            "bin": 1,
+            "reason": "The comma sits inside the extra part. It doesn't mark it off."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.5-b2-6",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is writing a name tag for the lodge's robot.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'Our snow-clearing robot' is extra about Bolt. It has a comma on each side.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Bolt, our snow-clearing robot, beeps at every seagull."
+          },
+          {
+            "text": "Bolt our snow-clearing robot, beeps at every seagull.",
+            "reason": "The extra part needs an opening comma after 'Bolt'."
+          },
+          {
+            "text": "Bolt, our snow-clearing, robot beeps at every seagull.",
+            "reason": "The comma splits 'snow-clearing robot'. It goes after 'robot'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b3-1",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "A note from the principal about Gus's lab work has four drafts.",
+      "prompt": "Which version is punctuated right?",
+      "success": "The whole extra part runs from 'which' to 'vinegar'. A comma goes at each end.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Gus's favourite experiment, which involves rotten eggs and vinegar, is banned at school."
+          },
+          {
+            "text": "Gus's favourite experiment, which involves rotten eggs and vinegar is banned at school.",
+            "reason": "The extra part needs a closing comma after 'vinegar'."
+          },
+          {
+            "text": "Gus's favourite experiment which involves rotten eggs and vinegar, is banned at school.",
+            "reason": "The extra part needs an opening comma after 'experiment'."
+          },
+          {
+            "text": "Gus's favourite experiment, which involves rotten, eggs and vinegar, is banned at school.",
+            "reason": "The comma after 'rotten' splits 'rotten eggs'. Commas go only at the ends of the extra part."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's footy report has a bonus detail zipped inside it.",
+      "prompt": "Tap the extra information the commas mark off.",
+      "success": "'Who haven't won a match since March' is a bonus detail. Lift it out and the sentence still works.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The Reef Rays",
+            "reason": "This is who the sentence is about. Without it, nothing makes sense."
+          },
+          ", ",
+          {
+            "tap": "who haven't won a match since March"
+          },
+          ", ",
+          {
+            "tap": "finally beat the Snow Hawks",
+            "reason": "This is the main news. The sentence needs it."
+          },
+          " ",
+          {
+            "tap": "on Saturday",
+            "reason": "This tells you when, but it sits outside the commas."
+          },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.5-b3-3",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed's ghost story got torn up by something in the night.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "'Which nobody had visited for years' is extra, so it sits between two commas.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The old hut",
+          ",",
+          "which nobody had visited for years",
+          ",",
+          "had fresh footprints outside",
+          ".",
+          "."
+        ],
+        "accept": [
+          "The old hut, which nobody had visited for years, had fresh footprints outside."
+        ],
+        "reason": "The extra part needs a comma on each side. A full stop would end the sentence too soon."
+      }
+    },
+    {
+      "id": "6.5-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's baking blog has a comma missing.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "'Which he baked for six hours' is extra. It needs a closing comma after 'hours'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo's famous snow-gum ",
+          {
+            "tap": "honey cake,",
+            "reason": "This comma opens the extra part. It's in the right place."
+          },
+          " which he baked for six ",
+          {
+            "tap": "hours tasted"
+          },
+          " like ",
+          {
+            "tap": "a candle.",
+            "reason": "This is the end of the sentence, and the full stop is right."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "hours, tasted"
+          },
+          {
+            "text": "hours. Tasted",
+            "reason": "A full stop ends the sentence too soon. The extra part needs a closing comma."
+          },
+          {
+            "text": "hours tasted,",
+            "reason": "That comma splits 'tasted' from 'like a candle'. It belongs after 'hours'."
+          },
+          {
+            "text": "hours, tasted,",
+            "reason": "The first comma is right, but the second splits 'tasted' from 'like a candle'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b3-5",
+      "band": 3,
+      "topic": "music",
+      "frame": "The Wombrace found the school concert notes. Some pouches won't zip.",
+      "prompt": "Match each sentence to the right pouch.",
+      "success": "Extra information needs an opening comma and a closing comma. Miss either one and the zip won't close.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "commas right",
+          "closing comma missing",
+          "opening comma missing"
+        ],
+        "items": [
+          {
+            "text": "Our choir, which sings at every assembly, won a prize.",
+            "bin": 0,
+            "reason": "'Which sings at every assembly' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Our choir, which sings at every assembly won a prize.",
+            "bin": 1,
+            "reason": "The extra part opens after 'choir' but never closes. A comma belongs after 'assembly'."
+          },
+          {
+            "text": "Our choir which sings at every assembly, won a prize.",
+            "bin": 2,
+            "reason": "The extra part closes after 'assembly' but never opens. A comma belongs after 'choir'."
+          },
+          {
+            "text": "The tuba, a very loud instrument, shook the windows.",
+            "bin": 0,
+            "reason": "'A very loud instrument' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "The tuba, a very loud instrument shook the windows.",
+            "bin": 1,
+            "reason": "The extra part opens after 'tuba' but never closes. A comma belongs after 'instrument'."
+          },
+          {
+            "text": "The tuba a very loud instrument, shook the windows.",
+            "bin": 2,
+            "reason": "The extra part closes after 'instrument' but never opens. A comma belongs after 'tuba'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.5-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Wren is writing up the yeti's first visit to the snowboard shop.",
+      "prompt": "Which version is punctuated right?",
+      "success": "The extra part runs from 'who' to 'before'. A comma goes at each end.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The yeti, who had never seen a snowboard before, tried to eat one."
+          },
+          {
+            "text": "The yeti, who had never seen a snowboard, before tried to eat one.",
+            "reason": "The closing comma comes too early. 'Before' is still part of the extra information."
+          },
+          {
+            "text": "The yeti who had never seen a snowboard before, tried to eat one.",
+            "reason": "The extra part needs an opening comma after 'yeti'."
+          },
+          {
+            "text": "The yeti, who had never seen a snowboard before tried to eat one.",
+            "reason": "The extra part needs a closing comma after 'before'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "The Comma Cay visitor guide is going to the printer. Only one version is right.",
+      "prompt": "Which version is punctuated right?",
+      "success": "'Which towers over Comma Cay' is extra. It needs a comma at each end, and none inside.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mount Frostbite, which towers over Comma Cay, is covered in snow for eight months of the year."
+          },
+          {
+            "text": "Mount Frostbite, which towers over Comma Cay is covered in snow for eight months of the year.",
+            "reason": "The extra part needs a closing comma after 'Cay'."
+          },
+          {
+            "text": "Mount Frostbite which towers over Comma Cay, is covered in snow for eight months of the year.",
+            "reason": "The extra part needs an opening comma after 'Frostbite'."
+          },
+          {
+            "text": "Mount Frostbite, which towers over, Comma Cay is covered in snow for eight months of the year.",
+            "reason": "The closing comma comes too early. 'Comma Cay' is still part of the extra information."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b4-2",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren's report on the Wombrace's tiny neighbour has a bonus fact inside it.",
+      "prompt": "Tap the extra information the commas mark off.",
+      "success": "'Which was once thought to be extinct' is a bonus fact. Lift it out and the sentence still works.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The mountain pygmy possum",
+            "reason": "This is what the sentence is about. Without it, nothing makes sense."
+          },
+          ", ",
+          {
+            "tap": "which was once thought to be extinct"
+          },
+          ", ",
+          {
+            "tap": "hibernates under the snow",
+            "reason": "This is the main fact. The sentence needs it."
+          },
+          " ",
+          {
+            "tap": "for up to seven months",
+            "reason": "This tells you how long, but it sits outside the commas."
+          },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.5-b4-3",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The icebreaker's welcome-home message came through in pieces.",
+      "prompt": "Tap the pieces in order to make the sentence.",
+      "success": "The extra part comes last, so one comma opens it and the full stop closes it.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The whole crew",
+          "cheered for",
+          "Dr Ana Frost",
+          ",",
+          "the ship's captain",
+          ".",
+          ","
+        ],
+        "accept": [
+          "The whole crew cheered for Dr Ana Frost, the ship's captain.",
+          "The whole crew cheered for the ship's captain, Dr Ana Frost."
+        ],
+        "reason": "At the end of a sentence, one comma opens the extra part and the full stop closes it."
+      }
+    },
+    {
+      "id": "6.5-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "The ice festival results sheet has a comma missing.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "The extra part runs all the way to 'ice'. It needs a closing comma there, before 'melted'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi's latest ",
+          {
+            "tap": "sculpture,",
+            "reason": "This comma opens the extra part. It's in the right place."
+          },
+          " a life-sized yeti carved from a single ",
+          {
+            "tap": "block of",
+            "reason": "'Of ice' still belongs to the extra part. Keep reading."
+          },
+          " ",
+          {
+            "tap": "ice melted"
+          },
+          " before the ",
+          {
+            "tap": "judges arrived.",
+            "reason": "This is the end of the sentence, and the full stop is right."
+          }
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "ice, melted"
+          },
+          {
+            "text": "ice. Melted",
+            "reason": "A full stop ends the sentence too soon. The extra part needs a closing comma."
+          },
+          {
+            "text": "ice melted,",
+            "reason": "That comma splits 'melted' from when it melted. It belongs after 'ice'."
+          },
+          {
+            "text": "ice, melted,",
+            "reason": "The first comma is right, but the second splits 'melted' from 'before the judges arrived'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.5-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The polar station's robot logbook needs checking. The Wombrace is on it.",
+      "prompt": "Match each sentence to the right pouch.",
+      "success": "Extra information in the middle needs two commas. At the end, one comma and the full stop do the job.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "commas right",
+          "needs a fix"
+        ],
+        "items": [
+          {
+            "text": "Unit 7, the oldest robot on the station, still works perfectly.",
+            "bin": 0,
+            "reason": "'The oldest robot on the station' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "Unit 7 the oldest robot on the station, still works perfectly.",
+            "bin": 1,
+            "reason": "The extra part needs an opening comma after 'Unit 7'."
+          },
+          {
+            "text": "The repair drone, which runs on solar power, sleeps through the polar winter.",
+            "bin": 0,
+            "reason": "'Which runs on solar power' is extra, and it has a comma on each side."
+          },
+          {
+            "text": "The repair drone, which runs on solar power sleeps through the polar winter.",
+            "bin": 1,
+            "reason": "The extra part needs a closing comma after 'power'."
+          },
+          {
+            "text": "Our newest robot can cook, clean and juggle, which is honestly a bit much.",
+            "bin": 0,
+            "reason": "The extra part comes last, so one comma opens it and the full stop closes it."
+          },
+          {
+            "text": "Our newest robot, can cook, clean and juggle which is honestly a bit much.",
+            "bin": 1,
+            "reason": "The comma after 'robot' splits it from what it does. The extra part needs a comma after 'juggle'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.5-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is writing up the junior ski race for the lodge newsletter.",
+      "prompt": "Which version is punctuated right?",
+      "success": "The extra part runs from 'who' to 'winter'. A comma goes at each end, and none inside.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Kira Moss, who had never skied before last winter, won the junior downhill race."
+          },
+          {
+            "text": "Kira Moss, who had never skied before last winter won the junior downhill race.",
+            "reason": "The extra part needs a closing comma after 'winter'."
+          },
+          {
+            "text": "Kira Moss who had never skied before last winter, won the junior downhill race.",
+            "reason": "The extra part needs an opening comma after 'Moss'."
+          },
+          {
+            "text": "Kira Moss, who had never, skied before last winter, won the junior downhill race.",
+            "reason": "The comma after 'never' splits the extra part in the middle. Commas go only at its ends."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

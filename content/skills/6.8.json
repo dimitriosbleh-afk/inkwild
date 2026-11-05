@@ -1,0 +1,532 @@
+{
+  "skill": {
+    "id": "6.8",
+    "name": "Apostrophes for many owners, regular and irregular (the dogs', the children's)",
+    "codes": ["VC2E5LA09"],
+    "why": "Where the apostrophe sits tells readers if there's one owner or a crowd.",
+    "how": "Write the owners first. Ends in s? Add ' after it. No s? Add 's.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          { "say": "One owner gets 's. You know this one.", "show": "the dog**'s** kennel" },
+          { "say": "Many owners? Write the word for many first.", "show": "dogs" },
+          { "say": "It ends in s already. Just add the apostrophe after.", "show": "the dogs**'** kennel" },
+          { "say": "Some words for many don't end in s. Add 's.", "show": "the children**'s** sleds, the men**'s** team" },
+          { "say": "So write the owners first. Then ask: does it end in s?" }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Three dogs share one kennel on the snowy farm.",
+          "text": "The ___ kennel is warm and dry.",
+          "prompt": "Which word fits?",
+          "hint": "How many owners? Write that word, then check if it ends in s.",
+          "success": "Dogs'. Three dogs own the kennel. Dogs ends in s, so the apostrophe goes after it.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "dogs'" },
+              { "text": "dog's", "reason": "Dog's means one dog owns the kennel. Three dogs share it." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "frame": "All the children in Year 5 built sleds.",
+          "text": "The ___ sleds were lined up at the top of the hill.",
+          "prompt": "Which word fits?",
+          "hint": "Write 'children' first. Does it end in s?",
+          "success": "Children's. Children doesn't end in s, so it gets 's, even though there are many owners.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "children's" },
+              { "text": "childrens'", "reason": "Children already means more than one. Don't add an extra s. Just add 's." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "throngle",
+      "name": "Throngle",
+      "evolved": "Throngalor",
+      "blurb": "Thousands of these alpine moths huddle in one cave to snooze through summer. The cave is the moths', so the apostrophe hops after the s."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.8-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Two penguins share one nest on the ice.",
+      "text": "The ___ nest is made of pebbles.",
+      "prompt": "Which word fits?",
+      "success": "Penguins'. Two penguins own the nest. Penguins ends in s, so add the apostrophe after it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "penguins'" },
+          { "text": "penguin's", "reason": "Penguin's means one penguin owns it. Two penguins share this nest." },
+          { "text": "penguins", "reason": "Without an apostrophe, nothing shows the nest belongs to them." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b1-2",
+      "band": 1,
+      "topic": "general",
+      "frame": "All the children in the class built one giant snowman together.",
+      "text": "The ___ snowman had a carrot nose.",
+      "prompt": "Which word fits?",
+      "success": "Children's. Children doesn't end in s, so it gets 's.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "children's" },
+          { "text": "childrens'", "reason": "Children already means more than one, so it doesn't need an extra s." },
+          { "text": "child's", "reason": "Child's means one child owns it. The whole class built it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "The Throngle is flapping around the snow footy change rooms.",
+      "prompt": "Match each one to how many owners it shows.",
+      "success": "'s on a single word means one owner. s' or a word like men's means many owners.",
+      "body": {
+        "format": "sort",
+        "bins": ["one owner", "many owners"],
+        "items": [
+          { "text": "the umpire's whistle", "bin": 0, "reason": "Umpire's has 's on one umpire, so there's one owner." },
+          { "text": "the players' change room", "bin": 1, "reason": "Players ends in s, then the apostrophe. Many players own the room." },
+          { "text": "the coach's clipboard", "bin": 0, "reason": "Coach's has 's on one coach, so there's one owner." },
+          { "text": "the men's team", "bin": 1, "reason": "Men means more than one man. The team belongs to all of them." }
+        ]
+      }
+    },
+    {
+      "id": "6.8-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "Three cooks share one kitchen at the snow cafe. Mo is one of them.",
+      "prompt": "Tap the pieces in order to tell what the kitchen was like.",
+      "success": "The cooks' kitchen. Three cooks own it. Cooks ends in s, so the apostrophe goes after.",
+      "body": {
+        "format": "build",
+        "tiles": ["The cooks'", "The cook's", "kitchen", "was a mess."],
+        "accept": ["The cooks' kitchen was a mess."],
+        "reason": "Three cooks share the kitchen. Cooks ends in s, so put the apostrophe after it."
+      }
+    },
+    {
+      "id": "6.8-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Five ghosts share one attic in the frozen castle.",
+      "prompt": "Tap the word with the wrong apostrophe, then choose the fix.",
+      "success": "Ghosts'. Five ghosts own the attic. Ghosts ends in s, so add the apostrophe after it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          { "tap": "ghost's" },
+          " attic is full of ",
+          { "tap": "cobwebs", "reason": "Cobwebs just means more than one cobweb. It doesn't own anything." },
+          " and ",
+          { "tap": "icicles", "reason": "Icicles just means more than one icicle. It doesn't own anything." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "ghosts'" },
+          { "text": "ghosts", "reason": "Without an apostrophe, nothing shows the attic belongs to the ghosts." },
+          { "text": "ghosts's", "reason": "Ghosts already ends in s, so just add the apostrophe after it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b1-6",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Four robots share one charger in the shed.",
+      "prompt": "Tap the word that shows many owners.",
+      "success": "Robots'. The apostrophe after the s shows many robots share the charger.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "robot's", "reason": "The apostrophe before the s means just one robot owns the arm." },
+          " arm bumped the ",
+          { "tap": "robots'" },
+          " ",
+          { "tap": "charger", "reason": "Charger is the thing being owned. It has no apostrophe." },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.8-b2-1",
+      "band": 2,
+      "topic": "animals",
+      "frame": "A flock of geese has landed on the frozen lake.",
+      "text": "The ___ honking woke up the whole camp.",
+      "prompt": "Which word fits?",
+      "success": "Geese's. Geese means more than one goose, and it doesn't end in s, so add 's.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "geese's" },
+          { "text": "geeses'", "reason": "Geese already means more than one goose. Don't add another s." },
+          { "text": "goose's", "reason": "Goose's means just one goose. A whole flock was honking." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b2-2",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully is reporting on the snow footy final.",
+      "text": "Every player was a woman. The ___ team won by six goals in a blizzard.",
+      "prompt": "Which word fits?",
+      "success": "Women's. Women means more than one woman, and it doesn't end in s, so add 's.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "women's" },
+          { "text": "womens'", "reason": "Women already means more than one woman. Don't add an extra s." },
+          { "text": "woman's", "reason": "Woman's means one woman owns the team. Every player is a woman, so there are many." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Throngle is counting owners at the Comma Cay ice concert.",
+      "prompt": "Match each sentence to how many owners it shows.",
+      "success": "Look at the owner word. One owner gets 's. Many owners get s' or, like men, 's.",
+      "body": {
+        "format": "sort",
+        "bins": ["one owner", "many owners"],
+        "items": [
+          { "text": "One singer's microphone squealed.", "bin": 0, "reason": "One singer owns the microphone, so it's singer's." },
+          { "text": "All the singers' microphones squealed.", "bin": 1, "reason": "All the singers own microphones. Singers ends in s, so the apostrophe goes after." },
+          { "text": "The drummers' van got stuck in the snow.", "bin": 1, "reason": "Drummers ends in s, then the apostrophe, so many drummers share the van." },
+          { "text": "The men's choir sang in the cold.", "bin": 1, "reason": "Men means more than one man, so the choir belongs to many." },
+          { "text": "The pianist's fingers were frozen.", "bin": 0, "reason": "Pianist's has 's on one pianist, so there's one owner." }
+        ]
+      }
+    },
+    {
+      "id": "6.8-b2-4",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Four scientists made one batch of slime together. Gus was one of them.",
+      "prompt": "Tap the pieces in order to say what the slime did.",
+      "success": "The scientists' slime. Four scientists own it, so the apostrophe goes after the s.",
+      "body": {
+        "format": "build",
+        "tiles": ["The scientists'", "The scientist's", "slime", "melted", "their goggles."],
+        "accept": ["The scientists' slime melted their goggles."],
+        "reason": "Four scientists made the slime. Scientists ends in s, so the apostrophe goes after it."
+      }
+    },
+    {
+      "id": "6.8-b2-5",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Two divers are exploring under the sea ice.",
+      "prompt": "Tap the word with the wrong apostrophe, then choose the fix.",
+      "success": "Divers'. Both divers own tanks. Divers ends in s, so the apostrophe goes after it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Both ",
+          { "tap": "diver's" },
+          " oxygen ",
+          { "tap": "tanks", "reason": "Tanks is the thing being owned. It doesn't need an apostrophe." },
+          " were covered in ",
+          { "tap": "ice", "reason": "Ice doesn't own anything here. Look for the owners." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "divers'" },
+          { "text": "divers", "reason": "Without an apostrophe, nothing shows the tanks belong to the divers." },
+          { "text": "diver", "reason": "'Both diver' doesn't work. Both means two divers, and they own the tanks." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b2-6",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed is writing up the results of the Comma Cay gaming cup.",
+      "prompt": "One word has its apostrophe in the wrong place. Tap it.",
+      "success": "Mens' should be men's. Men already means more than one, so it just takes 's.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Both ",
+          { "tap": "teams'", "reason": "Both teams have fans, and teams ends in s, so the apostrophe after is right." },
+          " fans cheered when the ",
+          { "tap": "mens'" },
+          " squad beat the ",
+          { "tap": "zombie", "reason": "Zombie doesn't own anything here, so it needs no apostrophe." },
+          " level."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.8-b3-1",
+      "band": 3,
+      "topic": "food",
+      "frame": "Three bakers share one oven in the snow cafe.",
+      "prompt": "Which sentence is punctuated correctly?",
+      "success": "The bakers' oven. Three bakers own it. Bakers ends in s, so the apostrophe goes after it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The bakers' oven was so cold that the scones froze." },
+          { "text": "The baker's oven was so cold that the scones froze.", "reason": "Baker's means one baker owns it. Three bakers share this oven." },
+          { "text": "The bakers oven was so cold that the scones froze.", "reason": "Without an apostrophe, nothing shows the oven belongs to them." },
+          { "text": "The bakers's oven was so cold that the scones froze.", "reason": "Bakers already ends in s, so just add the apostrophe after it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is writing up what she saw on the snowy ridge.",
+      "prompt": "Match each sentence to how many owners it shows.",
+      "success": "Check the owner word. A single word with 's is one owner. Plural words with ' or 's are many.",
+      "body": {
+        "format": "sort",
+        "bins": ["one owner", "many owners"],
+        "items": [
+          { "text": "The wombats' burrows were buried under the snow.", "bin": 1, "reason": "Wombats ends in s, then the apostrophe, so many wombats own burrows." },
+          { "text": "A mouse's tiny footprints crossed the path.", "bin": 0, "reason": "A mouse is one mouse, so there's one owner." },
+          { "text": "The mice's footprints crossed the path in every direction.", "bin": 1, "reason": "Mice means more than one mouse, so many mice own the footprints." },
+          { "text": "The wombat's burrow was the warmest in the valley.", "bin": 0, "reason": "Wombat's has 's on one wombat, so there's one owner." },
+          { "text": "The geese's nests lined the frozen creek.", "bin": 1, "reason": "Geese means more than one goose, so many geese own the nests." }
+        ]
+      }
+    },
+    {
+      "id": "6.8-b3-3",
+      "band": 3,
+      "topic": "general",
+      "frame": "All the children on Comma Cay voted. Three penguins made the winning sculpture together.",
+      "prompt": "Tap the pieces in order to announce the winner.",
+      "success": "Children's, because children has no s. Penguins', because penguins ends in s and there are three owners.",
+      "body": {
+        "format": "build",
+        "tiles": ["The children's", "The childrens'", "choice award", "went to", "the penguins'", "the penguin's", "ice sculpture."],
+        "accept": ["The children's choice award went to the penguins' ice sculpture."],
+        "reason": "Children has no s, so it takes 's. Three penguins end in s, so the apostrophe goes after."
+      }
+    },
+    {
+      "id": "6.8-b3-4",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi and Zed each painted the frozen waterfall for the art show.",
+      "prompt": "Tap the word with the wrong apostrophe, then choose the fix.",
+      "success": "Artists'. Both artists own paintings. Artists ends in s, so the apostrophe goes after it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Visitors loved both ",
+          { "tap": "artist's" },
+          " ",
+          { "tap": "paintings", "reason": "Paintings is the thing being owned. It doesn't need an apostrophe." },
+          " of the frozen ",
+          { "tap": "waterfall", "reason": "Waterfall doesn't own anything here. Look for the owners." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "artists'" },
+          { "text": "artists", "reason": "Without an apostrophe, nothing shows the paintings belong to the artists." },
+          { "text": "artists's", "reason": "Artists already ends in s, so just add the apostrophe after it." },
+          { "text": "artist", "reason": "'Both artist' doesn't work. Both means two artists, and they own the paintings." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "Five men tried on space suits before the trip to the ice moon.",
+      "prompt": "Which sentence is punctuated correctly?",
+      "success": "The men's space suits. Men means more than one man and has no s, so add 's.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The men's space suits were far too big for them." },
+          { "text": "The mens' space suits were far too big for them.", "reason": "Men already means more than one, so the apostrophe goes before the s." },
+          { "text": "The mens space suits were far too big for them.", "reason": "Without an apostrophe, nothing shows the suits belong to the men." },
+          { "text": "The man's space suits were far too big for them.", "reason": "Man's means one man owns the suits. Five men tried them on." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b3-6",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Three witches and two vampires are at the snowy Halloween party.",
+      "prompt": "One word has its apostrophe in the wrong place. Tap it.",
+      "success": "Vampire's should be vampires'. Two vampires own capes, so the apostrophe goes after the s.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The three ",
+          { "tap": "witches'", "reason": "Three witches share the cauldron. Witches ends in s, so the apostrophe after is right." },
+          " cauldron bubbled while the two ",
+          { "tap": "vampire's" },
+          " ",
+          { "tap": "capes", "reason": "Capes just means more than one cape. It doesn't own anything." },
+          " flapped in the icy wind."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.8-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A dozen fishermen have built huts on the frozen lake.",
+      "prompt": "Which sentence is punctuated correctly?",
+      "success": "The fishermen's huts. Fishermen means many and has no s, so it takes 's.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The fishermen's huts were frozen to the jetty, so everyone chipped them free with shovels." },
+          { "text": "The fishermens' huts were frozen to the jetty, so everyone chipped them free with shovels.", "reason": "Fishermen already means more than one. Don't add an s before the apostrophe." },
+          { "text": "The fisherman's huts were frozen to the jetty, so everyone chipped them free with shovels.", "reason": "Fisherman's means one fisherman owns the huts. There are a dozen fishermen." },
+          { "text": "The fishermens huts were frozen to the jetty, so everyone chipped them free with shovels.", "reason": "Without an apostrophe, nothing shows the huts belong to the fishermen." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "The Throngle is sorting labels for the Comma Cay Winter Games.",
+      "prompt": "Match each label to the kind of owner it shows.",
+      "success": "One owner gets 's. Many owners ending in s get s'. Many owners without s, like children, get 's.",
+      "body": {
+        "format": "sort",
+        "bins": ["one owner", "many owners, word ends in s", "many owners, word has no s"],
+        "items": [
+          { "text": "the captain's armband", "bin": 0, "reason": "One captain owns the armband, so it's captain's." },
+          { "text": "the coaches' meeting room", "bin": 1, "reason": "Coaches means many coaches. It ends in s, so the apostrophe goes after." },
+          { "text": "the women's relay team", "bin": 2, "reason": "Women means many women, and it doesn't end in s, so it takes 's." },
+          { "text": "the umpires' change room", "bin": 1, "reason": "Umpires means many umpires. It ends in s, so the apostrophe goes after." },
+          { "text": "the children's ski lessons", "bin": 2, "reason": "Children means many children, and it doesn't end in s, so it takes 's." },
+          { "text": "the skier's lost glove", "bin": 0, "reason": "One skier owns the glove, so it's skier's." }
+        ]
+      }
+    },
+    {
+      "id": "6.8-b4-3",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Three joeys are hiding from the blizzard. Each joey has its own mother.",
+      "prompt": "Tap the pieces in order to say where they hid.",
+      "success": "Their mothers' pouches. Three mothers own the pouches, so the apostrophe goes after the s. The joeys own nothing here.",
+      "body": {
+        "format": "build",
+        "tiles": ["The joeys", "The joeys'", "huddled in", "their mothers'", "their mother's", "pouches."],
+        "accept": ["The joeys huddled in their mothers' pouches."],
+        "reason": "There are three mothers, so mothers' with the apostrophe after the s. The joeys don't own anything."
+      }
+    },
+    {
+      "id": "6.8-b4-4",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Five scientists share one lab, and it has just been evacuated.",
+      "prompt": "Tap the word with the wrong apostrophe, then choose the fix.",
+      "success": "Scientists'. Five scientists share the lab. Scientists ends in s, so the apostrophe goes after it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Everyone fled the ",
+          { "tap": "scientist's" },
+          " lab when a dozen mouldy ",
+          { "tap": "experiments", "reason": "Experiments just means more than one experiment. It doesn't own anything." },
+          " exploded and splattered green goo across the ",
+          { "tap": "ceiling", "reason": "Ceiling doesn't own anything here. Look for the owners." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "scientists'" },
+          { "text": "scientists", "reason": "Without an apostrophe, nothing shows the lab belongs to the scientists." },
+          { "text": "scientists's", "reason": "Scientists already ends in s, so just add the apostrophe after it." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.8-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Three engineers, four robots, a family of mice and one drone all share a workshop.",
+      "prompt": "One apostrophe is wrong. Tap it.",
+      "success": "Mices' should be mice's. Mice already means more than one, so it takes 's.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          { "tap": "engineers'", "reason": "Three engineers share the workshop. Engineers ends in s, so the apostrophe after is right." },
+          " workshop was chaos: the ",
+          { "tap": "robots'", "reason": "Four robots own the batteries. Robots ends in s, so the apostrophe after is right." },
+          " batteries were flat, and the ",
+          { "tap": "mices'" },
+          " nest was in the ",
+          { "tap": "drone's", "reason": "There's one drone, so drone's with 's is right." },
+          " propeller."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.8-b4-6",
+      "band": 4,
+      "topic": "art",
+      "frame": "A group of artists painted one huge picture for the snow festival.",
+      "prompt": "Which sentence says one painting belongs to a group of artists?",
+      "success": "The artists' painting. The apostrophe after the s shows many artists, and painting shows there's one.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "The artists' painting won first prize at the snow festival." },
+          { "text": "The artist's painting won first prize at the snow festival.", "reason": "The apostrophe before the s means one artist owns it." },
+          { "text": "The artists painting won first prize at the snow festival.", "reason": "Without an apostrophe, nothing shows the painting belongs to the artists." },
+          { "text": "The artist's paintings won first prize at the snow festival.", "reason": "That's one artist with several paintings. You need many artists sharing one." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

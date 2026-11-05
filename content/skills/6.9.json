@@ -1,0 +1,531 @@
+{
+  "skill": {
+    "id": "6.9",
+    "name": "Owning or shortening? (its/it's, whose/who's)",
+    "codes": ["VC2E5LA09"],
+    "why": "Mix them up and readers hear 'it is' when you meant owning.",
+    "how": "Try 'it is', 'it has' or 'who is'. If one fits, use the apostrophe.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          { "say": "Squash 'it is' into it's. That's shortening. The apostrophe marks the gap.", "show": "It is snowing. → **It's** snowing." },
+          { "say": "It's can be 'it has' too.", "show": "**It's** been snowing all day." },
+          { "say": "Owning is different. Its has no apostrophe at all.", "show": "The possum licked **its** paw." },
+          { "say": "Who's and whose follow the same rule.", "show": "**Who's** coming? **Whose** sled is this?" },
+          { "say": "So test it: say 'it is' or 'who is'. Does it work?" }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "___ snowing again!",
+          "prompt": "Which word fits?",
+          "hint": "Try saying 'it is snowing again'. Does it make sense?",
+          "success": "It's. You can say 'it is snowing', so it's a shortening and needs the apostrophe.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "It's" },
+              { "text": "Its", "reason": "Its is for owning. Nothing is owned here. It means 'it is snowing'." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "___ beanie is this?",
+          "prompt": "Which word fits?",
+          "hint": "Try saying 'who is beanie is this?'. Does it make sense?",
+          "success": "Whose. You're asking who owns the beanie, so it's the owning word with no apostrophe.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "Whose" },
+              { "text": "Who's", "reason": "Who's means 'who is'. 'Who is beanie is this?' makes no sense." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "dropple",
+      "name": "Dropple",
+      "evolved": "Dropplescale",
+      "blurb": "A snow skink that drops its tail to escape and leaves an apostrophe where the tail was. If nothing is missing, it keeps its tail on."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.9-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A snow possum is getting ready to sleep.",
+      "text": "The possum curled up in ___ warm nest.",
+      "prompt": "Which word fits?",
+      "success": "Its. The nest belongs to the possum. Owning its has no apostrophe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "its" },
+          { "text": "it's", "reason": "It's means 'it is'. 'Curled up in it is warm nest' makes no sense." },
+          { "text": "its'", "reason": "Its never takes an apostrophe at the end. Owning its has no apostrophe." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is shouting from the top of the sled run.",
+      "text": "___ coming sledding with me?",
+      "prompt": "Which word fits?",
+      "success": "Who's. It means 'who is coming?', so it's a shortening with an apostrophe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Who's" },
+          { "text": "Whose", "reason": "Whose asks who owns something. This means 'who is coming?'" },
+          { "text": "Whos", "reason": "'Who is' has been shortened, so it needs an apostrophe." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b1-3",
+      "band": 1,
+      "topic": "funny",
+      "frame": "The Dropple is sorting sentences about a very cold yeti.",
+      "prompt": "Match each sentence to the right group.",
+      "success": "It's always means 'it is' or 'it has'. Owning its never has an apostrophe.",
+      "body": {
+        "format": "sort",
+        "bins": ["shortening (it is, it has)", "owning"],
+        "items": [
+          { "text": "It's freezing!", "bin": 0, "reason": "This means 'it is freezing', so it's a shortening." },
+          { "text": "The yeti scratched its belly.", "bin": 1, "reason": "The belly belongs to the yeti, so its is owning." },
+          { "text": "It's been snowing all day.", "bin": 0, "reason": "This means 'it has been snowing', so it's a shortening." },
+          { "text": "The snowman lost its hat.", "bin": 1, "reason": "The hat belongs to the snowman, so its is owning." }
+        ]
+      }
+    },
+    {
+      "id": "6.9-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo put a pie in the oven. It did not end well.",
+      "prompt": "Tap the pieces in order to tell what happened.",
+      "success": "Its lid. The lid belongs to the pie. Owning its has no apostrophe.",
+      "body": {
+        "format": "build",
+        "tiles": ["Mo's pie", "exploded and lost", "its", "it's", "lid."],
+        "accept": ["Mo's pie exploded and lost its lid."],
+        "reason": "The lid belongs to the pie. That's owning, so use its with no apostrophe."
+      }
+    },
+    {
+      "id": "6.9-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Mo sent Zed a message. One word is wrong.",
+      "prompt": "Tap the wrong word, then choose the fix.",
+      "success": "It's. It means 'it is your turn', so it needs the apostrophe.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Its" },
+          " your ",
+          { "tap": "turn", "reason": "Turn is fine. Look for the word that should mean 'it is'." },
+          ", ",
+          { "tap": "Zed", "reason": "Zed is fine. Look for the word that should mean 'it is'." },
+          "!"
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "It's" },
+          { "text": "Its'", "reason": "Its' isn't a word. 'It is' shortens to it's." },
+          { "text": "Whose", "reason": "Whose asks who owns something. You need 'it is your turn'." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Wren is watching a seal on the ice.",
+      "prompt": "Tap the word that needs an apostrophe.",
+      "success": "The second one. It means 'it is going to dive', so it needs an apostrophe.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The seal flapped ",
+          { "tap": "its", "reason": "This one is owning. The flipper belongs to the seal, so no apostrophe." },
+          " flipper. ",
+          { "tap": "Its" },
+          " going to ",
+          { "tap": "dive", "reason": "Dive is an action. It doesn't need an apostrophe." },
+          "!"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.9-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Zed is watching a rocket launch from the icy runway.",
+      "text": "The rocket blasted off, leaving ___ smoke trail behind.",
+      "prompt": "Which word fits?",
+      "success": "Its. The smoke trail belongs to the rocket. Owning its has no apostrophe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "its" },
+          { "text": "it's", "reason": "It's means 'it is'. 'Leaving it is smoke trail' doesn't make sense." },
+          { "text": "it is", "reason": "'Leaving it is smoke trail' doesn't work. The trail belongs to the rocket." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b2-2",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Strange tracks have appeared outside the igloo overnight.",
+      "text": "___ footprints are these in the snow?",
+      "prompt": "Which word fits?",
+      "success": "Whose. You're asking who owns the footprints, so use the owning word with no apostrophe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Whose" },
+          { "text": "Who's", "reason": "Who's means 'who is'. 'Who is footprints are these?' makes no sense." },
+          { "text": "Who is", "reason": "'Who is footprints are these?' doesn't work. You're asking who owns them." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b2-3",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "The Dropple is sorting the chat from Zed's game night.",
+      "prompt": "Match each message to the right group.",
+      "success": "If you can say 'who is', 'who has' or 'it is', it's a shortening. Otherwise it's owning.",
+      "body": {
+        "format": "sort",
+        "bins": ["owning", "shortening"],
+        "items": [
+          { "text": "Whose controller is this?", "bin": 0, "reason": "This asks who owns the controller, so whose is owning." },
+          { "text": "Who's winning the race?", "bin": 1, "reason": "This means 'who is winning?', so it's a shortening." },
+          { "text": "The level has its own boss.", "bin": 0, "reason": "The boss belongs to the level, so its is owning." },
+          { "text": "It's the final round!", "bin": 1, "reason": "This means 'it is the final round', so it's a shortening." },
+          { "text": "Who's got the high score?", "bin": 1, "reason": "This means 'who has got the high score?', so it's a shortening." }
+        ]
+      }
+    },
+    {
+      "id": "6.9-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "The sled race is over, and Tully is announcing the winner.",
+      "prompt": "Tap the pieces in order to announce the winner.",
+      "success": "It's means 'it is Wren'. Whose sled means the sled belongs to Wren.",
+      "body": {
+        "format": "build",
+        "tiles": ["It's", "Its", "Wren", "whose", "who's", "sled", "is fastest."],
+        "accept": ["It's Wren whose sled is fastest."],
+        "reason": "First you need 'it is', so a shortening. Then the sled belongs to Wren, so owning."
+      }
+    },
+    {
+      "id": "6.9-b2-5",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote instructions for his snow-clearing robot.",
+      "prompt": "Tap the wrong word, then choose the fix.",
+      "success": "Its. The battery belongs to the robot. Owning its has no apostrophe.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The robot plugs ",
+          { "tap": "itself", "reason": "Itself is fine. Look for the word that should show owning." },
+          " in and charges ",
+          { "tap": "it's" },
+          " ",
+          { "tap": "battery", "reason": "Battery is fine. Look for the word just before it." },
+          " every night."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "its" },
+          { "text": "its'", "reason": "Its never has an apostrophe at the end. Owning its has none at all." },
+          { "text": "it is", "reason": "'Charges it is battery' makes no sense. The battery belongs to the robot." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b2-6",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo is running the pancake stall at the snow festival.",
+      "prompt": "Tap the word that's wrong.",
+      "success": "Its should be It's. It means 'it is Mo's turn', so it needs an apostrophe.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Who's", "reason": "Who's means 'who is making pancakes?' That's right." },
+          " making pancakes? ",
+          { "tap": "Whose", "reason": "Whose turn asks who owns the turn. That's right." },
+          " turn is it? ",
+          { "tap": "Its" },
+          " Mo's turn!"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.9-b3-1",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Tully is tracking a runaway iceberg for the Comma Cay news.",
+      "text": "The iceberg has drifted so far that ___ nearly reached the beach.",
+      "prompt": "Which word fits?",
+      "success": "It's. It means 'it has nearly reached', so it's a shortening with an apostrophe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "it's" },
+          { "text": "its", "reason": "Its is for owning. Here you mean 'it has nearly reached'." },
+          { "text": "it is", "reason": "'It is nearly reached' doesn't work. The shortening here stands for 'it has'." },
+          { "text": "whose", "reason": "Whose asks who owns something. You need 'it has nearly reached'." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b3-2",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi is writing labels for her glacier mural. The Dropple is checking them.",
+      "prompt": "Match each label to what it means.",
+      "success": "It's can mean 'it is' or 'it has'. Its with no apostrophe always means owning.",
+      "body": {
+        "format": "sort",
+        "bins": ["it is", "it has", "owning"],
+        "items": [
+          { "text": "It's taken Indi six hours to paint the glacier.", "bin": 1, "reason": "This means 'it has taken six hours'." },
+          { "text": "The mural is famous for its icy blue sky.", "bin": 2, "reason": "The sky belongs to the mural, so its is owning." },
+          { "text": "It's the biggest painting on the island.", "bin": 0, "reason": "This means 'it is the biggest painting'." },
+          { "text": "It's been hanging in the hall since winter.", "bin": 1, "reason": "This means 'it has been hanging'." },
+          { "text": "Each painting has its own frame.", "bin": 2, "reason": "The frame belongs to the painting, so its is owning." },
+          { "text": "It's too cold for the paint to dry.", "bin": 0, "reason": "This means 'it is too cold'." }
+        ]
+      }
+    },
+    {
+      "id": "6.9-b3-3",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Someone has been in the haunted igloo, and Zed wants answers.",
+      "prompt": "Tap the pieces in order to make Zed's question.",
+      "success": "Who's means 'who has been wearing'. Whose boots asks who owns the boots.",
+      "body": {
+        "format": "build",
+        "tiles": ["Who's", "Whose", "been wearing", "the ghost's scarf,", "and", "whose", "who's", "boots are these?"],
+        "accept": ["Who's been wearing the ghost's scarf, and whose boots are these?"],
+        "reason": "Start with 'who has been wearing', a shortening. Then ask who owns the boots, which is owning."
+      }
+    },
+    {
+      "id": "6.9-b3-4",
+      "band": 3,
+      "topic": "animals",
+      "frame": "A lyrebird in the snowy forest is showing off again.",
+      "prompt": "Tap the wrong word, then choose the fix.",
+      "success": "Its. The song belongs to the lyrebird, so it's owning. Owning its has no apostrophe.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The lyrebird copied a chainsaw so well that ",
+          { "tap": "it's" },
+          " song fooled ",
+          { "tap": "two", "reason": "Two is fine. Look for the word that should show owning." },
+          " ",
+          { "tap": "rangers", "reason": "Rangers is fine. Look for the word that should show owning." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "its" },
+          { "text": "it is", "reason": "'So well that it is song fooled' makes no sense. The song belongs to the bird." },
+          { "text": "its'", "reason": "Its never has an apostrophe at the end. Owning its has none at all." },
+          { "text": "whose", "reason": "'So well that whose song fooled' doesn't work. The song simply belongs to the lyrebird." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b3-5",
+      "band": 3,
+      "topic": "general",
+      "frame": "Maxx Vantablack is live on his channel, holding up a possum he 'found'.",
+      "prompt": "Which line from Maxx's stream is punctuated correctly?",
+      "success": "Who's means 'who is going to guess'. Whose asks who owns the possum.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Who's going to guess whose snow possum this is?" },
+          { "text": "Whose going to guess whose snow possum this is?", "reason": "The first word means 'who is going to guess', so it needs who's." },
+          { "text": "Who's going to guess who's snow possum this is?", "reason": "The second word asks who owns the possum, so it needs whose." },
+          { "text": "Whose going to guess who's snow possum this is?", "reason": "Both are swapped. First 'who is going to guess', then who owns the possum." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "The Comma Cay band is about to play its last song.",
+      "prompt": "One word is wrong. Tap it.",
+      "success": "The last Who's should be Whose. You're asking who owns the guitar, so it's owning.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "It's", "reason": "It's means 'it is the last song'. That's right." },
+          " the last song, and the guitar has lost ",
+          { "tap": "its", "reason": "The string belongs to the guitar, so its with no apostrophe is right." },
+          " top string. ",
+          { "tap": "Who's", "reason": "Who's means 'who has got a spare?' That's right." },
+          " got a spare? ",
+          { "tap": "Who's" },
+          " guitar is this anyway?"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "6.9-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "Mission control is reporting on a probe orbiting the frozen moon.",
+      "text": "The probe transmitted one final image before ___ signal faded into static.",
+      "prompt": "Which word fits?",
+      "success": "Its. The signal belongs to the probe. Owning its has no apostrophe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "its" },
+          { "text": "it's", "reason": "It's means 'it is' or 'it has'. Neither fits before 'signal faded'." },
+          { "text": "it is", "reason": "'Before it is signal faded' makes no sense. The signal belongs to the probe." },
+          { "text": "whose", "reason": "'Before whose signal faded' doesn't work here. The signal simply belongs to the probe." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b4-2",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Something revolting is growing in the lab freezer, and Gus wants to know who to blame.",
+      "prompt": "Match each question to what it means.",
+      "success": "Who's can mean 'who is' or 'who has'. Whose, with no apostrophe, is always about owning.",
+      "body": {
+        "format": "sort",
+        "bins": ["who is", "who has", "owning"],
+        "items": [
+          { "text": "Who's responsible for the slime on the ceiling?", "bin": 0, "reason": "This means 'who is responsible?'" },
+          { "text": "Who's left a mouldy sandwich in the freezer?", "bin": 1, "reason": "This means 'who has left a sandwich?'" },
+          { "text": "Whose experiment has started bubbling?", "bin": 2, "reason": "This asks who owns the experiment, so whose is owning." },
+          { "text": "Gus, whose socks could stun a yak, volunteered to test it.", "bin": 2, "reason": "The socks belong to Gus, so whose is owning." },
+          { "text": "Who's been feeding the bacteria lollies?", "bin": 1, "reason": "This means 'who has been feeding?'" },
+          { "text": "Who's brave enough to sniff it?", "bin": 0, "reason": "This means 'who is brave enough?'" }
+        ]
+      }
+    },
+    {
+      "id": "6.9-b4-3",
+      "band": 4,
+      "topic": "general",
+      "frame": "Indi is designing a tourist poster for Comma Cay.",
+      "prompt": "Tap the pieces in order to make the poster's slogan.",
+      "success": "Its glaciers belong to the island, so owning. It's the jokes means 'it is the jokes'.",
+      "body": {
+        "format": "build",
+        "tiles": ["The island", "is famous for", "its", "it's", "glaciers,", "but", "its", "it's", "the terrible jokes", "that keep tourists coming back."],
+        "accept": ["The island is famous for its glaciers, but it's the terrible jokes that keep tourists coming back."],
+        "reason": "The glaciers belong to the island, so owning its. Then 'it is the terrible jokes', so it's."
+      }
+    },
+    {
+      "id": "6.9-b4-4",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Tully is writing about the stubborn captain of the icebreaker.",
+      "prompt": "Tap the wrong word, then choose the fix.",
+      "success": "Whose. The beard belongs to the captain, so it's owning, with no apostrophe.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The captain, ",
+          { "tap": "who's" },
+          " beard was frozen solid, refused to turn the ",
+          { "tap": "ship", "reason": "Ship is fine. Look for the word that should show owning." },
+          " around until the ",
+          { "tap": "penguins", "reason": "Penguins is fine. Look for the word that should show owning." },
+          " had crossed."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "whose" },
+          { "text": "who is", "reason": "'Who is beard was frozen' makes no sense. The beard belongs to the captain." },
+          { "text": "who has", "reason": "'Who has beard was frozen' doesn't work. The beard belongs to the captain." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.9-b4-5",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is writing a sad report about the Reef Rays' winter season.",
+      "prompt": "One word is wrong. Tap it.",
+      "success": "The last one should be its. The mascot belongs to the team, so it's owning.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "It's", "reason": "It's means 'it has been a rough season'. That's right." },
+          " been a rough season. The team has lost ",
+          { "tap": "its", "reason": "The coach belongs to the team, so owning its is right." },
+          " coach, ",
+          { "tap": "its", "reason": "The best ruck belongs to the team, so owning its is right." },
+          " best ruck and even ",
+          { "tap": "it's" },
+          " mascot."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "6.9-b4-6",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus built a robot, and it keeps switching itself back on at night.",
+      "prompt": "Which sentence is punctuated correctly?",
+      "success": "Whose idea asks who owns the idea. Its off switch belongs to the robot. Both are owning.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Whose idea was it to let the robot reprogram its own off switch?" },
+          { "text": "Who's idea was it to let the robot reprogram its own off switch?", "reason": "Who's means 'who is'. You're asking who owns the idea." },
+          { "text": "Whose idea was it to let the robot reprogram it's own off switch?", "reason": "The off switch belongs to the robot. Owning its has no apostrophe." },
+          { "text": "Who's idea was it to let the robot reprogram it's own off switch?", "reason": "Both words are about owning here, so neither needs an apostrophe." }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

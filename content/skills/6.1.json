@@ -1,0 +1,925 @@
+{
+  "skill": {
+    "id": "6.1",
+    "name": "Where the sentence ends: full stops and capitals",
+    "codes": [
+      "L4"
+    ],
+    "why": "A full stop tells readers to stop. Miss it and ideas crash together.",
+    "how": "End each whole thought with a full stop. Start the next one with a capital.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A sentence is one whole thought. A full stop ends it.",
+            "show": "The yeti sneezed**.**"
+          },
+          {
+            "say": "The next sentence starts with a capital letter.",
+            "show": "The yeti sneezed**.** **T**he igloo fell down."
+          },
+          {
+            "say": "Put the stop in the wrong spot and things get weird.",
+            "show": "Mo was cooking his sister**.** Was starving."
+          },
+          {
+            "say": "Stop after the whole thought. Phew, she's safe.",
+            "show": "Mo was cooking**.** **H**is sister was starving."
+          },
+          {
+            "say": "Names and the word I always get capitals too.",
+            "show": "**I** met **Gus** at **Mount Frostbite**."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which version is punctuated right?",
+          "hint": "Find the two whole thoughts. Does each one end with a full stop and start with a capital?",
+          "success": "Two whole thoughts, two full stops. 'The hut' starts the second one with a capital.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "The snow fell all night. The hut was buried."
+              },
+              {
+                "text": "The snow fell all night the hut was buried.",
+                "reason": "There's no full stop, so two whole thoughts crash into each other."
+              },
+              {
+                "text": "The snow fell all night, the hut was buried.",
+                "reason": "A comma can't end a whole thought. You need a full stop after 'night'."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap where a full stop is missing, then choose the fix.",
+          "hint": "Read it aloud. Where does the first whole thought finish?",
+          "success": "The first thought ends after 'shed'. A full stop goes there, and 'It' gets a capital.",
+          "body": {
+            "format": "fix",
+            "parts": [
+              {
+                "tap": "The wombat",
+                "reason": "This is the start of the first sentence, and it already has a capital."
+              },
+              " crawled into the ",
+              {
+                "tap": "shed it"
+              },
+              " fell asleep on a ",
+              {
+                "tap": "pile of beanies.",
+                "reason": "This is the end, and the full stop is already there."
+              }
+            ],
+            "spot": 1,
+            "options": [
+              {
+                "text": "shed. It"
+              },
+              {
+                "text": "shed, it",
+                "reason": "A comma can't end a whole thought. You need a full stop here."
+              },
+              {
+                "text": "shed. it",
+                "reason": "The full stop is right, but the new sentence needs a capital: It."
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "dotumble",
+      "name": "Dotumble",
+      "evolved": "Dotumbrix",
+      "blurb": "A mountain pygmy possum that curls into a perfect full stop to sleep through winter. It only wakes when a capital letter knocks."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.1-b1-1",
+      "band": 1,
+      "topic": "gross-science",
+      "frame": "Gus left a note on the lodge fridge. The Dotumble is giggling at one version.",
+      "prompt": "Which version is punctuated right?",
+      "success": "The stop goes after 'sniffing'. Then 'His socks' starts the next sentence with a capital.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Gus kept sniffing. His socks were drying on the heater."
+          },
+          {
+            "text": "Gus kept sniffing his socks. Were drying on the heater.",
+            "reason": "Now Gus is sniffing his socks! And 'Were drying on the heater' doesn't say what was drying."
+          },
+          {
+            "text": "Gus kept sniffing his socks were drying on the heater.",
+            "reason": "There's no full stop, so two whole thoughts crash into each other."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren's notes about a sleepy Dotumble have run together.",
+      "prompt": "Tap where a full stop is missing, then choose the fix.",
+      "success": "The first thought ends after 'nest'. A full stop goes there, and 'It' gets a capital.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "The possum",
+            "reason": "This is the start of the first sentence, and it already has a capital."
+          },
+          " curled up in its ",
+          {
+            "tap": "nest it"
+          },
+          " slept until ",
+          {
+            "tap": "spring.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "nest. It"
+          },
+          {
+            "text": "nest, it",
+            "reason": "A comma can't end a whole thought. You need a full stop here."
+          },
+          {
+            "text": "nest. it",
+            "reason": "The full stop is right, but the new sentence needs a capital: It."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy report blew apart in the blizzard.",
+      "prompt": "Tap the pieces in order to make two sentences. Start with the siren.",
+      "success": "Each whole thought ends with a full stop, and 'We' starts the second one with a capital.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The final siren went",
+          ".",
+          "We",
+          "we",
+          "had won",
+          "."
+        ],
+        "accept": [
+          "The final siren went. We had won."
+        ],
+        "reason": "Each whole thought ends with a full stop. The next sentence starts with a capital."
+      }
+    },
+    {
+      "id": "6.1-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "A launch report from the ice base has a full stop missing.",
+      "prompt": "Tap the spot where a full stop is missing.",
+      "success": "'The rocket roared into the sky' is one whole thought. The stop goes before 'it'.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "The rocket",
+            "reason": "This is the start of the first sentence, and it already has a capital."
+          },
+          " roared into the ",
+          {
+            "tap": "sky it"
+          },
+          " left a trail of ",
+          {
+            "tap": "smoke.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.1-b1-5",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Dotumble only wakes for sentences that are punctuated right.",
+      "prompt": "Match each sentence to the right snowdrift.",
+      "success": "A sentence needs a capital at the start, a full stop at the end, and capitals for names.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "needs a fix"
+        ],
+        "items": [
+          {
+            "text": "The yeti waved at us.",
+            "bin": 0,
+            "reason": "It starts with a capital and ends with a full stop."
+          },
+          {
+            "text": "the yeti waved at us.",
+            "bin": 1,
+            "reason": "A sentence must start with a capital letter: The."
+          },
+          {
+            "text": "My dog loves the snow.",
+            "bin": 0,
+            "reason": "It starts with a capital and ends with a full stop."
+          },
+          {
+            "text": "My dog loves the snow it eats it.",
+            "bin": 1,
+            "reason": "Two whole thoughts crash here. A full stop belongs after 'snow'."
+          },
+          {
+            "text": "We met Gus at the lodge.",
+            "bin": 0,
+            "reason": "Gus is a name, and it has its capital."
+          },
+          {
+            "text": "We met gus at the lodge.",
+            "bin": 1,
+            "reason": "Gus is a name, so it needs a capital letter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.1-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "Zed is practising drums in the ski hut. Mo wrote down what happened.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Two whole thoughts, two full stops, and 'The cat' starts the second with a capital.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Zed played his drums. The cat hid under the bed."
+          },
+          {
+            "text": "Zed played his drums the cat hid under the bed.",
+            "reason": "There's no full stop, so two whole thoughts crash into each other."
+          },
+          {
+            "text": "Zed played his drums, the cat hid under the bed.",
+            "reason": "A comma can't end a whole thought. You need a full stop after 'drums'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b2-1",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo's recipe for snow-gum honey toast has a full stop missing.",
+      "prompt": "Tap where a full stop is missing, then choose the fix.",
+      "success": "'Melt the butter in a pan' is one whole instruction. A full stop ends it, then 'Add' starts the next.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Melt the",
+            "reason": "This is the start of the first sentence, and it already has a capital."
+          },
+          " butter in a ",
+          {
+            "tap": "pan add"
+          },
+          " the honey ",
+          {
+            "tap": "very slowly.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "pan. Add"
+          },
+          {
+            "text": "pan, add",
+            "reason": "A comma can't end a whole instruction. Each one needs its own full stop."
+          },
+          {
+            "text": "pan. add",
+            "reason": "The full stop is right, but the new sentence needs a capital: Add."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b2-2",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren is writing a postcard from the icy southern sea.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Two whole thoughts, two full stops. 'It' starts the second sentence with a capital.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The whale rose out of the water. It blew a huge spout of spray."
+          },
+          {
+            "text": "The whale rose out of the water, it blew a huge spout of spray.",
+            "reason": "A comma can't end a whole thought. 'It blew a huge spout' needs its own sentence."
+          },
+          {
+            "text": "The whale rose out of the water. It blew a huge spout. Of spray.",
+            "reason": "'Of spray.' isn't a whole thought. It belongs with the spout."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b2-3",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed's speedrun log froze and fell to bits.",
+      "prompt": "Tap the pieces in order to make two sentences. Start with Zed.",
+      "success": "Each whole thought ends with a full stop. 'The boss' starts the second sentence with a capital.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Zed reached the last level",
+          ".",
+          "The boss",
+          "the boss",
+          "was a giant snowman",
+          "."
+        ],
+        "accept": [
+          "Zed reached the last level. The boss was a giant snowman."
+        ],
+        "reason": "Each whole thought ends with a full stop. The next sentence starts with a capital."
+      }
+    },
+    {
+      "id": "6.1-b2-4",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Wren's diary from the haunted ski hut is missing a capital.",
+      "prompt": "Tap the word that should start with a capital letter.",
+      "success": "Days of the week are names, so Friday always gets a capital.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "On ",
+          {
+            "tap": "friday"
+          },
+          " night, ",
+          {
+            "tap": "Wren",
+            "reason": "Wren is a name, and it already has its capital."
+          },
+          " heard a ",
+          {
+            "tap": "howl",
+            "reason": "Howl is an ordinary word in the middle of a sentence, so it stays small."
+          },
+          " outside the hut. ",
+          {
+            "tap": "Nobody",
+            "reason": "Nobody starts a new sentence, and it already has its capital."
+          },
+          " else was awake."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b2-5",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The snow-clearing robot's error log is a mess. Help the Dotumble check it.",
+      "prompt": "Match each line to the right snowdrift.",
+      "success": "One whole thought needs one full stop. Two whole thoughts need two.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "one sentence, punctuated right",
+          "two sentences crashed together"
+        ],
+        "items": [
+          {
+            "text": "The robot beeped three times.",
+            "bin": 0,
+            "reason": "This is one whole thought, and it ends with a full stop."
+          },
+          {
+            "text": "The robot beeped it spun around.",
+            "bin": 1,
+            "reason": "'The robot beeped' and 'it spun around' are two whole thoughts. A full stop goes after 'beeped'."
+          },
+          {
+            "text": "Our robot can sweep the whole path.",
+            "bin": 0,
+            "reason": "This is one whole thought, and it ends with a full stop."
+          },
+          {
+            "text": "Our robot can sweep the path it hates snow.",
+            "bin": 1,
+            "reason": "Two whole thoughts crash here. A full stop belongs after 'path'."
+          },
+          {
+            "text": "When the battery died, the robot froze.",
+            "bin": 0,
+            "reason": "'When the battery died' can't stand alone, so this is one sentence."
+          },
+          {
+            "text": "The battery died the robot froze.",
+            "bin": 1,
+            "reason": "Two whole thoughts crash here. A full stop belongs after 'died'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.1-b2-6",
+      "band": 2,
+      "topic": "sport",
+      "frame": "The ski race results are up on the lodge noticeboard.",
+      "prompt": "Tap where a full stop is missing, then choose the fix.",
+      "success": "The first thought ends after 'slope'. A full stop goes there, and 'The' gets a capital.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "The skiers",
+            "reason": "This is the start of the first sentence, and it already has a capital."
+          },
+          " raced down the icy ",
+          {
+            "tap": "slope the"
+          },
+          " fastest one won a ",
+          {
+            "tap": "gold cup.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "slope. The"
+          },
+          {
+            "text": "slope, the",
+            "reason": "A comma can't end a whole thought. You need a full stop here."
+          },
+          {
+            "text": "slope. the",
+            "reason": "The full stop is right, but the new sentence needs a capital: The."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b3-1",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi is writing a label for her mural in the lodge dining room.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Each whole thought gets its own full stop, and 'It' starts the second sentence with a capital.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Indi painted a huge mural of a snow gum. It covered the whole wall."
+          },
+          {
+            "text": "Indi painted a huge mural of a snow gum, it covered the whole wall.",
+            "reason": "A comma can't end a whole thought. 'It covered the whole wall' needs its own sentence."
+          },
+          {
+            "text": "Indi painted a huge mural. Of a snow gum it covered the whole wall.",
+            "reason": "The stop cuts the mural off from what it shows. 'Of a snow gum' belongs with the mural."
+          },
+          {
+            "text": "Indi painted a huge mural of a snow gum it covered the whole wall.",
+            "reason": "There's no full stop, so two whole thoughts crash into each other."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b3-2",
+      "band": 3,
+      "topic": "space",
+      "frame": "Mission control's spacewalk report has a full stop missing.",
+      "prompt": "Tap where a full stop is missing, then choose the fix.",
+      "success": "'One of them waved at the camera' is a whole thought. A full stop ends it before 'The'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The astronauts floated out of the ",
+          {
+            "tap": "hatch. One",
+            "reason": "There's already a full stop and a capital here. This part is fine."
+          },
+          " of them waved at the ",
+          {
+            "tap": "camera the"
+          },
+          " other spun in ",
+          {
+            "tap": "slow circles.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "camera. The"
+          },
+          {
+            "text": "camera, the",
+            "reason": "A comma can't end a whole thought. You need a full stop here."
+          },
+          {
+            "text": "camera. the",
+            "reason": "The full stop is right, but the new sentence needs a capital: The."
+          },
+          {
+            "text": "camera The",
+            "reason": "A capital alone isn't enough. The first thought still needs a full stop to end it."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's snow ice cream review got scattered across the kitchen.",
+      "prompt": "Tap the pieces in order to make two sentences. Start with what Mo tried.",
+      "success": "Two whole thoughts need two full stops. A comma can't hold them together on its own.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Mo tried to make snow ice cream",
+          ".",
+          ",",
+          "It",
+          "it",
+          "tasted like",
+          "a frozen sock",
+          "."
+        ],
+        "accept": [
+          "Mo tried to make snow ice cream. It tasted like a frozen sock."
+        ],
+        "reason": "Each whole thought needs a full stop, not a comma. The second sentence starts with a capital."
+      }
+    },
+    {
+      "id": "6.1-b3-4",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's field notes on an alpine skink need one more full stop.",
+      "prompt": "Tap the spot where one sentence should end.",
+      "success": "The skink warming itself on a rock is one whole thought. A new one starts at 'it darted'.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The alpine ",
+          {
+            "tap": "skink warmed",
+            "reason": "The skink is still warming itself here. That first thought isn't finished yet."
+          },
+          " itself on a flat ",
+          {
+            "tap": "rock it"
+          },
+          " darted ",
+          {
+            "tap": "away when",
+            "reason": "'When a shadow passed over' tells you when it darted, so it's part of the same thought."
+          },
+          " a shadow ",
+          {
+            "tap": "passed over.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.1-b3-5",
+      "band": 3,
+      "topic": "general",
+      "frame": "The Dotumble found Tully's holiday diary. Each line has one problem, or none.",
+      "prompt": "Match each line to the right snowdrift.",
+      "success": "Full stops end whole thoughts. Capitals start sentences and names.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "missing a full stop",
+          "missing a capital"
+        ],
+        "items": [
+          {
+            "text": "Our lodge has a view of Mount Frostbite.",
+            "bin": 0,
+            "reason": "It has its capitals and its full stop, so it's right."
+          },
+          {
+            "text": "We arrived on Tuesday the snow was perfect.",
+            "bin": 1,
+            "reason": "Two whole thoughts crash here. A full stop belongs after 'Tuesday'."
+          },
+          {
+            "text": "my cousin Lena can ski backwards.",
+            "bin": 2,
+            "reason": "A sentence must start with a capital letter: My."
+          },
+          {
+            "text": "Gus and I built a snowman with a carrot nose.",
+            "bin": 0,
+            "reason": "It has its capitals and its full stop, so it's right."
+          },
+          {
+            "text": "The chairlift stopped halfway up we swung in the wind.",
+            "bin": 1,
+            "reason": "Two whole thoughts crash here. A full stop belongs after 'up'."
+          },
+          {
+            "text": "We met tully at the top of the run.",
+            "bin": 2,
+            "reason": "Tully is a name, so it needs a capital letter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.1-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo is telling everyone about his breakfast disaster.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Two whole thoughts, two full stops. 'Along to his music' belongs with the singing.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo burnt the toast. The smoke alarm sang along to his music."
+          },
+          {
+            "text": "Mo burnt the toast the smoke alarm sang along to his music.",
+            "reason": "There's no full stop, so two whole thoughts crash into each other."
+          },
+          {
+            "text": "Mo burnt the toast. The smoke alarm sang. Along to his music.",
+            "reason": "'Along to his music.' isn't a whole thought. It belongs with the singing."
+          },
+          {
+            "text": "Mo burnt the toast, the smoke alarm sang along to his music.",
+            "reason": "A comma can't end a whole thought. You need a full stop after 'toast'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The icebreaker's logbook has one full stop missing.",
+      "prompt": "Tap where a full stop is missing, then choose the fix.",
+      "success": "Spotting the penguins is one whole thought. A full stop ends it, and 'They' starts the next.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The icebreaker crunched through the frozen sea for three ",
+          {
+            "tap": "days. On",
+            "reason": "There's already a full stop and a capital here. This part is fine."
+          },
+          " the fourth morning, the crew spotted a colony of emperor ",
+          {
+            "tap": "penguins they"
+          },
+          " were huddled together against the ",
+          {
+            "tap": "bitter wind.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "penguins. They"
+          },
+          {
+            "text": "penguins, they",
+            "reason": "A comma can't end a whole thought. You need a full stop here."
+          },
+          {
+            "text": "penguins. they",
+            "reason": "The full stop is right, but the new sentence needs a capital: They."
+          },
+          {
+            "text": "penguins They",
+            "reason": "A capital alone isn't enough. The first thought still needs a full stop to end it."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b4-2",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed is reading out a ghost story by torchlight. Which page was printed right?",
+      "prompt": "Which version is punctuated right?",
+      "success": "Each whole thought ends with a full stop, and 'Nobody' starts the second sentence with a capital.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Something scratched at the window of the hut long after midnight. Nobody dared to pull back the curtain."
+          },
+          {
+            "text": "Something scratched at the window of the hut long after midnight, nobody dared to pull back the curtain.",
+            "reason": "A comma can't end a whole thought. A full stop belongs after 'midnight'."
+          },
+          {
+            "text": "Something scratched at the window of the hut long after midnight nobody dared to pull back the curtain.",
+            "reason": "There's no full stop, so two whole thoughts crash into each other."
+          },
+          {
+            "text": "Something scratched at the window. Of the hut long after midnight nobody dared to pull back the curtain.",
+            "reason": "The stop cuts 'of the hut' away from the window it belongs to."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.1-b4-3",
+      "band": 4,
+      "topic": "robots",
+      "frame": "A message from the snow rover arrived in pieces.",
+      "prompt": "Tap the pieces in order to make two sentences. Start with the battery.",
+      "success": "Two whole thoughts need two full stops, and 'Mission control' starts the second with a capital.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The rover's battery was almost flat",
+          ".",
+          ",",
+          "Mission control",
+          "mission control",
+          "ordered it to park in the sunlight",
+          "."
+        ],
+        "accept": [
+          "The rover's battery was almost flat. Mission control ordered it to park in the sunlight."
+        ],
+        "reason": "Each whole thought needs a full stop, not a comma. The second sentence starts with a capital."
+      }
+    },
+    {
+      "id": "6.1-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "The gallery's newsletter about Indi's ice sculpture needs one more full stop.",
+      "prompt": "Tap the spot where a full stop is missing.",
+      "success": "The first sentence ends after 'sculpture'. 'It took six weeks' is a new whole thought.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "When the gallery ",
+          {
+            "tap": "opened, crowds",
+            "reason": "This comma closes the 'When' part. The first sentence keeps going after it."
+          },
+          " rushed to see Indi's ice ",
+          {
+            "tap": "sculpture it"
+          },
+          " took six ",
+          {
+            "tap": "weeks to",
+            "reason": "'To carve from one block' explains the six weeks, so it's the same thought."
+          },
+          " carve from a ",
+          {
+            "tap": "one block.",
+            "reason": "This is the end, and the full stop is already there."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.1-b4-5",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed's game review is full of sentences. The Dotumble wants the broken ones found.",
+      "prompt": "Match each sentence to the right snowdrift.",
+      "success": "A full stop ends a whole thought. A comma can't do that job, and a 'because' part can't stand alone.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "needs a fix"
+        ],
+        "items": [
+          {
+            "text": "Although the level looked impossible, Zed finished it in under a minute.",
+            "bin": 0,
+            "reason": "'Although the level looked impossible' can't stand alone, so this is one sentence, punctuated right."
+          },
+          {
+            "text": "Zed finished the level in under a minute, his friends couldn't believe it.",
+            "bin": 1,
+            "reason": "Two whole thoughts are held by a comma. A full stop belongs after 'minute'."
+          },
+          {
+            "text": "The final boss was a frost dragon. It breathed icicles instead of fire.",
+            "bin": 0,
+            "reason": "Two whole thoughts, each with its own full stop and capital."
+          },
+          {
+            "text": "The final boss was a frost dragon it breathed icicles instead of fire.",
+            "bin": 1,
+            "reason": "Two whole thoughts crash here. A full stop belongs after 'dragon'."
+          },
+          {
+            "text": "Because the game crashed. Zed lost his whole save file.",
+            "bin": 1,
+            "reason": "'Because the game crashed.' can't stand alone. It needs to join the next part."
+          },
+          {
+            "text": "After the update, the game ran smoothly on every tablet.",
+            "bin": 0,
+            "reason": "This is one whole thought, and it ends with a full stop."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.1-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's match report blames the coach. Where the full stop goes changes the story.",
+      "prompt": "Which version is punctuated right and says the coach slept through the whole match?",
+      "success": "The stop after 'match' keeps 'through the whole match' with the coach's sleep.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The coach slept through the whole match. Tully kicked six goals."
+          },
+          {
+            "text": "The coach slept. Through the whole match, Tully kicked six goals.",
+            "reason": "Here 'through the whole match' belongs to Tully's goals. It no longer says when the coach slept."
+          },
+          {
+            "text": "The coach slept through the whole match, Tully kicked six goals.",
+            "reason": "A comma can't end a whole thought. You need a full stop after 'match'."
+          },
+          {
+            "text": "The coach slept through. The whole match Tully kicked six goals.",
+            "reason": "'Slept through' doesn't say what he slept through, so it no longer says he missed the match."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

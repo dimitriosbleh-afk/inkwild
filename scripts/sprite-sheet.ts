@@ -1,6 +1,9 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { crc32, deflateSync } from 'node:zlib';
-import { DRAWN } from '../src/art/drawn';
+import { DRAWN as BASE } from '../src/art/drawn';
+import { COMMA } from '../src/art/drawn/comma';
+
+const DRAWN = { ...BASE, ...COMMA };
 import type { SpriteDef } from '../src/art/sprite';
 
 /** Renders every hand-made Creature (base, evolved, shiny) into one PNG contact sheet, so art can be checked by eye. */

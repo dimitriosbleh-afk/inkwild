@@ -1,0 +1,526 @@
+{
+  "skill": {
+    "id": "6.6",
+    "name": "Commas that change the meaning",
+    "codes": ["VC2E6LA09"],
+    "why": "One little comma can stop Grandma from becoming dinner.",
+    "how": "Read the sentence with and without the comma. Pick the one that means what you mean.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          { "say": "A comma is tiny, but it can change everything." },
+          { "say": "No comma here, so Grandma is on the menu!", "show": "Let's eat **Grandma**." },
+          { "say": "Add a comma. Now we're talking to Grandma.", "show": "Let's eat**,** Grandma." },
+          { "say": "Commas split a list. This comma makes three things, not two.", "show": "We bought chocolate**,** milk and bread." },
+          { "say": "So read it both ways. Which one means what you mean?" }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Mo is telling Gus that dinner is ready.",
+          "prompt": "Which sentence should Mo say?",
+          "hint": "Is Gus the one being spoken to, or the one being eaten?",
+          "success": "The comma shows Mo is talking to Gus. Gus gets dinner instead of being dinner.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "We're ready to eat, Gus." },
+              { "text": "We're ready to eat Gus.", "reason": "With no comma, Gus is the food. Poor Gus." },
+              { "text": "We're ready, to eat Gus.", "reason": "This comma is in the wrong spot. Gus is still the food." }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "We need chocolate, milk and bread.",
+          "prompt": "How many things do we need?",
+          "hint": "Each comma, and the word and, splits off a new thing.",
+          "success": "Three. The comma splits chocolate from milk. Without it, you'd buy chocolate milk.",
+          "body": {
+            "format": "choose",
+            "options": [
+              { "text": "three" },
+              { "text": "two", "reason": "That would be chocolate milk and bread. The comma splits chocolate and milk apart." },
+              { "text": "one", "reason": "The comma and the word and split the list into separate things." }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "pivvet",
+      "name": "Pivvet",
+      "evolved": "Pivvetrix",
+      "blurb": "A grasshopper from the snowy peaks that changes colour whenever a comma moves. Shift one, and the meaning hops somewhere new."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.6-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is sticking a note on the igloo door for Tully.",
+      "text": "Mo wants Tully to come in for dinner.",
+      "prompt": "Which note should Mo write?",
+      "success": "The comma shows Mo is talking to Tully. She's invited to dinner, not on the menu.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Come and eat, Tully!" },
+          { "text": "Come and eat Tully!", "reason": "No comma means Tully is the dinner. She would not like that." },
+          { "text": "Come, and eat Tully!", "reason": "This comma doesn't help. Tully is still the dinner." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is reading her shopping receipt from the snow shop.",
+      "text": "Wren bought chocolate, milk and bread for the trip.",
+      "prompt": "How many things did Wren buy?",
+      "success": "Three. The comma splits chocolate from milk, so they are two separate things, plus bread.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "three" },
+          { "text": "two", "reason": "That would be chocolate milk and bread. The comma splits chocolate and milk apart." },
+          { "text": "one", "reason": "The comma and the word and split the list into separate things." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b1-3",
+      "band": 1,
+      "topic": "funny",
+      "frame": "The Pivvet flashes a new colour for each sentence about Gus.",
+      "prompt": "Match each sentence to what it means.",
+      "success": "A comma before a name means you're talking to that person. No comma, and things happen to them.",
+      "body": {
+        "format": "sort",
+        "bins": ["Someone is talking to Gus", "Something is happening to Gus"],
+        "items": [
+          { "text": "Let's eat, Gus.", "bin": 0, "reason": "The comma shows we're talking to Gus. He's invited to eat." },
+          { "text": "Let's eat Gus.", "bin": 1, "reason": "No comma, so Gus is what gets eaten. Yikes." },
+          { "text": "Stop licking, Gus.", "bin": 0, "reason": "The comma shows Gus is being told to stop licking." },
+          { "text": "Stop licking Gus.", "bin": 1, "reason": "No comma, so someone is licking Gus. Gross." }
+        ]
+      }
+    },
+    {
+      "id": "6.6-b1-4",
+      "band": 1,
+      "topic": "general",
+      "frame": "Mo is calling Grandpa in from the snow. Don't let him get it wrong.",
+      "prompt": "Tap the pieces in order so Grandpa is invited to dinner, not served as dinner.",
+      "success": "The comma before Grandpa shows Mo is talking to him. Grandpa is safe.",
+      "body": {
+        "format": "build",
+        "tiles": ["Time to eat", ",", "Grandpa", "!"],
+        "accept": ["Time to eat, Grandpa!"],
+        "reason": "Put the comma just before Grandpa. That shows Mo is calling to him."
+      }
+    },
+    {
+      "id": "6.6-b1-5",
+      "band": 1,
+      "topic": "gross-science",
+      "frame": "Gus left three notes by the frozen slime tank.",
+      "prompt": "Gus is talking to Wren. Tap the note that shows it.",
+      "success": "The comma before Wren shows Gus is talking to her. Nobody is poking Wren.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Stop poking, Wren." },
+          "  ",
+          { "tap": "Stop poking Wren.", "reason": "No comma, so someone is poking Wren. Gus is talking about her, not to her." },
+          "  ",
+          { "tap": "Stop, poking Wren.", "reason": "This comma tells someone to stop. Wren is still the one being poked." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b1-6",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Zed's spooky snow story has a scary mistake in it.",
+      "prompt": "Tap the part that needs a comma, then choose the fix.",
+      "success": "The yeti was just eating. The comma stops it eating the penguin, so the penguin waddles off safely.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "While the yeti", "reason": "This part is fine. Read on until the sentence trips you up." },
+          " was ",
+          { "tap": "eating the" },
+          " penguin ",
+          { "tap": "waddled off.", "reason": "This part is fine. Look at where the eating should stop." }
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "eating, the" },
+          { "text": "eating the,", "reason": "That comma splits 'the' from 'penguin'. Commas don't go between those words." },
+          { "text": "ate the", "reason": "Changing the word doesn't help. The yeti still eats the penguin. You need a comma." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Mission control is checking in with the rocket on the ice runway.",
+      "text": "Mission control wants to ask Gus if he is ready for take-off.",
+      "prompt": "Which message should they send?",
+      "success": "The comma shows they are talking to Commander Gus. He's flying the rocket, not being fired off.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Are you ready to launch, Commander Gus?" },
+          { "text": "Are you ready to launch Commander Gus?", "reason": "No comma means someone is launching Gus into space, like a rocket." },
+          { "text": "Are you ready, to launch Commander Gus?", "reason": "This comma doesn't help. Gus is still the thing being launched." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b2-2",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo is writing up the menu from the snow festival.",
+      "text": "Mo says they ate exactly three things.",
+      "prompt": "Which sentence matches?",
+      "success": "Chocolate cake, ice cream and jelly. The commas sit between the three things, not inside them.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "We ate chocolate cake, ice cream and jelly." },
+          { "text": "We ate chocolate, cake, ice cream and jelly.", "reason": "The comma after chocolate splits it from cake. That makes four things." },
+          { "text": "We ate chocolate cake, ice, cream and jelly.", "reason": "The comma after ice splits it from cream. That makes four things." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b2-3",
+      "band": 2,
+      "topic": "animals",
+      "frame": "A snow possum is hungry, and a moth is in danger.",
+      "prompt": "Tap the pieces in order so the moth gets away safely.",
+      "success": "The comma after eating shows the possum was just eating. The moth is free to fly away.",
+      "body": {
+        "format": "build",
+        "tiles": ["While the possum", "was eating", ",", "the moth", "flew away."],
+        "accept": ["While the possum was eating, the moth flew away."],
+        "reason": "Put the comma straight after 'eating'. Then the possum isn't eating the moth."
+      }
+    },
+    {
+      "id": "6.6-b2-4",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Pivvet is packing for the Comma Cay ice concert.",
+      "prompt": "Match each sentence to how many things are on the list.",
+      "success": "A comma splits two words into separate things. With no comma, they stay together as one thing.",
+      "body": {
+        "format": "sort",
+        "bins": ["two things", "three things"],
+        "items": [
+          { "text": "Bring your bass guitar and drums.", "bin": 0, "reason": "No comma between bass and guitar, so it's one bass guitar, plus drums." },
+          { "text": "Bring your bass, guitar and drums.", "bin": 1, "reason": "The comma makes bass its own thing: bass, guitar and drums." },
+          { "text": "We need a grand piano and a stool.", "bin": 0, "reason": "A grand piano is one thing. The stool is the second." },
+          { "text": "We need a piano, a stool and a fan.", "bin": 1, "reason": "The comma and the word and split this into three things." }
+        ]
+      }
+    },
+    {
+      "id": "6.6-b2-5",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's snow footy report makes it sound like she kicked the wrong thing.",
+      "prompt": "Tap the part that needs a comma, then choose the fix.",
+      "success": "The comma shows Tully kicked, and then the ball rolled away. She didn't kick it into itself.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "After Tully", "reason": "This part is fine. Look for where the kicking should stop." },
+          " ",
+          { "tap": "kicked the" },
+          " ball ",
+          { "tap": "rolled into", "reason": "This part is fine. Look for where the kicking should stop." },
+          " the snowdrift."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "kicked, the" },
+          { "text": "kicked the,", "reason": "That splits 'the' from 'ball'. Commas don't go between those words." },
+          { "text": "kicked. The", "reason": "A full stop leaves 'After Tully kicked' as a broken sentence on its own." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b2-6",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed is sending messages from the ice castle level.",
+      "prompt": "Zed is asking Wren a question. Tap the message that shows it.",
+      "success": "The comma before Wren shows Zed is talking to her. Without it, Wren is the boss.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          { "tap": "Can you beat the boss, Wren?" },
+          "  ",
+          { "tap": "Can you beat the boss Wren?", "reason": "No comma makes Wren the boss's name. Zed would be asking someone else to beat her." },
+          "  ",
+          { "tap": "Can you, beat the boss Wren?", "reason": "This comma doesn't help. Wren is still the boss to beat." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "There's a ghost party in the frozen castle, and the vampire is nervous.",
+      "prompt": "Which sentence shows the vampire got away safely?",
+      "success": "The comma after eat shows the ghost was just eating. The vampire is the one who left.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Before the ghost could eat, the vampire left the party." },
+          { "text": "Before the ghost could eat the vampire, left the party.", "reason": "This comma comes after vampire, so the ghost eats the vampire. Then nobody is there to leave." },
+          { "text": "Before, the ghost could eat the vampire left the party.", "reason": "A comma after 'Before' cuts it off, and the ghost still seems to eat the vampire." },
+          { "text": "Before the ghost could eat the vampire, it left the party.", "reason": "Here the ghost eats the vampire first, then leaves. The vampire didn't get away." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren has named some of the animals at the snow shelter after herself. Confusing!",
+      "prompt": "Match each sentence to what it means.",
+      "success": "A comma next to Wren shows you're talking to her. No comma, and Wren is an animal's name.",
+      "body": {
+        "format": "sort",
+        "bins": ["Talking to Wren", "Not talking to Wren"],
+        "items": [
+          { "text": "Wren, the wombat is stuck in the snow.", "bin": 0, "reason": "The comma after Wren shows someone is telling her about the wombat." },
+          { "text": "Wren the wombat is stuck in the snow.", "bin": 1, "reason": "No comma, so Wren is the wombat's name. Nobody is talking to her." },
+          { "text": "Feed the possums, Wren.", "bin": 0, "reason": "The comma shows Wren is being asked to feed the possums." },
+          { "text": "Feed the possum Wren.", "bin": 1, "reason": "No comma, so Wren sounds like the possum's name, not the person being spoken to." }
+        ]
+      }
+    },
+    {
+      "id": "6.6-b3-3",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus built a cleaning robot. It has a cat problem.",
+      "prompt": "Tap the pieces in order so the cat stays dry.",
+      "success": "The comma after cleaned shows the robot was cleaning in general. The cat just watched.",
+      "body": {
+        "format": "build",
+        "tiles": ["As the robot", "cleaned", ",", "the cat", "watched from the couch."],
+        "accept": ["As the robot cleaned, the cat watched from the couch."],
+        "reason": "Put the comma straight after 'cleaned'. Then the robot isn't cleaning the cat."
+      }
+    },
+    {
+      "id": "6.6-b3-4",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi wants Mo to keep his hands off her wet mural. Her note says something else.",
+      "prompt": "Tap the part that gives the wrong meaning, then choose the fix.",
+      "success": "The comma before Mo shows Indi is talking to him. Mo must not touch the wet paint.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          { "tap": "Please", "reason": "Please is fine. Look for the part that makes Mo the thing not to touch." },
+          " ",
+          { "tap": "don't touch Mo" },
+          ". The ",
+          { "tap": "paint", "reason": "Paint is fine. Look for the part that makes Mo the thing not to touch." },
+          " is still ",
+          { "tap": "wet", "reason": "Wet is fine. Look for the part that makes Mo the thing not to touch." },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          { "text": "don't touch, Mo" },
+          { "text": "don't, touch Mo", "reason": "That comma splits 'don't' from 'touch'. Mo is still the one not to touch." },
+          { "text": "don't touch Mo!", "reason": "Shouting doesn't help. Without a comma, it still says nobody should touch Mo." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b3-5",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The polar aquarium is painting a new sign. It should list three animals.",
+      "prompt": "Which sign lists exactly three animals?",
+      "success": "Sea lions, killer whales and penguins. The commas sit between the animals, never inside their names.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Come and see sea lions, killer whales and penguins." },
+          { "text": "Come and see sea, lions, killer whales and penguins.", "reason": "The comma after sea splits it off. Now you've got the sea and some lions." },
+          { "text": "Come and see sea lions, killer, whales and penguins.", "reason": "The comma after killer splits it from whales. Now 'killer' is a thing on its own." },
+          { "text": "Come and see sea lions, killer whales, penguins and seals.", "reason": "That's four animals: sea lions, killer whales, penguins and seals." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo wrote about his hobbies. Without a comma, it sounds very strange.",
+      "prompt": "Mo needs one comma so he isn't painting his nan. Tap the word it should go after.",
+      "success": "A comma after painting turns it into a list: painting, his nan and his budgie. Nan stays paint-free.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo ",
+          { "tap": "loves", "reason": "A comma after loves splits Mo from the things he loves." },
+          " ",
+          { "tap": "painting" },
+          " his ",
+          { "tap": "nan", "reason": "A comma after nan comes before 'and'. Mo would still be painting his nan." },
+          " and his ",
+          { "tap": "budgie", "reason": "Nothing comes after budgie, so there's nothing to separate." },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.6-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "Zed is writing a guidebook for the hotel on the ice moon.",
+      "text": "Zed wants to say that ordinary travellers forget their snacks most of the time.",
+      "prompt": "Which sentence can only mean ordinary travellers?",
+      "success": "The comma after time ends the phrase 'most of the time'. Then travellers are just ordinary travellers.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Most of the time, travellers to the ice moon forget to pack snacks." },
+          { "text": "Most of the time travellers to the ice moon forget to pack snacks.", "reason": "Without a comma, 'time travellers' can stick together. Then they're people who travel through time." },
+          { "text": "Most, of the time travellers to the ice moon forget to pack snacks.", "reason": "This says most of the time travellers, as in most of a group who travel through time." },
+          { "text": "Most of the time travellers, to the ice moon, forget to pack snacks.", "reason": "These commas still leave 'time travellers' stuck together as one group." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is commentating the Comma Cay snow footy final.",
+      "prompt": "Match each sentence to what it means.",
+      "success": "A comma next to Ash shows you're speaking to Ash. No comma, and Ash is the person you're talking about.",
+      "body": {
+        "format": "sort",
+        "bins": ["Speaking to Ash", "Talking about Ash"],
+        "items": [
+          { "text": "Pass the ball to the forward, Ash.", "bin": 0, "reason": "The comma shows Ash is being told to pass to the forward." },
+          { "text": "Pass the ball to the forward Ash.", "bin": 1, "reason": "No comma, so Ash is the forward who gets the ball." },
+          { "text": "Ash, the umpire has called time on the quarter.", "bin": 0, "reason": "The comma after Ash shows someone is telling Ash the news." },
+          { "text": "Ash the umpire has called time on the quarter.", "bin": 1, "reason": "No comma, so Ash is the umpire's name. Nobody is speaking to Ash." }
+        ]
+      }
+    },
+    {
+      "id": "6.6-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing up what happened in the lab after a very messy experiment.",
+      "prompt": "Tap the pieces in order so the rat is not the thing being cleaned.",
+      "success": "The comma after cleaning shows Gus was cleaning the lab in general. The rat just scampered home.",
+      "body": {
+        "format": "build",
+        "tiles": ["Once Gus", "had finished", "cleaning", ",", "the lab rat", "scampered back", "into its cage."],
+        "accept": ["Once Gus had finished cleaning, the lab rat scampered back into its cage."],
+        "reason": "Put the comma straight after 'cleaning'. Otherwise Gus is scrubbing the rat."
+      }
+    },
+    {
+      "id": "6.6-b4-4",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Tully is leaving a message for the captain of the icebreaker ship.",
+      "text": "Tully wants the captain to phone her when the ship arrives.",
+      "prompt": "Which message says that?",
+      "success": "The commas around Captain show Tully is speaking to the captain and asking for a call.",
+      "body": {
+        "format": "choose",
+        "options": [
+          { "text": "Call me, Captain, when the ship reaches the frozen harbour." },
+          { "text": "Call me Captain when the ship reaches the frozen harbour.", "reason": "No commas, so Tully wants to be called Captain. She wants a phone call instead." },
+          { "text": "Call me Captain, when the ship reaches the frozen harbour.", "reason": "Captain is still stuck to 'call me', so it's the name Tully wants to be called." },
+          { "text": "Call, me Captain, when the ship reaches the frozen harbour.", "reason": "That comma splits 'call' from 'me', so the sentence falls apart." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "The Comma Cay band has put up an ad. Without a comma, they'll only get two people.",
+      "text": "The band needs three new members.",
+      "prompt": "Tap the part that gives the wrong meaning, then choose the fix.",
+      "success": "The comma splits drummer from singer, so the band gets three people: a drummer, a singer and a keyboard player.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wanted for the winter concert: a ",
+          { "tap": "drummer singer" },
+          " and ",
+          { "tap": "keyboard player", "reason": "Keyboard player is one person. Look for two people stuck together as one." },
+          " who can handle ",
+          { "tap": "freezing fingers", "reason": "This part is fine. Look for two people stuck together as one." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "drummer, singer" },
+          { "text": "drummer-singer", "reason": "A hyphen joins them into one person who drums and sings. That's only two members." },
+          { "text": "drummer singer,", "reason": "Drummer and singer are still stuck together as one person. The comma must split them." }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.6-b4-6",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The kitchen robot's report has gone wrong, and the Pivvet has turned a worried grey.",
+      "prompt": "Tap the word that needs a comma straight after it.",
+      "success": "A comma after wash stops the robot washing the dishwasher. The dishwasher did the flooding.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Before the ",
+          { "tap": "robot", "reason": "A comma after robot would split the robot from what it could do." },
+          " could ",
+          { "tap": "wash" },
+          " the ",
+          { "tap": "dishwasher", "reason": "A comma here splits the dishwasher from what it did, and the robot still washes it." },
+          " flooded the ",
+          { "tap": "kitchen", "reason": "Kitchen floor is one thing, so a comma between them makes no sense." },
+          " floor."
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

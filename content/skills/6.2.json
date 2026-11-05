@@ -1,0 +1,900 @@
+{
+  "skill": {
+    "id": "6.2",
+    "name": "Commas in a list",
+    "codes": [
+      "L4"
+    ],
+    "why": "List commas keep things apart, so readers know how many there are.",
+    "how": "Put commas between the items, but use 'and' or 'or' before the last one.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A list is three or more things in a row.",
+            "show": "I packed **gloves**, **goggles** and **a beanie**."
+          },
+          {
+            "say": "A comma keeps each item apart from the next one.",
+            "show": "I packed gloves**,** goggles and a beanie."
+          },
+          {
+            "say": "Before the last item, use and.",
+            "show": "gloves, goggles **and** a beanie"
+          },
+          {
+            "say": "Commas change the count. Four things here, not three.",
+            "show": "Mo bought chocolate**,** milk**,** bread and eggs."
+          },
+          {
+            "say": "Leave one out and Mo is cooking his friends!",
+            "show": "Mo loves cooking**,** his friends and his dog."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which version is punctuated right?",
+          "hint": "Find each item in the list. Is there a comma between the items, and nowhere else?",
+          "success": "A comma goes between the items, and 'and' joins the last one. Nothing goes before the list.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "We need flour, eggs, milk and sugar."
+              },
+              {
+                "text": "We need flour eggs milk and sugar.",
+                "reason": "There are no commas, so the items run together."
+              },
+              {
+                "text": "We need, flour, eggs, milk and sugar.",
+                "reason": "The comma after 'need' comes before the list starts. Commas go between the items."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Which version means Mo bought four things?",
+          "hint": "Count the items. Each comma marks where one thing ends.",
+          "success": "The comma after 'chocolate' splits it from milk. That makes four things: chocolate, milk, bread and eggs.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Mo bought chocolate, milk, bread and eggs."
+              },
+              {
+                "text": "Mo bought chocolate milk, bread and eggs.",
+                "reason": "Here 'chocolate milk' is one drink, so that's only three things."
+              },
+              {
+                "text": "Mo bought chocolate milk bread and eggs.",
+                "reason": "With no commas the items blur together. It could even be chocolate milk bread!"
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "stashlet",
+      "name": "Stashlet",
+      "evolved": "Stashmantle",
+      "blurb": "A broad-toothed rat that stores seeds in neat rows under the snow. It puts a comma between each one so they never roll together."
+    }
+  },
+  "encounters": [
+    {
+      "id": "6.2-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is writing up the pizza order for the ski lodge.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Commas go between the items, and 'and' joins the last one: cheese, ham and pineapple.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo's pizza had cheese, ham and pineapple."
+          },
+          {
+            "text": "Mo's pizza had cheese ham and pineapple.",
+            "reason": "There's no comma, so cheese and ham run together."
+          },
+          {
+            "text": "Mo's pizza had cheese, ham and, pineapple.",
+            "reason": "There's a comma after 'and'. Nothing goes between 'and' and the last item."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren wrote a note about where the Stashlet hides its food.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "Seeds and nuts are two different things, so a comma keeps them apart.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "The Stashlet",
+            "reason": "This is who the sentence is about. The list hasn't started yet."
+          },
+          " hid ",
+          {
+            "tap": "seeds nuts"
+          },
+          " and berries under ",
+          {
+            "tap": "the snow.",
+            "reason": "This comes after the list, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "seeds, nuts"
+          },
+          {
+            "text": "seeds. Nuts",
+            "reason": "A full stop ends the sentence in the middle of the list. Lists need commas."
+          },
+          {
+            "text": ", seeds nuts",
+            "reason": "That comma comes before the list starts. Seeds and nuts still run together."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy bag spilled everywhere. Pack the list back up.",
+      "prompt": "Tap the pieces in order to make a list sentence.",
+      "success": "A comma between the first two items, and 'and' before the last one.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Tully packed",
+          "her boots",
+          ",",
+          "a footy",
+          "and",
+          "a drink bottle",
+          "."
+        ],
+        "accept": [
+          "Tully packed her boots, a footy and a drink bottle.",
+          "Tully packed her boots, a drink bottle and a footy.",
+          "Tully packed a footy, her boots and a drink bottle.",
+          "Tully packed a footy, a drink bottle and her boots.",
+          "Tully packed a drink bottle, her boots and a footy.",
+          "Tully packed a drink bottle, a footy and her boots."
+        ],
+        "reason": "Put a comma between the first two items, then 'and' before the last one."
+      }
+    },
+    {
+      "id": "6.2-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Gus's space poster for the ice base has a comma missing.",
+      "prompt": "Tap the spot where a comma is missing.",
+      "success": "Mercury and Venus are two different planets, so a comma keeps them apart.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The ",
+          {
+            "tap": "planets nearest",
+            "reason": "This tells you which planets. It isn't part of the list."
+          },
+          " the sun are ",
+          {
+            "tap": "Mercury Venus"
+          },
+          ", Earth and ",
+          {
+            "tap": "Mars.",
+            "reason": "Mars is the last item, and the full stop ends the list."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.2-b1-5",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Stashlet only stores lists that are punctuated right.",
+      "prompt": "Match each sentence to the right burrow.",
+      "success": "Commas go between the items. Never before the list starts, and never right after 'and'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "needs a fix"
+        ],
+        "items": [
+          {
+            "text": "We saw a wombat, a possum and an emu.",
+            "bin": 0,
+            "reason": "A comma splits the first two animals, and 'and' joins the last."
+          },
+          {
+            "text": "We saw a wombat a possum and an emu.",
+            "bin": 1,
+            "reason": "A comma is missing between the wombat and the possum."
+          },
+          {
+            "text": "Grab your hat, gloves and a scarf.",
+            "bin": 0,
+            "reason": "A comma splits the first two items, and 'and' joins the last."
+          },
+          {
+            "text": "Grab, your hat, gloves and a scarf.",
+            "bin": 1,
+            "reason": "The comma after 'Grab' comes before the list starts."
+          },
+          {
+            "text": "Gus, Zed and Indi built a snow fort.",
+            "bin": 0,
+            "reason": "A comma splits the first two names, and 'and' joins the last."
+          },
+          {
+            "text": "Gus Zed and Indi built a snow fort.",
+            "bin": 1,
+            "reason": "A comma is missing between Gus and Zed."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.2-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo wrote about himself for the lodge noticeboard. One comma matters a lot.",
+      "prompt": "Which version means Mo loves three things?",
+      "success": "The comma after 'cooking' makes it a list. Mo loves cooking, and he loves his friends and his dog.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo loves cooking, his friends and his dog."
+          },
+          {
+            "text": "Mo loves cooking his friends and his dog.",
+            "reason": "Without the comma, Mo loves cooking his friends and his dog. Yikes!"
+          },
+          {
+            "text": "Mo loves, cooking his friends and his dog.",
+            "reason": "A comma after 'loves' doesn't split the list. He's still cooking his friends!"
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b2-1",
+      "band": 2,
+      "topic": "food",
+      "frame": "The Stashlet left a note about its lunch. Gus wants to know what it ate.",
+      "prompt": "Which version means the Stashlet ate exactly two things?",
+      "success": "With no comma, 'snow cones' is one thing. Snow cones and gum leaves make two.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The Stashlet ate snow cones and gum leaves."
+          },
+          {
+            "text": "The Stashlet ate snow, cones and gum leaves.",
+            "reason": "The comma splits snow from cones. That's three things: snow, cones and gum leaves."
+          },
+          {
+            "text": "The Stashlet ate snow, cones, gum leaves.",
+            "reason": "The commas split snow from cones, so that's three things, not two."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b2-2",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi's shopping list for her poster has a comma in a strange spot.",
+      "prompt": "Tap the part with the wrong comma, then choose the fix.",
+      "success": "'And' joins the last item straight on. No comma goes between 'and' and glitter.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi needs ",
+          {
+            "tap": "brushes, glue",
+            "reason": "This comma keeps brushes and glue apart. It's in the right place."
+          },
+          " ",
+          {
+            "tap": "and, glitter"
+          },
+          " for her ",
+          {
+            "tap": "poster.",
+            "reason": "This comes after the list, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "and glitter"
+          },
+          {
+            "text": "and glitter,",
+            "reason": "A comma after the last item cuts the list off from the rest of the sentence."
+          },
+          {
+            "text": ". And glitter",
+            "reason": "A full stop ends the sentence in the middle of the list."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed's band poster blew off the lodge door. Put it back together.",
+      "prompt": "Tap the pieces in order to make a list sentence.",
+      "success": "A comma between the first two items, and 'and' before the last one.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The band needs",
+          "a drummer",
+          ",",
+          "a singer",
+          "and",
+          "two guitarists",
+          "."
+        ],
+        "accept": [
+          "The band needs a drummer, a singer and two guitarists.",
+          "The band needs a drummer, two guitarists and a singer.",
+          "The band needs a singer, a drummer and two guitarists.",
+          "The band needs a singer, two guitarists and a drummer.",
+          "The band needs two guitarists, a drummer and a singer.",
+          "The band needs two guitarists, a singer and a drummer."
+        ],
+        "reason": "Put a comma between the first two items, then 'and' before the last one."
+      }
+    },
+    {
+      "id": "6.2-b2-4",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's whale-watching log from the icy sea needs one more comma.",
+      "prompt": "Tap the spot where a comma is missing.",
+      "success": "Penguins and orcas are two different animals, so a comma keeps them apart.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Wren spotted",
+            "reason": "This starts the sentence. The list hasn't begun yet."
+          },
+          " ",
+          {
+            "tap": "penguins orcas"
+          },
+          " and a leopard seal ",
+          {
+            "tap": "from the ship.",
+            "reason": "This comes after the list ends. No comma is missing here."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "6.2-b2-5",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed wrote his team sheet four times. Each comma changes who's playing.",
+      "prompt": "Use the commas to count Zed's teammates. Match each sentence to the right number.",
+      "success": "Every comma, and the 'and', marks where one name ends. Two names with no comma are one person.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "four teammates",
+          "five teammates"
+        ],
+        "items": [
+          {
+            "text": "Zed teamed up with Ava Grace, Kai, Lily and Tom.",
+            "bin": 0,
+            "reason": "Ava Grace is one person. Then Kai, Lily and Tom make four."
+          },
+          {
+            "text": "Zed teamed up with Ava, Grace, Kai, Lily and Tom.",
+            "bin": 1,
+            "reason": "The comma splits Ava from Grace, so there are five people."
+          },
+          {
+            "text": "Zed teamed up with Ava, Grace, Kai, Lily Rose and Tom.",
+            "bin": 1,
+            "reason": "Lily Rose is one person, but Ava, Grace, Kai and Tom make five in all."
+          },
+          {
+            "text": "Zed teamed up with Ava, Kai, Lily Rose and Tom.",
+            "bin": 0,
+            "reason": "Lily Rose is one person, so there are four: Ava, Kai, Lily Rose and Tom."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.2-b2-6",
+      "band": 2,
+      "topic": "general",
+      "frame": "Tully is writing the camp packing list for the crew.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Commas go between the items, and 'and' joins the last one. Nothing goes right after 'and'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Pack a tent, a torch, two sleeping bags and some matches."
+          },
+          {
+            "text": "Pack a tent, a torch, two sleeping bags and, some matches.",
+            "reason": "There's a comma after 'and'. Nothing goes between 'and' and the last item."
+          },
+          {
+            "text": "Pack a tent a torch, two sleeping bags and some matches.",
+            "reason": "A comma is missing between the tent and the torch."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b3-1",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is bragging about the feast he cooked for the crew.",
+      "prompt": "Which version is punctuated to show exactly three dishes?",
+      "success": "'Macaroni and cheese' and 'apple pie' each stay whole. With fruit salad, that's three dishes.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo made macaroni and cheese, apple pie and fruit salad."
+          },
+          {
+            "text": "Mo made macaroni, cheese, apple pie and fruit salad.",
+            "reason": "The comma splits macaroni from cheese, so that's four things."
+          },
+          {
+            "text": "Mo made macaroni and cheese, apple, pie and fruit salad.",
+            "reason": "The comma between apple and pie makes them two things, so that's four."
+          },
+          {
+            "text": "Mo made macaroni and cheese apple pie and fruit salad.",
+            "reason": "A comma is missing after 'cheese', so you can't tell where the first dish ends."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b3-2",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus's slime recipe is pinned to the lab wall. One comma has dripped off.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "Shaving foam is one item and glitter is another, so a comma goes between them.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's slime needs ",
+          {
+            "tap": "glue, shaving",
+            "reason": "This comma keeps the glue apart from the shaving foam. It's right."
+          },
+          " ",
+          {
+            "tap": "foam glitter"
+          },
+          " and green food ",
+          {
+            "tap": "colouring.",
+            "reason": "This is the last item, and the full stop ends the list."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "foam, glitter"
+          },
+          {
+            "text": "foam. Glitter",
+            "reason": "A full stop ends the sentence in the middle of the list."
+          },
+          {
+            "text": "foam and, glitter",
+            "reason": "A comma straight after 'and' is in the wrong spot. Foam and glitter just need a comma between them."
+          },
+          {
+            "text": "foam glitter,",
+            "reason": "A comma after 'glitter' doesn't help. Shaving foam and glitter still run together."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b3-3",
+      "band": 3,
+      "topic": "animals",
+      "frame": "The Stashlet's winter store was dug up. Build the list of what's inside.",
+      "prompt": "Tap the pieces in order to make a list sentence.",
+      "success": "A comma between the first two items, 'and' before the last, and one full stop at the end.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The Stashlet hides",
+          "snow-gum seeds",
+          ",",
+          "dried berries",
+          "and",
+          "one very old sock",
+          ".",
+          "."
+        ],
+        "accept": [
+          "The Stashlet hides snow-gum seeds, dried berries and one very old sock.",
+          "The Stashlet hides snow-gum seeds, one very old sock and dried berries.",
+          "The Stashlet hides dried berries, snow-gum seeds and one very old sock.",
+          "The Stashlet hides dried berries, one very old sock and snow-gum seeds.",
+          "The Stashlet hides one very old sock, snow-gum seeds and dried berries.",
+          "The Stashlet hides one very old sock, dried berries and snow-gum seeds."
+        ],
+        "reason": "Items in a list are split by commas, not full stops. 'And' joins the last one."
+      }
+    },
+    {
+      "id": "6.2-b3-4",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed's notes from the haunted hut are missing one comma.",
+      "prompt": "Tap the spot where a comma is missing.",
+      "success": "A cracked mirror and an old diary are two different things, so a comma keeps them apart.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "In the haunted ",
+          {
+            "tap": "hut, we",
+            "reason": "This comma ends the opening phrase. It's in the right place."
+          },
+          " found ",
+          {
+            "tap": "cobwebs, a",
+            "reason": "This comma keeps the cobwebs apart from the mirror. It's right."
+          },
+          " cracked ",
+          {
+            "tap": "mirror an"
+          },
+          " old diary and a ",
+          {
+            "tap": "single glove.",
+            "reason": "This is the last item, and the full stop ends the list."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.2-b3-5",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's training notes got wet. The Stashlet is sorting the smudged lines.",
+      "prompt": "Match each sentence to the right burrow.",
+      "success": "Commas go between the items: not before the list starts, and not straight after 'and'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "comma missing",
+          "comma in the wrong place"
+        ],
+        "items": [
+          {
+            "text": "Tully's bag held boots, shin pads and a mouthguard.",
+            "bin": 0,
+            "reason": "A comma splits the first two items, and 'and' joins the last."
+          },
+          {
+            "text": "Tully's bag held boots shin pads and a mouthguard.",
+            "bin": 1,
+            "reason": "A comma is missing between boots and shin pads."
+          },
+          {
+            "text": "Tully's bag held, boots, shin pads and a mouthguard.",
+            "bin": 2,
+            "reason": "The comma after 'held' comes before the list starts."
+          },
+          {
+            "text": "The coach shouted, clapped and blew her whistle.",
+            "bin": 0,
+            "reason": "A comma splits the first two actions, and 'and' joins the last."
+          },
+          {
+            "text": "The coach shouted clapped and blew her whistle.",
+            "bin": 1,
+            "reason": "A comma is missing between shouted and clapped."
+          },
+          {
+            "text": "The coach shouted, clapped and, blew her whistle.",
+            "bin": 2,
+            "reason": "There's a comma straight after 'and'. Nothing goes there."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.2-b3-6",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus is writing an ad for the lodge's new cleaning robot.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Each job stays whole: sweep floors, wash dishes, fold the laundry. Commas go between the jobs.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The robot can sweep floors, wash dishes and fold the laundry."
+          },
+          {
+            "text": "The robot can sweep floors wash dishes and fold the laundry.",
+            "reason": "There are no commas, so the first two jobs run together."
+          },
+          {
+            "text": "The robot can sweep, floors, wash dishes and fold the laundry.",
+            "reason": "The comma splits 'sweep floors', which is one job."
+          },
+          {
+            "text": "The robot can sweep floors, wash, dishes and fold the laundry.",
+            "reason": "The comma splits 'wash dishes', which is one job."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "An alpine expedition's equipment report has turned up at the lodge.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Each item stays whole, with a comma between items and 'and' joining the last one straight on.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The expedition carried crampons, ice axes, a satellite phone and enough food for a fortnight."
+          },
+          {
+            "text": "The expedition carried crampons, ice, axes, a satellite phone and enough food for a fortnight.",
+            "reason": "The comma splits 'ice axes', which is one item."
+          },
+          {
+            "text": "The expedition carried crampons, ice axes, a satellite phone and, enough food for a fortnight.",
+            "reason": "There's a comma straight after 'and'. Nothing goes between 'and' and the last item."
+          },
+          {
+            "text": "The expedition carried crampons ice axes, a satellite phone and enough food for a fortnight.",
+            "reason": "A comma is missing between crampons and ice axes."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "The polar research station's website lists what its scientists study.",
+      "prompt": "Tap where a comma is missing, then choose the fix.",
+      "success": "Meteorites and the frozen lake are separate things. The comma goes after 'meteorites', where one item ends.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Scientists at the ",
+          {
+            "tap": "station study",
+            "reason": "This starts the sentence. The list hasn't begun yet."
+          },
+          " auroras, ",
+          {
+            "tap": "meteorites the"
+          },
+          " frozen lake and the strange sounds the ice makes at ",
+          {
+            "tap": "night.",
+            "reason": "This is the end of the last item, and the full stop is already there."
+          }
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "meteorites, the"
+          },
+          {
+            "text": "meteorites the,",
+            "reason": "That comma splits 'the' from 'frozen lake'. The comma belongs after 'meteorites'."
+          },
+          {
+            "text": "meteorites. The",
+            "reason": "A full stop ends the sentence in the middle of the list."
+          },
+          {
+            "text": "meteorites, the,",
+            "reason": "The second comma splits 'the' from 'frozen lake'. Only the comma after 'meteorites' is needed."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "6.2-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi's sign for her winter festival stall got scattered by the wind.",
+      "prompt": "Tap the pieces in order to make a list sentence.",
+      "success": "A comma between the first two items, and 'and' before the last one.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Indi's stall sold",
+          "painted lanterns",
+          ",",
+          "knitted beanies",
+          "and",
+          "tiny ice sculptures",
+          ".",
+          "."
+        ],
+        "accept": [
+          "Indi's stall sold painted lanterns, knitted beanies and tiny ice sculptures.",
+          "Indi's stall sold painted lanterns, tiny ice sculptures and knitted beanies.",
+          "Indi's stall sold knitted beanies, painted lanterns and tiny ice sculptures.",
+          "Indi's stall sold knitted beanies, tiny ice sculptures and painted lanterns.",
+          "Indi's stall sold tiny ice sculptures, painted lanterns and knitted beanies.",
+          "Indi's stall sold tiny ice sculptures, knitted beanies and painted lanterns."
+        ],
+        "reason": "Items in a list are split by commas, not full stops. 'And' joins the last one."
+      }
+    },
+    {
+      "id": "6.2-b4-4",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A documentary script about life under the Antarctic ice needs one more comma.",
+      "prompt": "Tap the spot where a comma is missing.",
+      "success": "Glowing jellyfish and ghostly white fish are two different creatures, so a comma keeps them apart.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          {
+            "tap": "Divers under",
+            "reason": "This starts the sentence. The list of creatures hasn't begun."
+          },
+          " the Antarctic ice have filmed giant sea ",
+          {
+            "tap": "spiders, glowing",
+            "reason": "This comma keeps the sea spiders apart from the jellyfish. It's right."
+          },
+          " ",
+          {
+            "tap": "jellyfish ghostly"
+          },
+          " white fish and worms that live in ",
+          {
+            "tap": "the mud.",
+            "reason": "This is the end of the last item, and the full stop is already there."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "6.2-b4-5",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus reviewed the gross-science museum. The Stashlet is checking his lists.",
+      "prompt": "Match each sentence to the right burrow.",
+      "success": "Commas belong between list items only. Not after 'and', and not inside an item like 'very grumpy'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "punctuated right",
+          "needs a fix"
+        ],
+        "items": [
+          {
+            "text": "The gross-science room has a giant nose, a vomit machine and a wall of fake scabs.",
+            "bin": 0,
+            "reason": "Commas split the items, and 'and' joins the last one."
+          },
+          {
+            "text": "Gus loved the burp tunnel, the snot slide and, the sneeze cannon.",
+            "bin": 1,
+            "reason": "There's a comma straight after 'and'. Nothing goes there."
+          },
+          {
+            "text": "Visitors can touch, smell and even taste some of the experiments.",
+            "bin": 0,
+            "reason": "Commas split the actions, and 'and' joins the last one."
+          },
+          {
+            "text": "Visitors can touch smell and even taste some of the experiments.",
+            "bin": 1,
+            "reason": "A comma is missing between touch and smell."
+          },
+          {
+            "text": "The guide warned us about slippery floors, flying slime and a very, grumpy tarantula.",
+            "bin": 1,
+            "reason": "'Very grumpy' is part of one item, so no comma goes inside it."
+          },
+          {
+            "text": "Gus bought a slime kit, a fake eyeball and a book about snot.",
+            "bin": 0,
+            "reason": "Commas split the items, and 'and' joins the last one."
+          }
+        ]
+      }
+    },
+    {
+      "id": "6.2-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully is writing the program for the Comma Cay snow carnival.",
+      "prompt": "Which version is punctuated right?",
+      "success": "Three whole events. A comma sits between the first two, and 'and' joins the tug of war.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The snow carnival had a sack race, an egg and spoon race and a tug of war."
+          },
+          {
+            "text": "The snow carnival had a sack race, an egg, and spoon race and a tug of war.",
+            "reason": "The comma splits 'egg and spoon race', which is one event."
+          },
+          {
+            "text": "The snow carnival had a sack, race, an egg and spoon race and a tug of war.",
+            "reason": "The comma splits 'sack race', which is one event."
+          },
+          {
+            "text": "The snow carnival had a sack race an egg and spoon race and a tug of war.",
+            "reason": "A comma is missing between the sack race and the egg and spoon race."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}
