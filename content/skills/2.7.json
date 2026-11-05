@@ -1,0 +1,956 @@
+{
+  "skill": {
+    "id": "2.7",
+    "name": "Then and now: what a text shows about the time it was written",
+    "codes": [
+      "VC2E5LY07",
+      "VC2E6LY06"
+    ],
+    "why": "Old texts are time machines. They show how people lived and thought.",
+    "how": "Notice what the writer treats as normal. Ask: is that still true now?",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Every text is written at a certain time."
+          },
+          {
+            "say": "It shows what was normal back then.",
+            "show": "School rules, 1952: **All boys must wear a cap and tie.**"
+          },
+          {
+            "say": "The writer doesn't explain it. Everyone just did it."
+          },
+          {
+            "say": "Now compare it with today. Is it still the same?"
+          },
+          {
+            "say": "Different? Then the text shows how times have changed."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Bay Road School. Notice to pupils, 1957. Pupils must stand up when a teacher enters the room. Pupils must call the teacher Sir or Miss. Pupils who talk in class will stand in the corner.",
+          "prompt": "What does this notice show about school in 1957?",
+          "hint": "What must pupils do when a teacher walks in? What happens if they talk?",
+          "success": "Pupils stood for teachers and were punished for talking. School rules were very strict then.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Pupils could talk whenever they liked.",
+                "reason": "Pupils who talked had to stand in the corner."
+              },
+              {
+                "text": "Teachers stood up when pupils came in.",
+                "reason": "It's the other way round. Pupils stood up for teachers."
+              },
+              {
+                "text": "Rules were strict, and pupils had to show respect."
+              }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "prompt": "Tap the line that shows an idea from 1961 that's different now.",
+          "hint": "Who does the ad think will do the washing?",
+          "success": "The ad thinks Mother does all the washing. Today, washing is seen as anyone's job.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "NEW! The Whirlwind washing machine, 1961. ",
+              {
+                "tap": "It comes in white or pale green.",
+                "reason": "Washing machines still come in different colours. That's not different."
+              },
+              " ",
+              {
+                "tap": "Now Mother can finish the whole family's washing in one day!"
+              },
+              " ",
+              {
+                "tap": "Every machine has a five-year guarantee.",
+                "reason": "Things still come with a guarantee today. That's the same."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "thennit",
+      "name": "Thennit",
+      "evolved": "Thennacle",
+      "blurb": "A hermit crab that lives in old things the tide brings back: a tin lunchbox, a teacup, an inkwell. Each shell shows it how people used to live."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.7-b1-1",
+      "band": 1,
+      "topic": "general",
+      "frame": "The Thennit crawled out of an old school bag. A letter was stuck to its shell.",
+      "text": "Twotide School. 3 February 1955. Dear Parents, School starts again on Monday. Boys must wear a grey shirt and a tie. Girls must wear a dress and a hat. Every child needs a slate and a stick of chalk. There is no school canteen, so please send a cut lunch. Children must walk to school or ride a bike. Children who are late will stand at the back of the room. Yours sincerely, Miss Pratt, Head Teacher",
+      "prompt": "What does this letter show about school in 1955?",
+      "success": "Slates, chalk and cut lunches. The letter shows school in 1955 was very different from now.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Girls and boys wore the same uniform.",
+            "reason": "Boys wore a shirt and tie. Girls wore a dress and a hat."
+          },
+          {
+            "text": "Children wrote on slates, and there was no canteen."
+          },
+          {
+            "text": "Parents drove their kids to school in the family car.",
+            "reason": "The letter says children must walk or ride a bike."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "The Thennit is living in an old biscuit tin. Inside the lid is a recipe card.",
+      "prompt": "Tap the line that shows how cooking was different in 1932.",
+      "success": "A wood stove you light an hour early. Today, most ovens just switch on.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Grandma Ivy wrote this scone recipe in 1932. ",
+          {
+            "tap": "Light the wood stove one hour before you start."
+          },
+          " Put two cups of flour in a big bowl. ",
+          {
+            "tap": "Mix in the milk with a butter knife.",
+            "reason": "People still mix scones with a knife today."
+          },
+          " Pat the dough flat. ",
+          {
+            "tap": "Cut it into rounds with a cup.",
+            "reason": "Cutting scones into rounds is the same today."
+          },
+          " Bake until golden on top. ",
+          {
+            "tap": "Serve with jam and cream.",
+            "reason": "Scones still come with jam and cream."
+          },
+          " Ivy wrote one more line at the bottom of the card. It says: Hide three for yourself before the boys get home."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.7-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "The Thennit found an old sign on the Twotide jetty. Tully is reading it out loud.",
+      "text": "Twotide Swimming Club Rules, 1931. Rule 1: Men and women must swim at different times. Rule 2: All costumes must cover the knees. Rule 3: No running on the jetty. Rule 4: Nobody may swim on a Sunday. Rule 5: Always swim with a buddy. Rule 6: Swim where the lifesavers can see you. Anyone who breaks a rule must pay a fine. Signed, The Committee.",
+      "prompt": "Is each 1931 rule different now, or still the same?",
+      "success": "Safety rules haven't changed. The others show what people thought was proper in 1931.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "different now",
+          "still the same now"
+        ],
+        "items": [
+          {
+            "text": "Men and women swim at different times.",
+            "bin": 0,
+            "reason": "Today, everyone swims together."
+          },
+          {
+            "text": "No running on the jetty.",
+            "bin": 1,
+            "reason": "Running on a jetty is still dangerous. Pools and jetties still have this rule."
+          },
+          {
+            "text": "Costumes must cover the knees.",
+            "bin": 0,
+            "reason": "Today, people choose what kind of swimmers to wear."
+          },
+          {
+            "text": "Always swim with a buddy.",
+            "bin": 1,
+            "reason": "Swimming with a buddy is still good advice today."
+          },
+          {
+            "text": "Nobody may swim on a Sunday.",
+            "bin": 0,
+            "reason": "Today, beaches and pools are busy on Sundays."
+          },
+          {
+            "text": "Swim where the lifesavers can see you.",
+            "bin": 1,
+            "reason": "Lifesavers still watch over swimmers today, so this is still good advice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "The Thennit found a notice from the future in a shiny silver tube. Zed wrote a note about it. One word is wrong.",
+      "text": "Mars Dome School. Notice to families, 2150. School starts on Monday. Please pack your child's oxygen mask every day. Lunch is grown in the school greenhouse, so you don't need to pack it. Little ones will be walked home by a robot. Please don't let children open the outside door. The dust storms are very bad this month. Last week, a Year 2 boy took his pet beetle outside. The beetle is fine, but it is very dusty. Thank you, Principal Ng",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Oxygen mask. A school that needs oxygen masks shows life in 2150 is very different from now.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In ",
+          {
+            "tap": "2150",
+            "reason": "That's right. The notice is from 2150."
+          },
+          ", kids at Mars Dome School must bring their ",
+          {
+            "tap": "umbrella"
+          },
+          " every day. Their lunch is grown in the ",
+          {
+            "tap": "greenhouse",
+            "reason": "That's right. Lunch is grown in the school greenhouse."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "packed lunch",
+            "reason": "Lunch is grown at school, so families don't need to pack it."
+          },
+          {
+            "text": "oxygen mask"
+          },
+          {
+            "text": "pet beetle",
+            "reason": "A boy took his beetle outside once. Kids don't have to bring one."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b1-5",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Thennit is wearing an old poster like a cape. Wren doesn't like what it says.",
+      "text": "COME TO THE GRAND CITY ZOO! Sunday, 5 April 1925. See Bruno the dancing bear! Ride on the back of Rosie the elephant! Feed peanuts to the monkeys in their cage! Watch the sea lions balance balls on their noses! Hear Polly the parrot say, 'Hello, Mother!' The brass band plays at three o'clock. Ice creams for sale. Entry: sixpence. Children under five: free.",
+      "prompt": "What does this poster show about how people treated zoo animals in 1925?",
+      "success": "Dancing bears and elephant rides. In 1925, people used zoo animals to entertain the crowd.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Animals were used to entertain people."
+          },
+          {
+            "text": "The animals were all free in the wild.",
+            "reason": "The bear dances, the elephant gives rides, and the monkeys are in a cage."
+          },
+          {
+            "text": "Nobody could touch the zoo animals.",
+            "reason": "You can ride the elephant and feed the monkeys."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.7-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "The Thennit is living in an old plastic box with a tape inside. There's a letter too.",
+      "text": "14 May 1978. Dear Ben, Guess what? I finally bought a cassette player! I saved my pocket money for six months. Every Sunday night, I listen to the top forty songs on the radio. I keep a blank tape ready. When my favourite song comes on, I press RECORD fast. I have to stop it before the radio man starts talking. My sister keeps walking in and saying, 'What are you doing?' Now that's on the tape too. Your friend, Dave",
+      "prompt": "What does Dave's letter show about music in 1978?",
+      "success": "Taping songs off the radio. That's how Dave collected his favourite music in 1978.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Songs were only played at concerts.",
+            "reason": "Dave hears the top forty songs on the radio every Sunday."
+          },
+          {
+            "text": "Music was free to download.",
+            "reason": "There's no downloading in his letter. He records songs off the radio onto a tape."
+          },
+          {
+            "text": "People taped songs off the radio."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.7-b2-1",
+      "band": 2,
+      "topic": "general",
+      "frame": "The Thennit found a letter in an old ink bottle. Gus says the girl who wrote it would have loved his gadgets.",
+      "text": "Hartwell School, 12 May 1908. Dearest Papa, I am trying to be good, but it is very hard. Every afternoon, the boys go into the big room for science. They are building a steam engine out of a kettle! The girls go into the small room for needlework. Miss Hale says that sewing is what young ladies need, because one day we will run a household. Today I asked if I could join the boys, just for one lesson. Miss Hale went pale and said, 'Certainly not, Florence. Science is not for girls.' So I sewed a handkerchief instead. It has a steam engine on it. Please, Papa, may I have a book about engines for my birthday? Your loving daughter, Florence.",
+      "prompt": "What does Florence's letter show about life for girls in 1908?",
+      "success": "Her teacher says science is not for girls. In 1908, girls were taught sewing to run a household.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Girls could choose any subject they liked.",
+            "reason": "Florence asks to join science and is told 'Certainly not'."
+          },
+          {
+            "text": "Girls were expected to learn sewing, not science."
+          },
+          {
+            "text": "Boys and girls learnt every subject together in the same room.",
+            "reason": "The boys go to the big room for science. The girls go to a different room."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed found an old game magazine wrapped around the Thennit. He can't stop laughing.",
+      "prompt": "Tap the line that shows how games in 1994 were different from now.",
+      "success": "Writing down a password to keep your place! Today, games save your progress for you.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "GAME ZONE MAGAZINE, March 1994. REVIEW: TURBO DUCK 2. Turbo Duck is back, and this time he has a jetpack! He can also do a triple spin, but only if you press the buttons very fast. ",
+          {
+            "tap": "There are eight huge levels, and each one is harder than the last.",
+            "reason": "Games still have levels that get harder. That hasn't changed."
+          },
+          " ",
+          {
+            "tap": "The final boss is a giant robot chicken, and it is very rude.",
+            "reason": "Games still have a boss at the end. That's the same now."
+          },
+          " ",
+          {
+            "tap": "There is no way to save, so write down the 24-letter password at the end of each level."
+          },
+          " ",
+          {
+            "tap": "Our reviewer played it for nine hours and forgot to eat dinner.",
+            "reason": "Gamers still lose track of time today. That's the same."
+          },
+          " You will need fast thumbs and a lot of patience. The music is catchy, and the graphics are the best we have ever seen. SCORE: 9 out of 10. Our reviewer's mum gave it 2, because of the dinner."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.7-b2-3",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi found an old notice under the Thennit's shell. She is not impressed.",
+      "text": "Notice to Pupils. Drawing Class, Bay Road School, 1898. Rule 1: Girls will sit on the left side of the room, and boys on the right. Rule 2: Pupils will copy the drawing on the blackboard exactly. Nobody may draw their own ideas. Rule 3: All pupils must draw with the right hand, even if they are left-handed. Rule 4: Raise your hand if you wish to ask a question. Rule 5: Wash your hands after using charcoal. Rule 6: Put your pencils away neatly at the end of class. Underneath the notice, someone has drawn a tiny cat in pencil. It is not on the blackboard.",
+      "prompt": "Is each 1898 rule different now, or still the same?",
+      "success": "Rules about manners and tidying are the same. Rules about seats, copying and right hands show 1898's ideas.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "different now",
+          "still the same now"
+        ],
+        "items": [
+          {
+            "text": "Girls sit on the left, and boys on the right.",
+            "bin": 0,
+            "reason": "Today, girls and boys aren't split up like this in class."
+          },
+          {
+            "text": "Raise your hand to ask a question.",
+            "bin": 1,
+            "reason": "Students still put their hands up to ask questions."
+          },
+          {
+            "text": "Nobody may draw their own ideas.",
+            "bin": 0,
+            "reason": "Today, art classes want you to draw your own ideas."
+          },
+          {
+            "text": "Wash your hands after using charcoal.",
+            "bin": 1,
+            "reason": "Charcoal is still messy, so this is still good advice."
+          },
+          {
+            "text": "Draw with your right hand, even if you're left-handed.",
+            "bin": 0,
+            "reason": "Today, left-handed students use their left hand."
+          },
+          {
+            "text": "Put your pencils away at the end of class.",
+            "bin": 1,
+            "reason": "Students still pack up at the end of a lesson."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "The Thennit found an ad from the future, floating in a glowing bottle. Gus wants one of everything.",
+      "text": "Tired of doing chores like it's 2020? Meet the HomeHelper 9000! It cooks, it cleans, it walks the dog, and it sings you to sleep in fourteen languages. Every family on your street already has one, so why don't you? Still walking to the shops like your great-grandparents did? How old-fashioned! Your HomeHelper will send a delivery drone to fetch anything you need in under four minutes. Worried about homework? HomeHelper can explain maths in a calm, friendly voice, but it will NOT do it for you. Order today and get a free robot cat. The robot cat does not need feeding. It does need cuddles. HomeHelper 9000: it's 2090, so live like it!",
+      "prompt": "What does this ad show about life in 2090?",
+      "success": "Robots that cook and clean, and drones that shop. In 2090, machines do the everyday jobs.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Most people still walked to the shops.",
+            "reason": "The ad calls walking to the shops old-fashioned, something great-grandparents did."
+          },
+          {
+            "text": "Robots were too rare for most families.",
+            "reason": "The ad says every family on the street already has one."
+          },
+          {
+            "text": "Robots and drones did lots of everyday jobs."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.7-b2-5",
+      "band": 2,
+      "topic": "funny",
+      "frame": "The Thennit is living in an old top hat. Inside was a little book. Mo wrote a note about it, but one word is wrong.",
+      "text": "From Good Manners for Young Gentlemen, printed in 1910. A young gentleman always lifts his hat when he passes a lady in the street. He stands up whenever an adult enters the room, and he does not sit down again until he is told to. At the dinner table, he speaks only when he is spoken to. He never laughs louder than a whisper. He never, ever eats a banana in public, for there is no polite way to do it. He does not whistle indoors, and he does not put his elbows on the table. If he must sneeze, he does so silently into a clean handkerchief. A young gentleman who follows these rules will be welcome in any home.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Lift their hat. Hat-lifting, standing for adults and silent sneezes show how formal manners were in 1910.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "This book was printed in ",
+          {
+            "tap": "1910",
+            "reason": "That's right. The book was printed in 1910."
+          },
+          ". It tells boys to ",
+          {
+            "tap": "bow"
+          },
+          " when they pass a lady. It shows that manners back then were very ",
+          {
+            "tap": "formal",
+            "reason": "That's right. Lifting hats, standing for adults and silent sneezes are very formal."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "shake hands",
+            "reason": "The book never mentions shaking hands. A young gentleman lifts his hat to a lady."
+          },
+          {
+            "text": "lift their hat"
+          },
+          {
+            "text": "say good morning",
+            "reason": "The book doesn't say what to say to a lady. It says to lift his hat."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b2-6",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The second tide brought the Thennit home in an old lantern. A letter was folded inside.",
+      "text": "Gull Point, 20 June 1934. Dear Mum, The boats left on Tuesday morning and won't be back until Friday night. Once they sail past the point, there is no way to send them a message, so all we can do is wait. Every night, Gran puts a lamp in the front window, so Dad can find his way home in the dark. When the wind gets up, the whole village goes down to the jetty and stares at the sea. Nobody says much. The children are not allowed to play on the rocks while the boats are out, in case the waves come up. On Friday, the first person to see the sails rings the church bell, and everybody runs. Your loving daughter, Maggie.",
+      "prompt": "What does Maggie's letter show about life in 1934?",
+      "success": "No messages once they passed the point. In 1934, families could only wait, watch and listen for the bell.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Families could phone or radio the boats at sea whenever they liked.",
+            "reason": "The letter says there's no way to send them a message."
+          },
+          {
+            "text": "Families had no way to contact the boats at sea."
+          },
+          {
+            "text": "Fishing trips only lasted an hour or two.",
+            "reason": "The boats leave on Tuesday and come back on Friday night."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b3-1",
+      "band": 3,
+      "topic": "general",
+      "frame": "The Thennit is living in an old television knob. It brought a newspaper with it.",
+      "text": "TWOTIDE TIMES, 9 August 1958. TELEVISION COMES TO THE ISLAND. Twotide Atoll has its first television sets. Only three houses on the island have one so far, and Mr Hooper's electrical shop has a fourth set in its front window. Every afternoon, crowds of children press their noses against the glass to watch cartoons, even though they cannot hear a sound. Mr Hooper says the pictures travel all the way from the mainland through the air, though nobody on the island quite understands how. Not everyone is pleased. Dr Fenwick warned parents this week that children who sit closer than two metres to the screen may damage their eyes. 'Some children are watching for an hour a day,' he said. 'That cannot be good for them.' The Reverend Platt worried that families would stop talking to each other at dinner. Mrs Hooper, however, said television was 'a marvel', and that her husband had sold eleven aerials in a week. The island council will meet on Tuesday to decide whether television should be allowed on Sundays.",
+      "prompt": "What does this article show about the time it was written?",
+      "success": "Brand-new sets and worried adults. In 1958, people weren't sure television was safe for kids.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Every family had owned a television for years.",
+            "reason": "Only three houses have one, and the headline says it has just arrived."
+          },
+          {
+            "text": "Doctors told parents that sitting close to the screen was good for children's eyes.",
+            "reason": "Dr Fenwick warns that sitting too close may damage their eyes."
+          },
+          {
+            "text": "Television was new, and some adults worried about its effect on children."
+          },
+          {
+            "text": "Children weren't interested in watching television.",
+            "reason": "They press their noses against the shop window, even without any sound."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.7-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Thennit found an old newspaper in a footy boot. Tully has read it four times.",
+      "prompt": "Tap the sentence that shows what some people in 1921 thought about girls playing football.",
+      "success": "Some men said football was 'far too rough for young ladies'. That shows what some people believed then.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "THE TWOTIDE GAZETTE, 14 June 1921. LADIES' FOOTBALL MATCH DRAWS RECORD CROWD. More than two thousand people crowded into the Twotide oval on Saturday to watch a football match between two teams of young women, the Bay Belles and the Harbour Wrens. ",
+          {
+            "tap": "The match was played to raise money for the new hospital.",
+            "reason": "Charity matches still happen today. This doesn't show what people thought about girls playing."
+          },
+          " ",
+          {
+            "tap": "Miss Dora Pike kicked four goals, and the Harbour Wrens won by eleven points.",
+            "reason": "This is the result of the match. It doesn't show anyone's opinion."
+          },
+          " ",
+          {
+            "tap": "Several gentlemen in the crowd declared that football was far too rough for young ladies."
+          },
+          " The players wore long skirts and white blouses, and one lost her hat in the second quarter. Officials said they had never seen so large a crowd at the oval for any match. ",
+          {
+            "tap": "The match began at two o'clock, after a short shower of rain.",
+            "reason": "This tells you when the match started. It isn't anyone's opinion about girls playing."
+          },
+          " Afterwards, the captain of the Bay Belles said she hoped there would be another match next year. The mayor said he would 'think about it'. Miss Pike said she would be happy to kick four more goals while he was thinking."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.7-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "The Thennit is living in an old jelly mould. Mo found a household guide underneath it.",
+      "text": "From The Twotide Household Guide, 1952. Keeping a Happy Home. Every Tuesday, the iceman delivers a fresh block of ice for the ice chest, so be sure to leave the side gate open. If the ice chest begins to smell, scrub it out with bicarbonate of soda. Each morning before dawn, the milkman brings the milk by horse and cart, so leave the empty bottles on the front step. Store leftover meat in a covered dish inside the ice chest. Sweep the front step every morning, so the neighbours can see that yours is a tidy house. Always wash your hands before you start to cook. Our street has no electric light yet, so fill the kerosene lamps before it gets dark. Never leave a hot pan where small children can reach it. Teach children to say please and thank you at the table. On washing day, which is Monday, light the copper early, because the sheets will take all morning to boil.",
+      "prompt": "Is each piece of 1952 advice different now, or still the same?",
+      "success": "Safety and manners haven't changed. Ice deliveries, kerosene lamps and coppers show 1952's ways.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "different now",
+          "still the same now"
+        ],
+        "items": [
+          {
+            "text": "The iceman delivers a block of ice every Tuesday.",
+            "bin": 0,
+            "reason": "Today, fridges keep food cold. Nobody needs ice delivered."
+          },
+          {
+            "text": "Always wash your hands before you start to cook.",
+            "bin": 1,
+            "reason": "This is still the first rule of cooking today."
+          },
+          {
+            "text": "The milkman brings the milk by horse and cart.",
+            "bin": 0,
+            "reason": "Today, milk comes from the shop. No horse and cart brings it to your step."
+          },
+          {
+            "text": "Fill the kerosene lamps before it gets dark.",
+            "bin": 0,
+            "reason": "Today, homes have electric lights. Nobody fills a lamp to see at night."
+          },
+          {
+            "text": "Never leave a hot pan where small children can reach it.",
+            "bin": 1,
+            "reason": "Hot pans are still dangerous. This advice hasn't changed."
+          },
+          {
+            "text": "Teach children to say please and thank you at the table.",
+            "bin": 1,
+            "reason": "Families still teach children these manners."
+          },
+          {
+            "text": "Light the copper early on washing day.",
+            "bin": 0,
+            "reason": "Today, washing machines do the job. Nobody boils sheets in a copper."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7-b3-4",
+      "band": 3,
+      "topic": "space",
+      "frame": "The Thennit found lesson notes from the future in a silver capsule. Zed wrote a note about them. One word is wrong.",
+      "text": "Mars Academy, Year 6 History. Lesson notes, 4 March 2350. Today we learned about the strange old days of the 2020s, and honestly, some of it was hard to believe. People back then steered their own cars with their hands, and they had to stop at red lights, even when nobody was coming. Our cars drive themselves, so we just tell them where to go and read a book. People in the 2020s carried money in little leather folders called wallets. Ms Kaur showed us one in the museum, and it still had a ticket inside for something called a bus. We also learned that children used to sit together in one room called a classroom, instead of beaming in from home. Strangest of all, everybody lived on just one planet. My family has lived on Mars for four generations, and my cousins live on the Moon. When I told Grandpa, who grew up in the 2280s, he laughed and said even he remembers paper books. I asked him what paper was.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Drive themselves. The notes show 2350 has self-driving cars, families on Mars and no paper.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "These notes were written in ",
+          {
+            "tap": "2350",
+            "reason": "That's right. The notes are dated 4 March 2350."
+          },
+          ". They show that by then, families live on ",
+          {
+            "tap": "Mars",
+            "reason": "That's right. The writer's family has lived on Mars for four generations."
+          },
+          " and cars ",
+          {
+            "tap": "run on sunlight"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "are steered by hand",
+            "reason": "That's how cars worked in the 2020s. In 2350, the writer just tells the car where to go."
+          },
+          {
+            "text": "have been banned",
+            "reason": "Nothing is banned. The writer tells the car where to go and reads a book."
+          },
+          {
+            "text": "fly through the air",
+            "reason": "The notes never say cars fly. The writer tells the car where to go and reads a book."
+          },
+          {
+            "text": "drive themselves"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.7-b3-5",
+      "band": 3,
+      "topic": "animals",
+      "frame": "The Thennit found a letter inside an old wooden box. Wren went very quiet when she read it.",
+      "text": "Elm Cottage, 2 November 1895. Dear Uncle Henry, I have wonderful news. My collection of birds' eggs now has forty-one eggs in it, all taken from nests in the bush behind the school this spring. I keep them in a wooden box lined with cotton wool, each with a little label. Last Saturday I climbed to the very top of a gum tree for a magpie's egg. The magpie was not pleased and pecked my ear, but I got the egg. Mr Lister, our teacher, says that collecting eggs teaches a boy patience and a love of nature, and he has given me a prize for the best collection in the school. Father has promised me a glass-topped cabinet for Christmas, so that visitors can admire them. Next spring I hope to find a kookaburra's egg, which would make my set complete. Mother says I must not climb the tall trees any more, but I think she is only worried about my good trousers. Your loving nephew, Albert.",
+      "prompt": "What does Albert's letter show about how people in 1895 thought about wild birds?",
+      "success": "A teacher's prize for forty-one eggs taken from nests! In 1895, egg collecting was seen as a good hobby.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "People thought birds' nests should never be touched.",
+            "reason": "Albert takes forty-one eggs, and his teacher gives him a prize for it."
+          },
+          {
+            "text": "Taking eggs from wild birds' nests was seen as a normal hobby."
+          },
+          {
+            "text": "Children weren't allowed to go into the bush.",
+            "reason": "Albert collects his eggs in the bush behind the school."
+          },
+          {
+            "text": "Collecting eggs was against the law.",
+            "reason": "Nothing says it broke a law. His teacher praises it and gives him a prize."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "The Thennit is living in an old record sleeve. A very cross letter fell out.",
+      "text": "LETTERS TO THE EDITOR, Twotide Times, 3 October 1956. Sir, I must complain about this new 'rock and roll' music that young people have been playing on the radio all year. It is nothing but shouting and banging, and the singers cannot even be bothered to say their words properly. On Saturday night, at the surf club dance, I saw young people throwing each other about the floor in the most dangerous way. One young man spun his partner so fast that she lost a shoe. The noise could be heard as far as the lighthouse, and my cat has not come out from under the bed since. My grandson tells me this music is 'all the rage'. I told him the rage is mine. In my day, we danced the waltz, politely, at arm's length. Several of my neighbours agree with me that this music will never last, and that it is ruining the young people of this island. I ask the surf club to ban it at once. Yours faithfully, Mr E. Grumble, aged 64.",
+      "prompt": "What does this letter show about the time it was written?",
+      "success": "Mr Grumble calls it 'this new music' and wants it banned. Some older people disliked it in 1956.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Rock and roll had been popular on the island for a hundred years.",
+            "reason": "Mr Grumble calls it 'this new music', played on the radio this year."
+          },
+          {
+            "text": "Everybody in 1956 loved rock and roll.",
+            "reason": "Mr Grumble hates it, and he says several neighbours agree with him."
+          },
+          {
+            "text": "Young people weren't allowed to listen to the radio.",
+            "reason": "He complains that young people play it on the radio all year."
+          },
+          {
+            "text": "Rock and roll was new, and some older people disapproved of it."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.7-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "The Thennit is living in an old glass light bulb. A letter was rolled up inside.",
+      "text": "14 Wattle Street, 18 March 1901. Dear Cousin Bea, The most extraordinary thing happened this week: we have electric light! Two men from the company came on Monday and ran a wire all the way from the pole in the street, through the front window and across the ceiling of the parlour. Now, instead of lighting the lamps, Father simply turns a little brass switch on the wall, and the whole room glows. The first night, we sat up until ten o'clock just looking at it. Half the street came over to see, and Mrs Pomeroy from next door fainted, though Mother says she faints at everything. Grandma refuses to go near the switch. She is convinced that the electricity will leak out of the wire if it is left on, and she makes Father turn it off whenever she is in the room. Mother has kept her box of candles in the kitchen drawer, 'just in case the whole thing is a passing fad'. Only one other family on Wattle Street has electric light so far, and their boy Percy has been boasting about it for weeks. Now we can boast too. Father says that next year we may even have a second light, in the kitchen. Your affectionate cousin, Winifred.",
+      "prompt": "What does Winifred's letter show about the time it was written?",
+      "success": "Brand new, rare and astonishing. The letter shows electric light was only just arriving in homes in 1901.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Everyone on Wattle Street had had electric light for years.",
+            "reason": "It arrived 'this week', and only one other family on the street has it."
+          },
+          {
+            "text": "Electric light was new and exciting, and only a few homes had it."
+          },
+          {
+            "text": "People were so afraid of electricity that nobody would use it.",
+            "reason": "Grandma is nervous, but Father uses the switch and half the street comes to look."
+          },
+          {
+            "text": "Candles had stopped being sold anywhere.",
+            "reason": "Mother has kept her candles in the drawer. Nothing says they'd stopped being sold."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The Thennit found a page of school rules from the future, floating in a glowing bottle. Gus thinks they're brilliant.",
+      "prompt": "Most of these rules from 2189 would seem strange today. Tap the one rule that is still the same now.",
+      "success": "Kindness and waiting your turn. Schools ask for that today, and the Academy still asks for it in 2189.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "SKYHAVEN JUNIOR ACADEMY. RULES FOR STUDENTS, 2189. Welcome back, students! The new term begins on Monday, the first day after the summer storms. Please read these rules carefully, or ask your robot companion to read them to you. Students who arrive by sky-bus must wait for it to land completely before stepping off. Students born on Mars must visit the gravity gym twice a week, so their bones grow strong enough for trips to Earth. These rules apply on every floor of the Academy, including the roof dock and the gravity gym. ",
+          {
+            "tap": "Robot companions must be charged overnight and left in the charging bay during lessons.",
+            "reason": "Students don't have robot companions today, so this rule would seem strange now."
+          },
+          " ",
+          {
+            "tap": "Students must not teleport into the classroom after the bell has rung.",
+            "reason": "Nobody can teleport today, so this rule would seem strange now."
+          },
+          " ",
+          {
+            "tap": "Lunch tablets will be handed out at noon, and each student may choose one flavour.",
+            "reason": "Students today eat real food at lunch, not tablets. This is different."
+          },
+          " ",
+          {
+            "tap": "Treat everyone with kindness, and wait your turn to speak."
+          },
+          " ",
+          {
+            "tap": "Students may not switch off the classroom's gravity, even as a joke.",
+            "reason": "No classroom today can switch off gravity. This rule belongs to 2189."
+          },
+          " Any student who breaks these rules will lose their gravity gym time for a week. Any robot companion who breaks them will be reprogrammed, which they hate. Parents with questions may send a hologram to the front office between nine and five. Signed, Principal Okonkwo-Lee and the Academy's head computer, MOTHER-4."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.7-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi found an old advertisement inside a picture frame. The Thennit has moved into the frame.",
+      "text": "PEMBERTON'S PHOTOGRAPHIC STUDIO, 12 Harbour Street. Established 1884. Have your portrait taken by the finest photographer on the coast! Our studio has a large glass roof, so that we may use the bright light of day, and we are therefore open only when the sun is shining. Sitters must keep perfectly still for one whole minute while the picture is taken. A metal stand will be placed behind your head to help you, and it is quite comfortable once you are used to it. Our assistant, Mr Finch, will dust your face with powder so that it does not shine, and he will hold up a white sheet to bounce the light onto your cheeks. Please do not smile. A serious face looks far more dignified than a grin, and a smile is very difficult to hold for a whole minute. Wear your best clothes for your portrait. Children may hold a favourite toy, provided it does not wriggle. You will not see your picture until it has been printed, two weeks later, on card fit to hang in any parlour. We are very busy on Saturdays, so please book ahead. Mr Pemberton regrets that he can no longer photograph dogs, after the unfortunate incident with the Mayor's poodle.",
+      "prompt": "Is each part of this 1884 advertisement different now, or still the same?",
+      "success": "Booking ahead and dressing up haven't changed. Holding still for a minute, no smiles and two-week waits show 1884.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "different now",
+          "still the same now"
+        ],
+        "items": [
+          {
+            "text": "Sitters must keep perfectly still for a whole minute.",
+            "bin": 0,
+            "reason": "Today, a photo takes a split second, so nobody has to hold still for a minute."
+          },
+          {
+            "text": "Wear your best clothes for your portrait.",
+            "bin": 1,
+            "reason": "People still dress up for portraits, like school photos."
+          },
+          {
+            "text": "Please do not smile, because a serious face looks more dignified.",
+            "bin": 0,
+            "reason": "Today, photographers usually ask you to smile."
+          },
+          {
+            "text": "You won't see your picture until it's printed, two weeks later.",
+            "bin": 0,
+            "reason": "Today, you can see a photo on a screen the moment it's taken."
+          },
+          {
+            "text": "Children may hold a favourite toy.",
+            "bin": 1,
+            "reason": "Children still hold favourite toys in photos today."
+          },
+          {
+            "text": "We are busy on Saturdays, so please book ahead.",
+            "bin": 1,
+            "reason": "Busy shops still ask you to book ahead for Saturdays."
+          },
+          {
+            "text": "The studio is open only when the sun is shining.",
+            "bin": 0,
+            "reason": "Today's studios use electric lights, so they can open whatever the weather."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7-b4-4",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed found an old computer magazine in a box of cables. The Thennit is living in a cassette tape.",
+      "text": "HOME COMPUTING MONTHLY, June 1984. IS THIS THE FUTURE IN YOUR LOUNGE ROOM? This month, we test the brand-new Zephyr 64, one of the first computers small enough and cheap enough for an ordinary family home. Out of the box, it looks rather like a typewriter with no paper, and it plugs into the back of your television set. For readers who have never used one, the keyboard is the part with the letters on it. The Zephyr has a whopping 64 kilobytes of memory, which the makers say is 'more than any family could ever need'. The Zephyr costs about as much as a second-hand car, so most families will need to save for a while. Games are loaded from a cassette tape, and our favourite, Space Moth, took only twelve minutes to load, which is very fast indeed. While you wait, the screen flashes in rainbow stripes and the speaker makes a noise like an angry kettle. Our tester's children played Space Moth for six hours straight, and we are told that one of them has started dreaming in rainbow stripes. Some parents have written to us worrying that home computers will turn children's brains to porridge. We think that is unlikely, but we will report back next month.",
+      "prompt": "What does this magazine article show about the time it was written?",
+      "success": "One of the first home computers, and twelve minutes counted as fast! Computers were new in 1984.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Most families had owned computers for many years.",
+            "reason": "It's 'one of the first' family computers, and the magazine explains what a keyboard is."
+          },
+          {
+            "text": "Games were downloaded from the internet in seconds, so nobody had to wait.",
+            "reason": "Games load from a cassette tape, and twelve minutes counts as 'very fast'."
+          },
+          {
+            "text": "Parents were sure computers were good for children's brains.",
+            "reason": "Some parents wrote in worried that computers would turn brains to porridge."
+          },
+          {
+            "text": "Home computers were new, and loading a game took a long time."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.7-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "The Thennit found an old newspaper wrapped around a tape measure. Mo wrote a note about it, but one word is wrong.",
+      "text": "THE COASTAL HERALD, 8 January 1923. INSPECTOR ON PATROL. Beach Inspector Mr Horace Pruitt had a busy weekend at Twotide Beach, where he walked up and down the sand from dawn until dusk with his tape measure. Under the new council rules, every bathing costume must reach from the neck to the knee, and Mr Pruitt measured more than two hundred of them. One elderly gentleman, who had swum at Twotide every morning for forty years, was measured six times on Saturday and complained that his knees were getting cold. Eleven young ladies were sent home because their costumes stopped a full two inches above the knee. A young man was ordered to cover up after he was seen strolling along the water's edge without a top, and he was told that bathing costumes were 'for the water, not for parading about'. When one swimmer pointed out that the rules were old-fashioned, Mr Pruitt replied that he was simply protecting the good name of the beach. 'Decent folk do not want to see knees,' he told our reporter. Several families have written to the council to complain, saying they would rather swim in comfort. The council will discuss the rules again in March. Mr Pruitt has bought a second tape measure, in case the first one wears out.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Costumes. Measuring them from neck to knee shows how strict people were about beach clothing in 1923.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In ",
+          {
+            "tap": "1923",
+            "reason": "That's right. The report is from 1923."
+          },
+          ", a beach ",
+          {
+            "tap": "inspector",
+            "reason": "That's right. Mr Pruitt is the beach inspector."
+          },
+          " checked people's ",
+          {
+            "tap": "lunches"
+          },
+          " to make sure they followed the council rules."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "tickets",
+            "reason": "Nobody checks tickets. He walks the beach with a tape measure."
+          },
+          {
+            "text": "costumes"
+          },
+          {
+            "text": "sunscreen",
+            "reason": "The rules are about how much a costume covers, not sunscreen."
+          },
+          {
+            "text": "dogs",
+            "reason": "Mr Pruitt checks swimmers, not dogs. He measures their costumes."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.7-b4-6",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Thennit is living in an old ship's cup. Wren found a letter tucked behind it.",
+      "text": "Aboard the RMS Aurelia, 11 April 1912. Dear Mam, We are four days out from port, and this ship is like a floating city, with more than two thousand people on board. I wish you could see it. The first-class passengers have a grand saloon with a glass ceiling, a swimming bath and a band that plays every night. I know this only because I peeked through a door before a steward chased me away. We in third class are not allowed above E deck, and there are locked gates to make sure of it. We eat in our own dining room, down by the engines, where the floor hums and the soup wobbles. Some of the people down here have never seen the sea before, and a boy from our village was sick for the first three days. The food is plain, but there is plenty of it, which is more than we had at home. Yesterday a little girl from first class dropped her ribbon over the rail, and it floated all the way down to our deck. I tied it in my hair. When she saw me from up above, she waved, and I waved back, and her governess pulled her away. Your loving daughter, Rosie.",
+      "prompt": "What does Rosie's letter show about life in 1912?",
+      "success": "Locked gates and separate decks. In 1912, rich and poor passengers were kept apart.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "All passengers were free to go anywhere on the ship.",
+            "reason": "Third class isn't allowed above E deck, and there are locked gates to stop them."
+          },
+          {
+            "text": "Rich and poor passengers ate together in the grand saloon.",
+            "reason": "Rosie eats in the third-class dining room, down by the engines."
+          },
+          {
+            "text": "Passengers were kept apart by how much money they had."
+          },
+          {
+            "text": "Ships were too small to carry many passengers.",
+            "reason": "This ship carries more than two thousand people, like a floating city."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "skill": {
+    "id": "2.5",
+    "name": "The dilemma: what a character wants and what stands in the way",
+    "codes": [
+      "VC2E6LE01"
+    ],
+    "why": "Every story is someone wanting something, with something in the way.",
+    "how": "Ask what the character wants most. Then ask what is stopping them.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Most stories start with someone who wants something.",
+            "show": "Mo **wants to win the island cook-off**."
+          },
+          {
+            "say": "Then something gets in the way.",
+            "show": "But **his oven is full of seagulls**."
+          },
+          {
+            "say": "The want plus the problem. That's the dilemma."
+          },
+          {
+            "say": "Sometimes the problem is another want.",
+            "show": "Mo **wants the trophy**, but he **also wants to help his mate**."
+          },
+          {
+            "say": "So ask: what do they want? What's stopping them?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Hana had saved for a whole year to buy a skateboard. On Saturday, she finally had enough. Then her little brother broke his arm at the park. He was stuck on the couch, bored and sad. The toy shop had a game he would love. It cost exactly what Hana had saved.",
+          "prompt": "Which sentence sums up Hana's dilemma?",
+          "hint": "What has Hana saved for? Who else could use that money?",
+          "success": "Her skateboard money could buy her brother's game instead. Two wants pull against each other.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "She wants a skateboard, but the shop has sold out.",
+                "reason": "Nothing says the shop sold out. Her money could go to her brother instead."
+              },
+              {
+                "text": "She wants a skateboard, but she also wants to cheer up her brother."
+              },
+              {
+                "text": "She wants a game, but her brother broke it.",
+                "reason": "The game is for her brother. The only thing broken is his arm."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the sentence that shows what stands in Kev's way.",
+          "hint": "Kev wants to see the comet. What could stop him seeing it?",
+          "success": "The clouds cover the sky, so they stand between Kev and the comet.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Kev wanted to see the comet. It would only pass once in his whole life. ",
+              {
+                "tap": "He set his alarm for three in the morning.",
+                "reason": "This is Kev getting ready. It doesn't stop him."
+              },
+              " ",
+              {
+                "tap": "But thick clouds rolled in over the whole island."
+              },
+              " ",
+              {
+                "tap": "His dog snored at the end of the bed.",
+                "reason": "A snoring dog won't stop Kev seeing the comet."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "dashling",
+      "name": "Dashling",
+      "evolved": "Dashadeep",
+      "blurb": "A green turtle hatchling that wants one thing: the sea. Between it and the water are gulls, crabs and a very long beach."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.5-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is telling the crew about the Twotide Show. The Dashling is very hungry.",
+      "text": "The Twotide Show had a pie-eating contest. The prize was a giant gold trophy. Sid wanted that trophy more than anything. He had trained for weeks. He ate pies for breakfast, lunch and dinner. On the day, he sat at the table, ready to go. Then he saw the sign. TODAY'S PIES: SPINACH AND MUSHROOM. Sid hated spinach. He hated mushrooms even more. He stared at the pie. The pie stared back.",
+      "prompt": "What stands in Sid's way?",
+      "success": "The pies. Sid wants the trophy, but he hates spinach and mushroom.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The pies are spinach and mushroom."
+          },
+          {
+            "text": "He hasn't trained for the contest.",
+            "reason": "He trained for weeks. That's not the problem."
+          },
+          {
+            "text": "The trophy is too heavy to carry.",
+            "reason": "The story never says how heavy the trophy is. The problem is the pies."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.5-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Dashling is watching a dog at a barbecue. It knows that look.",
+      "prompt": "Tap the sentence that shows what stands in Biscuit's way.",
+      "success": "The fence keeps Biscuit away from the barbecue. It stands between him and the sausages.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Biscuit the dog wanted a sausage more than anything in the world. Dad was cooking them on the barbecue. Biscuit sat. Biscuit begged. Biscuit did his best sad eyes. ",
+          {
+            "tap": "The sausages smelled amazing.",
+            "reason": "The smell makes Biscuit want them more. It doesn't stop him."
+          },
+          " ",
+          {
+            "tap": "But Dad had put a tall fence around the barbecue."
+          },
+          " ",
+          {
+            "tap": "Biscuit wagged his tail very fast.",
+            "reason": "This is Biscuit hoping. It doesn't stop him getting a sausage."
+          },
+          " ",
+          {
+            "tap": "Next door, a magpie sang.",
+            "reason": "The magpie is next door. It isn't in Biscuit's way."
+          },
+          " Biscuit looked at the fence. He looked at the sausages. Then he saw Grandma's plate on a low chair. Grandma was asleep."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is reading about a swimmer from the Twotide club. The Dashling is a big swimming fan.",
+      "text": "Ava wanted to swim in the big race on Saturday. She wanted to beat her best time. She also wanted to make her coach proud. But on Friday, she woke up with a bad cold. Her nose was running like a tap. Then her goggles snapped in half. And Mum's car had a flat tyre. Ava sneezed three times. Then she blew her nose. 'I'm still going,' she said.",
+      "prompt": "Match each thing to the right group.",
+      "success": "Ava wants three things. A cold, broken goggles and a flat tyre all try to stop her.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "what Ava wants",
+          "what stands in her way"
+        ],
+        "items": [
+          {
+            "text": "to swim in the big race",
+            "bin": 0,
+            "reason": "The story says Ava wanted to swim in the big race."
+          },
+          {
+            "text": "a bad cold",
+            "bin": 1,
+            "reason": "A cold makes it hard to swim. It's in her way."
+          },
+          {
+            "text": "to beat her best time",
+            "bin": 0,
+            "reason": "This is something Ava wants to do."
+          },
+          {
+            "text": "goggles snapped in half",
+            "bin": 1,
+            "reason": "She needs her goggles to race. Broken ones are in her way."
+          },
+          {
+            "text": "to make her coach proud",
+            "bin": 0,
+            "reason": "The story says she also wanted this."
+          },
+          {
+            "text": "a flat tyre",
+            "bin": 1,
+            "reason": "A flat tyre makes it hard to get to the race."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed found a story about Moon Camp. The Dashling has never been further than the beach.",
+      "text": "Nina had a ticket for Moon Camp. She would float in the air and eat space ice cream. She had wanted to go since she was five. There was just one problem. Nina got sick on anything that moved. She got sick on buses. She got sick on swings. Once, she got sick on an escalator. And the rocket to Moon Camp went very, very fast.",
+      "prompt": "Which sentence sums up Nina's problem?",
+      "success": "She wants Moon Camp badly, but a fast rocket and a wobbly tummy stand in the way.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Nina wants to eat space ice cream, but Moon Camp has run out of it.",
+            "reason": "Nothing says it's run out. Her problem is getting sick."
+          },
+          {
+            "text": "Nina wants to stay home, but Mum is making her go.",
+            "reason": "She has wanted to go since she was five. Nobody's making her."
+          },
+          {
+            "text": "Nina wants to go to Moon Camp, but she gets sick when things move."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo wrote a note about his pop. One word is wrong.",
+      "text": "Pop wanted a nap. Just one little nap. He lay on the couch and closed his eyes. Then the twins started playing drums on a saucepan. Pop opened one eye. The twins stopped. Pop closed his eye. Then the twins found a whistle. Then they found the dog. By four o'clock, Pop had not slept one wink. He went and lay down in the car instead.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "A nap. Pop lies down to sleep, but the twins keep making noise.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Pop wants ",
+          {
+            "tap": "a sandwich"
+          },
+          ". But the ",
+          {
+            "tap": "twins",
+            "reason": "That's right. The twins are the ones in his way."
+          },
+          " keep making ",
+          {
+            "tap": "noise",
+            "reason": "That's right. Drums, a whistle and the dog are all noisy."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "a drum",
+            "reason": "The twins play the drums. Pop wants to sleep."
+          },
+          {
+            "text": "a nap"
+          },
+          {
+            "text": "a walk",
+            "reason": "He lies down on the couch, then in the car. He wants to sleep."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "The Dashling found a boy searching the beach. It joined in.",
+      "text": "Every day after school, Finn walked along Twotide beach. He was looking for a message in a bottle. He found shells. He found an old thong. He found a crab that pinched his toe. But he never found a bottle. 'Maybe today,' he told the crab. One day, he saw something shiny in the waves. Finn ran so fast that he lost his other thong.",
+      "prompt": "What does Finn want most?",
+      "success": "A message in a bottle. He searches every day and runs at anything shiny.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to collect shells and old thongs from the beach",
+            "reason": "He finds shells and a thong, but he's looking for a bottle."
+          },
+          {
+            "text": "to find a message in a bottle"
+          },
+          {
+            "text": "to catch a crab",
+            "reason": "The crab pinches him. He isn't trying to catch it."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b2-1",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed is telling the crew about the best player he ever met. The Dashling is cheering her on.",
+      "text": "Zara was the best Block Builder player in Year 6, and everyone knew it. When the school announced a Block Builder tournament, her friends signed her up straight away. The prize was a new console. Zara wanted it badly. Her old one made a noise like a sick cow, but it still worked. The only problem was the stage. The tournament would be played on the big screen in the hall, in front of the whole school. Every time Zara thought about it, her hands went cold. At home, she could build a castle in four minutes. In front of a crowd, she could barely say her own name. The night before, she practised in front of her cat. The cat left.",
+      "prompt": "What stands in Zara's way?",
+      "success": "Her fear of the crowd. She's the best player, but the stage makes her hands go cold.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Her old console doesn't work any more, so she can't practise.",
+            "reason": "It makes a noise like a sick cow, but the story says it still works."
+          },
+          {
+            "text": "She gets scared playing in front of a crowd."
+          },
+          {
+            "text": "She isn't good enough at Block Builder.",
+            "reason": "She's the best player in Year 6. Skill isn't the problem."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "Narra the Teller is telling a story about the jetty fish and chip shop. The Dashling loves a chip.",
+      "prompt": "Tap the sentence that shows what Leo wants most.",
+      "success": "'More than anything' tells you this is Leo's biggest want. The busy shop is what stands in the way.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Leo's family ran the fish and chip shop on the jetty. Every afternoon, Leo peeled potatoes in the back room. ",
+          {
+            "tap": "His mum hoped he would run the shop one day.",
+            "reason": "This is what Mum wants, not what Leo wants."
+          },
+          " ",
+          {
+            "tap": "Leo liked the smell of hot chips well enough.",
+            "reason": "Liking a smell well enough isn't the same as wanting something badly."
+          },
+          " But every time he heard the school band practising across the road, he stopped peeling. ",
+          {
+            "tap": "More than anything, Leo wanted to play the trumpet in that band."
+          },
+          " ",
+          {
+            "tap": "The band practised on Tuesday and Thursday afternoons.",
+            "reason": "This tells you when the band practises. It's not what Leo wants."
+          },
+          " Those were the busiest days in the shop. Leo had never asked if he could go, because he knew what Mum would say. So he kept peeling, and he hummed the trumpet parts under his breath. Sometimes he used a potato as a trumpet. It didn't sound very good."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b2-3",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi has heard about a kid with a big mural plan. The Dashling wants to be in it.",
+      "text": "Ruby had a plan. She wanted to paint a giant sea turtle on the grey wall behind the school canteen. She wanted it to be so big that you could see it from the ferry. And she wanted every kid in the school to paint one small fish on it. But the wall was three storeys high, and Ruby was scared of ladders. Paint for a wall that big would cost hundreds of dollars. And the principal, Mr Grimes, said walls were for leaning on, not for painting. Ruby didn't give up. She made a poster, sold forty lamingtons, and booked a meeting with Mr Grimes. She took the best lamington with her.",
+      "prompt": "Match each thing to the right group.",
+      "success": "Ruby wants a huge turtle that everyone helps paint. Ladders, money and Mr Grimes stand in the way.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "what Ruby wants",
+          "what stands in her way"
+        ],
+        "items": [
+          {
+            "text": "a giant sea turtle on the canteen wall",
+            "bin": 0,
+            "reason": "This is Ruby's big plan. It's what she wants."
+          },
+          {
+            "text": "her fear of ladders",
+            "bin": 1,
+            "reason": "The wall is three storeys high. Being scared of ladders gets in her way."
+          },
+          {
+            "text": "a turtle you can see from the ferry",
+            "bin": 0,
+            "reason": "She wants it this big. That's part of her want."
+          },
+          {
+            "text": "paint that costs hundreds of dollars",
+            "bin": 1,
+            "reason": "Ruby needs money for all that paint. The cost is in her way."
+          },
+          {
+            "text": "every kid painting one fish",
+            "bin": 0,
+            "reason": "She wants the whole school to help. That's part of her want."
+          },
+          {
+            "text": "a principal who says walls are for leaning on",
+            "bin": 1,
+            "reason": "Mr Grimes says no to painting. He stands in her way."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is reading about a robot that can juggle. The Dashling wants one.",
+      "text": "Kenji had spent six months building a robot called Sprocket. Sprocket could juggle three eggs without breaking a single one. Kenji wanted to enter it in the Island Robot Show, which had a prize of five hundred dollars. Then his best friend, Ali, sent him an invitation. Ali was turning eleven and having a laser tag party. It was on the same Saturday as the Robot Show, at exactly the same time. Months ago, Kenji had promised Ali he would never miss his birthday. Ali had come to every one of Kenji's robot tests, even the one where Sprocket caught fire. He stared at the invitation. Then he stared at Sprocket. Sprocket dropped an egg.",
+      "prompt": "Which sentence best sums up Kenji's dilemma?",
+      "success": "Two wants pull against each other. The show and Ali's party are at exactly the same time.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He wants to enter the Robot Show, but he promised never to miss Ali's birthday."
+          },
+          {
+            "text": "He wants to win the five hundred dollar prize, but Sprocket keeps breaking the eggs it juggles.",
+            "reason": "Sprocket can juggle without breaking any. The real problem is that both events are at the same time."
+          },
+          {
+            "text": "He wants to go to laser tag, but Ali didn't invite him.",
+            "reason": "Ali did invite him. That's what causes the problem."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.5-b2-5",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus wrote a note about a science fair hero. One word is wrong.",
+      "text": "Mira was growing the world's biggest mould garden for the science fair. She had seven slices of bread, two old oranges and a very furry yoghurt. She kept them all in a shoebox under her bed. There was just one problem. Her mum could smell it. The whole house smelled like old cheese and wet carpet. Mira made a sign for her door that said SCIENCE IN PROGRESS. KEEP OUT. Every time Mira went to school, Mum searched her room. On Monday, Mum threw out the oranges. On Wednesday, the yoghurt disappeared. 'It's science!' Mira shouted. 'It's disgusting,' said Mum. By Friday, Mira had one slice of bread left. She hid it inside her pencil case and hoped for the best.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Mum. Mira wants to grow mould, and Mum keeps throwing it out.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mira wants to grow ",
+          {
+            "tap": "mould",
+            "reason": "That's right. She's growing mould for the science fair."
+          },
+          " for the science fair, but her ",
+          {
+            "tap": "teacher"
+          },
+          " keeps throwing it ",
+          {
+            "tap": "out",
+            "reason": "That's right. The oranges and the yoghurt get thrown out."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "friend",
+            "reason": "No friend comes into the story. Mum is the one searching her room."
+          },
+          {
+            "text": "mum"
+          },
+          {
+            "text": "dog",
+            "reason": "There's no dog in this story. Mum is the one throwing things out."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Narra the Teller is telling a story about the Twotide lighthouse. The Dashling is hiding in its shell.",
+      "text": "Every year, the Twotide lighthouse held a sleepover for kids who were brave enough. Ethan's big sister had stayed the whole night when she was ten. She still talked about it at every family dinner. 'Ten whole hours,' she would say. 'Not one peek outside.' Ethan was ten now. He packed a pillow, two blankets and a cheese sandwich. He didn't care about ghosts. He didn't even like torches. But he wanted to come home in the morning and say, 'I stayed the whole night too.' At midnight, the lighthouse made a long, creaking moan. Ethan pulled his sleeping bag over his head and stayed exactly where he was. 'I'm fine,' he said to nobody. 'Totally fine.'",
+      "prompt": "What does Ethan want most?",
+      "success": "To prove he's as brave as his sister. He wants to say, 'I stayed the whole night too.'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to see a real ghost",
+            "reason": "He doesn't care about ghosts. He wants to say he stayed all night."
+          },
+          {
+            "text": "to go home early",
+            "reason": "He stays exactly where he is. Going home early is what he's trying not to do."
+          },
+          {
+            "text": "to prove he's as brave as his sister"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is telling the crew about the hardest choice a captain ever made. The Dashling is holding its breath.",
+      "text": "Talia had been captain of the Twotide netball team for two years, and she wanted one thing before she left for high school: the grand final cup. This year, they finally had a chance. A new girl, Priya, had joined in June, and she could shoot from anywhere on the court. The trouble was that only seven players could go on the court, and the coach had asked Talia to choose who got the last spot. It was Priya or Jess. Jess had been Talia's best friend since kinder. She had played in every single game for two years, even the ones in the pouring rain, but she had never scored a goal. Priya would almost certainly win them the cup. Jess would almost certainly cry. Talia wrote both names on a piece of paper, then screwed it up. She did it four more times. By dinnertime, her bin was full of paper balls, and she still hadn't chosen.",
+      "prompt": "Which sentence best sums up Talia's dilemma?",
+      "success": "Two wants clash. Picking Priya could win the cup, but it would leave out Jess, her best friend.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She wants to win the cup, but the coach won't let her pick the team.",
+            "reason": "The coach asks Talia to choose. Having to choose is the hard part."
+          },
+          {
+            "text": "She wants Jess to score a goal, but Jess has never scored.",
+            "reason": "Jess has never scored, but Talia's choice is about who plays in the grand final."
+          },
+          {
+            "text": "She wants to win the cup, but choosing Priya would hurt her best friend."
+          },
+          {
+            "text": "She wants Priya on the team, but Priya hasn't trained enough.",
+            "reason": "Nothing says Priya hasn't trained. She can shoot from anywhere on the court."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is telling the crew about a pelican she knew. The Dashling thinks it has a point.",
+      "prompt": "Lani wants Captain Beaky to fly free. Tap the sentence that shows what really stands in her way.",
+      "success": "The pelican won't leave! After six weeks of free fish, Captain Beaky himself is the problem.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Lani had been caring for the injured pelican for six weeks, ever since she found it tangled in fishing line under the jetty. She had named it Captain Beaky. Now its wing had healed, and more than anything, Lani wanted to watch it fly back to the lagoon. On release day, the whole family came down to the beach. ",
+          {
+            "tap": "A light drizzle was falling, but Dad said pelicans didn't mind rain.",
+            "reason": "Dad says pelicans don't mind rain, so the drizzle doesn't stop anything."
+          },
+          " ",
+          {
+            "tap": "Lani's little brother had brought a bag of chips for the pelican.",
+            "reason": "The chips are funny, but they don't stop the pelican flying away."
+          },
+          " Lani opened the box. Captain Beaky waddled out, flapped twice, and sat down on the sand. ",
+          {
+            "tap": "Then he waddled straight back into the box and refused to come out."
+          },
+          " ",
+          {
+            "tap": "A crowd of seagulls landed nearby to see what was happening.",
+            "reason": "The seagulls just watch. They don't stop Captain Beaky leaving."
+          },
+          " Lani tried everything. She sang to him. She showed him the lagoon. She even flapped her own arms. Captain Beaky closed his eyes. It seemed he had decided that six weeks of free fish was a very good life."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is telling the crew about the toughest cook on Twotide Atoll. The Dashling is drooling.",
+      "text": "Nonna Bea wanted to win Best Pie at the Twotide Show. She had come second eleven years in a row, always behind Mrs Pickering and her famous lemon meringue. This year, Nonna Bea also wanted to beat Mrs Pickering by a mile, so that nobody could ever call it luck. But there were problems. Her oven had a broken door that she had to hold shut with a chair. Her secret ingredient, wild figs, only grew at the top of a very steep hill. And one of the judges this year was Mrs Pickering's nephew. Nonna Bea fixed the oven door with two bulldog clips and a wooden spoon. She climbed the fig hill at dawn, with her walking stick in one hand and a basket in the other. She baked the pie four times until it was perfect. On show day, she placed it on the table, looked Mrs Pickering in the eye, and smiled very sweetly.",
+      "prompt": "Match each thing to the right group.",
+      "success": "Two wants, three problems and two clever fixes. Put together, that's Nonna Bea's whole dilemma.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "what she wants",
+          "what stands in her way",
+          "how she gets past it"
+        ],
+        "items": [
+          {
+            "text": "Win Best Pie at the show.",
+            "bin": 0,
+            "reason": "This is the first thing the story says Nonna Bea wants."
+          },
+          {
+            "text": "A broken oven door.",
+            "bin": 1,
+            "reason": "She can't bake properly with a broken oven. It's in her way."
+          },
+          {
+            "text": "Fixing the door with bulldog clips.",
+            "bin": 2,
+            "reason": "This is how she gets past the broken oven."
+          },
+          {
+            "text": "Beat Mrs Pickering by a mile.",
+            "bin": 0,
+            "reason": "The story says she also wants this, so nobody can call it luck."
+          },
+          {
+            "text": "Figs that grow at the top of a steep hill.",
+            "bin": 1,
+            "reason": "Her secret ingredient is hard to reach. That's in her way."
+          },
+          {
+            "text": "Climbing the hill at dawn.",
+            "bin": 2,
+            "reason": "This is how she gets the figs, so it's how she gets past that problem."
+          },
+          {
+            "text": "A judge who is Mrs Pickering's nephew.",
+            "bin": 1,
+            "reason": "A judge who might favour her rival is in Nonna Bea's way."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5-b3-4",
+      "band": 3,
+      "topic": "space",
+      "frame": "Zed found a story about a colony ship. One word in his note is wrong.",
+      "text": "Pets were strictly banned on the colony ship Wanderer. The rule was printed on every door in big red letters: NO ANIMALS OF ANY KIND. Kit had read the rule many times. She had read it while she was hiding Gloop, her pet moon-slug, in her sock drawer. Gloop was the size of a sausage, pale green and very friendly, and he hummed when he was happy. Kit loved him more than anything on the ship. But Gloop was growing. Every week he was a little bigger, and his humming was a little louder. On Tuesday, the captain stopped outside Kit's cabin and frowned at the door. 'Is something in there humming?' he asked. 'Just me,' said Kit, and she hummed loudly to prove it. The captain frowned some more and walked on. Kit leaned against the door and let out a long breath. There were two weeks until the ship landed, and Gloop had just eaten a pillow.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Growing. A bigger, louder slug is harder to hide, and that's what stands in Kit's way.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Kit wants to keep ",
+          {
+            "tap": "Gloop",
+            "reason": "That's right. Gloop is the pet she wants to keep."
+          },
+          ", but pets are ",
+          {
+            "tap": "banned",
+            "reason": "That's right. The rule says NO ANIMALS OF ANY KIND."
+          },
+          " on the ship, and Gloop keeps ",
+          {
+            "tap": "escaping"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "shrinking",
+            "reason": "Gloop gets a little bigger every week, not smaller."
+          },
+          {
+            "text": "hiding",
+            "reason": "Kit is the one hiding him. Gloop keeps getting bigger, which makes that harder."
+          },
+          {
+            "text": "sleeping",
+            "reason": "Gloop hums and has just eaten a pillow. Sleeping isn't the problem."
+          },
+          {
+            "text": "growing"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.5-b3-5",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi is telling the crew about a comic that nearly didn't happen. The Dashling is chewing a pencil.",
+      "text": "The Island Comic Contest closed at five o'clock on Friday, and Jonah wanted to win it more than he had ever wanted anything. The prize was having your comic printed in the Twotide Times, where the whole island would read it. Jonah had a great idea: a superhero seagull called Captain Chip. He drew the first page on Monday. Then he decided the seagull's beak looked wrong, so he started again. On Tuesday, he drew three whole pages, then threw them out because the clouds were too fluffy. By Thursday night, he had used half a packet of paper and still had no comic. His mum offered to buy more paper, but Jonah said the paper wasn't the problem. His friend Amira, who had finished hers in one afternoon, tried to help. 'It's good enough,' she said. 'Just send it in.' Jonah shook his head. 'It has to be perfect.' At half past four on Friday, he was still rubbing out a cloud.",
+      "prompt": "What stands in Jonah's way?",
+      "success": "He won't stop fixing things. Wanting it to be perfect is what stops him finishing.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He doesn't have a good idea for a comic.",
+            "reason": "He has a great idea: Captain Chip, a superhero seagull."
+          },
+          {
+            "text": "He keeps starting again because he thinks it isn't perfect."
+          },
+          {
+            "text": "He runs out of paper before Friday.",
+            "reason": "He has used half a packet, so there's still paper left. Paper isn't what stops him."
+          },
+          {
+            "text": "Amira finishes first, so he can't win.",
+            "reason": "Finishing first doesn't mean winning. Amira is trying to help him."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "Narra the Teller is telling the story of the loudest boy on Twotide Atoll. The Dashling has its flippers over its ears.",
+      "text": "When Oscar's great-grandfather died, he left Oscar a set of bagpipes, a tartan cap and a letter. 'Learn to play these,' the letter said, 'and play them at the island's Founders' Day, like I did for fifty years.' Oscar wanted to do exactly that. The trouble was the noise. The first time Oscar practised, the neighbour's dog howled, three car alarms went off, and his mum said it sounded like a goose being sat on. His sister moved into the garden shed. The family made a rule: no bagpipes inside the house, ever. So Oscar practised on the end of the jetty, then in the sand dunes, then in a rowboat in the middle of the lagoon. By March, he could play one whole song. By Founders' Day, he could play three. When he marched onto the stage in the tartan cap, his mum was in the front row, wearing earmuffs and crying.",
+      "prompt": "What does Oscar want most?",
+      "success": "To play on Founders' Day, as the letter asked. He practises for months to do it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to annoy his family with loud music",
+            "reason": "He practises far from the house so he won't bother them. Annoying them isn't the point."
+          },
+          {
+            "text": "to play on Founders' Day, as the letter asked"
+          },
+          {
+            "text": "to get his own room out in the garden shed",
+            "reason": "His sister moves into the shed, not Oscar."
+          },
+          {
+            "text": "to win a bagpipe competition",
+            "reason": "There's no competition. He wants to play at Founders' Day, as the letter asked."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.5-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Wren found this story pinned to the Echo Studio door. The Dashling is glaring at the poster.",
+      "text": "The poster was stuck to every lamppost on Twotide Atoll: REWARD! $10,000 FOR A LIVE GLOWFIN, DELIVERED TO MAXX VANTABLACK'S ECHO STUDIO. Under it was a photo of Maxx, winking at the camera with his thumbs up. Marisol had read it eleven times, because two days ago, in the rock pool behind her house, she had found a Glowfin. It was smaller than her hand and shimmered blue whenever she sang to it. Ten thousand dollars would fix the hole in her dad's fishing boat, which had sat on the beach since the cyclone. Without the boat, her dad had no work, and Marisol had heard her parents whispering late at night about selling the house. Her little brother had already spent the money in his head, on a trampoline, a puppy and a lifetime supply of ice blocks. But she had also watched Maxx's streams. She had seen the 'rescued' Creatures in their tiny gold tanks, never shimmering at all. That night, she sat by the rock pool with a bucket in her lap for nearly an hour. The Glowfin swam in slow circles, glowing every time she hummed. Twice she lowered the bucket into the water, and twice she lifted it out again, empty.",
+      "prompt": "Which sentence best sums up Marisol's dilemma?",
+      "success": "Two wants pull against each other: money her family badly needs, and keeping the Glowfin free.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She wants the reward to help her family, but Maxx is offering too little money.",
+            "reason": "Ten thousand dollars would fix the boat. The pull is between the money and the Glowfin."
+          },
+          {
+            "text": "She wants to keep the Glowfin free, but her parents have told her to sell it to Maxx.",
+            "reason": "Her parents never mention the Glowfin. They whisper about selling the house."
+          },
+          {
+            "text": "She wants the reward to buy a puppy, but she doesn't want the Glowfin trapped.",
+            "reason": "The puppy is her brother's daydream. Marisol wants the money to fix Dad's boat."
+          },
+          {
+            "text": "She wants the reward to help her family, but she doesn't want the Glowfin trapped."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.5-b4-2",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed is telling the crew about the greatest speedrun he ever watched. The Dashling has its claws crossed.",
+      "prompt": "Zoe wants the world record. Tap the sentence that shows what really stands in her way.",
+      "success": "The Triple Lava Jump. Every other problem is fixed or doesn't matter, but she has never landed that jump.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "For eight months, Zoe had been chasing the world record for Lava Leap, a game in which a small frog hops across an erupting volcano. The record was fourteen minutes and two seconds, held by a player who called herself FrogQueen, and Zoe wanted it so badly that she had started dreaming in frog. ",
+          {
+            "tap": "Her internet had been slow all week, but the game didn't need the internet to set a record.",
+            "reason": "The story says the record doesn't need the internet, so this doesn't stop her."
+          },
+          " ",
+          {
+            "tap": "Her little brother usually barged in at the worst moment, but tonight he was away at a sleepover.",
+            "reason": "He's away at a sleepover, so he can't get in her way tonight."
+          },
+          " ",
+          {
+            "tap": "Her controller's A button had gone sticky, so she cleaned it with a cotton bud and it worked perfectly.",
+            "reason": "She fixed the sticky button, so it's no longer a problem."
+          },
+          " Everything was ready. ",
+          {
+            "tap": "In four hundred tries, she had never once landed the Triple Lava Jump on the final level."
+          },
+          " Every run went the same way. She would fly through the first nine levels, faster than FrogQueen had ever gone, with her heart pounding in her ears. Then she would reach the Triple Lava Jump, and her frog would sizzle. At midnight, on her four hundred and first try, she took a deep breath, wiggled her fingers and pressed start. Her mum had long ago stopped asking what all the screaming was about, and her cat, who had watched every attempt, put its paws over its eyes."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.5-b4-3",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is reading about an inventor with a robot and a long list of problems. The Dashling is reading the list.",
+      "text": "Ada had built a robot that could sort recycling faster than any machine on Twotide Atoll. It picked out bottles, cans and cardboard with its spindly arms and dropped them into the right bins, humming a little tune as it worked. Her teacher said it was good enough for the National Young Inventors Fair in the city, and Ada wanted, more than anything, to stand beside it there. Getting there would not be simple. The entry fee was two hundred dollars, and Ada had saved forty-three. The rules said every entry needed a team of two, but Ada couldn't bear the thought of anyone else touching her robot, not even her best friend. The robot's battery died after three minutes, and each demonstration lasted five. Worst of all, the fair ended with every inventor explaining their work to a panel of judges, and Ada froze whenever she had to speak to adults she didn't know. The last time a teacher had asked her a question in front of the class, she had answered in a whisper and then hidden in the library for the rest of lunch. Entries closed in a fortnight. Ada stuck a list of her problems on the fridge and stared at it every morning over her cereal.",
+      "prompt": "Match each thing in Ada's way to where the problem comes from.",
+      "success": "Some problems are rules, money and batteries. Others, like her fear and not sharing, come from inside Ada herself.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a problem inside Ada",
+          "a problem outside Ada"
+        ],
+        "items": [
+          {
+            "text": "The entry fee was two hundred dollars.",
+            "bin": 1,
+            "reason": "Money is a problem in the world around Ada, not a feeling inside her."
+          },
+          {
+            "text": "Every entry needed a team of two.",
+            "bin": 1,
+            "reason": "This is a rule of the fair. Rules come from outside Ada."
+          },
+          {
+            "text": "She couldn't bear anyone else touching her robot.",
+            "bin": 0,
+            "reason": "This is how Ada feels. It comes from inside her."
+          },
+          {
+            "text": "The battery died after three minutes.",
+            "bin": 1,
+            "reason": "A flat battery is a problem with a thing, not with Ada's feelings."
+          },
+          {
+            "text": "She froze when she had to speak to adults she didn't know.",
+            "bin": 0,
+            "reason": "Freezing up is a fear inside Ada. Nobody else causes it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5-b4-4",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus wrote a note about the smelliest news story of the year. One word is wrong.",
+      "text": "TWOTIDE TIMES. A plant known as the corpse flower has become the most talked-about resident of Twotide Atoll, and it hasn't even opened yet. The giant flower, which stands taller than a grown man, blooms only once every seven years, and when it does, it gives off a smell that one gardener described as 'a dead possum wearing old socks'. Botanist Professor Pippa Gale has waited seven years for this bloom. She wants scientists from around the world to study it, because nobody has ever recorded how the smell changes hour by hour. 'This could be the most important week of my career,' she said. Unfortunately, the flower's neighbours do not agree. After complaints from the café next door, which says customers have been fainting into their soup, the island council has voted to dig the plant up and put it through the mulcher on Friday. The flower is expected to bloom on Sunday. Professor Gale has started a petition, chained herself to the greenhouse door, and offered to buy the café owner a peg for his nose. So far, the council has not changed its mind, although one councillor admitted she was 'a little bit curious about the smell'.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Dig it up. The council's plan to mulch it on Friday stands between Professor Gale and the bloom.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Professor Gale wants scientists to ",
+          {
+            "tap": "study the flower",
+            "reason": "That's right. Nobody has recorded how its smell changes hour by hour."
+          },
+          ", but the ",
+          {
+            "tap": "council",
+            "reason": "That's right. The island council voted on the plan."
+          },
+          " plans to ",
+          {
+            "tap": "water it"
+          },
+          " on Friday, two days before it blooms."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "sell it",
+            "reason": "Nobody is selling the plant. The council voted to dig it up and mulch it."
+          },
+          {
+            "text": "move it",
+            "reason": "They aren't moving it somewhere safe. They plan to put it through the mulcher."
+          },
+          {
+            "text": "dig it up"
+          },
+          {
+            "text": "cover it",
+            "reason": "Covering it isn't the plan. The council voted to dig it up and mulch it."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo is telling the crew about his grandma's birthday. The Dashling has spotted the balloons.",
+      "text": "'I don't want a fuss,' Grandma Joy announced in March, three months before her eightieth birthday. 'No party. No cake. Just a quiet cup of tea.' She said it again in April, and twice in May. Yet strange things kept happening. In April, she left a magazine open on the kitchen table at an article called 'Ten Fabulous Party Ideas', with three of them circled in red pen. She casually mentioned that the surf club hall was free on the Saturday of her birthday, and that it held a hundred people. When the family asked what she wanted as a present, she said 'nothing', then added that a disco ball might be nice for the kitchen. She bought a silver sequinned dress, 'for no reason at all'. Mum found a list in Grandma's handbag titled PEOPLE I WOULDN'T MIND SEEING, with sixty-four names on it, including the man who had delivered her mail forty years ago. When Grandpa suggested they just go out for fish and chips, Grandma Joy went very quiet and ate her dinner without a word. The whole family held an emergency meeting in the garage. 'She says she doesn't want a party,' said Uncle Theo. Everybody looked at him. 'Theo,' said Mum gently, 'she has already ordered the balloons.'",
+      "prompt": "What does Grandma Joy really want?",
+      "success": "A big party. Her words say no fuss, but her actions, like the guest list and balloons, say otherwise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a quiet cup of tea and no fuss, just as she says",
+            "reason": "She says that, but the circled party ideas, the dress and the guest list show otherwise."
+          },
+          {
+            "text": "fish and chips with Grandpa",
+            "reason": "When Grandpa suggests fish and chips, she goes very quiet. That's not what she wants."
+          },
+          {
+            "text": "a big party with lots of people"
+          },
+          {
+            "text": "a new dress for her birthday",
+            "reason": "She's already bought the dress herself. It's for the party she keeps hinting about."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.5-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Narra the Teller is telling the story of the Twotide lighthouse ghost. The Dashling feels sorry for him.",
+      "text": "For two hundred years, the ghost of Captain Horace Bleak had haunted Twotide lighthouse in perfect peace. Nobody visited. The stairs creaked, the wind howled, and Horace spent his evenings drifting from room to room, which was exactly how he liked it. Then, last spring, Maxx Vantablack arrived with three drones and a ring light to film a 'Midnight Ghost Hunt' for his channel. Horace, deeply annoyed, rattled a chain and moaned until Maxx screamed, tripped over his own cape and fled down the stairs. The clip was watched forty million times. Now coachloads of tourists arrived every night, waving selfie sticks and shouting, 'Do the chain thing!' Horace tried to get rid of them. He slammed doors, made the lamps flicker and wailed so loudly that a tour guide fainted. Every single time, the visitors cheered, filmed it and posted it online, and every single time, even more of them came the next night. A souvenir shop opened at the bottom of the hill, selling plastic chains and T-shirts that said I GOT BLEAKED. On Tuesday, someone gave Horace a five-star review on a travel website. Horace sat at the top of the lighthouse with his head in his hands, wondering whether a ghost was allowed to move house.",
+      "prompt": "Horace wants peace and quiet. What stands in his way?",
+      "success": "His scaring backfires. Every fright gets filmed, so every scare brings even more visitors.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He isn't scary enough to frighten anyone.",
+            "reason": "He scares Maxx and makes a tour guide faint. Being scary is exactly what backfires."
+          },
+          {
+            "text": "Every time he scares visitors, more people come to see him."
+          },
+          {
+            "text": "Maxx has moved into the lighthouse to film every night.",
+            "reason": "Maxx fled down the stairs. It's the tourists who keep coming."
+          },
+          {
+            "text": "He wants more visitors, but the tourists have stopped coming.",
+            "reason": "It's the opposite. He wants them gone, and more come every night."
+          }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,930 @@
+{
+  "skill": {
+    "id": "2.10",
+    "name": "Back an opinion about a story with a feature of the text",
+    "codes": [
+      "VC2E5LE02"
+    ],
+    "why": "An opinion is stronger when you can point to proof in the text.",
+    "how": "Say what you think. Find words in the story that show it. Point to them.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "An opinion is what you think about a story.",
+            "show": "**Gran is the bravest character.**"
+          },
+          {
+            "say": "Anyone can say anything. So you need proof from the story."
+          },
+          {
+            "say": "Find words in the story that show your opinion.",
+            "show": "Gran **walked into the dark cave alone**."
+          },
+          {
+            "say": "Proof from the text is called evidence. It must really be there."
+          },
+          {
+            "say": "And check it backs your opinion, not a different one.",
+            "show": "Gran **wore a red hat**. True, but does that show she's brave?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Gus found a baby bird on the footpath. He wrapped it in his scarf, even though it was freezing. He carried it three kilometres to the vet, in the rain. Then he waited two hours to hear if it was okay. It was.",
+          "prompt": "Tully thinks Gus is kind. Which evidence backs her up?",
+          "hint": "Is the evidence really in the story? Does it show kindness?",
+          "success": "Carrying a bird three kilometres in the rain shows real kindness, and it's right there in the story.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "He gave the bird his lunch.",
+                "reason": "That isn't in the story. Check what Gus really did."
+              },
+              {
+                "text": "It was freezing outside.",
+                "reason": "That's in the story, but it's about the weather. It doesn't show Gus is kind."
+              },
+              {
+                "text": "He carried the bird to the vet in the rain."
+              }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "prompt": "Wren thinks this story is spooky. Tap the sentence that backs her up.",
+          "hint": "Which sentence would give you a shiver?",
+          "success": "A door creaking open by itself is spooky. That's evidence for Wren's opinion.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "The house at the end of the street was empty. ",
+              {
+                "tap": "It had a green letterbox.",
+                "reason": "A green letterbox isn't spooky. It doesn't back Wren up."
+              },
+              " ",
+              {
+                "tap": "Its windows were dark, and the front door creaked open by itself."
+              },
+              " ",
+              {
+                "tap": "Mo's mum drove past on her way to the shops.",
+                "reason": "Driving to the shops is ordinary, not spooky."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "pointern",
+      "name": "Pointern",
+      "evolved": "Verditern",
+      "blurb": "A crested tern that never squawks an opinion without pointing its beak at the proof. If the proof isn't in the story, it won't say a word."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.10-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is reading the Pointern a story about a puppy. The Pointern is taking notes.",
+      "text": "Nugget the puppy was left alone for ten minutes. In that time, he ate one of Dad's shoes. He pulled every sock out of the washing basket. He dug a hole in the couch and hid inside it. When Mum came home, she found a trail of fluff down the hall. Nugget was sitting in the middle of it. He wagged his tail. A sock was hanging out of his mouth. Mum sighed and got the vacuum cleaner.",
+      "prompt": "Wren thinks Nugget is naughty. Which evidence from the story backs her up?",
+      "success": "Eating Dad's shoe is naughty, and the story really says it. That's evidence.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He barked at the postie all morning.",
+            "reason": "That isn't in the story. Look for what Nugget really did."
+          },
+          {
+            "text": "He ate one of Dad's shoes."
+          },
+          {
+            "text": "He wagged his tail.",
+            "reason": "That's in the story, but tail-wagging isn't naughty. It doesn't back Wren up."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.10-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo says this is the grossest story in the Twotide library. The Pointern wants proof.",
+      "prompt": "Mo thinks Gran's cooking is disgusting. Tap the sentence that backs him up.",
+      "success": "Sardines and gravy in a jelly is disgusting. That sentence is real evidence for Mo's opinion.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Every Sunday, Gran cooked lunch for the whole family. ",
+          {
+            "tap": "She wore her lucky apron with the ducks on it.",
+            "reason": "A duck apron doesn't tell you anything about the food."
+          },
+          " ",
+          {
+            "tap": "Grandad set the table with the good plates.",
+            "reason": "This is about the plates, not the food."
+          },
+          " Gran carried in a huge bowl and put it on the table. It wobbled. ",
+          {
+            "tap": "This week she had made jelly with sardines and gravy inside."
+          },
+          " ",
+          {
+            "tap": "Everyone sat down at one o'clock.",
+            "reason": "That's about the time, not the food."
+          },
+          " Grandad ate three bowls. He has no sense of smell."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is writing about her favourite footy story. The Pointern is checking her facts.",
+      "text": "Jai was captain of the Twotide under-12s. Before every game, he gave each player a high five. When Ben dropped a mark, Jai said, 'Next one's yours, mate.' In the last quarter, Jai saw that Zara was free. He passed her the ball, even though he could have kicked it himself. Zara kicked the winning goal. Jai cheered the loudest of anyone.",
+      "prompt": "Tully thinks Jai is a great captain. Match each piece of evidence: is it in the story or not?",
+      "success": "Real evidence has to be in the story. The other two sound good, but the story never says them.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "In the story, and backs Tully up",
+          "Not in the story"
+        ],
+        "items": [
+          {
+            "text": "Jai high-fived each player before every game.",
+            "bin": 0,
+            "reason": "The story says this, and it shows Jai cares about his team."
+          },
+          {
+            "text": "Jai told Ben, 'Next one's yours, mate.'",
+            "bin": 0,
+            "reason": "These are Jai's real words. Cheering Ben up is what a good captain does."
+          },
+          {
+            "text": "Jai passed to Zara instead of kicking it himself.",
+            "bin": 0,
+            "reason": "The story says this. Jai helps the team win instead of showing off."
+          },
+          {
+            "text": "Jai kicked ten goals in the grand final.",
+            "bin": 1,
+            "reason": "The story never says this. Zara kicks the winning goal."
+          },
+          {
+            "text": "The coach gave Jai a medal.",
+            "bin": 1,
+            "reason": "There's no coach or medal in the story. You can't use it as evidence."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.10-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed wrote a review of a space story. The Pointern spotted a mistake in it.",
+      "text": "Captain Jo's spaceship had a hole in it. Air was leaking out. The crew panicked. They ran in circles. Jo did not. She looked around the cabin. She grabbed a pack of chewing gum. 'Gum,' she said. She chewed all ten pieces at once. Then she stuck the gum over the hole. The leak stopped. The crew cheered. Jo's jaw hurt for a week.",
+      "prompt": "Tap the evidence Zed got wrong, then choose what the story really says.",
+      "success": "The story says Jo stuck chewing gum over the hole. Evidence has to match the text.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I think Captain Jo is ",
+          {
+            "tap": "clever",
+            "reason": "That's Zed's opinion. Fix his evidence, not what he thinks."
+          },
+          ". She stayed ",
+          {
+            "tap": "calm",
+            "reason": "That's right. The crew panicked, but Jo did not."
+          },
+          " when air leaked out. Then she stopped the leak with ",
+          {
+            "tap": "a sticky note"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "a robot",
+            "reason": "There's no robot in the story. Jo did it herself."
+          },
+          {
+            "text": "her helmet",
+            "reason": "The story doesn't say that. Check what she stuck over the hole."
+          },
+          {
+            "text": "chewing gum"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b1-5",
+      "band": 1,
+      "topic": "music",
+      "frame": "Tully wrote a review of a story about a school band. The Pointern knocked it over.",
+      "text": "Ivy played the drums in the school band. She was not very good at keeping time. At the concert, she started the song far too fast. The band raced to keep up. The singer ran out of breath. The trumpets squeaked. Then Ivy dropped a stick, and it flew into the front row. It landed in the principal's lap. The principal stood up and clapped. Everyone else laughed until they cried.",
+      "prompt": "Put Tully's review in order: her opinion, then her evidence, then why it backs her up.",
+      "success": "Opinion first, then evidence from the story, then why the evidence backs the opinion.",
+      "body": {
+        "format": "order",
+        "items": [
+          "I think this story is really funny.",
+          "For example, Ivy's drumstick lands in the principal's lap.",
+          "That shows it's funny, because nobody expects a flying drumstick."
+        ],
+        "reason": "Start with what Tully thinks. 'For example' brings in evidence. 'That shows' explains it."
+      }
+    },
+    {
+      "id": "2.10-b1-6",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Narra the Teller tells this story at the Twotide campfire. The Pointern hides under its wing.",
+      "text": "The old house on Shipwreck Hill had been empty for years. Its windows were black, like empty eyes. The gate screamed when Nell pushed it. Inside, the air smelled of dust. A clock ticked somewhere, but there was no clock on the wall. Nell's torch lit up a staircase. On the top step sat a doll. It was facing the wall. Nell blinked. Now it was facing her.",
+      "prompt": "Indi thinks the house is creepy. Which evidence backs her up?",
+      "success": "The writer calls the windows 'empty eyes'. Those words make the house creepy, and they're really there.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The house had a bright red front door.",
+            "reason": "That isn't in the story. Use words the writer really wrote."
+          },
+          {
+            "text": "Nell had a torch.",
+            "reason": "That's in the story, but a torch isn't creepy. It doesn't back Indi up."
+          },
+          {
+            "text": "The windows were black, like empty eyes."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "A Pointern dropped a fishing story onto the deck of the Soggy Biscuit.",
+      "text": "Skipper Dane ran the only fishing boat on Twotide Atoll. Every morning, he took the island kids out to fish. One morning, a girl called Asha hooked a huge snapper. It was bigger than any fish Dane had caught in thirty years. Dane grabbed the rod, pulled the fish in and held it up for a photo. 'Look what I caught!' he said. Asha said nothing. Later, Dane sold the fish at the market and kept the money. He bought himself a shiny new hat. Asha got a free ice-block. She said it was the most expensive ice-block in history.",
+      "prompt": "Mo thinks Skipper Dane is selfish. Which evidence backs him up?",
+      "success": "Selling the fish Asha caught and keeping the money is selfish. It's right there in the story.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He sold Asha's fish and kept the money."
+          },
+          {
+            "text": "He took the island kids fishing every morning.",
+            "reason": "That's in the story, but it's generous. It goes against Mo's opinion."
+          },
+          {
+            "text": "He wouldn't let Asha on the boat.",
+            "reason": "That isn't in the story. Asha was on the boat. She hooked the fish."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.10-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed has read this story nine times. He's still cross about the ending.",
+      "prompt": "Zed thinks the ending is unfair. Tap the sentence that backs him up.",
+      "success": "Kai was ten seconds ahead, but a coin toss gave Rex the trophy. That's evidence the ending is unfair.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Kai had practised Robo Rally every day for a year. ",
+          {
+            "tap": "He reached the final of the Island Cup without losing a single race.",
+            "reason": "That's a success for Kai. It doesn't show the ending is unfair."
+          },
+          " In the final, he was ten seconds ahead of Rex with one lap to go. ",
+          {
+            "tap": "Then the power went off across the whole hall.",
+            "reason": "That's bad luck, but it isn't the ending. Look at what the judges decide."
+          },
+          " When the lights came back on, the scores had been wiped. ",
+          {
+            "tap": "Instead of replaying the race, the judges tossed a coin, and Rex won the trophy."
+          },
+          " ",
+          {
+            "tap": "Kai shook Rex's hand and said, 'Good game.'",
+            "reason": "That shows Kai is a good sport. It doesn't show the ending is unfair."
+          },
+          " Then he went home, plugged in his controller and started practising for next year. His little brother asked if he was sad. Kai said he was 'just warming up'."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b2-3",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote about his favourite robot story. The Pointern is checking every piece of evidence.",
+      "text": "Clank was a cleaning robot at the Twotide Aquarium. He was painted blue, with a little mop for a hand. One night, a pipe burst, and water poured into the shark tunnel. The other robots rolled away. Clank rolled straight into the flood. He wedged himself into the broken pipe to block it. Water sprayed over his circuits, and sparks fizzed from his head. He stayed there until the plumber arrived at dawn. The aquarium manager had never seen anything like it. After that night, he squeaked whenever he moved. The aquarium gave him a medal, which he polishes every morning with his mop.",
+      "prompt": "Gus thinks Clank is brave. Match each piece of evidence to where it belongs.",
+      "success": "Evidence must be in the story and show bravery. Blue paint and a mop are true, but not brave.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "In the story, and backs Gus up",
+          "In the story, but doesn't back Gus up",
+          "Not in the story"
+        ],
+        "items": [
+          {
+            "text": "Clank rolled straight into the flood.",
+            "bin": 0,
+            "reason": "The other robots ran, but Clank went in. That's brave, and it's in the story."
+          },
+          {
+            "text": "Clank stayed in the pipe while sparks fizzed from his head.",
+            "bin": 0,
+            "reason": "Staying put while you're sparking is brave, and the story says it."
+          },
+          {
+            "text": "Clank was painted blue.",
+            "bin": 1,
+            "reason": "That's true, but the colour of a robot doesn't show bravery."
+          },
+          {
+            "text": "Clank had a little mop for a hand.",
+            "bin": 1,
+            "reason": "That's true, but having a mop doesn't make you brave."
+          },
+          {
+            "text": "Clank fought off a shark.",
+            "bin": 2,
+            "reason": "There's a shark tunnel, but Clank never fights a shark. It isn't in the story."
+          },
+          {
+            "text": "Clank saved a diver from drowning.",
+            "bin": 2,
+            "reason": "There's no diver in the story. Clank blocks a pipe."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.10-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi wrote a review of a story about an art prize. One piece of her evidence is wrong.",
+      "text": "Pia entered the Twotide Art Prize with a painting of her nan's kitchen. She worked on it for six weeks. She painted every chipped cup and every crumb on the bench. On the day of the judging, Pia's little brother knocked a jar of water over it. The colours ran together. Pia stared at the mess for a long time. Then she picked up a brush and turned the runny colours into a storm outside the kitchen window. She handed it in with ten minutes to spare. It didn't win first prize, but the judges gave it a special award for 'thinking on your feet'.",
+      "prompt": "Tap the evidence Indi got wrong, then choose a better piece of evidence.",
+      "success": "Six weeks of work is in the story, and it shows how hard Pia works.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I think Pia works hard and never gives up. Before the judging, she ",
+          {
+            "tap": "practised every day at art club"
+          },
+          ". When the water spilled, she ",
+          {
+            "tap": "turned the mess into a storm",
+            "reason": "That's right. She fixed the spill instead of giving up."
+          },
+          ". She still ",
+          {
+            "tap": "handed it in on time",
+            "reason": "That's right. She finished with ten minutes to spare."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "entered the Twotide Art Prize",
+            "reason": "That's in the story, but entering a prize doesn't show how hard she worked."
+          },
+          {
+            "text": "knocked a jar of water over it",
+            "reason": "Her little brother knocked the water over, not Pia. That doesn't back Indi up."
+          },
+          {
+            "text": "worked on it for six weeks"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b2-5",
+      "band": 2,
+      "topic": "food",
+      "frame": "The Pointern found this story in a cookbook. It has one piece of evidence and a question.",
+      "text": "Mo decided to make pancakes for the whole crew. He used salt instead of sugar. He flipped the first pancake so high that it stuck to the ceiling. The second one landed on Gus's head. Gus peeled it off and checked it for signs of life. The third one was black on one side and runny on the other. Tully took one bite and her eyes watered. She quietly fed the rest to the seagulls. Even the seagulls gave it back. Mo said they were 'experimental pancakes'. Then he made toast instead, and burned that too. The crew had cereal. The kitchen smelled like a burnt sock for a week.",
+      "prompt": "Gus points to one line: 'Even the seagulls gave it back.' Which opinion does that evidence back up?",
+      "success": "If even seagulls won't eat it, the pancakes must taste terrible. The evidence fits that opinion.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo is a careful cook.",
+            "reason": "The seagulls handing it back shows the taste is awful, not that Mo is careful."
+          },
+          {
+            "text": "Tully loves Mo's cooking.",
+            "reason": "Tully gave her pancake away, and the seagulls gave it back. That's not love."
+          },
+          {
+            "text": "Mo's pancakes taste terrible."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b2-6",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren wrote a review of a story about a cockatoo. The Pointern scrambled it.",
+      "text": "Bluey was the school cockatoo at Twotide Primary. She lived in a big cage by the office, and she was very good at copying voices. One Monday, she copied the principal perfectly. 'School is cancelled!' she squawked through the office window. 'Everybody go home!' Half of Year 3 packed their bags. On Tuesday, she stole Mr Ng's car keys and dropped them in the fish tank. The fish didn't mind. Mr Ng did. On Wednesday, she learned to copy the school bell. Lunch happened four times that day. The principal now wears earplugs, and Bluey has learned to say 'Pardon?'",
+      "prompt": "Put Wren's review in order: her opinion, her evidence, then why it backs her up.",
+      "success": "Opinion, two pieces of evidence from the story, then why they back her up. That's a strong review.",
+      "body": {
+        "format": "order",
+        "items": [
+          "I think Bluey is the funniest character in the story.",
+          "For example, she copies the principal and tells everyone to go home.",
+          "She also drops Mr Ng's car keys in the fish tank.",
+          "Both of these are funny because nobody expects a cockatoo to cause so much trouble."
+        ],
+        "reason": "Opinion first. 'For example' starts the evidence, 'also' adds more, and 'Both of these' explains them."
+      }
+    },
+    {
+      "id": "2.10-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Ruby wrote this story about herself. The Pointern isn't sure it believes her.",
+      "text": "My name is Ruby Tan, and I am not scared of anything. I would like that written down. When Dad said the old boat shed at the end of the jetty was haunted, I laughed so loudly that a seagull fell off the railing. That night, I decided to prove him wrong. I took a torch. I also took two spare torches, because torches can break, and a cricket bat, because I like cricket. I walked to the shed very slowly, to be polite to the spiders. The door was open. Inside, it smelled like old rope and wet fish. Something dripped in the corner. I stepped inside and shone my torch around, and everything was perfectly normal. Then the wind slammed the door shut behind me. I left through the window, very calmly, at a normal speed for a person who is not scared. I was home in forty seconds. Dad asked why I was out of breath and why I had seaweed in my hair. I said I had been jogging. At midnight. As people do.",
+      "prompt": "Mo thinks Ruby isn't as brave as she says. Which evidence from the story backs him up?",
+      "success": "One slammed door and Ruby is out the window and home in forty seconds. That shows she was scared.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She says, 'I am not scared of anything.'",
+            "reason": "That's in the story, but it's only Ruby's claim. It doesn't show she's less brave than she says."
+          },
+          {
+            "text": "She walks to the shed by herself at night.",
+            "reason": "That's in the story, but it makes her sound brave, not scared."
+          },
+          {
+            "text": "When the door slams, she escapes through the window and is home in forty seconds."
+          },
+          {
+            "text": "She screams when a ghost floats out of the corner.",
+            "reason": "That isn't in the story. No ghost appears, and Ruby never screams."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully lent Mo her favourite netball story. Mo has strong opinions about the coach.",
+      "prompt": "Mo thinks Coach Barrett is unfair to Lily. Tap the sentence that backs him up.",
+      "success": "Lily scores the most at training, but the coach benches her every game and plays his daughter. That's unfair.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Lily was the best shooter in the Twotide under-12s netball team. Everyone said so, even the umpires. ",
+          {
+            "tap": "She practised in her driveway every night until it was too dark to see the ring.",
+            "reason": "That shows Lily works hard. It says nothing about how the coach treats her."
+          },
+          " Coach Barrett had run the team for three years, and his daughter, Jess, played in it too. ",
+          {
+            "tap": "Every Saturday, the coach brought a bag of orange slices for the whole team.",
+            "reason": "Orange slices for everyone is fair. It doesn't back Mo's opinion."
+          },
+          " At training, Lily scored more goals than anyone else, week after week. Jess mostly hit the backboard. ",
+          {
+            "tap": "But in every single game, the coach put Jess in goal shooter and left Lily on the bench."
+          },
+          " Lily's mum asked about it once. The coach said he was 'building depth'. Lily didn't know what that meant, but it sounded a lot like the bench. ",
+          {
+            "tap": "Lily's best friend, Ava, made her a sign that said 'GO LILY!'",
+            "reason": "That's about Lily's friend, not about the coach."
+          },
+          " ",
+          {
+            "tap": "At the end-of-season party, the coach gave every player a certificate.",
+            "reason": "Every player got one. That treats Lily the same as everyone else."
+          },
+          " The next season, Lily joined the Reef Rays juniors. She was goal shooter in her very first game."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "Zed is arguing with Narra the Teller about who the hero of this story is. The Pointern is the referee.",
+      "text": "Commander Ray had flown the starship Dusty for twenty years, and he never let anyone forget it. His crew had heard his stories so many times that they could say them along with him. When a meteor storm hit, he shouted orders from his big gold chair. Most of them were wrong. 'Turn left!' he yelled, and the ship flew straight into a rock. While the commander shouted, Pip, the ship's little cleaning robot, rolled quietly into the engine room. Pip was so small that most of the crew forgot it was there. Pip found the cracked fuel line and wrapped it in tape. Then it worked out a safe path through the storm, one rock at a time, and whispered the directions to the pilot. The Dusty made it through without another scratch. Back on Earth, Commander Ray made a long speech about leadership and didn't mention Pip once. Pip was in the corner, cleaning up the cake crumbs from the party.",
+      "prompt": "Zed thinks Pip is the real hero of the story. Match each piece of evidence to where it belongs.",
+      "success": "Only what the story says, and what shows Pip saving the ship, can back Zed up.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "In the story, and backs Zed up",
+          "In the story, but doesn't back Zed up",
+          "Not in the story"
+        ],
+        "items": [
+          {
+            "text": "Pip fixed the cracked fuel line with tape.",
+            "bin": 0,
+            "reason": "The story says this, and fixing the ship is heroic."
+          },
+          {
+            "text": "Pip worked out a safe path and whispered it to the pilot.",
+            "bin": 0,
+            "reason": "This gets the ship through the storm. It's in the story and it's heroic."
+          },
+          {
+            "text": "Commander Ray sat in a big gold chair.",
+            "bin": 1,
+            "reason": "That's true, but where the commander sits says nothing about Pip."
+          },
+          {
+            "text": "The crew could say the commander's stories along with him.",
+            "bin": 1,
+            "reason": "That's in the story, but it's about Commander Ray's boasting, not about anything Pip did."
+          },
+          {
+            "text": "Pip fought off a gang of space pirates.",
+            "bin": 2,
+            "reason": "There are no pirates in the story, only meteors."
+          },
+          {
+            "text": "Pip took the controls and flew the ship itself.",
+            "bin": 2,
+            "reason": "Close, but Pip only whispers directions. The pilot flies the ship."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.10-b3-4",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus wrote a review of a story about a very strange museum. One piece of his evidence is wrong.",
+      "text": "Dr Ida Ick had run the Twotide Museum of Disgusting Things for forty years. On Saturday, she gave the crew a tour. First, she showed them the world's largest hairball, pulled out of a bath drain in 1987. 'My darling,' she said, patting it gently. Next came the Wall of Earwax, where every blob had its own name. Dr Ick knew them all. She had a terrible cold, and she sneezed on the snot display twice, but she said that only made it better. Then she opened a cupboard and took out a jar of old toenails. She gave it a kiss. 'Every morning,' she told them. 'For luck.' Gus asked if she ever got sick of it all. Dr Ick looked shocked. 'Sick of it?' she said. 'Young man, I have the best job in the world.' On the way out, Mo was sick in a bin. Dr Ick put it on display.",
+      "prompt": "Tap the evidence Gus got wrong, then choose a better piece of evidence.",
+      "success": "Kissing a jar of toenails every morning is in the story, and it shows how much she loves her job.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I think Dr Ick loves her job. She ",
+          {
+            "tap": "calls the giant hairball 'my darling'",
+            "reason": "That's right. She pats it gently and calls it 'my darling'."
+          },
+          ". She ",
+          {
+            "tap": "says she has the best job in the world",
+            "reason": "That's right. She says those exact words to Gus."
+          },
+          ". She also ",
+          {
+            "tap": "wants to retire next week"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "has a terrible cold",
+            "reason": "That's in the story, but having a cold doesn't show she loves her job."
+          },
+          {
+            "text": "gives free tours on her days off",
+            "reason": "That would back Gus up, but it isn't in the story. Evidence has to come from the text."
+          },
+          {
+            "text": "kisses a jar of old toenails every morning"
+          },
+          {
+            "text": "is scared of the earwax",
+            "reason": "The story doesn't say that. She knows every blob by name."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b3-5",
+      "band": 3,
+      "topic": "music",
+      "frame": "The Echobat loves this story so much it recorded the whole thing. The Pointern has a question.",
+      "text": "Tom played the triangle in the Twotide school band, right at the back, behind the tubas. At the start of every song, he counted carefully and waited for his moment. Ting. And still, nobody heard Tom. The trumpets were loud, the drums were louder, and the tubas sounded like a herd of cows having an argument. At the spring concert, Tom polished his triangle until it gleamed. He hit it as hard as he dared. Ting. And still, nobody heard Tom. His mum clapped for the drummer by mistake. At the last concert of the year, halfway through the slow song, the power went out. The microphones died, the lights died, and one by one the instruments stopped. There was only silence and a hall full of people in the dark. Tom lifted his triangle. Ting. It rang out, clear and bright, all the way to the back row. For a moment, nobody moved. Then the whole hall began to clap, in the dark, for Tom.",
+      "prompt": "The words 'And still, nobody heard Tom' appear twice. Which opinion does this evidence back up?",
+      "success": "Repeating 'nobody heard Tom' makes you feel how unnoticed he is. That's why the ending feels so good.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Tom is the best musician in the band.",
+            "reason": "The line is about nobody hearing Tom, not about how well he plays."
+          },
+          {
+            "text": "Tom plays far too loudly.",
+            "reason": "The line says nobody heard him. That's the opposite of too loud."
+          },
+          {
+            "text": "The writer wants you to feel how unnoticed Tom is."
+          },
+          {
+            "text": "The story is mostly about the tuba players.",
+            "reason": "The line keeps pulling you back to Tom. The tubas are just part of the noise."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.10-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Four readers posted reviews of this story on the Twotide library wall. The Pointern is checking them.",
+      "text": "The trouble started at 8:52 on Monday, when Biscuit, the Year 5 class goat, ate the class roll. Mr Fitz didn't notice, because he was busy straightening his tie. The mayor was visiting at nine o'clock to open the new library, and everything had to be perfect. At 8:55, Biscuit ate the ribbon for the opening. At 8:58, Biscuit ate half of the welcome banner, so it said 'WELCOME MAY'. At nine o'clock exactly, the mayor stepped up to the microphone and unfolded her speech. Biscuit leaned over and ate that too. The mayor stared at her empty hand. There was a long silence. Then she pulled the only other piece of paper she had out of her pocket and read it aloud, very seriously. It was the canteen's lunch menu. 'Today,' she announced, 'we have sausage rolls.' The crowd cheered louder than they had ever cheered for a speech. Biscuit burped.",
+      "prompt": "Whose opinion is backed by evidence that is really in the story?",
+      "success": "Mia's evidence really happens, and a mayor reading a lunch menu as her speech is funny.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Kai: It's funny because Biscuit eats the mayor's hat.",
+            "reason": "Biscuit eats the roll, the ribbon, the banner and the speech, but never a hat."
+          },
+          {
+            "text": "Leo: It's boring because nothing happens until the end.",
+            "reason": "Lots happens from the start. Biscuit eats the class roll before nine o'clock."
+          },
+          {
+            "text": "Ava: It's funny because the mayor visits at nine o'clock to open the new library.",
+            "reason": "That's in the story, but a mayor visiting to open a library isn't funny on its own."
+          },
+          {
+            "text": "Mia: It's funny because the mayor reads the lunch menu instead of her speech."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.10-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A girl who moved to Twotide Atoll wrote this for the school magazine. The Pointern circled one bit.",
+      "text": "I have always hated the sea. I want to be clear about that from the start. It is cold, it is wet, it is full of things that sting, and it tastes like a sock that has been pickled. When Mum announced that we were moving to Twotide Atoll, where the sea is everywhere you look, I locked myself in the bathroom for an entire afternoon. Our new house was so close to the water that I could hear it at night, shushing and grumbling, as if it were complaining about me. For the first month, I didn't go near it. Then, one evening, my little brother's kite blew out over the lagoon, and before I could think, I had waded in up to my knees to grab the string. The water was warm. That surprised me so much that I just stood there, holding the kite, while tiny silver fish nibbled at my ankles as if they were checking whether I was edible. A turtle surfaced a few metres away, looked at me with its old, wrinkled face and sank again without a sound. I stayed until the sun went down. I still think the sea tastes like a pickled sock. But now, every evening, I am the first one in the water, and Mum has to drag me out when it gets dark.",
+      "prompt": "Wren thinks the narrator changes her mind about the sea. Which evidence backs this up?",
+      "success": "She starts by hating the sea and ends up first in the water every evening. That's a change.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She hates the sea at the start, and still says it tastes like a pickled sock.",
+            "reason": "Both halves show her disliking the sea. Nothing here shows her mind changing."
+          },
+          {
+            "text": "She loves the sea at the start, but ends up locking herself in the bathroom.",
+            "reason": "It's the other way round. She hates the sea first and locks herself away at the start."
+          },
+          {
+            "text": "She is scared of turtles at first, but ends up feeding the fish every evening.",
+            "reason": "The story never says she fears turtles or feeds fish. The fish nibble her ankles."
+          },
+          {
+            "text": "She hates the sea at the start, but ends up first in the water every evening."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.10-b4-2",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Indi is reading a nature story to the Pointern, who is not a fan of gulls.",
+      "prompt": "Indi thinks the writer makes the gull seem like a villain. Tap the sentence where the writer's word choice backs her up.",
+      "success": "'Hunched', 'cruel yellow eye' and 'a beak like a butcher's hook' are villain words. The writer chose them on purpose.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Every summer, the little terns nest on the bare sand at the north end of Twotide Atoll. ",
+          {
+            "tap": "Their eggs are speckled like the sand itself, so well hidden that you could step on one without knowing.",
+            "reason": "This is about how the eggs are hidden. It doesn't describe the gull at all."
+          },
+          " This year, one pair of terns had laid two eggs in a shallow scrape beside a piece of driftwood. The mother sat on them through the hottest days, panting in the sun, while the father flew back and forth with tiny fish. ",
+          {
+            "tap": "Then, one grey morning, the gull arrived: a great hunched shape with a cruel yellow eye and a beak like a butcher's hook."
+          },
+          " It landed a few metres from the nest and waited. ",
+          {
+            "tap": "The father tern dived at it again and again, shrieking, a small white blur against the clouds.",
+            "reason": "This shows the tern is brave. The words describe the tern, not the gull."
+          },
+          " ",
+          {
+            "tap": "Further down the beach, a family of oystercatchers poked about in the shallows, minding their own business.",
+            "reason": "This describes other birds. It says nothing about the gull."
+          },
+          " The gull took one step towards the nest. Then a wave of terns rose from the colony, dozens of them, screaming and diving, until the sky was full of wings. ",
+          {
+            "tap": "The gull flapped into the air and flew off towards the harbour, where the fishing boats were coming in.",
+            "reason": "This just says where the gull went. The words are plain, not villain-like."
+          },
+          " By the end of summer, two fluffy chicks were running in circles around the driftwood, and their parents were looking very tired indeed."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.10-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Lu wrote about the grumpiest neighbour on Pearl Street. The Pointern is sorting her evidence.",
+      "text": "Everyone in Pearl Street knew to stay away from Mrs Hale. She lived in the last house, behind a peeling green fence, and she shouted at anyone who leaned a bike against it. When Nico's football landed in her roses, she kept it for a week. When the Year 6 kids painted a mural on the bus shelter across the road, she rang the council to complain that it was 'too bright for a Tuesday'. So when Nico's little sister, Lu, went missing one afternoon, nobody thought to look at Mrs Hale's house. They found Lu at six o'clock, sitting on Mrs Hale's back step with a glass of lemonade and a sketchbook. Mrs Hale had found her crying by the bus stop and brought her inside. She had shown Lu how to draw a cat using only circles, and given her a set of pencils that looked very old and very expensive. 'Keep them,' Mrs Hale said gruffly, when Lu tried to give them back. 'I don't use them any more.' The next morning, Nico's football was sitting on his front step. It had been pumped up and cleaned, and someone had drawn a small cat on it in black marker.",
+      "prompt": "Lu thinks Mrs Hale is secretly kind. Match each piece of evidence to where it belongs.",
+      "success": "Evidence must be in the text and show kindness. Some true details only show her grumpy side; some never happened.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "In the story, and backs Lu up",
+          "In the story, but doesn't back Lu up",
+          "Not in the story"
+        ],
+        "items": [
+          {
+            "text": "Mrs Hale brought Lu inside when she found her crying.",
+            "bin": 0,
+            "reason": "Looking after a crying child is kind, and the story says she did it."
+          },
+          {
+            "text": "Mrs Hale gave Lu a set of old, expensive pencils.",
+            "bin": 0,
+            "reason": "Giving away something precious is kind. It's right there in the story."
+          },
+          {
+            "text": "Nico's football came back pumped up and cleaned.",
+            "bin": 0,
+            "reason": "Someone fixed the ball and drew her cat on it. That's quiet kindness."
+          },
+          {
+            "text": "Mrs Hale shouted at anyone who leaned a bike on her fence.",
+            "bin": 1,
+            "reason": "That's in the story, but shouting shows her grumpy side, not her kindness."
+          },
+          {
+            "text": "Mrs Hale rang the council about the bus shelter mural.",
+            "bin": 1,
+            "reason": "That's in the story, but complaining isn't kind. It doesn't back Lu up."
+          },
+          {
+            "text": "Mrs Hale helped the Year 6 kids paint the bus shelter.",
+            "bin": 2,
+            "reason": "The Year 6 kids painted it. Mrs Hale only complained about it."
+          },
+          {
+            "text": "Mrs Hale baked Lu a cake.",
+            "bin": 2,
+            "reason": "The story mentions lemonade, not cake. You can't use something that never happened."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.10-b4-4",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Ana reviewed a story about a robot librarian. The Pointern found one piece of evidence that doesn't hold up.",
+      "text": "When the Twotide Library bought a robot librarian called SHELF-E, it turned out to be very good at rules. It sorted every book by colour and beeped loudly at anyone who talked above a whisper. On its first day, it fined a Year 4 boy two dollars for a single bent page and made him apologise to the book. Children started hiding behind the shelves whenever they heard its wheels. The only person who didn't seem to mind was Mr Pike, who was ninety-one and came in every Tuesday to borrow the same battered guide to the birds of the islands. Each week, he brought it back. Each week, he borrowed it again. One Tuesday, SHELF-E worked out that Mr Pike had borrowed the book 412 times. It beeped. It whirred. Its lights flickered for a long time, as if it were thinking something over. Then it printed him a library card with no expiry date and changed the computer so that the bird book could never be overdue. On the first page, it stuck a small note: 'No rush. SHELF-E.' After that, the children noticed that SHELF-E's beeps had become a little quieter. Once, it was even seen letting a girl finish her comic in the corner after closing time, although it pretended to be dusting.",
+      "prompt": "Tap the evidence Ana got wrong, then choose a better piece of evidence.",
+      "success": "The note 'No rush' is in the story, and it shows SHELF-E now cares about Mr Pike, not just rules.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I think SHELF-E learns to care about people. At first, it ",
+          {
+            "tap": "fines a boy for one bent page",
+            "reason": "That's right. It shows how strict SHELF-E is before it changes."
+          },
+          ". Later, it ",
+          {
+            "tap": "lets Mr Pike keep his bird book for good",
+            "reason": "That's right. It makes sure the book can never be overdue."
+          },
+          ". It even ",
+          {
+            "tap": "starts reading stories aloud on Fridays"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "beeps loudly at anyone who talks",
+            "reason": "That's in the story, but it's from the start, when SHELF-E only cares about rules."
+          },
+          {
+            "text": "fixes the library's broken lift",
+            "reason": "That isn't in the story. There's no lift anywhere in it."
+          },
+          {
+            "text": "sorts every book by colour",
+            "reason": "That's in the story, but it shows tidiness, not caring about people."
+          },
+          {
+            "text": "leaves Mr Pike a note saying 'No rush'"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.10-b4-5",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed and his sister disagree about how this story ends. The Pointern is staying out of it, mostly.",
+      "text": "For two years, Sami and Leo built a video game called Tide Runners in Leo's garage, on a computer they had rescued from the tip. Leo drew the characters and Sami wrote the code, and every afternoon they tested it on the old couch, arguing about whether the crabs should be allowed to jump. The game had one special level, the Twin Tides, which could only be played with two people at once. They planned to enter it in the Island Game Jam in December. Then, in November, Leo's dad got a job on the mainland, and the whole family moved away in a single weekend. Sami finished the game alone. He worked every night for a month, and on the day of the Game Jam, Tide Runners won the People's Choice Award. On stage, Sami held up the trophy and pointed at the big screen behind him, where Leo was cheering on a video call from the mainland, at six in the morning, still in his pyjamas. The crowd went wild. Afterwards, Sami walked home by himself, past Leo's old garage, which now had a FOR SALE sign on the door. That night, he opened the Twin Tides level and played it alone, steering both runners at once, one with each hand.",
+      "prompt": "Zed's sister thinks the ending is happy but also a little sad. Which evidence backs up both parts of her opinion?",
+      "success": "Winning is happy. Walking home alone past Leo's empty garage is sad. This evidence shows both.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Sami wins People's Choice, and then the crowd goes wild at the trophy.",
+            "reason": "Both parts are happy. Nothing in this shows the sad part of the ending."
+          },
+          {
+            "text": "Sami wins People's Choice, but then walks home alone past Leo's empty garage."
+          },
+          {
+            "text": "Leo's family moves away, and then Sami has to finish the game alone.",
+            "reason": "Both parts are sad, and both happen before the ending. Neither shows the happy part."
+          },
+          {
+            "text": "Leo flies back for the Game Jam, but then has to leave the next day.",
+            "reason": "That isn't in the story. Leo only joins on a video call from the mainland."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.10-b4-6",
+      "band": 4,
+      "topic": "food",
+      "frame": "Tully wrote a review of a story from the Twotide library. Then the Pointern sat on it.",
+      "text": "Mei had entered the Twotide Dumpling Contest three times and come last three times. The first year, her dumplings fell apart in the pot. The second year, they were so hard that a judge chipped a tooth. The third year, she forgot the filling altogether. This year, her grandpa, Lu, who hadn't cooked since his hands got shaky, sat beside her at the kitchen bench every night for a month. He couldn't fold the dumplings himself any more, but he watched every fold and told her what she was doing wrong. 'Too much filling. Not enough water on the edge. Pinch, don't squash.' On the night before the contest, Mei burned the whole batch and burst into tears. Grandpa Lu didn't say a word. He just got out the flour and started the dough again, his shaky hands slowly kneading, while Mei wiped her face and started chopping. They worked until midnight. By the end, Grandpa Lu's hands ached so badly that he had to rest them in a bowl of warm water, but he didn't complain once. The next day, Mei's dumplings won first prize. When the judge handed her the trophy, Mei ran straight off the stage and put it in Grandpa Lu's lap.",
+      "prompt": "Put Tully's review in order: opinion, evidence, why it backs her up, what others might say, then her reply.",
+      "success": "Opinion, evidence, explanation, the other side, then a reply. That's how to back an opinion strongly.",
+      "body": {
+        "format": "order",
+        "items": [
+          "In my opinion, Grandpa Lu is the real hero of 'The Dumpling Contest'.",
+          "The clearest evidence is the night Mei burns the batch, when he starts the dough again with his shaky hands.",
+          "This shows that he keeps going when it's hard for him, so that Mei can win.",
+          "Some readers might say Mei is the hero, because she is the one who wins first prize.",
+          "However, even Mei seems to agree with me, because she puts the trophy straight into Grandpa Lu's lap."
+        ],
+        "reason": "Follow the order in the instructions. 'Some readers might say' comes before 'However'."
+      }
+    }
+  ]
+}

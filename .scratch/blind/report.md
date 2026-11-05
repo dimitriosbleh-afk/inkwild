@@ -1,6 +1,6 @@
 # Blind solve report
 
-768 Encounters checked, 32 flagged for rewrite.
+1008 Encounters checked, 39 flagged for rewrite.
 
 | Encounter | Flag | Detail |
 |---|---|---|
@@ -14,6 +14,15 @@
 | 1.4-b4-2 | SECOND ANSWER, CONFIDENCE medium | also: Jono (sneezing) could pull the rope at the wrong moment, but that is not an offered option; 'Hintatoo flies into the net' is unsupported. / Relies on the repeated 'it's almost like it's thinking' clue. |
 | 1.6-b2-2 | SECOND ANSWER, CONFIDENCE medium | also: I've played Mole Mayhem for three weeks straight. (opening sentence, but it only sets up the review) / Opinion sentence is the claim the rest supports. |
 | 1.6-b3-4 | SECOND ANSWER, CONFIDENCE medium | also: Mo has eaten fish and chips all over the island could be argued as framing, but it is background for the claim, not the main idea. |
+| 2.10-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: Pip was the ship's little cleaning robot could go in 'backs Zed up' (small, overlooked character who turns out to be the hero), but it is a plain description of Pip, not an action that shows heroism. / The cleaning-robot item is the only soft one. |
+| 2.2-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: The volcano got bigger than Gus planned: a pupil might say 'saw' because of the photo, but the photo was at nine o'clock and the claim comes from Gus's text, so 'was told' is correct. / Slightly tricky because the teller also inferred it from the photo and the fire engine. |
+| 2.2-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: 'Behind me, a baby turtle is crawling towards the waves' (he faces the camera so may not see behind him, though a screen or the later 'Here comes the turtle' suggests he can see it). / Relies on judging what a live streamer can see. |
+| 2.7-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: 'Wear your best clothes for your portrait' and 'Children may hold a favourite toy' are judgement calls; some modern photo shoots differ, though both are broadly still true. / Relies on world knowledge of modern photography. |
+| 2.8-b1-4 | SECOND ANSWER, CONFIDENCE medium | also: 'Mission control said it was the smelliest landing ever.' is the final sentence and could be read as the ending, but it only reacts to the solution. / Resolution is how the fuel/radio problem is solved; the last sentence is an aftermath line. |
+| 2.8-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: The pelican coughing up the ball solves the ball problem, but that sentence is not tappable. Of the tappable sentences, 'The pelican was named Player of the Match' is an aftermath, not a solution. / Depends on 'problem' meaning needing six runs; the answer is the only tappable sentence that resolves it. |
+| 2.8-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: The live broadcast item could be read as part of the problem (raising the stakes of the cracking note), with only the lost voice as the complication. The text introduces it with 'Then', which supports complication. / Two items land in complication, which may itself nudge solvers to doubt. |
+| 2.9-b4-2 | SECOND ANSWER, CONFIDENCE medium | also: 'The pelican's beak glowed like a pink lantern.' is short but its comparison marks it as Marigold; a student could weigh its brevity toward Dash. / The short Marigold line is the only one where length points the wrong way. |
+| 5.2-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: 'the fog rolled in' could literally stand alone as a sentence, but it is the clause inside 'Whenever the fog rolled in', not the main clause. / Prompt wording 'could stand alone as the main clause' is loose; a literal reader could pick the fog option. |
 | 5.3-b1-2 | DISAGREES | solver said "because" / 'so (that)' sense; until could weakly work but is less sensible |
 | 5.3-b3-5 | DISAGREES | solver said "The match went ahead although the forecast had promised storms." |
 | 6.10-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: If the lowercase 'maybe' were meant as acceptable, the line would be 'punctuated correctly'. / Lowercase 'maybe' begins a quoted sentence introduced by 'Tully said,', so it needs a capital: 'Maybe'. Treated as needs fixing. |
@@ -33,9 +42,7 @@
 | 1.2-b4-4 | SECOND ANSWER | also: nervous/anxious is partly supported, but not offered |
 | 1.5-b3-6 | SECOND ANSWER | also: desperate (no: it would also clash) |
 | 1.6-b2-4 | SECOND ANSWER | also: Tickets cost two dollars is a useful fact rather than 'interesting', but it is clearly not the main idea. |
-| 1.6-b3-3 | SECOND ANSWER | also: The Reef Rays train in the rain on purpose. (explains why, but is a supporting detail) |
 | 1.6-b4-2 | SECOND ANSWER | also: Last month, the council announced the boatshed would be knocked down... (background, not the request) |
-| 1.9-b1-5 | SECOND ANSWER | also: that Maxx took the baby - but Text A already says Maxx grabbed the baby, so it is not new. |
 | 1.1-b1-3 | CONFIDENCE medium | Sandflies is a team name; 'Who?' is the only bin that fits, but two items in one bin may surprise a child. |
 | 1.7-b4-2 | CONFIDENCE medium | Two items are untrue (he refuses a release button; he denies the maps), so a bin is used twice. Fine only if the game allows repeated bins. |
 | 5.3-b4-6 | CONFIDENCE medium | 'given that' as cause is advanced vocabulary but unambiguous in meaning. |

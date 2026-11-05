@@ -1,0 +1,943 @@
+{
+  "skill": {
+    "id": "2.2",
+    "name": "What the narrator can't know",
+    "codes": [
+      "VC2E5LE03"
+    ],
+    "why": "A teller can't know everything. Spot when they're only guessing.",
+    "how": "Ask: was the teller there? Could they see it, hear it, or be told?",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "When the teller says I, they're inside the story."
+          },
+          {
+            "say": "So they only know what they see, hear or get told."
+          },
+          {
+            "say": "They can't see inside someone else's head.",
+            "show": "I watched Mo stir the soup. **He secretly wished it was pancakes.**"
+          },
+          {
+            "say": "They can't see far away, or behind closed doors.",
+            "show": "I was at school. **At home, the dog ate my homework.**"
+          },
+          {
+            "say": "If they weren't there and nobody told them, they can't know it!"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "I was at the beach all day. When I got home, the fridge was empty. My brother was asleep on the couch, holding a spoon.",
+          "prompt": "Which of these can the teller NOT know for sure?",
+          "hint": "Where was the teller all day? What could they see when they got home?",
+          "success": "The teller was at the beach all day, so they didn't see who ate it, or when.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "The fridge was empty.",
+                "reason": "The teller saw the empty fridge when they got home."
+              },
+              {
+                "text": "The brother was holding a spoon.",
+                "reason": "The teller saw the spoon in his hand on the couch."
+              },
+              {
+                "text": "The brother ate everything at lunchtime."
+              }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "prompt": "Tap the sentence the teller can't know.",
+          "hint": "Can you see inside someone's head from behind a curtain?",
+          "success": "The teller can see Mum, but not inside her head. And Mum didn't say a word.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "I hid behind the curtain and peeked out. ",
+              {
+                "tap": "Mum walked into the room.",
+                "reason": "The teller is peeking out, so they can see Mum walk in."
+              },
+              " ",
+              {
+                "tap": "She sat down on the couch.",
+                "reason": "The teller can see the couch from behind the curtain."
+              },
+              " She didn't say a word. ",
+              {
+                "tap": "Inside her head, she was planning a surprise party."
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "murkle",
+      "name": "Murkle",
+      "evolved": "Murklantern",
+      "blurb": "A shy octopus that lives in its own cloud of ink. It only knows what reaches its eyes and eight arms, and it never pretends otherwise."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.2-b1-1",
+      "band": 1,
+      "topic": "funny",
+      "frame": "A Murkle peeked out of its ink cloud to read this diary page.",
+      "text": "I was at footy training all arvo. When I got home, the kitchen was a mess. There was flour on the ceiling. There were eggs in the fruit bowl. My little brother Sam was hiding under the table. He had flour in his hair. Mum was still at work. Nobody else was home. Sam wouldn't say a word about it.",
+      "prompt": "Which of these can the teller NOT know?",
+      "success": "The teller was at training and Sam won't talk. Nobody saw or heard him singing.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "There was flour on the ceiling.",
+            "reason": "The teller saw the flour when they got home."
+          },
+          {
+            "text": "Sam had flour in his hair.",
+            "reason": "The teller saw Sam hiding under the table."
+          },
+          {
+            "text": "Sam sang while he made the mess."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The crew camped on the beach. The Murkle found this note in a tent.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "The teller was zipped in a dark tent. They couldn't see the possum, let alone its grin.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "I was zipped inside my tent. It was pitch dark. ",
+          {
+            "tap": "Something scratched at the door.",
+            "reason": "The teller could hear the scratching from inside the tent."
+          },
+          " ",
+          {
+            "tap": "Then I heard a loud crunch.",
+            "reason": "The teller says I heard it, so they know."
+          },
+          " ",
+          {
+            "tap": "Out in the dark, the possum was grinning."
+          },
+          " ",
+          {
+            "tap": "I pulled my sleeping bag over my head.",
+            "reason": "The teller knows what they did themselves."
+          },
+          " In the morning, Dad's chip packet was empty. It had tiny teeth marks on it."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b1-3",
+      "band": 1,
+      "topic": "space",
+      "frame": "The Murkle watched a rocket launch from the beach. So did this teller.",
+      "text": "I watched the rocket launch from the beach with Dad. The sand was hot under my feet. It was so loud that my teeth buzzed. My big sister Ava was inside the rocket. She is an astronaut. The rocket shot up into the clouds. Then I couldn't see it any more. Dad wiped his eyes. We went home for dinner. We haven't heard from Ava since.",
+      "prompt": "Could the teller know it? Match each one.",
+      "success": "The teller only knows what happened on the beach. Inside the rocket and up in space are out of sight.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "saw or heard it",
+          "can't know it"
+        ],
+        "items": [
+          {
+            "text": "The rocket was very loud.",
+            "bin": 0,
+            "reason": "The teller heard it. Their teeth buzzed."
+          },
+          {
+            "text": "The rocket shot into the clouds.",
+            "bin": 0,
+            "reason": "The teller watched it from the beach."
+          },
+          {
+            "text": "Dad stood on the beach too.",
+            "bin": 0,
+            "reason": "Dad was right there with the teller."
+          },
+          {
+            "text": "Ava was laughing inside the rocket.",
+            "bin": 1,
+            "reason": "The teller was on the beach. They couldn't see inside the rocket."
+          },
+          {
+            "text": "Ava's rocket flew past the moon that night.",
+            "bin": 1,
+            "reason": "The teller lost sight of the rocket and hasn't heard from Ava."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.2-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo cooked breakfast on the Soggy Biscuit. The Murkle hid in its ink.",
+      "text": "I woke up to a terrible smell. Smoke was drifting under my cabin door. I ran to the kitchen. My eyes were watering. Mo was standing at the stove, waving a tea towel. On the plate was a pile of black, crunchy circles. 'Pancakes!' said Mo. 'They're perfect.' Then the smoke alarm started beeping. Mo opened every window. I ate a cornflake instead. It tasted better.",
+      "prompt": "How does the teller know the pancakes got burnt?",
+      "success": "The teller didn't see the cooking. They worked it out from the smoke and the black circles.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "They watched Mo burn them.",
+            "reason": "The teller was asleep. They woke up to the smell after it happened."
+          },
+          {
+            "text": "Mo told them the pancakes were burnt to a crisp.",
+            "reason": "Mo says they're 'perfect'. He never says burnt."
+          },
+          {
+            "text": "They smelled smoke and saw the black pancakes."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b1-5",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote a note about this story. One part is wrong.",
+      "text": "I was home sick with a cold, so I missed the grand final. I lay on the couch with a bucket. Dad turned on the radio. 'The Reef Rays have won by two points!' said the man on the radio. I cheered so hard that I sneezed. Later, my best friend Leo rang me. 'I kicked a goal!' he said. I still wish I'd seen it.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "The radio. The teller was on the couch and heard the man on the radio say they'd won.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The teller ",
+          {
+            "tap": "stayed home",
+            "reason": "That's right. The teller was home sick on the couch."
+          },
+          ". They found out the Reef Rays won from ",
+          {
+            "tap": "the coach"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "the radio"
+          },
+          {
+            "text": "watching the game",
+            "reason": "The teller missed the game. They were on the couch at home."
+          },
+          {
+            "text": "Leo",
+            "reason": "Leo rang later, and he only said he kicked a goal. The radio said who won."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.2-b1-6",
+      "band": 1,
+      "topic": "art",
+      "frame": "Indi was sent to paint a mural. The Murkle found this note in the classroom.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "The teller was stuck in the classroom, and the hall is locked. They can't know what Indi painted.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "My class was stuck inside doing maths. Indi had been sent to the hall to paint a mural. ",
+          {
+            "tap": "Our teacher yawned.",
+            "reason": "The teacher was in the classroom. The teller could see the yawn."
+          },
+          " ",
+          {
+            "tap": "Rain hammered on the window.",
+            "reason": "The teller can see and hear the rain from inside."
+          },
+          " ",
+          {
+            "tap": "Down in the hall, Indi painted a giant moustache on the principal."
+          },
+          " ",
+          {
+            "tap": "I counted raindrops instead of doing my sums.",
+            "reason": "The teller knows what they did themselves."
+          },
+          " At lunch, the hall door was locked. We still haven't seen the mural."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b2-1",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "The Murkle heard about a haunted attic on Twotide Atoll. Here's the story.",
+      "text": "At midnight, I heard a thump from the attic. I was in bed in the room right underneath it. Then came a long scrape, like something heavy being dragged across the floor, and another thump. I lay very still and listened. My heart was thumping so loudly that I was sure the whole house could hear it. My cousin Jai was asleep in the room downstairs. In the morning, Aunty Lou told me the attic door had been locked for years. 'Nobody's been up there since 1990,' she said. Jai said he'd slept like a log. I'm still not sure what made that noise.",
+      "prompt": "Which of these can the teller NOT know?",
+      "success": "The teller only heard noises. They never saw what was up in the attic.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The attic door had been locked for years.",
+            "reason": "Aunty Lou told the teller this in the morning."
+          },
+          {
+            "text": "Something thumped and scraped in the attic, right above the teller's room.",
+            "reason": "The teller heard the thumps and the scrape from the room right below."
+          },
+          {
+            "text": "A possum was dragging an old shoe across the attic."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b2-2",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren dived down to a shipwreck. The Murkle stayed on the boat with the teller.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "The teller was on the boat, and Wren never told. They can't know what happened inside the wreck.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "I stayed on the boat while Wren dived down to the wreck. ",
+          {
+            "tap": "The water was so clear that I could see her yellow flippers for a while.",
+            "reason": "The teller says they could see her flippers."
+          },
+          " Then she swam into the shadow of the old ship and disappeared. ",
+          {
+            "tap": "The anchor rope creaked, and the boat rocked in the swell.",
+            "reason": "The teller is on the boat. They can hear and feel it."
+          },
+          " ",
+          {
+            "tap": "Deep inside the wreck, Wren came face to face with a giant groper."
+          },
+          " ",
+          {
+            "tap": "After twenty minutes, a stream of bubbles rose beside the boat.",
+            "reason": "The teller can see the bubbles from the boat."
+          },
+          " Wren popped up, pulled off her mask and grinned. 'What did you see?' I asked. She just tapped her nose and wouldn't say a word. She still hasn't told me."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b2-3",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed wrote about a big online race. The Murkle wants to know what Zed really knows.",
+      "text": "My best friend Kip moved to Darwin last year, so now we play Lava Run online every Saturday. We don't use cameras, just headsets. Today was the big tournament. I was at home in Melbourne with my headset on. 'I'm so nervous I could throw up,' Kip said. On my screen, I watched his racer leap the last lava pit and win by a whisker. The crowd in the Darwin game hall went wild, but I only heard a muffled roar. Then his mic went silent. Later, his mum texted me: 'He's doing a lap of the hall with the trophy!' I still don't know what he did with the giant cardboard cheque.",
+      "prompt": "How does the teller know each thing? Match each one.",
+      "success": "Seeing, hearing and being told are how a teller knows things. Anything else is just a guess.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "saw or heard it",
+          "was told it",
+          "can't know it"
+        ],
+        "items": [
+          {
+            "text": "Kip's racer won by a whisker.",
+            "bin": 0,
+            "reason": "The teller watched the race on their screen."
+          },
+          {
+            "text": "The crowd in the Darwin game hall roared.",
+            "bin": 0,
+            "reason": "The teller heard the muffled roar through the headset."
+          },
+          {
+            "text": "Kip did a lap of the hall with the trophy.",
+            "bin": 1,
+            "reason": "Kip's mum texted the teller this."
+          },
+          {
+            "text": "Kip put the giant cheque on his bedroom wall.",
+            "bin": 2,
+            "reason": "The teller says they still don't know what Kip did with the cheque."
+          },
+          {
+            "text": "Kip's legs were shaking under the desk.",
+            "bin": 2,
+            "reason": "They don't use cameras, and Darwin is far away. The teller couldn't see Kip's legs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.2-b2-4",
+      "band": 2,
+      "topic": "food",
+      "frame": "The Murkle found this birthday story stuck to the fridge with jam.",
+      "text": "I made soup for Dad's birthday. I used pumpkin, three carrots and, by mistake, a whole cup of salt. I didn't notice until much later, when I tidied up. Dad sat at the kitchen table, and I watched him take the first spoonful. His eyes went wide. His ears turned pink. He swallowed very slowly. Then he smiled and said, 'Delicious!' My little sister tried one sip and spat it into her napkin. Dad ate the whole bowl without stopping once. Secretly, he was thinking it tasted like the sea. Afterwards he drank four glasses of water, one after another, and never said a single word about the salt.",
+      "prompt": "The teller says Dad was secretly thinking the soup tasted like the sea. Why can't the teller know that?",
+      "success": "Thoughts are hidden unless someone says them. Dad only said 'Delicious!' and kept quiet about the salt.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The teller wasn't there when Dad ate the soup.",
+            "reason": "The teller watched Dad take the first spoonful at the table."
+          },
+          {
+            "text": "Nobody can see thoughts, and Dad never said it out loud."
+          },
+          {
+            "text": "Dad took his bowl into another room.",
+            "reason": "Dad sat at the kitchen table, right where the teller could see him."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.2-b2-5",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote a note about the missing robot. One part is wrong.",
+      "text": "I left our robot, Clunk, in the science room on Friday afternoon. I locked the door myself. I even checked it twice, because Clunk likes to wander. On Monday morning, the door was still locked, but Clunk was gone. There was a trail of oil across the floor and out the open window. The window had been shut on Friday. The cleaner, Mr Haddad, told me he'd heard beeping on Saturday night. Then the principal showed me the camera footage from the car park. It showed Clunk rolling past the bins at midnight, wearing a traffic cone like a hat. Nobody knows where it went after that.",
+      "prompt": "Tap the part Gus got wrong, then choose a better one.",
+      "success": "The camera footage. The teller wasn't at school at midnight, but the principal showed them the video.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "On Saturday night, Mr Haddad ",
+          {
+            "tap": "heard beeping",
+            "reason": "That's right. Mr Haddad told the teller this."
+          },
+          ". The teller knows Clunk wore a cone because they ",
+          {
+            "tap": "saw it in the car park"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "watched the camera footage"
+          },
+          {
+            "text": "were told by Mr Haddad",
+            "reason": "Mr Haddad only heard beeping. He didn't mention a cone."
+          },
+          {
+            "text": "found the cone in the science room",
+            "reason": "The teller found a trail of oil in the science room, not a cone."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.2-b2-6",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Murkle heard a crash at the school concert. So did this teller.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "The teller was locked in the toilets, and nobody will explain the crash. They can only guess.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Ten minutes before the school concert, I got locked in the toilets. The lock was jammed, and nobody could hear me knocking. ",
+          {
+            "tap": "Through the wall, I heard the choir start the first song.",
+            "reason": "The teller says they heard it through the wall."
+          },
+          " ",
+          {
+            "tap": "Then came a loud crash, like a music stand falling over.",
+            "reason": "The teller heard the crash from the toilets."
+          },
+          " ",
+          {
+            "tap": "On stage, Mr Ellis tripped over the drum kit and landed in the tuba."
+          },
+          " ",
+          {
+            "tap": "I banged on the door until my hands hurt.",
+            "reason": "The teller knows what they did themselves."
+          },
+          " At last, the cleaner let me out. The concert was over, and everyone was laughing. But nobody will tell me what the crash was."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Murkle borrowed a pair of binoculars for the cross-country final.",
+      "text": "I watched the cross-country final from the top of the grandstand, with Mum's binoculars glued to my eyes. My sister Nina was in the lead for most of the race, her orange headband bobbing above the pack. Halfway round, the runners disappeared behind the pine trees at the far end of the course, and for three long minutes I could see nothing but branches. When they came out again, Nina was in fourth place and limping. Over the loudspeaker, the announcer said a runner had tripped on a tree root. Nina finished fourth anyway, and the crowd gave her the biggest cheer of the day. I cheered so loudly that the man in front of me turned around and glared. Afterwards, her coach told us she had a twisted ankle but would be fine in a week. Nina hasn't said a single word about what happened behind the trees, and every time I ask, she changes the subject.",
+      "prompt": "Which of these can the teller NOT know?",
+      "success": "The trees hid the runners, and Nina won't talk about it. Nobody told the teller about a push.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Nina was in the lead for most of the race.",
+            "reason": "The teller saw this through the binoculars."
+          },
+          {
+            "text": "The announcer said a runner tripped on a tree root.",
+            "reason": "The teller heard the announcer over the loudspeaker."
+          },
+          {
+            "text": "Nina's ankle would be fine in a week.",
+            "reason": "Her coach told the teller this after the race."
+          },
+          {
+            "text": "Another runner pushed Nina behind the pine trees."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.2-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is helping at the Twotide turtle rescue. The Murkle found this diary.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "Nobody was inside Pebble's head while she was tangled. A turtle's dreams can't be seen or told.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Turtle Rescue Diary, Tuesday. This morning a fisherman dropped off a green turtle he'd found tangled in fishing line near Cutter's Point. ",
+          {
+            "tap": "He told me he'd spent an hour cutting her free with his pocketknife.",
+            "reason": "The fisherman told the teller this."
+          },
+          " We named her Pebble. She is about the size of a dinner plate, with a chip out of her shell. ",
+          {
+            "tap": "When I lowered her into the tank, she paddled straight to the corner and glared at me.",
+            "reason": "The teller saw this happen at the tank."
+          },
+          " The vet checked her flippers and said one was badly cut. ",
+          {
+            "tap": "While she was tangled in the line, Pebble had been dreaming about jellyfish."
+          },
+          " ",
+          {
+            "tap": "Tonight, I can hear her splashing from the office next door.",
+            "reason": "The teller says they can hear the splashing."
+          },
+          " The vet thinks she'll be ready to go back to the sea in a month. Tomorrow I will try feeding her some chopped squid."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b3-3",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus's volcano made the news. The Murkle wants to know how much this teller really knows.",
+      "text": "I was home sick on the day of the science fair, which turned out to be lucky. I spent the whole morning on the couch, staring at my phone and waiting for news. My brother Gus had built a volcano out of papier-mâché, vinegar and something he called 'Mystery Goo'. At nine o'clock, he texted me a photo of it on the table, bright green and bubbling. It looked like a giant bowl of pea soup. At ten o'clock, he texted again: 'It's bigger than I planned.' After that, he stopped texting. At lunchtime, I heard a fire engine go past our house with its siren on. When Gus got home, his eyebrows were orange and he smelled like a rotten egg sandwich. He told me the judges had given him a ribbon for 'Most Memorable Project'. He would not tell me what was in the Mystery Goo, and he still won't. I've decided not to ask any more.",
+      "prompt": "How does the teller know each thing? Match each one.",
+      "success": "A teller knows what reaches their own eyes, ears and nose, or what someone tells them. That's all.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "saw, heard or smelled it",
+          "was told it",
+          "can't know it"
+        ],
+        "items": [
+          {
+            "text": "Gus's eyebrows were orange.",
+            "bin": 0,
+            "reason": "The teller saw them when Gus got home."
+          },
+          {
+            "text": "A fire engine went past with its siren on.",
+            "bin": 0,
+            "reason": "The teller heard the siren from home."
+          },
+          {
+            "text": "Gus smelled like a rotten egg sandwich.",
+            "bin": 0,
+            "reason": "The teller smelled it when Gus got home."
+          },
+          {
+            "text": "The volcano got bigger than Gus planned.",
+            "bin": 1,
+            "reason": "Gus texted the teller this at ten o'clock."
+          },
+          {
+            "text": "The judges gave Gus a ribbon.",
+            "bin": 1,
+            "reason": "Gus told the teller this when he got home."
+          },
+          {
+            "text": "The Mystery Goo was made of snot and pickle juice.",
+            "bin": 2,
+            "reason": "Gus won't say what was in it, so the teller can't know."
+          },
+          {
+            "text": "The volcano covered the principal in goo.",
+            "bin": 2,
+            "reason": "The teller was home sick, and Gus stopped texting. Nobody told them this."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.2-b3-4",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "The Murkle lives near the old lighthouse. It knows this story well.",
+      "text": "Everyone on Twotide says the old lighthouse is haunted. I didn't believe it until the night of the school camp, when Ms Pell let us sleep in the keeper's cottage at its foot. Just after midnight, I woke up because the lighthouse lamp was on. It hadn't worked for forty years. I watched its beam sweep across the dark water three times, and then it went out. The cottage was silent. Everyone else was fast asleep. In the morning, Ms Pell said it must have been a dream. I wasn't so sure. But under my bunk I found a dusty logbook, and on the last page, in faded ink, the keeper had written: 'Every year on the night of the great storm, I light the lamp for the lost fishing boat. I will keep lighting it, even after I am gone.' Our camp was sixty years to the day after the great storm.",
+      "prompt": "How does the teller know the keeper promised to keep lighting the lamp?",
+      "success": "The teller read it in the logbook. Nobody said it and nobody was seen. It's written down.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The keeper's ghost told the teller.",
+            "reason": "No ghost speaks in the story. The words are written in the logbook."
+          },
+          {
+            "text": "The teller read it in the keeper's logbook."
+          },
+          {
+            "text": "Ms Pell told the teller the old story.",
+            "reason": "Ms Pell only said the light must have been a dream."
+          },
+          {
+            "text": "The teller saw the keeper lighting the lamp.",
+            "reason": "The teller only saw the beam. Nobody was seen in the lighthouse."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.2-b3-5",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi wants to know if she won. Zed wrote a note, but one part is wrong.",
+      "text": "The Twotide Art Prize judging happened on Thursday afternoon, and I was allowed to watch from the back of the hall as long as I kept quiet. Indi had painted a huge octopus wearing a crown, playing eight instruments at once. It had taken her a whole term. She'd used up four tubes of purple paint. The two judges stopped in front of it for a very long time. Judge Marsh tilted her head one way, then the other. Judge Kwan stepped back, squinted, and then leaned in until her nose nearly touched the canvas. Neither of them said a single word. They both wrote something on their clipboards, turned the clipboards face down and moved on. I tried to peek, but they were too quick. Indi had been waiting outside, and she grabbed my arm the second I came out. 'Well? Did they love it?' she asked. I honestly had no idea. The results won't be announced until Monday.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "The teller only saw the judges write something. They never said a word, and the clipboards were face down.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The teller ",
+          {
+            "tap": "saw",
+            "reason": "That's right. The teller watched from the back of the hall."
+          },
+          " Judge Kwan squint at the painting. The teller knows the judges ",
+          {
+            "tap": "loved the painting"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "wrote something on their clipboards"
+          },
+          {
+            "text": "thought the octopus was too purple",
+            "reason": "The judges never said what they thought. The teller can't see inside their heads."
+          },
+          {
+            "text": "had picked Indi as the winner",
+            "reason": "Results come out on Monday. The teller says they honestly had no idea."
+          },
+          {
+            "text": "whispered about the crown",
+            "reason": "Neither judge said a single word, not even a whisper."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.2-b3-6",
+      "band": 3,
+      "topic": "food",
+      "frame": "The Murkle listened in on a Sunday night phone call.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "The teller is in Melbourne. Nonna never explained the crash, so the cat is only a guess.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Every Sunday night, Nonna calls us from Perth while she cooks, and we put her on speaker in the middle of our table here in Melbourne. ",
+          {
+            "tap": "This week, I could hear onions sizzling in her pan, all the way from the other side of the country.",
+            "reason": "The teller could hear the sizzling through the phone."
+          },
+          " 'I'm making my famous lasagne,' she announced. ",
+          {
+            "tap": "She told us she had grated the cheese by hand.",
+            "reason": "Nonna told the teller this over the phone."
+          },
+          " Then there was a crash, a clatter and a long silence. ",
+          {
+            "tap": "Over in Perth, her cat had leapt onto the bench and knocked the lasagne onto the floor."
+          },
+          " 'Everything is fine!' Nonna said brightly, and quickly hung up. ",
+          {
+            "tap": "Mum raised her eyebrows at me across the table.",
+            "reason": "The teller saw Mum do this, right across the table."
+          },
+          " When we rang back, Nonna said she couldn't remember any crash at all. Mum says we will find out at Christmas, when Nonna visits."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "The Murkle floated past a radio telescope. Someone had left this story beside it.",
+      "text": "I was twelve when Mum let me sit in the visitors' gallery at Mission Control for the final hour of the Selene 4 mission. Below me, rows of engineers hunched over glowing screens, and the giant display at the front showed the capsule as a small white dot creeping around the curve of the Moon. At 8.14 pm, the dot slipped behind the Moon and the radio crackled into silence. Everyone knew this would happen: for forty-eight minutes, the Moon itself would block every signal. Nobody spoke. The only sound was the hum of the air conditioning. One engineer chewed his pen until it cracked. The flight director, a tall woman named Dr Ferris, stood perfectly still with her arms folded and her eyes fixed on the clock. At 9.02 pm, the dot reappeared, and a voice burst through the speakers, half laughing: 'Control, Selene 4. We're coming home, and we've brought you a rock shaped like a potato.' The room exploded into cheers. Mum hugged me so hard that my badge fell off. Dr Ferris told the gallery that the crew were safe and would splash down in three days. To this day, though, the astronauts have never said what they were laughing about when the radio came back on.",
+      "prompt": "Which of these can the teller NOT know?",
+      "success": "The Moon blocked every signal, and the crew never said what they did. Nobody could see or hear it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The radio went silent at 8.14 pm.",
+            "reason": "The teller heard the radio crackle into silence from the gallery."
+          },
+          {
+            "text": "The crew would splash down in three days.",
+            "reason": "Dr Ferris told the gallery this after the signal came back."
+          },
+          {
+            "text": "Behind the Moon, the crew had a pillow fight in their spacesuits."
+          },
+          {
+            "text": "Over the speakers, the crew said they had found a rock shaped like a potato.",
+            "reason": "The teller heard the crew say this through the speakers."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.2-b4-2",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed lost the Speedrun Cup final last year. This is the winner's story.",
+      "prompt": "Tap the sentence the teller can't know.",
+      "success": "Rex never said why he lost, and nobody can hear a silent decision. That one is pure guesswork.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The final of the Twotide Speedrun Cup was played in the library, with the two of us sitting back to back so that neither could see the other's screen. ",
+          {
+            "tap": "Behind me, I could hear Rex hammering his buttons like a woodpecker.",
+            "reason": "The teller says they could hear Rex's buttons."
+          },
+          " The crowd could watch both screens on the big projector, but I kept my eyes on my own. At the four-minute mark, the crowd gasped. ",
+          {
+            "tap": "Rex's best friend, Oscar, told me afterwards that Rex had found a secret shortcut through the waterfall.",
+            "reason": "Oscar told the teller this after the final."
+          },
+          " I didn't know any of that at the time; all I knew was that I had to be faster. ",
+          {
+            "tap": "I took the long way round the volcano, as I always do, and crossed the line in 9 minutes 41.",
+            "reason": "The teller knows what they did, and their own time."
+          },
+          " ",
+          {
+            "tap": "At that moment, Rex was silently deciding to let me win."
+          },
+          " The scoreboard flashed. I had won by four-tenths of a second. Rex shook my hand, said 'Good game' and nothing else, and he has refused to talk about the final ever since. Whenever anyone mentions the waterfall, he suddenly needs to tie his shoelaces."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.2-b4-3",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Murkle hitched a ride on a whale-watching boat. It found this log in a bunk.",
+      "text": "Whale-watching log, Saturday. We left the harbour at seven, and by nine the skipper, Dee, had spotted a humpback mother and her calf about two hundred metres off the bow. I watched them through the binoculars for nearly an hour: the mother rolling lazily on the surface, the calf slapping its tail again and again as if it were practising. My cousin Rafi had gone out on the smaller research boat that morning, and over the radio he told us that his team had dropped an underwater microphone and recorded the mother singing. I would have given anything to hear it, but the radio was too crackly to play it back. Just before lunch, the pair dived and didn't come up again. Dee told us humpbacks can stay under for up to forty-five minutes, so we waited, eating soggy sandwiches and staring at the empty sea. A seagull stole half of mine. They never came back up where we could see them. We headed back to the harbour at three, sunburnt and quiet. Rafi says the recording is too precious to email, so I won't hear it until he gets home next month. Tonight, in my bunk, I keep wondering where the calf is now.",
+      "prompt": "How does the teller know each thing? Match each one.",
+      "success": "The teller was there for some things and told others. The song and the whales' route stay out of reach.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "was there for it",
+          "was told it",
+          "can't know it"
+        ],
+        "items": [
+          {
+            "text": "The calf slapped its tail again and again.",
+            "bin": 0,
+            "reason": "The teller watched this through the binoculars."
+          },
+          {
+            "text": "The teller ate soggy sandwiches while they waited.",
+            "bin": 0,
+            "reason": "The teller was there, eating them."
+          },
+          {
+            "text": "Rafi's team recorded the mother singing.",
+            "bin": 1,
+            "reason": "Rafi told the teller over the radio."
+          },
+          {
+            "text": "Humpbacks can stay under for up to forty-five minutes.",
+            "bin": 1,
+            "reason": "Dee told them this while they waited."
+          },
+          {
+            "text": "The mother's song sounded like a creaky door.",
+            "bin": 2,
+            "reason": "The teller hasn't heard the recording yet, so they can't know how it sounds."
+          },
+          {
+            "text": "After the dive, the whales swam north towards the islands.",
+            "bin": 2,
+            "reason": "The whales never came up where the teller could see. Nobody said where they went."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.2-b4-4",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The Murkle met a robot vacuum on the beach. This is its family's story.",
+      "text": "When we went away for the long weekend, Dad left our robot vacuum, Dusty, switched on to 'patrol mode', which he said would keep the house clean while we were gone. On Saturday, Dad and I checked the app on his phone. The little map showed Dusty's path as a neat blue line zigzagging around the lounge room. On Sunday morning, the blue line went through the dog flap, across the back lawn and under the side fence. Dad and I watched the live camera on Dusty's lid as it showed grass, then a garden gnome, then the inside of Mrs Agosti's chook shed. Dad went very quiet. Then he laughed so hard that he had to sit down on the sand. We were three hours away at the beach, so nobody could go and get it. We tried calling Mrs Agosti, but she was away too. When we finally got home on Monday night, Dusty was sitting in our driveway, fully charged, with a feather stuck to its brush and an egg balanced on its lid. Our dog sniffed it suspiciously. The camera had switched off at lunchtime on Sunday, so to this day nobody knows how it got home, or where the egg came from.",
+      "prompt": "How does the teller know that Dusty went into Mrs Agosti's chook shed?",
+      "success": "The live camera. The teller was three hours away, but they watched Dusty's camera on Dad's phone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mrs Agosti told them on the phone.",
+            "reason": "They tried calling, but Mrs Agosti was away too."
+          },
+          {
+            "text": "They watched it on Dusty's live camera."
+          },
+          {
+            "text": "They found feathers in the shed when they got home.",
+            "reason": "The feather was on Dusty's brush in the driveway. Nobody says they checked the shed."
+          },
+          {
+            "text": "They followed Dusty's tracks across the lawn.",
+            "reason": "They were three hours away. The blue line on the map showed the path."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.2-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "The Murkle heard a trumpet echo through the corridor. Tully wrote a note, but one part is wrong.",
+      "text": "Lena had been practising her trumpet solo for six months, and the audition for the State Youth Band was at ten o'clock. Only performers were allowed in the room, so I waited in the corridor outside, pacing up and down the squeaky lino and trying not to bite my nails. Every few minutes, I checked my watch. Through the heavy wooden door, I heard her start. The first few notes wobbled, then steadied, and then the solo soared, so loud and bright that the cleaner down the hall stopped mopping to listen. Then it stopped, halfway through a phrase. There was a long silence. I pressed my ear against the door, but all I could make out was a murmur of low voices, as if the three judges were whispering to each other. Ten minutes later, Lena came out holding her trumpet case in both arms. Her face gave nothing away. Even her ears, which go red when she's upset, were their normal colour. 'Well?' I said. She shrugged and said they'd send a letter. In the car on the way home, she stared out of the window and hummed the solo over and over, but every time I asked what the judges had whispered, she turned up the radio.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "A heavy door muffled the whispers, and Lena won't say. The teller was listening, but couldn't make out words.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The teller heard Lena play ",
+          {
+            "tap": "through the door",
+            "reason": "That's right. The teller waited outside and heard her through the door."
+          },
+          ". The teller can't know what the judges whispered, because the teller ",
+          {
+            "tap": "wasn't listening"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "was down the hall, and Lena refuses to tell",
+            "reason": "The teller wasn't down the hall. They pressed an ear right against the door."
+          },
+          {
+            "text": "was behind a glass door, and Lena refuses to tell",
+            "reason": "The door is heavy and wooden, not glass. Its thick wood muffles the whispers."
+          },
+          {
+            "text": "was behind a heavy door, but Lena said it went badly",
+            "reason": "Lena never says how it went. She just shrugs and says they'll send a letter."
+          },
+          {
+            "text": "was behind a heavy door, and Lena refuses to tell"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.2-b4-6",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Zed is recording Maxx Vantablack's live stream from the Soggy Biscuit. Maxx is the teller.",
+      "prompt": "Maxx is telling this. Tap the sentence he can't possibly know.",
+      "success": "Maxx is on a beach. He can't see into lounge rooms, so the happy tears are made up.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "MAXX VANTABLACK, LIVE FROM TWOTIDE ATOLL. Maxx it out, Vantafam! Your boy is standing on a beach so golden it matches my teeth. The sand is hot, the water is sparkling, and a crab is pinching my left shoe. Not on camera, little buddy! ",
+          {
+            "tap": "Behind me, a baby turtle is crawling towards the waves, and it is the cutest thing I've ever filmed.",
+            "reason": "Maxx is standing right there. He can see the turtle crawling."
+          },
+          " ",
+          {
+            "tap": "My producer just told me through my earpiece that we've hit two million viewers.",
+            "reason": "Maxx's producer told him this through his earpiece."
+          },
+          " ",
+          {
+            "tap": "The comments are flying past on my screen so fast that I can barely read them.",
+            "reason": "Maxx can see the comments on his own screen."
+          },
+          " Somebody's asking why the turtle is wearing a tiny gold bow tie. It's called style, people. Next question! Goldie Number Four, get my good side. Goldie Number Two, hold that ring light higher. Your arms are shaking, and it's ruining my glow. The sun is right behind me, and my hair has never looked better. ",
+          {
+            "tap": "Right now, in every lounge room in the country, the Vantafam is crying happy tears."
+          },
+          " I can hear the Goldies clapping behind the camera, so you know this is special. Smash that heart button like it owes you money! Here comes the wave. Here comes the turtle. And it is gone! Rescue complete. This is Maxx-imum content, people. Two Xs, because one X is for losers. Stay gold!"
+        ],
+        "answer": 3
+      }
+    }
+  ]
+}

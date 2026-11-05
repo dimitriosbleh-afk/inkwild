@@ -1,0 +1,921 @@
+{
+  "skill": {
+    "id": "2.1",
+    "name": "Who's telling? First person or third person",
+    "codes": [
+      "VC2E5LE03"
+    ],
+    "why": "Knowing who's telling helps you decide how much to trust the story.",
+    "how": "Look outside the speech marks. I or we means first person. He or she means third.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Every story has a teller. Who is talking to you?"
+          },
+          {
+            "say": "If the teller says I or my, they're in the story.",
+            "show": "**I** slipped on a pancake. **My** elbow went in the jam."
+          },
+          {
+            "say": "That's first person. The teller is a character."
+          },
+          {
+            "say": "If the teller says he, she or a name, it's third person.",
+            "show": "**Gus** slipped on a pancake. **His** elbow went in the jam."
+          },
+          {
+            "say": "Careful! An I inside speech marks doesn't count.",
+            "show": "'**I'm** fine,' **Gus** groaned. **He** was not fine."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "I opened the fridge. Something green was growing on my sandwich. I named it Kevin.",
+          "prompt": "Is this story told in first person or third person?",
+          "hint": "Look outside speech marks. Does the teller say I or my?",
+          "success": "First person. The teller says I and my, so they're a character in the story.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "first person"
+              },
+              {
+                "text": "third person",
+                "reason": "The teller says I and my, so the teller is in the story."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "This story is told in first person. Tap the sentence that proves it.",
+          "hint": "Skip anything inside speech marks. Where does the teller say I?",
+          "success": "I laughed is the teller talking. The teller is in the story, so it's first person.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              {
+                "tap": "'I can fly!' Zed yelled.",
+                "reason": "That I is inside speech marks. It's Zed talking, not the teller."
+              },
+              " He jumped off the couch. ",
+              {
+                "tap": "He landed right on the cat.",
+                "reason": "This says he, about Zed. It doesn't show who the teller is."
+              },
+              " ",
+              {
+                "tap": "I laughed so hard that milk came out of my nose."
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "whoshell",
+      "name": "Whoshell",
+      "evolved": "Whoshellion",
+      "blurb": "A hermit crab that swaps shells to swap tellers. In one shell it says I. In the other, someone else tells its story."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.1-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Whoshell found this story stuffed inside a chip packet on the beach.",
+      "text": "My name is Chip, and I am a seagull. I live on the roof of the fish and chip shop. Every day, I watch the people below. I wait for someone to drop a chip. Today a boy in a red cap sat down with a whole bucket of them. I crept closer. I tilted my head and looked very cute. He did not share. So I waited until he sneezed. Then I grabbed the biggest chip and flew away. Best. Day. Ever.",
+      "prompt": "Who is telling this story?",
+      "success": "Chip the seagull. The teller says 'My name is Chip' and 'I am a seagull'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Chip the seagull"
+          },
+          {
+            "text": "the boy in the red cap",
+            "reason": "The boy is someone Chip watches. The teller calls him he."
+          },
+          {
+            "text": "someone outside the story",
+            "reason": "The teller says I and my, so the teller is inside the story."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.1-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully read this out on the Soggy Biscuit. The Whoshell listened closely.",
+      "text": "Kenji ran onto the soccer field. His legs were shaking. 'I can do this,' he whispered. The ball flew towards him. He jumped as high as he could. It bounced off his head and into the net. Everyone went quiet. Then the crowd went wild. Kenji's whole team piled on top of him. 'I meant to do that,' he said. Nobody believed him. Not even his mum.",
+      "prompt": "How is this story told?",
+      "success": "Third person. Outside the speech marks, the teller only says Kenji, he and his.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "first person, told by Kenji",
+            "reason": "Kenji's I is only inside speech marks. Outside them, the teller calls him he."
+          },
+          {
+            "text": "third person, told by someone outside the story"
+          },
+          {
+            "text": "first person, told by Kenji's mum",
+            "reason": "Mum never says I. The teller calls her his mum, so she isn't telling it."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.1-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Pages from Mo's cookbook have blown all over the deck.",
+      "prompt": "Who says each I? Match each sentence to the teller or a character.",
+      "success": "Outside speech marks, I is the teller. Inside speech marks, I is a character talking.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the teller",
+          "a character, in speech marks"
+        ],
+        "items": [
+          {
+            "text": "I ate the whole pie before lunch.",
+            "bin": 0,
+            "reason": "There are no speech marks, so this I is the teller."
+          },
+          {
+            "text": "'I ate the whole pie,' said Mo.",
+            "bin": 1,
+            "reason": "The I is inside speech marks. It's Mo talking."
+          },
+          {
+            "text": "My brother hid a sausage roll in his sock.",
+            "bin": 0,
+            "reason": "My is outside speech marks, so it's the teller's brother."
+          },
+          {
+            "text": "'I love jelly,' Gran said.",
+            "bin": 1,
+            "reason": "The I is inside speech marks. It's Gran talking."
+          },
+          {
+            "text": "I licked the bowl clean.",
+            "bin": 0,
+            "reason": "There are no speech marks, so this I is the teller."
+          },
+          {
+            "text": "'Have I burnt it?' asked Mo.",
+            "bin": 1,
+            "reason": "The I is inside speech marks. It's Mo asking."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.1-b1-4",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The Whoshell found a ghost story in the old lighthouse.",
+      "prompt": "This story is told in first person. Tap the sentence that proves it.",
+      "success": "I grabbed is the teller talking. The teller is in the story, so it's first person.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The old lighthouse door creaked open. ",
+          {
+            "tap": "'Hello?' Zed called into the dark.",
+            "reason": "Zed is calling out. It doesn't show who is telling the story."
+          },
+          " Nobody answered. ",
+          {
+            "tap": "A cold wind blew out the candle.",
+            "reason": "Nothing here says I or my. It could be in any story."
+          },
+          " Something thumped upstairs. ",
+          {
+            "tap": "'I don't like this,' Zed whispered.",
+            "reason": "That I is inside speech marks. It's Zed talking, not the teller."
+          },
+          " ",
+          {
+            "tap": "I grabbed Zed's arm so hard that he squeaked."
+          },
+          " Then a fluffy grey cat padded down the stairs. It sat on the bottom step and yawned."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.1-b1-5",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Mo wrote a note about this story. One part is wrong.",
+      "text": "I am Sweepo, a robot vacuum. I clean the Patel family's house every morning. I eat dust, crumbs and the odd sock. Yesterday I found a whole chip under the couch. Delicious. Then the dog chased me into the laundry. I hid behind the washing machine for an hour. Mrs Patel found me at lunchtime. 'There you are, Sweepo,' she said. She patted my lid. I beeped twice. That means thank you.",
+      "prompt": "Tap the part Mo got wrong, then choose a better one.",
+      "success": "Sweepo. The teller says 'I am Sweepo, a robot vacuum.'",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "This story is told in ",
+          {
+            "tap": "first",
+            "reason": "That's right. The teller says I, so it's first person."
+          },
+          " person. It is told by ",
+          {
+            "tap": "the dog"
+          },
+          ". It happens in the ",
+          {
+            "tap": "Patel family's house",
+            "reason": "That's right. Sweepo cleans the Patel family's house."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "Mrs Patel",
+            "reason": "Mrs Patel talks inside speech marks. The teller calls her she."
+          },
+          {
+            "text": "Sweepo the robot vacuum"
+          },
+          {
+            "text": "someone outside the story",
+            "reason": "The teller says I and my, so the teller is in the story."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.1-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed beat a boss level. Now he wants to tell it his way.",
+      "text": "Zed beat the boss on his first try.",
+      "prompt": "Zed wants to tell this himself, in first person. Tap the pieces to build his sentence.",
+      "success": "I beat the boss on my first try. Zed is in the story and telling it: first person.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "I",
+          "Zed",
+          "beat the boss",
+          "on",
+          "my",
+          "his",
+          "first try."
+        ],
+        "accept": [
+          "I beat the boss on my first try."
+        ],
+        "reason": "Zed is the teller now, so he says I and my, not Zed and his."
+      }
+    },
+    {
+      "id": "2.1-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "A Whoshell is hiding in a rock pool. It found this story under a rock.",
+      "text": "The girl in the yellow hat had been staring at me for ten minutes. I stayed very still inside my shell. Maybe she would think I was just a pebble. 'Mum, this shell has legs!' she shouted. That was it. I had been spotted. She picked me up and held me close to her nose. Her breath smelled of strawberry ice cream. I pulled my legs in and waited. 'I'll call you Sir Pinchy,' she said. I have never been so insulted in my life. My name is Gerald. At last she put me down gently by the rock pool. I scuttled away sideways as fast as I could, and I did not look back.",
+      "prompt": "Who is telling this story?",
+      "success": "Gerald. He says I and my shell, and he tells us 'My name is Gerald.'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "the girl in the yellow hat",
+            "reason": "She speaks in speech marks, and the teller calls her she. The teller has a shell."
+          },
+          {
+            "text": "Gerald, the creature in the shell"
+          },
+          {
+            "text": "someone outside the story, watching from the beach",
+            "reason": "The teller says I and my shell. The teller is a character in the story."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.1-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Whoshell is tapping along to the school band's practice.",
+      "prompt": "This story is told in first person. Tap the sentence that proves it.",
+      "success": "I dropped my drumsticks is the teller, outside speech marks. The teller is in the band: first person.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The school band had one week to learn the new song. ",
+          {
+            "tap": "'I'll sing it,' Ruby said, before anyone else could.",
+            "reason": "That I is inside speech marks. It's Ruby talking, not the teller."
+          },
+          " Mr Fong, the music teacher, handed out the parts. ",
+          {
+            "tap": "'I'll be watching the trumpets,' he warned.",
+            "reason": "This I is inside speech marks too. It belongs to Mr Fong."
+          },
+          " On Friday the band played the song at assembly. ",
+          {
+            "tap": "Halfway through, Ruby forgot the words and sang 'banana' over and over.",
+            "reason": "This tells you what Ruby did. It doesn't show who is telling."
+          },
+          " ",
+          {
+            "tap": "I laughed so hard that I dropped both my drumsticks."
+          },
+          " Mr Fong put his head in his hands. Ruby took a bow anyway, and the Year 1s cheered louder than ever. Mr Fong has booked extra practice for every lunchtime next week."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.1-b2-3",
+      "band": 2,
+      "topic": "space",
+      "frame": "Tiny space stories have washed up in bottles all along the beach.",
+      "prompt": "Each line is a whole tiny story. Match each one to first person or third person.",
+      "success": "I, my, we or our outside speech marks mean first person. Without them, it's third person.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "first person",
+          "third person"
+        ],
+        "items": [
+          {
+            "text": "The rocket wobbled. I gripped my seat and shut my eyes.",
+            "bin": 0,
+            "reason": "The teller says I and my, so the teller is in the story."
+          },
+          {
+            "text": "Captain Zara floated past the window. She waved at the moon.",
+            "bin": 1,
+            "reason": "The teller calls her Captain Zara and she, and never says I."
+          },
+          {
+            "text": "'I can see Earth!' Lee shouted. He pressed his nose to the glass.",
+            "bin": 1,
+            "reason": "The I is inside speech marks. The teller calls Lee he."
+          },
+          {
+            "text": "We landed on Mars at lunchtime. Our sandwiches floated away.",
+            "bin": 0,
+            "reason": "We and our mean the teller was there, in the story."
+          },
+          {
+            "text": "The alien sniffed the astronaut. Then it licked her helmet.",
+            "bin": 1,
+            "reason": "No I, we or my anywhere. The teller is outside the story."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.1-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Tully pinned this news report to the mast. Gus wrote a note about it, but one part is wrong.",
+      "text": "WOMBAT SKIPS CLASS\n\nHollowgum Primary had an unusual visitor on Tuesday. A young wombat wandered into the Year 5 classroom just after the lunch bell. Students found him asleep in the reading corner, curled up on a beanbag. 'I thought he was a cushion,' said Year 5 student Ava Lim. 'Then the cushion snored.' The principal, Ms Okafor, called the wildlife rescue team. 'I have worked here for twenty years,' she said, 'and I have never had to wake up a wombat.' The rescuers carried him gently back to the bush behind the oval. Students have named him Pillow, and they have asked if he can visit again next week.",
+      "prompt": "Tap the part Gus got wrong, then choose a better one.",
+      "success": "A reporter outside the story. Every I is inside speech marks, so the report is third person.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "This report is told in ",
+          {
+            "tap": "third",
+            "reason": "That's right. The only I's are inside speech marks."
+          },
+          " person by ",
+          {
+            "tap": "Ms Okafor"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "a reporter outside the story"
+          },
+          {
+            "text": "Ava Lim, a Year 5 student",
+            "reason": "Ava's I is inside speech marks. The report calls her Ava, not I."
+          },
+          {
+            "text": "Pillow the wombat",
+            "reason": "The wombat only snores! The report calls him he and him."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.1-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "The Whoshell found this story in an old house on Twotide Atoll.",
+      "text": "The new family moved in on Saturday. I watched them from the attic window as they carried in boxes, a fish tank and a very loud parrot. Nobody has lived here for a hundred years, so I was quite excited. That night, the girl, Lily, crept up the attic stairs with a torch. 'Is anyone there?' she whispered. I tried my spookiest moan. It came out as a hiccup. Lily giggled. 'Are you a ghost?' she asked. I floated down from the rafters and nodded politely. I have been a ghost since 1924, and nobody has ever giggled at me before. Now Lily brings me a biscuit every night. I can't eat it, but it's the thought that counts.",
+      "prompt": "Who is telling this story?",
+      "success": "The ghost. The teller floats down from the rafters and says, 'I have been a ghost since 1924.'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Lily, the girl who moved in",
+            "reason": "Lily speaks in speech marks, and the teller calls her she. The teller floats."
+          },
+          {
+            "text": "someone outside the story",
+            "reason": "The teller says I and my, so the teller is a character in the story."
+          },
+          {
+            "text": "the ghost in the attic"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.1-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo fell off his chair at dinner. He wants to tell it himself.",
+      "text": "Mo laughed so hard at his own joke that he fell off his chair.",
+      "prompt": "Mo wants to tell this himself, in first person. Tap the pieces to build his sentence.",
+      "success": "I laughed so hard at my own joke that I fell off my chair. Mo is telling it now.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "I laughed",
+          "Mo laughed",
+          "so hard at",
+          "my own joke",
+          "his own joke",
+          "that I fell off my chair."
+        ],
+        "accept": [
+          "I laughed so hard at my own joke that I fell off my chair."
+        ],
+        "reason": "Mo is the teller now. He says I and my, not Mo, he and his."
+      }
+    },
+    {
+      "id": "2.1-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wants this story in the Field Guide. The Whoshell has a question.",
+      "text": "With two minutes left in the grand final, the Reef Rays were down by five points. Tully stood in the forward pocket, bouncing on her toes. 'I just need one kick,' she muttered. 'One kick, that's all I'm asking for.' The ball sailed high over the pack, and she leapt for it. It slipped through her fingers and landed in the mud. The crowd groaned. Somewhere behind the goals, a dog started barking at the umpire. Her coach was yelling something, but she couldn't hear a word over the noise. Then, somehow, the ball bounced straight back up into her arms. Tully steadied herself, took three steps and kicked. Up in the stands, her little brother covered his eyes. The ball wobbled through the air like a confused moth and dribbled through the middle of the goalposts. Six points, and the Reef Rays were in front. 'I MEANT that!' Tully screamed at the grandstand. Later, she admitted she hadn't meant a single bit of it.",
+      "prompt": "Which explanation is right?",
+      "success": "Third person. Tully's I's are all in speech marks. The teller is outside the story and calls her she.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "First person, because Tully says I several times, like 'I just need one kick'.",
+            "reason": "Tully's I's are all inside speech marks. Outside them, the teller calls her she."
+          },
+          {
+            "text": "Third person, because the teller is outside the story and calls Tully she."
+          },
+          {
+            "text": "First person, because the teller knows how Tully feels and that she can't hear her coach.",
+            "reason": "Knowing feelings doesn't make it first person. Only the teller saying I or we does."
+          },
+          {
+            "text": "Third person, because the story is about sport.",
+            "reason": "Any story can be about sport. It's third person because the teller never says I."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.1-b3-2",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus's experiment has escaped. The Whoshell is staying inside its shell.",
+      "prompt": "This story is told in first person. Tap the sentence that proves it.",
+      "success": "Down the back of my shirt. My is the teller talking, so the teller is in the story.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus's science project had been growing in a jar on the kitchen bench for three weeks. Gus said it was mostly jelly crystals and pond water, plus a secret ingredient he refused to name. By the second week, it had started to wobble on its own. ",
+          {
+            "tap": "The label on the lid said 'DO NOT OPEN. I AM STILL GROWING.'",
+            "reason": "Those words are written on the label, inside quote marks. The teller didn't say them."
+          },
+          " On Saturday morning, the lid was lying on the floor and the jar was empty. A sticky green puddle sat beside it, and the kitchen smelled of lime cordial and old socks. ",
+          {
+            "tap": "'I didn't touch it,' said Dad, holding his coffee very still.",
+            "reason": "That I is inside speech marks. It's Dad talking, not the teller."
+          },
+          " A shiny green trail led across the floor, under the table and up the side of the fridge. It glistened in the sunlight, as if a snail had been to a disco. ",
+          {
+            "tap": "Gus followed it on his hands and knees, sniffing like a beagle.",
+            "reason": "This shows Gus following the trail. It says his, not my, so it doesn't prove first person."
+          },
+          " ",
+          {
+            "tap": "Then something cold and wobbly dropped from the top of the fridge, straight down the back of my shirt."
+          },
+          " ",
+          {
+            "tap": "'That's not gross,' Gus said proudly. 'That's science.'",
+            "reason": "Gus is speaking here. Nothing in it shows the teller saying I, me or my."
+          },
+          " It took a whole bottle of shampoo and forty minutes to get it all out. Afterwards, Gus scraped what was left back into the jar, and Dad put a brick on the lid."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.1-b3-3",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi has pinned tiny stories all over the art room wall.",
+      "prompt": "Each line is a whole tiny story. Match each one to first person or third person.",
+      "success": "Find I, me, my, we or our outside quote marks. If there are none, it's third person.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "first person",
+          "third person"
+        ],
+        "items": [
+          {
+            "text": "Indi's mural covered the whole wall. 'I'm calling it Big Wet Dog,' she said.",
+            "bin": 1,
+            "reason": "The I is inside speech marks. The teller calls Indi she."
+          },
+          {
+            "text": "Our class painted the bin green. Then we painted the principal's car by mistake.",
+            "bin": 0,
+            "reason": "Our and we mean the teller was one of the painters."
+          },
+          {
+            "text": "The gallery guard yawned. A sign beside him said 'I am art. Please do not touch.'",
+            "bin": 1,
+            "reason": "That I is written on the sign, in quote marks. The teller never says I."
+          },
+          {
+            "text": "Nobody noticed the tiny drawing of my cat in the corner of the painting.",
+            "bin": 0,
+            "reason": "My cat means the teller is a person in the story."
+          },
+          {
+            "text": "The sculpture fell over during the speech. The artist pretended it was meant to happen.",
+            "bin": 1,
+            "reason": "No I, me, my or we anywhere. The teller is outside the story."
+          },
+          {
+            "text": "When the paint dried, the portrait of Gran looked more like me.",
+            "bin": 0,
+            "reason": "Me is the teller talking about themselves, so it's first person."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.1-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed found this page in an old game manual. He wrote a note, but one part is wrong.",
+      "text": "I am the Lava King, the final boss of Level 9, and I have been waiting in this volcano for six years. Every day, a player arrives. They jump over my fireballs, dodge my lava waves and bonk me on the head with a hammer. Then they win, and I explode into a thousand coins. It is not a good job. Nobody ever asks me how my day was. Yesterday a new player arrived, wearing a tiny green hat. She was terrible. She jumped at the wrong times and ran straight into my fireballs. She fell into the lava eleven times. 'I'm never beating this,' she groaned. On her twelfth try, I felt sorry for her, so I threw my fireballs a little bit slower. She bonked me with the hammer, and I exploded happily into coins. The player danced around the volcano. I think I'll go easy on everyone from now on. Being a boss is exhausting.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "The Lava King. He says 'I am the Lava King' and talks about my fireballs.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "This is told in ",
+          {
+            "tap": "first",
+            "reason": "That's right. The teller says I and my outside speech marks."
+          },
+          " person by ",
+          {
+            "tap": "the player in the green hat"
+          },
+          ", who ",
+          {
+            "tap": "is a character",
+            "reason": "That's right. The teller is part of the story."
+          },
+          " in the game."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "the Lava King"
+          },
+          {
+            "text": "Zed, who is playing the game",
+            "reason": "Zed isn't in this passage. The teller says 'I am the Lava King.'"
+          },
+          {
+            "text": "someone watching from outside the game",
+            "reason": "An outsider wouldn't say my fireballs. The teller is in the game."
+          },
+          {
+            "text": "the game's designer",
+            "reason": "No designer is mentioned. The teller throws fireballs and explodes into coins."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.1-b3-5",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Someone carved this story into the Soggy Biscuit's deck. The Whoshell has a guess.",
+      "text": "Nobody ever asks how I feel. Six people stomp across my deck all day in wet thongs, and not one of them has ever wiped their feet. Mo spills soup on me every single night. Indi drew a moustache on my steering wheel. Gus once glued a jar of snot to my mast and called it an experiment. When Tully steers, she talks about footy scores, and when Zed is the lookout, he mostly looks at his game. Today a huge wave slapped my side and water trickled in through my hull. Somebody sneezed, and the leak got worse. 'We're sinking!' yelled Mo, grabbing a frying pan instead of a bucket. Wren calmly stuffed a sock into the hole. It was Gus's sock, and it smelled so bad that even the water stayed away. I bobbed back up and sailed on. Mo cooked fish-finger custard to celebrate. They may be messy, but they're my crew.",
+      "prompt": "Who is telling this story?",
+      "success": "The crew's boat. The teller has a deck, a mast and a hull, and calls them 'my crew'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Tully, the navigator",
+            "reason": "The teller calls Tully she and describes her steering. Tully isn't the teller."
+          },
+          {
+            "text": "a seagull riding on the mast",
+            "reason": "A seagull doesn't have a hull or a deck. The teller has both."
+          },
+          {
+            "text": "the crew's boat"
+          },
+          {
+            "text": "someone outside the story",
+            "reason": "An outsider wouldn't say my deck or my crew. The teller is in the story."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.1-b3-6",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote about his lunch. Wren wants it told by someone outside the story.",
+      "text": "I dropped my pie, and the seagull ate it before I could pick it up.",
+      "prompt": "Tap the pieces to rewrite Mo's sentence in third person, told by someone outside the story.",
+      "success": "Mo dropped his pie... No I or my is left, so the teller is outside the story now.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Mo dropped",
+          "I dropped",
+          "his pie,",
+          "my pie,",
+          "and the seagull ate it",
+          "before he could",
+          "before I could",
+          "pick it up."
+        ],
+        "accept": [
+          "Mo dropped his pie, and the seagull ate it before he could pick it up."
+        ],
+        "reason": "In third person, the teller is outside the story. Mo's I and my become Mo, he and his."
+      }
+    },
+    {
+      "id": "2.1-b4-1",
+      "band": 4,
+      "topic": "space",
+      "frame": "A space station log has drifted down to Twotide Atoll. The Whoshell is puzzled.",
+      "text": "Captain Abena Osei had been alone on Station Kestrel for two hundred and eleven days, and she had grown used to its sounds: the hum of the air filters, the tick of the cooling pipes, the groan of metal as the station swung into sunlight. The knocking was new. It began on Tuesday, three soft taps behind the wall of the galley, then a pause, then three more. At first she blamed the pipes. By Thursday she had stopped blaming anything and started recording. 'Station log, day 212,' she said into the microphone, keeping her voice steady. 'I can hear knocking inside the walls again. I am not frightened. I would simply like it to stop.' She unscrewed the vent cover with trembling fingers and shone her torch into the dark. Two tiny eyes blinked back at her. A box of seed samples in the cargo hold had been chewed open, and the culprit was a fat brown mouse with sunflower husks stuck to its whiskers. It had stowed away from Earth, eaten its way through four kilograms of seeds and, judging by its size, had been having a wonderful time. Captain Osei laughed so loudly that the mouse dropped its seed. That evening she added a second entry to the log: 'Crew now two. New crew member is small, rude and excellent company.'",
+      "prompt": "Which explanation is right?",
+      "success": "Third person. The log entries are in speech marks. Outside them, the teller never says I and calls her she.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "First person, because the log entries say I.",
+            "reason": "The log entries are Captain Osei's words, inside quote marks. Outside them, the teller calls her she."
+          },
+          {
+            "text": "First person, because we learn Captain Osei is frightened, even though she says she isn't.",
+            "reason": "Any teller can show a character's feelings. The teller still calls her she, not I."
+          },
+          {
+            "text": "Third person, because the story happens far away in space, on a lonely station.",
+            "reason": "Where a story is set doesn't decide it. What counts is that the teller never says I."
+          },
+          {
+            "text": "Third person, because the teller stays outside the story and calls Captain Osei she."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.1-b4-2",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "The Whoshell dared the crew to read this in the dark.",
+      "prompt": "This story is told in first person. Tap the sentence that proves it.",
+      "success": "That hand was mine. Mine is the teller talking about themselves, so the teller is in the story.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The old Harbourmaster's House had been empty since the storm of 1962, and everyone on Twotide knew the rules: don't go in after dark, and never, ever ring the bell. ",
+          {
+            "tap": "You could hear the floorboards complaining long before you reached the top of the stairs.",
+            "reason": "This you means anyone at all. It doesn't tell you who is telling the story."
+          },
+          " Ellie went first, because she had lost the coin toss, and her torch made jittery shapes on the peeling wallpaper. ",
+          {
+            "tap": "'I'm only doing this because Jonah dared me,' she hissed over her shoulder.",
+            "reason": "That I is inside speech marks. It belongs to Ellie, not the teller."
+          },
+          " At the end of the landing stood a narrow door with a brass bell hanging beside it. ",
+          {
+            "tap": "Pinned beneath the bell, a yellowed card read: 'I am always listening. Ring me and see.'",
+            "reason": "Those words are written on the card, inside quote marks. The teller didn't write them."
+          },
+          " ",
+          {
+            "tap": "Before Ellie could stop it, a hand reached past her and gave the bell a cheerful little flick, and that hand, I'm sorry to say, was mine."
+          },
+          " For a long moment, nothing happened. Then, from behind the narrow door, came a scrabbling, a thump and an indignant squawk. ",
+          {
+            "tap": "A large and extremely offended cockatoo burst out of the cupboard, shrieking 'HELLO, DARLING!' at the top of its voice.",
+            "reason": "This describes the cockatoo. Nothing here shows who is telling the story."
+          },
+          " Ellie screamed. The cockatoo, it turned out, had belonged to the harbourmaster, and it had been waiting sixty years for someone to ring."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.1-b4-3",
+      "band": 4,
+      "topic": "music",
+      "frame": "Busking music drifts across the harbour. The Whoshell wants to know who wrote this story.",
+      "text": "Vic has played me every Saturday morning outside the Twotide bakery since 1971. I have a dent from the time he dropped me off the ferry, and a second dent from the time he sat on me at a wedding. My valves stick in cold weather, and I sound, as Vic likes to say, 'like a walrus with a head cold'. Last Saturday, though, Vic's hands were too sore to play. He sat on the bench with his thermos while his granddaughter, Mei, lifted me out of the case. She had never played a tuba before. She was nine years old and not much taller than I am. 'I'll just try one note,' she said. She took an enormous breath, pressed her lips to my mouthpiece and blew so hard that a pigeon took off from the bakery roof in fright. It was not a good note. It was, however, extremely loud, and the crowd that had been ignoring us for fifty years suddenly turned to look. Mei blew again, and then again, until the notes began to wobble into something like a tune. By lunchtime, Vic's hat was full of coins. Mei has decided she will play me every Saturday from now on, and I have decided to let her.",
+      "prompt": "Who is telling this story?",
+      "success": "The tuba. The teller has dents, valves and a mouthpiece, and says 'Vic has played me'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Vic, who has played the tuba since 1971",
+            "reason": "The teller calls Vic he. Vic plays the teller, so the teller can't be Vic."
+          },
+          {
+            "text": "Mei, who plays the tuba for the first time",
+            "reason": "Mei speaks in speech marks and is called she. She presses her lips to the teller's mouthpiece."
+          },
+          {
+            "text": "a teller outside the story",
+            "reason": "An outsider wouldn't have dents and valves. The teller says my valves and my mouthpiece."
+          },
+          {
+            "text": "the tuba itself"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.1-b4-4",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren collected these tiny animal stories from the Twotide wildlife sanctuary.",
+      "prompt": "Each line is a whole tiny story. Match each one to first person or third person.",
+      "success": "Only I, me, my, we, us or our outside quote marks make a story first person.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "first person",
+          "third person"
+        ],
+        "items": [
+          {
+            "text": "The keeper swore the penguin could count. It only ate its fish when she laid out exactly seven.",
+            "bin": 1,
+            "reason": "The teller calls the keeper she and never says I or we."
+          },
+          {
+            "text": "Nobody believed us when we said the lizard had stolen Dad's sandwich, until it came back for the crusts.",
+            "bin": 0,
+            "reason": "Us and we mean the teller was there, in the story."
+          },
+          {
+            "text": "'I'm not scared of the snake,' Jai announced, from the very top of the bunk bed.",
+            "bin": 1,
+            "reason": "The I belongs to Jai, inside speech marks. The teller never says I."
+          },
+          {
+            "text": "Of all the animals at the sanctuary, the wombat was the one that chose to sit on my feet.",
+            "bin": 0,
+            "reason": "My feet means the teller is a person in the story."
+          },
+          {
+            "text": "A sign on the emu enclosure read 'I bite. Please don't feed me chips.'",
+            "bin": 1,
+            "reason": "That I is written on the sign, in quote marks. The teller never says I."
+          },
+          {
+            "text": "The kookaburra laughed at the dog all morning, and the dog pretended not to notice.",
+            "bin": 1,
+            "reason": "No I, me, my or we anywhere. The teller is outside the story."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.1-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Tully wrote a note about this story for the Field Guide. One part is wrong.",
+      "text": "BX-4 had been built to mop floors, and for three years it had mopped the floors of Twotide Primary without a single complaint. Then, one Friday, it rolled into the canteen at lunchtime and refused to leave. The Year 6s stopped eating to stare, and someone dropped a meat pie on the floor. 'I have studied four thousand cooking videos,' it announced to the startled canteen manager, Mrs Doyle. 'I am now a chef.' Mrs Doyle, who had been making toasted sandwiches since before BX-4's circuits were invented, folded her arms. 'Go on, then,' she said. The whole canteen went quiet. BX-4 extended three whisks, a spatula and a small frying pan. Within twenty minutes, it had produced a pancake so perfectly round that the Year 6s queued to photograph it. Unfortunately, it had also set fire to a tea towel, stuck a fried egg to the ceiling and covered Mrs Doyle's glasses in batter. 'I believe that went well,' BX-4 said, as the sprinklers came on. Mrs Doyle wiped her glasses on her apron and looked thoughtfully at the egg on the ceiling. Then she handed BX-4 a hairnet. 'Mondays and Wednesdays,' she said. 'And you're mopping up afterwards.'",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "Every I is inside speech marks, in BX-4's own words. The teller never says I.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "This story is told in ",
+          {
+            "tap": "third",
+            "reason": "That's right. The teller stays outside the story."
+          },
+          " person. We know because ",
+          {
+            "tap": "BX-4 never says I"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "BX-4 says I outside speech marks, as the teller",
+            "reason": "BX-4's I's are all inside speech marks. That's a character talking, not the teller."
+          },
+          {
+            "text": "there are no speech marks and no I anywhere",
+            "reason": "BX-4 says I three times, inside speech marks. The I's are there, just not the teller's."
+          },
+          {
+            "text": "every I in the story is inside speech marks"
+          },
+          {
+            "text": "only Mrs Doyle speaks inside speech marks, never BX-4",
+            "reason": "BX-4 speaks inside speech marks too, and it says I three times."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.1-b4-6",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Zed cracked a password and found this diary on one of Maxx Vantablack's drones.",
+      "text": "I have filmed Maxx Vantablack every day for four years, and I have never once been allowed to film his left side. 'Left side is for losers,' he says. I know every hair on his right side by heart. Today I hovered above the gold jet ski while Maxx rehearsed his heroic rescue of a sea turtle. The turtle was not in danger. It was having a nice nap on a sandbar until a Goldie in a gold tracksuit carried it into the shallows, so that Maxx could carry it out again. He made the Goldie do it four times before the light was right. The Goldie looked embarrassed. The turtle looked sleepy. 'Get my good side,' Maxx hissed, tilting his chin. I zoomed in, and my lens fogged up from all his hair spray. 'Smash that heart button, Vantafam!' he shouted to forty million viewers, then tripped over the turtle's flipper and fell face first into the sand. I filmed that too. I always film everything. Afterwards he ordered me to delete it, and my little red light blinked twice, which he thinks means yes. It doesn't. The turtle, meanwhile, crawled back to its sandbar and went back to sleep.",
+      "prompt": "Who is telling this story?",
+      "success": "The flying camera. It hovers, films, has a lens and a red light, and says 'I always film everything.'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx Vantablack, the streamer",
+            "reason": "Maxx's I's are inside speech marks. The teller films him and calls him he."
+          },
+          {
+            "text": "the Goldie in the gold tracksuit",
+            "reason": "The teller watches the Goldie carry the turtle, from above. The Goldie is someone else."
+          },
+          {
+            "text": "the flying camera that films Maxx"
+          },
+          {
+            "text": "a teller outside the story",
+            "reason": "An outsider wouldn't say my lens. The teller is right there, filming."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

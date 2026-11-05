@@ -1,0 +1,954 @@
+{
+  "skill": {
+    "id": "2.6",
+    "name": "When and where: clues to a story's time and place",
+    "codes": [
+      "VC2E5LE01",
+      "VC2E5LY07"
+    ],
+    "why": "Knowing when and where a story happens helps everything else make sense.",
+    "how": "Spot clues in dates, objects, transport, weather and talk. Then add them up.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "The setting is when and where a story happens."
+          },
+          {
+            "say": "Writers often drop clues instead of telling you.",
+            "show": "The town had **no power lines yet**, so Ma lit the lamp."
+          },
+          {
+            "say": "That's a clue to when. It's long ago."
+          },
+          {
+            "say": "Now hunt for clues to where.",
+            "show": "**Red dust** blew between **the tents of the goldfield**."
+          },
+          {
+            "say": "Add them up. Long ago, at a goldfield."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Day 212 on Kepler Station. The dome lights switched on at six. Outside the glass, two red moons rose over the dust. I ate my algae porridge and checked my oxygen tank before school.",
+          "prompt": "Where is this story set?",
+          "hint": "Look outside the glass. What's in the sky? What does the writer check before school?",
+          "success": "Another planet. A station, a dome, two red moons and an oxygen tank all point there.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "a city under the sea",
+                "reason": "Outside the glass there's dust and moons, not water."
+              },
+              {
+                "text": "a station on another planet"
+              },
+              {
+                "text": "a farm long ago",
+                "reason": "The text has dome lights, oxygen tanks and two red moons. That's no farm."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the clue that shows this story is set long ago.",
+          "hint": "Which thing would be very different today?",
+          "success": "One phone for the whole street! Today most families have several, so this must be long ago.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Grandpa told me about his street when he was a boy. ",
+              {
+                "tap": "He walked to school with his sister.",
+                "reason": "Lots of kids still walk to school. This could be any time."
+              },
+              " ",
+              {
+                "tap": "The whole street shared one telephone, at the corner shop."
+              },
+              " ",
+              {
+                "tap": "It rained a lot that winter.",
+                "reason": "Rain happens in every time. It's no clue to when."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "wherrow",
+      "name": "Wherrow",
+      "evolved": "Wherrowind",
+      "blurb": "A shearwater that crosses whole oceans and never gets lost. It reads the clues around it to know exactly when and where it is."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.6-b1-1",
+      "band": 1,
+      "topic": "general",
+      "frame": "The second tide washed up an old diary. The Wherrow is pecking at the cover.",
+      "text": "Diary of Tom Hart, aged 11. 3 March 1853. We have been at the goldfields for two weeks now. Our tent is very small, and it leaks. Pa digs in the creek all day. I wash the mud in a pan and look for a shine. Today I found a tiny bit of gold! It was the size of a lolly. Pa says it will buy us flour for a week. There are thousands of tents on this hill. At night, the whole hill glows with campfires.",
+      "prompt": "When and where is Tom's diary set?",
+      "success": "The date says 1853. The tents, the creek and the gold say goldfields.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in 1853, at the goldfields"
+          },
+          {
+            "text": "today, at a camping park",
+            "reason": "The diary is dated 1853, and Pa digs for gold all day."
+          },
+          {
+            "text": "in 1853, at the beach",
+            "reason": "Tom is at the goldfields, digging in a creek. There's no beach."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.6-b1-2",
+      "band": 1,
+      "topic": "space",
+      "frame": "Narra the Teller is telling a story about a boy named Ziggy. The Wherrow is listening.",
+      "prompt": "Tap the clue that shows Ziggy lives in space.",
+      "success": "You can only see the whole Earth far below you if you're up in space.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Ziggy woke up at seven. ",
+          {
+            "tap": "He brushed his teeth and ate his toast.",
+            "reason": "Kids brush their teeth and eat toast anywhere."
+          },
+          " Then he looked out the round window. ",
+          {
+            "tap": "Far below, the whole blue Earth was turning slowly."
+          },
+          " ",
+          {
+            "tap": "His mum called out, 'Hurry up, you'll be late!'",
+            "reason": "Mums say this everywhere. It's no clue to place."
+          },
+          " Ziggy grabbed his bag. ",
+          {
+            "tap": "His school bag was green, with a hole in the pocket.",
+            "reason": "A green bag could be anywhere."
+          },
+          " He ran down the hall to catch the lift. His school was just one floor up. He was still late."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.6-b1-3",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "The Wherrow dropped a ship's log on the deck of the Soggy Biscuit.",
+      "text": "Captain's log. 2 May 1891. It is midnight. I am writing by candle in my cabin. Our ship is far out at sea. The waves are as tall as houses. It is winter, and storms have torn the sails. We have not seen land for forty days. Tomorrow we hope to reach the harbour at Port Wells. The cook says we are down to our last onion.",
+      "prompt": "Match each clue to the right group.",
+      "success": "Dates, times and seasons tell you when. Cabins, seas and harbours tell you where.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a clue to when",
+          "a clue to where"
+        ],
+        "items": [
+          {
+            "text": "2 May 1891",
+            "bin": 0,
+            "reason": "A date tells you when."
+          },
+          {
+            "text": "It is midnight.",
+            "bin": 0,
+            "reason": "Midnight is a time, so it tells you when."
+          },
+          {
+            "text": "in my cabin",
+            "bin": 1,
+            "reason": "A cabin is a place on a ship. It tells you where."
+          },
+          {
+            "text": "far out at sea",
+            "bin": 1,
+            "reason": "The sea is a place. It tells you where."
+          },
+          {
+            "text": "It is winter.",
+            "bin": 0,
+            "reason": "Winter is a time of year, so it tells you when."
+          },
+          {
+            "text": "the harbour at Port Wells",
+            "bin": 1,
+            "reason": "A harbour is a place. It tells you where."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.6-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "The second tide brought a letter in a bottle. Mo wrote a note about it. One word is wrong.",
+      "text": "12 June 1956. Dear Aunty Joan, I have a new job! I work after school every day. I pour milkshakes into tall silver cups. I sell lollies to kids for a penny each. They sit on the high stools and play songs on the jukebox. Mr Costa owns the place. He lets me have one free milkshake on Fridays. I always pick banana. Love, Nell",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Milk bar. Milkshakes, lollies, high stools and a jukebox all point to it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Nell wrote this letter in ",
+          {
+            "tap": "1956",
+            "reason": "That's right. The letter is dated 12 June 1956."
+          },
+          ". She works at a ",
+          {
+            "tap": "hospital"
+          },
+          " after ",
+          {
+            "tap": "school",
+            "reason": "That's right. She works after school every day."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "farm",
+            "reason": "She pours milkshakes and sells lollies to kids on stools. That's not a farm."
+          },
+          {
+            "text": "milk bar"
+          },
+          {
+            "text": "library",
+            "reason": "Libraries don't sell lollies or have a jukebox."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.6-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Narra the Teller is telling a castle story. The Wherrow has tucked its head under its wing.",
+      "text": "The castle was dark and cold. Owls hooted in the tower. Lady Mabel held up her candle. The moon shone through the window. Everyone else in the castle was asleep. Mabel crept down the stone stairs. Something was scratching at the kitchen door. She opened it a crack. It was her cat, Sir Fluff. He had brought her a mouse. It was still wriggling.",
+      "prompt": "What time of day is it in the story?",
+      "success": "Night. The moon, the candle, the owls and everyone asleep all point to it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "lunchtime",
+            "reason": "Everyone is asleep and the moon is shining. It's not lunchtime."
+          },
+          {
+            "text": "the middle of the afternoon",
+            "reason": "The moon is out and everyone is asleep. That's not the afternoon."
+          },
+          {
+            "text": "night"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.6-b1-6",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully found a footy report in a bottle. The Wherrow says it's from a very cold place.",
+      "text": "The footy match started at noon. It was minus twenty degrees. Both teams wore three jumpers and two beanies. The ball bounced on hard white ice. Penguins watched from the side. One of them waddled onto the ground and stole the ball. Behind the goals stood the research station, with its red huts and tall radio mast. The final score was 4 to 2. The penguin did not score.",
+      "prompt": "Where is this footy match being played?",
+      "success": "At a frozen research station. Ice, penguins, minus twenty degrees and red huts all point there.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "at a beach in summer",
+            "reason": "It's minus twenty degrees, and the ball bounces on ice. That's no summer beach."
+          },
+          {
+            "text": "at a research station in a frozen place"
+          },
+          {
+            "text": "in a big city stadium",
+            "reason": "There are red huts, a radio mast and penguins. That's no city stadium."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.6-b2-1",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed found his dad's old diary in a box on the Soggy Biscuit. The Wherrow is reading over his shoulder.",
+      "text": "Saturday, 14 September 1985. Today I rode my bike to the Galaxy Arcade on Beach Road. I had four twenty-cent coins in my pocket, saved from my paper round. The arcade was dark and noisy and full of flashing machines. I played Space Blasters until my thumbs hurt. The man at the counter gave me my change in a little paper cup. Then I got the high score and typed in my initials: D.K.M. Tomorrow I'll go back and check that it's still there. On the way home, I stopped at the phone box to ring Mum. She said dinner was at six and not to be late. I was late. It was worth it.",
+      "prompt": "When and where is most of this diary entry set?",
+      "success": "The date says 1985. The flashing machines, Space Blasters and the high score say arcade.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in 1985, at a school",
+            "reason": "It's a Saturday, and he spends it at the Galaxy Arcade."
+          },
+          {
+            "text": "in 1985, at an arcade"
+          },
+          {
+            "text": "today, at a gaming shop",
+            "reason": "The diary is dated 1985, and he rings Mum from a phone box."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.6-b2-2",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Narra the Teller is telling a farm story. The Wherrow is keeping away from the chooks.",
+      "prompt": "Tap the clue that tells you what time of day it is.",
+      "success": "A crowing rooster and the sun only just peeping over the hill tell you it's early morning.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mia pulled on her boots and ran out to the chook shed behind Gran's house. ",
+          {
+            "tap": "The rooster was crowing, and the sun was only just peeping over the hill."
+          },
+          " Inside the shed, six fat hens sat on their nests, fluffed up and grumpy. ",
+          {
+            "tap": "One hen, called Duchess, pecked Mia's hand every single day.",
+            "reason": "This is about Duchess. It tells you nothing about the time of day."
+          },
+          " Mia reached under each hen, one by one, and found nine brown eggs and one tiny white one. ",
+          {
+            "tap": "Gran's farm was on a hill, a long way from town.",
+            "reason": "This is a clue to where the story is set, not when."
+          },
+          " She put the eggs in her hat and carried them carefully back across the yard. ",
+          {
+            "tap": "Gran's dog, Bluey, followed her, sniffing the hat.",
+            "reason": "A dog sniffing a hat could happen at any time of day."
+          },
+          " 'Ten today,' Mia said, as she came in the back door. 'And Duchess only got me twice.' Gran laughed and said that was a new record."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.6-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "The second tide washed up an old poster. The Wherrow is tapping its foot.",
+      "text": "HOT JAZZ ON THE RIVER! Join us aboard the paddle steamer Marigold on Saturday, 4 December 1926. We leave Millbrook wharf at seven o'clock sharp, as the sun goes down over the river. Dance on the top deck to the Riverside Rhythm Kings, the finest band in the whole district. Ladies, please leave your hatpins at home. Gentlemen must wear a jacket and tie. Lemonade and sandwiches will be served in the dining saloon below. The Marigold returns to the wharf at midnight. Children under twelve travel for half price, but must keep off the top rail. Tickets are two shillings each. Buy yours at Mrs Pratt's newsagency, next to the bank.",
+      "prompt": "Match each clue to the right group.",
+      "success": "Dates and times of day tell you when. The wharf, the deck and the saloon tell you where.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a clue to when",
+          "a clue to where"
+        ],
+        "items": [
+          {
+            "text": "Saturday, 4 December 1926",
+            "bin": 0,
+            "reason": "A day and a date tell you when."
+          },
+          {
+            "text": "the top deck of a paddle steamer",
+            "bin": 1,
+            "reason": "The deck of a boat is a place. It tells you where."
+          },
+          {
+            "text": "as the sun goes down",
+            "bin": 0,
+            "reason": "Sunset is a time of day, so it tells you when."
+          },
+          {
+            "text": "Millbrook wharf",
+            "bin": 1,
+            "reason": "A wharf is a place. It tells you where the boat leaves from."
+          },
+          {
+            "text": "returns at midnight",
+            "bin": 0,
+            "reason": "Midnight is a time, so it tells you when."
+          },
+          {
+            "text": "the dining saloon below",
+            "bin": 1,
+            "reason": "The saloon is a room on the boat. It tells you where."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.6-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus found a story in a bottle, stamped with a very strange date. The Wherrow is suspicious.",
+      "text": "Every morning, Kip's robot, Tumble, cooked pancakes, ironed his school shirt and flew him to school in a bubble-pod. Kip thought this was completely normal. But Grandma loved telling stories about 'the old days'. 'Back in the 2080s,' she would say, 'robots couldn't even cook! We had to make our own toast. With our hands!' Kip didn't believe her. 'And school was in a building on the ground,' she went on, 'not on the Moon.' Kip laughed so hard that he spilled his pancake juice. Tumble cleaned it up before it hit the floor. It was Kip's birthday on Friday. He was turning eleven, and Tumble had already planned the party at Moon Base Four.",
+      "prompt": "When is this story set?",
+      "success": "The future. Grandma calls the 2080s 'the old days', and Kip goes to school on the Moon.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in the 2020s, about now",
+            "reason": "Grandma calls the 2080s 'the old days', so Kip's time must be later than that."
+          },
+          {
+            "text": "in the 2080s, when Grandma was young",
+            "reason": "That's when Grandma was young. Kip lives later, when robots can cook."
+          },
+          {
+            "text": "in the future, years after the 2080s"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.6-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi found a very old letter in a bottle. She wrote a note about it, but one word is wrong.",
+      "text": "To my dear mother, from the workshop of Master Orsini, in the city of Vellora. Spring, 1521. I have been here for three months now. Every morning I grind the colours on a flat stone: red from crushed beetles, yellow from a kind of earth, and a blue made from a stone that costs more than gold. Then I sweep the floor and feed the master's goose, who bites. Paper is too dear to waste, so I practise drawing on a wooden board covered in chalk. This week, the master is painting a portrait of the Duke. The Duke cannot sit still, and he sneezes every time the master picks up a brush. Your loving son, Paolo.",
+      "prompt": "Tap the word Indi got wrong, then choose a better one.",
+      "success": "Painter's workshop. Grinding colours, drawing practice and a master painting the Duke all point there.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In the spring of ",
+          {
+            "tap": "1521",
+            "reason": "That's right. The letter says spring, 1521."
+          },
+          ", Paolo works in a ",
+          {
+            "tap": "bakery"
+          },
+          " in the city of ",
+          {
+            "tap": "Vellora",
+            "reason": "That's right. The letter names the city of Vellora."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "blacksmith's forge",
+            "reason": "He grinds colours and practises drawing. There's no metal or fire."
+          },
+          {
+            "text": "palace kitchen",
+            "reason": "The Duke visits to be painted, but Paolo grinds colours, not food."
+          },
+          {
+            "text": "painter's workshop"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.6-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo is telling the crew about the worst day a cook ever had. The Wherrow is laughing.",
+      "text": "The king's feast was in one hour, and the castle kitchen was chaos. Cook Bertha had forty pies in the oven, a pig turning over the fire, and a jelly shaped like the king's head. The jelly was wobbling dangerously. Through the tiny kitchen window, Bertha could see the guests crossing the drawbridge over the moat. 'Faster!' she yelled at the kitchen boy, who was plucking a goose. Feathers were everywhere. Someone sneezed, and the jelly king's nose fell off. Bertha stuck it back on with a dollop of cream and sent the jelly up the stairs to the great hall. Nobody noticed. The king said it was the best likeness of him ever made.",
+      "prompt": "Where is most of this story set?",
+      "success": "In a castle kitchen. Bertha is cooking the whole time, with a king, a moat and a drawbridge outside.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in the kitchen of a castle"
+          },
+          {
+            "text": "in the great hall at the feast",
+            "reason": "The jelly is sent up to the great hall, but the story stays in the kitchen."
+          },
+          {
+            "text": "in a busy restaurant in town",
+            "reason": "There's a king, a drawbridge and a moat. That's a castle, not a town restaurant."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.6-b3-1",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The second tide washed up a lighthouse log. The Wherrow says it knows that rock.",
+      "text": "Gannet Rock Lighthouse. Log kept by Edith Moore, aged twelve. 17 July 1894. The winter storms have not stopped for nine days, and the waves are breaking right over the rock. Father and I climbed the hundred and twelve steps to the lamp room at dusk, as we do every night. I trimmed the wicks while he wound the great clockwork that turns the light. Without it, ships would never see the rocks in the dark. The supply boat should have come from the mainland a week ago, but no boat could land in this weather. We are down to our last sack of potatoes and one tin of jam. The mainland is only a thin grey line across the water, and on stormy days we cannot see it at all. Mother says the boat will come when the sea is calm. Until then, I am teaching our goat, Captain, to shake hands. He is not a fast learner.",
+      "prompt": "When and where is Edith's log set?",
+      "success": "The date says 1894, the storms say winter, and the lamp room and the rock say lighthouse island.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in a busy town on the mainland, in 1894",
+            "reason": "The mainland is just a thin grey line across the water. Edith is out on a rock."
+          },
+          {
+            "text": "on a lighthouse island, in summer 1994",
+            "reason": "The log is dated 1894, and she writes about winter storms."
+          },
+          {
+            "text": "on a ship at sea, in winter 1894",
+            "reason": "She climbs a lighthouse tower and waits for a supply boat. She's on land."
+          },
+          {
+            "text": "on a small lighthouse island, in winter 1894"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.6-b3-2",
+      "band": 3,
+      "topic": "space",
+      "frame": "Zed picked up a crackly message from a colony far away. The Wherrow is very quiet.",
+      "prompt": "Tap the clue that shows Juniper does not live on Earth.",
+      "success": "Her grandparents 'still live on Earth', the place she left from. So Juniper must live somewhere else.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Colony Log, Day 1,042. Kept by Juniper Osei, Year 6. ",
+          {
+            "tap": "The year is 2311, and I turned eleven last week.",
+            "reason": "This tells you when, not where. Juniper could turn eleven on any planet."
+          },
+          " This morning the dust storm finally cleared, so we were allowed outside the dome for the first time in a week. ",
+          {
+            "tap": "Our teacher is a robot called Ms Volt, who has a laser pointer for a finger.",
+            "reason": "A robot teacher is a clue to the future. It doesn't tell you which planet."
+          },
+          " ",
+          {
+            "tap": "For lunch, the kitchen machine printed us each a cheese sandwich.",
+            "reason": "Printed food is a clue to the future, not to which planet you're on."
+          },
+          " Mum works in the greenhouse, growing beans in red soil that has to be washed three times before anything will grow. After lunch, we did a project about our families. ",
+          {
+            "tap": "My grandparents still live on Earth, where we left from on the colony ship nine years ago."
+          },
+          " Grandpa sends me a video message every month, but it takes eleven minutes to arrive. He says the sky at home is blue. Ours is a dusty orange, and on clear nights you can see a tiny blue dot. I waved at it tonight, just in case."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.6-b3-3",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Narra the Teller is telling the story of a famous race. The Wherrow is cheering for the blue chariot.",
+      "text": "The Great Chariot Race of Korinthea began at noon, when the sun was directly overhead and the stone seats of the stadium were too hot to sit on. It was the third year of King Thalos's reign, and the whole city had come to watch. Twelve chariots lined up on the sandy track, each pulled by four horses. Daros, the youngest driver, was only fourteen. His chariot was painted blue, and his horses were the fastest in the hills outside the city walls. The trumpet sounded. Dust flew up in clouds. The crowd roared so loudly that the pigeons on the temple roof took off in fright. On the final lap, Daros overtook the king's own nephew, and his blue chariot crossed the line first. That evening, as the sun set over the harbour, Daros was given a crown of olive leaves and a bag of silver coins. His horses were given a whole sack of apples.",
+      "prompt": "Match each detail to the kind of clue it gives.",
+      "success": "Times and reigns tell you when. Stadiums and tracks tell you where. A blue chariot tells you neither.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a clue to when",
+          "a clue to where",
+          "not a setting clue"
+        ],
+        "items": [
+          {
+            "text": "At noon, when the sun was directly overhead.",
+            "bin": 0,
+            "reason": "Noon is a time of day, so it tells you when."
+          },
+          {
+            "text": "The stone stadium of Korinthea.",
+            "bin": 1,
+            "reason": "A stadium in a city is a place. It tells you where."
+          },
+          {
+            "text": "His chariot was painted blue.",
+            "bin": 2,
+            "reason": "The colour of a chariot tells you nothing about when or where."
+          },
+          {
+            "text": "The third year of King Thalos's reign.",
+            "bin": 0,
+            "reason": "This counts the years a king has ruled, so it tells you when."
+          },
+          {
+            "text": "The sandy track.",
+            "bin": 1,
+            "reason": "The track is a place. It tells you where the race happens."
+          },
+          {
+            "text": "That evening, as the sun set.",
+            "bin": 0,
+            "reason": "Evening is a time of day, so it tells you when."
+          },
+          {
+            "text": "The crowd roared.",
+            "bin": 2,
+            "reason": "Crowds roar in every time and place. This isn't a setting clue."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.6-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo found a cook's diary in a bottle and wrote a note about it. One word is wrong.",
+      "text": "Diary of Mrs Bridget Doyle, cook. 5 October 1852. Seventy days now since we left home, and still no land in sight. The deck tipped so steeply this morning that my porridge pot slid right across the galley and out the door. Three hundred passengers to feed, and half of them too seasick to eat. Today it was salted pork from the barrels again, with hard biscuits that must be soaked before anyone can bite them. The captain says we may reach Port Juniper within a fortnight, if the winds stay kind. The cabin boy says he saw a whale this afternoon, but he says that every afternoon. The children are tired of pork, and so am I. Little Michael asked if there would be oranges when we arrive, and I said yes, though I have never seen one myself. Tonight I will sleep in my hammock below deck, as I have every night since we sailed, and I will dream about fresh bread.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Ship. A tipping deck, a galley, seasick passengers and no land for seventy days all point to it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In 1852, Mrs Doyle cooks for three hundred passengers on a ",
+          {
+            "tap": "train"
+          },
+          ". She sleeps in a ",
+          {
+            "tap": "hammock",
+            "reason": "That's right. She sleeps in a hammock every night."
+          },
+          " below ",
+          {
+            "tap": "deck",
+            "reason": "That's right. Her hammock is below deck."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "farm",
+            "reason": "Farms don't have decks, galleys or seasick passengers."
+          },
+          {
+            "text": "hotel",
+            "reason": "Hotels don't tip from side to side or go seventy days without land."
+          },
+          {
+            "text": "ship"
+          },
+          {
+            "text": "island",
+            "reason": "She hasn't seen land for seventy days. She's at sea."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.6-b3-5",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Narra the Teller is telling the story of a very strange night. The Wherrow is trying not to laugh.",
+      "text": "Gerald had been the night guard at the city museum for thirty years, and nothing ever happened. Every evening, after the last visitors had gone home and the big front doors were locked, he did his rounds with a torch. He said goodnight to the stuffed lion in its glass case. He checked the labels on the giant moth collection. He tapped the toe of the dinosaur skeleton for luck. Then, at ten past two in the morning, he heard something crunching in the Hall of Birds. Gerald crept closer, his torch shaking. The crunching grew louder. A glass case stood open, and its little brass label lay on the floor: BRUSH-TURKEY. Gerald gulped. Then he shone his torch under a bench and found a very much alive brush-turkey, which had wandered in through a broken window. It was eating the wax fruit from the display. 'You're not even stuffed,' Gerald whispered. The turkey looked at him and kept crunching.",
+      "prompt": "When and where is this story set?",
+      "success": "A museum at night. Stuffed animals, a dinosaur skeleton and ten past two in the morning show it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in a zoo, in the middle of the night",
+            "reason": "The animals are stuffed and in glass cases with labels, and there's a skeleton. That's a museum."
+          },
+          {
+            "text": "in a museum, in the middle of the night"
+          },
+          {
+            "text": "in a museum, in the afternoon",
+            "reason": "The visitors have gone home, and it's ten past two in the morning."
+          },
+          {
+            "text": "in a pet shop, early in the evening",
+            "reason": "Pet shops don't have stuffed lions or dinosaur skeletons, and it's after two in the morning."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.6-b3-6",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus found a soggy journal on the beach. It smells terrible. The Wherrow won't go near it.",
+      "text": "From the journal of Second Mate Amos Pike. Day 3. I am writing this by the light of a lantern I managed to keep dry, and I must tell you plainly where I am. On Tuesday, something enormous and grey rose beneath our rowboat, with a mouth as wide as a barn door, and the world went dark. The walls around me are pink, squishy and warm, and they gurgle like a giant tummy. Every few minutes, a rush of seawater pours in, bringing fresh fish, crabs and seaweed. The smell is beyond describing, though I will try: imagine a hundred old prawns left in the sun, then add socks. I have made a small camp on a slippery ledge and built a table out of a crate that was swallowed before me. Yesterday, a startled octopus joined me, and we have agreed to share the lantern. Tomorrow I plan to tickle the walls, in the hope that the whale will sneeze me out.",
+      "prompt": "Where is Amos when he writes this?",
+      "success": "Inside a whale. Pink, squishy, gurgling walls and rushes of seawater only fit one place.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in a sea cave by the shore",
+            "reason": "Cave walls are rock. These walls are pink, squishy and warm, and they gurgle."
+          },
+          {
+            "text": "in the hold of a sinking ship",
+            "reason": "He was in a rowboat when something with a huge mouth rose beneath him."
+          },
+          {
+            "text": "inside the stomach of a whale"
+          },
+          {
+            "text": "in a fish market on the docks",
+            "reason": "The fish arrive in rushes of seawater, and the walls gurgle like a tummy."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.6-b4-1",
+      "band": 4,
+      "topic": "music",
+      "frame": "The second tide washed up a letter tied with circus ribbon. The Wherrow is trying to juggle.",
+      "text": "Aboard Hartley's Circus Train, somewhere on the great treeless plain. Tuesday, 9 April 1929. Dearest Gran, I am writing this with my notebook balanced on a crate of juggling clubs, so please forgive the wobbly letters. We have been rolling across the plain for two whole days now, and there has not been a single town or tree in all that time, only red earth and saltbush as far as I can see. The elephants ride in the last carriage, and every time the train goes over a bump, Duchess trumpets so loudly that the lions start roaring back. I practise my cornet for the circus band in the dining car each afternoon, though the drummer says I sound like a goose with a cold. Father sends you a telegram from every siding where the train stops to take on water, so you will probably know all our news before this letter arrives. Mother has sewn me a new costume with silver stars on it, ready for the next show. Our last show was in a big seaside city, and the crowds were enormous. The next one is still four days away, at the end of the line, and I shall post this when we get there. Your loving granddaughter, Clara.",
+      "prompt": "When and where is Clara as she writes this letter?",
+      "success": "On the train, in 1929, crossing the plain. There's been no town or tree for two days.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in the circus tent during a show, in 1929",
+            "reason": "She mentions shows, but she's writing aboard the train as it rolls across the plain."
+          },
+          {
+            "text": "on a circus train crossing a treeless plain, in 1929"
+          },
+          {
+            "text": "at home with Gran, remembering her circus days",
+            "reason": "She's writing to Gran, from the train. She says they have been rolling for two days."
+          },
+          {
+            "text": "on a circus train in 1929, arriving in a seaside city",
+            "reason": "The seaside city was the last show. She says there's been no town for two days."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.6-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus found a diary in a bottle. It looks very old, but the Wherrow isn't so sure.",
+      "prompt": "This diary seems to be from long ago. Tap the clue that shows it's really set in the future.",
+      "success": "The Great Blackout of 2087 is already in Grandad's past. So this diary must be set after 2087.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wednesday. This morning Pa and I rode the horse cart into Millbrook to trade our eggs for flour and a new axe handle. The road is mostly mud after the rains, and twice we had to push the cart out of a ditch. ",
+          {
+            "tap": "At dusk, Ma lit the candles, because there is no electricity anywhere in our valley.",
+            "reason": "Candles could mean long ago, or just a place without power. This doesn't prove the future."
+          },
+          " After supper, I sat by the fire to write this. ",
+          {
+            "tap": "I am writing by hand, with a pencil I sharpened using Pa's pocketknife.",
+            "reason": "People write by hand in every time. It's no proof that this is the future."
+          },
+          " ",
+          {
+            "tap": "Our nearest neighbours, the Kovacs family, live a full day's ride away over the ridge.",
+            "reason": "This tells you the farm is far from others. It's a clue to place, not time."
+          },
+          " In the back of our shed, under a pile of sacks, there is a strange metal figure with a cracked glass face. My little brother calls it the Tin Man and won't go near it. ",
+          {
+            "tap": "Grandad says that before the Great Blackout of 2087, every family had a robot like that to do the chores."
+          },
+          " He says they cooked and cleaned and even read bedtime stories, until the day the sky flashed green and every machine in the world stopped at once. Grandad was a boy then. I am not sure I believe him. Then again, I have never worked out what the Tin Man is for, and its hand is exactly the right shape for holding a broom."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.6-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi found a story about a mural painted far in the future. The Wherrow loves the whale.",
+      "text": "Sol had been planning the mural for months. In the winter of 2140, the council of Neo Harbour finally gave her permission to paint the blank wall of the sky-tram station, forty storeys above the sea. Neo Harbour floats; it has floated ever since the old coastline disappeared under the water, and on windy days the whole city rocks gently, like a ship at anchor. Sol started work just before dawn, when the sky-trams were still parked and the platforms were empty. She clipped her harness to the railing, switched on her hover-palette and began spraying the outline of an enormous whale. Purple was her favourite colour, so the whale was purple. Below her, a fishing drone buzzed past with a crate of mussels. By midday, a small crowd had gathered on the platform below, pointing and taking photos. A little boy asked if the whale was real. Sol told him that once, long ago, whales like that had swum right past the place where they were standing. She hummed while she worked, the same tune her grandmother used to hum. By evening, the whale was finished, its tail curling around the station clock, and the first night trams were sliding past it, their windows full of faces.",
+      "prompt": "Match each detail to the kind of setting clue it gives.",
+      "success": "Years, seasons and times of day show when. The station and the floating city show where. Sol's humming shows neither.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a clue to when",
+          "a clue to where",
+          "not a setting clue"
+        ],
+        "items": [
+          {
+            "text": "In the winter of 2140.",
+            "bin": 0,
+            "reason": "A season and a year both tell you when."
+          },
+          {
+            "text": "The wall of the sky-tram station, forty storeys above the sea.",
+            "bin": 1,
+            "reason": "This is the exact place Sol is painting. It tells you where."
+          },
+          {
+            "text": "Just before dawn.",
+            "bin": 0,
+            "reason": "Dawn is a time of day, so it tells you when."
+          },
+          {
+            "text": "Purple was her favourite colour.",
+            "bin": 2,
+            "reason": "Anyone, anywhere, at any time could love purple. It's not a setting clue."
+          },
+          {
+            "text": "Neo Harbour, a city that floats.",
+            "bin": 1,
+            "reason": "This names the city and tells you it floats. That's where."
+          },
+          {
+            "text": "By evening, the whale was finished.",
+            "bin": 0,
+            "reason": "Evening is a time of day, so it tells you when."
+          },
+          {
+            "text": "She hummed while she worked.",
+            "bin": 2,
+            "reason": "People hum in every time and place. It's not a setting clue."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.6-b4-4",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed says this story happened to a friend of his. The Wherrow thinks Zed knows more than he's saying.",
+      "text": "Kestrel woke up in a forest where every tree was exactly the same height. That was the first strange thing. Even the clouds moved in neat rows, as if they were waiting their turn. The second was the glowing green bar floating just above her head, which shrank a little every time she bumped into something. She walked to the edge of a river and found that the water didn't splash; it just shimmered, like a picture of water. A sign beside the path said SAVE POINT, and when she touched it, a cheerful chime rang out from nowhere. Further along, a frog hopped past her, stopped, hopped back the other way, and then did exactly the same thing again, over and over, as if it had forgotten how to do anything else. When she finally tripped over a root and fell into the river, everything went black. A moment later, she was standing beside the SAVE POINT sign again, completely dry, with her green bar full. High above the trees, in the top corner of the sky, a small white message flickered: PLAYER 2 HAS JOINED. Kestrel looked up and narrowed her eyes. Somewhere, she realised, someone was holding a controller, and she had a very good idea who it was.",
+      "prompt": "Where is this story really set?",
+      "success": "Inside a video game. A health bar, a save point and PLAYER 2 HAS JOINED all show it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in an ordinary forest beside a river",
+            "reason": "Ordinary forests don't have save points, health bars or messages in the sky."
+          },
+          {
+            "text": "in a dream that Kestrel is having",
+            "reason": "Nothing says she's asleep. She realises someone out there is holding a controller."
+          },
+          {
+            "text": "on a ride at a theme park",
+            "reason": "Theme park rides don't put you back by a sign, completely dry, after you fall in a river."
+          },
+          {
+            "text": "inside a video game"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.6-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo found a letter from a boy who became famous for falling over. He wrote a note about it, but one word is wrong.",
+      "text": "2 August 1924. Dear Frank, You will never believe it, but I am going to be in the pictures! The studio needed a boy who could fall over in a funny way, and I have been falling over for years, so I got the job. The studio is a huge glass shed, so that plenty of sunlight can get in, because the camera needs lots of light. The camera is a big wooden box on three legs, and a man turns a handle on the side to make it film. Nobody in the audience will hear a single word we say, so the director shouts through a cone the whole time, and the actors pull enormous faces instead of talking. Afterwards, a lady writes what we are meant to be saying on little black cards, which will appear on the screen between the scenes. In my big scene, I get hit in the face with a custard pie. We did it eleven times. The custard was real, and by the end, so was my headache. The film will be shown at the Regent Picture Palace in October, with Mrs Hodge playing the piano in front of the screen. Mother says I must not let it go to my head. Father says it has already gone to my head and moved in. Please tell everyone. Your famous cousin, Bertie.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Silent film. A hand-turned camera, no sound, words on cards and a piano player all point there.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "In 1924, Bertie acts in a ",
+          {
+            "tap": "cooking show"
+          },
+          ". The ",
+          {
+            "tap": "actors",
+            "reason": "That's right. The actors pull faces instead of talking."
+          },
+          " pull faces because the audience can't ",
+          {
+            "tap": "hear",
+            "reason": "That's right. Bertie says nobody will hear a single word."
+          },
+          " them."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "radio play",
+            "reason": "A radio play is all sound. Here the audience hears nothing and reads words on cards."
+          },
+          {
+            "text": "school play",
+            "reason": "A camera is filming it to show at a picture palace, not in a school hall."
+          },
+          {
+            "text": "silent film"
+          },
+          {
+            "text": "news report",
+            "reason": "He's acting in a funny scene with a custard pie. That's not the news."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.6-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "The second tide brought in a letter sealed with black wax. The Wherrow is hiding behind Wren.",
+      "text": "Blackwater Hall, 31 October 1893. Nearly midnight. My dear sister Lucy, I am writing by the light of a single candle in the nursery, with the door locked and a chair wedged under the handle, so you must forgive my shaking hand. The children are asleep at last, and Cook went to bed hours ago, so I am quite alone. The Hall is so large that the wind gets lost in its chimneys, and tonight a storm is rattling every window. Earlier this evening, as I walked through the long gallery with a tray of cocoa, I saw it: a tall white figure drifting between the portraits, moaning softly. I dropped the tray, cocoa and all, and ran back up the stairs without stopping. Now I can hear footsteps in the corridor outside, slow and shuffling, and a faint rustling, like paper. Wait. The footsteps have stopped outside my door. Someone is whispering. It sounds very much like Mr Grimsby, the butler, and he is asking whether anyone has seen the biscuit tin. Lucy, I believe our ghost may be a butler in a bedsheet with a weakness for shortbread. I shall find out in the morning. Your ever-loving sister, Agnes Penhallow.",
+      "prompt": "Where and when is Agnes as she writes this letter?",
+      "success": "In the nursery, near midnight. She ran there from the gallery and locked herself in to write.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "in the long gallery, where she saw the figure",
+            "reason": "She saw the figure there earlier, but she ran back upstairs. She writes in the nursery."
+          },
+          {
+            "text": "in the kitchen with Cook, sharing cocoa",
+            "reason": "Cook went to bed hours ago, and Agnes dropped the cocoa in the gallery."
+          },
+          {
+            "text": "in the nursery at Blackwater Hall, near midnight"
+          },
+          {
+            "text": "at Lucy's house, the morning after",
+            "reason": "She's writing to Lucy from the Hall, nearly at midnight. She'll find out more in the morning."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

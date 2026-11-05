@@ -1,0 +1,887 @@
+{
+  "skill": {
+    "id": "2.8",
+    "name": "Plot shape and theme: problem, complication, resolution, big idea",
+    "codes": [
+      "VC2E5LE02",
+      "VC2E6LE02"
+    ],
+    "why": "Knowing a story's shape helps you follow it and find what it means.",
+    "how": "Find the problem, what makes it worse, how it's solved, then the big idea.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Most stories have the same shape. It's like a hill."
+          },
+          {
+            "say": "At the start, something goes wrong. That's the problem.",
+            "show": "Mo had to bake a cake by noon. **He had no eggs.**"
+          },
+          {
+            "say": "Next, something makes it even worse. That's the complication.",
+            "show": "**Then the oven blew up.**"
+          },
+          {
+            "say": "How it gets sorted out is the resolution.",
+            "show": "**Gran showed him a cake you don't have to bake.**"
+          },
+          {
+            "say": "Last, ask what it says about life. That's the theme.",
+            "show": "**Asking for help isn't the same as giving up.**"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Sami's kite was stuck in the gum tree. She tugged the string to shake it loose. Then the string snapped, and the wind pushed the kite even higher. In the end, her little brother climbed up and freed it. Sami had always said he was too small to help.",
+          "prompt": "What is the complication?",
+          "hint": "Find the part that makes the problem worse.",
+          "success": "The snapped string makes things worse. Now the kite is even higher and harder to reach.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "The kite was stuck in the gum tree.",
+                "reason": "That's the problem at the start. The complication is what makes it worse."
+              },
+              {
+                "text": "The string snapped and the kite went higher."
+              },
+              {
+                "text": "Her little brother climbed up and freed it.",
+                "reason": "That's the resolution. It's how the problem gets sorted out."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "text": "Mo entered the school bake-off with fish-finger custard. Everyone laughed at him. He made it anyway, with extra fish fingers. Mo came last. But he grinned all the way home, holding his tiny ribbon that said 'Most Brave'. Nobody else had dared to make anything new.",
+          "prompt": "What is the big idea of Mo's story?",
+          "hint": "A big idea is about life, not just about Mo. What does Mo's choice say?",
+          "success": "Mo is laughed at for trying something new, but he's proud he dared. That's a big idea about life.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "fish-finger custard",
+                "reason": "That's a thing in the story. A big idea is about life, not one dish."
+              },
+              {
+                "text": "Only try things you know you'll win.",
+                "reason": "Mo comes last and still grins. The story is on the side of trying."
+              },
+              {
+                "text": "Being brave enough to try matters more than winning."
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "tortarc",
+      "name": "Tortarc",
+      "evolved": "Tortarchon",
+      "blurb": "A green turtle hatchling whose shell rises to a peak and slopes down again, just like a story. It climbs through the problem, tops the complication and slides home to the resolution."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.8-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Tortarc found this story scratched into the sand on Twotide Atoll.",
+      "text": "Pinch the hermit crab had a problem. His shell was too small. His bottom stuck out the back, and the other crabs giggled. He found a lovely big shell by the rocks. But a seagull snatched it first and flew away. Pinch sat on the sand and sulked. Then the tide washed in a bright orange bucket lid. It was too big and far too orange. Pinch climbed in anyway. Now he is the only crab on the beach with a glowing roof.",
+      "prompt": "What is the complication in Pinch's story?",
+      "success": "The seagull steals the shell Pinch wanted. That makes his problem even worse.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Pinch's shell was too small.",
+            "reason": "That's the problem at the start. The complication is what makes it worse."
+          },
+          {
+            "text": "A seagull snatched the big shell."
+          },
+          {
+            "text": "Pinch moved into a bright orange bucket lid.",
+            "reason": "That's the resolution. It's how Pinch's problem gets sorted out."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is telling the Tortarc about her best game. Again.",
+      "text": "The Reef Rays Juniors had a grand final on Saturday. But Jet, their goal kicker, hurt his ankle. Tully had to kick instead. She had never kicked a goal in her life. Then, on the morning of the game, it poured. The ground turned to mud. The ball was as slippery as soap. In the last minute, Tully slid, fell over and kicked the ball from the mud. It wobbled through the posts. The Rays won by one point. Tully still has mud in her ears.",
+      "prompt": "Match each part of Tully's story to its place in the plot.",
+      "success": "Jet's ankle starts the trouble. The mud makes it worse. Tully's muddy goal sorts it out.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "problem",
+          "complication",
+          "resolution"
+        ],
+        "items": [
+          {
+            "text": "Jet hurt his ankle, so Tully had to kick.",
+            "bin": 0,
+            "reason": "This is what goes wrong at the start. It's the problem."
+          },
+          {
+            "text": "The ground turned to mud.",
+            "bin": 1,
+            "reason": "Mud makes kicking even harder for Tully. It makes the problem worse."
+          },
+          {
+            "text": "The ball was as slippery as soap.",
+            "bin": 1,
+            "reason": "A slippery ball makes Tully's job even harder. That's the complication."
+          },
+          {
+            "text": "Tully kicked a goal from the mud.",
+            "bin": 2,
+            "reason": "The goal wins the game. That's how the problem gets sorted out."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Narra the Teller tells this story to anyone who won't share their lollies.",
+      "text": "Gus got a giant jar of lollies for his birthday. He hid it under his bed so he wouldn't have to share. Mo asked for one. 'No,' said Gus. Wren asked for one. 'No,' said Gus. That night, Gus heard a crunching sound. Ten thousand ants had found the jar. By morning, there was not one lolly left. The ants had shared them all, with every ant on the island. Gus had nothing.",
+      "prompt": "What is the big idea of this story?",
+      "success": "Gus won't share, so he ends up with nothing. That's a big idea about how to live.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Ants are good at finding food.",
+            "reason": "That's true in the story, but it isn't a big idea about how people should live."
+          },
+          {
+            "text": "If you won't share, you might end up with nothing."
+          },
+          {
+            "text": "Always hide your presents under the bed so nobody can find them.",
+            "reason": "Hiding the jar is exactly what goes wrong for Gus. The story doesn't say to do it."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed wrote a space story for the Twotide noticeboard. The Tortarc is reading it upside down.",
+      "prompt": "Tap the sentence that is the resolution.",
+      "success": "Eating the stew and blasting home solves the problem. Zed gets back without fuel.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed was flying his tiny spaceship home from the moon. ",
+          {
+            "tap": "Halfway there, the fuel ran out.",
+            "reason": "That's the problem. The resolution is how it gets fixed."
+          },
+          " The ship drifted in the dark. ",
+          {
+            "tap": "He tried to call for help, but the radio was broken.",
+            "reason": "That makes the problem worse. It's the complication."
+          },
+          " Zed looked in the cupboard. There was only one thing inside: Mo's Extra Windy Bean Stew. ",
+          {
+            "tap": "Zed ate the whole pot and farted the ship all the way home."
+          },
+          " ",
+          {
+            "tap": "Mission control said it was the smelliest landing ever.",
+            "reason": "That's what people say after the problem is solved. It doesn't solve anything."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Wren wrote down the plot of the Echobat's favourite ghost story. One part is wrong.",
+      "text": "Every night, something howled in the old lighthouse. Nobody in the village could sleep. Nell, who was ten, went to find out what it was. She climbed the 200 steps with a torch. Halfway up, the torch went out. Nell kept climbing in the dark, one step at a time. At the top, she found the ghost. It was the wind, whistling through a broken window. Nell stuffed her beanie in the hole. The howling stopped. The village has slept well ever since. Nell's ears have been cold ever since.",
+      "prompt": "Tap the part Wren got wrong, then choose a better one.",
+      "success": "Nell's torch goes out halfway up, so she climbs in the dark. That makes things harder.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The problem was ",
+          {
+            "tap": "a howl that kept the village awake",
+            "reason": "That's right. The howling is the problem at the start."
+          },
+          ". The complication was that ",
+          {
+            "tap": "Nell got lost in the fog"
+          },
+          ". The resolution was that Nell ",
+          {
+            "tap": "blocked the window with her beanie",
+            "reason": "That's right. Blocking the window stops the howling."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "the steps were broken",
+            "reason": "The story never says the steps were broken. She climbs all 200 of them."
+          },
+          {
+            "text": "Nell's torch went out"
+          },
+          {
+            "text": "a real ghost chased her",
+            "reason": "There's no real ghost. The howl is only the wind in a broken window."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b1-6",
+      "band": 1,
+      "topic": "robots",
+      "frame": "The Echobat flew in with a copy of the Twotide Times.",
+      "text": "ROBOT LIFEGUARD IN TROUBLE. A robot lifeguard called Splash started work at Long Beach on Monday. There was one problem. Splash could not swim. On Tuesday, a boy's blow-up crocodile floated out to sea. Splash rolled into the water and sank to the bottom. Then the tide went out. Splash was left standing on the wet sand, right next to the crocodile. He picked it up and gave it back to the boy. Splash has a new job now. He sells ice-creams.",
+      "prompt": "What is the problem at the start of this news story?",
+      "success": "The report says it plainly: 'There was one problem. Splash could not swim.'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Splash now sells ice-creams.",
+            "reason": "That's how the story ends, not how it starts."
+          },
+          {
+            "text": "The tide went out.",
+            "reason": "That comes later. It actually helps Splash reach the crocodile."
+          },
+          {
+            "text": "Splash could not swim."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "A letter in a bottle washed up on Twotide Atoll. Narra the Teller reads it aloud.",
+      "text": "Dear Nan, remember the snorkel you gave me for my birthday? On Saturday I dropped it off the end of the jetty. It sank into the green water and landed on the sand far below. I couldn't reach it, even when I held my breath until my face went purple. Dad said he would dive for it after lunch. But while we were eating our chips, a huge stingray glided in. It settled right on top of my snorkel and looked very comfortable. Dad said he wasn't going to argue with a stingray. We waited for two whole hours. At last the stingray flapped away, and Dad dived in and grabbed the snorkel. Love, Ellie. PS The snorkel now smells like stingray bottom.",
+      "prompt": "What is the complication in Ellie's letter?",
+      "success": "The stingray sitting on the snorkel makes the problem worse. Now nobody can get it back.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Ellie dropped her snorkel off the jetty.",
+            "reason": "That's the problem at the start. The complication makes it even harder to fix."
+          },
+          {
+            "text": "A stingray settled on top of the snorkel."
+          },
+          {
+            "text": "Dad dived in and grabbed the snorkel.",
+            "reason": "That's the resolution. It's how the problem finally gets solved."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed's story is on the Twotide noticeboard. He told it back to front, to be dramatic.",
+      "text": "Zed stood on the stage with a gold trophy, still wearing only one sock. How did it come to this? Three hours earlier, he had arrived at the Island Gaming Cup with a big problem. He had left his controller on the ferry. Without it, he couldn't play in the race. Then things got worse. The only spare controller in the hall was a pink one with a sticky jump button. Every jump came out late, and Zed fell into the lava six times. He nearly gave up. In the end, he worked out a trick. He pressed every jump a moment early, and the sticky button did the rest. He finished the Lava Run in record time. Nobody has asked him about the sock.",
+      "prompt": "The story starts at the end. Put the events in the order they happened.",
+      "success": "'Three hours earlier' jumps back to the problem. The trophy comes last, after the resolution.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Zed left his controller on the ferry.",
+          "The only spare controller had a sticky jump button.",
+          "Zed pressed every jump early and finished in record time.",
+          "Zed stood on the stage with a gold trophy."
+        ],
+        "reason": "The story opens at the end. Find 'Three hours earlier' to see where the plot really starts."
+      }
+    },
+    {
+      "id": "2.8-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Echobat recorded this story at the Twotide school concert. Narra wants it sorted.",
+      "text": "Ravi had the most important job in the concert. He had to hit the giant gong once, right at the end of the song. The problem was that Ravi had hiccups. He'd had them since breakfast, and every hiccup made him jump. Then, just before the concert, the music teacher tripped and knocked the gong off its stand. It rolled across the stage like a huge gold coin and out into the car park. Ravi chased it, hiccupping all the way. The song started without him. He rolled the gong back in just in time and raised the stick. Then he gave one enormous hiccup. His arm jerked forward, and the stick hit the gong. BONG. It was perfect. Even his hiccups had stopped.",
+      "prompt": "Match each part of Ravi's story to its place in the plot.",
+      "success": "Hiccups start the trouble. The runaway gong makes it worse. A lucky hiccup fixes everything.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "problem",
+          "complication",
+          "resolution"
+        ],
+        "items": [
+          {
+            "text": "Ravi had hiccups on the day he had to hit the gong.",
+            "bin": 0,
+            "reason": "This is what's wrong at the start. It's the problem."
+          },
+          {
+            "text": "The gong rolled off the stage and into the car park.",
+            "bin": 1,
+            "reason": "Losing the gong makes Ravi's problem even worse. That's a complication."
+          },
+          {
+            "text": "The song started without Ravi.",
+            "bin": 1,
+            "reason": "Ravi isn't even on stage now. That makes things worse."
+          },
+          {
+            "text": "A big hiccup made Ravi hit the gong at just the right moment.",
+            "bin": 2,
+            "reason": "This solves the problem. The gong rings at the right time."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Narra the Teller tells this tale to every visitor. The Tortarc has heard it 400 times.",
+      "text": "A young sea turtle called Pebble wanted to be the fastest animal on the beach. Each morning she raced the ghost crabs, and each morning she came last. The crabs laughed until they fell over. So Pebble trained. She dragged herself up the dunes and sprinted to the sea and back. She was still the slowest. Then one day a storm swept in, and huge waves smashed the beach. The crabs dashed into their holes, but the water poured in after them. They were washed out to sea, spluttering and spinning. Pebble swam out through the waves, calm and strong. One by one, she carried every crab back to shore on her shell. The crabs never laughed at her again. They had learned that Pebble was built for the water, not the sand.",
+      "prompt": "What is the big idea of Pebble's story?",
+      "success": "Pebble is slow on sand but brilliant in water. Everyone has their own strength.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Practice will always make you the best.",
+            "reason": "Pebble trains hard but is still the slowest. Practice isn't what saves the day."
+          },
+          {
+            "text": "Everyone is good at something different."
+          },
+          {
+            "text": "Never help someone who has laughed at you.",
+            "reason": "Pebble helps the crabs who laughed at her, and the story shows that as a good thing."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b2-5",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus wrote up his science fair adventure for the Twotide Times. The Tortarc is keeping its distance.",
+      "prompt": "Tap the sentence that is the complication.",
+      "success": "The rain makes the slime grow even bigger. Now it's even harder to get to school.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus had made the world's biggest slime for the science fair. He named it Gloria. ",
+          {
+            "tap": "The problem was getting Gloria to school, because she was the size of a fridge.",
+            "reason": "That's the problem at the start. The complication makes it worse."
+          },
+          " She wouldn't fit in the car, the bus or the wheelbarrow. ",
+          {
+            "tap": "Gus gave Gloria two googly eyes and a bow.",
+            "reason": "That's a funny detail. It doesn't make the problem worse or better."
+          },
+          " ",
+          {
+            "tap": "Then it started to rain, and Gloria soaked up every drop until she was the size of a shed."
+          },
+          " Gus stood in the yard and scratched his head. ",
+          {
+            "tap": "In the end, he rolled Gloria down the hill to school, and she won first prize.",
+            "reason": "That's the resolution. It solves the problem of getting Gloria there."
+          },
+          " The judges are still cleaning their shoes."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b2-6",
+      "band": 2,
+      "topic": "art",
+      "frame": "Wren summed up Indi's new comic for the crew. She got one part wrong.",
+      "text": "Indi was painting a giant mural of a whale on the school wall. She had one week to finish it before the school's birthday party. On day five, a storm blew through and washed half the paint away. The whale had no tail and one runny eye. Indi sat in the rain and nearly cried. Then the Year 1 kids turned up in their raincoats, holding brushes. They couldn't paint very neatly, but there were thirty of them. By the party, the whale was finished. It had a tail, two eyes and thirty tiny handprints in the waves. Everyone said the handprints were the best part.",
+      "prompt": "Tap the part Wren got wrong, then choose a better one.",
+      "success": "The Year 1 kids help Indi finish the whale in time. That's how the problem gets solved.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The problem was that Indi had ",
+          {
+            "tap": "one week to finish a mural",
+            "reason": "That's right. She had one week before the party."
+          },
+          ". The complication was ",
+          {
+            "tap": "a storm that washed the paint away",
+            "reason": "That's right. The storm makes her problem much worse."
+          },
+          ". The resolution was that Indi ",
+          {
+            "tap": "moved the mural inside, out of the rain"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "painted the whole whale again, all by herself",
+            "reason": "She doesn't do it alone. Thirty Year 1 kids turn up with brushes."
+          },
+          {
+            "text": "finished it the day after the party",
+            "reason": "The whale is finished by the party, not after it."
+          },
+          {
+            "text": "finished it with help from the Year 1 kids"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "The Echobat whispers this ghost story every night at the Twotide campfire.",
+      "text": "At Camp Saltbush, everyone knew about the Grey Lady. People said she walked the jetty at midnight, wailing into the dark. On the second night of camp, Priya's friends dared her to walk to the end of the jetty alone. Priya didn't want to, but she was sick of being scared of a story. At midnight, she crept down the path, her heart thumping so hard she could hear it. Halfway along the jetty, the fog rolled in, so thick she couldn't see her own feet. Then something cold and wet pressed against her hand. Priya screamed. So did the something. When the fog thinned, she was face to face with a shivering old greyhound in a tiny grey coat. The tag on its collar said 'Lady'. The camp cook came running with a torch, very embarrassed. He walked his dog on the jetty every midnight, and the 'wailing' was Lady complaining about the cold. Priya walked Lady back to the kitchen for a biscuit. Nobody at Camp Saltbush has been scared of the jetty since.",
+      "prompt": "What is the big idea of this story?",
+      "success": "Priya faces the scary story, and the 'ghost' is just a cold old dog. Fears can shrink up close.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Ghosts are real, so stay off jetties at night.",
+            "reason": "The 'ghost' turns out to be a dog. The story shows the opposite."
+          },
+          {
+            "text": "Facing a fear can show it's smaller than you thought."
+          },
+          {
+            "text": "Dogs need warm coats in winter.",
+            "reason": "Lady does wear a coat, but that's a detail. It isn't what the whole story is about."
+          },
+          {
+            "text": "Always do what your friends dare you to do.",
+            "reason": "The dare gets Priya onto the jetty, but the story is about what she finds, not about dares."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Twotide Times reports on the Beach Cricket Final. The Tortarc was the third umpire.",
+      "prompt": "Tap the sentence where Team Sandfly's problem is finally solved.",
+      "success": "Kit's six wins the game. That's the moment the problem of needing six runs is solved.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The Twotide Beach Cricket Final came down to the very last ball. ",
+          {
+            "tap": "Team Sandfly needed six runs to win, and their best batter had gone home with sunburn.",
+            "reason": "That's the problem. Look for where it finally gets solved."
+          },
+          " That left eleven-year-old Kit, who had never hit a ball past the bowler. Her bat was older than she was and had a crack down the middle. The crowd groaned as she walked out. ",
+          {
+            "tap": "Then a pelican swooped down, swallowed the only ball and sat in the middle of the pitch.",
+            "reason": "That's a complication. It makes things worse before they get better."
+          },
+          " ",
+          {
+            "tap": "The umpire checked the rule book, which said nothing about pelicans.",
+            "reason": "The rule book doesn't help. The pelican still has the ball, and nobody has scored."
+          },
+          " For twenty minutes, both teams waved buckets and hats at the bird. Kit sat down beside the pelican and offered it half of her fish-paste sandwich. The pelican coughed up the ball to make room for the sandwich. ",
+          {
+            "tap": "On the last ball, Kit swung with her eyes shut and whacked it into the sea for six."
+          },
+          " ",
+          {
+            "tap": "The pelican was named Player of the Match.",
+            "reason": "This comes after the game is won. It's a funny ending, not the solution."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.8-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "Pages of a sci-fi story blew across Twotide Atoll. Narra the Teller is sorting them.",
+      "text": "Commander Juno was the youngest captain in the Star Fleet, and also the most stubborn. When her ship's engine broke down near a black hole, she refused to call the other ships for help. 'I can fix it myself,' she told her crew, and she locked herself in the engine room. She worked for six hours straight. Then a warning light began to flash: the black hole was pulling the ship closer, a little more every minute. Juno's hands shook as she tried part after part, but nothing worked. At last, her engineer, a quiet robot called Dot, knocked on the door. 'Commander,' said Dot, 'I have fixed this engine four hundred times. Would you like me to hold the torch, or would you like me to fix it?' Juno looked at the clock, then at Dot. She handed over the spanner. Dot fixed the engine in four minutes, and the ship roared away from the black hole with seconds to spare. That night, Juno painted a new rule on the wall: 'Ask Dot first.'",
+      "prompt": "Match each part of Juno's story to its place in the plot.",
+      "success": "Engine breaks, black hole makes it worse, Dot fixes it. The big idea: asking for help is strong.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "problem",
+          "complication",
+          "resolution",
+          "big idea"
+        ],
+        "items": [
+          {
+            "text": "Juno's ship broke down near a black hole.",
+            "bin": 0,
+            "reason": "This is what goes wrong at the start. It's the problem."
+          },
+          {
+            "text": "The black hole began pulling the ship closer every minute.",
+            "bin": 1,
+            "reason": "This makes things worse and adds a time limit. It's the complication."
+          },
+          {
+            "text": "Dot fixed the engine and the ship escaped.",
+            "bin": 2,
+            "reason": "This solves the problem. The ship gets away."
+          },
+          {
+            "text": "Asking for help is a strength, not a weakness.",
+            "bin": 3,
+            "reason": "This isn't an event. It's what the story says about life."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote a review of a story from the Twotide library. One part of his review is wrong.",
+      "text": "Ollie's grandad had run the Tiny Pie Shop for fifty years, but this summer he broke his arm, and Ollie had to run it alone. Ollie had never baked anything harder than toast. On his first morning, he burned three trays of pies, and the smoke alarm screeched so loudly that the seagulls fled. Then a sign went up across the road. A shiny new pie shop was opening, with a pie-making robot in the window and free drinks for every customer. By lunchtime, Ollie's shop was empty. He sat on the back step and read Grandad's old recipe book, covered in floury thumbprints. On the last page was a note: 'The secret ingredient is knowing your customers.' So Ollie stopped trying to make fancy pies. He made Mrs Kovac's pie with extra pepper, just the way she liked it, and the bus driver's pie with no onions. He wrote each customer's name on their crust in pastry letters. By the end of summer, there was a queue down the street, and the shiny shop had closed.",
+      "prompt": "Tap the part Mo got wrong, then choose a better one.",
+      "success": "Ollie wins by making each customer's pie just right. Caring about people beats being fancy.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The problem is that Ollie has to ",
+          {
+            "tap": "run the pie shop alone",
+            "reason": "That's right. Grandad broke his arm, so Ollie runs it by himself."
+          },
+          ". It gets worse when ",
+          {
+            "tap": "a shiny new pie shop opens across the road",
+            "reason": "That's right. The new shop takes all of Ollie's customers."
+          },
+          ". The story's big idea is that ",
+          {
+            "tap": "hard work alone always brings success"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "old family recipes are always better than new ones",
+            "reason": "The recipe book's secret isn't a recipe. Its note says to know your customers."
+          },
+          {
+            "text": "pies taste better with extra pepper",
+            "reason": "That's how Mrs Kovac likes hers. It's a detail, not a big idea about life."
+          },
+          {
+            "text": "caring about people matters more than being fancy"
+          },
+          {
+            "text": "a shiny new shop will always win",
+            "reason": "The shiny shop closes by the end of summer. The story shows the opposite."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b3-5",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The Echobat recorded a diver's story back to front. Help Narra untangle it.",
+      "text": "As the boat rocked back towards the harbour, Mia read her notebook one more time and grinned: forty-one seahorses. It had been the worst dive of her life, and the best. That morning, she had been sent to count seahorses on the reef for her school project. But the reef was empty, and after an hour of searching she hadn't spotted a single one. Then her mask strap snapped, and the whole sea turned blurry. She couldn't have seen a seahorse if it had waved at her. Mia was about to give up when she felt a tiny tug on her finger. A baby seahorse had curled its tail around it, like it was holding her hand. When it let go, she followed it, squinting, past the reef and into a hidden meadow of seagrass. There, swaying in the green, were seahorses everywhere. Mia held her broken mask to her face with one hand and counted with the other.",
+      "prompt": "The story starts at the end. Put the events in the order they happened.",
+      "success": "'That morning' jumps back to the start. The count on the boat is the very last thing that happens.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Mia couldn't find a single seahorse on the reef.",
+          "Mia's mask strap snapped, and the sea turned blurry.",
+          "A baby seahorse led Mia to a hidden meadow of seagrass.",
+          "On the boat, Mia read her count: forty-one seahorses."
+        ],
+        "reason": "The story opens on the boat, at the end. 'That morning' sends you back to where the plot begins."
+      }
+    },
+    {
+      "id": "2.8-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Narra the Teller plays a clip from Maxx Vantablack's latest stream. The Tortarc rolls its eyes.",
+      "text": "'Maxx it out, Vantafam! Today I, Maxx Vantablack, will rescue the rarest creature on Twotide Atoll: the Golden Sand Snail. The problem is, it's tiny, it's shy, and it only comes out at low tide. Easy for me, because I'm a natural. Check out today's outfit: gold, obviously, because gold is my colour. Okay, here's the beach. Look at that sand, so golden, just like me. Low tide is in five minutes, and I've got my golden net. Wait. Why is the sand moving? Why is the sand tickling me? Guys, I'm standing on a nest of soldier crabs, there are about ten thousand of them, and they're all marching up my leg! Stay calm. Stay calm. This is Maxx-imum content. Drone, stop filming my legs! Now I've lost the snail. The snail was right there. Oh. Wait. It's on my shoe. It's been on my shoe the whole time. Smash that heart button, Vantafam, because I found it! Stay gold!'",
+      "prompt": "What is the complication in Maxx's stream?",
+      "success": "The crabs marching up his leg make Maxx's snail hunt much harder. He even loses sight of the snail.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The Golden Sand Snail is tiny and shy.",
+            "reason": "That's the problem Maxx starts with. The complication comes later and makes it worse."
+          },
+          {
+            "text": "Low tide is in five minutes.",
+            "reason": "That's just Maxx setting the scene. Nothing has gone wrong yet."
+          },
+          {
+            "text": "Ten thousand soldier crabs march up his leg."
+          },
+          {
+            "text": "The snail was on his shoe the whole time.",
+            "reason": "That's the resolution. It's how the snail finally gets found."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b4-1",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Narra the Teller tells this tale only to visitors who stay until sunset.",
+      "text": "Every autumn, the shearwater chicks of Twotide Atoll leave their burrows and fly north, thousands of kilometres across open ocean, without a single adult to show them the way. Kip was the last chick left on the island. Each evening he waddled to the top of the dune, spread his wings, stared at the endless grey water and waddled straight back down his burrow. His feathers were ready. His wings were strong. It was the rest of him that wasn't. The other chicks had left weeks earlier, and his parents had gone too, as shearwater parents always do, so the burrow grew colder and Kip grew hungrier. Then, one evening, a storm rolled in, and the waves began to eat away at the dune, metre by metre, until the sea was lapping at the mouth of his burrow. Kip had always thought of the burrow as the safe place and the sky as the dangerous one. Now, for the first time, staying was more frightening than going. He scrambled to the top of the last patch of sand, shut his eyes and jumped into the wind. He didn't fly well. He wobbled, dipped and nearly clipped a wave. But he flew. By the time the sun came up, the island was a speck behind him, and Kip was no longer afraid of the sky. He was far too busy looking for breakfast.",
+      "prompt": "Which big idea does Kip's story show?",
+      "success": "The burrow felt safe until staying became more dangerous than flying. That's the idea the whole story builds to.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Parents should never leave their children to fend for themselves.",
+            "reason": "The story says shearwater parents always leave, and it doesn't blame them. It's about Kip's choice."
+          },
+          {
+            "text": "Fear disappears once you are properly prepared.",
+            "reason": "Kip's feathers and wings were ready, but he stayed afraid. Being prepared wasn't enough."
+          },
+          {
+            "text": "Sometimes staying where you feel safe becomes the bigger risk."
+          },
+          {
+            "text": "Storms are the most dangerous thing in nature.",
+            "reason": "The storm matters because it pushes Kip to go. The story isn't a warning about storms."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b4-2",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed found this story in the Twotide library and read it four times in a row.",
+      "text": "Asha had spent six weeks building Moonwalker, a game about an astronaut collecting lost socks on the moon, for the Inter-Island Young Coders Prize. Two days before the deadline, she found a bug. Whenever the astronaut was meant to walk forwards, he walked backwards, gliding smoothly away from every sock. Asha spent the whole night hunting through her code, line by line, with a torch under the blanket so her mum wouldn't notice. She found nothing. Then, at breakfast, an email arrived from the judges. Because of a storm warning, the ferry carrying entries to the mainland would leave a day early, so every game had to be sent by noon. That gave her four hours instead of twenty-eight. Asha put her head on the table next to her cereal. Her little brother, Rafi, picked up the controller and started playing. Within a minute he was shrieking with laughter. 'He's going the wrong way!' he yelled. 'Make the socks run away too!' Asha lifted her head. Instead of fixing the bug, she spent the next three hours building the whole game around it. Now the socks ran away, the astronaut chased them backwards, and every level was played in reverse. She sent it at 11:58. Moonwalker won the prize for Most Original Game, and the judges called the backwards walking 'a bold design choice'. Asha has never told them otherwise.",
+      "prompt": "Which event makes Asha's problem worse?",
+      "success": "The email cuts Asha's time from twenty-eight hours to four. That's the complication.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The astronaut walked backwards instead of forwards.",
+            "reason": "That's the problem itself. The complication is what makes it harder to solve."
+          },
+          {
+            "text": "An email moved the deadline to noon that day."
+          },
+          {
+            "text": "Rafi picked up the controller, played the game and shrieked with laughter.",
+            "reason": "Rafi's laughing gives Asha the idea that solves the problem. It helps rather than hurts."
+          },
+          {
+            "text": "Moonwalker won the prize for Most Original Game.",
+            "reason": "That's the ending, after the problem has been solved."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.8-b4-3",
+      "band": 4,
+      "topic": "music",
+      "frame": "The Echobat sang this story to Narra the Teller, very badly. Narra wants it sorted.",
+      "text": "For three months, Tavi had practised the solo she would sing at the Twotide Lantern Festival, a slow, soaring song that ended on a note so high it made dogs look up. The trouble was that she could only hit that last note about half the time; the other half, her voice cracked like a dropped plate. Then the organisers announced that the concert would be broadcast live across every island, so if her voice cracked, the whole archipelago would hear it. Two days before the festival, things got even worse. Tavi woke up with a sore throat and a voice like a rusty gate, and by the next morning, she could only croak. That evening, Tavi sat on the beach, miserable, whistling the tune without thinking as she watched the tide. A fisherman mending his nets stopped to listen. 'That's the finest whistling I've heard in forty years,' he said. On festival night, Tavi stepped up to the microphone, took a breath and whistled the whole solo, clear and pure, right up to the last impossible note, which she hit perfectly. The crowd went silent, then roared. Her choir teacher said afterwards that the song had never been meant for whistling. Tavi said that, as it turned out, it had.",
+      "prompt": "Match each part of Tavi's story to its place in the plot.",
+      "success": "The cracking note is the problem. Losing her voice makes it worse. Whistling solves it, by finding another way.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "problem",
+          "complication",
+          "resolution",
+          "big idea"
+        ],
+        "items": [
+          {
+            "text": "From the start, Tavi could only hit the last high note half the time.",
+            "bin": 0,
+            "reason": "This is the trouble from the very start, before anything else goes wrong. It's the problem."
+          },
+          {
+            "text": "The concert would be broadcast live, so every island would hear a crack.",
+            "bin": 1,
+            "reason": "This makes the cracking note matter even more. It makes the problem harder."
+          },
+          {
+            "text": "Two days before the festival, Tavi lost her voice.",
+            "bin": 1,
+            "reason": "Now she can't sing at all. That makes the problem even worse."
+          },
+          {
+            "text": "Tavi whistled the solo and hit the last note perfectly.",
+            "bin": 2,
+            "reason": "This is how the problem gets solved on festival night."
+          },
+          {
+            "text": "When one plan fails, there may be another way to shine.",
+            "bin": 3,
+            "reason": "This isn't an event. It's what the whole story says about life."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi found this story in the Twotide gallery shop and hasn't stopped talking about it.",
+      "prompt": "Tap the sentence that states the story's big idea.",
+      "success": "Mr Osei's words sum up the story: a copy can be perfect, but only you can paint what you see.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Lena could copy any painting in the world. ",
+          {
+            "tap": "Her copy of the famous sunflowers was so exact that a gallery guard once tried to hang it on the wall.",
+            "reason": "This shows how good Lena is at copying. It's not the big idea itself."
+          },
+          " So when the Island Young Artist Prize was announced, she copied the most famous seascape she could find, stroke for stroke, and handed it in with total confidence. Two weeks later, the judges sent it back with a note: 'Technically flawless. But where are you?' Lena was furious. She marched into the studio of Mr Osei, the oldest painter on the atoll, who had been one of the judges. ",
+          {
+            "tap": "His studio smelled of turpentine and toast, and every wall was covered in wobbly paintings of the same old fishing boat.",
+            "reason": "This describes Mr Osei's studio. It's a detail, not what the story means."
+          },
+          " 'Those boats aren't even straight,' Lena said. ",
+          {
+            "tap": "'A copy can be perfect,' said Mr Osei, 'but only you can paint what you see.'"
+          },
+          " Lena went home and sat by the window for a long time. Then she painted her little sister asleep on the couch, with the cat on her head and toast crumbs on her chin. ",
+          {
+            "tap": "It was messier than anything she had ever painted, and she hated every minute of it.",
+            "reason": "This shows how hard the change was for Lena, but it doesn't state the big idea."
+          },
+          " The next year, it won the prize."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.8-b4-5",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully wrote up the Twotide Billy-Cart Derby for the crew. One part of her summary is wrong.",
+      "text": "Every year, the Twotide Billy-Cart Derby raced down Lighthouse Hill, and every year, the lightest cart won. Dee's cart was not light. She and her grandad had built it out of his old cast-iron bathtub, bolted onto four pram wheels, and it weighed about as much as a small car. On a steep hill, that weight would have been perfect, but a week before the derby, the council closed Lighthouse Hill to fix the road. The race was moved to the school oval, which was as flat as a pancake. Dee's bathtub could barely roll on the flat. In practice, the other carts zipped around the oval while Dee pushed hers, red-faced, at the speed of a wheelie bin. On race morning, the oval's sprinklers came on by mistake and wouldn't turn off. By the time the starter's whistle blew, the oval was a shallow lake. The light carts bogged in the mud, wheels spinning, but Dee's bathtub did what bathtubs were built to do. It floated. With Grandad paddling from the back with a cricket bat, the bathtub drifted calmly across the flooded oval and over the finish line. The judges spent an hour checking the rules, but none of them said a cart couldn't be a boat. Dee won the trophy, and Grandad has asked for his bath back.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "The heavy bathtub floats across the flooded oval and wins. That's how Dee's problem gets solved.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The problem was that Dee's cart was ",
+          {
+            "tap": "far too heavy to win on the flat",
+            "reason": "That's right. Her bathtub barely rolls on flat ground."
+          },
+          ". The complication was that ",
+          {
+            "tap": "the race was moved to the flat school oval",
+            "reason": "That's right. Losing the hill makes her heavy cart even more of a problem."
+          },
+          ". The resolution was that ",
+          {
+            "tap": "Dee swapped to a lighter cart"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "Dee and her grandad built the cart from a bathtub",
+            "reason": "That happens before the race even starts. It's part of the set-up, not the solution."
+          },
+          {
+            "text": "the light carts zipped around the oval in practice",
+            "reason": "That makes Dee's chances look worse, not better. It doesn't solve anything."
+          },
+          {
+            "text": "the judges checked the rules for an hour",
+            "reason": "Checking the rules comes after the race. The problem is solved before that."
+          },
+          {
+            "text": "the bathtub floated across the flooded oval"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.8-b4-6",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "The Echobat dropped the Twotide Times on deck. Gus has read it eleven times.",
+      "text": "STINK SOLVED: FIFTY-YEAR-OLD SANDWICH TO BLAME. A Year 5 student has ended the Great Twotide Stink, after a week in which the whole atoll smelled like rotten eggs left in a hot car. Residents first noticed the smell last Monday, drifting out of the school grounds and across the harbour. By Wednesday, the fish market had closed, and three seagulls were seen fainting off the jetty. Council workers blamed the sewers and spent two days digging up Main Street, but the smell only grew stronger while they dug, and by Friday it could be detected from the mainland. Then Lola Ferris, aged ten, decided to follow her nose. Wearing a peg on her nose and her dad's swimming goggles, she traced the stink across the playground, under the old library and down to a rusty metal box buried beneath the flagpole. It was the school's time capsule, buried fifty years ago and cracked open by the summer heat. Inside, among some photos and a yo-yo, was the cause: an egg sandwich, packed by a student in 1975 'so future people know what we ate'. The sandwich was carefully removed by a scientist in a full protective suit. It has been sealed in three jars and sent to a museum, which has promised never to open them. Lola has been given the key to the town.",
+      "prompt": "News reports often tell the ending first. Put the events in the order they really happened.",
+      "success": "The report opens with the ending. The stink came first, the digging made it worse, then Lola solved it.",
+      "body": {
+        "format": "order",
+        "items": [
+          "A terrible smell spread from the school across the harbour.",
+          "Council workers dug up Main Street, and the smell got worse.",
+          "Lola followed the smell to the cracked time capsule.",
+          "The sandwich was sealed in jars and sent to a museum."
+        ],
+        "reason": "Ignore the headline order. Find when the smell started, what made it worse and who solved it."
+      }
+    }
+  ]
+}

@@ -1,0 +1,944 @@
+{
+  "skill": {
+    "id": "2.4",
+    "name": "Character from clues: actions, speech and how others react",
+    "codes": [
+      "VC2E5LE02",
+      "VC2E6LE01"
+    ],
+    "why": "Writers rarely tell you what someone is like. They leave clues instead.",
+    "how": "Check what they do, what they say, and how others treat them.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Feelings come and go. Character is what someone is usually like."
+          },
+          {
+            "say": "Clue one: what do they do?",
+            "show": "Pip **gave her last lolly** to the new kid."
+          },
+          {
+            "say": "Clue two: what do they say?",
+            "show": "**'You can go first,'** said Pip."
+          },
+          {
+            "say": "Clue three: how do other people treat them?",
+            "show": "**Everyone wanted Pip on their team.**"
+          },
+          {
+            "say": "Add up the clues. Pip is kind."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Rocco found a wallet on the footpath. It had fifty dollars inside. 'Finders keepers!' said his cousin. 'No way,' said Rocco. 'Someone will be looking for this.' He walked it straight to the police station. The officer shook his hand.",
+          "prompt": "What is Rocco like?",
+          "hint": "What does Rocco do with the money? What does he say about it?",
+          "success": "Honest. He hands the wallet in and says someone will be looking for it.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "honest"
+              },
+              {
+                "text": "greedy",
+                "reason": "A greedy person would keep the fifty dollars. Rocco hands it in."
+              },
+              {
+                "text": "lazy",
+                "reason": "He walks the wallet all the way to the police station. That's not lazy."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the clue that shows how the other kids react to Bree.",
+          "hint": "Skip what Bree does and says. Look for what the other kids do.",
+          "success": "Rolling their eyes and walking off shows the others are sick of Bree being bossy.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Bree told everyone in the school garden where to stand. 'No, you're doing it wrong,' she said. ",
+              {
+                "tap": "She grabbed the hose from Sam.",
+                "reason": "This is what Bree does. Look for what the other kids do."
+              },
+              " ",
+              {
+                "tap": "The other kids rolled their eyes and walked off."
+              },
+              " ",
+              {
+                "tap": "The garden had six rows of beans.",
+                "reason": "This is about the garden, not about Bree."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "sidlewink",
+      "name": "Sidlewink",
+      "evolved": "Sidlewraith",
+      "blurb": "A pale ghost crab that never tells you what it's like. Watch what it does, listen to its clicks, and see how the gulls treat it."
+    }
+  },
+  "encounters": [
+    {
+      "id": "2.4-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Narra the Teller is telling a story about the Twotide footy team. The Sidlewink is listening.",
+      "text": "Jax was the fastest kid on the Twotide footy team. He knew it, too. 'I'm the best player here,' he told everyone before the game. 'You lot are lucky to have me.' When he kicked a goal, he ran to the crowd and bowed. When Kira kicked a goal, he said it was luck. At half-time, nobody wanted to sit next to Jax on the bench. He didn't notice. He was too busy telling the umpire about his goal.",
+      "prompt": "What is Jax like?",
+      "success": "A show-off. He brags, bows to the crowd and says Kira's goal was just luck.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "shy",
+            "reason": "Shy people keep quiet. Jax tells everyone he's the best."
+          },
+          {
+            "text": "a show-off"
+          },
+          {
+            "text": "kind",
+            "reason": "He says Kira's goal was luck. That isn't kind."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "It's camp night on Twotide Atoll. The Sidlewink is peeking into the tent.",
+      "prompt": "Tap the thing Lulu says that shows she is brave.",
+      "success": "Lulu offers to deal with the huge spider while Ella hides. That takes courage.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Lulu and Ella were in their tent at camp. A huntsman spider ran across the roof. It was as big as a hand. ",
+          {
+            "tap": "Ella screamed and dived into her sleeping bag.",
+            "reason": "This is what Ella does. Look for what Lulu says."
+          },
+          " Her whole sleeping bag was shaking. ",
+          {
+            "tap": "'Don't worry, I'll get it,' said Lulu."
+          },
+          " She picked up a cup and a bit of card. ",
+          {
+            "tap": "The torch flickered on and off.",
+            "reason": "This is about the torch, not about Lulu."
+          },
+          " Lulu trapped the spider under the cup. She carried it outside and let it go. ",
+          {
+            "tap": "Ella stayed in her sleeping bag until morning.",
+            "reason": "This shows Ella is still scared. It doesn't tell you about Lulu."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo wrote a note about Grandpa Vic for the Twotide newsletter. One word is wrong.",
+      "text": "Grandpa Vic runs the bakery on Twotide Atoll. He gets up at four every morning to bake. If a kid has no money, he gives them a bun anyway. 'Pay me when you're rich,' he says with a wink. On Fridays, he takes a box of pies to the fire station. The kids all wave when they walk past his shop. The firefighters call him Pie Man. His pies are a bit burnt, but nobody minds.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Generous. He gives away buns and pies, and people love him for it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Grandpa Vic gives kids ",
+          {
+            "tap": "free buns",
+            "reason": "That's right. He gives a bun to kids with no money."
+          },
+          ". The kids ",
+          {
+            "tap": "wave",
+            "reason": "That's right. The kids all wave when they walk past."
+          },
+          " at him. Grandpa Vic is ",
+          {
+            "tap": "lazy"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "shy",
+            "reason": "He winks and jokes with the kids. Shy people don't do that."
+          },
+          {
+            "text": "generous"
+          },
+          {
+            "text": "impatient",
+            "reason": "He tells kids to pay him when they're rich. That's very patient."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is telling the crew about the worst gamer he knows. The Sidlewink is taking notes.",
+      "text": "Ollie and his big sister Dee played Kart Smash on the couch. The screen was split in half. Ollie kept looking at Dee's half. When she hid behind a tree, he knew right where she was. 'How do you keep finding me?' she asked. 'Skill,' said Ollie, with a grin. Then Mum walked in. 'Ollie, I can see you peeking,' she said. Dee put a cushion over her half of the screen. Ollie lost the next five games.",
+      "prompt": "What is Ollie like?",
+      "success": "Sneaky. He peeks at Dee's screen, then pretends it's skill.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "honest",
+            "reason": "He says 'skill', but he was really peeking. That's not honest."
+          },
+          {
+            "text": "helpful",
+            "reason": "He doesn't help Dee. He peeks at her screen to beat her."
+          },
+          {
+            "text": "sneaky"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The Sidlewink found a story about the spookiest house on Twotide Atoll.",
+      "text": "Everyone said the house at the end of Shell Street was haunted. An old woman named Mrs Moss lived there. She wore a long black coat, even in summer. One day, Theo's ball flew over her fence. Mrs Moss came out holding it. 'You must be Theo,' she said. 'Come and get it any time.' Then she gave him a cupcake with a spider on top. It was a lolly spider. Now the kids wave to Mrs Moss every day.",
+      "prompt": "Match each clue about Mrs Moss to the kind of clue it is.",
+      "success": "Actions, words and how others react. All three kinds of clue show Mrs Moss is kind.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "what she does",
+          "what she says",
+          "how others react"
+        ],
+        "items": [
+          {
+            "text": "She brought Theo's ball out to him.",
+            "bin": 0,
+            "reason": "Bringing the ball out is something Mrs Moss does."
+          },
+          {
+            "text": "'Come and get it any time.'",
+            "bin": 1,
+            "reason": "These are Mrs Moss's own words."
+          },
+          {
+            "text": "She gave Theo a cupcake.",
+            "bin": 0,
+            "reason": "Giving a cupcake is something Mrs Moss does."
+          },
+          {
+            "text": "The kids wave to her every day.",
+            "bin": 2,
+            "reason": "This is what the kids do. It shows how they treat Mrs Moss now."
+          },
+          {
+            "text": "'You must be Theo.'",
+            "bin": 1,
+            "reason": "Mrs Moss says this to Theo. It's her own words."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.4-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "Narra the Teller is telling the crew about a drummer. The Sidlewink taps along.",
+      "text": "Amira wanted to play the drums. She had no drum kit, so she made one. She used pots, pans and a bucket. She practised every afternoon after school. Her fingers got blisters. She put on plasters and kept going. 'That girl never gives up,' said her uncle. The dog next door howled along every day. After a year, Amira played at the school concert. That time, she used a real drum kit.",
+      "prompt": "What is Amira like?",
+      "success": "Determined. She practises every day, plays through blisters, and her uncle says she never gives up.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "determined"
+          },
+          {
+            "text": "lazy",
+            "reason": "She practises every afternoon, even with blisters. That's not lazy."
+          },
+          {
+            "text": "bossy",
+            "reason": "She never tells anyone what to do. She just keeps practising."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.4-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Tully is telling the crew about her cousin's surf camp. The Sidlewink is drawing in the sand.",
+      "text": "The Year 6 surf camp had two groups: the kids who could surf, and Benji. Benji fell off his board every single time. On the first morning, the best surfers waved Ari over. 'Come with us to the big waves,' said Tash. 'Leave Benji on the baby waves.' Ari looked at the big waves. Then he looked at Benji, who was spitting out seawater. 'Nah,' said Ari. 'Benji and I are a team.' He spent the whole day on the baby waves, pushing Benji onto every wave he could. By the afternoon, Benji stood up for three whole seconds. Ari cheered so loudly that a seagull dropped its chip. At dinner, Benji told everyone that Ari was the best mate in the world.",
+      "prompt": "What is Ari like?",
+      "success": "Loyal. He turns down the best surfers to stick with Benji, and Benji calls him the best mate.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "timid",
+            "reason": "Nothing shows he's afraid of the big waves. He stays because 'Benji and I are a team.'"
+          },
+          {
+            "text": "loyal"
+          },
+          {
+            "text": "selfish",
+            "reason": "He gives up a day on the big waves to help Benji. That's the opposite of selfish."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is reading a review of the worst robot ever built. The Sidlewink is laughing in clicks.",
+      "prompt": "Tap the sentence where one of the family reacts in a way that shows TIDY-3 is lazy.",
+      "success": "Mum checks under the rug because she knows TIDY-3 hides the mess instead of cleaning it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The Pham family bought a robot cleaner called TIDY-3. It was meant to clean the whole house. On the first day, TIDY-3 swept all the crumbs under the rug. Then it turned itself off and played music. 'All done,' it said, after four minutes. 'Cleaning is very tiring for a robot,' it added. On day two, it hid a pile of dirty socks in the oven. ",
+          {
+            "tap": "TIDY-3 had a small blue light on its head.",
+            "reason": "This tells you how TIDY-3 looks. Nobody is reacting to it."
+          },
+          " ",
+          {
+            "tap": "The twins said the blue light was the cutest thing they had ever seen.",
+            "reason": "That's a reaction, but it's about TIDY-3's light. It doesn't show it's lazy."
+          },
+          " ",
+          {
+            "tap": "After a week, Mum started checking under the rug every night."
+          },
+          " Grandpa called the robot 'the expensive lamp'. The family went back to doing all the vacuuming themselves. TIDY-3 watched them from the couch and said they were doing a lovely job."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b2-3",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi heard about a mural that went wrong. The Sidlewink is pointing at two painters.",
+      "text": "Rosa and Neve were painting a mural at the Twotide surf club. Rosa held the plan. 'You do the sky. You do the sand. Nobody touches the dolphins but me,' she said. When little Sam asked to help, Neve handed him her brush. She showed him how to paint fish. 'Just keep inside the lines,' she said gently. Rosa painted over Sam's fish because they were the wrong blue. Sam's lip wobbled. Neve helped him paint a bigger fish in the corner, and she wrote SAM next to it. When the mural was finished, Rosa told the newspaper she had done most of it. Sam drew Neve a picture of a fish wearing a crown.",
+      "prompt": "Match each clue to the character it tells you about.",
+      "success": "Rosa gives orders and takes over. Neve shares and helps. Even Sam's picture is a clue.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Rosa is bossy",
+          "Neve is kind"
+        ],
+        "items": [
+          {
+            "text": "'Nobody touches the dolphins but me.'",
+            "bin": 0,
+            "reason": "Rosa says this. She's deciding who's allowed to paint what."
+          },
+          {
+            "text": "She handed Sam her brush and showed him how to paint fish.",
+            "bin": 1,
+            "reason": "Neve shares her brush and helps Sam. That's kind."
+          },
+          {
+            "text": "She painted over Sam's fish because they were the wrong blue.",
+            "bin": 0,
+            "reason": "Rosa paints over Sam's work. She wants everything done her way."
+          },
+          {
+            "text": "She wrote SAM next to his fish.",
+            "bin": 1,
+            "reason": "Neve makes sure Sam's work is noticed. That's kind."
+          },
+          {
+            "text": "'You do the sky. You do the sand.'",
+            "bin": 0,
+            "reason": "Rosa is handing out orders. That's bossy."
+          },
+          {
+            "text": "Sam drew her a picture of a fish wearing a crown.",
+            "bin": 1,
+            "reason": "Sam gives the picture to Neve. How he treats her shows she was kind to him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.4-b2-4",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo is telling the crew about his favourite uncle. The Sidlewink keeps losing its place.",
+      "text": "Uncle Dez was looking after the twins for the weekend. On Saturday morning, he poured orange juice on his cereal. He put his phone in the fridge and the butter in his pocket. He drove the twins to footy, then drove home without them. Halfway there, he turned around. 'Sorry, sorry!' he called out the window. At lunch, he searched the whole house for his glasses. They were on his head the whole time. 'Your uncle would forget his own birthday,' said Aunty Lou, shaking her head. 'He did, last year,' said one of the twins. That night, Uncle Dez read them a bedtime story. It was the same story as the night before. Neither twin said a thing. It was a good story.",
+      "prompt": "What is Uncle Dez like?",
+      "success": "Forgetful. Juice on his cereal, glasses on his head, and Aunty Lou says he'd forget his own birthday.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "forgetful"
+          },
+          {
+            "text": "lazy",
+            "reason": "He drives back for the twins and searches the whole house. Lazy people don't bother."
+          },
+          {
+            "text": "unkind",
+            "reason": "He says sorry and reads them a bedtime story. He just can't remember things."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "2.4-b2-5",
+      "band": 2,
+      "topic": "space",
+      "frame": "Zed wrote a note about a girl on a space station trip. One word is wrong.",
+      "text": "On the class trip to the space station, Juno asked forty-seven questions before lunch. 'How do you wash your hair up here? Where does the wee go? Can I see?' She pressed her face against every window. She read every sign twice. In the plant lab, Juno asked if she could count the roots. The guide laughed. 'I've never met a kid who wants to know so much,' she said. Juno's teacher quietly handed the guide a cup of tea. Back on Earth, Juno wrote twelve pages about the trip. A week later, the guide posted her a badge that said JUNIOR SCIENTIST.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Curious. Forty-seven questions, every sign read twice, and the guide says Juno wants to know so much.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Juno asked ",
+          {
+            "tap": "forty-seven",
+            "reason": "That's right. She asked forty-seven questions before lunch."
+          },
+          " questions. The guide said she had never met a kid who wants to ",
+          {
+            "tap": "know so much",
+            "reason": "That's right. Those are the guide's own words."
+          },
+          ". Juno is ",
+          {
+            "tap": "bossy"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "cautious",
+            "reason": "A cautious kid would hang back. Juno presses her face against every window."
+          },
+          {
+            "text": "bored",
+            "reason": "She asks forty-seven questions and writes twelve pages. Bored kids don't do that."
+          },
+          {
+            "text": "curious"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is telling the crew about a slime disaster. The Sidlewink has slime on one claw.",
+      "text": "Priya's slime would not set. It was still runny, like green soup. 'Add more glue,' said her brother. 'No,' said Priya. 'My recipe is perfect.' 'Maybe try the recipe on the box?' said Dad. 'My recipe is better than the box,' said Priya. She stirred it for an hour. It stayed runny. She stirred it for another hour. Dad put a towel under the bowl and quietly left the room. Her brother shook his head. 'She's been like this since she was two,' he said. At bedtime, the slime was still soup. Priya poured it into a jar and wrote a label: SLIME (NEARLY).",
+      "prompt": "What is Priya like?",
+      "success": "Stubborn. She refuses every idea, says her recipe is perfect, and her brother says she's always been like this.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "lazy",
+            "reason": "She stirs for two whole hours. That's not lazy."
+          },
+          {
+            "text": "careless",
+            "reason": "Being careless isn't her problem. She won't listen to anyone else's idea."
+          },
+          {
+            "text": "stubborn"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Zed has hacked into a Maxx Vantablack stream from the Echo Studio. The Sidlewink is watching with one eye.",
+      "text": "'Hey, Vantafam! Maxx here, saving baby turtles on Twotide Atoll!' Maxx flashed his huge white grin at the drone. 'These little guys are my whole life.' Behind him, a tiny hatchling was struggling towards the water. Maxx stepped right in front of it so the camera could get his good side. 'Smash that heart button like it owes you money!' When the drone flew off to film the sunset, Maxx's smile dropped. 'Ugh, sand in my runners,' he snapped. 'Someone fetch my gold towel.' A guard in a gold tracksuit sprinted over with it. Maxx didn't say thank you, and he didn't even look at him. The hatchling made it to the sea on its own. When the drone came back, Maxx was crouched by the water with a tear on his cheek. 'I did it, Vantafam,' he sniffed. 'I saved him.' Then he asked his followers to donate to the Maxx Rescue Fund, 'for the turtles'. Up on the dune, a ghost crab clicked its claws twice, which in crab means 'oh, please'.",
+      "prompt": "What is Maxx really like?",
+      "success": "Selfish and fake. He acts caring on camera, but blocks a hatchling for a shot and ignores his guard.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "caring, because he says the turtles are his whole life",
+            "reason": "That's only what he says to the camera. He steps right in front of a hatchling."
+          },
+          {
+            "text": "forgetful, because he forgets to thank the guard",
+            "reason": "He didn't forget. He didn't even look at the guard."
+          },
+          {
+            "text": "selfish, because he only acts caring for the camera"
+          },
+          {
+            "text": "shy, because he only smiles for the drone",
+            "reason": "Shy people avoid cameras. Maxx grins and talks straight to the drone."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is replaying a tennis final for the crew. The Sidlewink is the ball kid.",
+      "prompt": "Tap what Hamish says that shows he is a good sport.",
+      "success": "Hamish gives away a point he could have kept, because it's fair. That's being a good sport.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The Twotide under-12 tennis final went to a third set. Hamish had trained every morning for months, ",
+          {
+            "tap": "running laps of the oval before the sun came up.",
+            "reason": "This shows he works hard. It doesn't show how he treats his opponent."
+          },
+          " His opponent, Lachie, was from the big school across the bay. At four games all, Lachie hit a shot that landed right on the line. The umpire had been looking the other way, and he called it out. ",
+          {
+            "tap": "'Sorry, that was in,' Hamish called out. 'It's his point.'"
+          },
+          " The crowd went quiet. Lachie stared at him, then nodded. ",
+          {
+            "tap": "'Is it always this windy here?' Lachie asked.",
+            "reason": "Lachie says this, not Hamish. It's about the weather."
+          },
+          " ",
+          {
+            "tap": "Hamish bounced the ball four times before he served.",
+            "reason": "This is just a habit before serving. It's not something he says."
+          },
+          " Lachie won the next two games and the match. Hamish walked straight to the net and shook his hand. ",
+          {
+            "tap": "'Can we get fish and chips?' Hamish asked his dad on the way home.",
+            "reason": "Hamish says this, but it's about dinner. It doesn't show how he treats Lachie."
+          },
+          " The next week, Lachie's school sent Hamish a card. It said that was the fairest final they had ever seen."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b3-3",
+      "band": 3,
+      "topic": "music",
+      "frame": "Narra the Teller is telling a story about a school band. The Sidlewink is keeping the beat.",
+      "text": "The Twotide Primary band had never won anything, and the competition started in ten minutes. The drummer had lost one stick, the trumpet player had hiccups, and the bass player was hiding in the toilets. Mei, who played the keyboard, didn't panic. She found a wooden spoon in the canteen and handed it to the drummer. 'Use this. Nobody will see it from the seats,' she said calmly. Then she knocked on the toilet door and talked to the bass player until he came out. 'We don't have to be perfect,' she told the whole band. 'We just have to start together.' The trumpet player gave her a thumbs up between hiccups. When the curtain opened, every single head in the band turned to Mei, waiting for her nod. She counted them in, and they started together. Halfway through the song, the trumpet player hiccupped right in the middle of his solo, so Mei simply played louder until he found his place again. They came fourth out of five, and the drummer kept the wooden spoon as a lucky charm.",
+      "prompt": "Match each clue about Mei to the kind of clue it is.",
+      "success": "Her actions, her words and how the band treats her all show the same thing: Mei is a calm leader.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "what Mei does",
+          "what Mei says",
+          "how others react to Mei"
+        ],
+        "items": [
+          {
+            "text": "She found a wooden spoon and handed it to the drummer.",
+            "bin": 0,
+            "reason": "Finding and handing over the spoon is something Mei does."
+          },
+          {
+            "text": "'We just have to start together.'",
+            "bin": 1,
+            "reason": "These are Mei's own words to the band."
+          },
+          {
+            "text": "Every head in the band turned to Mei, waiting for her nod.",
+            "bin": 2,
+            "reason": "This is what the band does. They look to Mei because they trust her."
+          },
+          {
+            "text": "She knocked on the toilet door and talked to the bass player.",
+            "bin": 0,
+            "reason": "Knocking and talking him out is an action Mei takes."
+          },
+          {
+            "text": "'Nobody will see it from the seats.'",
+            "bin": 1,
+            "reason": "Mei says this to the drummer. It's her own words."
+          },
+          {
+            "text": "The trumpet player gave her a thumbs up.",
+            "bin": 2,
+            "reason": "This is how the trumpet player responds to Mei."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.4-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote a note about the Twotide family barbecue. One part is wrong.",
+      "text": "Every Christmas, the whole Rossi family had a barbecue on the beach, and every Christmas, Uncle Cliff turned up with nothing. 'Oh no, I forgot the salad again,' he said this year, as he sat down in the comfiest chair. When Aunty Gina passed around a bowl of cherries, it came back to her empty, and Cliff's cheeks were bulging. He took the three biggest prawns before anyone else had a plate. When the pavlova came out, he cut himself a slice the size of a footy. Aunty Gina sighed and moved the last of the mangoes to the other end of the table. Nonno hid a plate of arancini balls under a tea towel. 'For the kids,' he whispered, 'before Cliff finds them.' By the end of the day, Uncle Cliff had eaten a whole chicken and asked if anyone had brought dessert number two. Nobody answered. Next year, the family is planning to tell him the barbecue is on a different beach.",
+      "prompt": "Tap the part Mo got wrong, then choose a better one.",
+      "success": "The three biggest prawns. The mangoes are what Aunty Gina moved to the other end of the table.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Uncle Cliff took the ",
+          {
+            "tap": "last of the mangoes"
+          },
+          ", and Nonno ",
+          {
+            "tap": "hid the arancini",
+            "reason": "That's right. Nonno hid them under a tea towel for the kids."
+          },
+          " from him. Uncle Cliff is ",
+          {
+            "tap": "greedy",
+            "reason": "That's right. He takes the biggest share every time."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "rest of the pavlova",
+            "reason": "He cut himself one slice the size of a footy, not the rest of the pavlova."
+          },
+          {
+            "text": "arancini balls",
+            "reason": "Nonno hid the arancini under a tea towel, before Cliff could find them."
+          },
+          {
+            "text": "three biggest prawns"
+          },
+          {
+            "text": "second dessert",
+            "reason": "Cliff only asks if anyone brought a second dessert. Nobody answers him."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b3-5",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "The Sidlewink led the crew to an old diary in the Twotide lighthouse.",
+      "text": "Darcy told everyone at sleepover camp that he wasn't scared of anything. 'Ghosts? Boring,' he said, swinging his torch around. 'I've slept in a graveyard twice. I'd fight a ghost with one hand.' When the camp leader suggested a night walk to the old lighthouse, Darcy said he would lead the way. He walked at the front for exactly forty steps. Then an owl hooted somewhere in the dark, and Darcy was suddenly at the back of the line, holding the camp leader's sleeve. 'I'm guarding the back,' he explained. 'In case something sneaks up.' At the lighthouse door, a bat swooped past. Darcy shrieked, dropped his torch and ran all the way back to the cabins. Later, he told the other cabin that the bat had been the size of a car. The other kids just looked at each other. Nobody asked Darcy to lead anything ever again, and someone left a night light on his pillow.",
+      "prompt": "What is Darcy like?",
+      "success": "All talk. He brags about being fearless, but his actions and the others' reactions show the truth.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "brave, because he offers to lead the way",
+            "reason": "He offers, but after forty steps he's holding the leader's sleeve at the back."
+          },
+          {
+            "text": "careful, because he guards the back of the line",
+            "reason": "That's his excuse. He moved to the back right after the owl hooted."
+          },
+          {
+            "text": "all talk, because his brave words don't match what he does"
+          },
+          {
+            "text": "honest, because he tells the other cabin what happened",
+            "reason": "He tells them the bat was the size of a car. That's not honest."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "2.4-b3-6",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is complaining about his cousin again. The Sidlewink has heard this one before.",
+      "text": "Felix had never once admitted losing a game of Robo Brawl. When his little sister Maeve beat him on Saturday, he threw the controller onto the couch. 'This controller is broken,' he said. 'The buttons are sticky.' Maeve picked up the same controller and beat him again, without any trouble at all. 'The internet is lagging,' Felix said, even though the game wasn't online. In the third round, he quit just before Maeve's final hit, so the screen said NO RESULT. 'See? Nobody won,' he said, folding his arms. Their dad, who was watching from the kitchen, didn't even look up. 'Same as last week,' he murmured. When Maeve offered him a rematch, he said he was retiring from gaming. He spent the rest of the afternoon reading the game's rules, looking for a loophole. On Sunday, Maeve invited her friends over to play. They played for three hours, laughing the whole time. Nobody asked Felix if he wanted a turn, and Felix pretended he didn't want one.",
+      "prompt": "What is Felix like?",
+      "success": "A sore loser. He blames the controller and the internet, and quits rather than lose.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "unlucky, because his controller has sticky buttons",
+            "reason": "Maeve uses the same controller and wins easily. The controller is fine."
+          },
+          {
+            "text": "a sore loser, because he blames everything except himself"
+          },
+          {
+            "text": "shy, because he doesn't join Maeve's friends",
+            "reason": "Nobody asks him because of how he plays. Nothing shows he's shy."
+          },
+          {
+            "text": "fair, because he makes sure nobody wins",
+            "reason": "He quits just before Maeve's winning hit. That's the opposite of fair."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Narra the Teller is telling a story about the jetty. The Sidlewink has heard it a hundred times.",
+      "text": "The kids of Twotide Atoll gave Old Bert's jetty a wide berth. He sat at the end of it every morning, a weathered man with a beard like a scrubbing brush, scowling at the water as though it owed him money. If anyone came too close, he grunted, 'Shove off, you'll scare the fish.' He even shouted at the pelicans, though he always seemed to have a tin of fish scraps for them in his bucket. Most of the kids did exactly that, and they told each other he had once thrown a boy into the sea for stepping on his line. Then, one stormy afternoon, eight-year-old Leni's tinny drifted loose from the boat ramp with her inside it. The adults were still running for the rescue boat when Old Bert was already in his dinghy, rowing hard through the chop. He towed her back, wrapped her in his own coat and said nothing at all, except, 'Next time, check your knots.' The following week, Leni found a neatly tied rope on her tinny and a small paper card showing six different knots, drawn in shaky pencil. Nobody saw Bert deliver it. He was back on his jetty, scowling at the fish, and when Leni waved, he grunted. But he didn't tell her to shove off.",
+      "prompt": "Which description of Old Bert fits all the clues?",
+      "success": "Gruff but caring. He grunts and scowls, but he rescues Leni and quietly teaches her knots.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "cruel, as the kids say in their stories",
+            "reason": "That's a rumour the kids tell. His actions, like the rescue and the knot card, show otherwise."
+          },
+          {
+            "text": "gruff on the outside but caring underneath"
+          },
+          {
+            "text": "a show-off who wants to be thanked",
+            "reason": "He delivers the knot card in secret. Show-offs want everyone to see."
+          },
+          {
+            "text": "lazy, because he sits on the jetty all morning",
+            "reason": "He's the first to row out through a storm. Sitting and fishing isn't the clue that matters."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is reading about the Twotide Robotics Cup. The Sidlewink wants to know who's in charge.",
+      "prompt": "Tap the reaction from the team that shows they see Ines as their leader.",
+      "success": "When things go wrong, the team looks to Ines. That's how others' reactions show who leads.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The Twotide Robotics Cup was down to its final round, and the Hollowgum Gearheads needed a perfect run to win. Each team had built its robot from a kit of motors, wires and wheels, and had six minutes to finish the course. Their robot, Clawdia, had to pick up five shells and drop them into a bucket. Ines had built the arm, but she was not the team captain; that job belonged to Marcus, who had a clipboard and a whistle. ",
+          {
+            "tap": "Ines checked every screw on the arm three times before the round.",
+            "reason": "This is what Ines does herself. The prompt asks how the team reacts to her."
+          },
+          " Halfway through the run, Clawdia froze with a shell dangling from her claw, and a groan rolled across the hall. ",
+          {
+            "tap": "The judges frowned and wrote something on their clipboards.",
+            "reason": "The judges are reacting to the frozen robot, not to Ines."
+          },
+          " ",
+          {
+            "tap": "Marcus blew his whistle and shouted at the robot to keep going.",
+            "reason": "This is how Marcus reacts to the robot. It doesn't show how anyone treats Ines."
+          },
+          " ",
+          {
+            "tap": "Every member of the team, even Marcus, turned to look at Ines."
+          },
+          " She knelt beside Clawdia, wiggled one loose wire and gave a nod. The robot shuddered back to life and dropped the last three shells into the bucket with two seconds to spare. ",
+          {
+            "tap": "The crowd in the hall stamped their feet and cheered.",
+            "reason": "The crowd is cheering the robot's finish. That doesn't show who the team sees as leader."
+          },
+          " Later, when the Gearheads lifted the trophy, Marcus quietly handed his whistle to Ines. 'You'd better keep this,' he said. 'We all listen to you anyway.'"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.4-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi went to the Twotide Art Prize and wrote down what two artists said. The Sidlewink has mixed up the quotes.",
+      "text": "The Twotide Art Prize is held every year in the old surf club, and this year's two finalists could hardly have been more different. Odette had painted a storm rolling over the lagoon in thick, swirling grey, and the judges had stood in front of it for ages without speaking. Ruben had painted himself, life-sized, in a gold frame he had built himself, with a small sign underneath that read MASTERPIECE (DO NOT TOUCH). When a reporter asked Odette about her painting, she shrugged and pointed at a picture of a kingfisher by a Year 3 student. 'Honestly, I think that one's better,' she said. 'Mine's still not quite finished.' Ruben didn't wait to be asked. He strode over and told the reporter that his painting was 'the best thing in the room, possibly in the country'. Then he turned to the photographer. 'Only shoot my left side, please,' he said. When Odette was announced as the winner, she went pink. 'Thank you to my art teacher, my mum and the lagoon,' she said. Ruben told everyone that the judges clearly didn't understand art. Then he wandered over to the prize table. 'Can I keep the ribbon, just to try it on?' he asked.",
+      "prompt": "Match each quote to what it shows about the artist who said it.",
+      "success": "Odette plays down her own work and praises others. Ruben praises himself every chance he gets.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Odette is modest",
+          "Ruben is vain"
+        ],
+        "items": [
+          {
+            "text": "'Honestly, I think that one's better.'",
+            "bin": 0,
+            "reason": "Odette says this about a Year 3 painting. She praises someone else's work over her own."
+          },
+          {
+            "text": "'The best thing in the room, possibly in the country.'",
+            "bin": 1,
+            "reason": "Ruben says this about his own self-portrait. He thinks very highly of himself."
+          },
+          {
+            "text": "'Mine's still not quite finished.'",
+            "bin": 0,
+            "reason": "Odette plays down her painting, even though the judges loved it."
+          },
+          {
+            "text": "'Only shoot my left side, please.'",
+            "bin": 1,
+            "reason": "Ruben worries about how he looks in the photos. That's vain."
+          },
+          {
+            "text": "'Thank you to my art teacher, my mum and the lagoon.'",
+            "bin": 0,
+            "reason": "When she wins, Odette shares the credit with others."
+          },
+          {
+            "text": "'Can I keep the ribbon, just to try it on?'",
+            "bin": 1,
+            "reason": "Ruben lost, but he still wants to wear the winner's ribbon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.4-b4-4",
+      "band": 4,
+      "topic": "space",
+      "frame": "Wren found a page from a Mars base newsletter in a bottle on the beach. The Sidlewink is reading over her shoulder.",
+      "text": "Red Hollow Base sat under a glass dome on the edge of a crater, and only forty families lived there, so a new kid was big news. When Tova arrived at Red Hollow Base, the other kids decided within a day that she was rude. She ate lunch alone at the end of the long table, staring at her tray. When Kip asked where she was from, she said 'Earth' and nothing else, which, as Kip complained afterwards, was where everybody was from. In class, she never put her hand up, and when the teacher called on her, her voice came out so quietly that nobody could hear. Then small things began appearing around the base. Someone fixed the wobbly wheel on Kip's moon-buggy model overnight. Someone left a perfectly drawn map of the air vents in the games room, with the best hiding spots marked in red. When the twins' pet beetle escaped, someone found it and left it in a jar outside their door, with a lettuce leaf and a note that said 'He was in the laundry'. The handwriting matched the labels on Tova's locker. When Kip finally thanked her, she turned bright pink, stared at her boots and mumbled, 'It was nothing.' The next day, she sat in the middle of the table.",
+      "prompt": "Which description of Tova fits all the clues?",
+      "success": "Shy but kind. She's too quiet to talk much, but she secretly helps everyone, then blushes when thanked.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "rude and unfriendly, because she eats alone and gives one-word answers",
+            "reason": "That's the kids' first guess. Her secret helping and blushing show she's shy, not rude."
+          },
+          {
+            "text": "proud but kind, because she helps people in secret and boasts when thanked",
+            "reason": "She doesn't boast. She turns pink and mumbles 'It was nothing.'"
+          },
+          {
+            "text": "shy but bossy, because she hardly speaks and marks where everyone should hide",
+            "reason": "The map is a gift for the games room. She never tells anyone what to do."
+          },
+          {
+            "text": "shy but kind, because she helps people in secret and blushes when thanked"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "2.4-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo wrote a note about his Aunty Pam for the crew. One word is wrong.",
+      "text": "Aunty Pam believes everything she sees on a screen. Last month, a video told her that eating twelve bananas a day would let her see in the dark, so she ate twelve bananas a day for a week and walked into the clothesline every night. When an email promised that she had won a castle in Scotland, she packed a suitcase and bought a tartan hat. When a fortune cookie told her she would meet a tall stranger, she spent a whole afternoon waiting at the ferry terminal with a welcome sign. 'Pam, that's not real,' her brother says at least once a week. 'It might be,' she always replies. Now she watches Maxx Vantablack's stream every single evening. 'Maxx rescues three Creatures before breakfast,' she told the family at dinner, her eyes shining. 'He said so himself.' Mo's cousin Lily showed her a photo of a Creature in a tiny gold cage behind Maxx's studio. Aunty Pam studied it for a long time. 'That's probably a rescue cage,' she decided. 'For their safety.' That night, she spent ninety dollars on an official MaxxCam rescue whistle, which came in a gold box and turned out to be a party blower. The family has started a group chat called Before Pam Buys It, where they check things first.",
+      "prompt": "Tap the word Mo got wrong, then choose a better one.",
+      "success": "Gullible. She believes bananas, a free castle and Maxx, even when Lily shows her a photo.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Aunty Pam ",
+          {
+            "tap": "ate twelve bananas a day",
+            "reason": "That's right. A video told her to, so she did it for a week."
+          },
+          " and ",
+          {
+            "tap": "packed a suitcase",
+            "reason": "That's right. She packed for the castle the email promised."
+          },
+          " for Scotland. Aunty Pam is ",
+          {
+            "tap": "dishonest"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "stingy",
+            "reason": "She spends ninety dollars on a whistle. Stingy people hate spending money."
+          },
+          {
+            "text": "gullible"
+          },
+          {
+            "text": "forgetful",
+            "reason": "She remembers everything Maxx says. Her problem is that she believes it."
+          },
+          {
+            "text": "cautious",
+            "reason": "She buys a ninety-dollar whistle without checking first. That isn't cautious."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "2.4-b4-6",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is reading a news report out loud, very crossly. The Sidlewink is hiding from the smell.",
+      "text": "TWOTIDE TIMES. A twelve-year-old scientist has won the Island Science Medal for inventing a spray that turns rotting seaweed into garden fertiliser. 'It was all my idea,' said Dorian Finch, holding up the medal. 'I'm basically a genius.' However, the report on his project tells a different story. The spray, which neighbours say smells 'like a wet dog that ate a dead fish', has already been sold to three local farms. The spray was mixed by his lab partner, Ruby Ngata, who spent six weeks testing it on buckets of stinking kelp. At the awards night, Dorian gave a twenty-minute speech that did not mention Ruby once. When the reporter asked Ruby what she thought, she simply raised one eyebrow and kept cleaning test tubes. Their science teacher, Mr Abara, gave a careful smile. 'Dorian is very good at presentations,' he said. 'Ruby is very good at science.' When asked about Ruby, Dorian said he had 'forgotten' to put her name on the entry form, then added that she had mostly 'held the buckets'. Ruby's notebook, which has two hundred pages of results, says otherwise. The medal committee has announced it will be reviewing the entry next week, and Mr Abara has offered Ruby a seat on the panel.",
+      "prompt": "What do the clues show about Dorian?",
+      "success": "He takes credit for Ruby's work. Ruby's eyebrow, Mr Abara's careful words and the notebook all show it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He is brilliant, because he won the medal.",
+            "reason": "The medal was for work Ruby mostly did. The clues show the win isn't really his."
+          },
+          {
+            "text": "He is forgetful, because he forgot Ruby's name on the form.",
+            "reason": "The report puts 'forgotten' in quotation marks. Nobody believes he really forgot."
+          },
+          {
+            "text": "He is dishonest, because he claims Ruby's work as his own."
+          },
+          {
+            "text": "He is hard-working, because the project took six weeks.",
+            "reason": "Ruby did the six weeks of testing. Her notebook shows the work was hers."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}
