@@ -1,0 +1,938 @@
+{
+  "skill": {
+    "id": "3.7",
+    "name": "Persuasive tricks: exaggeration, \"everyone's doing it\", rhetorical questions",
+    "codes": [
+      "VC2E5LY08",
+      "VC2E6LY07"
+    ],
+    "why": "Persuaders use tricks to push you. Spot the trick and it loses its power.",
+    "how": "Ask: is it blown up, 'join the crowd', or a question with the answer built in?",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Persuaders have three favourite tricks. Let's catch them."
+          },
+          {
+            "say": "Exaggeration makes things sound way bigger than they are.",
+            "show": "My pies are **so hot they could melt a ute**."
+          },
+          {
+            "say": "'Everyone's doing it' says join the crowd or miss out.",
+            "show": "**Your mates have already signed up.** Don't get left behind!"
+          },
+          {
+            "say": "A rhetorical question has its answer built in.",
+            "show": "**Who wouldn't want a free pie?**"
+          },
+          {
+            "say": "Spot the trick. Then ask: is it actually true?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Mo's sign: 'Why eat a soggy sandwich when you could have one of Mo's pies?'",
+          "prompt": "Which trick is Mo using?",
+          "hint": "Does Mo want you to answer, or is the answer built in?",
+          "success": "A rhetorical question. Mo doesn't want an answer. He wants you to think, 'A pie, obviously.'",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "exaggeration",
+                "reason": "Nothing is blown up bigger than it is. It's a question with the answer built in."
+              },
+              {
+                "text": "everyone's doing it",
+                "reason": "Mo doesn't mention a crowd or your friends."
+              },
+              {
+                "text": "rhetorical question"
+              }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "prompt": "Match each line from Mo's pie flyer to its trick.",
+          "hint": "Is it blown up? Is it about a crowd? Is it a question that answers itself?",
+          "success": "A pie the size of a car is blown up. Joining the kids is the crowd. The question answers itself.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "exaggeration",
+              "everyone's doing it",
+              "rhetorical question"
+            ],
+            "items": [
+              {
+                "text": "Each pie is as big as a car!",
+                "bin": 0,
+                "reason": "No pie is as big as a car. That's blown way up."
+              },
+              {
+                "text": "Kids all over the island are lining up.",
+                "bin": 1,
+                "reason": "This says other kids are doing it, so you should too."
+              },
+              {
+                "text": "Don't you deserve a treat?",
+                "bin": 2,
+                "reason": "Mo doesn't want an answer. The answer, 'yes', is built in."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "squawkle",
+      "name": "Squawkle",
+      "evolved": "Squawkatoo",
+      "blurb": "A pink-and-grey galah with three squawks: everything is the BIGGEST, the whole flock is doing it, and who could possibly say no? Learn its squawks and it can't fool you."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.7-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "A Squawkle is perched on Mo's new pie stall sign, squawking the biggest line on it.",
+      "text": "MO'S PIE STALL IS OPEN! Come to the Bluster Rock car park on Saturday. Mo will be there from 11 am. He has meat pies, veggie pies and one very strange custard pie. Each pie costs $4. Mo's sign says: 'My pies are so big, you'll need a wheelbarrow to carry one home!' Gus has already asked to borrow a wheelbarrow. Tully says that is not how wheelbarrows work.",
+      "prompt": "Read the line on Mo's sign. Which trick is Mo using?",
+      "success": "Exaggeration. No pie needs a wheelbarrow. Mo blows up the size to make his pies sound amazing.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "everyone's doing it",
+            "reason": "Mo doesn't mention a crowd or your friends. He talks about the size of the pies."
+          },
+          {
+            "text": "exaggeration"
+          },
+          {
+            "text": "rhetorical question",
+            "reason": "There's no question in the line. It's a big claim about the pies."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.7-b1-2",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Maxx is live on stream, selling his new game. The Squawkle is squawking along.",
+      "prompt": "Tap the rhetorical question in Maxx's stream.",
+      "success": "Maxx doesn't want you to answer. He wants you to think, 'Nothing else, Maxx!'",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "'Hey, Vantafam! It's Maxx, and I have big news. ",
+          {
+            "tap": "Lava Leap 2 comes out today.",
+            "reason": "This is plain news, not a trick. It just tells you when the game is out."
+          },
+          " ",
+          {
+            "tap": "It costs $20 in the Vantamart store.",
+            "reason": "This is a plain fact. It tells you the price."
+          },
+          " ",
+          {
+            "tap": "Your friends are already playing it.",
+            "reason": "This is 'everyone's doing it'. It says join your friends."
+          },
+          " ",
+          {
+            "tap": "Why would you play anything else?"
+          },
+          " Smash that heart button like it owes you money! Stay gold!' Zed is still playing Lava Leap 1. He says it is better. He has beaten level 9 four times."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.7-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully made a flyer for the Bluster Rock junior footy team. The Squawkle has read it three times.",
+      "text": "JOIN THE BLUSTER ROCK JUNIOR FOOTY TEAM! Training is on Tuesdays at 4 pm at the oval. Bring a water bottle and your boots. Our team bus is so fast it can beat a jet plane! Forty kids from your school have already joined. Why sit at home when you could be kicking goals? Sign up at the canteen before Friday. Tully will tell you the team's stats, whether you ask or not.",
+      "prompt": "Match each line from Tully's flyer to its trick.",
+      "success": "The bus is blown up. Forty kids is the crowd. The question answers itself: you'd rather kick goals.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "exaggeration",
+          "everyone's doing it",
+          "rhetorical question"
+        ],
+        "items": [
+          {
+            "text": "Our team bus is so fast it can beat a jet plane!",
+            "bin": 0,
+            "reason": "No bus can beat a jet plane. That's blown way up."
+          },
+          {
+            "text": "Forty kids from your school have already joined.",
+            "bin": 1,
+            "reason": "This tells you lots of kids have joined, so you should too."
+          },
+          {
+            "text": "Why sit at home when you could be kicking goals?",
+            "bin": 2,
+            "reason": "Tully doesn't want an answer. The answer is built in: go and play."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.7-b1-4",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren made a poster for the Lizard Lookout Club. Zed wrote notes about her tricks.",
+      "text": "THE LIZARD LOOKOUT CLUB. Line 1: 'Our lizards are so cute, your heart will explode!' Line 2: 'Join the 200 kids who already watch lizards with us!' The club meets on Sunday mornings at the big red rock. Bring a hat and a drink. Wren will bring the binoculars. Please do not try to pat the lizards. They do not like it, and neither does Wren.",
+      "prompt": "Zed got one label wrong. Tap it, then choose the right trick.",
+      "success": "Two hundred kids already in the club is a crowd. The poster wants you to join them.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Line 1 uses ",
+          {
+            "tap": "exaggeration",
+            "reason": "That's right. No heart really explodes from cuteness."
+          },
+          ". Line 2 uses ",
+          {
+            "tap": "a rhetorical question"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "exaggeration",
+            "reason": "Two hundred kids could be true. The trick is telling you to join the crowd."
+          },
+          {
+            "text": "everyone's doing it"
+          },
+          {
+            "text": "a plain fact with no trick",
+            "reason": "It says 'join' the kids who already go. That's pushing you to follow a crowd."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.7-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "An ad for Space Camp is stuck to the Bluster Rock bus stop. The Squawkle squawked one line very loudly.",
+      "text": "BLUSTER ROCK SPACE CAMP! Spend three days learning about rockets, stars and planets. You can build your own model rocket. You can look at Saturn through a real telescope. Camp starts on 4 January. It costs $90. The ad ends with this line: 'Kids across the island are booking Space Camp. Don't be the only one left at home!' Mo wants to know if there is a snack bar on Saturn.",
+      "prompt": "Read the last line of the ad. Which trick does it use?",
+      "success": "Everyone's doing it. The ad says other kids are going, so you'll miss out if you don't.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "rhetorical question",
+            "reason": "There's no question in this line. It tells you what other kids are doing."
+          },
+          {
+            "text": "exaggeration",
+            "reason": "Nothing is blown up. The line is about other kids booking, and you missing out."
+          },
+          {
+            "text": "everyone's doing it"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "A flyer for the school concert has landed on the Soggy Biscuit. The Squawkle is squawking in tune, sort of.",
+      "prompt": "Tap the line on the flyer that uses exaggeration.",
+      "success": "No choir is loud enough to shake the moon. The flyer blows it up to make the concert sound huge.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BLUSTER ROCK SCHOOL CONCERT. Friday night at 6 pm in the school hall. ",
+          {
+            "tap": "Our choir will sing so loudly it will shake the moon!"
+          },
+          " ",
+          {
+            "tap": "Your neighbours have already bought their tickets.",
+            "reason": "This is 'everyone's doing it'. It says your neighbours are going, so you should too."
+          },
+          " ",
+          {
+            "tap": "Who doesn't love a good sing-along?",
+            "reason": "This is a rhetorical question. The answer, 'nobody', is built in."
+          },
+          " ",
+          {
+            "tap": "Tickets cost $5 at the office.",
+            "reason": "This is a plain fact. It just tells you the price."
+          },
+          " Mo will be selling his custard pies at the door. You have been warned. Last year, the custard pies sold out in ten minutes."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.7-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Squawkle found an ad for a surf school pinned to the jetty. It's squawking about the crowd.",
+      "prompt": "Tap the line in the surf school ad that uses 'everyone's doing it'.",
+      "success": "'Half your class has signed up already' says join the crowd, or be the one left on the sand.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "RED SAND SURF SCHOOL. Learn to surf at Red Sand Beach these school holidays! Lessons run every morning from 9 to 11. Our coaches have been surfing for over twenty years, and every student gets a board and a wetsuit. ",
+          {
+            "tap": "Our waves are so perfect, they were made by the ocean just for you!",
+            "reason": "This is exaggeration. The ocean didn't make waves just for you."
+          },
+          " ",
+          {
+            "tap": "Half your class has signed up already, so don't get left on the sand."
+          },
+          " ",
+          {
+            "tap": "Why spend another summer watching from the beach?",
+            "reason": "This is a rhetorical question. The answer, 'no reason', is built in."
+          },
+          " ",
+          {
+            "tap": "A week of lessons costs $120.",
+            "reason": "This is a plain fact. It just tells you the price."
+          },
+          " Book at the surf shack next to the kiosk. Tully has already booked, and she has made a chart of every wave."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.7-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "An ad for a robot helper called RoboPal is playing on the big screen at Vantamart. Gus is taking notes.",
+      "text": "MEET ROBOPAL! RoboPal is a small robot helper for your bedroom. It can fold clothes, pick up toys and make your bed every morning. It runs on a battery that lasts for eight hours. It comes in blue, green or gold. RoboPal costs $250 and comes with a one-year guarantee. The ad ends with a close-up of a messy bedroom. Then a voice asks: 'Do you really want to keep making your own bed?' Gus wants to know if RoboPal can also clean slime off the ceiling. Tully says the battery would last about four minutes in Gus's room.",
+      "prompt": "Which trick does the voice at the end of the ad use?",
+      "success": "A rhetorical question. The ad doesn't want an answer. It wants you to think, 'No! I need a RoboPal!'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "rhetorical question"
+          },
+          {
+            "text": "exaggeration",
+            "reason": "Nothing is blown up bigger than it is. The voice asks a question with the answer built in."
+          },
+          {
+            "text": "everyone's doing it",
+            "reason": "The voice doesn't mention other people or a crowd. It only talks to you."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.7-b2-3",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo is running for Island Cook of the Year. He has written a speech. The crew is groaning.",
+      "text": "MO'S SPEECH: 'Hello, Bluster Rock! My name is Mo, and I am the cook on the Soggy Biscuit. I want to be your Island Cook of the Year. My fish-finger custard is so delicious that it has made grown adults weep with joy. Kids from three schools on the island have already voted for me. Why choose a boring cook when you could choose me? My gum-leaf pancakes are so fluffy that they float away if you don't hold them down. Your neighbours have put Mo signs in their windows. And honestly, who doesn't want custard with every meal? Thank you. Please vote for Mo.' Voting closes on Friday at the town hall.",
+      "prompt": "Match each line from Mo's speech to its trick.",
+      "success": "Weeping adults and floating pancakes are blown up. Voters and neighbours are the crowd. The questions answer themselves.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "exaggeration",
+          "everyone's doing it",
+          "rhetorical question"
+        ],
+        "items": [
+          {
+            "text": "My custard has made grown adults weep with joy.",
+            "bin": 0,
+            "reason": "Custard doesn't make adults weep with joy. Mo is blowing it up."
+          },
+          {
+            "text": "My pancakes float away if you don't hold them down.",
+            "bin": 0,
+            "reason": "Pancakes can't float away. That's blown way up."
+          },
+          {
+            "text": "Kids from three schools have already voted for me.",
+            "bin": 1,
+            "reason": "Mo says lots of kids voted for him, so you should too."
+          },
+          {
+            "text": "Your neighbours have put Mo signs in their windows.",
+            "bin": 1,
+            "reason": "Mo says the people around you are doing it, so join them."
+          },
+          {
+            "text": "Why choose a boring cook when you could choose me?",
+            "bin": 2,
+            "reason": "Mo doesn't want an answer. The answer is built in: choose Mo."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.7-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi made a flyer for her holiday art class. Gus wrote notes about her tricks, but he mixed one up.",
+      "text": "INDI'S HOLIDAY ART CLASS. Come and paint with Indi every Wednesday in the school holidays! We meet at 10 am in the hall behind the general store. You will learn to draw animals, paint sunsets and design your own comic. All paints and paper are included. Line A: 'My art class is so much fun that your paintbrush will start dancing!' Line B: 'Isn't it time you painted something amazing?' Each class costs $8. Gus will bring his special snot-green paint, whether anyone wants it or not. Indi has asked him not to.",
+      "prompt": "Gus got one label wrong. Tap it, then choose the right trick.",
+      "success": "Line A is exaggeration. Paintbrushes can't dance, so Indi is blowing up how fun the class is.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Line A uses ",
+          {
+            "tap": "everyone's doing it"
+          },
+          ". Line B uses ",
+          {
+            "tap": "a rhetorical question",
+            "reason": "That's right. The answer, 'yes', is built into Line B."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "a rhetorical question",
+            "reason": "Line A isn't a question. It ends with an exclamation mark, not a question mark."
+          },
+          {
+            "text": "a plain fact with no trick",
+            "reason": "Paintbrushes can't really dance. That's not a plain fact."
+          },
+          {
+            "text": "exaggeration"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "A ghost tour company has put up a new sign at the old mine. The Squawkle won't stop squawking at it.",
+      "text": "GHOST NIGHTS AT THE OLD MINE. Every Friday and Saturday at 8 pm, Ranger Dot leads a torchlight walk through the old copper mine. You will hear the story of the miner who lost his boots in 1902. You will see the tunnel where the strange tapping sounds come from. Bring a torch and wear closed shoes. Tickets are $15. At the bottom, in big red letters, the sign says: 'This tour is so terrifying that the ghosts book tickets to get scared!' Gus says ghosts can't book tickets because they don't have money.",
+      "prompt": "Read the line in big red letters. Which trick does it use?",
+      "success": "Exaggeration. Ghosts don't book tickets. The sign blows up how scary the tour is.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "everyone's doing it",
+            "reason": "The ghosts aren't a crowd you're asked to join. The line blows up how scary it is."
+          },
+          {
+            "text": "rhetorical question",
+            "reason": "There's no question in this line. It's a big, impossible claim."
+          },
+          {
+            "text": "exaggeration"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b2-6",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren wrote a letter to the Bluster Bugle asking people to help at the bilby shelter.",
+      "prompt": "Tap the rhetorical question in Wren's letter.",
+      "success": "Wren doesn't want an answer. The answer is built in: of course you should help.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Dear Editor, the Bluster Rock bilby shelter needs volunteers. The shelter looks after twelve bilbies that were hurt or lost. Volunteers clean the pens, carry water and help at feeding time. ",
+          {
+            "tap": "The shelter is open from 7 am to 3 pm on weekends.",
+            "reason": "This is a plain fact. It tells you when the shelter is open."
+          },
+          " ",
+          {
+            "tap": "Kids from three schools are already helping every Saturday.",
+            "reason": "This is 'everyone's doing it'. It says other kids help, so you should too."
+          },
+          " ",
+          {
+            "tap": "If we don't help these bilbies, who will?"
+          },
+          " ",
+          {
+            "tap": "Our bilbies have ears so big they can hear a biscuit open from the next town!",
+            "reason": "This is exaggeration. No ears can hear that far."
+          },
+          " Please come and visit. You will need old clothes and a hat. Yours sincerely, Wren."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b3-1",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed got an email from the company that makes Rocket Rally. The Squawkle is squawking at the last line.",
+      "text": "Dear Rocket Rally player, the new season of the Rocket Rally league starts on Monday, and we would love you to join us. This season has six new tracks, including the Crater Canyon, where the gravity changes every lap. League matches run every weekend, and the top ten players each month win a gold trophy for their profile. Joining the league is free, but you will need to be at least ten years old and have a parent's permission. You can sign up from the main menu, under the button marked 'League'. Matches last about eight minutes each, and you can play up to five matches a day. The league has its own chat, which parents can switch off in the settings. The email ends with this line: 'Three million players have already joined the league this season. Make sure you're not the one who misses out.' Zed has already joined. He says it had nothing to do with the email, and everything to do with Crater Canyon.",
+      "prompt": "Read the last line of the email. Which trick does it use?",
+      "success": "Everyone's doing it. The line points at a huge crowd of players and warns that you'll miss out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "exaggeration",
+            "reason": "Three million might be a real number. The trick is pushing you to follow the crowd."
+          },
+          {
+            "text": "no trick, just information",
+            "reason": "'Make sure you're not the one who misses out' isn't information. It pressures you to join the crowd."
+          },
+          {
+            "text": "everyone's doing it"
+          },
+          {
+            "text": "rhetorical question",
+            "reason": "There's no question here. Both sentences are statements about other players and you."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo bought a box of Crunch Rocks cereal. Tully is reading the back of the box over breakfast.",
+      "prompt": "Tap the sentence on the cereal box that uses exaggeration.",
+      "success": "Nothing stays crunchy for ever in milk. Tully's five-minute test shows the box blew that claim up.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "CRUNCH ROCKS: THE BREAKFAST OF CHAMPIONS. Crunch Rocks are made from oats, honey and puffed rice, baked into little rock shapes. ",
+          {
+            "tap": "Each bowl has as much fibre as two slices of wholemeal bread.",
+            "reason": "This is a claim you could check on the nutrition panel. It isn't blown up."
+          },
+          " ",
+          {
+            "tap": "Crunch Rocks stay crunchy for ever, even in milk."
+          },
+          " ",
+          {
+            "tap": "More than 5,000 families on the island now start their day with Crunch Rocks.",
+            "reason": "This is 'everyone's doing it'. It tells you lots of families eat them, so you should too."
+          },
+          " ",
+          {
+            "tap": "Why start your day with soggy toast?",
+            "reason": "This is a rhetorical question. The answer, 'you shouldn't', is built in."
+          },
+          " Crunch Rocks contain no artificial colours. Serve them with cold milk or yoghurt, and keep the box closed so the cereal stays fresh. The back of the box also has a maze shaped like Bluster Rock. Zed finished it in eleven seconds. A 500-gram box costs $6 at the general store. Tully tested the crunch with a stopwatch. After five minutes in milk, her Crunch Rocks were as soft as porridge. Mo ate them anyway and said they were 'basically soup'. Gus kept one dry Crunch Rock in a jar for his rock collection."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.7-b3-3",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Bluster Rock footy club wants a new scoreboard. The club president wrote a letter to every family.",
+      "text": "Dear families, our footy club needs a new scoreboard, and we are asking for your help. The old scoreboard was built in 1972 and has to be changed by hand, one number at a time. Last season, it fell over twice in strong wind. A new electronic scoreboard costs $8,000, and the club has saved $5,000 so far. The new board would show the score, the time left and the quarter, and it could be read from the far side of the oval. Our old scoreboard is so slow that the game is over before the score goes up! Most other clubs in the league already have an electronic board, so don't let our club be left behind. Shouldn't our kids have one too? We are holding a sausage sizzle on Saturday 12 May at the oval, from 11 am until 2 pm. Volunteers are also needed to cook and to sell drinks. All the money raised will go to the scoreboard fund. Thank you for supporting the club. Tully has offered to keep score in her head until then, and she says she has never been wrong.",
+      "prompt": "Match each line from the letter to its trick, or to 'no trick'.",
+      "success": "The slow board is blown up, other clubs are the crowd, the question answers itself, and costs are plain information.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "exaggeration",
+          "everyone's doing it",
+          "rhetorical question",
+          "no trick"
+        ],
+        "items": [
+          {
+            "text": "Our old scoreboard is so slow that the game is over before the score goes up!",
+            "bin": 0,
+            "reason": "A game can't end before one score goes up. That's blown way up."
+          },
+          {
+            "text": "Most other clubs in the league already have an electronic board, so don't let our club be left behind.",
+            "bin": 1,
+            "reason": "This points to what other clubs have and warns us not to be left behind."
+          },
+          {
+            "text": "Shouldn't our kids have one too?",
+            "bin": 2,
+            "reason": "The president doesn't want an answer. The answer, 'yes', is built in."
+          },
+          {
+            "text": "A new electronic scoreboard costs $8,000.",
+            "bin": 3,
+            "reason": "This is plain information about the price. No trick is used."
+          },
+          {
+            "text": "The club has saved $5,000 so far.",
+            "bin": 3,
+            "reason": "This is a plain fact that could be checked. No trick is used."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.7-b3-4",
+      "band": 3,
+      "topic": "space",
+      "frame": "The planetarium has a new ad on the radio. Zed wrote down two lines and labelled their tricks.",
+      "text": "RADIO AD FOR THE BLUSTER ROCK PLANETARIUM. Music plays, then a voice says: 'This school holidays, travel to the edge of the solar system without leaving your seat. Our new show, Journey to the Ice Giants, takes you past the rings of Uranus and down into the blue clouds of Neptune. The dome is twenty metres across, so the planets surround you on every side. The show lasts forty minutes, and a guide answers questions at the end. Line 1: Why stare at a phone screen when you could stare at the stars? Line 2: Families from right across the island are making the planetarium their weekend spot. Shows run every day at 10 am and 2 pm, and tickets are $8 for kids. Book at the front desk or on our website.' The ad ends with the sound of a rocket. Gus says the rocket sounds like Mo's stomach after fish-finger custard. Mo is not speaking to either of them.",
+      "prompt": "Zed labelled one line wrongly. Tap it, then choose the right trick.",
+      "success": "Line 2 says families everywhere are going. That's the crowd, and the ad wants you to join it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Line 1 uses ",
+          {
+            "tap": "a rhetorical question",
+            "reason": "That's right. The answer, 'stare at the stars', is built into Line 1."
+          },
+          ". Line 2 uses ",
+          {
+            "tap": "exaggeration"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "a rhetorical question",
+            "reason": "Line 2 isn't a question. It's a statement about other families."
+          },
+          {
+            "text": "no trick, just information",
+            "reason": "Line 2 isn't there to inform you. It tells you about a crowd so you'll join it."
+          },
+          {
+            "text": "everyone's doing it"
+          },
+          {
+            "text": "exaggeration and a rhetorical question",
+            "reason": "Line 2 uses only one trick, and it isn't a question at all."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b3-5",
+      "band": 3,
+      "topic": "music",
+      "frame": "Maxx has released a song called 'Gold Is My Colour'. He is promoting it on his stream, and the Squawkle is squawking along off-key.",
+      "text": "'Maxx it out, Vantafam! Today is the day. My first ever song, Gold Is My Colour, is out now in the Vantamart music store. I wrote it myself on the deck of the Vantadome, while a Goldie played a gold tambourine. It has a catchy chorus, a guitar solo and a part where I whisper my own name eleven times. The song is three minutes and forty seconds long, and it costs $2. The music video was filmed on my gold jet ski, the Gold Rush, and it took nine days to make. Now ask yourself this, Vantafam: why would you wait another minute to get it? Smash that heart button like it owes you money! Stay gold!' Wren listened to the song once, then put her headphones in the freezer. Indi has drawn a moustache on the cover art. Tully counted how many times Maxx sings the word 'gold'. It was forty-three. Mo has hummed it all day and has asked everyone to stop him.",
+      "prompt": "Maxx says, 'Why would you wait another minute to get it?' Which trick is this?",
+      "success": "A rhetorical question. Maxx doesn't want answers. He wants the Vantafam to think, 'No reason, Maxx!'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "rhetorical question"
+          },
+          {
+            "text": "exaggeration",
+            "reason": "Nothing here is stretched bigger than the truth. It's a question with the answer built in."
+          },
+          {
+            "text": "everyone's doing it",
+            "reason": "Maxx isn't telling you to follow a crowd. He's asking a question that answers itself."
+          },
+          {
+            "text": "no trick, just information",
+            "reason": "Maxx gives no information here. He's pushing you to get the song right now."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.7-b3-6",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus wants to enter the island's robot contest. Most of the flyer is plain information, but the Squawkle has found one trick.",
+      "prompt": "Tap the one line on the flyer that uses a persuasive trick.",
+      "success": "No robot teaches at a university. The flyer blows up last year's winner to make the contest sound amazing.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BLUSTER ROCK ROBOT CONTEST. The contest is open to students in Years 3 to 8. ",
+          {
+            "tap": "Do you have a robot that is shorter than 30 centimetres?",
+            "reason": "This is a real question about the rules. Your answer could be yes or no."
+          },
+          " If so, you can enter it in the junior section. ",
+          {
+            "tap": "Robots must run on batteries and must not use any sharp parts.",
+            "reason": "This is a plain rule. It tells you what's allowed, without a trick."
+          },
+          " Each robot will have two minutes to finish an obstacle course on the stage. ",
+          {
+            "tap": "Last year's winning robot was so clever it now teaches maths at the university."
+          },
+          " ",
+          {
+            "tap": "The judges will give points for speed, design and teamwork.",
+            "reason": "This is plain information about how robots are scored."
+          },
+          " Entries close on 30 June, and the contest will be held in the school hall on 14 July. ",
+          {
+            "tap": "There is no entry fee.",
+            "reason": "This is a plain fact about the cost. No trick is used."
+          },
+          " Gus has already started building. His robot is called Snotbot, and it is mostly made from a tissue box. Every robot that finishes the course will get a certificate. Parents and friends are welcome to watch from the back of the hall, and the Year 6 class will run a cake stall."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "Year 6 student Priya is campaigning for a longer lunch break at Bluster Rock School. She gave this speech at assembly, and the Squawkle squawked at one line in particular.",
+      "prompt": "Tap the sentence in Priya's speech that uses 'everyone's doing it'.",
+      "success": "Priya points to a crowd of schools that have 'made the switch' and warns that we're being left behind.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Good morning, everyone. My name is Priya, and I am here to ask the school council to make our lunch break longer. At the moment, we have twenty-five minutes to eat our lunch, go to the toilet, fill our drink bottles and play. By the time most of us reach the oval, the bell is already ringing. ",
+          {
+            "tap": "Our lunch break is so short that blinking uses up half of it.",
+            "reason": "This is exaggeration. Blinking doesn't take twelve minutes, so the claim is blown up."
+          },
+          " ",
+          {
+            "tap": "Dr Kim Nguyen, a researcher who studies children's health, says that kids who play outside at lunch concentrate better in the afternoon.",
+            "reason": "This backs up the claim with an expert. It isn't one of the three tricks."
+          },
+          " ",
+          {
+            "tap": "Nearly every school on the mainland has already made the switch to a forty-minute lunch, and we are being left behind."
+          },
+          " ",
+          {
+            "tap": "Is twenty-five minutes really enough time to eat, play and get ready to learn again?",
+            "reason": "This is a rhetorical question. Priya has built the answer, 'no', into it."
+          },
+          " I have spoken to the canteen staff, and they say that a longer lunch would also mean shorter queues. The school day would finish fifteen minutes later, but most parents I asked said they would not mind. Please vote yes at the council meeting on Thursday. Thank you for listening, and please don't throw your apple cores at the seagulls."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.7-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A ferry company has mailed a glossy brochure to every house on Bluster Rock. Tully is comparing it with the bus timetable.",
+      "text": "INTRODUCING THE BLUSTER EXPRESS. From the first of March, our brand-new passenger ferry will run between Bluster Rock and the mainland six times a day, seven days a week. The ferry seats 120 passengers on two decks, with a cafe on the lower deck and an open-air viewing platform at the top, where dolphins are often spotted in the channel. The crossing takes forty minutes in calm weather, and bicycles can travel free of charge. Adult tickets are $18 each way, and children under twelve travel for half price. At the moment, the only other way to reach the mainland is the coast road, a three-hour drive around the bay. Why would anyone endure three hours behind the wheel when they could be sipping a hot chocolate on the water? Tickets can be bought online or at the kiosk on the jetty. Tully checked the bus timetable and found that the coast road really does take three hours. She also worked out that the ferry would save her family about 120 hours of driving a year, which she has written on the fridge.",
+      "prompt": "Which trick does the brochure use in the sentence that begins 'Why would anyone endure'?",
+      "success": "A rhetorical question. The brochure isn't asking you. It builds in the answer: nobody would, so take the ferry.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "exaggeration",
+            "reason": "Tully checked: the drive really takes three hours. Nothing is blown up; the answer is built into a question."
+          },
+          {
+            "text": "everyone's doing it",
+            "reason": "The sentence doesn't point to a crowd of people already using the ferry."
+          },
+          {
+            "text": "no trick, just information",
+            "reason": "The sentence tells you nothing new. It's a question designed to make you agree."
+          },
+          {
+            "text": "rhetorical question"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.7-b4-3",
+      "band": 4,
+      "topic": "animals",
+      "frame": "The new Red Rock Wildlife Park has printed a brochure. Wren read it with a pencil in her hand, marking every trick.",
+      "text": "WELCOME TO THE RED ROCK WILDLIFE PARK. Nestled at the foot of Bluster Rock, our park is home to more than forty species of native animals, from tiny dunnarts to towering emus. Our keepers care for injured and orphaned animals and, where possible, return them to the wild. The park covers twelve hectares and is open from 9 am to 5 pm every day except Christmas Day. Our walk-through aviary is so enormous that birds have been known to get lost on their way to lunch. Thousands of families have already made the park their favourite day out, so don't be the one still sitting at home. Who could resist the chance to meet a bilby up close? Keeper talks are held every hour on the hour, and visitors can help feed the kangaroos at 2 pm. Entry costs $22 for adults and $11 for children, and all money goes towards the animals' care. The park cafe sells sandwiches, ice creams and hot drinks, and picnic tables are set out under the coolabah trees beside the waterhole. Wheelchairs and prams can travel on every path, and a night tour runs on Friday evenings in summer. Wren underlined the aviary line twice and wrote 'Really?' in the margin.",
+      "prompt": "Match each line from the brochure to its trick, or to 'no trick'.",
+      "success": "The aviary is blown up, families are the crowd, the bilby question answers itself, and opening hours are plain information.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "exaggeration",
+          "everyone's doing it",
+          "rhetorical question",
+          "no trick"
+        ],
+        "items": [
+          {
+            "text": "Our walk-through aviary is so enormous that birds have been known to get lost on their way to lunch.",
+            "bin": 0,
+            "reason": "Birds don't get lost in an aviary on their way to lunch. That's blown way up."
+          },
+          {
+            "text": "Thousands of families have already made the park their favourite day out, so don't be the one still sitting at home.",
+            "bin": 1,
+            "reason": "This points to a crowd of families and warns you not to be left out."
+          },
+          {
+            "text": "Who could resist the chance to meet a bilby up close?",
+            "bin": 2,
+            "reason": "The brochure isn't asking for an answer. It builds in 'nobody could'."
+          },
+          {
+            "text": "The park covers twelve hectares and is open from 9 am to 5 pm.",
+            "bin": 3,
+            "reason": "This is plain information that could be checked. No trick is used."
+          },
+          {
+            "text": "Visitors can help feed the kangaroos at 2 pm.",
+            "bin": 3,
+            "reason": "This simply tells you what you can do and when. No trick is used."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.7-b4-4",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Wren wrote a short analysis of a ghost tour brochure for the crew. Indi checked it and found one mistake.",
+      "text": "THE MIDNIGHT HOMESTEAD TOUR. Step back in time at the old Crowley homestead, built of sandstone in 1884 and empty since 1914. Guided by lantern light, you will explore the cellar, the shearers' quarters and the bedroom where, according to local legend, a rocking chair still rocks on windless nights. Line 1: 'Why settle for another dull evening in front of the television?' Line 2: 'Our guides tell stories so chilling that visitors' hair has turned white on the spot.' Line 3: 'Hundreds of thrill-seekers have already booked for this summer, and the best nights are disappearing fast.' Tours leave from the homestead gate at 9 pm every Friday and Saturday, and last about ninety minutes. The track is uneven, so sturdy shoes and a torch are recommended. Tickets are $25, or $15 for children over ten, and the tour is not recommended for younger children. Bookings close at noon on the day of each tour, and groups are limited to fifteen people so that everyone fits inside the cellar. Indi has already designed a ghost disguise for Mo. Hot chocolate is served in the kitchen at the end of every tour, beside the old iron stove that Elsie Crowley once cooked on.",
+      "prompt": "Wren mislabelled one line. Tap the wrong label, then choose the right one.",
+      "success": "Line 1 asks a question with its answer built in: don't settle for a dull evening, so book the tour.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Line 1 uses ",
+          {
+            "tap": "everyone's doing it"
+          },
+          ". Line 2 uses ",
+          {
+            "tap": "exaggeration",
+            "reason": "That's right. Nobody's hair turns white on the spot from a story."
+          },
+          ". Line 3 uses ",
+          {
+            "tap": "everyone's doing it",
+            "reason": "That's right. Line 3 points to hundreds of people already booking."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "exaggeration",
+            "reason": "Line 1 doesn't blow anything up. It asks a question that has its answer built in."
+          },
+          {
+            "text": "a rhetorical question"
+          },
+          {
+            "text": "no trick, just information",
+            "reason": "Line 1 gives no information about the tour. It's there to push you."
+          },
+          {
+            "text": "a real question for the reader to answer",
+            "reason": "The brochure doesn't want your answer. It has already decided it for you."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.7-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo has started an online campaign to raise money for a floating restaurant. The crew is worried. So is the Squawkle.",
+      "text": "MO'S FLOATING FEAST: HELP ME BUILD IT! Hello, friends of Bluster Rock. For years, I have dreamed of opening a restaurant on a raft in the middle of Bluster Bay, where diners can enjoy my cooking while watching the sunset over the rock. I have found a second-hand pontoon that can hold eight tables, and a local builder has agreed to fit a kitchen and a roof. The whole project will cost $14,000. If you give $20, you will get a free bowl of my famous seaweed spag bol. If you give $100, I will name a dish after you. Since the campaign began, more than four hundred islanders have pledged their support, so don't be the last to jump aboard. The menu will include fish-finger custard, gum-leaf pancakes and sardine trifle, all cooked fresh on board. The harbour master has asked me to add life jackets for every diner, which I think is a bit much. Gus has offered to design a slime-powered motor, and Tully has calculated a 64 per cent chance that the raft will float.",
+      "prompt": "Which trick does Mo use in the sentence about four hundred islanders?",
+      "success": "Everyone's doing it. Mo points to four hundred supporters and tells you not to be the last to join.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "no trick, just information",
+            "reason": "The number might be true, but 'don't be the last to jump aboard' pushes you to follow the crowd."
+          },
+          {
+            "text": "everyone's doing it"
+          },
+          {
+            "text": "exaggeration",
+            "reason": "Four hundred islanders is a realistic number. The trick is the crowd you're urged to join."
+          },
+          {
+            "text": "rhetorical question",
+            "reason": "The sentence is a statement, not a question. It points to a crowd instead."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.7-b4-6",
+      "band": 4,
+      "topic": "art",
+      "frame": "Maxx is auctioning a painting on his stream to raise money for his 'Rescue Fund'. Indi is watching, with her moustache pen ready.",
+      "prompt": "Tap the sentence in Maxx's pitch that uses exaggeration.",
+      "success": "No painting has ever made art experts faint. Maxx blows up its effect to make it sound priceless.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "'Maxx it out, Vantafam! Tonight, I'm auctioning something truly special to raise money for my Rescue Fund. This is a painting of me, by me, called Gold Is Forever. I painted it on the deck of the Vantadome using real gold-coloured paint, and it's signed in the bottom corner. It measures one metre by two metres, and the frame is solid wood. Bidding starts at $500, and the winner will receive a certificate signed by me and a photo of me holding the painting. One of my Goldies will deliver it, wrapped in gold paper. ",
+          {
+            "tap": "When I showed it to a group of art experts, three of them fainted on the spot."
+          },
+          " ",
+          {
+            "tap": "The auction closes at midnight, and the highest bidder takes it home.",
+            "reason": "This is plain information about how the auction works. No trick is used."
+          },
+          " ",
+          {
+            "tap": "Over twenty thousand of you are already bidding, so jump in before it's too late.",
+            "reason": "This is 'everyone's doing it'. It points to a crowd of bidders and urges you to join."
+          },
+          " ",
+          {
+            "tap": "Don't those poor Creatures deserve a hero like me?",
+            "reason": "This is a rhetorical question. The answer Maxx wants, 'yes', is built in."
+          },
+          " Every cent goes to the Rescue Fund. Smash that heart button like it owes you money! Stay gold!' Wren muttered that she'd love to know where that money really goes. Indi drew a moustache on the painting on her screen, and Zed screenshotted it for the evidence folder. Gus asked whether gold-coloured paint is the same as gold. It is not."
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

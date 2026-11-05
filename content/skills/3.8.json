@@ -1,0 +1,930 @@
+{
+  "skill": {
+    "id": "3.8",
+    "name": "Who is it aimed at, and what do they want?",
+    "codes": [
+      "VC2E5LY08"
+    ],
+    "why": "Every persuasive text has a target. Know who, and you'll see the push.",
+    "how": "Find clues in the words, places and prices. Then ask what the reader should do.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Every persuasive text is aimed at someone."
+          },
+          {
+            "say": "Look for clues about who the reader is.",
+            "show": "**Parents!** Pack a healthy snack in **your child's lunchbox**."
+          },
+          {
+            "say": "Prices, places and favourite things are clues too.",
+            "show": "Only **$2**, the perfect **recess** snack for **Year 5s**!"
+          },
+          {
+            "say": "Then ask: what does the writer want them to do?",
+            "show": "**Buy it.** **Vote for it.** **Sign up.** **Come along.**"
+          },
+          {
+            "say": "If it's aimed at you, ask: is it good for me?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Tired of nagging your kids to brush their teeth? Fizzbrush makes brushing fun, so there's no more bedtime fight.",
+          "prompt": "Who is this ad aimed at?",
+          "hint": "Who nags kids at bedtime?",
+          "success": "Parents. 'Your kids' and the bedtime fight show it's talking to grown-ups.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "kids",
+                "reason": "It talks about 'your kids', so it's speaking to the grown-ups who look after them."
+              },
+              {
+                "text": "parents"
+              },
+              {
+                "text": "dentists",
+                "reason": "Nothing in the ad talks to dentists. It talks about bedtime fights at home."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the clue that shows this sign is aimed at grandparents.",
+          "hint": "Which clue only fits someone who has grandkids?",
+          "success": "Only grandparents have grandkids' photos to share. The other clues could fit anyone.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "TUESDAY MORNING CLUB at the Bluster Rock hall. ",
+              {
+                "tap": "Tea and biscuits provided.",
+                "reason": "Anyone might like tea and biscuits. That doesn't tell you who it's for."
+              },
+              " ",
+              {
+                "tap": "Bring photos of your grandkids to share!"
+              },
+              " ",
+              {
+                "tap": "Starts at 10 am.",
+                "reason": "A time doesn't tell you who the sign is for."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "pitchling",
+      "name": "Pitchling",
+      "evolved": "Pitchwarden",
+      "blurb": "A bilby with ears so big it can hear who every ad is whispering to, and exactly what it wants them to do."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.8-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "A Pitchling is sniffing an ad on the general store window. Its huge ears are twitching.",
+      "text": "NEW! CRUNCHY CARROT STICKS. Parents, are you looking for a healthy snack? Pack Crunchy Carrot Sticks in your child's lunchbox. They come in small bags that fit in any lunchbox. They have no added sugar. Your kids will eat every last one, and you can stop worrying about what they eat at recess. Only $3 for a pack of five bags at the Bluster Rock general store.",
+      "prompt": "Who is this ad aimed at?",
+      "success": "Parents. The ad says 'Parents' and talks about packing 'your child's lunchbox'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "kids",
+            "reason": "Kids eat the snack, but the ad talks to the people who pack 'your child's lunchbox'."
+          },
+          {
+            "text": "teachers",
+            "reason": "The ad doesn't mention a class or school lessons. It talks about packing lunchboxes."
+          },
+          {
+            "text": "parents"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.8-b1-2",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed found a flyer for a new gaming club. The Pitchling is listening for clues.",
+      "prompt": "Tap the clue that shows the flyer is aimed at kids.",
+      "success": "'Ages 9 to 12 only' tells you exactly who the club is for: kids your age.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BLUSTER ROCK GAMING CLUB! Come and play racing games, puzzle games and building games with other players. We have six big screens and lots of controllers. ",
+          {
+            "tap": "It's free to join.",
+            "reason": "Free could suit anyone. It doesn't tell you who the club is for."
+          },
+          " ",
+          {
+            "tap": "We meet in the library.",
+            "reason": "Anyone can go to a library. This is a place, not a clue about who it's for."
+          },
+          " ",
+          {
+            "tap": "Ages 9 to 12 only."
+          },
+          " ",
+          {
+            "tap": "We meet on Fridays at 4 pm.",
+            "reason": "A time doesn't tell you who the club is for."
+          },
+          " Zed has signed up already. He says he will go easy on everyone. He will not."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.8-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren put up a new sign at Bluster Beach. The Pitchling is guarding it.",
+      "text": "DOG OWNERS, PLEASE READ! Little penguins nest in the sand dunes at this beach. Their nests are hard to see. A dog can scare a penguin off its eggs in seconds. Please keep your dog on a lead at all times on this beach. Dogs can run free at Gum Gully Beach, five minutes up the road. Thank you for helping our penguins. From Wren and the Bluster Rock rangers.",
+      "prompt": "What does the sign want dog owners to do?",
+      "success": "Keep their dogs on a lead. The sign says it straight out, and explains why: the penguin nests.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "keep their dogs on a lead"
+          },
+          {
+            "text": "never come to this beach",
+            "reason": "The sign doesn't say stay away. It says keep your dog on a lead."
+          },
+          {
+            "text": "look for penguin nests",
+            "reason": "The sign says the nests are hard to see. It wants dogs kept away from them."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.8-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is making two flyers for a footy camp, one for kids and one for parents. She mixed up the lines.",
+      "text": "BLUSTER ROCK FOOTY CAMP. The camp runs for five days in the school holidays. It is at the oval from 9 am to 3 pm. The coaches play for the Reef Rays. Tully wrote some lines for a kids' flyer and some lines for a parents' flyer. Then she dropped them all on the floor. Mo stood on two of them.",
+      "prompt": "Sort Tully's lines. Who is each one aimed at?",
+      "success": "Lines about mates and fun speak to kids. Lines about prices, pick-up and 'your child' speak to parents.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "kids",
+          "parents"
+        ],
+        "items": [
+          {
+            "text": "Kick goals with your mates all week!",
+            "bin": 0,
+            "reason": "Kicking goals with your mates is what a kid would look forward to."
+          },
+          {
+            "text": "Bring your boots and your best footy socks!",
+            "bin": 0,
+            "reason": "This talks to the person who will be wearing the boots: the kid."
+          },
+          {
+            "text": "Learn the Reef Rays' secret goal-kicking trick!",
+            "bin": 0,
+            "reason": "A secret trick for kicking goals is what a kid player wants to learn."
+          },
+          {
+            "text": "Your child will love camp, and you'll love the price.",
+            "bin": 1,
+            "reason": "'Your child' and 'the price' show this talks to the person paying: a parent."
+          },
+          {
+            "text": "Please pick up your child by 3 pm.",
+            "bin": 1,
+            "reason": "Parents do the picking up. This line is for them."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.8-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed wrote a note about an ad for the Space Bus. The Pitchling thinks one word is wrong.",
+      "text": "TEACHERS! BOOK THE SPACE BUS! We drive a mini planetarium right to your school. Your whole class can lie back and look at the stars. We bring worksheets for your lessons, too. Your students will learn about the planets and the moon. Visits are one hour long. Call the Bluster Rock Science Centre to book a visit for your class.",
+      "prompt": "Zed got one word wrong. Tap it, then choose a better one.",
+      "success": "The ad says 'Teachers!' and talks about 'your class' and 'your lessons'. It's aimed at teachers.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ad is aimed at ",
+          {
+            "tap": "kids"
+          },
+          ". It wants them to ",
+          {
+            "tap": "book a visit",
+            "reason": "That's right. The ad says 'book a visit for your class'."
+          },
+          " from the Space Bus."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "parents",
+            "reason": "Parents don't have a class or lessons. Teachers do."
+          },
+          {
+            "text": "teachers"
+          },
+          {
+            "text": "astronauts",
+            "reason": "The ad doesn't talk to astronauts. It talks about 'your class' and 'your lessons'."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "A poster for guitar lessons is on the door of the Bluster Rock hall. The Pitchling's ears are wiggling.",
+      "text": "IT'S NEVER TOO LATE TO PLAY! Guitar lessons for grown-ups. Did you always want to learn guitar? Come along after work. Lessons are on Tuesdays at 7 pm. No music skills needed. You can borrow a guitar if you don't have one. Kids' lessons are on Saturday mornings instead. Mo has signed up for the Tuesday class. He only knows one song. It is about a pie.",
+      "prompt": "Who are the Tuesday lessons aimed at?",
+      "success": "Grown-ups. 'For grown-ups', 'after work' and 7 pm all point to adults. Kids have their own day.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "grown-ups"
+          },
+          {
+            "text": "kids",
+            "reason": "The poster says kids' lessons are on Saturday mornings instead."
+          },
+          {
+            "text": "guitar teachers",
+            "reason": "Teachers already play. The poster says no music skills are needed."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.8-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "An ad for a fishing boat is pinned up at the jetty. The Pitchling is working out who it's for.",
+      "prompt": "Tap the clue that shows the ad is aimed at visitors, not locals.",
+      "success": "'Visiting Bluster Rock for the first time' speaks straight to tourists. Locals have been here before.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "CAPTAIN JUNE'S FISHING CHARTERS. ",
+          {
+            "tap": "Visiting Bluster Rock for the first time?"
+          },
+          " Spend a morning on the water with Captain June, who has fished these waters for thirty years. ",
+          {
+            "tap": "Our boat leaves the jetty at 6 am sharp.",
+            "reason": "A time tells you when, not who. Locals and visitors both need it."
+          },
+          " ",
+          {
+            "tap": "Rods, bait and life jackets are all supplied.",
+            "reason": "Anyone might need gear. This doesn't show who the ad is for."
+          },
+          " ",
+          {
+            "tap": "You might catch snapper, flathead or even a big kingfish.",
+            "reason": "Locals and visitors both like catching fish. This isn't a clue about who."
+          },
+          " We will clean and pack your fish so you can take them back to your holiday house. Trips last four hours, and the boat holds eight people. Captain June also runs sunset cruises on Fridays. Book at the kiosk. Gus has asked if he can keep the fish guts for an experiment. The answer was no."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.8-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote a letter for the school robot club. The Pitchling is checking who it's aimed at and what it asks for.",
+      "text": "Dear Bluster Rock business owners, my name is Gus, and I am the engineer in the Bluster Rock School robot club. This year, our club is building a robot for the State Robot Challenge in October. We need about $600 for motors, batteries and wheels. We are asking local businesses to sponsor us. If your business gives money or parts, we will paint your business name on the side of our robot. We will also thank you in the school newsletter, which goes to 300 families. Please reply to this letter by 1 August. Thank you for supporting young engineers. Yours sincerely, Gus.",
+      "prompt": "What does Gus's letter want the business owners to do?",
+      "success": "Sponsor the club. The letter asks businesses to give money or parts, and offers their name on the robot.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "join the school robot club",
+            "reason": "The club is for students. Gus wants businesses to support it, not join it."
+          },
+          {
+            "text": "give money or parts for the robot"
+          },
+          {
+            "text": "put an ad in the school newsletter",
+            "reason": "Gus offers to thank them in the newsletter. He isn't asking them to pay for an ad."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b2-3",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo is running cooking classes. He made one flyer for little kids and one for teenagers, then dropped them both in the custard.",
+      "text": "MO'S KITCHEN CLASSES. Mo, the cook from the Soggy Biscuit, is running cooking classes at the Bluster Rock hall these holidays. There are two classes. The morning class is for little kids, aged 4 to 6. The afternoon class is for teenagers, aged 13 to 16. Mo wrote some lines for each flyer. Then he knocked them into a bowl of custard. Now Indi has to work out which line goes where. Mo says the custard makes them look fancy. Each class lasts two hours and costs $10. Aprons are supplied, and everyone takes home what they cook. Tully has asked whether the custard is part of the lesson.",
+      "prompt": "Sort Mo's lines. Which class is each one aimed at?",
+      "success": "Teddies and colouring speak to little kids. Formals, followers and cooking for friends speak to teenagers.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "little kids (4 to 6)",
+          "teenagers (13 to 16)"
+        ],
+        "items": [
+          {
+            "text": "Bring your favourite teddy to watch you cook!",
+            "bin": 0,
+            "reason": "Teddies are for little kids. Teenagers wouldn't bring one to a class."
+          },
+          {
+            "text": "Colour in a picture of Mo's giant pie!",
+            "bin": 0,
+            "reason": "Colouring in is a little-kid activity. It suits ages 4 to 6."
+          },
+          {
+            "text": "Learn to cook a meal for your mates before your Year 9 formal.",
+            "bin": 1,
+            "reason": "A Year 9 formal is something teenagers go to."
+          },
+          {
+            "text": "Film your best kitchen fail and share it with your followers.",
+            "bin": 1,
+            "reason": "Having followers to share with fits teenagers, not four-year-olds."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.8-b2-4",
+      "band": 2,
+      "topic": "general",
+      "frame": "There's a poster on the school gate. Gus wrote a note about who it's aimed at, but he got one part wrong.",
+      "text": "RETIRED? GOT TWO FREE HOURS EACH MORNING? Bluster Rock School needs crossing supervisors. Every school day, our students cross the main road at 8:30 am. We need friendly volunteers to hold the stop sign and help them across safely. You don't need to have worked with children before. We will give you training, a bright vest and a hot cup of tea afterwards. Shifts run from 8:15 to 9 am, and you can choose which mornings suit you. Many of our supervisors say it's the best part of their retirement. If you've finished working and want to help your town, call the school office.",
+      "prompt": "Tap the wrong part of Gus's note, then choose a better one.",
+      "success": "'Retired?' and 'finished working' show the poster is aimed at retired people who have free mornings.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The poster is aimed at ",
+          {
+            "tap": "busy workers"
+          },
+          ". It wants them to ",
+          {
+            "tap": "help students cross the road",
+            "reason": "That's right. The poster asks for crossing supervisors."
+          },
+          " each school morning."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "retired people"
+          },
+          {
+            "text": "school students",
+            "reason": "Students are the ones being helped across. The poster asks grown-ups to do the helping."
+          },
+          {
+            "text": "the students' teachers",
+            "reason": "Teachers are working at 8:30 am. The poster asks people who have 'finished working'."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.8-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "The Bluster Rock art shop has sent out a flyer. Indi wants to know who it's really for.",
+      "text": "BACK TO SCHOOL SALE AT PAINT POT ART SUPPLIES! Is your classroom running low on art supplies? Stock up before Term 1 begins. Buy paint in big 5-litre tubs, enough for a whole class of 30. Paper comes in packs of 500 sheets. Our class sets of brushes come in boxes of 30. Show your school ID card at the counter and save 20 per cent on everything. We can also deliver straight to your school. The sale runs for the last two weeks of January. Indi wants a single tube of gold paint for her own project. Paint Pot doesn't sell single tubes in the sale.",
+      "prompt": "Who is the flyer aimed at, and what does it want them to do?",
+      "success": "Teachers. 'Your classroom', class sets and a school ID discount all point to teachers buying for a whole class.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "kids, to buy paint for their own art projects",
+            "reason": "Kids don't need 5-litre tubs or class sets of 30. Indi can't even buy one tube."
+          },
+          {
+            "text": "teachers, to buy art supplies for their class"
+          },
+          {
+            "text": "artists, to enter a painting competition",
+            "reason": "The flyer doesn't mention a competition. It's a sale for classrooms."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "A fun park on the mainland has a new haunted house. The ad is on the ferry wall, and the Pitchling's ears are shaking.",
+      "prompt": "Tap the clue that shows the haunted house is aimed at teenagers.",
+      "success": "'For ages 13 to 17' names teenagers straight out. 'Leave your parents at home' is aimed at them too.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "THE HOUSE OF SCREAMS! Our brand-new haunted house has twelve dark rooms, fog machines and actors dressed as zombies. ",
+          {
+            "tap": "Open until 10 pm every Friday and Saturday.",
+            "reason": "Late nights could suit adults too. A time isn't a clear clue about who."
+          },
+          " ",
+          {
+            "tap": "Tickets are $15 at the gate.",
+            "reason": "A price could suit anyone. It doesn't show who the ad is for."
+          },
+          " ",
+          {
+            "tap": "For ages 13 to 17, so leave your parents at home!"
+          },
+          " ",
+          {
+            "tap": "Dress up as a zombie and get a free drink.",
+            "reason": "Anyone can dress as a zombie. This doesn't point to one group."
+          },
+          " The walk through all twelve rooms takes about twenty minutes, and there is an exit halfway through for anyone who is too scared. The ferry from Bluster Rock gets you there in forty minutes. Gus asked if the zombies were real. Zed said they're actors. Gus looked disappointed."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.8-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Bluster Rock pool has sent a letter home with every student. The Pitchling is reading between the lines.",
+      "text": "Dear families, is your child nervous in the water? Do they cling to the side of the pool, or refuse to put their face in? You're not alone, and we can help. This summer, the Bluster Rock pool is running Little Splashers, a gentle learn-to-swim program for children aged 4 to 8. Classes have no more than four children, so every child gets plenty of attention. Our teachers are patient, kind and trained to work with nervous swimmers. You can watch every lesson from the shaded viewing deck, with a free coffee from the kiosk. Lessons run on weekday mornings for two weeks in January and cost $90 for the whole program. Living on an island means your child will spend a lot of time near water, so learning to swim is one of the best gifts you can give them. Places are limited, so please book at the pool office before 15 December.",
+      "prompt": "Who is this letter mainly aimed at?",
+      "success": "It asks 'Is your child nervous?' and offers you coffee while you watch. It's talking to parents of young beginners.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "parents of older children who want to race in a squad",
+            "reason": "The program is for nervous beginners aged 4 to 8, not for racing."
+          },
+          {
+            "text": "parents of young children who are nervous in the water"
+          },
+          {
+            "text": "adults who are nervous in the water and want lessons themselves",
+            "reason": "The lessons are for 'your child', aged 4 to 8. The adults only watch."
+          },
+          {
+            "text": "swimming teachers looking for work over the summer",
+            "reason": "The letter describes its own teachers. It isn't offering jobs."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b3-2",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed found an ad for a new building game called Palm Builders. He says it's aimed at him. The Pitchling isn't so sure.",
+      "prompt": "Tap the clue that shows the ad is speaking to parents rather than players.",
+      "success": "Only a parent sets a limit from their own phone. That line talks to the adult, not the player.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "PALM BUILDERS: A GAME YOU CAN FEEL GOOD ABOUT. Palm Builders is a building game set on a tropical island, where players gather wood, design houses and look after animals. There is no fighting, no chat with strangers and nothing to buy inside the game. ",
+          {
+            "tap": "Build your dream island with up to three friends.",
+            "reason": "This speaks to players, telling them what fun they'll have building with friends."
+          },
+          " ",
+          {
+            "tap": "New islands and animals are added every month.",
+            "reason": "This tempts players with new things to explore. It doesn't speak to parents."
+          },
+          " ",
+          {
+            "tap": "You can set a daily time limit from your own phone, so screen time never becomes a battle."
+          },
+          " ",
+          {
+            "tap": "The game is free to download on any tablet.",
+            "reason": "Free could appeal to anyone. It isn't a clear clue about who's being spoken to."
+          },
+          " Each island has its own weather, and some animals only come out when it rains. Players can share photos of their islands with friends inside the game. Palm Builders was designed with help from teachers and has won two awards for games that teach planning and problem-solving. Zed says the animals are cute but the building is too slow. He has already built a lava moat around his house, which the game did not allow."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.8-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "The Bluster Rock bakery has three new products, each with its own ad. Mo cut the ads into strips for a game. Now they're mixed up.",
+      "text": "The Bluster Rock bakery has launched three new products this month. The first is a high-protein muesli bar, made with oats, nuts and seeds. The second is a pack of frozen mini pizzas that can be heated in five minutes. The third is a fruit loaf baked from an old family recipe, which can be wrapped and posted. The bakery wrote a separate ad for each product, aimed at a different group of customers. Mo cut the ads into strips to make a guessing game for the crew, but he forgot which strip came from which ad. Indi says the clues in each line are enough to sort them out. The muesli bars cost $3 each and come in honey or chocolate. The mini pizzas come in packs of six. The fruit loaf is wrapped in brown paper and tied with string, and it stays fresh for two weeks. Gus guessed every line wrong on purpose, so he could eat the prizes.",
+      "prompt": "Sort each line from the ads by the customers it's aimed at.",
+      "success": "Training and race day point to athletes. Quick dinners after work point to busy parents. Grandkids point to grandparents.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "young athletes",
+          "busy parents",
+          "grandparents"
+        ],
+        "items": [
+          {
+            "text": "Fuel up before training and stay strong right to the final siren.",
+            "bin": 0,
+            "reason": "Training and the final siren are about playing sport."
+          },
+          {
+            "text": "Keep one in your kit bag for race day.",
+            "bin": 0,
+            "reason": "A kit bag and race day belong to someone who competes in sport."
+          },
+          {
+            "text": "Packed with protein to help sore legs recover after the big game.",
+            "bin": 0,
+            "reason": "Sore legs after the big game belong to someone who plays sport."
+          },
+          {
+            "text": "Home late from work, with hungry kids waiting? Dinner's ready in five minutes.",
+            "bin": 1,
+            "reason": "Coming home from work to hungry kids describes a busy parent."
+          },
+          {
+            "text": "Less time cooking means more time helping with homework.",
+            "bin": 1,
+            "reason": "Helping kids with homework is something parents do."
+          },
+          {
+            "text": "Post a loaf to your grandchildren and remind them of your kitchen.",
+            "bin": 2,
+            "reason": "Only grandparents have grandchildren to post a loaf to."
+          },
+          {
+            "text": "Your grandkids will think you baked it yourself.",
+            "bin": 2,
+            "reason": "Only grandparents have grandkids to fool with a bakery loaf."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.8-b3-4",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's wildlife shelter wrote a letter to the island's truck drivers. Tully summed it up, but got one part wrong.",
+      "text": "Dear truck drivers of Bluster Rock, every week, our shelter cares for wombats, wallabies and echidnas that have been hit by vehicles on the coast road. Most of these accidents happen at dusk and dawn, when animals are moving to and from their burrows. Many of you drive this road every day, and we know you care about the island as much as we do. We are asking you to do one simple thing: please slow down to 60 kilometres an hour on the coast road between 5 pm and 7 am. If you do hit an animal, please don't try to pick it up yourself, because injured wombats can bite and scratch. Instead, call the shelter's 24-hour rescue line, which is printed on the sticker we've attached to this letter. Thank you for helping us keep our wildlife safe. From Wren and the volunteers at the Bluster Rock Wildlife Shelter.",
+      "prompt": "Tap the wrong part of Tully's summary, then choose a better one.",
+      "success": "The letter's 'one simple thing' is slowing down to 60 between 5 pm and 7 am, when animals are moving.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The letter is aimed at ",
+          {
+            "tap": "truck drivers",
+            "reason": "That's right. It starts 'Dear truck drivers of Bluster Rock'."
+          },
+          " on the island. It wants them to ",
+          {
+            "tap": "stop driving on the coast road"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "pick up injured animals and bring them in",
+            "reason": "The letter says don't pick them up, because injured wombats can bite. Call the rescue line instead."
+          },
+          {
+            "text": "give money to the wildlife shelter",
+            "reason": "The letter doesn't ask for money. It asks for one simple thing on the road."
+          },
+          {
+            "text": "slow down on the coast road at dusk and dawn"
+          },
+          {
+            "text": "drive only during the night",
+            "reason": "Dusk and dawn are when animals move. The letter asks drivers to slow down, not to change when they drive."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.8-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "Maxx is live, launching his new MaxxCam Rocket Kit. Wren is watching through her fingers. The Pitchling's ears are flat.",
+      "text": "'What's up, Vantafam! Maxx here, and this is the MaxxCam Rocket Kit! Build your very own gold rocket, launch it in your backyard, and film the whole thing with the tiny camera in the nose. It flies up to 100 metres, which is higher than any rocket your friends have. The kit costs $89 at Vantamart. Now listen, Vantafam juniors. You can't buy it yourself, so here's what you do. Go to your mum or dad, give them your biggest puppy-dog eyes, and say, \"Maxx says this is educational.\" Then ask if you can borrow their card. Tell them it's for science! The first 1,000 kits come with a signed photo of me. Smash that heart button like it owes you money! Stay gold!' Wren said the camera in the nose probably sends the footage straight to Maxx's channel. Zed checked the fine print. She was right. Indi drew a moustache on the rocket in the ad. Mo asked if the rocket could carry a pie.",
+      "prompt": "Who is Maxx aiming at, and what does he want them to do?",
+      "success": "Maxx talks to 'Vantafam juniors' and coaches them to win over their parents. He wants kids to get the card.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "parents, to buy rocket kits as presents for their kids",
+            "reason": "Maxx says 'go to your mum or dad', so he's talking to kids, not parents."
+          },
+          {
+            "text": "kids, to get their parents to pay for a rocket kit"
+          },
+          {
+            "text": "scientists, to join his space mission",
+            "reason": "There's no space mission. Maxx is selling backyard rocket kits to his young fans."
+          },
+          {
+            "text": "kids, to build their own rockets for free",
+            "reason": "The kit costs $89. Maxx wants kids to borrow a parent's card to pay."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "A concert poster has gone up in the Bluster Rock post office. The Pitchling is listening for who it's calling.",
+      "prompt": "Tap the clue that shows the concert is aimed at older people.",
+      "success": "Only people married in the 1970s danced to these songs at their own wedding. That points to older people.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "THE GOLDEN GUMS BIG BAND, LIVE AT THE BLUSTER ROCK HALL. Join us for an afternoon of swing, jazz and dance music, played by a twelve-piece band with trumpets, trombones and a double bass. ",
+          {
+            "tap": "The concert starts at 2 pm on Sunday.",
+            "reason": "An afternoon concert could suit families, workers or anyone. It isn't a clear clue."
+          },
+          " ",
+          {
+            "tap": "Remember dancing to these songs at your own wedding, back in the 1970s?"
+          },
+          " ",
+          {
+            "tap": "There will be plenty of room on the floor for dancing.",
+            "reason": "People of any age dance. This doesn't point to a group."
+          },
+          " ",
+          {
+            "tap": "Afternoon tea will be served at half time.",
+            "reason": "Anyone might enjoy afternoon tea. It isn't a clue about who the poster is for."
+          },
+          " Tickets are $12 and can be bought at the post office counter. The hall has a ramp at the side entrance, and chairs will be set out around the edge of the dance floor. The band has played together for more than forty years, and three of its members are over eighty. Their leader, Stan Bright, still practises the trumpet every day before breakfast. Any money left over will go towards the hall's new kitchen. Tully's nan has bought six tickets and has already ironed her dancing shoes."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "The Bluster Rock tourism office has printed a glossy new brochure. Tully is reading it aloud in a very dramatic voice.",
+      "text": "WINTER ON BLUSTER ROCK: YOUR TIME, AT LAST. The kids have left home, the alarm clock is a thing of the past, and the open road is calling. Why spend another cold, grey winter in the city when you could be watching the sun go down over the red rock, with a cup of tea in your hand and nowhere to be in the morning? Bluster Rock's caravan park has sixty powered sites, each with its own water tap and a shady tree, plus hot showers, a laundry and a camp kitchen. Stay for a week, a month or the whole season: the longer you stay, the cheaper each night becomes, and holders of a seniors' card save a further 15 per cent. Our winter days are warm and dry, averaging 22 degrees, so you can leave the heavy coats at home. Join the morning walking group, try the Tuesday lawn bowls, or simply sit by the camp fire and swap stories with fellow travellers from all over the country. Many of our winter guests have been returning every year for over a decade, and they say the island feels like a second home. Book your site now, before the best spots by the water are taken.",
+      "prompt": "Who is the brochure aimed at, and what does it want them to do?",
+      "success": "Grown-up kids, no alarm clock, a seniors' card and caravan sites all point to retired travellers spending winter here.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "families with young children, to visit during the school holidays",
+            "reason": "The brochure says 'the kids have left home'. It's for people whose children are grown up."
+          },
+          {
+            "text": "young backpackers, to find seasonal work on the island",
+            "reason": "Nothing mentions jobs, and 'the alarm clock is a thing of the past' means no work to get up for."
+          },
+          {
+            "text": "local residents, to rent their spare rooms to tourists",
+            "reason": "The brochure talks to people living 'in the city', inviting them to come and stay."
+          },
+          {
+            "text": "retired travellers, to spend the winter in the caravan park"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.8-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Bluster Rock marine rangers have written to some islanders about a new program. The Pitchling is trying to work out exactly who.",
+      "prompt": "Tap the sentence that most clearly shows who the letter is written for.",
+      "success": "Holding a boat licence and fishing these waters is a precise description of the reader: local recreational fishers.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Dear neighbour, the marine rangers are launching a new program this spring, and we would value your help. Over the past ten years, the number of large snapper in Bluster Bay has fallen by almost half, and young fish are being caught before they are old enough to breed. ",
+          {
+            "tap": "Bluster Bay is one of the most beautiful places on the island, and it belongs to all of us.",
+            "reason": "Anyone who lives on the island could be told this. It doesn't narrow down who the reader is."
+          },
+          " ",
+          {
+            "tap": "As someone who holds a boat licence and fishes these waters, you know better than anyone how the snapper have changed."
+          },
+          " ",
+          {
+            "tap": "Scientists from the mainland university have been counting fish in the bay since 2014.",
+            "reason": "This is background evidence. It tells you about the scientists, not about the reader."
+          },
+          " ",
+          {
+            "tap": "We would be grateful if you could share this letter with your friends and family.",
+            "reason": "Any reader could be asked to share a letter. This doesn't show who it's written for."
+          },
+          " The program, called Throw One Back, asks you to release any snapper shorter than 40 centimetres, even though the legal size is 30. Every participant will receive a free measuring board for their boat and a sticker for their tackle box. Results will be shared at a barbecue at the boat ramp in autumn, and the boat that releases the most fish will win a new set of rods. You can sign up at the ranger station, or by returning the form attached to this letter."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b4-3",
+      "band": 4,
+      "topic": "robots",
+      "frame": "A robot vacuum company has written three ads for the same machine, each aimed at different customers. Gus has the strips spread across the galley table.",
+      "text": "The Dustwhisker 9 is a small robot vacuum that cleans floors on its own, then returns to its charging dock. It has a filter that traps fine dust and pollen, a brush that untangles long hair, and a quiet mode that is no louder than a whisper. It can be set to run at any time of day from a phone. Its maker wrote three separate ads for it, each aimed at a different kind of customer, and printed them as strips of paper for a shop display. The Dustwhisker 9 costs $480, comes with a two-year guarantee, and can clean a three-bedroom house on a single charge. Its bin holds a full week of dust, and a small light glows orange when the bin needs emptying. Before they were stuck up, a gust of wind blew them off the counter, and the shop assistant asked Gus to put them back in the right piles. Gus says it's the most useful thing anyone has ever asked him to do. He has also asked whether the Dustwhisker can be trained to pick up slime, and the shop assistant has stopped answering his questions. Mo asked if it could clean up after his cooking. The assistant laughed, then realised he was serious.",
+      "prompt": "Sort each line by the customers it is aimed at.",
+      "success": "Fur and hair point to pet owners. Sneezing and pollen point to allergy sufferers. Sleeping babies point to new parents.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "pet owners",
+          "people with allergies",
+          "parents of a new baby"
+        ],
+        "items": [
+          {
+            "text": "Say goodbye to dog hair on the couch and cat fur under the bed.",
+            "bin": 0,
+            "reason": "Dog hair and cat fur only matter to people who have pets."
+          },
+          {
+            "text": "Its special brush untangles long fur, so it never chokes on a moulting kelpie.",
+            "bin": 0,
+            "reason": "A moulting kelpie is a pet dog, so this line speaks to pet owners."
+          },
+          {
+            "text": "Its filter traps the pollen and dust that leave you sneezing every spring.",
+            "bin": 1,
+            "reason": "Sneezing at pollen and dust is what happens to people with allergies."
+          },
+          {
+            "text": "Breathe easier at night, with fewer of the specks that set off your hay fever.",
+            "bin": 1,
+            "reason": "Hay fever is an allergy, so this line is for allergy sufferers."
+          },
+          {
+            "text": "Whisper-quiet mode means it can clean the nursery while the baby naps.",
+            "bin": 2,
+            "reason": "A nursery and a napping baby speak to parents of a new baby."
+          },
+          {
+            "text": "Set it to run during the 2 am feed, without waking anyone up.",
+            "bin": 2,
+            "reason": "A 2 am feed is something new parents of a baby do."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.8-b4-4",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "A new escape room has opened in the old Bluster Rock bank. Indi wrote a note about its ad, but got one part wrong.",
+      "text": "THE VAULT: AN ESCAPE ROOM FOR TEAMS THAT MEAN BUSINESS. Is your office running on autopilot? Do your colleagues only talk to each other in emails? Bring your workplace team to The Vault, where you'll have sixty minutes to escape a haunted bank vault before the ghost of its last manager returns from his lunch break. Solving our puzzles takes clear communication, quick decisions and real trust, the very same skills your team needs back at the office. Groups of six to twelve can book weekday sessions from 9 am to 5 pm, and we can send an invoice directly to your business. Many local companies now use The Vault for staff training days, and our meeting room is available for a debrief over coffee and pastries afterwards. Please note that The Vault is not suitable for children under 16, as some puzzles take place in near-darkness and involve a recorded scream that is, frankly, quite loud. Sessions cost $45 per person, and a team photo in the vault is included. Gift vouchers are available at the front desk for managers who want to reward a hard-working team.",
+      "prompt": "Tap the wrong part of Indi's note, then choose a better one.",
+      "success": "Offices, colleagues, invoices and staff training days all point to workplace teams, not school groups.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ad is aimed at ",
+          {
+            "tap": "school groups"
+          },
+          ". It wants them to ",
+          {
+            "tap": "book a session",
+            "reason": "That's right. The ad wants groups to book weekday sessions."
+          },
+          " at The Vault."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "families with young children",
+            "reason": "The ad says it isn't suitable for children under 16."
+          },
+          {
+            "text": "workplace teams"
+          },
+          {
+            "text": "tourists visiting the island",
+            "reason": "The ad talks about your office and invoicing your business, not holidays."
+          },
+          {
+            "text": "ghost hunters",
+            "reason": "The ghost is part of the game. The ad sells teamwork for people who work together."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.8-b4-5",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "An email from Maxx arrived on the crew's tablet. Zed is reading it with his eyebrows getting higher and higher.",
+      "text": "'Hey there, Vantafam juniors! It's your favourite streamer, Maxx Vantablack, with a top-secret invitation just for you. I'm starting the Vantafam Kids' Club, and only my biggest fans aged 8 to 12 are invited. Club members get a gold badge for their gaming profile, early access to my new game, Gold Rush Racers, and a special birthday surprise from me every single year. Joining is super easy and totally free. Just fill in the form below with your full name, your birthday, your home address and the name of your school, so I know where to send your surprise. You don't need to bother your parents with this. It's just between us, Vantafam! The first 500 members will also get their name read out on my Saturday stream. Hurry, because spots are filling up fast! Smash that heart button like it owes you money, and stay gold!' At the bottom of the email, in tiny grey writing, it says that all details collected will be shared with Vantamart's partners. Wren went very quiet, then said she'd seen this trick before. Zed deleted the email and blocked the address.",
+      "prompt": "What does Maxx most want the kids reading this email to do?",
+      "success": "Everything leads to the form: name, birthday, home address and school. Maxx wants kids to hand over those details.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "send Maxx a birthday present at his home address",
+            "reason": "It's the other way round. Maxx promises the kids a birthday surprise."
+          },
+          {
+            "text": "ask their parents for permission before joining his club",
+            "reason": "Maxx says the opposite: 'You don't need to bother your parents with this.'"
+          },
+          {
+            "text": "fill in his form with their name and home address"
+          },
+          {
+            "text": "watch his stream every Saturday to hear their name read out",
+            "reason": "He mentions the Saturday stream, but only as a reward. The form is what he asks for."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.8-b4-6",
+      "band": 4,
+      "topic": "art",
+      "frame": "The Bluster Rock gallery has sent out an invitation to a new exhibition. Indi wants to go. The Pitchling isn't sure she's who it's for.",
+      "prompt": "Tap the sentence that most clearly shows who the invitation is aimed at.",
+      "success": "Prices from $4,000 and talk of investments speak to wealthy art collectors, not to everyday visitors like Indi.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "THE RED EARTH COLLECTION: AN EXCLUSIVE PREVIEW EVENING. The Bluster Rock Gallery invites you to a private preview of twenty-four new paintings by island artist Mara Quill, whose desert landscapes have been exhibited in galleries across the country. ",
+          {
+            "tap": "Each painting captures the changing colours of the rock, from the pale pink of dawn to the deep crimson of sunset.",
+            "reason": "This describes the art. Anyone who likes paintings could enjoy reading it."
+          },
+          " ",
+          {
+            "tap": "The preview evening begins at 6 pm on Friday 9 May, with drinks served in the courtyard.",
+            "reason": "A time and drinks could suit many guests. It doesn't narrow down who's invited."
+          },
+          " ",
+          {
+            "tap": "With prices starting at $4,000, these original works are a sound investment for the serious collector."
+          },
+          " ",
+          {
+            "tap": "Mara Quill will give a short talk about her painting methods at 7 pm.",
+            "reason": "An artist's talk could interest students, artists or collectors. It isn't a clear clue."
+          },
+          " Mara Quill grew up on a sheep station at the foot of the rock and taught herself to paint with house paint on old fence palings. Her largest work in this collection is three metres wide and took eighteen months to finish. Guests who reserve a painting on the night will receive a signed print and free delivery anywhere in Australia. Numbers are strictly limited, so please reply to this invitation by 1 May. The exhibition opens to the public the following Saturday, when entry will be free for everyone. Indi has decided to go on Saturday instead, with her sketchbook and a packed lunch."
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

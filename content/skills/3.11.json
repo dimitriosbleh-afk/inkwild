@@ -1,0 +1,912 @@
+{
+  "skill": {
+    "id": "3.11",
+    "name": "Can I trust this source?",
+    "codes": [
+      "VC2E5LA02",
+      "VC2E6LY06"
+    ],
+    "why": "Some texts are written to trick you. Clues show you who to trust.",
+    "how": "Check who wrote it, what they gain, their evidence, and how recent it is.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Before you believe a text, check who's behind it."
+          },
+          {
+            "say": "Who wrote it? Do they really know the topic?",
+            "show": "Written by **Dr Lee, snake scientist**."
+          },
+          {
+            "say": "What do they gain? Sellers want your money.",
+            "show": "**Buy my snake spray!** Snakes hate it!"
+          },
+          {
+            "say": "Do they show evidence, or just say it?",
+            "show": "**We tested it on fifty snakes.**"
+          },
+          {
+            "say": "How old is it? Old news can be wrong now.",
+            "show": "Posted **nine years ago**."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Sign A, from Ranger Mia, put up this week: We tested the waterhole on Monday. It is safe for swimming. Sign B, a faded flyer from Splashy's Floaties, six years old: The waterhole is perfect! Buy a Splashy ring before you jump in!",
+          "prompt": "Which sign should you trust more about the water?",
+          "hint": "Who wrote each one? Which one shows evidence, and which one is newer?",
+          "success": "Ranger Mia's sign. She tested the water this week, and she isn't selling anything.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Ranger Mia's sign"
+              },
+              {
+                "text": "the Splashy's flyer",
+                "reason": "It's six years old, and Splashy's wants to sell you a ring."
+              },
+              {
+                "text": "they're just as good",
+                "reason": "Only the ranger tested the water, and her sign is from this week."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "A review says: 'The new skate park is the best in the state! Everyone should go.' Zed found three clues about it.",
+          "prompt": "Tap the clue that shows the writer gains something.",
+          "hint": "Who would make money if lots of people went to the park?",
+          "success": "Kel owns the shop next door. More skaters at the park means more sales for Kel.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              {
+                "tap": "The ramps are painted bright blue.",
+                "reason": "This describes the park. It doesn't show what the writer gains."
+              },
+              " ",
+              {
+                "tap": "The writer, Kel, owns the skate shop next door."
+              },
+              " ",
+              {
+                "tap": "The park opened on Saturday.",
+                "reason": "This tells you when it opened, not what the writer gains."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "proofanna",
+      "name": "Proofanna",
+      "evolved": "Provenator",
+      "blurb": "A sand goanna that flicks its tongue to taste where a message came from. Who wrote it? What do they gain? Its tongue knows."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.11-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Mo saw a snake near the shed. The Proofanna flicked its tongue at two texts about snakes.",
+      "text": "TEXT A: A fact sheet from Ranger Mia. She has studied snakes for twenty years. It was updated last week. It says: Most snakes leave people alone. In a count last summer, rangers saw 300 snakes. Not one chased a person. If you see a snake, back away slowly and call a ranger. TEXT B: An ad from Bazza's Snake Spray. It says: Snakes are everywhere! Spray your shed every day, or else! Only twenty dollars a can!",
+      "prompt": "Which text should Mo trust more about snakes?",
+      "success": "Ranger Mia's fact sheet. She knows snakes, it's new, it has evidence, and she isn't selling anything.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Ranger Mia's fact sheet"
+          },
+          {
+            "text": "Bazza's spray ad",
+            "reason": "Bazza wants to sell you spray, and he shows no evidence."
+          },
+          {
+            "text": "they are both as good",
+            "reason": "Only Ranger Mia knows snakes and shows evidence. Bazza just wants your money."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.11-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo found a pie review stuck to a lamp post. The Proofanna is sniffing the gravy stain.",
+      "prompt": "Tap the clue that shows the writer gains something.",
+      "success": "The writer owns the shop. If you believe the review and buy pies, Pete makes money.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "PIE REVIEW. These are the best pies on Bluster Rock! The pastry is flaky. The gravy is rich and hot. You will never want another pie. Ten out of ten! Go to Pete's Pie Shop today, and bring all your friends. The sauce is free on Fridays. ",
+          {
+            "tap": "Written by Pete, the owner of Pete's Pie Shop."
+          },
+          " ",
+          {
+            "tap": "Posted yesterday.",
+            "reason": "This tells you the review is new. It doesn't show what the writer gains."
+          },
+          " ",
+          {
+            "tap": "The shop is on Spinifex Street.",
+            "reason": "This tells you where the shop is, not what the writer gains."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.11-b1-3",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed found a page about seeing Saturn's rings from Bluster Rock. The Proofanna wants to check it.",
+      "prompt": "Put each clue about the page in the right box.",
+      "success": "Experts, photos and new dates help. Sellers, old dates and 'trust me' are warning signs.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "trust it more",
+          "trust it less"
+        ],
+        "items": [
+          {
+            "text": "The writer is an astronomer at the Bluster Rock observatory.",
+            "bin": 0,
+            "reason": "An astronomer knows a lot about planets."
+          },
+          {
+            "text": "The page was written forty years ago.",
+            "bin": 1,
+            "reason": "Forty years is a long time. Things may have changed."
+          },
+          {
+            "text": "The writer sells the telescope the page talks about.",
+            "bin": 1,
+            "reason": "The writer makes money if you believe the page."
+          },
+          {
+            "text": "The page's facts don't match the observatory's own website.",
+            "bin": 1,
+            "reason": "If its facts don't match an expert source, the page may be wrong."
+          },
+          {
+            "text": "The page shows photos of Saturn from last week.",
+            "bin": 0,
+            "reason": "Photos are evidence, and last week is recent."
+          },
+          {
+            "text": "The page says 'Trust me!' but shows no proof.",
+            "bin": 1,
+            "reason": "Saying 'trust me' isn't evidence."
+          },
+          {
+            "text": "The page was updated this morning.",
+            "bin": 0,
+            "reason": "Updated this morning means it's recent."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.11-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully found a flyer for running boots. Zed wrote a note about it, but got one word wrong.",
+      "text": "Want to win every race? Speedy Boots make you run twice as fast! Every coach says so. Our boots have springs in the heels. They have lightning bolts on the side. Buy a pair today for only ninety dollars! Don't miss out! From the Speedy Boots company. This flyer was printed ten years ago. Tully's old runners are falling apart, but she isn't sure about these.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Ten years old. The flyer says it was printed ten years ago, so it isn't new.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Don't trust this flyer. The writer ",
+          {
+            "tap": "sells the boots",
+            "reason": "That's right. The flyer is from the Speedy Boots company."
+          },
+          ", it shows ",
+          {
+            "tap": "no evidence",
+            "reason": "That's right. 'Every coach says so' isn't proof. No coach is named."
+          },
+          ", and it is ",
+          {
+            "tap": "brand new"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "from a coach",
+            "reason": "A boot company wrote it, not a coach."
+          },
+          {
+            "text": "ten years old"
+          },
+          {
+            "text": "very recent",
+            "reason": "It was printed ten years ago. That isn't recent."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.11-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live again. The Proofanna's tongue is flicking like mad.",
+      "text": "'Maxx it out, Vantafam! Look at this little Creature. See how shiny it is? That's my Gold Glow cream! It makes every Creature happy. Trust me, I'm an expert. You can buy it in my own shop for thirty dollars a jar. Buy ten jars! Smash that heart button! Stay gold!' The Creature in the video kept trying to wriggle out of Maxx's hands. Wren frowned.",
+      "prompt": "Which clue shows Maxx gains something?",
+      "success": "He sells the cream in his own shop. Every jar you buy puts money in Maxx's pocket.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The Creature looks shiny.",
+            "reason": "A shiny Creature doesn't show what Maxx gains."
+          },
+          {
+            "text": "He sells the cream in his own shop."
+          },
+          {
+            "text": "He says 'Stay gold!' at the end of every stream.",
+            "reason": "That's just how he says goodbye. It doesn't show what he gains."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.11-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Wren wants a swim. The Proofanna found a beach report pinned to the surf club door.",
+      "prompt": "Tap the clue that makes this report less trustworthy.",
+      "success": "Eight years is a long time. The beach could be very different now.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BEACH REPORT. Redsand Beach is safe for swimming. There are no rips near the flags. The water is calm and clear. Lots of families swim here on weekends, and the kiosk sells ice blocks. ",
+          {
+            "tap": "Written by the surf club lifeguards.",
+            "reason": "Lifeguards know the beach well. This makes the report more trustworthy."
+          },
+          " ",
+          {
+            "tap": "The lifeguards checked the water for jellyfish.",
+            "reason": "Checking is evidence. This makes the report more trustworthy."
+          },
+          " ",
+          {
+            "tap": "Posted eight years ago."
+          },
+          " Please swim between the flags, and wear a hat. Have a great day at the beach!"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.11-b2-1",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi wants to know if the Bluster Rock Art Show is worth a visit. The Proofanna found two reviews.",
+      "text": "REVIEW A, by Gail Price, whose son Leo painted the winning picture: 'Leo's sunset is the best painting in the whole show. Honestly, the other paintings are dull. You only need to see one painting, and that's Leo's.' REVIEW B, by Sam Okoro, art writer for the Bluster Rock Bugle, who doesn't know any of the artists: 'The show has forty paintings and twelve sculptures. My favourite was Leo Price's sunset, because of its bold oranges and purples. The clay galahs made by Room 3 were also clever and funny. Sadly, the lighting in the hall made some of the darker paintings hard to see. It's worth an hour of your weekend.'",
+      "prompt": "Which review should Indi trust more about the whole show?",
+      "success": "Review B. Sam has no link to the artists and talks about the whole show, good and bad.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Review A, because Gail knows the winning painting better than anyone",
+            "reason": "She knows it well, but she's Leo's mum. She wants her son to look good."
+          },
+          {
+            "text": "Review B, because Sam has no link to the artists"
+          },
+          {
+            "text": "Both are just as good, because both writers liked Leo's painting",
+            "reason": "They both liked it, but only Sam is fair to all forty paintings."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.11-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed found a secret code guide for Lava Run. The Proofanna is not convinced.",
+      "prompt": "Tap the clue that shows the guide might not work any more.",
+      "success": "The guide is for version 1, from nine years ago. Zed's game is version 6, so things have changed.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "LAVA RUN SECRET CODES. Type UP, UP, DOWN, JUMP on the title screen to get a hundred lives. Hold the left button for ten seconds to unlock the gold lava frog. These codes work every single time! ",
+          {
+            "tap": "Written by a player called LavaLord99.",
+            "reason": "This tells you who wrote it. It doesn't show the guide is out of date."
+          },
+          " ",
+          {
+            "tap": "Posted nine years ago, for version 1 of the game."
+          },
+          " ",
+          {
+            "tap": "More than two thousand people liked this guide.",
+            "reason": "Lots of likes don't tell you whether the codes still work."
+          },
+          " ",
+          {
+            "tap": "The guide has a picture of the title screen.",
+            "reason": "A picture is a clue, but it doesn't tell you how old the guide is."
+          },
+          " Zed's copy of Lava Run is version 6. He typed the code three times and got nothing but a lava frog sneezing at him. Then the frog hopped off the screen, and Zed had to restart."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.11-b2-3",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wants a robot lawnmower for the island garden. The Proofanna is reading a review with him.",
+      "prompt": "Put each clue about the review in the right box.",
+      "success": "Testing, recent dates and real results help. Free gifts, no proof and company photos are warning signs.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a reason to trust it",
+          "a warning sign"
+        ],
+        "items": [
+          {
+            "text": "The review was written by a gardener who tested six different mowers.",
+            "bin": 0,
+            "reason": "Testing six mowers means the gardener has real experience to share."
+          },
+          {
+            "text": "It was posted last month.",
+            "bin": 0,
+            "reason": "Last month is recent, so the facts are probably still true."
+          },
+          {
+            "text": "It shows how long each mower took to cut the same lawn.",
+            "bin": 0,
+            "reason": "Timing every mower on the same lawn is evidence."
+          },
+          {
+            "text": "The gardener got a free mower and fifty dollars from the company.",
+            "bin": 1,
+            "reason": "The gardener gained something from the company, so the review might not be fair."
+          },
+          {
+            "text": "It says the Mowzilla 'never, ever breaks' but gives no proof.",
+            "bin": 1,
+            "reason": "A big claim with no proof is a warning sign."
+          },
+          {
+            "text": "Every photo in the review was taken by the company.",
+            "bin": 1,
+            "reason": "The company wants to sell mowers, so its photos might only show the good bits."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.11-b2-4",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Mo swallowed his gum and panicked. Gus checked the post that scared him, and wrote a note.",
+      "text": "WARNING!!! If you swallow chewing gum, it stays in your tummy for SEVEN YEARS! It just sits there, getting bigger and bigger. Share this with everyone you know! Posted by Uncle Rodney, who heard it from a mate at the footy. Posted fifteen years ago. No doctors or scientists are named, and the post has no links to any studies. Mo read it twice and then sat very still for an hour, waiting to feel heavier. Gus said that wasn't how stomachs worked, but he wanted to check the post properly first. Mo waited, and quietly unwrapped a fresh piece of gum.",
+      "prompt": "Tap the part of Gus's note that's wrong, then choose a better one.",
+      "success": "Uncle Rodney only heard it from a mate. That's why the post is hard to trust.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "This post is hard to trust. It was written by ",
+          {
+            "tap": "a doctor"
+          },
+          ", it is ",
+          {
+            "tap": "fifteen years old",
+            "reason": "That's right. The post is fifteen years old."
+          },
+          ", and it shows ",
+          {
+            "tap": "no evidence",
+            "reason": "That's right. No doctors, scientists or studies are named."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "someone who heard it from a mate"
+          },
+          {
+            "text": "a chewing gum company",
+            "reason": "No gum company is mentioned. Uncle Rodney heard it from a mate."
+          },
+          {
+            "text": "a stomach scientist",
+            "reason": "No scientist is named. Uncle Rodney heard it from a mate at the footy."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.11-b2-5",
+      "band": 2,
+      "topic": "music",
+      "frame": "Tully needs to know when Saturday's school concert starts. The school changed the time this week. The Proofanna found three answers.",
+      "prompt": "Put the sources from most trustworthy to least trustworthy. Check who made each one, and when.",
+      "success": "Official and newest, then official but out of date, then an old guess from someone outside the school.",
+      "body": {
+        "format": "order",
+        "items": [
+          "This week's school newsletter, the newest notice: 'The concert time has changed. It now starts at 6 pm.'",
+          "A poster the school put up last month, before the change: 'The concert starts at 5 pm.'",
+          "A text Mo's cousin sent last month. He isn't at the school. 'I think it's at 7.'"
+        ],
+        "reason": "Newsletter: the school's newest notice. Poster: the school's, but old. Cousin: an old guess from outside the school."
+      }
+    },
+    {
+      "id": "3.11-b2-6",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren is about to feed the ducks at the Bluster Rock dam. The Proofanna found two posts about it.",
+      "text": "POST A, by Dr Asha Rao, vet at the Bluster Rock Wildlife Hospital. Updated this month. 'Bread fills ducks up, but it has almost none of the goodness they need. Last year, we treated fourteen sick ducks that had been eating mostly bread. If you want to feed ducks, try a handful of frozen peas or oats instead.' POST B, by the Bread Barn bakery. Posted three years ago. 'Ducks LOVE bread! Nothing makes a duck happier. Try our special Duck Loaf, only four dollars, baked fresh every morning. Your ducks will thank you!' Wren has a bag of frozen peas in her backpack, just in case.",
+      "prompt": "Why should Wren be careful about Post B?",
+      "success": "The bakery makes money from Duck Loaf. It gains if Wren believes the post.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It was written by a vet who works with ducks.",
+            "reason": "That's Post A. Post B is from a bakery."
+          },
+          {
+            "text": "It is short, so it can't be true.",
+            "reason": "Short texts can be true. The real problem is what the bakery gains."
+          },
+          {
+            "text": "The bakery makes money when people buy Duck Loaf."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.11-b3-1",
+      "band": 3,
+      "topic": "space",
+      "frame": "Mo is hiding under the galley table. He heard an asteroid is about to hit Bluster Rock. The Proofanna checked four sources.",
+      "text": "SOURCE 1, a statement from the Bluster Rock Observatory, posted this morning: 'Our telescopes have tracked asteroid KX-41 every night for three weeks. On Friday, it will pass about eight million kilometres from Earth, which is more than twenty times the distance to the Moon. There is no danger to anyone. Our tracking charts are pinned up in the observatory foyer for anyone to check.' SOURCE 2, Maxx Vantablack's stream from yesterday: 'Vantafam, an asteroid is coming STRAIGHT for Bluster Rock! Only I can save you! Grab my Asteroid Survival Kit, just ninety-nine dollars!' SOURCE 3, a newspaper article from thirty years ago: 'Astronomers warn that an asteroid could hit the island one day.' SOURCE 4, an anonymous comment under Maxx's stream: 'My uncle works at a secret base, and he says it's real. Trust me.' Mo wants to know whether to pack an emergency bag of sausage rolls. The Proofanna has already eaten two.",
+      "prompt": "Which source should Mo trust most?",
+      "success": "The observatory. It's new, it's from experts, it shows evidence and it isn't selling anything.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx's stream",
+            "reason": "Maxx gains money if you panic and buy his kit, and he shows no evidence."
+          },
+          {
+            "text": "the thirty-year-old article",
+            "reason": "It's very old, and it's about 'one day', not this Friday."
+          },
+          {
+            "text": "the observatory's statement"
+          },
+          {
+            "text": "the anonymous comment",
+            "reason": "Nobody knows who wrote it, and 'trust me' isn't evidence."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.11-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wants the canteen to sell Brainy Bars before every test. The Proofanna dug up the article he read.",
+      "prompt": "Tap the clue that shows the evidence is weak.",
+      "success": "Six people, all from the company's own office, is far too small and far from fair.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BIG NEWS: CHOCOLATE MAKES YOU SMARTER! Eat one Brainy Bar every morning, and your test scores will soar. Brainy Bars are packed with cocoa, honey and a secret blend of brain-boosting crunchies. Kids who ate them said they felt more awake in class, and one boy said he finished his maths sheet in record time. Teachers are said to be amazed. The wrapper is gold and purple, with a picture of a lightbulb on the front. The company says the bars will be in every canteen by next term. Scientists have proven it, so why wait? ",
+          {
+            "tap": "This article was written by the Brainy Bar Chocolate Company.",
+            "reason": "This is a warning sign about who gains, not about the evidence."
+          },
+          " ",
+          {
+            "tap": "It was posted twelve years ago.",
+            "reason": "This is a warning sign about how old it is, not about the evidence."
+          },
+          " ",
+          {
+            "tap": "The company's study tested just six people, and all of them worked in its own office."
+          },
+          " ",
+          {
+            "tap": "Brainy Bars cost three dollars each.",
+            "reason": "This is about price. It tells you nothing about the evidence."
+          },
+          " Mo has already eaten four, and he says he can now count to a thousand in his head, although he hasn't tried yet. Gus says that isn't science."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.11-b3-3",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is checking reports about sports drinks for the Reef Rays. The Proofanna made her a list of clues.",
+      "prompt": "Put each clue in the right box.",
+      "success": "Independent experts, big studies and new dates help. Company money, no numbers and old results are warnings.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "trust the report more",
+          "trust the report less"
+        ],
+        "items": [
+          {
+            "text": "The writers are sports scientists with no link to any drink company.",
+            "bin": 0,
+            "reason": "Experts with nothing to gain are more likely to be fair."
+          },
+          {
+            "text": "The study tested two hundred runners over a whole season.",
+            "bin": 0,
+            "reason": "A big, long study is strong evidence."
+          },
+          {
+            "text": "The report was published this year.",
+            "bin": 0,
+            "reason": "This year is recent, so the findings are up to date."
+          },
+          {
+            "text": "Other scientists repeated the study and got the same results.",
+            "bin": 0,
+            "reason": "When others repeat a study and get the same results, the evidence is stronger."
+          },
+          {
+            "text": "The study was paid for by the company that makes the drink.",
+            "bin": 1,
+            "reason": "The company gains if the drink looks good, so the report might be one-sided."
+          },
+          {
+            "text": "It calls the drink 'the only drink real athletes need' but gives no numbers.",
+            "bin": 1,
+            "reason": "A big claim with no numbers is not evidence."
+          },
+          {
+            "text": "The newest result in the report is from twenty years ago.",
+            "bin": 1,
+            "reason": "Twenty-year-old results may be out of date now."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.11-b3-4",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "A flyer about a giant beach slide blew onto the Soggy Biscuit's deck. Wren filled in a checklist about it, but made one mistake.",
+      "text": "VOTE YES TO THE MEGA-SLIDE! Smiles have TRIPLED at every beach that got a SplashKing slide, and every family deserves one. The only way to make summer truly fun is a SplashKing Mega-Slide, made from our famous triple-strength rubber. A picture shows a giant blow-up slide shaped like a whale, with a grinning kid flying off its tail. Tell the council to put SplashKing slides on every beach on Bluster Rock, before summer is over! Our slides have been sold to beaches all along the coast, and our customers love them. Order now and get ten per cent off. Flyer from SplashKing Slides, the island's biggest seller of blow-up slides. Printed last week. Wren loves a good slide, so she wanted to take the flyer seriously. But before she believed it, she wanted to know who was behind it. Small print at the bottom: Figures come from our company's own records. Wren read it twice, then reached for her checklist and the Proofanna, which was already trying to bounce on the picture.",
+      "prompt": "Tap the part of Wren's checklist that's wrong, then choose a better one.",
+      "success": "The small print says the figures come from the company's own records. Nobody outside checked them.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Who wrote it? A company that ",
+          {
+            "tap": "sells blow-up slides",
+            "reason": "That's right. SplashKing Slides is the island's biggest seller of blow-up slides."
+          },
+          ". Is it recent? ",
+          {
+            "tap": "Yes, last week",
+            "reason": "That's right. The flyer was printed last week."
+          },
+          ". Evidence? Only ",
+          {
+            "tap": "the surf club's records"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "a scientist's study of beaches",
+            "reason": "No scientist is named. The figures come from the company itself."
+          },
+          {
+            "text": "the council's beach reports",
+            "reason": "The council isn't given as a source. The figures are from the company."
+          },
+          {
+            "text": "the company's own records"
+          },
+          {
+            "text": "the lifeguards' daily logs",
+            "reason": "No lifeguards are mentioned. The small print names the company's own records."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.11-b3-5",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren found a wombat with patchy fur near the dam. Before she helps it, the Proofanna wants her to check her sources.",
+      "prompt": "Put the sources from most trustworthy to least trustworthy.",
+      "success": "Recent experts with evidence come first. Old experts come next. Sellers with no evidence come last.",
+      "body": {
+        "format": "order",
+        "items": [
+          "A guide from the Bluster Rock Wildlife Hospital, updated this year, with photos from three hundred wombats it has treated.",
+          "A wildlife book from the town library, written by a vet and printed twenty-five years ago.",
+          "A post by a company selling 'magic wombat cream', with no photos and no studies."
+        ],
+        "reason": "The hospital is expert, recent and has evidence. The book is expert but old. The seller gains and shows nothing."
+      }
+    },
+    {
+      "id": "3.11-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Maxx posted a new video from his Creature Spa. The Proofanna's tongue hasn't stopped flicking.",
+      "text": "'Welcome to the Maxx Creature Spa, Vantafam! Every Creature I rescue comes here to relax. They get gold pillows, bubble baths and three massages a day. These are the happiest Creatures in the world. Look at this little guy. He's literally smiling. Well, I think that's a smile. My team checks on them every single day, and they say everything is perfect. And my team would never lie to me, because I pay them very well. How do I know? Because I'm Maxx, and I said so! I don't need some boring vet poking around in here. Trust me, it's five-star luxury. Smash that heart button like it owes you money! Stay gold!' The video is forty seconds long. It shows one Creature, in one room, and the camera never turns around. Every comment that asks to see the rest of the spa has been deleted. Not one vet, ranger or scientist is named anywhere in the video. Wren watched it four times and went very quiet.",
+      "prompt": "What would make Maxx's claim more trustworthy?",
+      "success": "An outside vet has nothing to gain from Maxx, and a report is real evidence.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx saying it louder and more often on every single one of his streams",
+            "reason": "Saying something more often doesn't make it true. It's still just Maxx's word."
+          },
+          {
+            "text": "More followers smashing the heart button under the video",
+            "reason": "Likes show the video is popular, not that the Creatures are happy."
+          },
+          {
+            "text": "An outside vet checking the Creatures and sharing her report"
+          },
+          {
+            "text": "Brighter lights and happier music in the spa video",
+            "reason": "That would make the video look nicer. It wouldn't be evidence."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.11-b4-1",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus wants a RoboPup, a robot dog. The Proofanna found two reports that disagree about its battery.",
+      "text": "REPORT A, from PupTech, the company that designed and builds RoboPup. Posted last week. 'RoboPup is the most advanced robot pet ever made. Its long-life battery lasts for days, so the fun never has to stop! RoboPup can sit, roll over and fetch, and it never needs feeding or walking. Our engineers have spent five years making it perfect. Ninety-nine per cent of kids love RoboPup, and thousands of happy comments online agree. Order yours today and get a free squeaky bone.' REPORT B, from Fair Go Testers, a group that is paid by its members and accepts no money from toy companies. Posted last month. 'We bought fifty RoboPups from ordinary shops and tested them for three months. On average, the battery lasted nine hours from a full charge, not days. After eight weeks, eleven of the fifty batteries would no longer charge at all. We also asked thirty families to use RoboPup at home and keep a diary. Most children loved it for the first week, but several said it became boring once the battery kept running flat. RoboPup is fun to play with, and it learnt tricks quickly, but buyers should know that the battery is its weak point. Our full results, robot by robot, are printed on the back page.'",
+      "prompt": "Which statement best explains why Report B is more trustworthy?",
+      "success": "Fair Go Testers gain nothing from sales, and they show detailed results from fifty robots.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Its testers gain nothing from sales, and they show results from fifty robots."
+          },
+          {
+            "text": "It was posted more recently than Report A, so its results are more up to date.",
+            "reason": "Report B was posted last month and Report A last week, so B is older."
+          },
+          {
+            "text": "It quotes thousands of happy comments online, so lots of people agree with it.",
+            "reason": "Report A mentions the happy comments, not Report B. Comments aren't careful evidence anyway."
+          },
+          {
+            "text": "Its writers designed and built RoboPup, so they understand the battery best.",
+            "reason": "That describes Report A. A company gains when its own product looks good."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.11-b4-2",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Mo found an article about the Bluster Rock lighthouse ghost. He wants to believe it. The Proofanna is not so sure.",
+      "prompt": "Tap the clue that shows the writer gains from you believing the story.",
+      "success": "A ghost tour company sells more tickets if you believe in the ghost. That's what the writer gains.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "THE LADY OF THE LIGHT. On stormy nights, they say, a woman in a long grey coat can be seen at the top of the old Bluster Rock lighthouse, holding a lantern out over the black water. Her name was Edith Crane, and she was the keeper's daughter. One winter, her father's boat failed to come home, and Edith kept the lamp burning for forty nights, waiting for him. He never returned. Ever since, sailors have reported a flickering light in the tower, long after the lamp was switched off for good. Some say that if you stand at the bottom of the stairs at midnight, you can hear her calling her father's name. Others claim the lantern swings even when there is no wind at all. The old keeper's cottage still stands beside the tower, its windows boarded up. ",
+          {
+            "tap": "The writer says that every local knows the story is true.",
+            "reason": "This is a claim with no proof, but it doesn't show what the writer gains."
+          },
+          " ",
+          {
+            "tap": "No photos, diaries or records of the ghost are given.",
+            "reason": "This is about missing evidence, not about what the writer gains."
+          },
+          " ",
+          {
+            "tap": "The article was first published more than sixty years ago.",
+            "reason": "This is a warning about age. It doesn't show what the writer gains."
+          },
+          " ",
+          {
+            "tap": "The article was written by Captain Morrow's Ghost Tours, which runs nightly trips to the lighthouse at forty dollars a ticket."
+          },
+          " Mo has already booked two tickets, and he is practising his scream."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.11-b4-3",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Zed compared Maxx's Rescue Fund donation page with the Bluster Rock Wildlife Hospital's donation page.",
+      "prompt": "Put each clue in the right box.",
+      "success": "The hospital shows checks, recent updates and exact spending. Maxx shows no proof, no outside checks and nothing new.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a reason to trust the page",
+          "a reason to doubt the page"
+        ],
+        "items": [
+          {
+            "text": "Maxx's page says every dollar 'goes straight to rescued Creatures', but it shows no receipts or reports.",
+            "bin": 1,
+            "reason": "A promise with no receipts or reports is not evidence."
+          },
+          {
+            "text": "Maxx's fund is run by Maxx himself, and nobody outside his company checks the money.",
+            "bin": 1,
+            "reason": "If nobody outside checks, Maxx could spend the money on anything."
+          },
+          {
+            "text": "The newest update on Maxx's page is from three years ago.",
+            "bin": 1,
+            "reason": "Three years with no update means you can't tell where today's money goes."
+          },
+          {
+            "text": "On the hospital's page, an outside accountant checks the money every year and posts the report.",
+            "bin": 0,
+            "reason": "An outside check by someone with nothing to gain is strong evidence."
+          },
+          {
+            "text": "The hospital's page was last updated two weeks ago, with photos of the new possum enclosure.",
+            "bin": 0,
+            "reason": "It's recent, and the photos show where the money went."
+          },
+          {
+            "text": "The hospital's page lists exactly what the money paid for, such as 412 bags of joey formula.",
+            "bin": 0,
+            "reason": "Exact details are evidence you could check."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.11-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "Tully read a rave review of the Dusty Possums' new album. Zed wrote a trust check, but got one part wrong.",
+      "text": "ALBUM REVIEW: 'RED DIRT ROAD' by The Dusty Possums. Posted this week. Let me be clear: this is the greatest album ever recorded on Bluster Rock, and possibly anywhere. From the first twang of the banjo to the final crash of the drums, every one of its twelve songs is a number-one hit waiting to happen. The band formed four years ago in a shearing shed outside town, and this is their second album. The drumming on 'Galah Galah' is so fast that I worried the drummer might take off. Song seven, a slow ballad about a lost cattle dog, made me cry twice. There is not one weak moment from start to finish.Critics who say the middle songs sound the same simply haven't listened properly. Lead singer Mabel Dunn's voice is like honey poured over gravel, and the title track will have you dancing in your kitchen. If you buy one album this year, make it this one, and buy a second copy for a friend. I can't recommend it highly enough. You can order it from the band's own shop, where signed copies are thirty dollars. Review by Jett Ramone, manager of The Dusty Possums, who is paid a share of every album sold.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "Jett Ramone is the band's manager. He's paid more when more albums sell, so he gains from a rave review.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The review is recent, because it was posted ",
+          {
+            "tap": "this week",
+            "reason": "That's right. The review says it was posted this week."
+          },
+          ". But it's hard to trust, because the writer is ",
+          {
+            "tap": "a music critic"
+          },
+          " who earns money when ",
+          {
+            "tap": "albums sell",
+            "reason": "That's right. Jett is paid a share of every album sold."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "a fan who bought the album",
+            "reason": "The writer isn't just a fan. Jett Ramone is the band's manager."
+          },
+          {
+            "text": "the band's manager"
+          },
+          {
+            "text": "a radio presenter",
+            "reason": "No radio presenter is mentioned. The review is by the band's manager."
+          },
+          {
+            "text": "the band's drummer",
+            "reason": "The drummer isn't named as the writer. Jett Ramone is the band's manager."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.11-b4-5",
+      "band": 4,
+      "topic": "general",
+      "frame": "After the big flood, Mo wants to know if the tap water on Bluster Rock is safe to drink. The Proofanna gathered three sources.",
+      "prompt": "Put the sources from most trustworthy to least trustworthy.",
+      "success": "Fresh test results first, then an older but expert leaflet, then an ad from someone selling the alternative.",
+      "body": {
+        "format": "order",
+        "items": [
+          "The town water authority's test results, posted this morning, showing samples from twelve taps across Bluster Rock.",
+          "A health department leaflet about floods, printed eight years ago, which says to boil water until tests show it is safe.",
+          "An ad from a bottled water company that says, 'Never trust tap water again!' but gives no test results."
+        ],
+        "reason": "The results are expert, new and full of evidence. The leaflet is expert but old. The ad gains from fear."
+      }
+    },
+    {
+      "id": "3.11-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Players keep twisting their ankles on the new Bluster Rock oval. Tully found two articles that disagree about why.",
+      "text": "ARTICLE A, from Grassmaster Turf, the company that laid the oval's new artificial grass. Posted last year. 'Grassmaster Turf is the safest playing surface money can buy. No injuries have ever been linked to our turf, and players everywhere love the bounce. Our turf is made from the finest materials and has been laid at more than two hundred grounds. It stays green all year, even in the hottest summer, and never needs mowing.Clubs that switch to Grassmaster never look back.' ARTICLE B, by Dr Kim Lau, physiotherapist for the Bluster Rock footy club. Posted last week. 'This season, I treated twenty-three ankle injuries from games on the new turf. Last season, on the old grass, I treated six. Most of the injuries happened late in games, and most were on the wing near the clubrooms, where the surface feels hardest underfoot. Several players have also told me their boots grip too tightly when they turn. That is a worrying jump, although it does not yet prove that the turf is the cause, because we also have more players this year. Together with the council, I am now measuring how hard the surface is in different spots, and I will share the results with every club member. Until then, players should wear boots with shorter studs.'",
+      "prompt": "Which is the best reason to be careful of Article A?",
+      "success": "Grassmaster laid the turf, so it would lose money and business if the turf were blamed.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Article A is shorter than Article B, so it must leave out lots of important facts.",
+            "reason": "Length doesn't decide trust. A short text can be true. Look at what the writer gains."
+          },
+          {
+            "text": "The company that laid the turf would lose money if the turf were blamed."
+          },
+          {
+            "text": "Article A uses the word 'turf' many times.",
+            "reason": "Repeating a word isn't a reason to doubt a source."
+          },
+          {
+            "text": "Dr Lau admits she is still testing, so Article A must be right.",
+            "reason": "Being careful about what she can prove makes Dr Lau more trustworthy, not less."
+          }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,968 @@
+{
+  "skill": {
+    "id": "3.1",
+    "name": "Fact or opinion",
+    "codes": [
+      "L4",
+      "VC2E6LA02"
+    ],
+    "why": "Persuaders mix facts and opinions. Knowing which is which stops you being fooled.",
+    "how": "Ask: could I check this and prove it true or false? Yes means fact.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A fact is something you could check.",
+            "show": "The Reef Rays **won by 12 points**."
+          },
+          {
+            "say": "Look at the scoreboard. It's either true or false."
+          },
+          {
+            "say": "An opinion is what someone thinks. You can't prove it.",
+            "show": "The Reef Rays are **the best team ever**."
+          },
+          {
+            "say": "Watch for words like best, boring and should.",
+            "show": "Everyone **should** watch footy. It's **never boring**."
+          },
+          {
+            "say": "Careful! A fact can be checked, even when it's wrong.",
+            "show": "Maxx: '**I have rescued 500 Creatures.**' False, but you can check it. Fact."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "prompt": "Which sentence is an opinion?",
+          "hint": "Which one could you never prove? Look for a word that shows what someone thinks.",
+          "success": "'Coolest' is what Maxx thinks. You can check the paint and count the seats, but not coolness.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Maxx's jet ski is painted gold.",
+                "reason": "You could look at the jet ski to check the colour. That's a fact."
+              },
+              {
+                "text": "Maxx's jet ski is the coolest thing on the sea."
+              },
+              {
+                "text": "Maxx's jet ski has two seats.",
+                "reason": "You could count the seats to check. That's a fact."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the fact on Mo's canteen sign.",
+          "hint": "Which one could you check on the price list?",
+          "success": "You can check '$4' on the price list. Tastiest and loving every bite are opinions.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "MO'S MEAT PIE. ",
+              {
+                "tap": "The tastiest pie in the world!",
+                "reason": "'Tastiest' is what Mo thinks. Someone else might hate it."
+              },
+              " ",
+              {
+                "tap": "Only $4 each."
+              },
+              " ",
+              {
+                "tap": "You'll love every bite!",
+                "reason": "Nobody can prove you'll love it. That's Mo's opinion."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "proovil",
+      "name": "Proovil",
+      "evolved": "Proovilisk",
+      "blurb": "A thorny devil whose spikes stand up for anything you could check and prove. Opinions just make it yawn."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.1-b1-1",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Maxx is live from the Vantamart. The Proovil's spikes are twitching.",
+      "text": "Maxx it out, Vantafam! Today I'm playing my brand-new game, Gold Rush Racer. You race a gold jet ski around Bluster Rock. Its ten tracks are the best in any game. The gold jet skis look amazing. The game costs $20 at the Vantamart. You will love every single level. Smash that heart button like it owes you money! Stay gold!",
+      "prompt": "Which sentence from Maxx's stream is a fact?",
+      "success": "You could check the price tag at the Vantamart. That makes it a fact.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Its ten tracks are the best in any game.",
+            "reason": "You can count ten tracks, but 'best' is what Maxx thinks. Nobody can prove it."
+          },
+          {
+            "text": "The gold jet skis look amazing.",
+            "reason": "'Amazing' is Maxx's opinion. Someone else might think they look silly."
+          },
+          {
+            "text": "The game costs $20 at the Vantamart."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "A sign has gone up outside the canteen. The Proovil is sniffing it.",
+      "prompt": "Tap the sentence that is an opinion.",
+      "success": "'Yummiest' is what someone thinks. Another kid might hate cheese and corn.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BLUSTER ROCK PRIMARY CANTEEN. Mo has made a new lunch special. ",
+          {
+            "tap": "It is a pie with cheese and corn inside.",
+            "reason": "You could cut a pie open to check. That's a fact."
+          },
+          " ",
+          {
+            "tap": "Each pie costs $3.",
+            "reason": "You could check the price list. That's a fact."
+          },
+          " ",
+          {
+            "tap": "The cheese and corn make it the yummiest pie on Bluster Rock."
+          },
+          " Pies are on sale every Friday at lunch. ",
+          {
+            "tap": "The canteen opens at 12:30.",
+            "reason": "You could check the sign on the canteen door. That's a fact."
+          },
+          " Get in early, because Mo only makes fifty pies. Last week they were all gone by 12:45. Mo had to eat his own lunch."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Proovil found this sign at the Lizard Park. It's looking for its cousins.",
+      "text": "Welcome to Bluster Rock Lizard Park! Meet the thorny devil. It is covered in sharp spikes. It eats ants, and it can eat thousands in one day. It drinks water through tiny grooves in its skin. Thorny devils are the cutest lizards in the world. They are a lot of fun to watch. Please do not touch them. Every visitor should take a photo at Devil Rock!",
+      "prompt": "Put each sentence from the sign in the right box.",
+      "success": "Facts can be checked by looking. Words like cutest, fun and should show an opinion.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "fact: can be checked",
+          "opinion: can't be proved"
+        ],
+        "items": [
+          {
+            "text": "Thorny devils eat ants.",
+            "bin": 0,
+            "reason": "You could watch one eat to check. That's a fact."
+          },
+          {
+            "text": "Thorny devils are the cutest lizards in the world.",
+            "bin": 1,
+            "reason": "'Cutest' is what someone thinks. You can't prove it."
+          },
+          {
+            "text": "A thorny devil is covered in spikes.",
+            "bin": 0,
+            "reason": "You could look at one to check. That's a fact."
+          },
+          {
+            "text": "They are a lot of fun to watch.",
+            "bin": 1,
+            "reason": "Some people might find them boring. That makes it an opinion."
+          },
+          {
+            "text": "Every visitor should take a photo.",
+            "bin": 1,
+            "reason": "'Should' tells you what the writer thinks you ought to do. That's an opinion."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.1-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is making a fact file about her team. Her own opinion sneaked in.",
+      "text": "Come and watch the Reef Rays! They are the greatest footy team in the world. They play in blue and white. They have won three cups. Their coach is called Coach Dunn. She has coached the team for ten years. Games start at 2 pm on Saturdays. Bring a hat and a drink bottle. It will be the best arvo of your life!",
+      "prompt": "Tully's fact file should only have facts. Tap the opinion, then choose a fact to swap in.",
+      "success": "You can check who coaches a team. 'The greatest team in the world' is only what Tully thinks.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The Reef Rays play in ",
+          {
+            "tap": "blue and white",
+            "reason": "That's a fact. You could check their jumpers."
+          },
+          ". They have won ",
+          {
+            "tap": "three cups",
+            "reason": "That's a fact. You could count the cups in the trophy case."
+          },
+          ". They are ",
+          {
+            "tap": "the greatest team in the world"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "coached by Coach Dunn"
+          },
+          {
+            "text": "the most exciting team in blue and white",
+            "reason": "You can check the colours, but 'most exciting' is still an opinion."
+          },
+          {
+            "text": "much better than the other three teams",
+            "reason": "'Better' is what Tully thinks. Fans of other teams would disagree."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.1-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Slick Vinnie is handing out flyers at the bottom of Bluster Rock.",
+      "text": "BLUSTER ROCK GHOST TOUR! Do you dare? Our tour visits the old mine at the back of the rock. The mine closed in 1923. The tour starts at 8 pm and lasts one hour. Your guide is Slick Vinnie. This one-hour tour is the scariest in Australia. A $5 ghost tour is more fun than the movies. Bring a torch, because the mine has no lights. Tickets cost $5 each.",
+      "prompt": "Which sentence from the flyer is a fact?",
+      "success": "You could check old records to see when the mine closed. That makes it a fact.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "This one-hour tour is the scariest in Australia.",
+            "reason": "You can time an hour, but 'scariest' is an opinion. Some people might not find it scary."
+          },
+          {
+            "text": "The mine closed in 1923."
+          },
+          {
+            "text": "A $5 ghost tour is more fun than the movies.",
+            "reason": "You can check the price, but 'more fun' is what the writer thinks."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.1-b1-6",
+      "band": 1,
+      "topic": "robots",
+      "frame": "An ad is flashing on the Vantamart screen. The Proovil is squinting at it.",
+      "prompt": "Tap the sentence that is a fact.",
+      "success": "You could time the battery to check it. Smartest, fantastic and should are all opinions.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "NEW at the Vantamart: the Robo-Sweep 3000! Maxx says, 'It's Maxx-imum clean!' ",
+          {
+            "tap": "Its three brushes make it the smartest robot you will ever own.",
+            "reason": "You could count the brushes, but 'smartest' is an opinion. Nobody can prove it."
+          },
+          " ",
+          {
+            "tap": "It looks fantastic in any room.",
+            "reason": "'Fantastic' is what the ad wants you to think. Someone else might think it's ugly."
+          },
+          " ",
+          {
+            "tap": "Its battery lasts for six hours."
+          },
+          " ",
+          {
+            "tap": "Every family should have one.",
+            "reason": "'Should' shows an opinion. Lots of families sweep just fine without one."
+          },
+          " Picture it zooming around your kitchen like a tiny race car! You will never sweep again. Hurry in and grab yours. Maxx it out!"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b2-1",
+      "band": 2,
+      "topic": "music",
+      "frame": "A cranky letter in the Bluster Rock Bugle. The Proovil is reading over your shoulder.",
+      "text": "Dear Editor, Last Friday, Bluster Rock Primary held its end-of-year concert in the school hall. The concert went for three hours. In my view, three hours was far too long. There were twelve acts, and every class sang at least one song. The recorder group played for twenty minutes. Those twenty minutes were the worst part of the night, and my ears are still ringing. The Year 6 drummers were much better. Next year, the school should cut the concert to one hour. Parents are busy people, and three hours on a plastic chair is not fun for anyone. Yours sincerely, Pat Grumbleton, Dune Street",
+      "prompt": "Which sentence from the letter is a fact?",
+      "success": "You could time the concert with a clock. That makes 'three hours' a fact.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The concert went for three hours."
+          },
+          {
+            "text": "In my view, three hours was far too long.",
+            "reason": "'Far too long' is the writer's opinion. Other parents might have wanted more."
+          },
+          {
+            "text": "Those twenty minutes were the worst part of the night.",
+            "reason": "You could time twenty minutes, but 'worst' is what the writer thinks."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.1-b2-2",
+      "band": 2,
+      "topic": "space",
+      "frame": "Maxx has a big announcement. The Proovil has its spikes up already.",
+      "prompt": "Tap the sentence that is an opinion.",
+      "success": "'Most exciting' is Maxx's opinion. Someone else might think a roller coaster is more exciting.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Maxx it out, Vantafam! Next month, I'm flying to space in my very own rocket, the Gold Rocket. ",
+          {
+            "tap": "The rocket is thirty metres tall.",
+            "reason": "You could measure the rocket to check. That's a fact."
+          },
+          " ",
+          {
+            "tap": "It has four seats and a tiny gold waterslide.",
+            "reason": "You could look inside and count the seats. That's a fact."
+          },
+          " The launch is on 3 March at 9 am. You can watch it live on my channel. ",
+          {
+            "tap": "A thirty-metre gold rocket is the most exciting thing anyone could ever ride."
+          },
+          " ",
+          {
+            "tap": "Tickets to watch the launch from the beach cost $50.",
+            "reason": "You could check the ticket price. That's a fact."
+          },
+          " I'll wave to you from the window. I'm packing my gold sunnies and three bottles of hair spray, just in case. Smash that heart button like it owes you money! Stay gold!"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b2-3",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Proovil found a Vantamart catalogue washed up on the beach.",
+      "text": "Dive in with the MAXX SNORKEL! This snorkel is made of gold-coloured plastic. It comes in two sizes, kids and adults. Maxx wore this snorkel on 14 shark dives last summer. It is the coolest snorkel on the planet. Every kid needs one for summer. Each snorkel comes with a free sticker of Maxx's face. Buy yours at the Vantamart for $35. Don't be the only one at the beach without one. The snorkel was designed by Maxx himself, on a napkin. Maxx says it makes him look like a golden dolphin. Wren says it makes him look like a golden duck. Two Xs, because one X is for losers!",
+      "prompt": "Put each sentence from the catalogue in the right box.",
+      "success": "Facts can be checked, even Maxx's dodgy ones. 'Coolest' and 'needs' are opinions.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "fact: can be checked",
+          "opinion: can't be proved"
+        ],
+        "items": [
+          {
+            "text": "This snorkel is made of gold-coloured plastic.",
+            "bin": 0,
+            "reason": "You could look at the snorkel to check. That's a fact."
+          },
+          {
+            "text": "Maxx wore this snorkel on 14 shark dives last summer.",
+            "bin": 0,
+            "reason": "You could check his dive records. It might be a lie, but it can be checked, so it's a fact."
+          },
+          {
+            "text": "It is the coolest snorkel on the planet.",
+            "bin": 1,
+            "reason": "'Coolest' is what the ad thinks. Nobody can prove it."
+          },
+          {
+            "text": "Every kid needs one for summer.",
+            "bin": 1,
+            "reason": "'Needs' is the ad's opinion. Plenty of kids swim happily without one."
+          },
+          {
+            "text": "It comes in two sizes.",
+            "bin": 0,
+            "reason": "You could check the shelf to see the sizes. That's a fact."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.1-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "Tully is writing a fact box for the school newsletter. An opinion sneaked in.",
+      "text": "The new mural at Bluster Rock Primary was finished on Monday. It is twelve metres long and covers the whole wall of the canteen. Thirty students helped paint it over four weekends. It shows a red kangaroo, a galah and a thorny devil sitting on top of Bluster Rock. Indi from the Soggy Biscuit crew designed it. It is the most beautiful mural in the state. Principal Okafor said she was proud of everyone. The paint cost $400, which was paid for by the school cake stall. Next term, the Year 5s will paint a second mural on the library wall. The thorny devil has a moustache. Nobody knows who added it.",
+      "prompt": "The fact box should only have facts. Tap the opinion, then choose a fact to swap in.",
+      "success": "You can check where the mural is by walking to the canteen. That's a fact.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The mural is ",
+          {
+            "tap": "twelve metres long",
+            "reason": "That's a fact. You could measure the wall."
+          },
+          ". It was painted by ",
+          {
+            "tap": "thirty students",
+            "reason": "That's a fact. You could count the names on the sign-up sheet."
+          },
+          ". It is ",
+          {
+            "tap": "the most beautiful mural in the state"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "a wonderful twelve-metre work of art",
+            "reason": "You can measure twelve metres, but 'wonderful' is still an opinion."
+          },
+          {
+            "text": "on the wall of the canteen"
+          },
+          {
+            "text": "the best thing thirty students have ever done",
+            "reason": "You can count thirty students, but 'best' is an opinion."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.1-b2-5",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo has stuck a poster on the mast of the Soggy Biscuit. The crew is groaning already.",
+      "text": "JOKE NIGHT WITH MO! Joke Night starts at 6 pm in the Bluster Rock Primary hall. Mo has written forty new jokes for the night. At $2, Joke Night is the best fun on Bluster Rock. Here's a taste: Why did the lizard go to the doctor? Because it had a thorny problem! Entry costs $2, and all the money goes to the school library. There will be a sausage sizzle at half-time. Mo is cooking, so bring a spare sausage. Mo has promised that at least one joke will be funny. Nobody else is promising anything. Last year, eleven people came, and four of them stayed until the end.",
+      "prompt": "Which sentence from the poster is an opinion?",
+      "success": "You can check the $2, but 'best fun' is an opinion. Judging by the groans, plenty of people disagree.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Joke Night starts at 6 pm in the school hall.",
+            "reason": "You could check the time and place when you turn up. That's a fact."
+          },
+          {
+            "text": "Mo has written forty new jokes for the night.",
+            "reason": "You could count Mo's jokes. That's a fact, sadly."
+          },
+          {
+            "text": "At $2, Joke Night is the best fun on Bluster Rock."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus has opened a stall at the Bluster Rock market. The Proovil is keeping its distance.",
+      "prompt": "Tap the sentence that is a fact.",
+      "success": "You could weigh a jar to check it. Disgusting, more fun and should are all opinions.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "GUS'S GOO SHOP! That's not gross. That's science! ",
+          {
+            "tap": "This slime is the most disgusting thing you will ever touch.",
+            "reason": "'Most disgusting' is what Gus thinks. You might have touched worse."
+          },
+          " ",
+          {
+            "tap": "It is far more fun than any toy in the shops.",
+            "reason": "'More fun' is Gus's opinion. Plenty of people prefer toys."
+          },
+          " ",
+          {
+            "tap": "Each jar holds 200 grams of slime."
+          },
+          " Stretch it, squish it and stick it to your little brother. Leave it in the sun and watch it bubble. ",
+          {
+            "tap": "Everyone should own at least three jars.",
+            "reason": "'Should' tells you what Gus thinks you ought to do. That's an opinion."
+          },
+          " Trust Gus, this is the best money you will ever spend. Warning: may cause giggling, shrieking and fainting big sisters. Grab yours before it slimes away! Please wash your hands afterwards. Do not, under any circumstances, let your dog lick it."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Proovil is reading a letter in the Bluster Rock Bugle, one spike at a time.",
+      "text": "Dear Editor, I am writing about the oval at Red Dune Park, where the Bluster Rock Roos play their home games. The oval has no lights. Last season, four games were cancelled because it got too dark to see the ball. Our under-12s now train at 4 pm, which means half the team misses training because of after-school jobs and buses. The council has ignored footy fans for far too long. Night games under lights are twice as exciting as day games, and they would bring crowds back to the club. Lights for the oval would cost about $80,000. The council should pay the $80,000 by next winter. Our kids deserve a proper place to play. Last month, more than three hundred people signed a petition asking for lights. Other towns nearby, like Saltbush Creek, put lights on their ovals years ago, and their junior teams have doubled in size. Please, council, do the right thing. Yours sincerely, Dev Marsh, coach of the Bluster Rock Roos",
+      "prompt": "Which sentence from the letter is a fact?",
+      "success": "You could check the club's records for cancelled games. The others are what Dev thinks.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The council should pay the $80,000 by next winter.",
+            "reason": "'Should' shows what Dev thinks the council ought to do. The number doesn't make it a fact."
+          },
+          {
+            "text": "Night games under lights are twice as exciting as day games.",
+            "reason": "Nobody can measure 'twice as exciting'. It's a judgement, and some fans prefer the sunshine."
+          },
+          {
+            "text": "Last season, four games were cancelled because it got too dark to see the ball."
+          },
+          {
+            "text": "The council has ignored footy fans for far too long.",
+            "reason": "'Far too long' is Dev's judgement. The council might say it has listened."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "Year 6 is running a campaign at the canteen. The Proovil has signed the petition twice.",
+      "prompt": "Tap the sentence that is an opinion.",
+      "success": "Whether plain water suits a 35-degree arvo is a judgement. The other three can be checked.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BRING BACK SLUSHIES! A message from the Year 6 Canteen Crew. ",
+          {
+            "tap": "The canteen stopped selling slushies in March.",
+            "reason": "You could check the canteen's menu from March. That's a fact."
+          },
+          " Since then, the canteen has sold only water, milk and juice. ",
+          {
+            "tap": "A small slushie used to cost $2.",
+            "reason": "You could check an old price list. That's a fact."
+          },
+          " On Fridays, the line for slushies used to stretch past the library. ",
+          {
+            "tap": "A 35-degree arvo is no time to be drinking plain water."
+          },
+          " ",
+          {
+            "tap": "Sixty-two students have signed our petition so far.",
+            "reason": "You could count the names on the petition. That's a fact."
+          },
+          " We will give the petition to Principal Okafor on Monday. If you want slushies back, sign the sheet outside Room 12 before lunch. The slushie machine is still in the storeroom behind the canteen, and Mr Pettigrew, the caretaker, says it works perfectly. Slushies used to come in two flavours, raspberry and lime. Last year, slushie sales raised $600 for the school library. The Year 6 Canteen Crew has offered to clean the machine every Friday afternoon. Mo says he can make a slushie from frozen gravy, but we have politely asked him not to."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b3-3",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren pinned two notices side by side on the Soggy Biscuit's noticeboard.",
+      "text": "NOTICE 1, from the Red Dust Dingo Rescue: We look after dingo pups that have lost their mothers. Dingo pups are usually born in litters of about five. Our centre is open from 9 am to 4 pm every day except Monday. Each pup stays with us for about four months before it is ready to go to a sanctuary. Last year, we cared for nineteen pups, and our vets check every pup twice a day. Every dingo pup deserves a safe and loving home. Volunteers are always welcome. NOTICE 2, from the Vantamart: Maxx Vantablack rescued 312 dingoes last year. Come and meet Goldie, his famous dingo pup, every Saturday at the Vantamart. Goldie wears a gold collar with Maxx's face on it. Every photo comes with a signed Maxx poster. Watching Goldie play is the best way to spend a weekend. Photos with Goldie cost $15.",
+      "prompt": "Put each sentence from the notices in the right box.",
+      "success": "Anything you could check is a fact, even if it's false. Judgements like 'deserves' and 'best' are opinions.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "fact: can be checked",
+          "opinion: can't be proved"
+        ],
+        "items": [
+          {
+            "text": "Dingo pups are usually born in litters of about five.",
+            "bin": 0,
+            "reason": "You could check records of dingo litters. That's a fact."
+          },
+          {
+            "text": "Every dingo pup deserves a safe and loving home.",
+            "bin": 1,
+            "reason": "'Deserves' is a judgement. Most people would agree, but it can't be proved."
+          },
+          {
+            "text": "Maxx Vantablack rescued 312 dingoes last year.",
+            "bin": 0,
+            "reason": "You could check rescue records for the number. It's probably false, but it can be checked, so it's a fact."
+          },
+          {
+            "text": "Watching Goldie play is the best way to spend a weekend.",
+            "bin": 1,
+            "reason": "'Best' is what the Vantamart thinks. You might prefer footy or the beach."
+          },
+          {
+            "text": "The centre is open from 9 am to 4 pm.",
+            "bin": 0,
+            "reason": "You could check the sign on the door. That's a fact."
+          },
+          {
+            "text": "Goldie wears a gold collar with Maxx's face on it.",
+            "bin": 0,
+            "reason": "You could look at Goldie's collar to check. That's a fact."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.1-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed wrote a review of a new game. His fact box at the bottom has an opinion hiding in it.",
+      "text": "REVIEW: DUNE DASH, by Zed. Dune Dash is a racing game where you steer a sand buggy across the red dunes of the outback. There are twenty-four tracks, and each one is set at a different time of day. You can race alone or against up to three friends on one screen. The buggy handles beautifully, and the sunset tracks are honestly the prettiest thing I've seen in a game. The game was made by a team of six people in a small studio in the outback. It costs $15 and takes about ten hours to finish. The buggies can be painted any colour, and you unlock new wheels by collecting cactus flowers. There is also a mode where a dingo chases you. I finished the game in nine hours and forty minutes, which my mum said was 'quite enough screen time for one weekend'. My only complaint is the music, which sounds like a kazoo stuck in a blender. Overall, it's a must-play for anyone who likes racing games.",
+      "prompt": "Zed's fact box should only have facts. Tap the opinion, then choose a fact to swap in.",
+      "success": "How many people can race at once is something you could check. 'Must-play' is only Zed's judgement.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "FACT BOX: Dune Dash has ",
+          {
+            "tap": "twenty-four tracks",
+            "reason": "That's a fact. You could count the tracks on the menu."
+          },
+          ". It costs ",
+          {
+            "tap": "$15",
+            "reason": "That's a fact. You could check the price in the shop."
+          },
+          ". It is ",
+          {
+            "tap": "a must-play for racing fans"
+          },
+          ". It was made by ",
+          {
+            "tap": "a team of six people",
+            "reason": "That's a fact. You could check the game's credits."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "the prettiest of all the outback racing games",
+            "reason": "'Prettiest' is still a judgement. Another player might prefer a different game's look."
+          },
+          {
+            "text": "worth every cent of its $15 price",
+            "reason": "You can check the $15, but 'worth every cent' is Zed's opinion."
+          },
+          {
+            "text": "far better with friends than alone",
+            "reason": "'Better' is a judgement. Some players enjoy racing alone more."
+          },
+          {
+            "text": "playable by up to four people at once"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.1-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "A brochure for the new observatory on top of Bluster Rock. The Proovil has never seen so many stars.",
+      "text": "STARGAZING AT BLUSTER ROCK OBSERVATORY. Far from city lights, Bluster Rock has some of the darkest night skies in the country. Our new telescope was built last year and cost $40,000. On a clear night, you can see the rings of Saturn through it. Mars is about half as wide as Earth, and through our telescope it looks like a tiny orange marble. Night tours run on Fridays and Saturdays from 8 pm. Each tour lasts ninety minutes and costs $12. The observatory is run by Dr Amara Osei, who has studied the night sky for more than thirty years. Children under five get in free. Tours are cancelled if the sky is cloudy, and you will get your money back. Hot chocolate is sold at the door, and our resident galah, Professor Squawk, sometimes lands on the telescope. At $12, a night at the observatory is worth every cent. Bring a jumper, because the top of the rock gets cold after dark, even in summer.",
+      "prompt": "Which sentence from the brochure is an opinion?",
+      "success": "You can check the $12, but 'worth every cent' is a judgement. Each of the others could be checked.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mars is about half as wide as Earth.",
+            "reason": "Scientists have measured Mars and Earth. You could check this. It's a fact."
+          },
+          {
+            "text": "Our new telescope was built last year and cost $40,000.",
+            "reason": "You could check the observatory's records. That's a fact."
+          },
+          {
+            "text": "At $12, a night at the observatory is worth every cent."
+          },
+          {
+            "text": "On a clear night, you can see the rings of Saturn through it.",
+            "reason": "You could look through the telescope on a clear night to check. That's a fact."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b3-6",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Slick Vinnie is selling robots at the Bluster Rock market. The Proovil is hiding behind a crate.",
+      "prompt": "Tap the sentence that is a fact.",
+      "success": "You could count the arms and look at the tools. The other three are what Vinnie wants you to think.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Roll up, roll up! Slick Vinnie has the deal of the century! You deserve a break, and this is how you get it! Meet the Chore-Bot, the robot that does your jobs while you put your feet up. ",
+          {
+            "tap": "No home is complete without a Chore-Bot.",
+            "reason": "'Complete' is Vinnie's judgement. Plenty of homes manage fine without one."
+          },
+          " ",
+          {
+            "tap": "At $99, this little beauty is the finest robot ever built.",
+            "reason": "You could check the price, but 'finest' is an opinion. Nobody can prove one robot is the finest."
+          },
+          " ",
+          {
+            "tap": "The Chore-Bot has four arms, and each one holds a different tool.",
+            "reason": ""
+          },
+          " Picture it folding your washing while you watch telly! ",
+          {
+            "tap": "You would be silly to walk past a price like this.",
+            "reason": "'Silly' is Vinnie's judgement of you. That's an opinion, and a sneaky one."
+          },
+          " Ask yourself this: why scrub the dishes when a robot could do it for you? Life is too short for chores, friends! Trust me, your family will thank you, your cat will thank you, and even your goldfish will thank you. Come and find Slick Vinnie under the big red umbrella, and tell him the lizard sent you. Don't wait, friends, because deals like this vanish faster than a lizard up a drainpipe."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A furious letter in the Bluster Rock Bugle. The Proovil is reading it from inside a rock pool.",
+      "text": "Dear Editor, I am writing to object to the council's decision to allow jet ski hire in Bluster Bay. For decades, the northern end of the bay has been a nesting beach for green turtles, and every summer, volunteers count the nests and fence them off. Since the hire shop opened in October, rangers have counted fourteen injured turtles, most with cuts on their shells that match the shape of a propeller. The hire shop is owned by a company called Gold Rush Rentals, which also sponsors Maxx Vantablack's channel. Each nest holds around a hundred eggs, and only a tiny number of hatchlings ever survive to become adults. When I raised this at the last council meeting, I was told the hire shop brings 'valuable tourism' to the town. A bay with fourteen injured turtles is no place for jet skis. The council's October decision was reckless and short-sighted, and it was made without asking a single local. Surely nobody wants to see a turtle hurt for the sake of a joyride. Bluster Bay is far too precious to be ruined by noisy machines. I urge every reader to come to the council meeting on 12 December and make their voice heard. Yours faithfully, Ada Pennick, turtle volunteer",
+      "prompt": "Which sentence from Ada's letter is a fact?",
+      "success": "Rangers' counts can be checked against their records. The other three are Ada's judgements and feelings.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "A bay with fourteen injured turtles is no place for jet skis.",
+            "reason": "The number can be checked, but 'no place for jet skis' is Ada's view about what should happen."
+          },
+          {
+            "text": "The council's October decision was reckless and short-sighted.",
+            "reason": "'Reckless' and 'short-sighted' are judgements. The council would describe its decision differently."
+          },
+          {
+            "text": "Since the hire shop opened in October, rangers have counted fourteen injured turtles."
+          },
+          {
+            "text": "Bluster Bay is far too precious to be ruined by noisy machines.",
+            "reason": "'Far too precious' is Ada's judgement. Jet ski riders might see the bay differently."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b4-2",
+      "band": 4,
+      "topic": "music",
+      "frame": "The Bluster Rock Bugle has reviewed a local band. The Proovil is tapping one claw along.",
+      "prompt": "Tap the sentence that is an opinion.",
+      "success": "'Clumsy' and 'impossible to fault' are judgements. Sales, ages and songwriting credits can all be checked.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "ALBUM REVIEW: Red Dust Static, 'Nothing But Sky'. Red Dust Static formed in a garage behind the Bluster Rock service station four years ago, and their second album came out last Friday. ",
+          {
+            "tap": "The album sold 50,000 copies in its first week, making it the best-selling album in Australia that week.",
+            "reason": "'Best-selling' sounds like an opinion, but sales figures can be checked. That's a fact."
+          },
+          " ",
+          {
+            "tap": "Their lead singer, Jojo Reyes, is nineteen and wrote all eleven songs herself.",
+            "reason": "You could check her age and the songwriting credits on the album. That's a fact."
+          },
+          " The opening track, 'Galah Season', runs for just under three minutes and features a recording of real galahs screeching outside the studio. ",
+          {
+            "tap": "The lyrics on three of the eleven songs are clumsy, though the drumming is impossible to fault."
+          },
+          " ",
+          {
+            "tap": "The band recorded the whole album in nine days, using a borrowed laptop.",
+            "reason": "The band could show you their recording diary. That can be checked, so it's a fact."
+          },
+          " The band's drummer, Sunny Okafor, still works weekends at the service station where the band began. The album has eleven tracks and runs for forty-one minutes in total. It was released on vinyl as well as online, and the first 500 vinyl copies came with a small packet of red desert sand. The final song, 'Saltbush', was recorded in a single take at three in the morning. Red Dust Static will play a free show at Red Dune Park on 20 January, and the council has warned locals to expect galahs."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Maxx is auctioning a painting on his stream. The Proovil's spikes have never stood so straight.",
+      "text": "Maxx it out, Vantafam! Tonight, I am auctioning one of my own paintings, and every cent goes to the Maxx Vantablack Rescue Fund. It's called 'Gold on Gold', and I painted it myself in under ten minutes, using a brush made from my own hair. The canvas measures two metres across, and it's covered in real gold paint. Honestly, it is a masterpiece. Its bold colours capture the spirit of the outback in a way that no other painting ever has. Last year, my painting 'Me, Again' was the most expensive item sold at the Bluster Rock Art Auction, and that one only had silver. Before you ask, Vantafam, yes, I painted the frame as well. I've been painting since I was six, when I painted my first portrait, which was of me. This one only took ten minutes because genius doesn't need longer. Remember, every cent goes to rescuing Creatures, so you're basically a hero if you bid. No serious collector can afford to miss this. Bidding starts at $10,000, and it closes at midnight. Bids go in the comments, and my Goldies will read every single one aloud. If two people bid the same amount, the person with the nicer comment about my hair wins. That's Maxx-imum content! Stay gold!",
+      "prompt": "Put each sentence from Maxx's stream in the right box.",
+      "success": "Even big, boastful claims are facts if records could check them. Judgements of quality are opinions.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "fact: can be checked",
+          "opinion: can't be proved"
+        ],
+        "items": [
+          {
+            "text": "Maxx painted it himself in under ten minutes.",
+            "bin": 0,
+            "reason": "A video of him painting could check this. It might be a lie, but it can be checked."
+          },
+          {
+            "text": "Its bold colours capture the spirit of the outback.",
+            "bin": 1,
+            "reason": "Whether colours 'capture the spirit' of a place is a judgement. Viewers could disagree."
+          },
+          {
+            "text": "The canvas measures two metres across.",
+            "bin": 0,
+            "reason": "You could measure the canvas with a tape measure. That's a fact."
+          },
+          {
+            "text": "It is a masterpiece.",
+            "bin": 1,
+            "reason": "'Masterpiece' is a judgement of quality. Nobody can prove it."
+          },
+          {
+            "text": "'Me, Again' was the most expensive item sold at last year's auction.",
+            "bin": 0,
+            "reason": "'Most expensive' can be checked against the auction's sales records. That's a fact."
+          },
+          {
+            "text": "No serious collector can afford to miss this.",
+            "bin": 1,
+            "reason": "This is Maxx's judgement, meant to pressure you. It can't be checked or proved."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.1-b4-4",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus has written up his science fair project. His summary has an opinion tucked inside.",
+      "text": "SCIENCE FAIR REPORT: Which food grows mould fastest? by Gus. I left five foods in sealed jars on the windowsill of the Soggy Biscuit's galley for fourteen days: white bread, an orange, cheese, a boiled potato and one of Mo's fish-finger custards. I photographed each jar at the same time every morning and measured how much of the surface was covered in mould. Before starting, I predicted that the cheese would grow mould first, because it already smells like feet. The bread was the first to grow mould, with fluffy green spots appearing on day three. By day ten, the orange was completely covered in a blue-green fuzz. The cheese grew the least mould of the real foods. Mo's custard grew no mould at all, which I find deeply worrying. The potato grew a small patch of white mould on day seven, which Wren said looked like a tiny snowfield. Next time, I would like to test whether mould grows faster in the dark. In my opinion, mould is the most fascinating life form on the planet, and every school should have a mould garden. The smell in the galley on day fourteen was so strong that Tully moved her hammock onto the deck.",
+      "prompt": "Tap the opinion in Gus's summary, then choose a fact from the report to swap in.",
+      "success": "The day the mould appeared was recorded in photos, so it can be checked. 'Most fascinating' can't.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "SUMMARY: Gus left five foods in jars for ",
+          {
+            "tap": "fourteen days",
+            "reason": "That's a fact. Gus's daily photos could check how long it ran."
+          },
+          ". The orange was ",
+          {
+            "tap": "completely covered by day ten",
+            "reason": "That's a fact. The day-ten photo would show it."
+          },
+          ". Mould ",
+          {
+            "tap": "is the most fascinating life form on the planet"
+          },
+          ". Mo's custard grew ",
+          {
+            "tap": "no mould at all",
+            "reason": "That's a fact. Anyone could look in the jar, if they dared."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "is something every school should grow",
+            "reason": "'Should' shows Gus's view of what schools ought to do. That's still an opinion."
+          },
+          {
+            "text": "is far more interesting than the five foods it grew on",
+            "reason": "You can count five foods, but 'more interesting' is a judgement."
+          },
+          {
+            "text": "first grew on the bread, on day three"
+          },
+          {
+            "text": "is a truly remarkable thing to study for fourteen days",
+            "reason": "'Truly remarkable' is a judgement. Someone else might find mould dull."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.1-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Slick Vinnie is selling something new. The Proovil is not buying it.",
+      "text": "LADIES, GENTLEMEN AND LIZARDS! Slick Vinnie proudly presents the Snore-Stopper 5000, a pillow that gently vibrates whenever the person sleeping on it begins to snore. Inside each pillow is a tiny microphone that switches on at 10 pm and off again at 6 am. The pillow comes in three colours: desert red, sky blue and galah pink. In a trial run by Vinnie's own family, his uncle Barry snored forty fewer times on the first night. The pillow is filled with recycled foam and can be washed in a normal washing machine, as long as you remove the microphone first. Vinnie has sold 120 pillows since Monday, mostly to people who live with uncles. Each one is guaranteed for two years. At just $49, the Snore-Stopper is frankly the most important invention since the wheel. Anyone who shares a room with a snorer would be mad not to buy one immediately. The Snore-Stopper costs $49, and each one comes with a free pair of earplugs, just in case. Order before Sunday and Vinnie will throw in a second pillowcase for free. Vinnie's aunty says the pillow has saved her marriage, although Uncle Barry says it keeps waking him up to tell him he's snoring.",
+      "prompt": "Which sentence from Vinnie's ad is an opinion?",
+      "success": "Ranking an invention against the wheel is a judgement. The other three could be checked.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Inside each pillow is a tiny microphone that switches on at 10 pm and off again at 6 am.",
+            "reason": "You could open the pillow and time the microphone. That's a fact."
+          },
+          {
+            "text": "In a trial run by Vinnie's own family, his uncle Barry snored forty fewer times on the first night.",
+            "reason": "A recording of the night could check this. It might not be fair, but it's a fact."
+          },
+          {
+            "text": "The pillow comes in three colours: desert red, sky blue and galah pink.",
+            "reason": "You could check the shelf for the colours. That's a fact."
+          },
+          {
+            "text": "At just $49, the Snore-Stopper is frankly the most important invention since the wheel."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.1-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "The Bluster Rock Bugle has a story about strange lights. The Proovil is reading it with the torch on.",
+      "prompt": "Tap the sentence that is an opinion.",
+      "success": "'Most chilling' is a judgement. Camera times, ticket prices and residents' reports can all be checked.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "MYSTERY LIGHTS OVER BLUSTER ROCK. Strange green lights have been spotted above the old mine on three nights in a row. ",
+          {
+            "tap": "A security camera at the service station filmed the lights at 11:42 pm on Tuesday, hovering above the mine's main entrance.",
+            "reason": "The camera's recording could check the time and place. That's a fact."
+          },
+          " The mine has been closed since 1923, and the council says nobody has a key. ",
+          {
+            "tap": "Ghost tour guide Slick Vinnie has already doubled the price of his midnight tour.",
+            "reason": "You could compare his old and new ticket prices. That's a fact."
+          },
+          " ",
+          {
+            "tap": "The 11:42 pm footage is the most chilling thing ever recorded in the outback."
+          },
+          " ",
+          {
+            "tap": "Three residents of Dune Street have reported a low humming noise coming from the mine after dark.",
+            "reason": "You could check the reports the residents made. That's a fact."
+          },
+          " Police visited the mine on Wednesday morning and found the gate still locked, but they reported fresh footprints in the red dust outside. Lights were also reported over the mine in 1987, when a local farmer told this newspaper they were 'as green as a frog'. A council meeting about the lights will be held on Friday at 7 pm in the town hall. Anyone with photos of the lights is asked to send them to the Bugle. The Soggy Biscuit crew has offered to take a look. Their engineer, Gus, has suggested the lights could be glowing fungus, and he has asked whether anyone would mind if he licked it."
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

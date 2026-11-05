@@ -1,0 +1,941 @@
+{
+  "skill": {
+    "id": "3.6",
+    "name": "Spot the bias: what is left out or made one-sided",
+    "codes": [
+      "VC2E6LA02",
+      "VC2E6LY06"
+    ],
+    "why": "A one-sided text can fool you without telling a single lie.",
+    "how": "Ask what's missing, who the text favours, and how the other side would tell it.",
+    "teach": {
+      "crew": "rescuer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Bias means a text leans to one side."
+          },
+          {
+            "say": "First trick: leave out the bits that look bad.",
+            "show": "Maxx: 'I **saved** a lizard!' He didn't say he **trapped it first**."
+          },
+          {
+            "say": "Second trick: tell the same thing with tilted words.",
+            "show": "**Hero** Maxx **saves** lizard. / Maxx **takes** lizard **from its home**."
+          },
+          {
+            "say": "Both can be true. Both are one-sided."
+          },
+          {
+            "say": "So ask: what's missing? How would the other side tell it?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Tully's post: 'Rays star Jaz kicked five goals on Saturday!' The final score: Sand Crabs 98, Reef Rays 40.",
+          "prompt": "What did Tully leave out of her post?",
+          "hint": "Look at the final score. What would a Sand Crabs fan say?",
+          "success": "The Rays lost by 58 points. Tully only told the part that made her team look good.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "That the Rays lost by a lot."
+              },
+              {
+                "text": "How many goals Jaz kicked.",
+                "reason": "Tully put that in: five goals."
+              },
+              {
+                "text": "Which team Jaz plays for.",
+                "reason": "Tully says 'Rays star Jaz', so she put that in."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "The sign says: 'SWIM AT BLUSTER BEACH! Warm water! Soft sand!'",
+          "prompt": "Here is the ranger's list for the same beach. Tap the fact the sign left out.",
+          "hint": "Which fact would make you think twice about swimming?",
+          "success": "The sign only told the good bits. The jellyfish would put people off, so it got left out.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "RANGER'S LIST: ",
+              {
+                "tap": "The water is 24 degrees.",
+                "reason": "The sign told you this. 'Warm water!'"
+              },
+              " ",
+              {
+                "tap": "There are stinging jellyfish this week."
+              },
+              " ",
+              {
+                "tap": "The sand is soft and white.",
+                "reason": "The sign told you this. 'Soft sand!'"
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "flipscale",
+      "name": "Flipscale",
+      "evolved": "Flipscalion",
+      "blurb": "A shingleback lizard whose stumpy tail looks just like its head, so there is always another end to check. It sniffs out stories that only show you one side."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.6-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Two newspapers reported the same netball game. A Flipscale is checking both ends of the story.",
+      "text": "THE PINE GULLY POST: Pine Gully won, 20 goals to 18! Our shooter, Mia, scored 15 goals. The crowd cheered all day. What a win for our town! THE BLUSTER BUGLE: Bluster Rock lost by two goals, 20 to 18. In the last minute, our best player, Kira, hurt her ankle. She had to sit out. Pine Gully scored twice while she was off. It was a very close game. Kira will be back next week.",
+      "prompt": "What does the Pine Gully Post leave out?",
+      "success": "Kira got hurt, and Pine Gully scored while she was off. That spoils their big win, so it's left out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "That Bluster Rock's best player got hurt."
+          },
+          {
+            "text": "The final score.",
+            "reason": "The Post gives the score: 20 goals to 18."
+          },
+          {
+            "text": "How many goals Pine Gully's shooter, Mia, scored.",
+            "reason": "The Post tells you: Mia scored 15 goals."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.6-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo made a sign for his pie stall. Tully did a taste test. The Flipscale wants both ends of the story.",
+      "prompt": "Tap the result that Mo's sign left out.",
+      "success": "Mo's sign only says the good things. The bad taste would scare customers off, so he left it out.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo made a sign for his pie stall. It said: MO'S PIES! HOT! CHEAP! ONLY $3! Tully did a taste test with ten people. Here are her results. ",
+          {
+            "tap": "All ten pies were hot.",
+            "reason": "Mo's sign told you this. It says 'HOT!'"
+          },
+          " ",
+          {
+            "tap": "Each pie cost $3.",
+            "reason": "Mo's sign told you this. It says 'ONLY $3!'"
+          },
+          " ",
+          {
+            "tap": "Eight people said the pies tasted like old socks."
+          },
+          " Two people asked for more. One of them was Gus. The other one was Mo's nan. Mo has put up a bigger sign."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.6-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Maxx is live on stream. Wren was there too, and she wrote down what really happened.",
+      "text": "MAXX'S STREAM: 'Vantafam, I found this poor wombat all alone! I'm taking it to my Rescue Ranch. I'm such a hero! Smash that heart button!' WREN'S NOTES: The wombat was asleep in its burrow. Its mum was in the burrow too. Maxx's guards, the Goldies, dug the baby out with shovels. Maxx waited until the camera was on. Then he picked it up and cried.",
+      "prompt": "Sort each fact. Did Maxx tell the Vantafam, or leave it out?",
+      "success": "Maxx told the parts that make him look like a hero, and left out every part showing he took it.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Maxx told them",
+          "Maxx left it out"
+        ],
+        "items": [
+          {
+            "text": "Maxx said the wombat was all alone.",
+            "bin": 0,
+            "reason": "Maxx says this on his stream: 'all alone'."
+          },
+          {
+            "text": "Maxx is taking it to his Rescue Ranch.",
+            "bin": 0,
+            "reason": "Maxx says this on his stream."
+          },
+          {
+            "text": "Its mum was in the burrow too.",
+            "bin": 1,
+            "reason": "Only Wren's notes say this. It shows the wombat wasn't alone."
+          },
+          {
+            "text": "The Goldies dug the baby out with shovels.",
+            "bin": 1,
+            "reason": "Only Wren's notes say this. Maxx kept it quiet."
+          },
+          {
+            "text": "Maxx waited until the camera was on.",
+            "bin": 1,
+            "reason": "Only Wren's notes say this. It shows the crying was for the camera."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.6-b1-4",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Maxx wrote a review of his own new game. Zed found the players' comments.",
+      "text": "MAXX'S REVIEW OF MAXX DASH: 'My new game is here! It has bright gold cars. It has fast tracks. You can collect shiny coins. Ten out of ten! Buy it today!' WHAT PLAYERS SAID: The cars are gold and the tracks are fast. But the game crashes every ten minutes. It costs $80. There are only three tracks. Zed played it for one hour. The game crashed on him six times.",
+      "prompt": "Why is Maxx's review one-sided?",
+      "success": "Maxx only told the good things. The crashes, the price and the three tracks were all left out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It is too short.",
+            "reason": "Short isn't the problem. A long review can be one-sided too, if it hides the bad bits."
+          },
+          {
+            "text": "It talks about the gold cars and the fast tracks.",
+            "reason": "The cars really are gold and the tracks really are fast. The problem is what Maxx left out."
+          },
+          {
+            "text": "It only tells the good things about the game."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.6-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Zed wrote a note about a flyer for Ghost Cave. The Flipscale thinks he only read one end of the story.",
+      "text": "GHOST CAVE TOURS! See the spooky glowing worms! Hear the ghostly echoes! Tours start at 7 pm. Only $10 a person! Next to the cave, there is a ranger's sign. It says: WARNING. Rocks sometimes fall from the cave roof. Wear a helmet at all times. The path is slippery when it is wet. Last month, two people slipped and hurt their knees.",
+      "prompt": "One word in Zed's note is wrong. Tap it, then choose a better one.",
+      "success": "The flyer tells you the fun parts and leaves out the falling rocks. That makes it one-sided.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The flyer tells you the ",
+          {
+            "tap": "price",
+            "reason": "That's right. The flyer says $10 a person."
+          },
+          ". It tells you the ",
+          {
+            "tap": "time",
+            "reason": "That's right. The flyer says 7 pm."
+          },
+          ". The flyer is ",
+          {
+            "tap": "fair"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "complete",
+            "reason": "It isn't complete. It leaves out the falling rocks and the slippery path."
+          },
+          {
+            "text": "one-sided"
+          },
+          {
+            "text": "balanced",
+            "reason": "Balanced means both sides. The flyer only shows the fun side."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.6-b1-6",
+      "band": 1,
+      "topic": "art",
+      "frame": "Maxx posted a photo of his campsite. Indi was there with her sketchbook, and she drew the whole scene.",
+      "text": "Maxx posted a photo online. In it, he was smiling next to a clean, tidy campsite. 'I always clean up after myself!' he wrote. But Indi had been there. She drew the whole scene in her sketchbook. On the left side, just out of the photo, was a huge pile of rubbish. There were gold cups, gold plates and forty empty drink cans. A Goldie was hiding it all under a tarp.",
+      "prompt": "What did Maxx's photo leave out?",
+      "success": "The rubbish was just outside the photo. Maxx chose what to show, so the photo is one-sided.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx smiling next to his campsite",
+            "reason": "That's in the photo. He's smiling next to the campsite."
+          },
+          {
+            "text": "a huge pile of rubbish"
+          },
+          {
+            "text": "the tidy campsite",
+            "reason": "That's in the photo. It's what Maxx wanted you to see."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.6-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Maxx raced his gold jet ski, the Gold Rush, in the Bluster Bay race. Two news sites reported it.",
+      "text": "VANTAFAM NEWS: MAXX WINS! Maxx Vantablack roared across the finish line first in the Bluster Bay Jet Ski Race on Sunday. Riding his famous gold jet ski, the Gold Rush, he beat eleven other racers. 'I was born to win,' said Maxx, holding up the trophy. BLUSTER BAY TIMES: RACE WIN UNDER QUESTION. Maxx Vantablack crossed the line first in Sunday's jet ski race. But halfway through, he cut across the fishing zone and scared a pod of dolphins. Two other racers slowed down and pulled out so they would not hit the dolphins. Race officials are now checking whether his win will count. A ranger says the dolphins swam away safely.",
+      "prompt": "What does Vantafam News leave out that changes how Maxx's win looks?",
+      "success": "Two racers pulled out to protect the dolphins Maxx scared. That makes his win look far less fair.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "That Maxx crossed the finish line first.",
+            "reason": "Vantafam News says this. It's the main thing it wants you to know."
+          },
+          {
+            "text": "The name of the famous gold jet ski that Maxx was riding in the race.",
+            "reason": "Vantafam News names it: the Gold Rush."
+          },
+          {
+            "text": "That two racers pulled out because of the dolphins Maxx scared."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.6-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "An ad for the Sweepo robot vacuum is on the Bluster Rock shop window. Gus found the full list of reviews online.",
+      "text": "THE AD: 'Meet Sweepo, the robot vacuum everyone's talking about! Customers say: \"It's so quiet!\" and \"It picks up every crumb!\"' THE FULL LIST OF REVIEWS: Five people reviewed Sweepo online. Pat wrote, 'It's so quiet! I didn't know it was on.' Sam wrote, 'It picks up every crumb, but only on flat floors.' Lou wrote, 'It got stuck under the couch every single day.' Ari wrote, 'The battery died after two weeks.' Jo wrote, 'It ate my sock and then stopped working.' Two people gave it five stars. Three people gave it one star. Gus is still trying to get Jo's sock out.",
+      "prompt": "Sort the reviews. Did the ad use them, or leave them out?",
+      "success": "The ad picked the two happy reviews and hid the three unhappy ones. Choosing like that is one-sided.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "used in the ad",
+          "left out of the ad"
+        ],
+        "items": [
+          {
+            "text": "It's so quiet!",
+            "bin": 0,
+            "reason": "The ad quotes Pat's review: 'It's so quiet!'"
+          },
+          {
+            "text": "It picks up every crumb!",
+            "bin": 0,
+            "reason": "The ad uses Sam's words, but it cuts off the part about flat floors."
+          },
+          {
+            "text": "It got stuck under the couch every single day.",
+            "bin": 1,
+            "reason": "This complaint isn't in the ad. It would put buyers off."
+          },
+          {
+            "text": "The battery died after two weeks.",
+            "bin": 1,
+            "reason": "The ad leaves out Ari's review, because it makes Sweepo look bad."
+          },
+          {
+            "text": "It ate my sock and then stopped working.",
+            "bin": 1,
+            "reason": "Jo's review isn't in the ad. No one wants a sock-eating vacuum."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.6-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Gus wrote a note about the school newsletter's story on the band contest. The Flipscale has found the judges' sheet.",
+      "text": "SCHOOL NEWSLETTER: Our school band went to the Island Band Contest on Friday. Judge Lee said our brass section was 'the best I've heard all year'. Well done, everyone! THE JUDGES' SHEET: Eight bands played. Three judges marked each band. Judge Lee: 'The brass section was the best I've heard all year.' Judge Patel: 'The drums were out of time for most of the song.' Judge Moss: 'Too slow, and the flutes were out of tune.' Final result: our school band came seventh out of eight. The band leader says they will practise twice a week next term.",
+      "prompt": "One word in Gus's note is wrong. Tap it, then choose a better one.",
+      "success": "By quoting only Judge Lee, the newsletter makes the band sound better than seventh place.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The newsletter quotes ",
+          {
+            "tap": "one",
+            "reason": "That's right. It only quotes Judge Lee."
+          },
+          " judge. It leaves out ",
+          {
+            "tap": "two",
+            "reason": "That's right. Judge Patel and Judge Moss are missing."
+          },
+          " judges. That makes the band sound ",
+          {
+            "tap": "worse"
+          },
+          " than the result shows."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "better"
+          },
+          {
+            "text": "just as good",
+            "reason": "Seventh out of eight isn't 'the best'. The newsletter makes it sound much better."
+          },
+          {
+            "text": "much quieter",
+            "reason": "The judges talk about timing, speed and tune, not loudness."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.6-b2-4",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo is telling his mum about his day on the phone. Tully is listening, and she is not impressed.",
+      "text": "MO, ON THE PHONE TO HIS MUM: 'Today was great! I cooked dinner for the whole crew all by myself. I made my famous fish-finger custard. Everyone was talking about it for hours!' TULLY'S DIARY: Mo cooked dinner tonight. It was fish-finger custard. While he was stirring it, the tea towel caught fire. The smoke alarm went off three times. Gus had to put out the fire with a bucket of seawater. Everyone was talking about it for hours, but not in a good way. In the end, we ate toast. Mo says the custard just needed more ketchup.",
+      "prompt": "Why is Mo's version one-sided?",
+      "success": "Everything Mo says is true, but he leaves out the fire, the alarm and the toast.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He leaves out the fire and the smoke alarm."
+          },
+          {
+            "text": "He says he cooked dinner, but he didn't.",
+            "reason": "Tully's diary agrees that Mo cooked dinner. The problem is what he left out."
+          },
+          {
+            "text": "He says people talked about it, but nobody did.",
+            "reason": "Tully says everyone did talk about it for hours, just not in a good way."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.6-b2-5",
+      "band": 2,
+      "topic": "space",
+      "frame": "Zed wants to buy the StarSpy telescope. Wren found a test report from the Bluster Rock Science Centre.",
+      "prompt": "Read the ad, then the test report. Tap the fact in the report that the ad left out.",
+      "success": "The ad only lists what the StarSpy can do. It hides that it's useless on a windy night.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "THE AD: 'StarSpy 3000! See the rings of Saturn! Spot the moons of Jupiter! Comes with a strong metal stand! Just $150!' Before Zed spent his savings, Wren found a test report from the science centre. SCIENCE CENTRE TEST REPORT: We tested the StarSpy 3000 for two weeks. ",
+          {
+            "tap": "On a clear night, you can see the rings of Saturn.",
+            "reason": "The ad told you this. 'See the rings of Saturn!'"
+          },
+          " ",
+          {
+            "tap": "You can also spot four of Jupiter's moons.",
+            "reason": "The ad told you this. 'Spot the moons of Jupiter!'"
+          },
+          " ",
+          {
+            "tap": "It comes with a metal stand.",
+            "reason": "The ad told you this too. It says the stand is strong."
+          },
+          " ",
+          {
+            "tap": "In even a light wind, the stand wobbles so much that you can't see anything."
+          },
+          " It costs $150. Our score: two stars out of five. Bluster Rock is windy on most nights."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.6-b2-6",
+      "band": 2,
+      "topic": "general",
+      "frame": "Two crew members wrote reports on the class captain vote at Bluster Rock School. The facts are the same. The words are not.",
+      "text": "THE FACTS: Gus and Tully both ran for class captain. Gus got 14 votes. Tully got 13 votes. Gus won by one vote. The vote was held in Room 4 on Friday morning. Each student wrote one name on a slip of paper. Ms Hart counted the slips twice. REPORT B, by Wren: 'Gus won the class captain vote by just one vote, 14 to 13. It was the closest vote in years. Tully shook his hand and said well done.' Here is Report A, by Zed, who helped make Gus's posters.",
+      "prompt": "Report A uses the same facts, but one word tilts it towards Gus. Tap that word.",
+      "success": "'Crushed' makes it sound like a huge win. Gus only won by one vote, so the word tilts the story.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "REPORT A: 'Gus ",
+          {
+            "tap": "crushed"
+          },
+          " Tully in the ",
+          {
+            "tap": "class captain",
+            "reason": "That's just the name of the job. It doesn't tilt the story."
+          },
+          " vote, ",
+          {
+            "tap": "14 votes to 13",
+            "reason": "That's the real score. It's a fact, and it matches Report B."
+          },
+          ". He will start ",
+          {
+            "tap": "on Monday",
+            "reason": "That's just when Gus starts. It doesn't make anyone look better or worse."
+          },
+          ".'"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.6-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Maxx posted a caption about a quoll he 'rescued'. Wren found the ranger's report from the same morning.",
+      "text": "MAXX'S CAPTION: 'Found this little quoll shivering on a rock at dawn, poor thing. I took her straight to my Rescue Ranch, wrapped her in a warm blanket and gave her a gold bowl of mince. She's safe now, thanks to me. Maxx it out, Vantafam!' RANGER'S REPORT, 6 MAY: At about 6 am, a spotted-tailed quoll was taken from Red Gully by a man in a gold tracksuit. The quoll appeared healthy. Quolls often rest on cold rocks at dawn before returning to their dens. A den about ten metres away held three young quolls, too small to hunt for themselves. Rangers have been feeding them by hand since the mother was taken. Removing wildlife without a permit is against island rules. No permit was issued for Red Gully this year. The young quolls are now being cared for at the island's wildlife shelter, and rangers hope to return them to Red Gully in spring. Anyone who sees a quoll in trouble should call the ranger station.",
+      "prompt": "Which detail does Maxx's caption leave out?",
+      "success": "Maxx never mentions the three babies left behind. That fact turns his 'rescue' into taking a mother away.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "that the quoll was sitting on a rock at dawn",
+            "reason": "Maxx includes this. He says he found her 'shivering on a rock at dawn'."
+          },
+          {
+            "text": "that the quoll was sick",
+            "reason": "Neither text says this. The ranger says the quoll appeared healthy."
+          },
+          {
+            "text": "that her three young were left alone in the den"
+          },
+          {
+            "text": "that he took her to his Rescue Ranch",
+            "reason": "Maxx includes this. It's the part he most wants you to know."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.6-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully has two newsletters about the same last-minute free kick. The Flipscale is checking both ends.",
+      "prompt": "Tap the detail in the Reef Rays' newsletter that the Sand Crabs' newsletter left out.",
+      "success": "The Crabs' newsletter skipped the push. Without it, the free kick looks unfair and the Crabs look robbed.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "SAND CRABS NEWSLETTER: With ten seconds left, the Crabs were leading by one point. Then the umpire gave a free kick to Rays captain Jaz, right in front of goal. She kicked it, and the Rays won by five. Our coach said, 'I've never seen anything like it.' Our players were devastated. Many fans booed as they left the ground. REEF RAYS NEWSLETTER: With ten seconds left, the Rays were one point behind. ",
+          {
+            "tap": "Jaz was right in front of goal.",
+            "reason": "The Crabs' newsletter also says it happened in front of goal."
+          },
+          " ",
+          {
+            "tap": "A Crabs defender pushed her hard in the back, and she fell before the ball arrived."
+          },
+          " ",
+          {
+            "tap": "The umpire gave Jaz a free kick.",
+            "reason": "The Crabs' newsletter tells you about the free kick too."
+          },
+          " ",
+          {
+            "tap": "She kicked the goal, and the Rays won by five points.",
+            "reason": "The Crabs' newsletter gives the same result: the Rays won by five."
+          },
+          " Our coach said the umpire made a brave call in a tight moment. Replays on the club's website show the push clearly from two angles. The Crabs and the Rays play again in the final in three weeks. Both coaches say their teams are ready, and tickets have already sold out."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.6-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is choosing a cafe for the crew's lunch. He compared the cafe's website with a review site.",
+      "text": "THE SUNSET CAFE WEBSITE: 'Welcome to the Sunset Cafe, rated 4.5 stars! Our customers love our famous scones and our view of Bluster Rock at sunset. Come and see why we're the island's favourite! Book a table today!' REVIEW SITE, SUNSET CAFE: Rating in 2019: 4.5 stars. Rating this year: 2.1 stars. The cafe changed owners in 2021. Since then, 40 reviews mention cold food and long waits. Many reviewers still praise the view. One reviewer wrote, 'The scones used to be the best on the island. Now they taste like cardboard.' The cafe is open every day except Wednesday, from 8 am to 6 pm. The current owner replied to one review, saying that a new cook would start next month. The cafe has twelve tables inside and six on the deck. A scone costs $6, and a pot of tea costs $5. Most reviewers agree that the view from the deck is still worth seeing. Parking is free behind the post office.",
+      "prompt": "Mo wrote a note, but he got one word wrong. Tap it, then choose a better ending.",
+      "success": "The website shows an old rating and hides today's 2.1 stars, so the cafe seems more popular than it is.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The website says the cafe is rated ",
+          {
+            "tap": "4.5 stars",
+            "reason": "That's right. It's the rating the website shows."
+          },
+          ". But that rating is from ",
+          {
+            "tap": "2019",
+            "reason": "That's right. The review site shows the 4.5 stars came from 2019."
+          },
+          ". Leaving out the new rating makes the cafe seem ",
+          {
+            "tap": "worse"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "older than it really is",
+            "reason": "The website doesn't talk about the cafe's age. The trick is about its rating."
+          },
+          {
+            "text": "more popular now than it really is"
+          },
+          {
+            "text": "cheaper than it really is",
+            "reason": "The website doesn't mention prices at all. The missing fact is the new rating."
+          },
+          {
+            "text": "less popular than it really is",
+            "reason": "It's the other way round. The old rating is higher, so the cafe seems more popular."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.6-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's favourite game has a big update. The game company sent out a news release. The players' forum is buzzing.",
+      "text": "NEWS RELEASE FROM BLOCKSTAR GAMES: 'Get ready for Update 2.0! On Friday, Rocket Rally gets twenty brand-new skins, a snowy winter map and a faster loading screen. Players have been asking for a winter map for years, and now it's here. Update 2.0 is our biggest update ever! Download it free from Friday morning.' PLAYERS' FORUM: Zed_the_lookout wrote, 'The winter map is great, but have you seen the shop? Coins cost twice as much now.' RallyQueen wrote, 'They also took away the free daily chest. That was the best thing about the game.' Pip99 wrote, 'The new skins are cool, but you have to buy them all.' A moderator replied that the changes were needed to keep the game running. Before the update, players could open one free chest every day and win coins, skins or stickers. Now, chests can only be bought in the shop. Zed has started a list of everything that changed, and so far it has fourteen items. He says only six of them are good news.",
+      "prompt": "Which question would best uncover what the news release leaves out?",
+      "success": "The release only lists what was added. Asking what was taken away uncovers the dearer coins and lost chest.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "How many brand-new skins does Update 2.0 add to Rocket Rally?",
+            "reason": "The release already answers this: twenty. It won't uncover anything hidden."
+          },
+          {
+            "text": "Which new map does Update 2.0 add, and is it free to download?",
+            "reason": "The release already says: a snowy winter map, free from Friday. Nothing hidden there."
+          },
+          {
+            "text": "On which day of the week can players download Update 2.0?",
+            "reason": "The release says Friday. The date isn't what's being hidden."
+          },
+          {
+            "text": "What did Update 2.0 take away from the game, or make dearer?"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.6-b3-5",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi painted a mural on the old water tower. Two people wrote letters about it to the Bluster Bugle.",
+      "text": "LETTER 1: Last week, a 12-metre mural appeared on the old water tower. It was painted by a local artist named Indi, using $400 worth of paint that she paid for herself. It is a bold splash of colour that brightens up the whole town. I think it is a gift to all of us, and I stop to look at it every morning. LETTER 2: Last week, a 12-metre mural appeared on the old water tower. It was painted by a local artist named Indi, using $400 worth of paint. To me, it is nothing but graffiti. It is a messy scribble and an eyesore that spoils our lovely view of the rock. I hope the council paints over it before the tourists see it. Both letters were printed on page 4. The council says it will discuss the mural at its meeting next Tuesday, which is open to the public. The water tower has not held water since 1990. The editor received eleven other letters about the mural this week.",
+      "prompt": "Both letters give the same facts. Sort the words by which way they tilt.",
+      "success": "The facts match: 12 metres, Indi, $400. The tilted words make the same mural sound wonderful or awful.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "tilts for the mural",
+          "tilts against the mural"
+        ],
+        "items": [
+          {
+            "text": "a bold splash of colour",
+            "bin": 0,
+            "reason": "'Bold' and 'splash of colour' make the mural sound exciting."
+          },
+          {
+            "text": "brightens up the whole town",
+            "bin": 0,
+            "reason": "This makes the mural sound like it improves the town."
+          },
+          {
+            "text": "a gift to all of us",
+            "bin": 0,
+            "reason": "Calling it a gift makes the mural sound generous and welcome."
+          },
+          {
+            "text": "nothing but graffiti",
+            "bin": 1,
+            "reason": "'Graffiti' makes the mural sound like vandalism, not art."
+          },
+          {
+            "text": "a messy scribble",
+            "bin": 1,
+            "reason": "'Scribble' makes careful painting sound careless."
+          },
+          {
+            "text": "an eyesore",
+            "bin": 1,
+            "reason": "An eyesore is something ugly. This tilts the reader against the mural."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.6-b3-6",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Maxx posted a video called 'I Cleaned Bluster Beach!'. The volunteers who organised the clean-up sent their own report to the Bugle.",
+      "prompt": "Tap the fact from the volunteers' report that Maxx's video left out.",
+      "success": "Maxx's video makes it look like his clean-up. It leaves out the sixty people who did almost all the work.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "MAXX'S VIDEO: 'Vantafam, today I cleaned Bluster Beach! Look at all this rubbish. Bottles, nets, a whole thong! I picked up this plastic bottle with my own two hands. The beach is sparkling now. That's what heroes do. Stay gold!' VOLUNTEERS' REPORT: On Saturday, Bluster Beach was cleaned from end to end. ",
+          {
+            "tap": "Sixty volunteers worked for six hours and filled 85 bags."
+          },
+          " ",
+          {
+            "tap": "The rubbish included bottles, old fishing nets and a single thong.",
+            "reason": "Maxx's video shows this. He mentions bottles, nets and a thong."
+          },
+          " ",
+          {
+            "tap": "Maxx Vantablack picked up one plastic bottle on camera.",
+            "reason": "Maxx's video shows this. It's the moment he wants you to remember."
+          },
+          " ",
+          {
+            "tap": "By the end of the day, the beach was clean.",
+            "reason": "Maxx's video says this too. He says the beach is sparkling."
+          },
+          " Maxx stayed for about ten minutes, then left on his jet ski. The volunteers say they will be back next month, with or without cameras. The bags were collected by the council truck on Monday morning. The volunteers found the most rubbish near the boat ramp, where the wind blows it into the rocks. Next month's clean-up starts at 8 am at the surf club, and gloves will be provided. Everyone is welcome."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.6-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "The Bluster Rock council has voted on a new skate park. Two very different reports landed on the deck of the Soggy Biscuit.",
+      "text": "THE BLUSTER BUGLE: SKATE PARK PUSHED THROUGH. Despite strong concerns from residents, the council voted 5 to 2 on Tuesday night to build a $180,000 skate park beside the oval. Shop owner Doug Harris told the meeting that the noise would drive customers away from the main street. 'It's a waste of money,' said long-time resident Jean Albury. 'Nobody asked the people who actually live here.' Construction will begin in January, and the park is expected to open in March. THE BLUSTER SKATE CLUB NEWSLETTER: More than 200 people packed the hall for Tuesday's council meeting, the biggest crowd in years. Thirty-four people spoke: 26 in favour of the skate park and 8 against. Year 6 students presented a petition with 600 signatures and a model of the design that they had built in class. Councillors heard that a state sports grant would pay half of the $180,000 cost, so the island would pay $90,000. Two shop owners said they were worried about noise, and the council agreed to plant a row of trees between the park and the main street. The council then voted 5 to 2 in favour. Building starts in January.",
+      "prompt": "How is the Bugle's report biased?",
+      "success": "The Bugle quotes only the eight opponents and skips the 26 supporters, the petition and the grant.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It quotes only opponents, although most speakers supported the park."
+          },
+          {
+            "text": "It reports the wrong result of the council vote.",
+            "reason": "Both reports give the same result: 5 to 2 in favour. The vote isn't where the bias is."
+          },
+          {
+            "text": "It leaves out the vote count, so readers can't tell who won.",
+            "reason": "The Bugle does give the count, 5 to 2, in its first sentence."
+          },
+          {
+            "text": "It gives the opening date, which tilts readers towards the park.",
+            "reason": "An opening date is a plain fact. It doesn't make readers feel for or against the park."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.6-b4-2",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren found a leaflet from the Scales and Tails pet shop. She put it next to the ranger station's care guide for the same lizard.",
+      "prompt": "Tap the sentence in the ranger's guide that the pet shop's leaflet left out.",
+      "success": "A fifty-year commitment would make many buyers think twice, which is exactly why a shop selling lizards might skip it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "PET SHOP LEAFLET: Shinglebacks make the perfect family pet! These gentle, slow-moving lizards are calm enough to sit on your lap, and they rarely bite. They eat a simple diet of fruit, snails and a little tinned dog food, so feeding them is easy and cheap. Their stumpy tails and bright blue tongues make them a favourite with kids. Pick up a Shingleback Starter Kit, including a glass tank, a heat lamp and a water bowl, for just $199 at Scales and Tails. RANGER STATION CARE GUIDE: Shinglebacks are native lizards found across southern and western Australia, including the dry country around Bluster Rock. ",
+          {
+            "tap": "Most shinglebacks are calm, and they will usually sit quietly if they are handled gently.",
+            "reason": "The leaflet covers this. It says they are calm, gentle and rarely bite."
+          },
+          " ",
+          {
+            "tap": "They eat snails and fruit, and in captivity they can also be given a little meat, such as dog food.",
+            "reason": "The leaflet covers their diet: fruit, snails and a little dog food, which is meat."
+          },
+          " ",
+          {
+            "tap": "Shinglebacks can live for more than fifty years, so a pet bought for a child may outlive its owner's childhood by decades."
+          },
+          " ",
+          {
+            "tap": "They need a warm tank with a heat lamp and a bowl of fresh water.",
+            "reason": "The leaflet's starter kit includes a tank, a heat lamp and a water bowl."
+          },
+          " Anyone keeping a shingleback on the island must hold a reptile keeper's licence from the ranger station. Pairs of wild shinglebacks often stay together for many years, and a lizard taken from the wild may wander for weeks looking for its partner."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.6-b4-3",
+      "band": 4,
+      "topic": "space",
+      "frame": "A rocket was launched from the far end of Bluster Rock. Zed wrote a note comparing the company's report with the Bugle's.",
+      "text": "SKYWARD ROCKET COMPANY, NEWS RELEASE: Today, our Skyward 4 rocket lifted off from the Bluster Rock launch pad at 6:02 am in perfect weather. Just nine minutes later, it placed a new weather satellite into orbit around the Earth, exactly on schedule. The satellite will help farmers across the region plan for rain and drought. We thank our team of 300 engineers for a successful launch, and we look forward to our next mission in June. THE BLUSTER BUGLE: Skyward 4 launched from the island at 6:02 this morning and successfully carried a weather satellite into orbit. However, the rocket's reusable booster, which was meant to land upright on a barge, missed the barge and crashed into the sea about 40 kilometres off the coast. Pieces of the booster have since washed up on two beaches. The harbour master has closed the fishing grounds for a week while divers search for fuel tanks, and local fishers say they will lose a week's income. When asked about the booster, a Skyward spokesperson said the company 'does not comment on test equipment'.",
+      "prompt": "One word in Zed's note is wrong. Tap it, then choose a better one.",
+      "success": "Everything the company says is true. Its report is one-sided because it leaves out the crash, not because it lies.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The company's report says the satellite ",
+          {
+            "tap": "reached orbit",
+            "reason": "That's right. Both reports agree the satellite reached orbit."
+          },
+          ". It leaves out that the ",
+          {
+            "tap": "booster",
+            "reason": "That's right. Only the Bugle mentions the booster missing the barge."
+          },
+          " crashed into the sea. That makes the company's report ",
+          {
+            "tap": "false"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "untrue in every detail",
+            "reason": "The company's details check out against the Bugle. The problem is what's missing, not what's said."
+          },
+          {
+            "text": "balanced",
+            "reason": "A balanced report gives the good and the bad. This one only gives the good."
+          },
+          {
+            "text": "one-sided"
+          },
+          {
+            "text": "out of date",
+            "reason": "Both reports were written on launch day. The problem is the missing crash."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.6-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "Indi read a glowing review of the Red Rock Music Festival. Then she found the letters page in the same week's Bugle.",
+      "text": "FESTIVAL REVIEW: The Red Rock Music Festival returned to Bluster Rock last weekend, and what a weekend it was. Over three days, 22 bands played on two stages beneath the glowing face of the rock. The crowd of about 4,000 danced well past midnight on both Friday and Saturday. Headliners The Salt Pans closed the festival with a ninety-minute set that had the whole crowd singing along. 'Best weekend of my life,' said one fan, wearing a hat made of glow sticks. The food trucks sold out of dumplings by Saturday afternoon. LETTERS TO THE EDITOR, SAME WEEK: 'The music could be heard twelve kilometres away until 2 am on both nights. My baby didn't sleep at all,' wrote Lena Baxter of Gum Flat. 'The car park overflowed, and festival-goers parked across my driveway,' wrote Ray Kidd. 'On Monday morning, I counted more than 300 cans and bottles along the creek near the camping ground,' wrote Ranger Dot. 'The headliners were fantastic, and the volunteers who picked up rubbish on Sunday deserve a medal,' wrote Mia Tran, who lives beside the oval. The festival organisers say they are planning to hold the event again next year, and will meet with residents in February.",
+      "prompt": "Sort each detail. Was it in the festival review, or left out of it?",
+      "success": "The review kept the fun and dropped the noise, parking and rubbish. Choosing only the fun makes it one-sided.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "in the review",
+          "left out of the review"
+        ],
+        "items": [
+          {
+            "text": "About 4,000 people danced past midnight.",
+            "bin": 0,
+            "reason": "The review says the crowd of about 4,000 danced well past midnight."
+          },
+          {
+            "text": "The headliners got the whole crowd singing.",
+            "bin": 0,
+            "reason": "The review says The Salt Pans had the whole crowd singing along."
+          },
+          {
+            "text": "The food trucks ran out of dumplings.",
+            "bin": 0,
+            "reason": "The review mentions this: they sold out by Saturday afternoon."
+          },
+          {
+            "text": "The music could be heard twelve kilometres away.",
+            "bin": 1,
+            "reason": "Only Lena Baxter's letter mentions this. The review leaves the noise out."
+          },
+          {
+            "text": "Cars were parked across people's driveways.",
+            "bin": 1,
+            "reason": "Only Ray Kidd's letter mentions this. It's missing from the review."
+          },
+          {
+            "text": "Hundreds of cans and bottles were left by the creek.",
+            "bin": 1,
+            "reason": "Only Ranger Dot's letter mentions the rubbish. The review skips it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.6-b4-5",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Two newspapers ran headlines about the Reef Rays' coach. Tully has read the full story, and she's fuming about one of them.",
+      "text": "THE FULL STORY: Reef Rays coach Ana Ferris announced on Monday that she will step down at the end of the season. Ferris has coached the Rays for eight seasons and led them to two premierships, in 2019 and 2022. The team has lost its last five matches, its worst run since she took over. At a press conference, Ferris said the decision was her own. 'I've given this club everything for eight years,' she said. 'It's time for someone with fresh ideas, and it's time for me to spend some weekends with my family.' Club president Hamid Rauf said the board had asked her to stay for another two years, but respected her choice. Players said they wanted to win the last three matches of the season for her. Ferris began as a player with the Rays in 2005 and played 112 games before becoming coach. Under her, the club also started its first junior girls' team, which now has more than 80 players. The board will announce a new coach before next season. HEADLINE A, THE ISLAND BUZZ: RAYS COACH QUITS AFTER SHOCK LOSING STREAK. HEADLINE B, THE BLUSTER BUGLE: RAYS COACH RESIGNS AFTER FIVE STRAIGHT LOSSES, ENDING EIGHT SEASONS AND TWO PREMIERSHIPS.",
+      "prompt": "Which statement about the headlines is best supported by the full story?",
+      "success": "Headline A keeps the bad news and drops the premierships. 'Quits' and 'shock' tilt it further against Ferris.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Headline B is biased, because it mentions the five losses.",
+            "reason": "The losses are true, and B balances them with her two premierships."
+          },
+          {
+            "text": "Headline A is biased: it leaves out her premierships and uses tilted words like 'quits'."
+          },
+          {
+            "text": "Headline A is biased, because it is shorter than Headline B.",
+            "reason": "Length isn't bias. A short headline can be fair if it doesn't tilt or hide things."
+          },
+          {
+            "text": "Neither headline is biased, because both of them mention the losing streak and the coach's decision to go.",
+            "reason": "Both mention the losses, but only B adds the premierships. A leaves out her successes."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.6-b4-6",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Maxx is selling a new robot at Vantamart. Gus hacked into the Vantamart customer complaints log. (He says it's not hacking. It's science.)",
+      "text": "THE VANTAMART AD: 'Meet MaxxBot, the robot that's as awesome as me! MaxxBot can dance, take selfies and say forty of my famous catchphrases, including \"Stay gold!\" It's covered in real gold-coloured paint and stands 50 centimetres tall. Over 10,000 MaxxBots have been sold this month. Get yours for just $349, only at Vantamart!' THE VANTAMART COMPLAINTS LOG, THIS MONTH: 1,840 complaints received. Most common complaint: the battery lasts about twenty minutes, then takes six hours to charge. Second most common: the gold paint flakes off and sticks to carpets and pets. Third most common: MaxxBot shouts 'Smash that heart button!' at full volume at random times, including in the middle of the night. Customers report that it does dance, take selfies and say its catchphrases. On the 14th, Vantamart quietly stopped selling MaxxBot in two countries after reports that its wheels could trap small fingers. Each MaxxBot comes in a gold box with a poster of Maxx, a charging cable and a booklet of dance moves. The log also lists 212 customers who have asked for a refund, and 9 who asked if it could be switched off for good. A note at the bottom of the log, in gold pen, says: 'Do NOT put any of this in the ads.'",
+      "prompt": "Which statement best describes how the ad is biased?",
+      "success": "The ad's facts check out, but it picks the good ones and hides the battery, paint and finger reports.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Every sentence in the ad is false.",
+            "reason": "Customers confirm MaxxBot does dance, take selfies and say catchphrases. The ad is true but incomplete."
+          },
+          {
+            "text": "It is biased because it gives the price of MaxxBot, which pushes people to buy one.",
+            "reason": "A price is a plain fact. Giving it doesn't tilt the story or hide anything."
+          },
+          {
+            "text": "It uses true facts but leaves out the complaints and the safety problem."
+          },
+          {
+            "text": "It is biased only because Maxx calls MaxxBot 'awesome'.",
+            "reason": "'Awesome' is an opinion, but the bigger bias is what's hidden: the battery, paint and finger reports."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

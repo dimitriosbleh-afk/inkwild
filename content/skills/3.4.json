@@ -1,0 +1,963 @@
+{
+  "skill": {
+    "id": "3.4",
+    "name": "Emotive words: spot them and say it neutrally",
+    "codes": [
+      "VC2E6LA02"
+    ],
+    "why": "Emotive words push your feelings. Spotting them lets you think for yourself.",
+    "how": "Find words loaded with feeling. Swap each for a calm word that means the same.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Some words are picked to make you feel something.",
+            "show": "The council **snatched** our **beloved** skate park."
+          },
+          {
+            "say": "We call them emotive words. They push your feelings."
+          },
+          {
+            "say": "Happy ones count too. They push you the other way.",
+            "show": "Mo's **heavenly**, **mouth-watering** custard."
+          },
+          {
+            "say": "To say it neutrally, keep what happened. Drop the feeling.",
+            "show": "The council **closed** our skate park."
+          },
+          {
+            "say": "Don't change the facts. Closed is calm. Fixed is wrong!"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Wren's angry note: 'The greedy Vantamart is charging a shocking $15 for a photo with a dingo pup!'",
+          "prompt": "Which says it neutrally?",
+          "hint": "Keep what's happening and the price. Drop the words that make you angry.",
+          "success": "It keeps the shop, the price and the photo. 'Greedy' and 'shocking' are gone.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "The Vantamart charges $15 for a photo with a dingo pup."
+              },
+              {
+                "text": "The heartless Vantamart is ripping people off with $15 dingo photos.",
+                "reason": "'Heartless' and 'ripping people off' are still emotive. They want you angry."
+              },
+              {
+                "text": "The Vantamart gives free photos.",
+                "reason": "This changes the facts. Wren's note says the photos cost $15."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the emotive word.",
+          "hint": "Which word is there to make you feel something?",
+          "success": "'Disgusting' tells you how to feel about the custard. The other words just say what happened.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "On ",
+              {
+                "tap": "Friday",
+                "reason": "'Friday' just tells you when. It carries no feeling."
+              },
+              ", Mo ",
+              {
+                "tap": "served",
+                "reason": "'Served' just tells you what Mo did. It's a calm word."
+              },
+              " a ",
+              {
+                "tap": "disgusting"
+              },
+              " custard to the ",
+              {
+                "tap": "crew",
+                "reason": "'Crew' just names who ate it. It carries no feeling."
+              },
+              "."
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "puffentie",
+      "name": "Puffentie",
+      "evolved": "Puffentaur",
+      "blurb": "A perentie that puffs up to twice its size at every emotive word. Say it neutrally and it shrinks back down, a bit embarrassed."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.4-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "The Bugle's footy report should be neutral. One word has puffed up the Puffentie.",
+      "prompt": "Tap the emotive word in the report.",
+      "success": "'Pathetic' is there to make you think badly of the Snakes. A neutral report wouldn't use it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "FOOTY REPORT. On ",
+          {
+            "tap": "Saturday",
+            "reason": "'Saturday' just tells you when. It has no feeling in it."
+          },
+          ", the Reef Rays played the Saltbush Snakes at Red Dune Park. The Rays ",
+          {
+            "tap": "won",
+            "reason": "'Won' just tells you the result. It is a calm word."
+          },
+          " by 40 points. Kit Moss kicked six ",
+          {
+            "tap": "goals",
+            "reason": "'Goals' just names what was kicked. It has no feeling in it."
+          },
+          " for the Rays. The ",
+          {
+            "tap": "pathetic"
+          },
+          " Snakes kicked two goals all day. About 300 people watched the game. It rained in the last quarter. Next week, the Rays play the Dune Dingoes at home. The game starts at 2 pm."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.4-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren wrote to the Bugle. The Puffentie puffed up three times reading it.",
+      "text": "Dear Editor, Last week, the council cut down the big old gum tree in Red Dune Park. A family of galahs nested in that tree. The council says the tree was dying. It says branches could fall on people. But I am very upset. Here is what I wrote first: 'The heartless council chopped down the galahs' precious home.' The editor says it needs to be calmer. Please help me fix it. From Wren",
+      "prompt": "Which says Wren's sentence neutrally?",
+      "success": "It keeps what happened and drops 'heartless', 'chopped' and 'precious'. Nothing else changed.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The cruel council wrecked the galahs' beautiful home.",
+            "reason": "'Cruel', 'wrecked' and 'beautiful' are still emotive. They want you upset."
+          },
+          {
+            "text": "The council cut down the tree where the galahs nested."
+          },
+          {
+            "text": "The council planted a tree.",
+            "reason": "This changes what happened. The council cut a tree down."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.4-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's canteen ad has made the Puffentie very puffy. Help it sort the words.",
+      "text": "MO'S PIE DAY! Try Mo's heavenly beef pie this Friday. It is baked fresh at the canteen. Each pie costs $3. One bite of the mouth-watering pastry and you'll be in love. Don't miss out on the most glorious lunch of your life. The pies come with tomato sauce. Mo says the old pies were disgusting, but these ones are perfect. Pies are on sale at lunch only. Get in early!",
+      "prompt": "Put each word or phrase from Mo's ad in the right box.",
+      "success": "Heavenly, mouth-watering and disgusting push your feelings. Beef, Friday and $3 just tell you facts.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "emotive: loaded with feeling",
+          "neutral: just tells you"
+        ],
+        "items": [
+          {
+            "text": "heavenly",
+            "bin": 0,
+            "reason": "'Heavenly' is there to make you want the pie. It's emotive."
+          },
+          {
+            "text": "beef",
+            "bin": 1,
+            "reason": "'Beef' just tells you what's in the pie. It's neutral."
+          },
+          {
+            "text": "mouth-watering",
+            "bin": 0,
+            "reason": "'Mouth-watering' is there to make you hungry. It's emotive."
+          },
+          {
+            "text": "Friday",
+            "bin": 1,
+            "reason": "'Friday' just tells you when. It's neutral."
+          },
+          {
+            "text": "disgusting",
+            "bin": 0,
+            "reason": "'Disgusting' wants you to feel yuck about the old pies. It's emotive."
+          },
+          {
+            "text": "$3",
+            "bin": 1,
+            "reason": "'$3' just tells you the price. It's neutral."
+          },
+          {
+            "text": "tomato sauce",
+            "bin": 1,
+            "reason": "'Tomato sauce' just tells you what comes with the pie. It's neutral."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.4-b1-4",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Indi is turning an angry letter into a calm report. One word still has the Puffentie puffed up.",
+      "text": "Dear Vantamart, I bought a Robo-Sweep last week. It is red and about the size of a dinner plate. I bought it at the Vantamart on Saturday. On Monday, it made a hideous noise. It was as loud as a lawnmower. Then it crashed into my table. It broke my nan's vase. Now it only spins in circles. I want my money back! I paid $99 for this robot. It has had a very short life. From Mrs Petra Vale, Dune Street",
+      "prompt": "Tap the emotive word in Indi's report. Then choose a neutral word.",
+      "success": "'Loud' keeps the meaning, a big noise, without making you feel it was horrible.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "On Monday, the Robo-Sweep made a ",
+          {
+            "tap": "hideous"
+          },
+          " noise. It ",
+          {
+            "tap": "hit",
+            "reason": "'Hit' just tells you what the robot did. It's a calm word."
+          },
+          " a table and broke a ",
+          {
+            "tap": "vase",
+            "reason": "'Vase' just names what broke. It has no feeling in it."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "horrible",
+            "reason": "'Horrible' is still emotive. It tells you how to feel about the noise."
+          },
+          {
+            "text": "loud"
+          },
+          {
+            "text": "quiet",
+            "reason": "This changes the meaning. The noise was big, not quiet."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.4-b1-5",
+      "band": 1,
+      "topic": "music",
+      "frame": "Three people wrote about the school concert. The Puffentie wants the calm one.",
+      "text": "The school concert was on Friday night. Three people wrote about it for the newsletter. Pat Grumbleton didn't like it at all. Mo's nan loved every minute. Tully just wrote down what happened. Tully always writes down what happened. She also wrote down how many times the recorder group squeaked. It was eleven. Mo's nan brought a cushion. Here are the first lines of all three reports.",
+      "prompt": "Which sentence is neutral?",
+      "success": "'Went for two hours' just tells you what happened. 'Disaster' and 'magical' both push a feeling.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The concert was a disaster.",
+            "reason": "'Disaster' is emotive. It wants you to feel the concert was awful."
+          },
+          {
+            "text": "The concert was truly magical.",
+            "reason": "'Magical' is emotive too. Happy words push your feelings as well."
+          },
+          {
+            "text": "The concert went for two hours."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.4-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed wrote an angry diary entry. Tully wants a calm version for the crew log.",
+      "text": "ZED'S DIARY. Worst. Day. Ever. My terrible little brother wrecked my saved game. Three weeks of work, gone! He pressed the delete button by mistake. He said sorry. He said he wanted to see what it did. Now I know what it does. I have to start the whole game again. I am never letting him touch my controller again. Not even for one second.",
+      "prompt": "Build a neutral sentence that says what happened.",
+      "success": "'Deleted' says what happened. 'Terrible' and 'wrecked' were there to make you feel Zed's anger.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Zed's",
+          "terrible",
+          "little brother",
+          "wrecked",
+          "deleted",
+          "his",
+          "saved game",
+          "."
+        ],
+        "accept": [
+          "Zed's little brother deleted his saved game."
+        ],
+        "reason": "Leave out the words loaded with feeling. Use the word that just says what happened."
+      }
+    },
+    {
+      "id": "3.4-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Maxx is streaming from Bluster Bay. The Puffentie has puffed up so much it can barely see.",
+      "text": "Maxx it out, Vantafam! I'm coming to you live from Bluster Bay, and I have breaking news. Three monstrous sharks invaded Bluster Bay yesterday. Lifeguards closed the beach for two hours, and everyone had to get out of the water. Luckily, nobody was hurt. The beach will open again this morning. I was on my gold jet ski the whole time, of course, keeping you all safe. The Bugle wants to use my news in tomorrow's paper, but the editor says my words are 'a bit much'. Rude! Maxx's followers have shared this stream more than a million times. Smash that heart button like it owes you money! Stay gold!",
+      "prompt": "Which says Maxx's shark sentence neutrally?",
+      "success": "It keeps three, large, into the bay and yesterday. Only 'monstrous' and 'invaded' are gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Three huge, scary sharks stormed into Bluster Bay yesterday.",
+            "reason": "'Scary' and 'stormed' are still emotive. They want you frightened."
+          },
+          {
+            "text": "Three large sharks swam into Bluster Bay yesterday."
+          },
+          {
+            "text": "Some sharks swam near the bay last week.",
+            "reason": "This changes the facts. Maxx said three sharks, yesterday, into the bay."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.4-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "The Bugle's science fair report is meant to be neutral. One word has the Puffentie puffing.",
+      "prompt": "Tap the emotive word in the report.",
+      "success": "'Vile' tells you how to feel about the jars. A neutral report just describes what was in them.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "SCIENCE FAIR RESULTS. The Bluster Rock Primary science fair was held in the school hall on ",
+          {
+            "tap": "Thursday",
+            "reason": "'Thursday' just tells you when. It carries no feeling."
+          },
+          ". Each student had a table and a poster board for their display. Forty students entered. Gus, from the Soggy Biscuit crew, tested which foods grow ",
+          {
+            "tap": "mould",
+            "reason": "'Mould' just names what grew. It's a science word, not a feeling word."
+          },
+          " fastest. He left five foods in sealed jars for fourteen days. His display showed the ",
+          {
+            "tap": "vile"
+          },
+          " jars on a long table. The bread grew mould first, on day three. Gus came ",
+          {
+            "tap": "second",
+            "reason": "'Second' just tells you his place. It carries no feeling."
+          },
+          " overall. First place went to a Year 6 student, Hana, who built a solar oven from a pizza box. The judges asked Gus to put the lids back on his jars before lunch."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.4-b2-3",
+      "band": 2,
+      "topic": "space",
+      "frame": "Maxx has posted about his rocket. The Puffentie is sorting his words before it explodes.",
+      "text": "Maxx it out, Vantafam! On Tuesday, my jaw-dropping Gold Rocket launched from Bluster Rock at 9 am. It climbed to a height of 80 kilometres, then landed safely on the red sand nine minutes later. It was the most glorious moment in human history. My heroic crew cheered so loudly that they scared a flock of galahs. The rocket is thirty metres tall and painted gold. The rocket used enough fuel to fill four swimming pools. Next month, I'm going even higher. Some haters said it would never fly. Well, look who's laughing now! Two Xs, because one X is for losers! Stay gold!",
+      "prompt": "Put each word or phrase from Maxx's post in the right box.",
+      "success": "Jaw-dropping, glorious and heroic push your feelings. The times, heights and colour just tell you facts.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "emotive: loaded with feeling",
+          "neutral: just tells you"
+        ],
+        "items": [
+          {
+            "text": "jaw-dropping",
+            "bin": 0,
+            "reason": "'Jaw-dropping' wants you to feel amazed. It's emotive."
+          },
+          {
+            "text": "launched at 9 am",
+            "bin": 1,
+            "reason": "This just tells you what happened and when. It's neutral."
+          },
+          {
+            "text": "most glorious moment",
+            "bin": 0,
+            "reason": "'Glorious' wants you to feel thrilled. It's emotive."
+          },
+          {
+            "text": "80 kilometres",
+            "bin": 1,
+            "reason": "This is a measurement. It carries no feeling."
+          },
+          {
+            "text": "heroic crew",
+            "bin": 0,
+            "reason": "'Heroic' wants you to admire them. Happy emotive words still push your feelings."
+          },
+          {
+            "text": "painted gold",
+            "bin": 1,
+            "reason": "This just tells you the colour. It's neutral."
+          },
+          {
+            "text": "haters",
+            "bin": 0,
+            "reason": "'Haters' makes the people who doubted him sound nasty. It's emotive."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.4-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "Tully is writing a calm report about the mural. One word still has the Puffentie puffed up.",
+      "text": "On Monday morning, students arrived at Bluster Rock Primary to find a black moustache drawn on the new canteen mural. The mural was finished three weeks ago. It is twelve metres long and shows a red kangaroo, a galah and a thorny devil. Thirty students helped to paint it. The moustache was on the thorny devil, which sits on top of Bluster Rock in the painting. Indi, who designed the mural, was very upset at first. Then she said the thorny devil looked 'oddly distinguished'. Principal Okafor has asked whoever drew it to own up. Mr Pettigrew, the caretaker, says the marker will wash off with warm, soapy water.",
+      "prompt": "Tap the emotive word in Tully's report. Then choose a neutral word.",
+      "success": "'Marked' keeps what happened, a mark on the mural, without the anger in 'wrecked'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The mural was ",
+          {
+            "tap": "wrecked"
+          },
+          " on Monday when someone ",
+          {
+            "tap": "drew",
+            "reason": "'Drew' just tells you what the person did. It's a calm word."
+          },
+          " a moustache on its ",
+          {
+            "tap": "thorny devil",
+            "reason": "This just names the part of the mural. It carries no feeling."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "ruined",
+            "reason": "'Ruined' is still emotive. It wants you to feel the mural is lost forever."
+          },
+          {
+            "text": "painted",
+            "reason": "This changes the meaning. It sounds like the mural was being made."
+          },
+          {
+            "text": "marked"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.4-b2-5",
+      "band": 2,
+      "topic": "funny",
+      "frame": "A review of Mo's Joke Night is too grumpy for the newsletter. The Puffentie agrees.",
+      "text": "Mo's Joke Night was held in the school hall on Friday. Mo told jokes from 6 pm until 8 pm, with a short break for the sausage sizzle. About forty people came along. Tickets cost $2, and all the money went to the school library. Mo has already booked the hall for next year. Pat Grumbleton wrote a review for the school newsletter. It began like this: 'Mo's dreadful jokes dragged on for two hours.' The newsletter's editor, Ms Ruiz, said the review should tell readers what happened, not how to feel about it. Pat has been asked to try again, but he is busy writing another letter about the recorder group.",
+      "prompt": "Which says Pat's sentence neutrally?",
+      "success": "It keeps Mo, the jokes and the two hours. 'Dreadful' and 'dragged on' are gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo told jokes for two hours."
+          },
+          {
+            "text": "Mo told brilliant, hilarious jokes for two hours.",
+            "reason": "'Brilliant' and 'hilarious' are emotive too, just happy. Neutral means no push either way."
+          },
+          {
+            "text": "Mo's terrible jokes went on and on for two hours.",
+            "reason": "'Terrible' and 'went on and on' still push you to feel bored."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.4-b2-6",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "A tourist's review of the ghost tour is far too gloomy. The Puffentie wants a calm version.",
+      "text": "REVIEW: SLICK VINNIE'S GHOST TOUR. Two stars. My family went on Slick Vinnie's ghost tour last Saturday. We met at the mine gate at 8 pm. The night was cold and windy, and we did not bring jumpers. The tour cost $5 each, and there were twelve people in our group. Vinnie carried a lantern and wore a long black coat. The miserable tour dragged on for three hours in the cold. Vinnie told the same ghost story four times. My son saw a glowing light in a tunnel, but it was Vinnie's phone. We did get a free hot chocolate at the end. From a tourist from Saltbush Creek",
+      "prompt": "Build a neutral version of the sentence about how long the tour went.",
+      "success": "'Went for three hours' keeps the facts. 'Miserable' and 'dragged on' were there to make you feel bored.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The",
+          "miserable",
+          "tour",
+          "dragged on",
+          "went",
+          "for three hours",
+          "in the cold",
+          "."
+        ],
+        "accept": [
+          "The tour went for three hours in the cold.",
+          "The tour went in the cold for three hours."
+        ],
+        "reason": "Keep the facts: three hours, in the cold. Leave out the words that push a feeling."
+      }
+    },
+    {
+      "id": "3.4-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Reef Rays had a bad day. Tully's diary entry is far too dramatic for the crew log.",
+      "text": "TULLY'S DIARY. I can barely write this. Today, my beloved Reef Rays played the Dune Dingoes in the semi-final at Red Dune Park, and it did not go well. The Dingoes kicked eleven goals in the first half, and our best player, Kit Moss, twisted her ankle in the second quarter. By the final siren, the scoreboard read 98 to 38. The Reef Rays were demolished in a humiliating 60-point loss. The Dingoes will now play the Saltbush Snakes in the grand final next Saturday. Kit Moss is expected to be fit again in two weeks. Coach Dunn told the team she was proud of their season. I sat in the stands with my scarf over my face for twenty minutes. Captain wants the crew log to say what happened, without all my feelings, so I've had to write a calm version. It was the hardest thing I've ever written. Season record: twelve wins, one loss. That's still a 92 per cent win rate, which is fine. Totally fine.",
+      "prompt": "Which says Tully's sentence about the loss neutrally?",
+      "success": "It keeps the team, the loss and the 60 points. 'Demolished' and 'humiliating' are gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The Reef Rays were crushed in an embarrassing 60-point loss.",
+            "reason": "'Crushed' and 'embarrassing' are still emotive. They want you to feel the shame."
+          },
+          {
+            "text": "The Reef Rays lost a close game.",
+            "reason": "This changes the facts. Losing by 60 points is not a close game."
+          },
+          {
+            "text": "The Reef Rays lost by 60 points."
+          },
+          {
+            "text": "The brave Reef Rays fought hard but lost by 60 points.",
+            "reason": "'Brave' and 'fought hard' add a new feeling. Neutral means no push either way."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.4-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "The Bugle's report on the canteen is meant to be neutral. One word has slipped through.",
+      "prompt": "Tap the emotive word in the report.",
+      "success": "'Outrageous' tells you to be angry about the decision. A neutral report would just say what was decided.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "CANTEEN CHANGES AT BLUSTER ROCK PRIMARY. On Monday night, the school council ",
+          {
+            "tap": "voted",
+            "reason": "'Voted' just tells you what the council did. It carries no feeling."
+          },
+          " to stop selling ",
+          {
+            "tap": "sugary",
+            "reason": "'Sugary' tells you what's in the drinks. It describes them, without a feeling."
+          },
+          " drinks at the canteen from the start of next term. The council said the change was based on advice from the school nurse and a local dentist. Ms Diaz, the school nurse, told the council that many students were drinking two or more sugary drinks a day. The canteen sold about 2,000 sugary drinks last term. Slushies, soft drinks and flavoured milk will all be removed from the menu, and water, plain milk and juice will stay. The ",
+          {
+            "tap": "outrageous"
+          },
+          " decision was made by a vote of five to two. Year 6 student Priya Nair, who ran the Bring Back Slushies campaign, said she was disappointed and would write to the council. The canteen manager, Mr Abara, said sales of water had already ",
+          {
+            "tap": "increased",
+            "reason": "'Increased' just tells you sales went up. It carries no feeling."
+          },
+          " by 20 per cent this term. The new menu will be printed in the school newsletter next week. The council will review the change at the end of the year."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.4-b3-3",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Two writers described the same dingo pups. The Puffentie is sorting their sentences.",
+      "text": "Last week, rangers found two dingo pups alone near a dry creek bed, about ten kilometres from Bluster Rock. Their mother had not been seen for several days. The pups were taken to the Red Dust Dingo Rescue, where volunteers are feeding them every four hours. The pups are about six weeks old and weigh just over a kilogram each. The ranger's report noted that the creek had been dry for three months. Volunteers have named the pups Red and Dusty. Two people wrote about the pups. A Vantamart ad, which wants people to pay for photos with the pups, used lots of emotive words. A ranger's report, which was written for the council, stuck to what happened. The rescue centre says the pups are healthy and putting on weight. They will stay at the centre until they are old enough to move to a wildlife sanctuary. The rescue centre is open to visitors on weekends. Wren has offered to help with the night feeds.",
+      "prompt": "Put each sentence in the right box.",
+      "success": "Emotive sentences push you to feel sad or charmed. Neutral ones just tell you what happened.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "emotive: loaded with feeling",
+          "neutral: just tells you"
+        ],
+        "items": [
+          {
+            "text": "Two dingo pups were found near a dry creek bed.",
+            "bin": 1,
+            "reason": "This just tells you what happened and where. It's neutral."
+          },
+          {
+            "text": "The poor, heartbroken babies had been abandoned and left to fend for themselves.",
+            "bin": 0,
+            "reason": "'Poor', 'heartbroken' and 'abandoned' want you to feel sorry for them. It's emotive."
+          },
+          {
+            "text": "These adorable little bundles of joy are desperate for your love.",
+            "bin": 0,
+            "reason": "'Adorable', 'bundles of joy' and 'desperate' push your feelings. Happy words count too."
+          },
+          {
+            "text": "Volunteers feed the pups every four hours.",
+            "bin": 1,
+            "reason": "This just tells you a fact about their care. It's neutral."
+          },
+          {
+            "text": "Their mother had not been seen for several days.",
+            "bin": 1,
+            "reason": "This tells you what happened, without loaded words. It's neutral."
+          },
+          {
+            "text": "Only the heroic Vantamart can save these precious pups.",
+            "bin": 0,
+            "reason": "'Heroic' and 'precious' want you to admire the shop and love the pups. It's emotive."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.4-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is writing a review for the Bugle, but he is still very cross. The Puffentie spotted the problem.",
+      "text": "On Tuesday, the makers of Dune Dash released an update for the game. The update changed the controls, so that you now steer the buggy by tilting the screen instead of pressing buttons. The update also added four new tracks and fixed a problem that made some buggies fall through the sand. Many players, including Zed, have complained on the game's message board. Zed has played Dune Dash every day since it came out. His best time on the Sunset Dunes track is still the fastest on the island. Zed had spent three months learning to drift around corners with the buttons, and now he has to start again. He has been asked to write a calm, neutral review for the Bugle, which wants its readers to make up their own minds. His first draft was mostly capital letters. His second draft is better, but one word still gives away how angry he is. The game's makers say they will add an option to bring back the old controls next month.",
+      "prompt": "Tap the emotive word in Zed's review. Then choose a neutral word.",
+      "success": "'Changed' keeps the meaning, the controls are different now, without telling you to be angry.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "On ",
+          {
+            "tap": "Tuesday",
+            "reason": "'Tuesday' just tells you when. It carries no feeling."
+          },
+          ", the update ",
+          {
+            "tap": "butchered"
+          },
+          " the game's ",
+          {
+            "tap": "controls",
+            "reason": "'Controls' just names what was updated. It's neutral."
+          },
+          ". You now steer by ",
+          {
+            "tap": "tilting",
+            "reason": "'Tilting' just tells you how you steer now. It's neutral."
+          },
+          " the screen."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "ruined",
+            "reason": "'Ruined' is still emotive. It wants you to feel the game is spoilt."
+          },
+          {
+            "text": "improved",
+            "reason": "'Improved' pushes a feeling the other way, and it changes what Zed means."
+          },
+          {
+            "text": "changed"
+          },
+          {
+            "text": "fixed",
+            "reason": "This changes the meaning. It says the controls were broken before."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.4-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "The Bugle is reporting on Maxx's rocket launch, using Maxx's own words. The editor is not happy.",
+      "text": "On Tuesday morning, Maxx Vantablack's Gold Rocket launched from a paddock behind the Vantamart. The launch had been delayed twice because of strong winds. A crowd of about 2,000 people watched from the beach, and many more watched live on Maxx's channel. Tickets to watch from the beach cost $50, and about half the crowd wore gold sunglasses handed out by Maxx's Goldies. The rocket rose to a height of 80 kilometres before its parachutes opened and it drifted back down to the red sand. Maxx himself was not on board, although he wore a gold space suit for the cameras. The rocket is now being cleaned and checked, and Maxx says it will fly again next month. The Bugle's new reporter wrote the story using words from Maxx's own press release, including this sentence: 'Maxx's magnificent rocket soared triumphantly into the sky.' The editor has asked for a neutral version. Readers, she says, can decide for themselves whether it was magnificent.",
+      "prompt": "Which says the reporter's sentence neutrally?",
+      "success": "It keeps the rocket going up into the sky. 'Magnificent' and 'soared triumphantly' are gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx's amazing rocket shot heroically into the sky.",
+            "reason": "'Amazing' and 'heroically' are still emotive. They want you to be impressed."
+          },
+          {
+            "text": "Maxx's rocket rose into the sky."
+          },
+          {
+            "text": "Maxx's rocket fell to the ground.",
+            "reason": "This changes the facts. The rocket rose 80 kilometres before it came back down."
+          },
+          {
+            "text": "Maxx's rocket wobbled feebly into the sky.",
+            "reason": "'Wobbled feebly' adds a mocking feeling. Neutral means no push either way."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.4-b3-6",
+      "band": 3,
+      "topic": "robots",
+      "frame": "A customer's complaint about a Chore-Bot has reached the Bugle. The Puffentie wants a calm version.",
+      "text": "Dear Editor, I bought a Chore-Bot from Slick Vinnie's stall at the Bluster Rock market last Saturday. Vinnie promised it would fold washing, wipe benches and feed the cat. Vinnie told me the Chore-Bot was the 'deal of the century' and that I would never fold washing again. I paid $80 for it. On Sunday, I asked it to fold my son's school shirt. That useless heap of junk mauled my son's school shirt! It tore a long hole down the back, and then it tried to fold the cat. The cat is fine, but it now hides whenever it hears a beep. He was right about one thing: I haven't folded any washing since, because I've been too busy sewing. When I took the robot back to the market, Vinnie said the shirt must have been 'faulty'. I would like other readers to know what happened before they spend $80. Yours faithfully, Dot Kelly, Saltbush Road",
+      "prompt": "Build a neutral sentence that says what the Chore-Bot did to the shirt.",
+      "success": "'Tore' says what happened. 'Useless heap of junk' and 'mauled' were there to make you angry.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The",
+          "useless",
+          "Chore-Bot",
+          "heap of junk",
+          "mauled",
+          "tore",
+          "my son's",
+          "school shirt",
+          "."
+        ],
+        "accept": [
+          "The Chore-Bot tore my son's school shirt."
+        ],
+        "reason": "Name the robot, say what it did in a calm word, and leave out the insults."
+      }
+    },
+    {
+      "id": "3.4-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Ada Pennick's letter is going to the council, but the clerk says it needs to be calmer. The Puffentie agrees.",
+      "text": "Dear Councillors, I am writing on behalf of the Bluster Bay Turtle Volunteers to ask you to cancel the licence that allows jet ski hire in the bay. For decades, the northern end of the bay has been a nesting beach for green turtles. Every summer, our volunteers count the nests, fence them off and watch the hatchlings scramble down to the water by moonlight. Since the hire shop opened in October, rangers have found fourteen injured turtles in the bay, most of them with cuts that match the shape of a propeller. My first draft of this letter included the following sentence: 'Reckless thrill-seekers on roaring jet skis have mown down fourteen defenceless turtles in our once-peaceful bay.' The council clerk has kindly pointed out that councillors are more likely to listen to the facts if they are not wrapped in so much feeling, and that the rangers' figures are powerful enough on their own. I have therefore agreed to rewrite it. I would be grateful if you could read the rangers' report before the vote on 12 December. Yours faithfully, Ada Pennick, turtle volunteer",
+      "prompt": "Which says Ada's first-draft sentence neutrally?",
+      "success": "It keeps the riders, the fourteen turtles, the hitting and the bay. Only the loaded words are gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Careless riders on noisy jet skis have smashed into fourteen helpless turtles in our bay.",
+            "reason": "'Careless', 'smashed' and 'helpless' still push you to feel angry and sorry. It's emotive."
+          },
+          {
+            "text": "Jet ski riders have hit a few turtles in the bay.",
+            "reason": "'A few' changes the facts. The rangers counted fourteen."
+          },
+          {
+            "text": "Fun-loving tourists on jet skis have bumped into fourteen turtles in our lively bay.",
+            "reason": "'Fun-loving', 'bumped' and 'lively' push a cheerful feeling instead. That's emotive too, and 'bumped' softens what happened."
+          },
+          {
+            "text": "People riding jet skis have hit fourteen turtles in the bay."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.4-b4-2",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "The Bugle's report on the mystery lights is meant to be neutral. One word betrays the writer's feelings.",
+      "prompt": "Tap the emotive word in the report.",
+      "success": "'Shamelessly' judges Vinnie and pushes you to disapprove. A neutral report would just say he raised his prices.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "MYSTERY LIGHTS: COUNCIL TO INVESTIGATE. For the past two weeks, green lights have been seen above the old mine at the back of Bluster Rock, usually between 11 pm and midnight. The lights were first reported by a truck driver, who saw them while driving past the rock on his way to Saltbush Creek. A security camera at the service station ",
+          {
+            "tap": "recorded",
+            "reason": "'Recorded' just tells you what the camera did. It carries no feeling."
+          },
+          " the lights on three separate nights, and several residents of Dune Street have reported a low humming noise coming from the mine after dark. The council has now asked a team of scientists to examine the site. Ghost tour guide Slick Vinnie has ",
+          {
+            "tap": "shamelessly"
+          },
+          " doubled the price of his midnight tour, from $5 to $10, and says that ticket sales have ",
+          {
+            "tap": "tripled",
+            "reason": "'Tripled' is a measurement of sales. It carries no feeling."
+          },
+          " since the lights first appeared. One scientist, Dr Esther Okafor, has suggested that the lights may come from a glowing ",
+          {
+            "tap": "fungus",
+            "reason": "'Fungus' is a science word for what might be glowing. It's neutral."
+          },
+          " that grows on old mine timbers. The scientists are expected to visit the mine next Tuesday and will take samples from the tunnels. Their findings will be shared at a public meeting in the town hall. The mine has been closed since 1923, and the council has asked the public to stay away from the entrance until the scientists have finished their work. The Soggy Biscuit crew has offered to help."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.4-b4-3",
+      "band": 4,
+      "topic": "music",
+      "frame": "Two letters about the music festival are in today's Bugle. The Puffentie is sorting their phrases, and puffing furiously.",
+      "text": "The council's plan to bring back the Bluster Rock Music Festival has divided the town, and this week the Bugle received two very different letters about it. The first came from Jojo Reyes, the lead singer of Red Dust Static, who wants the festival to return next autumn. She called it 'a joyous celebration of everything that makes our town special' and reminded readers that the 2019 festival attracted 6,000 visitors. Her letter also said the festival would bring money to local shops, and she asked readers to support it at the council meeting. The second came from Pat Grumbleton of Dune Street, who described the old festival as 'a deafening, sleepless nightmare' and complained about 'rowdy mobs' trampling his front garden. Pat said he had lived on Dune Street for forty years, and he asked the council to think of residents who need their sleep. The Bugle has decided to print both letters in full on page five. Both letters included some neutral details: the festival was held every autumn until 2019, it used a stage built on a flatbed truck, and it ran for two days. The council will vote on the plan at its meeting on 3 March, and residents are welcome to attend.",
+      "prompt": "Put each phrase from the letters in the right box.",
+      "success": "Joyous, nightmare and mobs push feelings, happy or angry. Dates, numbers and the truck stage are neutral.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "emotive: loaded with feeling",
+          "neutral: just tells you"
+        ],
+        "items": [
+          {
+            "text": "a joyous celebration",
+            "bin": 0,
+            "reason": "'Joyous celebration' wants you to feel happy about the festival. Happy words are emotive too."
+          },
+          {
+            "text": "attracted 6,000 visitors",
+            "bin": 1,
+            "reason": "This is a figure that could be checked. It doesn't push a feeling."
+          },
+          {
+            "text": "a deafening, sleepless nightmare",
+            "bin": 0,
+            "reason": "'Deafening' and 'nightmare' want you to dread the festival. It's emotive."
+          },
+          {
+            "text": "rowdy mobs",
+            "bin": 0,
+            "reason": "'Mobs' makes visitors sound dangerous, and 'rowdy' adds disapproval. It's emotive."
+          },
+          {
+            "text": "held every autumn until 2019",
+            "bin": 1,
+            "reason": "This just tells you when the festival ran. It's neutral."
+          },
+          {
+            "text": "a stage built on a flatbed truck",
+            "bin": 1,
+            "reason": "This just describes the stage. It carries no feeling."
+          },
+          {
+            "text": "ran for two days",
+            "bin": 1,
+            "reason": "This just tells you how long the festival lasted. It carries no feeling."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.4-b4-4",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing up his mould experiment for the science fair judges. Wren says one word is too dramatic.",
+      "text": "For his science fair project, Gus left five foods in sealed jars for fourteen days. The jars sat on the windowsill of the Soggy Biscuit's galley. The foods were white bread, an orange, cheese, a boiled potato and one of Mo's fish-finger custards. He photographed each jar at the same time every morning and measured how much of the surface was covered in mould. The bread grew mould first, on day three, and the orange was completely covered by day ten. Wren checked the jars each morning to make sure the lids were still tight. The cheese grew the least mould of the real foods, and Mo's custard grew none at all, which worried everyone. On day fourteen, Gus opened the jars to take samples, and a smell spread through the galley that was so strong Tully moved her hammock onto the deck. Mo said it reminded him of his cousin's football boots. The science fair judges have asked for reports that are calm and exact, because, as the head judge puts it, 'good science describes, it doesn't dramatise'. Gus has written most of his report in that style, but one word in his description of day fourteen still gives away how he felt.",
+      "prompt": "Tap the emotive word in Gus's report. Then choose a neutral word.",
+      "success": "'Strong' keeps how powerful the smell was. It just drops the push to feel sick.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "On day fourteen, a ",
+          {
+            "tap": "nauseating"
+          },
+          " smell filled the ",
+          {
+            "tap": "galley",
+            "reason": "'Galley' is just the name of a ship's kitchen. It carries no feeling."
+          },
+          ", and Tully ",
+          {
+            "tap": "moved",
+            "reason": "'Moved' just tells you what Tully did. It's a calm word."
+          },
+          " her hammock onto the deck."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "revolting",
+            "reason": "'Revolting' is still emotive. It pushes you to feel disgust, just like before."
+          },
+          {
+            "text": "faint",
+            "reason": "This changes the meaning. A faint smell wouldn't make Tully move her hammock."
+          },
+          {
+            "text": "sickening",
+            "reason": "'Sickening' still tells you how to feel. It's emotive."
+          },
+          {
+            "text": "strong"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.4-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Maxx is reading out a news story about Bluster Rock Primary on his stream. The Puffentie can barely keep still.",
+      "text": "Maxx it out, Vantafam! Big news today from Bluster Rock Primary. The school has announced that its brass bell, which has rung at the start of every lunch for sixty years, will be replaced next term by a robot that sings. The robot is about the size of a toaster, and it will sit on the staffroom roof. Principal Okafor says it can sing twelve different songs, including one about the canteen. Some students have started a petition to keep the bell, and so far it has forty names on it. The bell itself will be polished and put in a glass case in the school foyer. Of course, my channel has its own take on the story. My writers came up with this headline: 'Heartless principal ruthlessly dumps beloved bell for screeching tin-can robot.' Is it a bit much? Maybe. But that's Maxx-imum content! Some of you, especially the haters, have asked whether I would ever swap my alarm clock for a singing robot. Never, Vantafam. Nobody sings like me. The Bugle has asked to use the story too, but its editor wants the headline rewritten so that it reports the news without telling readers how to feel. Smash that heart button like it owes you money! Stay gold!",
+      "prompt": "Which says Maxx's headline neutrally?",
+      "success": "It keeps who is replacing what with what. 'Heartless', 'ruthlessly', 'beloved' and 'screeching tin-can' are gone.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Cruel principal coldly ditches cherished bell for a clanking machine.",
+            "reason": "'Cruel', 'coldly', 'cherished' and 'clanking' still push you to feel upset. It's emotive."
+          },
+          {
+            "text": "Principal replaces the school bell with a singing robot."
+          },
+          {
+            "text": "Principal adds a singing robot beside the school bell.",
+            "reason": "This changes the facts. The robot is replacing the bell, not joining it."
+          },
+          {
+            "text": "Clever principal boldly upgrades the bell to a dazzling singing robot.",
+            "reason": "'Clever', 'boldly' and 'dazzling' push an admiring feeling. That's emotive too."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.4-b4-6",
+      "band": 4,
+      "topic": "art",
+      "frame": "Maxx is boasting about his painting again. The Bugle wants one plain sentence for its news page.",
+      "text": "Maxx it out, Vantafam! I have the most incredible news. Last night, at the Bluster Rock Art Auction, my painting 'Gold on Gold' was sold to a mystery collector from overseas. The painting is two metres wide and covered in real gold leaf. The buyer has not been named, but they have 'excellent taste, obviously'. The auction raised $95,000 in total, from forty-two paintings. Let me say that again, louder, for the haters at the back: my genius, jaw-dropping painting sold for a mind-blowing $40,000! That is more than any painting has ever sold for at the Bluster Rock auction, and it's the second year in a row that I've broken the record. I painted it in under ten minutes, using a brush made from my own hair, which I think we can all agree is the most important hair in the world. As always, every cent goes to the Maxx Vantablack Rescue Fund. The Bugle wants to report the sale on its news page tomorrow, but its editor has asked for one plain sentence that tells readers the facts without any of my sparkle. Boring! Two Xs, because one X is for losers! Stay gold!",
+      "prompt": "Build a neutral version of Maxx's sentence about the sale. Keep it in his words, so start with 'My'.",
+      "success": "'My painting sold for $40,000' keeps every fact. 'Genius', 'jaw-dropping' and 'mind-blowing' only add sparkle.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "My",
+          "genius",
+          "jaw-dropping",
+          "painting",
+          "sold",
+          "for",
+          "a mind-blowing",
+          "$40,000",
+          "."
+        ],
+        "accept": [
+          "My painting sold for $40,000."
+        ],
+        "reason": "Keep the facts, the painting, the sale and the price, and leave out every word that adds sparkle."
+      }
+    }
+  ]
+}

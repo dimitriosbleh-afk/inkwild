@@ -1,0 +1,913 @@
+{
+  "skill": {
+    "id": "3.9",
+    "name": "Must or might: how strongly a writer commits",
+    "codes": [
+      "VC2E6LE02"
+    ],
+    "why": "Strong words like must push you. Weak words like might leave wiggle room.",
+    "how": "Find the must, should or might word. Ask: is it strong, medium or weak?",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Must is super strong. You get no choice.",
+            "show": "You **must** wear a hat."
+          },
+          {
+            "say": "Should is medium. It's good advice, but you could say no.",
+            "show": "You **should** wear a hat."
+          },
+          {
+            "say": "Might and could are weak. It's just possible.",
+            "show": "You **might** need a hat."
+          },
+          {
+            "say": "Same for guessing. Will is sure. Might is a maybe.",
+            "show": "It **will** rain. It **might** rain."
+          },
+          {
+            "say": "These are modal words. Persuaders love the strong ones."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Sign at the Bluster Rock pool: Swimmers must have a shower first. You should bring goggles. The water might feel cold.",
+          "prompt": "Which one is just a maybe?",
+          "hint": "Look for might or could. Those are the weak words.",
+          "success": "The water feeling cold. Might is a weak word. It's only possible.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "having a shower first",
+                "reason": "Must means no choice. That's the strongest word, not a maybe."
+              },
+              {
+                "text": "bringing goggles",
+                "reason": "Should is good advice. That's medium, not weak."
+              },
+              {
+                "text": "the water feeling cold"
+              }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "prompt": "Tap the word that gives you no choice.",
+          "hint": "Which word is the bossiest?",
+          "success": "Must. It's the strongest word. The mouthguard is a rule.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Coach Dee says: 'You ",
+              {
+                "tap": "could",
+                "reason": "Could is weak. Stretching is just an idea."
+              },
+              " stretch first. You ",
+              {
+                "tap": "should",
+                "reason": "Should is advice. It's a good idea, but not a rule."
+              },
+              " drink water. And you ",
+              {
+                "tap": "must"
+              },
+              " wear your mouthguard.'"
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "mightoo",
+      "name": "Mightoo",
+      "evolved": "Mustacrest",
+      "blurb": "A galah whose pink crest rises with every word it hears. Might lifts it a little. Must shoots it straight up."
+    }
+  },
+  "encounters": [
+    {
+      "id": "3.9-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "A notice is flapping on the footy club gate. The Mightoo reads it, crest twitching.",
+      "text": "Hey, Bluster Rock juniors! Training is on Saturday at the red dirt oval. Here is what to bring. Every player must bring a water bottle. It gets very hot out there. You should bring a snack too, like fruit or a muesli bar. The sky looks grey, so it might rain. You could pack a jacket, just in case. See you at nine! Coach Dee",
+      "prompt": "Which thing does Coach Dee say players have no choice about?",
+      "success": "A water bottle. Must is the strongest word. It leaves no choice.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a water bottle"
+          },
+          {
+            "text": "a healthy snack",
+            "reason": "Coach Dee says you should bring a snack. Should is advice, not a must."
+          },
+          {
+            "text": "a rain jacket",
+            "reason": "Coach Dee says you could pack one. Could is the weakest. It's just an idea."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.9-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Mightoo is perched on Wren's new sign at the waterhole.",
+      "prompt": "Tap the word that shows Wren is least sure.",
+      "success": "Might. Wren can't promise you'll see a wallaby. It's only possible.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren put up a sign at the waterhole. It says: Rock wallabies live here. Please keep your dog on a lead. Dogs ",
+          {
+            "tap": "must",
+            "reason": "Must is the strongest word. Wren is sure. It's a rule."
+          },
+          " stay out of the water. Everyone ",
+          {
+            "tap": "should",
+            "reason": "Should is in the middle. It's good advice."
+          },
+          " walk quietly on the track. The wallabies are very shy. If you sit still near sunset, you ",
+          {
+            "tap": "might"
+          },
+          " see one. Please take your rubbish home. Thank you! Love, Wren and the Mightoo."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo has stuck his kitchen rules on the galley wall. The Mightoo wants them sorted.",
+      "prompt": "Put each kitchen line in the right box.",
+      "success": "Must is strong. Should is medium. Might and could are weak.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "strong: no choice",
+          "medium: good advice",
+          "weak: just possible"
+        ],
+        "items": [
+          {
+            "text": "You must wash your hands first.",
+            "bin": 0,
+            "reason": "Must is the strongest word. There's no choice."
+          },
+          {
+            "text": "You should wear an apron.",
+            "bin": 1,
+            "reason": "Should is advice. It's a good idea, but not a must."
+          },
+          {
+            "text": "The pie might be a bit burnt.",
+            "bin": 2,
+            "reason": "Might is weak. Mo isn't sure the pie is burnt."
+          },
+          {
+            "text": "You must not touch the hot pot.",
+            "bin": 0,
+            "reason": "Must not is still must. It's a rule with no choice."
+          },
+          {
+            "text": "You should try the custard.",
+            "bin": 1,
+            "reason": "Should is Mo's advice. You can still say no."
+          },
+          {
+            "text": "The gravy could be a bit lumpy.",
+            "bin": 2,
+            "reason": "Could is weak. Mo isn't sure the gravy is lumpy."
+          },
+          {
+            "text": "The custard may be a bit cold.",
+            "bin": 2,
+            "reason": "May is weak here. Mo isn't sure the custard is cold."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.9-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Tully found three forecasts for the rocket launch at Bluster Rock Space Camp.",
+      "prompt": "Put the forecasts from least sure to most sure.",
+      "success": "Might, then will probably, then will definitely. Each one makes the forecast surer.",
+      "body": {
+        "format": "order",
+        "items": [
+          "The rocket might launch today.",
+          "The rocket will probably launch today.",
+          "The rocket will definitely launch today."
+        ],
+        "reason": "Might is just possible. Will probably means likely. Will definitely means certain."
+      }
+    },
+    {
+      "id": "3.9-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "A Maxx Vantablack poster is stuck to a rock. Indi has already drawn a moustache on it.",
+      "text": "MAXX IT OUT, VANTAFAM! This is the Maxx Gold Cap. It will make you famous. Everyone at school will want to be you. You must buy one today! Only fifty dollars! Two Xs, because one X is for losers. Stay gold! Tiny writing at the bottom: Wearing the cap might help some people get more followers. Indi read it and laughed so hard she snorted.",
+      "prompt": "In the tiny writing, how sure is Maxx that the cap works?",
+      "success": "Not very sure. Might is weak. The big words sell the cap. The tiny words cover Maxx.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "completely sure",
+            "reason": "That's the big writing. The tiny writing says might, which is weak."
+          },
+          {
+            "text": "not very sure"
+          },
+          {
+            "text": "he doesn't say",
+            "reason": "He does say. Might tells you he's not very sure."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.9-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed copied the rules of Lava Run for Mo. He got one word wrong.",
+      "text": "LAVA RUN: HOW TO PLAY. You must find three gold keys to open the last gate. Without all three keys, the gate stays shut. You could pick up coins on the way. They give you extra points. Watch out for the lava frogs. They might jump out of the pits. Good luck, runner! Zed has played it forty times. His best time is three minutes flat.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Must. Without all three keys the gate stays shut, so there's no choice.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "You ",
+          {
+            "tap": "might"
+          },
+          " find three gold keys to open the gate. You ",
+          {
+            "tap": "could",
+            "reason": "That's right. The rules say you could pick up coins."
+          },
+          " pick up coins for ",
+          {
+            "tap": "extra points",
+            "reason": "That's right. The rules say coins give extra points."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "must"
+          },
+          {
+            "text": "could",
+            "reason": "Could means it's up to you. But the gate stays shut without all three keys."
+          },
+          {
+            "text": "may",
+            "reason": "May means you're allowed to. The rules say you have no choice."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "3.9-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Bluster Rock Surf Club newsletter has washed up on the Soggy Biscuit's deck.",
+      "text": "SURF CLUB NEWS. Big crowds are expected at Redsand Beach this weekend, so here are a few reminders. All swimmers must stay between the red and yellow flags. Our lifeguards cannot see you anywhere else. The wind is blowing in from the east, which means bluebottles will probably wash up on Saturday. If you get stung, rinse the sting with sea water and tell a lifeguard. You should also bring a hat and plenty of water, because there is very little shade. On Sunday, a pod of dolphins might swim past the point. Last year, they turned up twice. Bring your binoculars, just in case!",
+      "prompt": "How sure is the surf club that bluebottles will wash up?",
+      "success": "Fairly sure. 'Probably' is a medium word: stronger than might, weaker than will definitely.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "certain",
+            "reason": "Certain would be 'will definitely'. 'Will probably' is a step down."
+          },
+          {
+            "text": "fairly sure"
+          },
+          {
+            "text": "only a small chance",
+            "reason": "That would be might, like the dolphins. Probably is stronger than might."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.9-b2-2",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi wants to enter the Bluster Rock Mural Prize. The Mightoo is reading the entry form over her shoulder.",
+      "prompt": "Tap the sentence that is a rule, with no choice.",
+      "success": "Must is the strongest word. The A3 size is a rule, not advice.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BLUSTER ROCK MURAL PRIZE. Paint a design for the new wall at the bus shelter. This year's theme is creatures of the red rock. Think of lizards, wallabies, galahs and anything else that lives out here. The winner's design will be painted onto the wall in the school holidays. Last year's winner painted a giant thorny devil. ",
+          {
+            "tap": "You could use paint, pencils or chalk.",
+            "reason": "Could is weak. You get to choose what to use."
+          },
+          " ",
+          {
+            "tap": "You should sign your name on the back.",
+            "reason": "Should is advice. It's a good idea, but not a rule."
+          },
+          " ",
+          {
+            "tap": "Every entry must fit on one sheet of A3 paper."
+          },
+          " Entries close on Friday. ",
+          {
+            "tap": "The judges might pick two winners this year.",
+            "reason": "Might is about what's possible. It isn't a rule for you."
+          },
+          " Good luck, artists! Indi has already started sketching a galah wearing sunglasses."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Tully is reading the notes for the Bluster Rock Battle of the Bands. The Mightoo is humming along.",
+      "prompt": "Put each line in the right box, by how sure the notes are that it will happen.",
+      "success": "Definitely and certainly are strong. Probably and likely are medium. May and might are weak.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "very sure",
+          "fairly sure",
+          "not very sure"
+        ],
+        "items": [
+          {
+            "text": "The concert will definitely start at six o'clock.",
+            "bin": 0,
+            "reason": "Will definitely leaves no doubt. That's strong."
+          },
+          {
+            "text": "The winning band will certainly take home the gold guitar trophy.",
+            "bin": 0,
+            "reason": "Certainly means there's no doubt. That's strong."
+          },
+          {
+            "text": "The hall will probably be full by seven.",
+            "bin": 1,
+            "reason": "Probably means likely, but not certain. That's medium."
+          },
+          {
+            "text": "The judges will most likely need an hour to pick a winner.",
+            "bin": 1,
+            "reason": "Likely means it will probably happen, but it isn't certain. That's medium."
+          },
+          {
+            "text": "A famous guitarist may turn up to watch.",
+            "bin": 2,
+            "reason": "May here means maybe. It's only possible."
+          },
+          {
+            "text": "The judges might ask a band for an extra song.",
+            "bin": 2,
+            "reason": "Might is weak. It could easily not happen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.9-b2-4",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus wrote up his slime experiment. Mo made a poster from it, and got some words wrong.",
+      "text": "EXPERIMENT 14: GLOW SLIME. Today I mixed glue, water and a spoonful of glow powder. Then I switched off the lights in the galley. The slime gave off a faint green glow for about ten seconds. Then it faded. I tried again with two spoonfuls. This time it glowed a bit longer, but only near the edges. So more powder might make the slime glow brighter. I'm not sure yet, though. I need to test it at least five more times. Mo, please stop eating the glow powder. That's not food. That's science. Gus has made forty batches of slime this month. The galley floor is still sticky.",
+      "prompt": "Tap the words Mo got wrong, then choose better ones.",
+      "success": "Might. Gus says he's not sure yet, so a weak word matches his notes.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's test: more glow powder ",
+          {
+            "tap": "will definitely"
+          },
+          " make slime glow brighter. He used ",
+          {
+            "tap": "glue and water",
+            "reason": "That's right. Gus mixed glue, water and glow powder."
+          },
+          " and switched off the ",
+          {
+            "tap": "lights",
+            "reason": "That's right. He tested the slime in the dark galley."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "must",
+            "reason": "Must is even stronger. Gus says he's not sure yet."
+          },
+          {
+            "text": "might"
+          },
+          {
+            "text": "will always",
+            "reason": "Will always means certain. Gus still needs five more tests."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.9-b2-5",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Three stalls at the Bluster Rock market are selling robot vacuums. Each flyer makes a different promise.",
+      "prompt": "Put the promises from strongest to weakest.",
+      "success": "Definitely, then probably, then might. The surer the word, the bigger the promise.",
+      "body": {
+        "format": "order",
+        "items": [
+          "The Dustinator will definitely clean every room in your house.",
+          "The Sweepatron will probably clean most of your rooms.",
+          "The Mopster might clean a room or two."
+        ],
+        "reason": "Will definitely is certain. Probably is likely. Might is only possible."
+      }
+    },
+    {
+      "id": "3.9-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live on his stream. Zed is taking notes.",
+      "text": "'Maxx it out, Vantafam! Big news! Tomorrow I'm going on the greatest Creature rescue in history. You MUST watch. You have to! If you miss it, you will regret it forever. Every single one of you must smash that heart button like it owes you money. Will I find a rare Creature? Definitely. Will it be the cutest thing you've ever seen? Absolutely. Stay gold!' After the stream ended, a viewer asked where the rescue would be. Maxx's helper typed back: 'Maybe Bluster Rock. Possibly. We might go to the beach instead.' Zed rolled his eyes. 'That's a lot of shouting for a maybe,' he said.",
+      "prompt": "Why does Maxx use so many strong words like must and definitely?",
+      "success": "Strong words push people. Maxx wants every viewer to feel they must watch.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He has carefully checked all of the facts first.",
+            "reason": "His helper isn't even sure where they're going. The facts aren't checked."
+          },
+          {
+            "text": "The rules say streamers have to use them.",
+            "reason": "Nothing in the stream says there's a rule like that. Maxx chooses these words."
+          },
+          {
+            "text": "He wants viewers to feel they have no choice."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b3-1",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Two texts about the old Bluster Rock mine are pinned side by side on the visitor centre board.",
+      "text": "TEXT A, a ghost tour flyer: Join Phantom Phil's Midnight Mine Tour! The Ghost Miner of Bluster Rock will definitely appear at midnight, swinging his lantern in the deepest tunnel. You will certainly hear his pickaxe tapping on the walls. Phil has seen the Ghost Miner forty times, and he has never once failed to show up. Every visitor must bring a torch. Tickets are twenty dollars, and hot chocolate is included. TEXT B, a note from Ranger Okafor: Some visitors have reported a faint light in the old mine at night. It could be a reflection from the car park, or it might be glow-worms, which sometimes live in damp tunnels. Nobody has taken a clear photo of it. We are not sure yet. Our team will check the tunnels next month and post what we find. Until then, please stay behind the fence, because the tunnels may be unsafe.",
+      "prompt": "What is the biggest difference between how the two writers talk about the mine?",
+      "success": "Text A uses definitely and certainly. Text B uses could, might and 'not sure yet'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Text A is unsure about the ghost, but Text B is certain about it.",
+            "reason": "It's the other way around. Text A says definitely. Text B says could and might."
+          },
+          {
+            "text": "Text A is certain, but Text B leaves room for doubt."
+          },
+          {
+            "text": "Both writers are certain that a ghost miner lives somewhere in the old mine.",
+            "reason": "Only Text A is certain. Ranger Okafor says, 'We are not sure yet.'"
+          },
+          {
+            "text": "Both writers say the light is probably made by glow-worms.",
+            "reason": "Only Text B mentions glow-worms, and only as might. Text A never does."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "3.9-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is reading the Bluster Rock Bugle out loud. The Mightoo's crest goes up and down with every line.",
+      "prompt": "Tap the sentence where the writer is most certain.",
+      "success": "Will definitely leaves no doubt. The roof means rain can't stop the match.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "BLUSTER ROCK BUGLE, SPORT. The Redback Rovers face the Saltbush Swifts in Saturday's netball grand final, and the whole town is buzzing. The final starts at two o'clock at the Bluster Rock Sports Centre. ",
+          {
+            "tap": "The Rovers will probably start as favourites, after winning eight games in a row.",
+            "reason": "Probably means likely, not certain. The writer leaves some doubt."
+          },
+          " Their goal shooter, Priya Nand, has scored more than three hundred goals this season, which is a club record. ",
+          {
+            "tap": "The Swifts might surprise everyone, because their defence has improved since round one.",
+            "reason": "Might is weak. The writer only thinks a surprise is possible."
+          },
+          " Last year, the Swifts lost the final by a single goal, and their captain says they have not forgotten it. ",
+          {
+            "tap": "The match will definitely go ahead, even if it rains, because the court has a roof."
+          },
+          " ",
+          {
+            "tap": "Fans should arrive early, since parking near the courts is limited.",
+            "reason": "Should is advice for fans. It's medium, not the most certain."
+          },
+          " Tickets are five dollars at the gate. The Rovers' mascot is a giant foam spider called Reggie, and he has his own cheer squad of Year 3 kids."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b3-3",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is writing a guide for new wildlife rescuers on Bluster Rock. The Mightoo is helping, mostly by chewing the corners.",
+      "prompt": "Put each line from Wren's guide in the right box.",
+      "success": "Must and have to make rules. Should and ought to give advice. May and could show possibilities.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a rule: no choice",
+          "advice: a good idea",
+          "a possibility: it might happen"
+        ],
+        "items": [
+          {
+            "text": "You must never pick up a bat with bare hands.",
+            "bin": 0,
+            "reason": "Must never is as strong as it gets. It's a rule."
+          },
+          {
+            "text": "Rescuers have to wear gloves when they handle a possum.",
+            "bin": 0,
+            "reason": "Have to means the same as must. There's no choice."
+          },
+          {
+            "text": "You should keep the box somewhere dark and quiet.",
+            "bin": 1,
+            "reason": "Should is advice. It's a good idea, not a rule."
+          },
+          {
+            "text": "You ought to call a vet within an hour of the rescue.",
+            "bin": 1,
+            "reason": "Ought to means the same as should. It's advice."
+          },
+          {
+            "text": "A joey that you find alone may be very hungry.",
+            "bin": 2,
+            "reason": "May here means maybe. Wren isn't saying it's certain."
+          },
+          {
+            "text": "The bird could have a hurt wing, even if it hops normally.",
+            "bin": 2,
+            "reason": "Could is weak. It's only possible that the wing is hurt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.9-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo summed up a food review for the crew's noticeboard. He made one word too strong.",
+      "text": "REVIEW: THE RED DIRT PIE CART, by Jules Tamati. The Red Dirt Pie Cart parks outside the Bluster Rock pool every Saturday, and the queue is usually long by eleven o'clock. I tried three pies. The steak pie had flaky pastry and a rich, peppery gravy, although the bottom was a little soggy. The vegetable pie was packed with pumpkin and peas, and it was still steaming when I reached my car. The lamb pie was my favourite, with soft meat and a hint of rosemary. On a hot day, I might have chosen something cooler, but these were worth it. After tasting all three, I think they are probably the best pies on Bluster Rock. I have not tried every bakery yet, so I can't be completely sure. Next week, I will visit the bakery on Spinifex Street to compare. Jules gives the cart four stars out of five. The pies cost six dollars each.",
+      "prompt": "Tap the word Mo made too strong, then choose the word that matches the review.",
+      "success": "Probably. Jules thinks the pies are the best but hasn't tried every bakery yet.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Jules says the pie cart's pies are ",
+          {
+            "tap": "definitely"
+          },
+          " the best on Bluster Rock. Jules's favourite was the ",
+          {
+            "tap": "lamb pie",
+            "reason": "That's right. Jules says the lamb pie was the favourite."
+          },
+          ", and the steak pie had a ",
+          {
+            "tap": "soggy",
+            "reason": "That's right. Jules says the bottom was a little soggy."
+          },
+          " bottom."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "certainly",
+            "reason": "Certainly is as strong as definitely. Jules says they can't be completely sure."
+          },
+          {
+            "text": "possibly",
+            "reason": "Possibly is weaker than Jules's word. Jules thinks they're likely to be the best."
+          },
+          {
+            "text": "probably"
+          },
+          {
+            "text": "always",
+            "reason": "Always is strong, and Jules has only tried them once."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "Four astronomers posted forecasts about tonight's meteor shower over Bluster Rock.",
+      "prompt": "Put the forecasts from most likely to least likely, as each writer sees it.",
+      "success": "Certainly, then probably, then might, then very unlikely. Each writer commits a little less.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Dr Amaro: Meteors will certainly light up the sky tonight, because this shower comes every year.",
+          "Ms Liu: There will probably be about twenty meteors an hour, if the sky stays clear.",
+          "Mr Petrov: We might see one bright fireball, but they are hard to predict.",
+          "Ms Kaur: It is very unlikely that any piece of a meteor will reach the ground."
+        ],
+        "reason": "Certainly is surest, then probably, then might. Very unlikely means the writer thinks it almost won't happen."
+      }
+    },
+    {
+      "id": "3.9-b3-6",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed screenshotted an ad that keeps popping up in Maxx's game, Vanta Racer.",
+      "text": "VANTA RACER GOLD PASS! Tired of losing? Upgrade today and your car will zoom past every other player. You'll win more races than ever before. This is the fastest car in the game, and nobody will ever catch you. Every top racer has one, so what are you waiting for? Only $9.99 a week! (Small print: The Gold Pass may improve your speed. Results may vary.) Kip, a Year 5 player, saved his pocket money for a month and bought the Gold Pass. Two weeks later, he posted a comment. 'I bought the Gold Pass and I still came last in every race. You promised I would win!' Maxx replied within a minute. 'Read the small print, Kip. I said MAY. Maxx it out!' Kip's comment was deleted the next morning. Zed showed the ad to Mo, who had almost bought the Gold Pass himself. Mo put his wallet back in his pocket very slowly.",
+      "prompt": "Why does the small print use 'may' instead of 'will'?",
+      "success": "Big words sell, and the tiny 'may' covers Maxx. He points to it when Kip complains.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Because Maxx is certain the Gold Pass works for everyone",
+            "reason": "If he were certain, he'd say will in the small print. May is weak."
+          },
+          {
+            "text": "Because 'may' makes the Gold Pass sound more exciting",
+            "reason": "The exciting words are in the big writing. May makes the promise smaller."
+          },
+          {
+            "text": "Because Kip asked Maxx to use a weaker word",
+            "reason": "Kip complained after he bought it. He never asked for any word to change."
+          },
+          {
+            "text": "So Maxx can't be blamed if it doesn't work"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.9-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Two letters about the old Bluster Rock jetty appeared in the local paper on the same day.",
+      "text": "LETTER 1, from the Save Our Jetty group: The council must not knock down the old jetty. It has stood for a hundred years, and it will certainly stand for a hundred more if it is repaired. Without it, the fishing club will close, the tourists will vanish and the town will lose its heart. Every resident should come to the meeting on Thursday night and make their voice heard, because this decision cannot be undone. LETTER 2, from the council's engineer, Dana Whitlock: Our divers inspected the jetty last month and found rust in several of the main posts. Repairs might keep it safe for another ten years, although we can't be sure until more tests are done in February. It could also be cheaper to build a new jetty beside the old one, but we have not finished costing either option. The council will probably decide in March, after the full report is finished. We will publish every test result on the noticeboard outside the town hall, so that residents can read them for themselves. Both letters drew dozens of replies, and the meeting hall has been booked for an extra hour. The fishing club has painted a banner that says 'Hands Off Our Jetty' in letters a metre tall.",
+      "prompt": "Which statement best compares how strongly the two writers commit?",
+      "success": "Letter 1 says must and will certainly. Letter 2 says might, could and probably, while tests continue.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Letter 2 is more certain, because an engineer has checked the facts.",
+            "reason": "The engineer has checked some facts, but still says might, could and 'can't be sure'."
+          },
+          {
+            "text": "Both letters are equally certain, since both talk about the jetty's future.",
+            "reason": "Both talk about the future, but only Letter 1 uses strong words like will certainly."
+          },
+          {
+            "text": "Letter 1 makes firm predictions, but Letter 2 waits for test results."
+          },
+          {
+            "text": "Letter 1 is careful, because it only tells residents what they should do.",
+            "reason": "Should is one line. Letter 1 also says must and will certainly, which are strong."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus found a lab report about a rubbish-sorting robot at the Bluster Rock tip. The Mightoo is trying to sort itself into the recycling.",
+      "prompt": "Tap the sentence where the scientists are least certain.",
+      "success": "Might, plus 'not tested at all', shows the weakest commitment. It's only a hope for one day.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "REPORT: SORTA-BOT, TRIAL ONE. Over the past six weeks, our team trialled Sorta-Bot, a robot arm that picks items off the rubbish conveyor belt at the Bluster Rock tip and drops them into the right bin. It uses a camera and a set of soft rubber fingers, so it can grip items without crushing them. ",
+          {
+            "tap": "Sorta-Bot will definitely sort plastic bottles correctly, because it did so in all two hundred of our tests.",
+            "reason": "Definitely is certain, and two hundred tests back it up."
+          },
+          " Cans were nearly as easy, although a few squashed ones slipped through its fingers. ",
+          {
+            "tap": "It should handle glass jars as well, since they are a similar shape to bottles.",
+            "reason": "Should means the scientists expect it to work. That's medium, not weakest."
+          },
+          " ",
+          {
+            "tap": "The robot must be switched off before anyone cleans its camera.",
+            "reason": "This is a safety rule. Must is the strongest word there is."
+          },
+          " Pizza boxes were a problem, because the robot kept mistaking cheese for cardboard. ",
+          {
+            "tap": "One day, it might even be able to sort food scraps, though we have not tested this at all."
+          },
+          " ",
+          {
+            "tap": "The team will probably finish the next round of testing by June.",
+            "reason": "Probably is medium. The team thinks it's likely, not just possible."
+          },
+          " Until then, the tip's human sorters will keep working alongside the robot, and they have asked for it to be given a name tag. So far, they have suggested Sorty, Binny and Captain Rubbish, and the vote is very close. Gus voted for Captain Rubbish twice. The robot itself has not been asked."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "3.9-b4-3",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Zed paused Maxx's stream and copied down every promise about the new Vantafam Club.",
+      "prompt": "Put each line in the right box, by how sure Maxx sounds.",
+      "success": "Definitely, absolutely and without a doubt sound certain. Probably and likely sound likely. May and might sound only possible.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "very sure",
+          "fairly sure",
+          "not very sure"
+        ],
+        "items": [
+          {
+            "text": "Every member will definitely get a signed gold photo of yours truly.",
+            "bin": 0,
+            "reason": "Will definitely leaves no room for doubt."
+          },
+          {
+            "text": "Without a doubt, this is the most exclusive club on the internet.",
+            "bin": 0,
+            "reason": "Without a doubt means Maxx sounds completely sure."
+          },
+          {
+            "text": "I will absolutely read out every single member's name.",
+            "bin": 0,
+            "reason": "Will absolutely leaves no room for doubt."
+          },
+          {
+            "text": "You will probably get a shout-out on my stream.",
+            "bin": 1,
+            "reason": "Probably means likely. It isn't a promise."
+          },
+          {
+            "text": "Your membership card will most likely arrive within a week.",
+            "bin": 1,
+            "reason": "Likely means Maxx thinks it will probably happen, but he isn't promising."
+          },
+          {
+            "text": "Members may get to meet me in person at the Vantamart.",
+            "bin": 2,
+            "reason": "May means it's only possible. Maxx isn't saying it will happen."
+          },
+          {
+            "text": "Members might even appear in one of my videos.",
+            "bin": 2,
+            "reason": "Might is a weak word. It's only a possibility."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.9-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "Tully wrote a short summary of the festival update for the crew. She got one word badly wrong.",
+      "text": "RED ROCK MUSIC FESTIVAL: SATURDAY UPDATE. The weather bureau has issued a severe storm warning for Saturday evening, with strong winds expected from about nine o'clock. Because of this, the outdoor stage must close at eight o'clock sharp. This is a safety direction from the fire brigade, and the festival has no power to change it. We know many of you were looking forward to the late sets, and we're disappointed too. Refunds will not be offered for Saturday tickets, but every ticket holder will receive half-price entry to next year's festival. The kids' craft tent will run as planned until five o'clock. The drumming workshop will move into the school hall, which can hold about three hundred people, so you may need to queue. The Dusty Possums, who were due to play at nine, might perform an acoustic set in the hall instead, but their manager has not confirmed this yet. Food trucks should stay open until seven, although some may leave earlier if the wind picks up. Please check this page again on Saturday morning, because we could post more changes. Thank you for your patience, and please look after one another. Gates still open at noon. The organisers thank the fire brigade and the school for their help.",
+      "prompt": "Tap the word Tully got wrong, then choose the word that matches the update.",
+      "success": "Must. The fire brigade gave a safety direction that can't be changed, so there's no choice.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Because of the storm, the outdoor stage ",
+          {
+            "tap": "might"
+          },
+          " close at eight o'clock. The ",
+          {
+            "tap": "drumming workshop",
+            "reason": "That's right. The update says the drumming workshop moves inside."
+          },
+          " will move into the ",
+          {
+            "tap": "school hall",
+            "reason": "That's right. The workshop moves into the school hall."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "could",
+            "reason": "Could makes the closing only possible. The update says it can't be changed."
+          },
+          {
+            "text": "should probably",
+            "reason": "Should probably sounds like advice. The fire brigade's direction is not a suggestion."
+          },
+          {
+            "text": "must"
+          },
+          {
+            "text": "may",
+            "reason": "May leaves room for doubt. The festival says it has no power to change this."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "3.9-b4-5",
+      "band": 4,
+      "topic": "art",
+      "frame": "A dusty painting turned up in a Bluster Rock shed. Indi read what four art experts said about it.",
+      "text": "The painting shows a mob of galahs exploding off a red cliff at sunset, and it was found wrapped in a hessian sack behind an old ute. The sack also held a rusty paintbrush and a note that said only 'For M.' The owner of the shed, a retired truck driver named Col Burrows, said he had no idea how it got there. Some people believe it is a lost work by Marlo Quince, the famous painter who lived on Bluster Rock fifty years ago. She was known for painting birds in flight, and her work now hangs in galleries across the country.Four experts were asked to look at it. Dr Vale said, 'This painting is, without doubt, by Marlo Quince, because her thumbprint is pressed into the paint in the corner.' Mr Osei said, 'It is almost certainly hers, although the frame is newer than the painting.' Ms Brandt said, 'It might be hers, but it might just as easily be the work of one of her students.' Mr Hoyle said, 'It is highly unlikely to be hers, because she never painted on wooden board.' The Mightoo said nothing, but it did try to land on the painted galahs.",
+      "prompt": "Put the experts from most sure that it's a Marlo Quince to least sure.",
+      "success": "Without doubt, almost certainly, might, highly unlikely. Each expert commits a little less to it being hers.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Dr Vale: without doubt hers",
+          "Mr Osei: almost certainly hers",
+          "Ms Brandt: might be hers",
+          "Mr Hoyle: highly unlikely to be hers"
+        ],
+        "reason": "Without doubt is surest. Almost certainly is close behind. Might is fifty-fifty. Highly unlikely means probably not."
+      }
+    },
+    {
+      "id": "3.9-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "The Mightoo found a camper's diary under a rock at Ghost Gum Gorge.",
+      "text": "Day 1. We drove in along a dirt track so bumpy that my teeth rattled, and the gorge walls glowed orange in the late afternoon sun. Set up the tent beneath the biggest ghost gum in the gorge. Around midnight, I heard a slow scratching sound on the canvas, right beside my head. It might have been a possum, or it could have been nothing more than the wind dragging a branch across the tent. I didn't dare look. Day 2. This morning, there were small footprints in the dust outside the tent, each one about the size of a twenty-cent coin. They were probably made by a small animal, although the wind had blurred them too much to be sure. The scratching came back after dark, and this time I heard a soft thump on the roof. Day 3. When I woke up, the packet of marshmallows I'd left in my boot was torn open. There were tiny paw prints in the spilt sugar, and curled up asleep in the boot was a ringtail possum, its tail wrapped around the last marshmallow. So that's what the scratching was. It must be the possum. There's no other explanation, and it's still snoring. I've named it Marshmallow.",
+      "prompt": "Why does the writer change from might and could to must?",
+      "success": "Each day brings more evidence. By Day 3 the possum is in the boot, so the writer is sure.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Each day the writer finds more evidence, so they become more certain."
+          },
+          {
+            "text": "The writer gets more frightened each night, so they exaggerate more.",
+            "reason": "The diary calms down by the end. The last entry is about a snoring possum."
+          },
+          {
+            "text": "The writer wants to persuade readers to come and camp in the gorge.",
+            "reason": "It's a private diary. Nothing in it tries to get readers to visit."
+          },
+          {
+            "text": "The writer forgets what happened on the first night of the trip.",
+            "reason": "Day 3 says 'So that's what the scratching was', so the writer remembers Day 1."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}
