@@ -70,3 +70,7 @@ npm run -s content:report -- <skill id prefix, e.g. 5.6>
 ## Fences
 
 Write only your assigned `content/skills/<id>.json` files. Never edit anything in `src/`, `tests/`, `docs/`, `content/branches.json`, `content/crew.json` or another writer's skill files. If a rule seems wrong, say so in your report instead of working around it.
+
+## Don't let the answer give itself away
+
+Students learn patterns fast. Across a Skill, the right option must not usually be the longest, the shortest, the only one with "because", or the only one that hedges. Write wrong options that are as long and as detailed as the right one. A good summary option and a too-narrow one can be the same length. The check fails a Skill when the right answer is the longest or shortest option in more than half its choose tasks.

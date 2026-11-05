@@ -221,6 +221,7 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
     for (const e of es) if (e.topic !== 'general') topics.set(e.topic, (topics.get(e.topic) ?? 0) + 1);
     for (const [topic, n] of topics) if (n > 2) add(`${id} Band ${band}`, `topic ${topic} used ${n} times; at most 2`);
   }
+  out.push(...tells(file).map((problem) => ({ where: id, problem })));
   const ids = new Set<string>();
   for (const e of file.encounters) {
     const where = `${id} ${e.id}`;
@@ -286,5 +287,26 @@ export function chapterProblems(c: { id: string; title: string; bands: Record<Ba
     const us = text.match(US_SPELLINGS);
     if (us) add(`Band ${band} US spelling "${us[0]}"`);
   }
+  return out;
+}
+
+/**
+ * Answers must not give themselves away by their shape. If the right option is the longest (or the shortest)
+ * in most of a Skill's choose tasks, a Student can win by picking on length without reading.
+ */
+export function tells(file: SkillFile): string[] {
+  const chooses = file.encounters.flatMap((e) => (e.body.format === 'choose' ? [e.body] : []));
+  if (chooses.length < 6) return [];
+  const unique = (pick: (lens: number[]) => number) =>
+    chooses.filter((b) => {
+      const lens = b.options.map((o) => wordCount(o.text) * 100 + o.text.length);
+      const target = pick(lens);
+      return lens[b.answer] === target && lens.filter((l) => l === target).length === 1;
+    }).length;
+  const out: string[] = [];
+  const longest = unique((l) => Math.max(...l));
+  const shortest = unique((l) => Math.min(...l));
+  if (longest / chooses.length > 0.5) out.push(`the answer is the longest option in ${longest} of ${chooses.length} choose tasks; even out option lengths`);
+  if (shortest / chooses.length > 0.5) out.push(`the answer is the shortest option in ${shortest} of ${chooses.length} choose tasks; even out option lengths`);
   return out;
 }

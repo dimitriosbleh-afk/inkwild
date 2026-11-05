@@ -75,6 +75,16 @@ describe('content rule checks', () => {
     expect(problemsAfter((f) => (f.skill.teach.iDo.beats[0]!.say = 'word '.repeat(20))).join()).toMatch(/keep it to 12/);
   });
 
+  it('reject a Skill whose right answers are usually the longest option', () => {
+    expect(
+      problemsAfter((f) =>
+        f.encounters.forEach((e) => {
+          if (e.body.format === 'choose') e.body.options[e.body.answer]!.text += ' and that is the very long right answer';
+        }),
+      ).join(),
+    ).toMatch(/longest option/);
+  });
+
   it('reject an accepted sentence the tiles cannot build', () => {
     expect(buildable(['The cat', 'sat.'], 'The cat sat.')).toBe(true);
     expect(buildable(['The cat', 'sat.'], 'The dog sat.')).toBe(false);
