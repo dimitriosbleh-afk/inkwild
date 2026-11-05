@@ -7,7 +7,7 @@ import type { SpriteDef } from '../src/art/sprite';
 const SCALE = 6;
 const CELL = 26 * SCALE;
 const only = process.argv[2];
-const ids = Object.keys(DRAWN).filter((id) => !only || id === only);
+const ids = Object.keys(DRAWN).filter((id) => !only || only.split(',').includes(id));
 const cols = 3;
 const W = CELL * cols;
 const H = CELL * ids.length;
@@ -54,6 +54,6 @@ const chunk = (type: string, data: Buffer) => {
 };
 const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(W, 0); ihdr.writeUInt32BE(H, 4); ihdr.set([8, 2, 0, 0, 0], 8);
 mkdirSync(new URL('../.scratch/art/', import.meta.url), { recursive: true });
-const out = new URL(`../.scratch/art/${only ?? 'sheet'}.png`, import.meta.url);
+const out = new URL(`../.scratch/art/${only && !only.includes(',') ? only : 'sheet'}.png`, import.meta.url);
 writeFileSync(out, Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]));
 console.log(`wrote ${ids.length} creatures (columns: base, evolved, shiny) to ${out.pathname}`);
