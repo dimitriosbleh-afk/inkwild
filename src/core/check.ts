@@ -4,6 +4,7 @@ export type Verdict = { kind: 'right' } | { kind: 'wrong'; reason: string } | { 
 
 const RIGHT: Verdict = { kind: 'right' };
 const wrong = (reason: string): Verdict => ({ kind: 'wrong', reason });
+export const SORT_LOOK = 'Not quite. Read each one again and ask the question on the piles.';
 
 export function taps(parts: Part[]): { tap: string; reason?: string }[] {
   return parts.filter((p): p is { tap: string; reason?: string } => typeof p !== 'string');
@@ -56,8 +57,9 @@ export function check(body: Body, response: Response): Verdict {
     }
     case 'sort': {
       if (response.format !== 'sort') break;
-      const misplaced = body.items.find((item, i) => response.bins[i] !== item.bin);
-      return misplaced ? wrong(misplaced.reason) : RIGHT;
+      // With two piles, explaining any one misplaced item would hand over its answer, so the Second look stays general.
+      const misplaced = body.items.some((item, i) => response.bins[i] !== item.bin);
+      return misplaced ? wrong(SORT_LOOK) : RIGHT;
     }
   }
   throw new Error(`response ${response.format} does not fit a ${body.format} task`);

@@ -85,6 +85,28 @@ describe('content rule checks', () => {
     ).toMatch(/longest option/);
   });
 
+  it('reject a wrong-answer reason that quotes the right answer', () => {
+    expect(
+      problemsAfter((f) => {
+        const b = choose(f);
+        const wrongIdx = b.options.findIndex((_, i) => i !== b.answer);
+        b.options[wrongIdx]!.reason = `The answer is ${b.options[b.answer]!.text}.`;
+      }).join(),
+    ).toMatch(/quotes the right answer/);
+  });
+
+  it('reject a We do check with only two options', () => {
+    expect(
+      problemsAfter((f) => {
+        const b = f.skill.teach.weDo[0].body;
+        if (b.format !== 'choose') throw new Error('expected choose');
+        const right = b.options[b.answer]!;
+        b.options = [right, b.options.find((o) => o !== right)!];
+        b.answer = 0;
+      }).join(),
+    ).toMatch(/at least 3 options/);
+  });
+
   it('reject a fix task with only two tappable parts', () => {
     expect(
       problemsAfter((f) => {

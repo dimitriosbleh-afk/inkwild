@@ -325,6 +325,7 @@ function sort(body: Extract<Body, { format: 'sort' }>, submit: Submit): Widget {
               mark('tick'),
               h('span', { class: 'reading' }, readable(item.text)),
               moved ? h('span', { class: 'moved-tag' }, 'MOVED') : null,
+              moved ? h('div', { class: 'reading moved-why' }, readable(item.reason)) : null,
             );
           }),
         ),
@@ -333,10 +334,7 @@ function sort(body: Extract<Body, { format: 'sort' }>, submit: Submit): Widget {
 
   return {
     el,
-    wrong: () => {
-      const first = body.items.findIndex((item, i) => bins[i] !== item.bin);
-      rows[first]?.row.classList.add('crossed');
-    },
+    wrong: () => {},
     lookNote: () => {
       const n = body.items.filter((item, i) => bins[i] !== item.bin).length;
       return n === 1 ? '1 is in the wrong pile.' : `${n} are in the wrong pile.`;

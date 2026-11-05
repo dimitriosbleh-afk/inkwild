@@ -77,12 +77,12 @@
       "frame": "Mo is writing a review of his own cooking. Again.",
       "text": "Mo's pie was bad. The middle was still frozen solid.",
       "prompt": "Which word says exactly what was wrong with the pie?",
-      "success": "Half-frozen. The clue says the middle was still frozen, so that's exactly what was wrong.",
+      "success": "Undercooked. A frozen middle means it wasn't cooked for long enough.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "half-frozen" },
-          { "text": "burnt", "reason": "Burnt means cooked for too long. This pie wasn't cooked enough." },
+          { "text": "undercooked" },
+          { "text": "burnt", "reason": "Burnt means cooked for too long. Would a burnt pie still be frozen in the middle?" },
           { "text": "soggy", "reason": "Soggy means wet and floppy. Frozen solid means hard." }
         ],
         "answer": 0
@@ -383,7 +383,7 @@
           " cold, straight from the fridge. It was so ",
           { "tap": "hot" },
           " that the ",
-          { "tap": "chilli", "reason": "Chilli is precise, and it's the clue. It tells you what kind of hot the curry was." },
+          { "tap": "chilli", "reason": "Chilli is precise, and it's the clue. Look for the word that could mean two things." },
           " made everyone's eyes ",
           { "tap": "water", "reason": "Water is fine. Watery eyes are what chilli does to you." },
           "."
@@ -484,28 +484,50 @@
       "id": "5.8-b4-3",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren's vet report needs a precise word about the wombat's injury.",
-      "prompt": "Tap the vague word, then choose a precise one.",
-      "success": "Wounded. A wound is an injury that breaks the skin, like a deep cut.",
+      "frame": "Wren's vet report needs a precise word for the wombat's injury.",
+      "prompt": "Tap the vague words, then choose a precise one.",
+      "success": "Gash. A gash is a long, deep cut, just like the one that needed twelve stitches.",
       "body": {
         "format": "fix",
         "parts": [
           "The ",
-          { "tap": "vet", "reason": "Vet is precise. It tells you exactly who checked the wombat." },
-          " said the wombat was ",
-          { "tap": "hurt" },
-          ", with a ",
-          { "tap": "deep", "reason": "Deep is precise. It's the clue that tells you what kind of injury it was." },
-          " cut along its back ",
-          { "tap": "leg", "reason": "Leg is precise. It tells you exactly where the cut was." },
-          "."
+          {
+            "tap": "vet",
+            "reason": "Vet is precise. It tells you exactly who checked the wombat."
+          },
+          " said the wombat had a ",
+          {
+            "tap": "bad cut"
+          },
+          " on its ",
+          {
+            "tap": "back leg",
+            "reason": "Back leg is precise. It tells you exactly where the injury was."
+          },
+          ". It was long and deep and needed ",
+          {
+            "tap": "twelve",
+            "reason": "Twelve is precise. It tells you exactly how many stitches."
+          },
+          " stitches."
         ],
         "spot": 1,
         "options": [
-          { "text": "wounded" },
-          { "text": "bruised", "reason": "A bruise is a dark mark under the skin. This wombat has a deep cut." },
-          { "text": "sprained", "reason": "A sprain is a twisted joint, like an ankle. This wombat has a cut." },
-          { "text": "fractured", "reason": "A fracture is a broken bone. The report only mentions a cut." }
+          {
+            "text": "gash"
+          },
+          {
+            "text": "scratch",
+            "reason": "A scratch is a thin, shallow mark. This one was deep and needed stitches."
+          },
+          {
+            "text": "bruise",
+            "reason": "A bruise is a dark mark under the skin. You don't stitch a bruise."
+          },
+          {
+            "text": "sprain",
+            "reason": "A sprain is a twisted joint. You can't stitch a sprain."
+          }
         ],
         "answer": 0
       }

@@ -47,7 +47,7 @@
               },
               {
                 "text": "Where is the volcano lookout.",
-                "reason": "The capital is fixed, but Zed is asking, so it needs a question mark."
+                "reason": "The capital is fixed, but read it again. Is Zed telling or asking?"
               },
               {
                 "text": "where is the volcano lookout?",
@@ -87,11 +87,11 @@
               },
               {
                 "text": "is'nt",
-                "reason": "The apostrophe goes where the missing letter was: the o in 'not'."
+                "reason": "Say it the long way: is not. Which letter is missing? The apostrophe takes its place."
               },
               {
                 "text": "isnt'",
-                "reason": "The apostrophe goes where the o of 'not' was, between n and t."
+                "reason": "The apostrophe doesn't go at the end. It takes the place of the missing letter."
               }
             ],
             "answer": 0
@@ -119,14 +119,14 @@
         "options": [
           {
             "text": "Dont eat my lava cake. It's for the party.",
-            "reason": "'Dont' is missing its apostrophe. 'Do not' shortens to 'don't'."
+            "reason": "'Dont' is short for 'do not'. Something needs to show the missing letter."
           },
           {
             "text": "Don't eat my lava cake. It's for the party."
           },
           {
             "text": "Don't eat my lava cake. it's for the party.",
-            "reason": "A new sentence must start with a capital letter: It's."
+            "reason": "A new sentence must start with a capital letter. Check the start of the second one."
           }
         ],
         "answer": 1
@@ -138,11 +138,15 @@
       "topic": "animals",
       "frame": "Wren wrote a news brief about a gecko on the crater rim.",
       "prompt": "Tap the sentence ending that is wrong, then choose the fix.",
-      "success": "'Have you seen it' asks the reader something, so it ends with a question mark.",
+      "success": "'Have you seen the crater gecko' asks the reader something, so it ends with a question mark.",
       "body": {
         "format": "fix",
         "parts": [
-          "A gecko lives on the ",
+          "Have you seen the ",
+          {
+            "tap": "crater gecko."
+          },
+          " It lives on the ",
           {
             "tap": "warm rocks.",
             "reason": "This sentence tells you something, so a full stop is right."
@@ -151,24 +155,20 @@
           {
             "tap": "at night.",
             "reason": "This sentence tells you something too. The full stop is right."
-          },
-          " Have you ",
-          {
-            "tap": "seen it."
           }
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "seen it,",
-            "reason": "A comma can't end a sentence. This one asks, so use a question mark."
+            "text": "crater gecko,",
+            "reason": "A comma can't end a sentence. Read it again: is it telling or asking?"
           },
           {
-            "text": "seen it",
-            "reason": "Every sentence needs an end mark. This one asks, so it needs a question mark."
+            "text": "crater gecko",
+            "reason": "Every sentence needs an end mark. Is this one telling or asking?"
           },
           {
-            "text": "seen it?"
+            "text": "crater gecko?"
           }
         ],
         "answer": 2
@@ -279,7 +279,7 @@
         "accept": [
           "Why did the volcano take a day off? It needed to let off steam."
         ],
-        "reason": "The first sentence asks, so it ends with a question mark. The answer starts with a capital."
+        "reason": "Is the first sentence asking or telling? The answer after it is a new sentence."
       }
     },
     {
@@ -294,7 +294,7 @@
         "options": [
           {
             "text": "Bring a drum a bell or a whistle.",
-            "reason": "Items in a list need commas between them: a drum, a bell."
+            "reason": "Items in a list need commas between them. Find where each item ends."
           },
           {
             "text": "Bring a, drum a bell or a whistle.",
@@ -337,14 +337,14 @@
         "options": [
           {
             "text": "its' living",
-            "reason": "'Its'' isn't a word. 'It is living' shortens to 'it's living'."
+            "reason": "'Its'' isn't a word. Try saying 'it is living' here. Which mark shows a missing letter?"
           },
           {
             "text": "it's living"
           },
           {
             "text": "its, living",
-            "reason": "A comma would split 'it' from what it's doing. 'It is' needs an apostrophe."
+            "reason": "A comma would split 'it' from what it's doing. Try saying 'it is' here."
           }
         ],
         "answer": 1
@@ -362,14 +362,14 @@
         "options": [
           {
             "text": "Ranger Kim, the turtle expert counted forty nests on the black sand.",
-            "reason": "The extra detail needs a comma on both sides, so add one after 'expert'."
+            "reason": "The extra detail needs a comma on both sides. Check where it ends."
           },
           {
             "text": "Ranger Kim, the turtle expert, counted forty nests on the black sand."
           },
           {
             "text": "Ranger Kim the turtle expert, counted forty nests on the black sand.",
-            "reason": "One comma is missing. Put commas before and after 'the turtle expert'."
+            "reason": "The extra detail needs a comma on both sides. Check where it starts."
           }
         ],
         "answer": 1
@@ -474,7 +474,7 @@
         "accept": [
           "“Come out, little wombat,” whispered Wren."
         ],
-        "reason": "Wren is speaking to the wombat, so put a comma before 'little wombat', and one inside the closing mark."
+        "reason": "Wren is speaking to the wombat, so the name she calls it is set off with commas. Check both ends."
       }
     },
     {
@@ -489,11 +489,11 @@
         "options": [
           {
             "text": "The ghost dropped its' sheet and ran away from the dog.",
-            "reason": "'Its'' isn't a word. When a thing owns something, write 'its' with no apostrophe."
+            "reason": "'Its'' isn't a word. Does the ghost own the sheet, or is this 'it is'?"
           },
           {
             "text": "The ghost dropped it's sheet and ran away from the dog.",
-            "reason": "'It's' means 'it is'. The sheet belongs to the ghost, so write 'its'."
+            "reason": "'It's' means 'it is'. Read it as 'dropped it is sheet'. Does that make sense?"
           },
           {
             "text": "The ghost dropped its sheet and ran away from the dog."
@@ -514,7 +514,7 @@
         "options": [
           {
             "text": "The newsroom robot sorts paper pens and ink. It doesn't stop for lunch.",
-            "reason": "The list needs a comma between 'paper' and 'pens'."
+            "reason": "A list of three needs a comma. Check where the first item ends."
           },
           {
             "text": "The newsroom robot sorts paper, pens and ink. It doesn't stop for lunch."
@@ -525,7 +525,7 @@
           },
           {
             "text": "The newsroom robot sorts paper, pens and ink. It does'nt stop for lunch.",
-            "reason": "The apostrophe goes where the o of 'not' was: doesn't."
+            "reason": "The apostrophe takes the place of the missing letter. Say it the long way: does not."
           }
         ],
         "answer": 1
@@ -566,7 +566,7 @@
         "options": [
           {
             "text": "captain kicked,",
-            "reason": "The comma must close 'the team's captain', so it goes before 'kicked'."
+            "reason": "The comma must close 'the team's captain'. Where does that detail end?"
           },
           {
             "text": "captain. Kicked",
@@ -683,7 +683,7 @@
         "accept": [
           "The editor's desk holds red pens, sticky notes and a cold cup of tea."
         ],
-        "reason": "The desk belongs to one editor, so use 'editor's'. Put a comma between the first two list items."
+        "reason": "The desk belongs to one editor. Which piece shows that? The list needs a comma too."
       }
     },
     {
@@ -702,11 +702,11 @@
           },
           {
             "text": "“Is that a falcon on the cliff”? asked Wren, pointing at the ledge.",
-            "reason": "The question mark belongs to Wren's words, so it goes inside the speech marks."
+            "reason": "The question mark belongs to Wren's words. Keep it with the words she asks."
           },
           {
             "text": "“Is that a falcon on the cliff?” asked Wren pointing, at the ledge.",
-            "reason": "The comma belongs after 'Wren', not after 'pointing'. It splits 'pointing' from 'at the ledge'."
+            "reason": "That comma splits 'pointing' from 'at the ledge'. Where does Wren's part end?"
           },
           {
             "text": "“Is that a falcon on the cliff?” asked Wren, pointing at the ledge."
@@ -757,7 +757,7 @@
           },
           {
             "text": "observatory said,",
-            "reason": "The comma must close 'who runs the observatory', so it goes before 'said'."
+            "reason": "A comma after 'said' splits it from what was said. Where does the extra detail end?"
           },
           {
             "text": "observatory, said,",
@@ -779,18 +779,18 @@
         "options": [
           {
             "text": "Gus insists the craters stink isn't dangerous, but it's strong enough to curl the paint on its walls.",
-            "reason": "The stink belongs to the crater, so it needs 'crater's'."
+            "reason": "The stink belongs to the crater. Which word should show that it owns it?"
           },
           {
             "text": "Gus insists the crater's stink isn't dangerous, but it's strong enough to curl the paint on its walls."
           },
           {
             "text": "Gus insists the crater's stink isn't dangerous, but its strong enough to curl the paint on its walls.",
-            "reason": "'It is strong enough' shortens to 'it's', with an apostrophe."
+            "reason": "Read it as 'it is strong enough'. Does the word show the missing letter?"
           },
           {
             "text": "Gus insists the crater's stink isn't dangerous, but it's strong enough to curl the paint on it's walls.",
-            "reason": "The walls belong to the crater, so 'its' has no apostrophe there."
+            "reason": "Try reading the last part as 'on it is walls'. Does that make sense?"
           }
         ],
         "answer": 1
@@ -902,7 +902,7 @@
         "accept": [
           "“Let's eat, Mo,” said Tully, “before the soup sets like concrete.”"
         ],
-        "reason": "Tully is talking to Mo, so a comma goes before his name. Her sentence carries on, so use commas."
+        "reason": "Tully is talking to Mo, not about eating him. Which pieces show that? Her sentence carries on, too."
       }
     },
     {
@@ -917,15 +917,15 @@
         "options": [
           {
             "text": "Zed's review of Crater Quest, the island's newest game praises its music but calls the final boss unfair.",
-            "reason": "'The island's newest game' is extra detail, so it needs a comma after it as well."
+            "reason": "'The island's newest game' is extra detail. Check both sides of it."
           },
           {
             "text": "Zeds review of Crater Quest, the island's newest game, praises its music but calls the final boss unfair.",
-            "reason": "The review belongs to Zed, so it needs an apostrophe: Zed's."
+            "reason": "The review belongs to Zed. Check how the first word shows that."
           },
           {
             "text": "Zed's review of Crater Quest, the island's newest game, praises it's music but calls the final boss unfair.",
-            "reason": "The music belongs to the game, so 'its' has no apostrophe."
+            "reason": "Try reading it as 'praises it is music'. Does that make sense?"
           },
           {
             "text": "Zed's review of Crater Quest, the island's newest game, praises its music but calls the final boss unfair."

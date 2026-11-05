@@ -57,7 +57,7 @@
         },
         {
           "text": "The sign says: 'SWIM AT BLUSTER BEACH! Warm water! Soft sand!'",
-          "prompt": "Here is the ranger's list for the same beach. Tap the fact the sign left out.",
+          "prompt": "Read the sign. Then tap the fact from the ranger's list that the sign left out.",
           "hint": "Which fact would make you think twice about swimming?",
           "success": "The sign only told the good bits. The jellyfish would put people off, so it got left out.",
           "body": {
@@ -201,8 +201,8 @@
         "format": "choose",
         "options": [
           {
-            "text": "It is too short.",
-            "reason": "Short isn't the problem. A long review can be one-sided too, if it hides the bad bits."
+            "text": "It leaves out what colour the cars are.",
+            "reason": "Maxx does say the cars are gold. What did the players say that Maxx didn't?"
           },
           {
             "text": "It talks about the gold cars and the fast tracks.",
@@ -226,7 +226,11 @@
       "body": {
         "format": "fix",
         "parts": [
-          "The flyer tells you the ",
+          "The flyer is ",
+          {
+            "tap": "fair"
+          },
+          ". It tells you the ",
           {
             "tap": "price",
             "reason": "That's right. The flyer says $10 a person."
@@ -236,13 +240,9 @@
             "tap": "time",
             "reason": "That's right. The flyer says 7 pm."
           },
-          ". The flyer is ",
-          {
-            "tap": "fair"
-          },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
             "text": "complete",
@@ -365,30 +365,30 @@
       "body": {
         "format": "fix",
         "parts": [
-          "The newsletter quotes ",
+          "The newsletter makes the band sound ",
+          {
+            "tap": "worse"
+          },
+          " than the result shows. It quotes ",
           {
             "tap": "one",
             "reason": "That's right. It only quotes Judge Lee."
           },
-          " judge. It leaves out ",
+          " judge. It leaves out the other ",
           {
             "tap": "two",
             "reason": "That's right. Judge Patel and Judge Moss are missing."
           },
-          " judges. That makes the band sound ",
-          {
-            "tap": "worse"
-          },
-          " than the result shows."
+          "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
             "text": "better"
           },
           {
             "text": "just as good",
-            "reason": "Seventh out of eight isn't 'the best'. The newsletter makes it sound much better."
+            "reason": "Seventh out of eight is near the bottom. Yet the newsletter's only quote says 'the best'."
           },
           {
             "text": "much quieter",
@@ -599,7 +599,7 @@
           },
           {
             "text": "less popular than it really is",
-            "reason": "It's the other way round. The old rating is higher, so the cafe seems more popular."
+            "reason": "It's the other way round. Is the old rating higher or lower than today's?"
           }
         ],
         "answer": 1
@@ -724,7 +724,7 @@
       "frame": "The Bluster Rock council has voted on a new skate park. Two very different reports landed on the deck of the Soggy Biscuit.",
       "text": "THE BLUSTER BUGLE: SKATE PARK PUSHED THROUGH. Despite strong concerns from residents, the council voted 5 to 2 on Tuesday night to build a $180,000 skate park beside the oval. Shop owner Doug Harris told the meeting that the noise would drive customers away from the main street. 'It's a waste of money,' said long-time resident Jean Albury. 'Nobody asked the people who actually live here.' Construction will begin in January, and the park is expected to open in March. THE BLUSTER SKATE CLUB NEWSLETTER: More than 200 people packed the hall for Tuesday's council meeting, the biggest crowd in years. Thirty-four people spoke: 26 in favour of the skate park and 8 against. Year 6 students presented a petition with 600 signatures and a model of the design that they had built in class. Councillors heard that a state sports grant would pay half of the $180,000 cost, so the island would pay $90,000. Two shop owners said they were worried about noise, and the council agreed to plant a row of trees between the park and the main street. The council then voted 5 to 2 in favour. Building starts in January.",
       "prompt": "How is the Bugle's report biased?",
-      "success": "The Bugle quotes only the eight opponents and skips the 26 supporters, the petition and the grant.",
+      "success": "The Bugle quotes just two people against the park. It skips the 26 speakers for it, the petition and grant.",
       "body": {
         "format": "choose",
         "options": [
@@ -919,12 +919,12 @@
         "format": "choose",
         "options": [
           {
-            "text": "Every sentence in the ad is false.",
-            "reason": "Customers confirm MaxxBot does dance, take selfies and say catchphrases. The ad is true but incomplete."
+            "text": "It leaves out what MaxxBot looks like, so buyers can't picture it.",
+            "reason": "The ad gives its gold colour and its height, 50 centimetres. Buyers can picture it."
           },
           {
-            "text": "It is biased because it gives the price of MaxxBot, which pushes people to buy one.",
-            "reason": "A price is a plain fact. Giving it doesn't tilt the story or hide anything."
+            "text": "It leaves out how many MaxxBots were sold, so buyers think nobody wants one.",
+            "reason": "The ad says over 10,000 were sold this month. That part isn't missing."
           },
           {
             "text": "It uses true facts but leaves out the complaints and the safety problem."

@@ -156,6 +156,7 @@ function taskProblems(task: Task, where: string, band?: Band): Problem[] {
     if (wordCount(r) > LIMITS.feedback) add(`a reason is ${wordCount(r)} words; keep it to ${LIMITS.feedback}: "${r.slice(0, 40)}..."`);
   }
   bodyProblems(task.body).forEach(add);
+  leaks(task).forEach(add);
   for (const t of textOf(task)) {
     const us = t.match(US_SPELLINGS);
     if (us) add(`US spelling "${us[0]}"`);
@@ -195,6 +196,8 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
   if (wordCount(s.how) > LIMITS.how) add(id, `how is ${wordCount(s.how)} words; keep it to ${LIMITS.how}`);
   s.teach.weDo.forEach((t, i) => {
     if (!t.hint.trim()) add(`${id} we do ${i + 1}`, 'needs a hint');
+    const b = t.body;
+    if ((b.format === 'choose' || b.format === 'fix') && b.options.length < 3) add(`${id} we do ${i + 1}`, 'a We do check needs at least 3 options, or a guess passes half the time');
     out.push(...taskProblems(t, `${id} we do ${i + 1}`));
   });
   if (!s.creature.id || !s.creature.name || !s.creature.evolved) add(id, 'creature needs id, name and evolved name');
@@ -299,17 +302,44 @@ export function tells(file: SkillFile): string[] {
   const sorts = file.encounters.flatMap((e) => (e.body.format === 'sort' ? [e.body] : []));
   const even = sorts.filter((b) => new Set(b.bins.map((_, k) => b.items.filter((i) => i.bin === k).length)).size === 1).length;
   const evenProblem = sorts.length >= 3 && even / sorts.length > 0.75 ? [`${even} of ${sorts.length} sorts split evenly across their bins; make some uneven so students can't count instead of read`] : [];
-  if (chooses.length < 6) return evenProblem;
+  if (chooses.length < 6) return [...evenProblem, ...lastSlot(file)];
   const unique = (pick: (lens: number[]) => number) =>
     chooses.filter((b) => {
       const lens = b.options.map((o) => wordCount(o.text) * 100 + o.text.length);
       const target = pick(lens);
       return lens[b.answer] === target && lens.filter((l) => l === target).length === 1;
     }).length;
-  const out: string[] = [...evenProblem];
+  const out: string[] = [...evenProblem, ...lastSlot(file)];
   const longest = unique((l) => Math.max(...l));
   const shortest = unique((l) => Math.min(...l));
   if (longest / chooses.length > 0.5) out.push(`the answer is the longest option in ${longest} of ${chooses.length} choose tasks; even out option lengths`);
   if (shortest / chooses.length > 0.5) out.push(`the answer is the shortest option in ${shortest} of ${chooses.length} choose tasks; even out option lengths`);
   return out;
+}
+
+/** Fix tasks whose wrong part sits last more often than not teach students to tap the end without reading. */
+function lastSlot(file: SkillFile): string[] {
+  const fixes = file.encounters.flatMap((e) => (e.body.format === 'fix' ? [e.body] : []));
+  const last = fixes.filter((b) => b.spot === taps(b.parts).length - 1).length;
+  return fixes.length >= 4 && last / fixes.length > 0.5 ? [`the wrong part is the last tap in ${last} of ${fixes.length} fix tasks; move some earlier`] : [];
+}
+
+const words = (t: string) => ` ${t.toLowerCase().replace(/[^a-z0-9' ]/g, ' ').replace(/\s+/g, ' ').trim()} `;
+
+/** A Second look that quotes the right answer hands it over instead of making the student think again. */
+export function leaks(task: Task): string[] {
+  const b = task.body;
+  const quotes = (reason: string | undefined, answer: string) => !!reason && answer.trim().length >= 3 && words(reason).includes(words(answer));
+  const wrongs: [string | undefined, string][] = [];
+  if (b.format === 'choose' || b.format === 'fix') {
+    const right = b.options[b.answer]?.text;
+    if (right) b.options.forEach((o, i) => i !== b.answer && wrongs.push([o.reason, right]));
+  }
+  if (b.format === 'tapText' || b.format === 'fix') {
+    const t = taps(b.parts);
+    const answer = b.format === 'tapText' ? b.answer : b.spot;
+    const right = t[answer]?.tap;
+    if (right) t.forEach((p, i) => i !== answer && wrongs.push([p.reason, right]));
+  }
+  return wrongs.some(([r, a]) => quotes(r, a)) ? ['a wrong-answer reason quotes the right answer; make it point at the clue instead'] : [];
 }

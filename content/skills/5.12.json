@@ -247,7 +247,7 @@
         "options": [
           { "text": "repaired" },
           { "text": "are repairing", "reason": "Are repairing means it's happening right now. 'Two hours ago' is in the past." },
-          { "text": "repair", "reason": "Repair is the present, for things that happen now or regularly. 'Two hours ago' is finished time." }
+          { "text": "repair", "reason": "Repair is the present, for things that happen regularly. 'Two hours ago' is finished time." }
         ],
         "answer": 0
       }
@@ -271,13 +271,13 @@
       "topic": "spooky",
       "frame": "Zed found a note pinned to the door of the haunted house.",
       "prompt": "Tap the verb that tells you what is happening these days.",
-      "success": "Haunt. The present tells you what they do now, these days.",
+      "success": "Haunt. The present tells you what they do regularly, these days.",
       "body": {
         "format": "tapText",
         "parts": [
           "We ",
           { "tap": "lived", "reason": "Lived is the past. It tells you how things used to be." },
-          " here for fifty years. Now we ",
+          " here for fifty years. These days we ",
           { "tap": "haunt" },
           " the attic. Soon we ",
           { "tap": "will visit", "reason": "Will visit is the future. It hasn't happened yet (lucky you)." },
@@ -331,7 +331,7 @@
         "format": "choose",
         "options": [
           { "text": "had already bandaged" },
-          { "text": "has already bandaged", "reason": "Has already bandaged links to right now. 'Arrived' puts this in the past, so you need the earlier past." },
+          { "text": "has already bandaged", "reason": "Has already bandaged links to right now, but this is all past. Which came first, the bandage or the vet?" },
           { "text": "is already bandaging", "reason": "Is already bandaging is happening right now. 'Arrived' tells you this is all in the past." },
           { "text": "will have bandaged", "reason": "Will have bandaged looks ahead to the future. 'Arrived' tells you this is all in the past." }
         ],
@@ -360,7 +360,7 @@
           { "text": "streams" },
           { "text": "will stream", "reason": "Will stream is the future. 'These days' is about now." },
           { "text": "had streamed", "reason": "Had streamed is for something finished before another past event. 'These days' is about now." },
-          { "text": "was streaming", "reason": "Was streaming is the past. 'These days' means it's still happening." }
+          { "text": "was streaming", "reason": "Was streaming is the past. 'These days' is about how things are now." }
         ],
         "answer": 0
       }
@@ -434,7 +434,7 @@
         "format": "choose",
         "options": [
           { "text": "had been" },
-          { "text": "have been", "reason": "Have been links the past to now. 'Splashed down' is already past, so you need the earlier past." },
+          { "text": "have been", "reason": "Have been links the past to now, but the splashdown is long over. What came before it?" },
           { "text": "will have been", "reason": "Will have been looks into the future. The splashdown already happened." },
           { "text": "are", "reason": "Are is the present. The memoir is about a trip that is long over." }
         ],
@@ -466,7 +466,7 @@
       "topic": "music",
       "frame": "A music magazine interview has a verb that tells the wrong time.",
       "prompt": "Tap the verb in the wrong time, then choose one that fits.",
-      "success": "Had practised. The practising was finished before she walked on stage, and the whole night is in the past.",
+      "success": "Had practised makes the order extra clear: the practising was finished before she walked on stage.",
       "body": {
         "format": "fix",
         "parts": [
@@ -481,7 +481,7 @@
         "spot": 1,
         "options": [
           { "text": "had practised" },
-          { "text": "has practised", "reason": "Has practised links to right now, but 'that night' is over. You need the earlier past." },
+          { "text": "has practised", "reason": "Has practised links to right now, but 'that night' is over. When did the practising happen?" },
           { "text": "will practise", "reason": "Will practise is the future, but 'that night' already happened." },
           { "text": "is practising", "reason": "Is practising means right now. The interview is about one night in the past." }
         ],
@@ -498,10 +498,10 @@
       "body": {
         "format": "order",
         "items": [
-          "During the night, a fox had raided the henhouse.",
-          "Behind the shed, Wren found three frightened chickens.",
-          "Right now, she is patching the hole in the fence.",
-          "Tomorrow, she will fix the broken gate."
+          "A fox had raided the henhouse.",
+          "Wren found three frightened chickens.",
+          "She is patching the hole in the fence.",
+          "She will fix the broken gate."
         ],
         "reason": "Had raided means the raid was over before Wren found the chickens. Is patching is now; will fix is later."
       }
@@ -526,7 +526,7 @@
       "topic": "spooky",
       "frame": "Zed found a diary in the abandoned lighthouse. The Tocktle has gone very quiet.",
       "prompt": "Tap the verb that shows something was finished before the rest of the story began.",
-      "success": "Had locked. The past perfect tells you the locking was done before the climb and the creak.",
+      "success": "Had locked. Had plus a verb tells you the locking was done before the climb and the creak.",
       "body": {
         "format": "tapText",
         "parts": [

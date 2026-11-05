@@ -47,7 +47,7 @@
         },
         {
           "prompt": "Tap the group that tells you why.",
-          "hint": "Why is about a reason. Look for the word 'because'.",
+          "hint": "Why is about a reason. Which part answers 'Why did Gus do it?'",
           "success": "Because of the stinky slime is the reason, so it tells you why.",
           "body": {
             "format": "tapText",
@@ -238,19 +238,34 @@
       "body": {
         "format": "fix",
         "parts": [
-          "I ",
-          { "tap": "fixed", "reason": "Fixed is what Zed did. Look for the group that should say how." },
+          {
+            "tap": "Last night"
+          },
+          ", I ",
+          {
+            "tap": "fixed",
+            "reason": "Fixed is what Zed did. Look for the group that should say how."
+          },
           " the ",
-          { "tap": "guitar", "reason": "Guitar is what he fixed. Look for the group that should say how." },
-          " ",
-          { "tap": "last night" },
+          {
+            "tap": "guitar",
+            "reason": "Guitar is what he fixed. Look for the group that should say how."
+          },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
-          { "text": "with sticky tape and a shoelace" },
-          { "text": "in my bedroom", "reason": "In my bedroom tells Indi where he fixed it. She asked how." },
-          { "text": "because it was broken", "reason": "Because it was broken tells Indi why he fixed it. She asked how." }
+          {
+            "text": "with sticky tape and a shoelace"
+          },
+          {
+            "text": "in my bedroom",
+            "reason": "In my bedroom tells Indi where he fixed it. She asked how."
+          },
+          {
+            "text": "because it was broken",
+            "reason": "Because it was broken tells Indi why he fixed it. She asked how."
+          }
         ],
         "answer": 0
       }
@@ -358,20 +373,38 @@
       "body": {
         "format": "fix",
         "parts": [
-          "I ",
-          { "tap": "put", "reason": "Put is what Mo did. Look for the group that should say why." },
+          {
+            "tap": "Last Tuesday"
+          },
+          ", I ",
+          {
+            "tap": "put",
+            "reason": "Put is what Mo did. Look for the group that should say why."
+          },
           " chilli in the ",
-          { "tap": "custard", "reason": "Custard is what he put the chilli in. Look for the group that should say why." },
-          " ",
-          { "tap": "last Tuesday" },
+          {
+            "tap": "custard",
+            "reason": "Custard is what he put the chilli in. Look for the group that should say why."
+          },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
-          { "text": "to give it a surprise kick" },
-          { "text": "while nobody was looking", "reason": "While nobody was looking tells Tully when Mo did it. He still doesn't know why." },
-          { "text": "with a big wooden spoon", "reason": "With a big wooden spoon tells Tully how Mo did it, not why." },
-          { "text": "in Nan's kitchen", "reason": "In Nan's kitchen is a place. It tells Tully where, not why." }
+          {
+            "text": "to give it a surprise kick"
+          },
+          {
+            "text": "while nobody was looking",
+            "reason": "While nobody was looking tells Tully when Mo did it. He still doesn't know why."
+          },
+          {
+            "text": "with a big wooden spoon",
+            "reason": "With a big wooden spoon tells Tully how Mo did it, not why."
+          },
+          {
+            "text": "in Nan's kitchen",
+            "reason": "In Nan's kitchen is a place. It tells Tully where, not why."
+          }
         ],
         "answer": 0
       }

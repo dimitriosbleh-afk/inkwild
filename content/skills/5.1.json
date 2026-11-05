@@ -4,7 +4,7 @@
     "name": "Simple, compound or complex?",
     "codes": ["VC2E5LA05"],
     "why": "Use only one sentence shape and writing plods. Mix all three!",
-    "how": "Count clauses. One: simple. Two joined by and or but: compound. Add because or when: complex.",
+    "how": "One clause: simple. Two equal clauses: compound. A clause that can't stand alone: complex.",
     "teach": {
       "crew": "engineer",
       "iDo": {
@@ -34,7 +34,7 @@
           "text": "The lights went out, and everyone screamed.",
           "prompt": "What kind of sentence is this?",
           "hint": "Count the clauses. Could each part stand alone as a sentence?",
-          "success": "Compound. 'The lights went out' and 'everyone screamed' could each be a sentence, and and joins them.",
+          "success": "Compound. 'The lights went out' and 'everyone screamed' could each be a sentence, and the word 'and' joins them.",
           "body": {
             "format": "choose",
             "options": [
@@ -75,14 +75,14 @@
       "band": 1,
       "topic": "animals",
       "frame": "Quillby has scratched a sentence into the sand with one quill.",
-      "text": "The wombat dug a hole under the fence.",
+      "text": "The wombat dug under the fence and into the garden.",
       "prompt": "What kind of sentence is this?",
-      "success": "Simple. One doer (the wombat) and one verb (dug) make one clause.",
+      "success": "Simple. 'Under the fence and into the garden' just says where. There's one doer and one verb: the wombat dug.",
       "body": {
         "format": "choose",
         "options": [
           { "text": "simple" },
-          { "text": "compound", "reason": "Compound needs two clauses joined by a word like and or but. This has only one doer and one verb." },
+          { "text": "compound", "reason": "'And' joins two places here. Is there a second doer with a verb of its own?" },
           { "text": "complex", "reason": "Complex needs a part that starts with a word like because or when. There isn't one here." }
         ],
         "answer": 0
@@ -101,7 +101,7 @@
         "options": [
           { "text": "compound" },
           { "text": "simple", "reason": "There are two clauses here: Jai kicked a goal, and the umpire blew the whistle. Simple has only one." },
-          { "text": "complex", "reason": "Both halves could stand alone as sentences. But joins two equals, so it's compound." }
+          { "text": "complex", "reason": "Both halves could stand alone as sentences. Complex needs a part that can't stand alone." }
         ],
         "answer": 0
       }
@@ -119,7 +119,7 @@
         "items": [
           { "text": "Mo burnt the toast.", "bin": 0, "reason": "One doer and one verb: Mo burnt. That's one clause, so it's simple." },
           { "text": "Mo burnt the toast, and the smoke alarm went off.", "bin": 1, "reason": "Two clauses, 'Mo burnt the toast' and 'the smoke alarm went off', joined by and." },
-          { "text": "The pancake stuck to the ceiling.", "bin": 0, "reason": "One clause: the pancake stuck. The rest just says where." },
+          { "text": "The pancake and the jam stuck to the ceiling.", "bin": 0, "reason": "'And' joins two things, the pancake and the jam. There's one verb, stuck, so one clause." },
           { "text": "The pancake flipped, but it never came down.", "bin": 1, "reason": "Two clauses joined by but. Each one could be a sentence on its own." }
         ]
       }
@@ -135,7 +135,7 @@
         "format": "build",
         "tiles": ["The door creaked open,", "and", "because", "a bat flew out."],
         "accept": ["The door creaked open, and a bat flew out."],
-        "reason": "Compound needs two equal clauses joined by and. Because would stop the second part standing alone."
+        "reason": "Compound needs two clauses that can each stand alone. Could 'because a bat flew out' stand alone?"
       }
     },
     {
@@ -205,16 +205,16 @@
       "id": "5.1-b2-2",
       "band": 2,
       "topic": "music",
-      "frame": "Maxx Vantablack is live-streaming a concert and calling this sentence compound. Is he right?",
-      "text": "The drummer played on although his stick had snapped in half.",
+      "frame": "Maxx Vantablack is live-streaming a concert. He says this sentence is compound because it has 'and'. Is he right?",
+      "text": "Although the drums and guitars were far too loud, the crowd loved every song.",
       "prompt": "What kind of sentence is it really?",
-      "success": "Complex. 'Although his stick had snapped in half' can't stand alone, so Maxx is wrong again.",
+      "success": "Complex. 'Although the drums and guitars were far too loud' can't stand alone, so Maxx is wrong again.",
       "body": {
         "format": "choose",
         "options": [
           { "text": "complex" },
-          { "text": "compound", "reason": "Although doesn't join two equals. 'Although his stick had snapped in half' can't stand alone." },
-          { "text": "simple", "reason": "There are two clauses: the drummer played on, and his stick had snapped." }
+          { "text": "compound", "reason": "'And' joins the drums and the guitars, not two clauses. Could the first part stand alone?" },
+          { "text": "simple", "reason": "Count the verbs: were, loved. Each has its own doer, so there are two clauses." }
         ],
         "answer": 0
       }
@@ -225,15 +225,15 @@
       "topic": "funny",
       "frame": "Mo's joke book has three sentences. Quillby only wants the compound one.",
       "prompt": "Tap the compound sentence.",
-      "success": "'Nobody laughed' and 'Mo laughed for five whole minutes' can each stand alone, and but joins them.",
+      "success": "'Nobody laughed' and 'Mo laughed for five whole minutes' can each stand alone, and 'but' joins them.",
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Mo told a joke about a pizza.", "reason": "This has one doer and one verb, Mo told, so it's simple." },
+          { "tap": "Mo's pizza joke was short but very cheesy.", "reason": "'But' joins two describing words here, not two clauses. There's only one verb: was." },
           " ",
           { "tap": "Nobody laughed, but Mo laughed for five whole minutes." },
           " ",
-          { "tap": "Because the joke was so cheesy, Gus groaned.", "reason": "'Because the joke was so cheesy' can't stand alone, so this one is complex." }
+          { "tap": "Because of the cheesy joke, Gus groaned.", "reason": "'Because of the cheesy joke' has no verb, so it's a phrase. There's only one clause." }
         ],
         "answer": 1
       }
@@ -249,7 +249,7 @@
         "format": "sort",
         "bins": ["simple", "compound", "complex"],
         "items": [
-          { "text": "The joey slept in a pillowcase all night.", "bin": 0, "reason": "One clause: the joey slept. The rest just says where and how long." },
+          { "text": "Because of the cold, the joey slept in a pillowcase.", "bin": 0, "reason": "'Because of the cold' has no verb, so it's a phrase. The only clause is 'the joey slept'." },
           { "text": "The possum bit my finger, and I yelled.", "bin": 1, "reason": "Two clauses that could each stand alone, joined by and." },
           { "text": "Because the echidna was cold, we wrapped it in a towel.", "bin": 2, "reason": "'Because the echidna was cold' can't stand alone, so this is complex." },
           { "text": "The lizard was tiny, but it was very angry.", "bin": 1, "reason": "Two clauses joined by but. Each one could be a sentence." },
@@ -263,12 +263,12 @@
       "topic": "robots",
       "frame": "Gus's robot has fallen to bits. Quillby has the pieces of its last message.",
       "prompt": "Tap the pieces in order to make a complex sentence.",
-      "success": "'When its battery ran out' can't stand alone, so the sentence is complex.",
+      "success": "'Because its battery ran out' has a doer and a verb, but it can't stand alone. That makes it complex.",
       "body": {
         "format": "build",
-        "tiles": ["The robot", "shut down", "when", "and", "its battery ran out."],
-        "accept": ["The robot shut down when its battery ran out."],
-        "reason": "Complex needs a part that can't stand alone. When makes that part. And would make it compound."
+        "tiles": ["The robot shut down", "because of", "because", "its battery ran out.", "a flat battery."],
+        "accept": ["The robot shut down because its battery ran out."],
+        "reason": "Complex needs a clause that can't stand alone. Does 'a flat battery' have a doer and a verb?"
       }
     },
     {
@@ -294,7 +294,7 @@
         "spot": 2,
         "options": [
           { "text": "but" },
-          { "text": "although", "reason": "Although fixes the meaning, but it starts a part that can't stand alone. That makes the sentence complex, not compound." },
+          { "text": "although", "reason": "Although fits the meaning. Could 'although we still lost the final' stand alone as a sentence?" },
           { "text": "or", "reason": "Or gives a choice between two things. Tully isn't offering a choice." }
         ],
         "answer": 0
@@ -389,7 +389,7 @@
         "format": "build",
         "tiles": ["The pie", "was still frozen", "even though", "but", "Mo had baked it for an hour."],
         "accept": ["The pie was still frozen even though Mo had baked it for an hour."],
-        "reason": "Complex needs a clause that can't stand alone. Even though makes one. But would join two equal clauses: compound."
+        "reason": "Complex needs a clause that can't stand alone. Which tile makes the baking part unable to stand alone?"
       }
     },
     {
@@ -475,7 +475,7 @@
           { "text": "You can collect the crystals, or you can skip straight to the boss.", "bin": 1, "reason": "Two clauses that could each stand alone, joined by or." },
           { "text": "Players with a slow connection will notice a short delay.", "bin": 0, "reason": "'With a slow connection' is a phrase. There's one clause: players will notice." },
           { "text": "The boss fight lags whenever more than four players join.", "bin": 2, "reason": "'Whenever more than four players join' has a doer and verb but can't stand alone, so it's complex." },
-          { "text": "The music has been remixed, and the lava now glows a brighter orange.", "bin": 1, "reason": "Two equal clauses, each with its own doer and verb, joined by and." }
+          { "text": "The music has been remixed, and the lava now glows a brighter orange.", "bin": 1, "reason": "Two equal clauses, each with its own verb, joined by and." }
         ]
       }
     },
@@ -541,7 +541,7 @@
         "format": "build",
         "tiles": ["The divers", "kept exploring the wreck", "although", "despite", "the water was barely above freezing."],
         "accept": ["The divers kept exploring the wreck although the water was barely above freezing."],
-        "reason": "Despite needs a noun after it, like 'despite the cold'. A whole clause needs although."
+        "reason": "Despite needs a noun after it, like 'despite the cold'. Here a whole clause follows, with its own verb."
       }
     }
   ]

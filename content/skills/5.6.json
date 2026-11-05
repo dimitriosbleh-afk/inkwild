@@ -102,9 +102,9 @@
         "format": "tapText",
         "parts": [
           "Tully kicked the ",
-          { "tap": "old", "reason": "Old tells you what the footy is like. It's building up the main noun." },
+          { "tap": "old", "reason": "Old tells you what it's like. It's building up the main noun." },
           " ",
-          { "tap": "leather", "reason": "Leather tells you what the footy is made of. Which word names the thing he kicked?" },
+          { "tap": "leather", "reason": "Leather tells you what it's made of. Which word names the thing he kicked?" },
           " ",
           { "tap": "footy" },
           " over the fence."
@@ -123,7 +123,7 @@
         "format": "build",
         "tiles": ["Mo made", "a", "huge", "chocolate", "cake."],
         "accept": ["Mo made a huge chocolate cake."],
-        "reason": "What it's like (huge) goes before what kind (chocolate). The noun, cake, goes last."
+        "reason": "What it's like goes before what kind. The main noun goes last."
       }
     },
     {
@@ -149,25 +149,42 @@
       "id": "5.6-b1-5",
       "band": 1,
       "topic": "funny",
-      "frame": "Mo's diary has a word in a noun group that clashes with the next sentence.",
-      "prompt": "Tap the word that doesn't fit, then choose a better one.",
-      "success": "Giant. The slippers were so huge he kept tripping, so they can't be tiny.",
+      "frame": "Mo is asking Dad to bring his slippers. One word in his noun group sends Dad to the wrong pair.",
+      "text": "Mo has fluffy blue slippers and fluffy pink slippers. He wants the blue ones.",
+      "prompt": "Tap the word that points to the wrong pair, then choose one that picks out the right one.",
+      "success": "Blue. Both pairs are fluffy, so blue is the word that tells Dad which pair Mo wants.",
       "body": {
         "format": "fix",
         "parts": [
-          "Mo wore his ",
-          { "tap": "tiny" },
+          "Mo asks Dad for his ",
+          {
+            "tap": "fluffy",
+            "reason": "Both pairs are fluffy, so that part is true. Which word sends Dad to the wrong pair?"
+          },
           " ",
-          { "tap": "fluffy", "reason": "Fluffy is fine. Nothing in the diary says the slippers aren't fluffy." },
+          {
+            "tap": "pink"
+          },
           " ",
-          { "tap": "slippers", "reason": "Slippers is the main noun, and it's right. Look at the words that build it up." },
-          ". They were so huge he kept tripping over them."
+          {
+            "tap": "slippers",
+            "reason": "Slippers is the main noun, and it's right. Look at the words that build it up."
+          },
+          "."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
-          { "text": "giant" },
-          { "text": "small", "reason": "Small means nearly the same as tiny. The slippers were huge." },
-          { "text": "dainty", "reason": "Dainty means small and delicate. These slippers were huge." }
+          {
+            "text": "blue"
+          },
+          {
+            "text": "red",
+            "reason": "Mo has no red slippers. Which pair does he want?"
+          },
+          {
+            "text": "warm",
+            "reason": "Warm doesn't tell Dad which pair. Both pairs keep feet warm."
+          }
         ],
         "answer": 0
       }
@@ -235,7 +252,7 @@
         "format": "build",
         "tiles": ["Gus poked", "the", "three", "slimy", "garden", "slugs."],
         "accept": ["Gus poked the three slimy garden slugs."],
-        "reason": "How many first, then what they're like, then what kind. Garden sits right next to the noun."
+        "reason": "How many first, then what they're like, then what kind. The what-kind word sits right next to the noun."
       }
     },
     {
@@ -263,25 +280,42 @@
       "id": "5.6-b2-5",
       "band": 2,
       "topic": "sport",
-      "frame": "Tully's match report has a noun group that doesn't match the game.",
-      "prompt": "Tap the word that doesn't fit, then choose a better one.",
-      "success": "Netball. She's running onto a netball court, so she needs netball shoes.",
+      "frame": "Tully is helping Ava get ready for a wet netball match. One word sends her dad to the wrong shoes.",
+      "text": "Ava has two pairs of netball shoes: a new white pair and an old muddy pair. It's pouring, so she wants the old pair today.",
+      "prompt": "Tap the word that points to the wrong pair, then choose one that picks out the right one.",
+      "success": "Old. Both pairs are netball shoes, so old is the word that picks out the pair she wants.",
       "body": {
         "format": "fix",
         "parts": [
-          "Ava laced up her ",
-          { "tap": "new", "reason": "New is fine. Nothing in the report says her shoes are old." },
+          "Ava calls out, 'Dad, can you grab my ",
+          {
+            "tap": "new"
+          },
           " ",
-          { "tap": "swimming" },
-          " shoes and ran onto the ",
-          { "tap": "netball", "reason": "Netball is right. It's the clue that tells you which shoes she needs." },
-          " court."
+          {
+            "tap": "netball",
+            "reason": "Netball is true. Both of her pairs are netball shoes."
+          },
+          " ",
+          {
+            "tap": "shoes",
+            "reason": "Shoes is the main noun, and it's right. Look at the words that build it up."
+          },
+          " from the car?'"
         ],
-        "spot": 1,
+        "spot": 0,
         "options": [
-          { "text": "netball" },
-          { "text": "ballet", "reason": "Ballet shoes are for dancing on a stage, not sprinting round a court." },
-          { "text": "bowling", "reason": "Bowling shoes are for sliding at a bowling alley. Ava is on a netball court." }
+          {
+            "text": "old"
+          },
+          {
+            "text": "white",
+            "reason": "The white shoes are the new pair. Which pair does she want today?"
+          },
+          {
+            "text": "pink",
+            "reason": "Ava has no pink netball shoes. Look at the two pairs she owns."
+          }
         ],
         "answer": 0
       }
@@ -296,7 +330,7 @@
       "body": {
         "format": "order",
         "items": ["the", "four", "clumsy", "kitchen", "robots"],
-        "reason": "Start with 'the', then how many, then what they're like. The kind word (kitchen) goes right before the noun."
+        "reason": "Start with 'the', then how many, then what they're like. The what-kind word goes right before the noun."
       }
     },
     {
@@ -354,7 +388,7 @@
         "format": "build",
         "tiles": ["Mo burnt", "his", "last", "two", "homemade", "meat", "pies."],
         "accept": ["Mo burnt his last two homemade meat pies."],
-        "reason": "His, last, two come first. Then homemade (what they're like), then meat (what kind) beside the noun."
+        "reason": "Which ones and how many come first. Then what they're like, then what kind, right beside the noun."
       }
     },
     {
@@ -381,26 +415,46 @@
       "id": "5.6-b3-5",
       "band": 3,
       "topic": "ocean",
-      "frame": "Indi's whale-watching diary has one word that clashes with the rest.",
-      "prompt": "Tap the word that doesn't fit, then choose a better one.",
-      "success": "Massive. A whale as long as a bus is huge, so tiny has to go.",
+      "frame": "Indi's whale-watching diary has a noun group that points to the wrong whale.",
+      "text": "Indi saw three humpback whales: a huge grey mother, a small grey calf and a huge black-and-white male. Only the calf had a torn tail fin.",
+      "prompt": "Tap the word that points to the wrong whale, then choose one that picks out the right one.",
+      "success": "Small. Only one whale was small, so 'the small grey humpback whale' can only be the calf.",
       "body": {
         "format": "fix",
         "parts": [
-          "We watched a ",
-          { "tap": "tiny" },
+          "In her diary, Indi wrote that the ",
+          {
+            "tap": "huge"
+          },
           " ",
-          { "tap": "grey", "reason": "Grey is fine. Humpbacks are grey, and nothing in the diary says otherwise." },
+          {
+            "tap": "grey",
+            "reason": "Grey is true, but two whales were grey. Which word points to the wrong whale?"
+          },
           " ",
-          { "tap": "humpback", "reason": "Humpback tells you what kind of whale it is, and nothing clashes with it." },
-          " whale leap out of the water. It was as long as a bus."
+          {
+            "tap": "humpback",
+            "reason": "Humpback is true of all three whales. Look for the word that points to the wrong one."
+          },
+          " whale had a torn tail fin."
         ],
         "spot": 0,
         "options": [
-          { "text": "massive" },
-          { "text": "little", "reason": "Little means nearly the same as tiny. This whale was as long as a bus." },
-          { "text": "stubby", "reason": "Stubby means short and thick. This whale was as long as a bus." },
-          { "text": "miniature", "reason": "Miniature means a very small copy of something. This whale was as long as a bus." }
+          {
+            "text": "small"
+          },
+          {
+            "text": "massive",
+            "reason": "Massive points to one of the two huge whales. Which whale had the torn fin?"
+          },
+          {
+            "text": "black-and-white",
+            "reason": "That describes the male, but the torn fin belonged to a different whale."
+          },
+          {
+            "text": "spotted",
+            "reason": "None of the whales was spotted, so this picks out no whale at all."
+          }
         ],
         "answer": 0
       }
@@ -479,7 +533,7 @@
         "format": "build",
         "tiles": ["Zed hammered out", "his", "last", "two", "booming", "drum", "solos", "before the speakers blew."],
         "accept": ["Zed hammered out his last two booming drum solos before the speakers blew."],
-        "reason": "His, last, two come first. Then booming (what they're like), then drum (what kind) beside the noun."
+        "reason": "Which ones and how many come first. Then what they're like, then what kind, right beside the noun."
       }
     },
     {
@@ -506,26 +560,46 @@
       "id": "5.6-b4-5",
       "band": 4,
       "topic": "robots",
-      "frame": "Gus's robot logbook has a noun group that clashes with what the robot did.",
-      "prompt": "Tap the word that doesn't fit, then choose a better one.",
-      "success": "Aerial. The drone is soaring over the treetops, so it's a flying drone, not an underwater one.",
+      "frame": "Gus's robot logbook has a noun group that points to the wrong drone.",
+      "text": "Gus owns three drones: a sleek silver racing drone, a bulky silver camera drone and a bulky orange camera drone. Only the orange one has a working battery.",
+      "prompt": "Tap the word that points to the wrong drone, then choose one that picks out the right one.",
+      "success": "Orange. Two camera drones are bulky, but only one is orange, and it's the one that can fly.",
       "body": {
         "format": "fix",
         "parts": [
-          "Gus launched his ",
-          { "tap": "sleek", "reason": "Sleek tells you what the drone looks like, and nothing in the logbook clashes with it." },
+          "Gus asked his sister to launch the ",
+          {
+            "tap": "bulky",
+            "reason": "Bulky is true, but two drones are bulky. Look for the word that points to the wrong one."
+          },
           " ",
-          { "tap": "underwater" },
-          " drone, and it soared over the treetops, scanning the ",
-          { "tap": "forest", "reason": "Forest is right. Treetops tell you the drone is above a forest." },
-          " below."
+          {
+            "tap": "silver"
+          },
+          " ",
+          {
+            "tap": "camera",
+            "reason": "Camera is true, but two drones are camera drones. Which word points to the wrong one?"
+          },
+          " drone, the only one that could fly."
         ],
         "spot": 1,
         "options": [
-          { "text": "aerial" },
-          { "text": "submarine", "reason": "Submarine means it works under the water. This drone is in the air." },
-          { "text": "deep-sea", "reason": "A deep-sea drone explores the bottom of the ocean. This one is above the trees." },
-          { "text": "amphibious", "reason": "Amphibious means it works on land and in water. Neither one lets it soar over treetops." }
+          {
+            "text": "orange"
+          },
+          {
+            "text": "black",
+            "reason": "Gus doesn't own a black drone, so his sister would find nothing to launch."
+          },
+          {
+            "text": "racing",
+            "reason": "The racing drone is the sleek one, and its battery is flat."
+          },
+          {
+            "text": "spare",
+            "reason": "Spare doesn't say which drone. Two of them are bulky camera drones."
+          }
         ],
         "answer": 0
       }

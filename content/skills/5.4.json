@@ -65,7 +65,7 @@
             "accept": [
               "If the alarm rings, walk straight to the oval."
             ],
-            "reason": "Start with the condition, 'If the alarm rings,'. The instruction comes after the comma."
+            "reason": "Which part tells you when the rule applies? Start with that, then the instruction after the comma."
           }
         }
       ]
@@ -157,7 +157,7 @@
         "accept": [
           "While Mo was cooking, the smoke alarm went off."
         ],
-        "reason": "Start with the part that leaves you waiting, 'While Mo was cooking,'. Then add the main clause."
+        "reason": "Start with the part that leaves you waiting. Then add the main clause."
       }
     },
     {
@@ -165,8 +165,8 @@
       "band": 1,
       "topic": "space",
       "frame": "Zed is writing a space story. He wants you to wait for the big moment.",
-      "prompt": "Which version makes you wait, so 'eyeball' is the very last word?",
-      "success": "Leading with 'As the hatch creaked open' makes you wait. 'Eyeball' is the very last word you read.",
+      "prompt": "Which version leads with the dependent clause, so you wait for the eyeball?",
+      "success": "Leading with 'As the hatch creaked open' makes you wait. Then the eyeball lands at the end.",
       "body": {
         "format": "choose",
         "options": [
@@ -178,8 +178,8 @@
             "reason": "This gives away the eyeball first, so there's nothing left to wait for."
           },
           {
-            "text": "The rusty hatch creaked open very slowly in the dark.",
-            "reason": "This is only one clause. It never gets to the eyeball at all."
+            "text": "We stared as the hatch creaked open on a giant eyeball.",
+            "reason": "This ends on the eyeball too, but it leads with the main clause, 'We stared'."
           }
         ],
         "answer": 0
@@ -199,7 +199,7 @@
           "the old piano",
           "began to play by itself."
         ],
-        "reason": "Start with the part that leaves you waiting, 'When the clock struck twelve,'. The main clause comes after the comma."
+        "reason": "Start with the part that leaves you waiting. The main clause comes after the comma."
       }
     },
     {
@@ -315,7 +315,7 @@
         "accept": [
           "Unless you say the password, the robot won't open the door."
         ],
-        "reason": "The condition is the unless part. Put it first, then the main clause after the comma."
+        "reason": "Which part is the condition? Put it first, then the main clause after the comma."
       }
     },
     {
@@ -418,7 +418,7 @@
       "band": 3,
       "topic": "spooky",
       "frame": "Zed has four drafts of the scariest line in his story. The Frillip is shaking.",
-      "prompt": "Which version keeps the cold hand a secret until the very end?",
+      "prompt": "Which version leads with the dependent clause and keeps the cold hand a secret until the end?",
       "success": "Leading with the as clause keeps you creeping down the hallway. The cold hand comes last.",
       "body": {
         "format": "choose",
@@ -431,8 +431,8 @@
             "reason": "The cold hand comes straight away, so there's nothing left to wait for."
           },
           {
-            "text": "A cold hand grabbed Zed's ankle in the dark hallway.",
-            "reason": "The cold hand is the first thing you read, so the scare comes too early."
+            "text": "Zed crept down the dark hallway until a cold hand grabbed his ankle.",
+            "reason": "The cold hand comes late here too, but this leads with the main clause, 'Zed crept down the dark hallway'."
           },
           {
             "text": "A cold hand, as Zed crept down the dark hallway, grabbed his ankle.",
@@ -538,7 +538,7 @@
         "accept": [
           "Because the fridge had been off for a week, the yoghurt had grown a fur coat."
         ],
-        "reason": "Put the reason first, 'Because the fridge had been off for a week,', so the gross part comes last."
+        "reason": "Put the reason first, so the gross part comes last. Which piece gives the reason and ends in a comma?"
       }
     },
     {
@@ -558,9 +558,9 @@
           },
           ", ",
           {
-            "tap": "so the"
+            "tap": "so the umpires"
           },
-          " umpires ",
+          " ",
           {
             "tap": "called off",
             "reason": "Called off is fine. Look for an extra joining word after the comma."
@@ -570,18 +570,18 @@
         "spot": 1,
         "options": [
           {
-            "text": "the"
+            "text": "the umpires"
           },
           {
-            "text": "and the",
+            "text": "and the umpires",
             "reason": "And adds a second joining word. Because has already linked the two ideas."
           },
           {
-            "text": "but the",
+            "text": "but the umpires",
             "reason": "But adds a second joining word and suggests a surprise that isn't there."
           },
           {
-            "text": "then the",
+            "text": "then the umpires",
             "reason": "Then isn't needed after a because clause. The comma already shows where the main clause starts."
           }
         ],
@@ -732,19 +732,19 @@
       "topic": "ocean",
       "frame": "The dive boat skipper is writing the safety rules. The Frillip is helping.",
       "prompt": "Build the skipper's rule so it leads with the dependent clause.",
-      "success": "The until clause comes first, so nobody misses the condition. 'Under' gets a small u, since it's mid-sentence.",
+      "success": "The until clause comes first, so nobody misses the condition. After the comma, the main clause starts straight away.",
       "body": {
         "format": "build",
         "tiles": [
           "Until every diver is back on board,",
-          "under no circumstances",
-          "Under no circumstances",
-          "should the boat leave the reef."
+          "the boat must stay",
+          "and the boat must stay",
+          "at the reef."
         ],
         "accept": [
-          "Until every diver is back on board, under no circumstances should the boat leave the reef."
+          "Until every diver is back on board, the boat must stay at the reef."
         ],
-        "reason": "Lead with 'Until every diver is back on board,'. The rest follows with a small letter."
+        "reason": "The until clause already joins the two ideas. After the comma, you need no second joining word."
       }
     },
     {

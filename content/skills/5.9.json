@@ -113,19 +113,46 @@
       "id": "5.9-b1-3",
       "band": 1,
       "topic": "music",
-      "frame": "The Termolin found a pile of words after band practice and footy training.",
-      "prompt": "Match each word to the right bag.",
-      "success": "Handball, ruck and behind are footy words. Tempo, chorus and rhythm are music words.",
+      "frame": "The Termolin found a pile of sentences after band practice and sport training.",
+      "prompt": "Use the clues in each sentence. Match each word to the right bag.",
+      "success": "The clues tell you. Ruck, handball and boundary are sport words. Tempo, chorus and rhythm are music words.",
       "body": {
         "format": "sort",
-        "bins": ["footy word", "music word"],
+        "bins": [
+          "sport word",
+          "music word"
+        ],
         "items": [
-          { "text": "handball", "bin": 0, "reason": "A handball is passing the ball by punching it off your hand. That's footy." },
-          { "text": "ruck", "bin": 0, "reason": "The ruck is the tall player who jumps for the ball at a bounce. That's footy." },
-          { "text": "behind", "bin": 0, "reason": "In footy, a behind is a one-point score." },
-          { "text": "tempo", "bin": 1, "reason": "Tempo is how fast a piece of music goes." },
-          { "text": "chorus", "bin": 1, "reason": "The chorus is the part of a song that repeats." },
-          { "text": "rhythm", "bin": 1, "reason": "Rhythm is the pattern of beats in music." }
+          {
+            "text": "'ruck' in: The ruck jumped high to tap the ball.",
+            "bin": 0,
+            "reason": "Jumping to tap the ball tells you the ruck is a footy player."
+          },
+          {
+            "text": "'handball' in: Jai punched the footy to Tully in a handball.",
+            "bin": 0,
+            "reason": "Punching the footy to a teammate is a kind of pass in footy."
+          },
+          {
+            "text": "'boundary' in: The batter hit the ball over the boundary.",
+            "bin": 0,
+            "reason": "A batter hitting the ball tells you this is cricket, a sport."
+          },
+          {
+            "text": "'tempo' in: The band slowed the tempo for the sad song.",
+            "bin": 1,
+            "reason": "Slowing it for a song tells you tempo is how fast music goes."
+          },
+          {
+            "text": "'chorus' in: Everyone sang the chorus again at the end.",
+            "bin": 1,
+            "reason": "Singing it again tells you the chorus is the part of a song that repeats."
+          },
+          {
+            "text": "'rhythm' in: Mo clapped the rhythm of the drum beat.",
+            "bin": 1,
+            "reason": "Clapping a drum beat tells you rhythm is the pattern of beats in music."
+          }
         ]
       }
     },
@@ -133,15 +160,23 @@
       "id": "5.9-b1-4",
       "band": 1,
       "topic": "gross-science",
-      "frame": "Gus wants to see the tiny germs in his slime.",
+      "frame": "Gus wants to see the tiny germs in his slime. He checks his science book first.",
       "prompt": "Build the sentence with the right tool for seeing tiny things.",
       "success": "Microscope. A microscope makes tiny things look much bigger.",
       "body": {
         "format": "build",
-        "tiles": ["Gus looked at the slime", "under a", "microscope.", "telescope."],
-        "accept": ["Gus looked at the slime under a microscope."],
-        "reason": "A telescope makes faraway things look closer, like stars. A microscope makes tiny things look bigger."
-      }
+        "tiles": [
+          "Gus looked at the slime",
+          "under a",
+          "microscope.",
+          "telescope."
+        ],
+        "accept": [
+          "Gus looked at the slime under a microscope."
+        ],
+        "reason": "Germs are tiny, not far away. Check what the science book says each tool does."
+      },
+      "text": "A telescope makes faraway things look closer. A microscope makes tiny things look bigger."
     },
     {
       "id": "5.9-b1-5",
@@ -232,18 +267,45 @@
       "band": 2,
       "topic": "space",
       "frame": "Gus's science folder fell open. Help the Termolin sort the pages.",
-      "prompt": "Match each word to the right page.",
+      "prompt": "Use the clues in each sentence. Match each word to the right page.",
       "success": "Orbit, comet and galaxy are space words. Skeleton, lungs and artery are words about the human body.",
       "body": {
         "format": "sort",
-        "bins": ["space", "the human body"],
+        "bins": [
+          "space",
+          "the human body"
+        ],
         "items": [
-          { "text": "orbit", "bin": 0, "reason": "An orbit is the path a planet or moon takes around something in space." },
-          { "text": "comet", "bin": 0, "reason": "A comet is a ball of ice and dust that travels through space." },
-          { "text": "galaxy", "bin": 0, "reason": "A galaxy is a huge group of stars, like the Milky Way." },
-          { "text": "skeleton", "bin": 1, "reason": "Your skeleton is all the bones in your body." },
-          { "text": "lungs", "bin": 1, "reason": "Your lungs are the parts of your body you breathe with." },
-          { "text": "artery", "bin": 1, "reason": "An artery carries blood away from your heart." }
+          {
+            "text": "'orbit' in: The Moon travels in an orbit around Earth.",
+            "bin": 0,
+            "reason": "Travelling around Earth tells you an orbit is a path through space."
+          },
+          {
+            "text": "'comet' in: A comet streaked past with a long, icy tail.",
+            "bin": 0,
+            "reason": "Streaking past with an icy tail tells you a comet travels through space."
+          },
+          {
+            "text": "'galaxy' in: Our Sun is one of billions of stars in the galaxy.",
+            "bin": 0,
+            "reason": "Billions of stars tells you a galaxy is a huge group of stars in space."
+          },
+          {
+            "text": "'skeleton' in: Your skeleton holds your body up like a frame of bones.",
+            "bin": 1,
+            "reason": "A frame of bones tells you the skeleton is part of your body."
+          },
+          {
+            "text": "'lungs' in: Your lungs fill with air when you breathe in.",
+            "bin": 1,
+            "reason": "Filling with air when you breathe tells you lungs are part of your body."
+          },
+          {
+            "text": "'artery' in: The artery carried blood away from the heart.",
+            "bin": 1,
+            "reason": "Carrying blood from the heart tells you an artery is part of your body."
+          }
         ]
       }
     },
@@ -467,7 +529,7 @@
           " to make the ",
           { "tap": "road", "reason": "Road is an everyday word. It's what Indi painted, not an art term." },
           " ",
-          { "tap": "shrink", "reason": "Shrink means getting smaller, in art or anywhere else. It describes what perspective does." },
+          { "tap": "shrink", "reason": "Shrink means getting smaller, in art or anywhere else. Which word here is an art term?" },
           " towards the horizon, giving her flat painting real depth."
         ],
         "answer": 1
