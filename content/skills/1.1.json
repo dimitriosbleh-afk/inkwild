@@ -1,0 +1,939 @@
+{
+  "skill": {
+    "id": "1.1",
+    "name": "Find it: locate the exact detail that answers a question",
+    "codes": [
+      "VC2E5LY09",
+      "VC2E6LY08"
+    ],
+    "why": "The answer is usually sitting in the text. Finding the exact words proves it.",
+    "how": "Spot the question's key word, find it in the text, then read around it.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "The answer is hiding in the text. Your job: find it."
+          },
+          {
+            "say": "First, pick the key word in the question.",
+            "show": "What did the possum **steal**?"
+          },
+          {
+            "say": "Now hunt for that word in the text.",
+            "show": "At midnight, a possum **stole** Mo's banana bread off the bench."
+          },
+          {
+            "say": "Read the words right next to it. There's your answer.",
+            "show": "A possum stole **Mo's banana bread** off the bench."
+          },
+          {
+            "say": "Careful! Nearby details can trick you. Check it answers the question.",
+            "show": "**At midnight** tells you when. **Off the bench** tells you where."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "GUS'S LAB RULES. Wear goggles at all times. Lunch stays outside the lab. The slime tank is cleaned on Tuesdays. Never, ever lick the slime.",
+          "prompt": "When is the slime tank cleaned?",
+          "hint": "Find the words 'slime tank' in the rules, then read to the end of that sentence.",
+          "success": "The rule with 'slime tank' in it ends with 'on Tuesdays'. The key words led you straight there.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "on Tuesdays"
+              },
+              {
+                "text": "at all times",
+                "reason": "That's the rule about goggles. Find the rule with 'slime tank' in it."
+              },
+              {
+                "text": "never, ever",
+                "reason": "That's the rule about licking the slime, not cleaning the tank."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the sentence that tells you who ate the last lamington.",
+          "hint": "Look for a word that means eating.",
+          "success": "'Then Zed ate it in one bite.' The text tells you straight out, with the word 'ate'.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Mo left the last lamington on the plate. ",
+              {
+                "tap": "Tully walked past it twice.",
+                "reason": "Tully only walked past it. This sentence doesn't say she ate it."
+              },
+              " ",
+              {
+                "tap": "Then Zed ate it in one bite."
+              },
+              " ",
+              {
+                "tap": "Gus wanted it, but he was too late.",
+                "reason": "Gus wanted it, but 'too late' tells you someone else got it first."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "squintle",
+      "name": "Squintle",
+      "evolved": "Squintalon",
+      "blurb": "A tawny frogmouth that sits so still it looks like a broken branch. It won't open its eyes until you point to the exact words that answer the question."
+    }
+  },
+  "encounters": [
+    {
+      "id": "1.1-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "A Squintle is perched on Mo's stall sign, staring at you.",
+      "text": "MO'S MYSTERY PIE STALL. Open Saturday from 9 am until the pies run out. Today's pie is pumpkin and jelly snake. Yesterday's pie was fish and custard. Nobody bought one. Pies cost three dollars each. Gus gets his pie free, because he is the taste tester. If you feel sick after eating one, please see Wren. Please do not tell Mo it was bad. He cries.",
+      "prompt": "What is in today's pie?",
+      "success": "The sign says today's pie is pumpkin and jelly snake. The key word 'today' led you there.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "pumpkin and jelly snake"
+          },
+          {
+            "text": "fish and custard",
+            "reason": "That was yesterday's pie. Look for the word 'today'."
+          },
+          {
+            "text": "three dollars",
+            "reason": "That's how much a pie costs, not what's inside it."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.1-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren left her diary open on the ship's table.",
+      "prompt": "Tap the sentence that tells you where Wren found the baby bird.",
+      "success": "It was in Mum's gumboot by the back door. The word 'found' comes just before it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Tuesday. Today I found a baby tawny frogmouth. ",
+          {
+            "tap": "It was sitting in Mum's gumboot by the back door."
+          },
+          " At first I thought it was a pinecone. ",
+          {
+            "tap": "Then it opened its huge mouth and hissed at me.",
+            "reason": "This tells you what the bird did, not where Wren found it."
+          },
+          " I wrapped it in a towel. ",
+          {
+            "tap": "Dad drove us to the vet at lunchtime.",
+            "reason": "This tells you where they went next, not where the bird was found."
+          },
+          " The vet said it was healthy, just lost. ",
+          {
+            "tap": "Tonight we put it back in the big gum tree.",
+            "reason": "This is where they put the bird back at the end, not where Wren found it."
+          },
+          " Its mum was waiting on a branch. She did not say thank you."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.1-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is reading her footy report out loud. Very loud.",
+      "text": "REEF RAYS WIN AT LAST! The Reef Rays played the Sandflies on Sunday at Gull Park. It rained for the whole game. The Rays won by two points. Their captain, Jaz Kemp, kicked the winning goal. She kicked it with one boot on and one boot stuck in the mud. Tully screamed so loud that a seagull fell off the goalpost. The next game is on Friday night.",
+      "prompt": "Match each detail from the report to the question it answers.",
+      "success": "Days and times answer when. Places answer where. People and teams answer who.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "When?",
+          "Where?",
+          "Who?"
+        ],
+        "items": [
+          {
+            "text": "on Sunday",
+            "bin": 0,
+            "reason": "Sunday is a day, so it tells you when the game was."
+          },
+          {
+            "text": "at Gull Park",
+            "bin": 1,
+            "reason": "Gull Park is a place, so it tells you where the game was."
+          },
+          {
+            "text": "Jaz Kemp",
+            "bin": 2,
+            "reason": "Jaz Kemp is a person. She's who kicked the winning goal."
+          },
+          {
+            "text": "on Friday night",
+            "bin": 0,
+            "reason": "Friday night is a time. It tells you when the next game is."
+          },
+          {
+            "text": "the Sandflies",
+            "bin": 2,
+            "reason": "The Sandflies are a team. They're who the Rays played."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.1-b1-4",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "A flyer is flapping on a tree near the old lighthouse.",
+      "text": "HOLLOWGUM GHOST TOUR. Walk through the old lighthouse after dark! Tours leave from the jetty at 8 pm. Bring a torch and warm socks. The ghost is said to steal socks. Do not bring your dog. Last year a dog ran off with the guide's hat. Tickets are five dollars for kids and ten dollars for adults. Scaredy-cats can wait in the van.",
+      "prompt": "Where do the tours leave from?",
+      "success": "The flyer says tours leave from the jetty. The key word 'leave' led you to it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "the van",
+            "reason": "The van is where scaredy-cats wait, not where the tour starts."
+          },
+          {
+            "text": "the jetty"
+          },
+          {
+            "text": "the old lighthouse",
+            "reason": "That's where you walk during the tour. Find the word 'leave'."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.1-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Gus took notes on Indi's Space Camp report. One detail is wrong.",
+      "text": "SPACE CAMP. Our class went to Space Camp on Monday. We tried on real space suits. Mine smelled like old cheese. Then we ate astronaut ice cream. It was dry and crumbly, like chalk. The best part was the rocket launch. Our water rockets flew higher than the camp flagpole. Zed's rocket landed on the roof. It is still there.",
+      "prompt": "Tap the detail Gus got wrong, then choose the right one from the report.",
+      "success": "The report says Zed's rocket landed on the roof. The flagpole was only how high the rockets went.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The class went to Space Camp on ",
+          {
+            "tap": "Monday",
+            "reason": "Monday is right. The report says they went on Monday."
+          },
+          ". They ate ",
+          {
+            "tap": "astronaut ice cream",
+            "reason": "That's right. The report says they ate astronaut ice cream."
+          },
+          ". Zed's rocket landed on the ",
+          {
+            "tap": "flagpole"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "roof"
+          },
+          {
+            "text": "lawn",
+            "reason": "The report never mentions a lawn. Find the sentence about Zed's rocket."
+          },
+          {
+            "text": "moon",
+            "reason": "Funny, but the report says where it landed, and it's much closer than the moon."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.1-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Maxx Vantablack is live again. Zed is taking notes.",
+      "text": "Maxx here, live! Today I'm playing Slime Castle. I need to find the golden key. It is hidden under the third bridge. Not the first bridge! The first bridge has a troll. The troll steals your shoes. It also smells like wet dog. I have lost four pairs of shoes today. My feet are freezing. Okay, let's go. Smash that follow button, Maxxers!",
+      "prompt": "Where is the golden key hidden?",
+      "success": "Maxx says the key is hidden under the third bridge. The word 'hidden' points right to it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "under the first bridge",
+            "reason": "Maxx says 'Not the first bridge!' The troll lives there."
+          },
+          {
+            "text": "with the troll",
+            "reason": "The troll steals shoes, but the text says the key is under a bridge."
+          },
+          {
+            "text": "under the third bridge"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.1-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Squintle has dropped a soggy newspaper on the deck.",
+      "text": "OCTOPUS ESCAPES FROM AQUARIUM. Staff at Hollowgum Aquarium got a shock on Wednesday morning. Their giant octopus, Inky, was missing from her tank. Nobody had seen her go. Inky had squeezed through a gap no wider than a coin. Then she crawled across the floor and slid down a drainpipe into the sea. Keeper Sam Pike found a trail of wet sucker marks leading to the drain. 'She's done this twice before,' he said with a sigh. 'Both times she came back for the prawns.' The aquarium has now put a heavy lid on the tank. Sam has also stopped leaving prawns on his desk.",
+      "prompt": "How did Inky finally get into the sea?",
+      "success": "She slid down a drainpipe into the sea. The words 'into the sea' tell you it's the right step.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "down a drainpipe"
+          },
+          {
+            "text": "through a gap no wider than a coin",
+            "reason": "That's how she got out of her tank. The question asks how she reached the sea."
+          },
+          {
+            "text": "under a heavy lid",
+            "reason": "The heavy lid is new. The aquarium put it on after she escaped."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.1-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus has built a robot. He has also written instructions, which is rarer.",
+      "prompt": "Tap the sentence that tells you how to turn Snotbot off.",
+      "success": "Hold its left ear down for five seconds. The words 'turn it off' match the question.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "HOW TO USE SNOTBOT 3000. Gus built Snotbot from an old vacuum cleaner and a fish tank. Snotbot cleans up sneezes, spills and anything sticky. To start it, press the green button on its nose. ",
+          {
+            "tap": "It will beep twice and roll towards the nearest mess.",
+            "reason": "This tells you what Snotbot does after you start it."
+          },
+          " ",
+          {
+            "tap": "To pause it, clap your hands loudly.",
+            "reason": "Clapping only pauses Snotbot. The next sentence says it waits for another clap."
+          },
+          " It will wait until you clap again. ",
+          {
+            "tap": "To turn it off, hold its left ear down for five seconds."
+          },
+          " ",
+          {
+            "tap": "Never feed it soup, or it will sneeze the soup back at you.",
+            "reason": "This is a warning about soup, not how to switch Snotbot off."
+          },
+          " Empty its tummy tank outside every Friday. Snotbot does not like being tickled. ",
+          {
+            "tap": "If it starts giggling and spinning, hide behind the couch.",
+            "reason": "This tells you what to do if it goes wild. It doesn't turn it off."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.1-b2-3",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi copied the competition rules into her sketchbook. One detail is wrong.",
+      "text": "HOLLOWGUM MURAL COMPETITION. Calling all young artists! The island council wants a giant mural for the wall of the old fish shop. The wall is twelve metres long and smells only a little bit of fish. Entries are open to anyone aged nine to fourteen. Draw your design on one A3 sheet of paper. You may use pencils, paint or pastels, but not glitter. Last year the glitter got into the seagulls. Hand your design in at the library by Friday the 18th. The winner will paint the mural with help from a real artist. They will also win a year of free fish and chips.",
+      "prompt": "Tap the detail Indi got wrong, then choose the right one from the notice.",
+      "success": "The notice says designs are due by Friday the 18th. Indi mixed up her numbers.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Draw it on one ",
+          {
+            "tap": "A3",
+            "reason": "That's right. The notice says one A3 sheet of paper."
+          },
+          " sheet. No ",
+          {
+            "tap": "glitter",
+            "reason": "That's right. The notice says you can't use glitter."
+          },
+          ". Hand it in at the ",
+          {
+            "tap": "library",
+            "reason": "That's right. Designs go to the library."
+          },
+          " by ",
+          {
+            "tap": "Friday the 8th"
+          },
+          "."
+        ],
+        "spot": 3,
+        "options": [
+          {
+            "text": "Friday the 18th"
+          },
+          {
+            "text": "Friday the 14th",
+            "reason": "Fourteen is the oldest age you can be to enter. It isn't the date."
+          },
+          {
+            "text": "Saturday the 18th",
+            "reason": "The number is right, but the notice says Friday, not Saturday."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.1-b2-4",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo's diary has a sticky page. Something happened in the kitchen.",
+      "text": "Saturday. I tried to make Dad a birthday breakfast while he was still asleep. First I made toast, but I forgot about it and it turned black. The smoke alarm went off twice. Then I tried pancakes. The first pancake stuck to the ceiling. It is still up there. After that, I made a smoothie with banana, milk and one sardine for protein. Dad drank it all and said it was 'interesting'. Last of all, I gave him his card. It said, 'Happy birthday. Sorry about the kitchen.' Dad laughed so hard that smoothie came out of his nose. He said it was the best birthday ever.",
+      "prompt": "Put the events in the order the diary says they happened.",
+      "success": "The order words did the work: first, then, after that, last of all.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Mo burned the toast.",
+          "A pancake stuck to the ceiling.",
+          "Mo made a smoothie with a sardine in it.",
+          "Mo gave Dad his card."
+        ],
+        "reason": "Hunt for the order words in the diary: first, then, after that and last of all."
+      }
+    },
+    {
+      "id": "1.1-b2-5",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully found a letter from the school office in her bag.",
+      "text": "Dear families, thank you for coming to the swimming carnival on Thursday. It was a big day, even with the cold wind. Blue House won the shield with 412 points. Green House came second with 398 points, and Red House came third. The fastest swimmer of the day was Ruby Tran in Year 5. She won all four of her races. The funniest moment was when Mr Lowe fell in while starting the relay. He was still holding the whistle. Everyone cheered when he climbed out. Please collect any lost goggles from the office by Friday. We have forty-two pairs. Kind regards, Ms Fairweather",
+      "prompt": "How many points did Green House score?",
+      "success": "The letter says Green House came second with 398 points. Finding 'Green House' first got you there.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "412",
+            "reason": "That was Blue House, the winners. Find the words 'Green House'."
+          },
+          {
+            "text": "42",
+            "reason": "That's how many pairs of lost goggles there are."
+          },
+          {
+            "text": "398"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.1-b2-6",
+      "band": 2,
+      "topic": "animals",
+      "frame": "The Squintle's page in the Field Guide has just unlocked.",
+      "text": "FIELD GUIDE: TAWNY FROGMOUTH. Tawny frogmouths are grey-brown birds that live all over Australia. In the daytime they sit very still on a branch. They point their beak up and close their eyes to slits. This makes them look like a broken stick. Their feathers are even patterned like bark. At night they wake up and hunt. They sit and wait, then swoop down on insects, frogs and mice. A frogmouth's mouth is very wide, which is how it got its name. Pairs often stay together for life. They use the same nest year after year. The nest is a messy pile of sticks.",
+      "prompt": "Match each sentence to the right box.",
+      "success": "You only said 'the text says this' when you could point to the words. That's the whole Skill.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "The text says this",
+          "The text doesn't say this"
+        ],
+        "items": [
+          {
+            "text": "Frogmouths hunt at night.",
+            "bin": 0,
+            "reason": "The text says, 'At night they wake up and hunt.'"
+          },
+          {
+            "text": "Frogmouths eat frogs.",
+            "bin": 0,
+            "reason": "Frogs are in the list of things they swoop down on."
+          },
+          {
+            "text": "Frogmouths can turn their heads right around.",
+            "bin": 1,
+            "reason": "Nothing in the text is about turning their heads."
+          },
+          {
+            "text": "Frogmouth eggs are white.",
+            "bin": 1,
+            "reason": "The text talks about the nest, but it never mentions eggs."
+          },
+          {
+            "text": "Frogmouth pairs use the same nest again.",
+            "bin": 0,
+            "reason": "The text says they use the same nest year after year."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.1-b3-1",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus left his science log on the galley table, right next to the bread.",
+      "text": "GUS'S MOULD LOG. On Monday I put four slices of bread in four different places to see which would grow mould first. Slice A went in the fridge. Slice B went on a sunny windowsill. Slice C went in the dark cupboard under the sink. Slice D went in my school bag, which I sometimes forget to empty. I checked them every afternoon. By Wednesday, nothing had changed, except that Slice B had gone hard and crunchy, like a cracker. On Thursday afternoon I saw the first green fuzz, and it was on Slice C. Slice D grew a fuzzy patch too, but not until Friday, and it was purple. Mum found it before I could write it up. She also found a banana in there from last term. Slice A, the fridge slice, still looked perfect after a whole week. My conclusion is that mould likes dark, damp places, and Mum does not like my school bag.",
+      "prompt": "Which slice grew mould first?",
+      "success": "The first green fuzz was on Slice C, on Thursday. The word 'first' is the key.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Slice D, in the school bag",
+            "reason": "Slice D grew mould too, but not until Friday. Slice C beat it by a day."
+          },
+          {
+            "text": "Slice C, in the cupboard"
+          },
+          {
+            "text": "Slice B, on the windowsill",
+            "reason": "Slice B went hard and crunchy. The log never says it grew mould."
+          },
+          {
+            "text": "Slice A, in the fridge",
+            "reason": "The fridge slice still looked perfect after a whole week."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.1-b3-2",
+      "band": 3,
+      "topic": "music",
+      "frame": "An email has arrived for the whole school. Zed is reading it over Tully's shoulder.",
+      "prompt": "Tap the sentence that tells you the new date of the concert.",
+      "success": "The concert has moved to Friday the 24th of March. The word 'moved' tells you it's the new date.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Hi Hollowgum Primary! It's the Gumleaf Rockets here, the loudest band on the island. We know lots of you were looking forward to our new song, 'Seagull Attack'. ",
+          {
+            "tap": "We were booked to play at your school concert on Friday the 3rd of March.",
+            "reason": "That was the old date. The band had to change it."
+          },
+          " ",
+          {
+            "tap": "Sadly, our drummer, Fizz, has broken her wrist falling off a skateboard.",
+            "reason": "This tells you what went wrong, not the new date."
+          },
+          " She is fine, but she can't drum with a cast on. ",
+          {
+            "tap": "We tried using our bass player's little brother instead, but he only knows one beat.",
+            "reason": "This is about a drummer they tried, not when the concert is."
+          },
+          " ",
+          {
+            "tap": "So we have moved the concert to Friday the 24th of March, when Fizz's cast comes off."
+          },
+          " It will still start at 2 pm in the school hall. ",
+          {
+            "tap": "Please keep your tickets, because they will still work.",
+            "reason": "This is about tickets. It doesn't give a date."
+          },
+          " If you can't come on the new date, the office will give you your money back. ",
+          {
+            "tap": "Fizz says sorry, and she promises to drum twice as loud to make up for it.",
+            "reason": "This is Fizz's apology. There's no date in it."
+          },
+          " Rock on, the Gumleaf Rockets."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.1-b3-3",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Wren wrote this story about the night she couldn't sleep. It jumps around in time.",
+      "text": "The banging started at midnight, and by then Wren had already been awake for hours. She lay frozen under her doona, listening. Her heart was thumping louder than the noise. Thump. Scratch. Thump. It sounded like someone dragging a suitcase across the ceiling. Earlier that evening, before dinner, she had noticed that the attic hatch was open a crack. She had meant to tell Dad, but then the pizza arrived and she forgot all about it. Now, at midnight, she crept up the ladder with a torch between her teeth. Two shining eyes stared back at her from behind a box of Christmas decorations. Wren gasped, and the torch fell out of her mouth. It was a brushtail possum, and it had a string of tinsel wrapped around its tail. The next morning, Dad found the hole in the roof where it had squeezed in. He fixed it while the possum glared at him from the gum tree.",
+      "prompt": "Put the events in the order they really happened, not the order the story tells them.",
+      "success": "'Earlier that evening' sends you back in time. The hatch and the pizza came before the banging.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Wren saw that the attic hatch was open.",
+          "The pizza arrived.",
+          "The banging started.",
+          "Wren climbed the ladder with a torch.",
+          "Dad fixed the hole in the roof."
+        ],
+        "reason": "The story starts at midnight, then jumps back. Find 'earlier that evening' and 'the next morning'."
+      }
+    },
+    {
+      "id": "1.1-b3-4",
+      "band": 3,
+      "topic": "food",
+      "frame": "Gus wrote a shopping list from Mo's recipe card. One amount is wrong.",
+      "text": "MO'S FAMOUS (ALMOST) PIKELETS. Makes about twenty pikelets, or twelve if Gus is helping. You will need one cup of self-raising flour, two tablespoons of sugar, one egg and three-quarters of a cup of milk. Wear an apron, because the batter goes everywhere. Mix the flour and sugar in a big bowl. In a jug, whisk the egg and milk together until they are frothy. Pour the jug into the bowl and stir until there are no lumps. Leave the batter to rest for ten minutes, which is a good time to wash your hands again. Heat a frying pan with a little butter. Drop in one tablespoon of batter for each pikelet. When bubbles appear on top, flip it over and cook it for one more minute. Keep the first pikelet for the cook, because it is always the ugly one. Serve with jam and cream. Do not serve with tomato sauce, no matter what Mo tells you.",
+      "prompt": "Tap the amount Gus got wrong, then choose the right one from the recipe.",
+      "success": "The recipe says three-quarters of a cup of milk. 'One cup' belongs to the flour.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Buy ",
+          {
+            "tap": "one egg",
+            "reason": "That's right. The recipe needs one egg."
+          },
+          ", ",
+          {
+            "tap": "two tablespoons of sugar",
+            "reason": "That's right. The recipe needs two tablespoons of sugar."
+          },
+          " and ",
+          {
+            "tap": "half a cup of milk"
+          },
+          ". The batter rests for ",
+          {
+            "tap": "ten minutes",
+            "reason": "That's right. The recipe says to rest the batter for ten minutes."
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "one cup of milk",
+            "reason": "One cup is the amount of flour. Find the word 'milk' in the list."
+          },
+          {
+            "text": "three-quarters of a cup of milk"
+          },
+          {
+            "text": "a tablespoon of milk",
+            "reason": "A tablespoon is how much batter goes in each pikelet, not how much milk."
+          },
+          {
+            "text": "two cups of milk",
+            "reason": "The recipe never asks for two cups of anything."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.1-b3-5",
+      "band": 3,
+      "topic": "space",
+      "frame": "Mission control is broadcasting to the whole archipelago.",
+      "text": "Good evening from the Hollowgum Space Centre. Here is the latest news on the Wattle-7 probe. Wattle-7 was launched eleven years ago to study the icy moons of a faraway planet. Last night it sent back its sharpest photo yet. The team cheered so loudly that a security guard came to check. The photo shows a moon called Frost-3, covered in cracks like a smashed windscreen. Scientists think the cracks are only about two hundred years old, which is very young for a moon. Under the ice, there may be an ocean three times deeper than any on Earth. Wattle-7 will fly past Frost-3 again in six weeks. This time it will pass just forty kilometres above the surface, closer than any probe has gone before. After that, its fuel will start to run low. The team plans to crash it gently into the planet in two years, so that it can't spread Earth germs to the moons.",
+      "prompt": "How long until Wattle-7 flies past Frost-3 again?",
+      "success": "The broadcast says it 'will fly past Frost-3 again in six weeks'. The word 'again' matched.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "two years",
+            "reason": "That's when the team plans to crash the probe into the planet."
+          },
+          {
+            "text": "eleven years",
+            "reason": "That's how long ago Wattle-7 was launched."
+          },
+          {
+            "text": "two hundred years",
+            "reason": "That's how old scientists think the cracks are."
+          },
+          {
+            "text": "six weeks"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.1-b3-6",
+      "band": 3,
+      "topic": "animals",
+      "frame": "The Squintle has spotted a story in the Hollowgum Herald.",
+      "text": "WOMBAT DIGS INTO TROUBLE. A young wombat caused chaos at Hollowgum Golf Club on Tuesday morning. Groundskeeper Pat Nguyen arrived at six o'clock to find seventeen holes dug across the eighth green. Some of the holes were big enough to lose a golf ball in, which several golfers did. 'I thought a giant mole had moved in,' Pat said. The culprit was found asleep in a bunker near the clubhouse, snoring loudly. Wildlife carer Jo Banks was called at half past seven. She said the wombat was about a year old and had probably lost its mum. She has named him Bogey. 'He's a cheeky one,' Jo said. Bogey is now living at Jo's shelter in Pine Gully, where he has already dug under the fence twice. He will be released into the bush in spring, once he is big enough to look after himself. Golfers have been asked to use the other course for the rest of the week.",
+      "prompt": "Match each detail to the question it answers.",
+      "success": "Two 'when' questions and two 'where' questions. You read the words around each detail to tell them apart.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "When did Pat arrive?",
+          "When was Jo called?",
+          "Where was the wombat found asleep?",
+          "Where does Bogey live now?"
+        ],
+        "items": [
+          {
+            "text": "at six o'clock",
+            "bin": 0,
+            "reason": "The report says Pat 'arrived at six o'clock'."
+          },
+          {
+            "text": "at half past seven",
+            "bin": 1,
+            "reason": "The report says Jo 'was called at half past seven'."
+          },
+          {
+            "text": "in a bunker near the clubhouse",
+            "bin": 2,
+            "reason": "The wombat 'was found asleep in a bunker near the clubhouse'."
+          },
+          {
+            "text": "at Jo's shelter in Pine Gully",
+            "bin": 3,
+            "reason": "The report says Bogey 'is now living at Jo's shelter in Pine Gully'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.1-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A waterproof logbook has washed up on Hollowgum's beach. The Squintle won't stop staring at it.",
+      "text": "Research ship Southern Petrel, Day 4. At 0600 we lowered the submersible, which the crew calls the Tin Can, into the trench off Cape Brindle. Dr Okafor piloted, and I sat beside her with the cameras, trying not to think about the two kilometres of water waiting below us. The Tin Can is about the size of a family car, and it smells of cold coffee and nervous people. At 800 metres the last trace of sunlight vanished, and the only light came from tiny glowing creatures drifting past like sparks. At 1,400 metres we spotted our first target: a ghost shark, pale and silvery, with eyes like dinner plates. It circled us twice before disappearing into the gloom. The real surprise came at 1,900 metres, where the sea floor was carpeted with thousands of purple sea cucumbers, all slowly vacuuming the mud. Some were as long as my arm. Dr Okafor laughed so hard she fogged up the window. We collected three samples with the robotic arm, although one sea cucumber defended itself by squirting its sticky insides all over the claw. We began our ascent at 1130 and surfaced at 1340, starving and slightly seasick. Tomorrow we dive again, this time hoping to find the giant sea louse that was filmed here in 1998.",
+      "prompt": "At what depth did the crew first see the ghost shark?",
+      "success": "'At 1,400 metres we spotted our first target: a ghost shark.' The number sits right beside it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "800 metres",
+            "reason": "That's where the last sunlight vanished. The shark came later."
+          },
+          {
+            "text": "1,400 metres"
+          },
+          {
+            "text": "1,900 metres",
+            "reason": "That's where they found the purple sea cucumbers."
+          },
+          {
+            "text": "two kilometres",
+            "reason": "That's the depth of water the writer was nervous about before the dive."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.1-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is reading the Robo-Sumo results and muttering about rules.",
+      "prompt": "Tap the sentence that explains the rule for deciding a final that ends in a draw.",
+      "success": "'Under competition rules' tells you it's the rule. A level final goes to the judges' score.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "ROBO-SUMO FINAL ENDS IN A STALEMATE. More than two hundred people packed into the school gym to watch. ",
+          {
+            "tap": "The Hollowgum Robo-Sumo Championship came down to a nail-biting final on Saturday, with two Year 6 teams battling for the trophy.",
+            "reason": "This sets up the final. It doesn't say how a draw is decided."
+          },
+          " ",
+          {
+            "tap": "Team Kraken's robot, a squat orange wedge called Shovelface, had flipped every opponent it met on the way to the final.",
+            "reason": "This describes one robot's earlier wins, not a rule."
+          },
+          " Team Byte Club's entry, Mrs Wobbles, relied on speed rather than strength, darting around its rivals until they drove themselves out of the ring. ",
+          {
+            "tap": "When the two met, neither could push the other out, and after three minutes the referee called time with both robots still in the ring.",
+            "reason": "This tells you the final was a draw, but not how a draw gets decided."
+          },
+          " ",
+          {
+            "tap": "Under competition rules, a final that ends level is decided by the judges' score for design and teamwork, not by a rematch."
+          },
+          " ",
+          {
+            "tap": "The judges awarded the trophy to Byte Club, praising the way all five members had shared the coding and driving.",
+            "reason": "This tells you who won after the rule was used. The rule itself comes just before."
+          },
+          " Byte Club had stayed up late the night before, fixing a wobbly wheel with chewing gum and hope. Team Kraken's captain admitted she was disappointed, but said Shovelface would be back next year 'with a bigger shovel'. ",
+          {
+            "tap": "The organisers plan to add a sudden-death round next year, so that future finals can be settled by the robots themselves.",
+            "reason": "This is only a plan for next year. It isn't the rule that was used."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.1-b4-3",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed has posted a game review on the ship's noticeboard. Check what it really says.",
+      "text": "REVIEW: LANTERN DRIFT, by Zed. Lantern Drift is a puzzle game in which you guide a paper lantern down a river at night, lighting up hidden paths for a lost fox cub. Each level adds something new, such as whirlpools, sleeping owls or floating ice. There are forty levels, and each one takes about five minutes, although the final level took me nearly an hour and two packets of crackers. The controls are simple: tilt the screen to steer, and tap to make the lantern glow brighter. Glowing brighter uses up oil, so you have to decide when the extra light is worth it. The fox cub follows close behind and gives a tiny yip whenever it finds a star. The music is gentle and plinky, which I liked at first but found slightly annoying by level thirty. The best feature is the photo mode, which lets you pause anywhere and snap the scenery, and I have taken about three hundred shots of the same waterfall. My only real complaint is that you can't replay a level once you have finished it, so if you miss a hidden star, it's gone for good. Overall, Lantern Drift is calm, clever and occasionally frustrating. I give it eight lanterns out of ten.",
+      "prompt": "Match each sentence to the right box.",
+      "success": "You checked each one against the exact words. 'Eight out of ten' is a score, not a price.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "The review says so",
+          "The review says the opposite",
+          "The review doesn't tell us"
+        ],
+        "items": [
+          {
+            "text": "Making the lantern glow brighter uses up oil.",
+            "bin": 0,
+            "reason": "The review says, 'Glowing brighter uses up oil.'"
+          },
+          {
+            "text": "You can replay a level after you finish it.",
+            "bin": 1,
+            "reason": "The review says you can't replay a level once you've finished it."
+          },
+          {
+            "text": "Zed enjoyed the music all the way through.",
+            "bin": 1,
+            "reason": "Zed says the music got slightly annoying by level thirty."
+          },
+          {
+            "text": "The game costs ten dollars.",
+            "bin": 2,
+            "reason": "The review never gives a price. 'Eight lanterns out of ten' is Zed's score."
+          },
+          {
+            "text": "The fox cub finds its family at the end.",
+            "bin": 2,
+            "reason": "The review never says how the story ends."
+          },
+          {
+            "text": "You steer by tilting the screen.",
+            "bin": 0,
+            "reason": "The review says, 'tilt the screen to steer'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.1-b4-4",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren is reading a letter from the wildlife park to the class. She's already planning her outfit.",
+      "text": "Dear Year 5/6 at Hollowgum Primary, thank you for raising $340 to adopt Dot, our southern cassowary, for the year. Your money will pay for her fruit, which is a big job, because Dot eats about five kilograms of it a day and is extremely fussy about her figs. You asked lots of questions in your letter, so here are some answers. Dot is twenty-two years old, which makes her the oldest bird in the park. She has a bony helmet on her head called a casque, and nobody is quite sure what it is for. She weighs fifty-eight kilograms, about the same as a grown-up, and she can run at nearly fifty kilometres an hour, which is why her keepers never turn their backs on her. The bright blue skin on her neck goes even brighter when she is cross, which is usually at the leaf blower. Her keepers say she is clever, moody and very good at stealing hats. As her adopters, you are invited to a behind-the-scenes visit on Wednesday the 9th of May. Please arrive at the side gate by 9.30 am, because the main gate does not open until ten. Wear closed shoes, and please do not bring any fruit, or Dot will follow you home. Yours sincerely, Lena Ward, Head Keeper",
+      "prompt": "When and where should the class arrive for the visit?",
+      "success": "The letter says to arrive at the side gate by 9.30 am. Both parts of the answer had to match.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "by 9.30 am, at the side gate"
+          },
+          {
+            "text": "at ten, at the main gate",
+            "reason": "Ten is when the main gate opens. The class must come earlier, to the side gate."
+          },
+          {
+            "text": "by 9.30 am, at the main gate",
+            "reason": "The time is right, but the letter says to use the side gate."
+          },
+          {
+            "text": "at ten, at the side gate",
+            "reason": "The side gate is right, but the class must be there by 9.30."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.1-b4-5",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully summed up the cross-country report for the Reef Rays newsletter. One detail is wrong.",
+      "text": "CROSS-COUNTRY CHAOS AT HOLLOWGUM. This year's inter-school cross-country was run in conditions that one teacher described as 'like jogging through warm porridge'. Overnight rain had turned the three-kilometre course into a mud bath, and organisers delayed the start by forty-five minutes while volunteers laid straw over the worst patches. The course wound through the paddocks behind the school and crossed Gum Creek twice. When the Year 6 boys' race finally began at 10.15, the early leader, Kai Ferris, lost a shoe in the first hundred metres and ran the rest of the course in one sock. Despite this, he finished second, just three seconds behind Ollie Brand from Pine Gully Primary. The girls' race was won by Hollowgum's own Tia Mahoney, who led from start to finish and crossed the line in eleven minutes and forty seconds, almost a minute clear of the next runner. Hollowgum finished third overall, behind Pine Gully and Seabreeze, and will host the event again next year. Officials later found more than sixty shoes stuck in the mud near the creek crossing. They are being kept in the school hall, and families have been asked to collect them by the end of the week, preferably while wearing a peg on their nose.",
+      "prompt": "Tap the detail Tully got wrong, then choose the words from the report that fix it.",
+      "success": "The report says Kai finished second, just three seconds behind Ollie Brand from Pine Gully.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The start was delayed by ",
+          {
+            "tap": "forty-five minutes",
+            "reason": "That's right. Organisers delayed the start by forty-five minutes."
+          },
+          ". Kai Ferris ",
+          {
+            "tap": "won"
+          },
+          " the boys' race in one sock. Tia Mahoney finished in ",
+          {
+            "tap": "eleven minutes and forty seconds",
+            "reason": "That's right. The report gives Tia's time as eleven minutes and forty seconds."
+          },
+          ". Officials found more than ",
+          {
+            "tap": "sixty",
+            "reason": "That's right. More than sixty shoes were found in the mud."
+          },
+          " shoes."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "came third in",
+            "reason": "Third was Hollowgum's place overall, not Kai's place in his race."
+          },
+          {
+            "text": "dropped out of",
+            "reason": "Kai didn't drop out. He finished, just three seconds behind the winner."
+          },
+          {
+            "text": "came second in"
+          },
+          {
+            "text": "won by three seconds in",
+            "reason": "Ollie Brand won. Kai was the one three seconds behind."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.1-b4-6",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Mo is telling everyone how he caught a ghost. Check the real order of events.",
+      "text": "By the time the police car pulled up outside the old Gully Road post office, the 'ghost' had already been caught, and it was sitting on the front step eating a sausage roll. The whole thing had begun three nights earlier, when Mrs Petrakis, who lives across the road, saw a pale shape drifting past the post office windows at two in the morning. She rang her nephew, who posted about it online, and by the next evening a crowd of ghost hunters had gathered on the footpath with torches and phones. Nothing happened that night, apart from a great deal of shivering. On the second night, someone heard a low moaning sound, and two teenagers ran off so fast that they left a scooter behind. It was Mo, of all people, who solved it. On the third night, while everyone else was staring at the windows, he noticed fresh footprints in the dust leading round the back. He followed them to a broken window and found a skinny backpacker named Felix. Felix had been sleeping inside the empty building, wrapped in a white sheet to keep warm, and moaning because the floorboards were so uncomfortable. He now has a bed at the youth hostel, and Mrs Petrakis brings him lamingtons.",
+      "prompt": "Put the events in the order they really happened.",
+      "success": "The story opens at the end. 'Three nights earlier' sent you back to Mrs Petrakis at the window.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Mrs Petrakis saw a pale shape in the windows.",
+          "Ghost hunters gathered on the footpath.",
+          "Two teenagers ran off and left a scooter behind.",
+          "Mo followed footprints round the back.",
+          "The police car pulled up outside."
+        ],
+        "reason": "The story starts at the end. Find 'three nights earlier', then follow the nights in order."
+      }
+    }
+  ]
+}

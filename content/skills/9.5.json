@@ -1,0 +1,120 @@
+{
+  "skill": {
+    "id": "9.5",
+    "name": "A problem that gets worse",
+    "codes": [
+      "VC2E5LE05"
+    ],
+    "why": "Stories get exciting when things go wrong, then go even more wrong.",
+    "how": "Give your character a problem. Each fix they try makes it worse.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A problem solved straight away is no story.",
+            "show": "The dog ate my lunch. **Mum made another one.** The end."
+          },
+          {
+            "say": "So make the first fix go wrong.",
+            "show": "I chased the dog. **He ran into the neighbour's pool.**"
+          },
+          {
+            "say": "Then make things worse again.",
+            "show": "**The neighbour's alarm went off. So did their sprinklers.**"
+          },
+          {
+            "say": "Each step up the ladder raises the stakes.",
+            "show": "**Lunch**, then **the pool**, then **the alarm**, then **the whole street watching**."
+          },
+          {
+            "say": "Save the fix for the very end."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Gus is helping Mo write up his worst day in the galley.",
+          "text": "Mo's cake was stuck in the oven. He pulled the handle hard.",
+          "prompt": "Which next sentence makes the problem worse?",
+          "hint": "Which one leaves Mo in more trouble?",
+          "success": "Now Mo can't open the oven, and the cake is burning. The problem just got bigger.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "The handle snapped off, and smoke began to pour out."
+              },
+              {
+                "text": "The door opened easily, and the cake was perfect.",
+                "reason": "That fixes the problem straight away, so the tension disappears."
+              },
+              {
+                "text": "Mo likes chocolate cake best.",
+                "reason": "It's a random fact. It doesn't push the problem forward at all."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "frame": "Tully's footy is stuck on the school roof. Gus is planning what happens next.",
+          "prompt": "Put each event in the right bin.",
+          "hint": "Does Tully end up in more trouble, or out of it?",
+          "success": "Bending pipes, flying shoes and a stuck Tully raise the stakes. Easy rescues end the story too early.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "makes it worse",
+              "fixes it too soon"
+            ],
+            "items": [
+              {
+                "text": "She climbs the drainpipe, and it starts to bend.",
+                "bin": 0,
+                "reason": "A bending pipe puts Tully in danger, so things get worse."
+              },
+              {
+                "text": "A teacher hands her a spare footy.",
+                "bin": 1,
+                "reason": "A spare footy solves it instantly, and the story's over."
+              },
+              {
+                "text": "Her shoe falls off and lands in the principal's coffee.",
+                "bin": 0,
+                "reason": "Now there's a second problem, and it belongs to the principal!"
+              },
+              {
+                "text": "The wind blows the footy back down to her.",
+                "bin": 1,
+                "reason": "Lucky wind fixes everything, so there's no tension left."
+              },
+              {
+                "text": "Now Tully is stuck on the roof too.",
+                "bin": 0,
+                "reason": "The rescuer needs rescuing. That's much worse!"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "brinkle",
+      "name": "Brinkle",
+      "evolved": "Brinkalanche",
+      "blurb": "A speck of sea sparkle that glows brighter every time the water is stirred. One splash, then two, and soon the whole bay is blazing."
+    },
+    "workshop": {
+      "mentor": "It started with one sneeze. Gus had been holding a jar of Creature slime, and the sneeze sent the lid spinning across the lab. The slime didn't stay in the jar. It slid down the bench, across the floor and straight into the air vent. 'Not a problem,' said Gus, and turned on the fan to blow it back out. That was a problem. The fan sprayed slime through every vent on the ship. It dripped into Zed's game console. It glued Mo's frying pan to the ceiling. It landed in Tully's hair, which turned bright green. And then, from somewhere deep in the walls, the slime began to sing.",
+      "ask": "Write a story where each fix makes things worse. Ideas: a sneeze in Gus's lab, a footy on the roof, a snake loose in class, one tiny lie.",
+      "checklist": [
+        "I gave my character a problem early on.",
+        "I made the first fix go wrong.",
+        "I made things worse at least twice.",
+        "I saved the solution for the end."
+      ]
+    }
+  },
+  "encounters": []
+}

@@ -1,0 +1,876 @@
+{
+  "skill": {
+    "id": "1.5",
+    "name": "Work out a word's meaning from the words around it",
+    "codes": [
+      "VC2E5LY09",
+      "VC2E5LA08"
+    ],
+    "why": "When you meet a tricky word, the words around it often explain it.",
+    "how": "Read the sentence and the next one. Find the clues, guess, then test your guess.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Stuck on a word? Don't panic. Look at its neighbours.",
+            "show": "After footy, Jai was **ravenous**. He ate four pies."
+          },
+          {
+            "say": "Ask: what do the other words tell me?",
+            "show": "Jai was ravenous. **He ate four pies.**"
+          },
+          {
+            "say": "Four pies? He must be really, really hungry."
+          },
+          {
+            "say": "Now test it. Put your guess where the word was.",
+            "show": "After footy, Jai was **really hungry**. He ate four pies."
+          },
+          {
+            "say": "Still makes sense? Then you've cracked it."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "The bin was putrid. Gus held his nose and gagged.",
+          "prompt": "What does putrid mean?",
+          "hint": "What did Gus do with his nose?",
+          "success": "Rotten and stinky. Gus held his nose and gagged, so the bin must smell awful.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "rotten and stinky"
+              },
+              {
+                "text": "brand new",
+                "reason": "A brand-new bin wouldn't make Gus hold his nose and gag."
+              },
+              {
+                "text": "very heavy",
+                "reason": "Gus didn't try to lift it. He held his nose, so it's about the smell."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "Zed was so drowsy that he fell asleep on his controller.",
+          "prompt": "What does drowsy mean?",
+          "hint": "What happened to Zed at the end?",
+          "success": "Very sleepy. Zed fell asleep, so drowsy must mean sleepy.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "very sleepy"
+              },
+              {
+                "text": "very angry",
+                "reason": "Angry people don't fall asleep on their controller. The clue is that he fell asleep."
+              },
+              {
+                "text": "very fast",
+                "reason": "Nothing in the sentence is about speed. Zed fell asleep, so it's about being tired."
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "tintacle",
+      "name": "Tintacle",
+      "evolved": "Tintacron",
+      "blurb": "A giant cuttlefish that changes colour to match whatever is around it. It works out what a word means the same way: from its neighbours."
+    }
+  },
+  "encounters": [
+    {
+      "id": "1.5-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's cooking diary has a word the Tintacle doesn't know.",
+      "text": "Day 12. Today I made toast for the crew. I wanted it golden and crunchy. Then Tully started telling me about the Reef Rays. I forgot all about the toast. Smoke filled the galley and the alarm went off. The toast was scorched. It was black on both sides and as hard as a roof tile. Gus ate his anyway. He said it tasted like a campfire. Wren fed hers to a seagull. The seagull spat it out.",
+      "prompt": "What does scorched mean?",
+      "success": "Burnt black. The smoke, the alarm and the black sides all tell you the toast burnt.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "burnt black"
+          },
+          {
+            "text": "cut in half",
+            "reason": "Nothing says the toast was cut. The smoke and the black sides tell you it burnt."
+          },
+          {
+            "text": "soft and soggy",
+            "reason": "The toast was as hard as a roof tile, so it wasn't soggy."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing up a rescue in her notebook.",
+      "text": "We found a tiny possum under the deck today. It was very timid. When I reached out, it curled into a ball. When Zed sneezed, it ran behind a pot plant and shook. It would not come out for an hour. In the end, I left some apple by the pot. Then I hid behind the door. Only then did the possum creep out to eat.",
+      "prompt": "What does timid mean?",
+      "success": "Shy and easily scared. It curled up, hid and shook, and only came out when nobody was watching.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "shy and easily scared"
+          },
+          {
+            "text": "fierce and bitey",
+            "reason": "A fierce possum would fight. This one curled up and hid."
+          },
+          {
+            "text": "fast asleep",
+            "reason": "It ran and shook when Zed sneezed, so it was wide awake."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b1-3",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Zed found a sign on the gate of an old lighthouse.",
+      "prompt": "Tap the word that means the same as deserted.",
+      "success": "Empty. The next sentence says it has been empty for fifty years, and nobody lives there.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Welcome to Grimgull Lighthouse. Please stay on the path. The lighthouse is deserted. It has been ",
+          {
+            "tap": "empty"
+          },
+          " for fifty years. Nobody lives here now, not even a keeper. Some visitors hear footsteps on the ",
+          {
+            "tap": "stairs",
+            "reason": "Stairs are part of the building. Deserted is about nobody being there."
+          },
+          " at night. Others say a lamp flickers in the top ",
+          {
+            "tap": "window",
+            "reason": "A window is part of the lighthouse. Look for a word about nobody being there."
+          },
+          ". The ranger says it is just ",
+          {
+            "tap": "possums",
+            "reason": "Possums are what the ranger blames for the noises. Look for a word about nobody being there."
+          },
+          ". Please do not climb the fence. The last bus leaves at four. Do not miss it."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "The Tintacle turns green for footy and brown for camping. Help it pick.",
+      "prompt": "Match each sentence to what pitch means in it.",
+      "success": "Players and mud go with a sports ground. Tents go with setting up camp.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a sports ground",
+          "to set up a tent"
+        ],
+        "items": [
+          {
+            "text": "The pitch was too muddy to play on.",
+            "bin": 0,
+            "reason": "You play on a sports ground, and this one was muddy."
+          },
+          {
+            "text": "We had to pitch the tent before dark.",
+            "bin": 1,
+            "reason": "The tent is the clue. You pitch a tent by setting it up."
+          },
+          {
+            "text": "The players jogged out onto the pitch.",
+            "bin": 0,
+            "reason": "Players jog out onto a sports ground."
+          },
+          {
+            "text": "Mum helped us pitch our tent by the creek.",
+            "bin": 1,
+            "reason": "The tent is the clue. Mum helped set it up by the creek."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.5-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo is reading from his joke book. The Tintacle is hiding.",
+      "text": "Mo climbed onto a chair in the galley. 'Joke time!' he bellowed. He was so loud that the cups rattled on the shelf. Wren covered her ears. A sleeping seagull fell off the window sill. 'Why did the octopus cross the reef?' Mo asked. Nobody answered. 'To get to the other tide!' Gus groaned. Tully pretended to be asleep. The seagull flew away and did not come back.",
+      "prompt": "What does bellowed mean?",
+      "success": "Shouted very loudly. The cups rattled and Wren covered her ears.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "shouted very loudly"
+          },
+          {
+            "text": "whispered quietly",
+            "reason": "A whisper wouldn't rattle cups or make Wren cover her ears."
+          },
+          {
+            "text": "sang a song",
+            "reason": "Mo says 'Joke time!' and then tells a joke. Nothing is sung."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b1-6",
+      "band": 1,
+      "topic": "space",
+      "frame": "Indi wrote about the comet in her sketchbook.",
+      "text": "Last night the crew climbed the hill to see the comet. At first the sky was dark. Then the comet appeared. It was dazzling. Its tail was so bright that Wren had to squint. Tully said it was brighter than the lights at the footy. Mo tried to take a photo. All he got was a white blur. The light was too strong for his camera.",
+      "prompt": "What does dazzling mean?",
+      "success": "So bright it hurts your eyes. Wren had to squint, and the light was too strong for the camera.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "so bright it hurts your eyes"
+          },
+          {
+            "text": "very slow",
+            "reason": "Nothing in the text is about speed. The clues are squinting and a white blur."
+          },
+          {
+            "text": "very quiet",
+            "reason": "The text never talks about sound. Wren squinted, so it's about light."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus left his lab report open. The Tintacle has turned a worried green.",
+      "text": "Experiment 47: The Sock Jar. I sealed one of Mo's footy socks in a jar for three weeks. On day one, it smelled a bit like cheese. By day ten, a grey fuzz had grown over the heel. On day twenty-one, I opened the lid. The smell was so pungent that it made my eyes water from across the room. Wren ran outside gasping for air. The Tintacle turned a sickly green and hid under the bench. Even with every window open, the lab stank for two whole days. Result: never open the jar again. Mo has asked for his sock back. The answer is no.",
+      "prompt": "What does pungent mean?",
+      "success": "Strong and sharp. The smell made eyes water from across the room and the lab stank for days.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "strong and sharp"
+          },
+          {
+            "text": "faint and hard to notice",
+            "reason": "A faint smell wouldn't make your eyes water from across the room."
+          },
+          {
+            "text": "sweet like flowers",
+            "reason": "Wren ran out gasping and the lab stank, so it wasn't a nice smell."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed is writing tips for his speedrun stream.",
+      "text": "Level 9 of Lava Tower is the hardest part of my speedrun. The fireballs are relentless. They never stop, not even for a second. As soon as you dodge one, three more come flying at you. Most players try to wait for a gap, but there is no gap. I learned to keep running and jump every two beats of the music. My best time is four minutes and twelve seconds. My thumbs were sore for a whole day afterwards. Next week I'm going to try it with my eyes shut. Mo says that is a terrible idea, and that I'll just fall in the lava a lot.",
+      "prompt": "What does relentless mean?",
+      "success": "Never stopping. The next sentence says they never stop, not even for a second.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "never stopping"
+          },
+          {
+            "text": "very small",
+            "reason": "Size isn't the clue. The fireballs never stop and there's no gap."
+          },
+          {
+            "text": "easy to dodge",
+            "reason": "Zed says it's the hardest part, and three more come after every dodge."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b2-3",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Indi made a poster for the reef centre.",
+      "prompt": "Tap the word that means the same as transparent.",
+      "success": "Clear. The next sentence says they are so clear you can see a fish right behind them.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Meet the moon jelly! Moon jellies drift through the ocean like floating ",
+          {
+            "tap": "umbrellas",
+            "reason": "Umbrellas describe the jelly's shape, not whether you can see through it."
+          },
+          ". Their bodies are transparent. In fact, they are so ",
+          {
+            "tap": "clear"
+          },
+          " that you can see a fish swimming right behind them. You can also see four pink rings inside, where they keep their food. A moon jelly has no brain, no heart and no bones. It has hundreds of short ",
+          {
+            "tap": "tentacles",
+            "reason": "Tentacles are a body part. Transparent is about seeing through something."
+          },
+          " around its edge. They sting, but only a tiny bit, so most swimmers feel nothing. Sea turtles love to eat them. If you find one on the beach, look but don't touch. Even a dead jelly can give you a ",
+          {
+            "tap": "tingle",
+            "reason": "A tingle is what the sting feels like, not what the body looks like."
+          },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.5-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully is reading her match report out loud. Twice.",
+      "text": "Herons Win the Netball Grand Final! With five seconds left, the scores were level. Then Kira Bell caught a pass right under the ring. She leapt and shot, and the ball dropped through without touching the sides. The buzzer went, and the Herons had won by one goal! The crowd was jubilant. Fans hugged total strangers. Some cried happy tears, and one man threw his hat so high that it landed on the scoreboard. Down on the court, the Herons players hugged each other in a big, sweaty pile. They sang the club song three times. Even the coach, who never smiles, did a little dance beside the bench.",
+      "prompt": "What does jubilant mean?",
+      "success": "Full of joy. Fans hugged strangers, cried happy tears and threw hats in the air.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "full of joy"
+          },
+          {
+            "text": "worried and tense",
+            "reason": "The crowd might have been tense before the kick. Once they'd won, they hugged and cried happy tears."
+          },
+          {
+            "text": "angry and upset",
+            "reason": "Their team had just won. Hugs and happy tears don't show anger."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Wren's diary, written the morning after a bat count.",
+      "text": "Last night I went to count the bats in the old mine. Everything about it was eerie. The wind made a low moaning sound through the tunnels. Water dripped somewhere in the dark, but I couldn't see where. My torch flickered. The hairs on my arms stood up, and I kept feeling that someone was standing right behind me. When I turned around, nobody was there. I counted the bats as fast as I could. Then I ran all the way back to the boat without looking behind me. This morning Gus asked if I wanted to go back tonight for a second count. I said no thanks.",
+      "prompt": "What does eerie mean?",
+      "success": "Strange and creepy. The moaning wind, the hairs standing up and feeling watched are all creepy clues.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "strange and creepy"
+          },
+          {
+            "text": "bright and cheerful",
+            "reason": "Her torch flickered in the dark and she ran away. Nothing was cheerful."
+          },
+          {
+            "text": "hot and stuffy",
+            "reason": "Nothing mentions heat. The moaning wind and feeling watched are creepy clues."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b2-6",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote a manual for his new robot. One word clashes with the clues.",
+      "prompt": "Tap the word that clashes with the clues, then choose the word the clues point to.",
+      "success": "Fragile. Thin glass, smashing when dropped and keeping it from the cat all mean it breaks easily.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Bolt-9 Owner's Manual. Congratulations on your new robot helper! Please read this page before you switch it on. Bolt-9 is very ",
+          {
+            "tap": "sturdy"
+          },
+          ". Its arms and legs are made of thin ",
+          {
+            "tap": "glass",
+            "reason": "Glass fits. It's one of the clues that the robot breaks easily."
+          },
+          " so that they glow in the dark. If you drop it, even once, it will ",
+          {
+            "tap": "smash",
+            "reason": "Smash fits. Thin glass would smash if you dropped it."
+          },
+          " into a hundred pieces. Always carry it with two hands, and never leave it near the ",
+          {
+            "tap": "cat",
+            "reason": "The cat fits. You'd keep a robot that breaks easily away from a cat."
+          },
+          ". Bolt-9 moves without making a sound. It can sweep floors, fold socks and tell jokes. Its jokes are not very good. Never let it play footy with Tully, and never, ever use it as a doorstop."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "fragile"
+          },
+          {
+            "text": "noisy",
+            "reason": "The manual says Bolt-9 moves without making a sound."
+          },
+          {
+            "text": "tough",
+            "reason": "Tough means almost the same as sturdy. A tough robot wouldn't smash if dropped."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b3-1",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi's sketchbook has a before-and-after page about her new mural.",
+      "text": "Before: The wall behind the island shop used to be the dullest thing I had ever seen. It was the grey of old porridge, and the paint was peeling off in sad little curls. Nobody ever stopped to look at it. After: Last week the shop owner let me paint a mural. I used hot pink for the coral, electric blue for the waves and a yellow so bright it almost hummed. I added orange fish with lime-green stripes. Now the wall is so vibrant that people walking past stop in their tracks. A kid on a scooter crashed into a bin because he was staring at it. (He was fine.) The shop owner says her sales have doubled. The Tintacle sat in front of it for an hour, flashing every colour it could, trying to keep up. Tully says it's the brightest thing on the island, and that includes her Reef Rays scarf.",
+      "prompt": "What does vibrant mean?",
+      "success": "Full of bright, bold colour. Hot pink, electric blue and humming yellow make people stop and stare.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "full of bright, bold colour"
+          },
+          {
+            "text": "dull and grey",
+            "reason": "That was the wall before Indi painted it. Vibrant describes the wall after."
+          },
+          {
+            "text": "large and tall",
+            "reason": "The text never says how big the wall is. Every clue is about colour."
+          },
+          {
+            "text": "calm and peaceful",
+            "reason": "Hot pink, electric blue and a kid crashing his scooter aren't calm. The clues are about loud colour."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's rescue log. The Tintacle is still flashing duck-yellow.",
+      "text": "Rescue Log, Thursday. At 4 pm we got a call about a mother duck in the island car park. Her six ducklings had tumbled through a drain grate, and she couldn't reach them. When we arrived, she was frantic. She was racing back and forth across the grate, quacking at the top of her voice and flapping so hard that feathers flew everywhere. She didn't even notice the cars beeping at her. Her ducklings were peeping from the dark water below, and that only made her worse. Gus lifted the grate with a crowbar, and I lay on my stomach and scooped the ducklings out one by one with a fishing net. They were wet and cheeping, but nobody was hurt. The moment the last one was out, the mother duck went completely quiet. She tucked them under her wings and sat down as if nothing had happened. Mo says she looked a bit smug.",
+      "prompt": "What does frantic mean?",
+      "success": "Wild with worry. Her ducklings were trapped, so she raced about, quacked and flapped until they were safe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "wild with worry"
+          },
+          {
+            "text": "calm and patient",
+            "reason": "Racing back and forth and flapping isn't patient. She only went calm at the end."
+          },
+          {
+            "text": "angry with the crew",
+            "reason": "She was like this before the crew did anything. Her trapped ducklings were the cause."
+          },
+          {
+            "text": "hungry and looking for food",
+            "reason": "She wasn't searching for food. She was racing over the grate where her ducklings were trapped."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "A crackly message reaches the boat from a very lonely rover.",
+      "text": "Day 400 on Planet Kreeb. This is Rover Pip, reporting to Earth. In every direction there is nothing but red dust and grey rock. There are no trees, no rivers and no animals. I have not seen a single living thing since I landed. My cameras still work perfectly, but there is nothing to film. I have counted every rock within a kilometre. There are 9,412, and none of them can talk. The wind blows all day, but there is nobody to hear it except me. At night the only light comes from two tiny moons, and it drops to ninety degrees below zero. This is the most desolate place I have ever explored. Yesterday I found a rock shaped like a sandwich and got very excited. It was just a rock. Sometimes I play my landing song just to hear a sound that isn't wind. Please send a friend. Even a small one. Even a toaster.",
+      "prompt": "What does desolate mean?",
+      "success": "Empty and lonely. There's nothing alive, nobody to hear the wind, and Pip begs for a friend.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "empty and lonely"
+          },
+          {
+            "text": "full of strange creatures",
+            "reason": "Pip hasn't seen a single living thing since landing."
+          },
+          {
+            "text": "bright and colourful",
+            "reason": "There's only red dust, grey rock and the light of two tiny moons."
+          },
+          {
+            "text": "hot and steamy",
+            "reason": "It drops to ninety degrees below zero at night, so it isn't hot."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b3-4",
+      "band": 3,
+      "topic": "music",
+      "frame": "Mo wrote about the island busking contest for the crew newsletter.",
+      "text": "The Hollowgum Busking Contest had been noisy all day. Kids shouted, a dog barked at a drummer, and somebody's ukulele was badly out of tune. A juggler dropped three of his fish, and a seagull stole one. Then an old woman sat down on an upturned bucket and began to play a silver flute. Her music was soft and slow, like water running over stones. Within seconds, the whole crowd was mesmerised. Nobody talked. Nobody checked their phone. A boy holding an ice cream didn't notice it melting down his arm. Even the barking dog lay down and stared at her with its head on one side. When the last note faded, there was a long silence before anyone remembered to clap. She won first prize, a bucket of prawns, and played one more tune for free. This time the dog howled along. The juggler has asked her for flute lessons.",
+      "prompt": "What does mesmerised mean?",
+      "success": "So fascinated they couldn't look away. Nobody talked, the boy forgot his ice cream and even the dog stared.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "so fascinated they couldn't look away"
+          },
+          {
+            "text": "bored and wanting to leave",
+            "reason": "Bored people chat and check their phones. Here nobody did, and the boy forgot his ice cream."
+          },
+          {
+            "text": "upset by the loud noise",
+            "reason": "The noisy part came before the flute. Once she played, everyone went still to listen."
+          },
+          {
+            "text": "confused about the rules",
+            "reason": "Nothing in the text is about rules. Everyone was staring at the flute player."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b3-5",
+      "band": 3,
+      "topic": "general",
+      "frame": "The Tintacle flashes a different colour for each meaning of tender. Help it sort.",
+      "prompt": "Match each sentence to what tender means in it.",
+      "success": "Food clues mean soft, kind actions mean gentle, and pain clues mean sore.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "soft and easy to cut",
+          "gentle and loving",
+          "sore when touched"
+        ],
+        "items": [
+          {
+            "text": "After six hours in the slow cooker, the lamb was so tender that Mo cut it with a spoon.",
+            "bin": 0,
+            "reason": "Cutting meat with a spoon means it's soft, so this is the food meaning."
+          },
+          {
+            "text": "The new mum gave her baby a tender kiss on the top of its head.",
+            "bin": 1,
+            "reason": "A mum's kiss for her baby is gentle and loving."
+          },
+          {
+            "text": "Two days after the tackle, Tully's ankle was still tender, so she winced whenever it was bumped.",
+            "bin": 2,
+            "reason": "Wincing when it's bumped shows the ankle is sore."
+          },
+          {
+            "text": "Boil the carrots until they are tender and a fork slides in without any pushing.",
+            "bin": 0,
+            "reason": "A fork sliding straight in shows the carrots are soft."
+          },
+          {
+            "text": "Wren spoke in a tender voice to calm the frightened joey.",
+            "bin": 1,
+            "reason": "Calming a scared joey takes a gentle, kind voice."
+          },
+          {
+            "text": "Gus's sunburnt nose was so tender that even his glasses hurt it.",
+            "bin": 2,
+            "reason": "If his glasses hurt it, the nose is sore to touch."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.5-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo's diary has one word that clashes with everything else he wrote.",
+      "prompt": "Tap the word that clashes with the clues, then choose the word the clues point to.",
+      "success": "Reluctant. Mo backed away, shook his head and would rather eat his shoe, so he didn't want to try it.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Today Gus invented slime pizza. He spent all morning on it, boiling seaweed and stirring in something from a jar marked 'Do not eat'. The whole galley smelled like a swamp. The pizza was bright green and it wobbled when you touched the plate. I was ",
+          {
+            "tap": "eager"
+          },
+          " to try it. When Gus held out a slice, I ",
+          {
+            "tap": "backed away",
+            "reason": "Backed away fits. It's one of the clues that Mo didn't want to try it."
+          },
+          " until I hit the wall. I shook my head and said I'd rather eat my own ",
+          {
+            "tap": "shoe",
+            "reason": "Shoe fits. Mo would rather eat a shoe than the pizza."
+          },
+          ". In the end, Wren had to hold the ",
+          {
+            "tap": "plate",
+            "reason": "Plate fits. Wren had to push it right under his nose to get him to try."
+          },
+          " right under my nose. It tasted like lime jelly and feet. I chewed it for a whole minute, and it never got any smaller. When I finally swallowed, it slid down very slowly. Then Gus asked if I wanted a second slice. I ran out of the galley and hid in the lifeboat until dinner. Gus says it is the future of food. Wren says it is the future of the bin."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "reluctant"
+          },
+          {
+            "text": "thrilled",
+            "reason": "Thrilled is just as keen as eager. Mo backed away until he hit the wall."
+          },
+          {
+            "text": "desperate",
+            "reason": "Desperate to try means you badly want it. Mo said he'd rather eat his own shoe."
+          },
+          {
+            "text": "proud",
+            "reason": "There's nothing to be proud of here. Mo shook his head and backed away."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b4-1",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Zed's diary, written by torchlight in the back of the boat.",
+      "text": "Night three on Hollowgum Island. We had planned to camp at the old quarry, but from the moment we arrived, everything felt ominous. A thick fog rolled in off the water and swallowed the path behind us. The birds, which had been squawking all afternoon, suddenly went completely silent, as if someone had switched them off. Even the frogs had stopped croaking. My torch started to flicker. Far below in the quarry, something was clanking slowly, like a chain being dragged over rock. Gus said it was probably old machinery moving in the wind, but there wasn't any wind. Then the Tintacle, which never stops flashing colours, turned a flat, dull black and squeezed itself into the bottom of my backpack. Wren whispered that animals often know when something bad is about to happen. That was when we found the sign. Someone had scratched out the words 'Quarry Closed' and written underneath, in fresh red paint, 'Turn back while you can.' We didn't argue. We packed up the tents in about four minutes, which Tully says is a crew record, and we didn't stop running until we could see the lights of the boat. None of us said a word on the way back. Mo claims he wasn't scared, but he slept with the torch on.",
+      "prompt": "What does ominous mean?",
+      "success": "Threatening, as if something bad is coming. Silent birds, clanking and a warning sign all hint at danger ahead.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "threatening, as if something bad is coming"
+          },
+          {
+            "text": "calm and peaceful",
+            "reason": "Fog and silence might sound calm, but the crew ran for the boat. The clues point to danger."
+          },
+          {
+            "text": "dull and boring",
+            "reason": "Clanking chains and a red warning sign aren't boring. The clues point to danger."
+          },
+          {
+            "text": "sad and lonely",
+            "reason": "Nobody is missing or left behind. The silent birds and warning sign point to danger, not sadness."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully's report on the under-12 soccer final. She's still shouting about it.",
+      "text": "It all came down to the final penalty. If Harbour Heights scored, they would win the cup, but if our goalkeeper, Sami, saved it, the match would go to sudden death. Every single person in the stands was on their feet, chewing their nails or hiding their eyes behind their hands. Sami, on the other hand, looked completely nonchalant. While the striker placed the ball on the spot, Sami leaned against the goalpost, yawned and retied a bootlace as if he were waiting for a bus. He even waved to his nan in the crowd. His nan, who was the only calm person in the stands apart from Sami, waved back. Our coach was turning purple on the sideline, shouting at him to concentrate. The striker took a long run-up and blasted the ball towards the top corner. Sami simply stepped to his left and caught it against his chest. The crowd went wild, and the Harbour Heights striker sank to the grass with her hands over her face. Sami just shrugged, rolled the ball to the referee and wandered back to his line. Afterwards, a reporter asked him how he had stayed so relaxed. Sami said, 'It's only a game. Is there any orange cake left?'",
+      "prompt": "What does nonchalant mean?",
+      "success": "Calm and not bothered at all. 'On the other hand' sets Sami's yawning and waving against the crowd's nerves.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "calm and not bothered at all"
+          },
+          {
+            "text": "nervous and shaking",
+            "reason": "That was the crowd, chewing their nails. Sami yawned and retied his bootlace."
+          },
+          {
+            "text": "furious with the coach",
+            "reason": "The coach was the one turning purple. Sami was busy waving to his nan."
+          },
+          {
+            "text": "confused about what was happening",
+            "reason": "Sami knew exactly what to do. He stepped left and caught the ball with no fuss."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus's lab notebook. The cover says 'Warning: contains maggots'.",
+      "text": "Experiment 82: Can black soldier fly larvae eat a whole watermelon in a day? Black soldier fly larvae are fat, pale grubs that farmers sometimes use to get rid of food scraps, because they will eat almost anything. At 9 am, I placed half a watermelon in a tub containing roughly two thousand larvae. Within ten minutes, the surface of the fruit was crawling and wriggling, and I could hear a faint crunching sound, like someone eating cereal in the next room. By lunchtime, the red flesh had become a soggy pink crater. By 5 pm, nothing was left but a thin, chewed rind, and the larvae were still searching for more. When I lowered a banana skin into the tub, it vanished under a heaving pile of grubs in under a minute. These are the most voracious eaters I have ever studied. Mo asked whether they could clean up the galley after one of his cooking disasters. I said yes, as long as he didn't mind them eating the tablecloth too. Wren made me promise to keep the lid on the tub at night, just in case. Conclusion: yes, they can finish a watermelon in a day, with room to spare. Next experiment: a whole pumpkin.",
+      "prompt": "What does voracious mean?",
+      "success": "Wanting to eat huge amounts. They ate half a watermelon in a day and still searched for more.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "wanting to eat huge amounts"
+          },
+          {
+            "text": "slow and careful",
+            "reason": "Within ten minutes the fruit was crawling, and it was gone by 5 pm. That's fast, not slow."
+          },
+          {
+            "text": "fussy about what they eat",
+            "reason": "Gus says they will eat almost anything, maybe even a tablecloth. That isn't fussy."
+          },
+          {
+            "text": "dangerous to people",
+            "reason": "Nothing says they harm people. The clues are all about how much and how fast they eat."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b4-4",
+      "band": 4,
+      "topic": "general",
+      "frame": "Maxx Vantablack is live-streaming again. The crew is watching on Zed's tablet.",
+      "text": "'Hey, Vantafam! Maxx here, coming to you live from Hollowgum Island, where I have just personally rescued forty-seven rare Creatures with my bare hands!' Maxx held up an empty cage and grinned at the camera. 'They were so grateful that they all flew off to freedom, which is why you can't see any of them right now. Smash that like button!' Behind him, something in the bushes squeaked, and a small furry paw poked out of a sack before Maxx quickly nudged the sack out of shot with his foot. On the boat, the crew were dubious. Gus raised one eyebrow so high it nearly left his face. Tully pointed out that catching forty-seven Creatures would take about a week, and Maxx had only arrived on the island that morning. Wren noticed that the cage still had a price sticker on it. Indi paused the stream and zoomed in on Maxx's boots, which were spotless, even though he claimed to have spent hours wading through mud. Mo pointed out that Maxx's hands, which had supposedly caught forty-seven Creatures, didn't have a single scratch. 'So,' said Mo slowly, 'we don't believe him, right?' Nobody even bothered to answer. Zed was already scrolling through the comments, looking for anyone else who had spotted the sticker.",
+      "prompt": "What does dubious mean?",
+      "success": "Doubtful that it was true. Each crew member spots a clue that Maxx is lying, and nobody believes him.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "doubtful that it was true"
+          },
+          {
+            "text": "impressed and amazed",
+            "reason": "Impressed people would cheer. The crew checked the sticker, the boots and the timing instead."
+          },
+          {
+            "text": "jealous of Maxx's fame",
+            "reason": "Nobody wishes they were Maxx. They're hunting for proof that he's lying."
+          },
+          {
+            "text": "frightened of Maxx",
+            "reason": "Raising an eyebrow and zooming in on his boots isn't fear. They're checking whether he's telling the truth."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.5-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "The island newspaper reviewed the school concert. The Tintacle went striped with shock.",
+      "prompt": "Tap the words that explain what cacophony means.",
+      "success": "A horrible jumble of clashing sounds. It comes straight after the honking, thumping and squealing that describe the cacophony.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Review: The Hollowgum Primary Band Concert. I have been to many school concerts, but nothing could have prepared me for Thursday night in ",
+          {
+            "tap": "the school hall",
+            "reason": "The school hall is where the concert happened, not what the sound was like."
+          },
+          ". The Year 5 band had only been practising for two weeks, and it showed. When the conductor raised her stick, forty children started playing at once, and the result was a cacophony. Trumpets honked, drums thumped out of time and a recorder squealed like a stepped-on cat. It was ",
+          {
+            "tap": "a horrible jumble of clashing sounds"
+          },
+          ", and several parents in the front row quietly put their fingers in their ears. A toddler burst into tears. The school principal, who was sitting right next to me, looked as if she were trying very hard to smile. Then, halfway through the second song, something unexpected happened. Ella, the smallest player, who had only been given ",
+          {
+            "tap": "the triangle",
+            "reason": "The triangle is Ella's instrument. She is the one who helps fix the cacophony."
+          },
+          ", began to tap a slow, steady beat. One by one, the other players started to follow her. By the final song, the band sounded almost like music. The audience clapped for ",
+          {
+            "tap": "five whole minutes",
+            "reason": "This is how long the clapping lasted at the end, once the band sounded good."
+          },
+          ", and Ella got the loudest cheer of the whole night. I would happily go again next year, although I might bring some earplugs, just in case."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.5-b4-6",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed's game chat and Wren's nature notes both use the word spawn. The Tintacle can't keep up.",
+      "prompt": "Match each sentence to what spawn means in it.",
+      "success": "Game clues mean appearing, water creatures mean eggs, and a craze or series means leading to something new.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "appear in a game",
+          "fish or frog eggs, or laying them",
+          "lead to something new"
+        ],
+        "items": [
+          {
+            "text": "When your character runs out of health, you spawn again at the last checkpoint.",
+            "bin": 0,
+            "reason": "A character and a checkpoint are game clues. You appear again in the game."
+          },
+          {
+            "text": "Every spring, the frogs in the creek leave clumps of spawn stuck to the reeds.",
+            "bin": 1,
+            "reason": "Frogs leave clumps of eggs in the creek, so this spawn is eggs."
+          },
+          {
+            "text": "The surprise hit game spawned a cartoon series, a comic and a range of lunchboxes.",
+            "bin": 2,
+            "reason": "A cartoon, a comic and lunchboxes are new things that came from the game."
+          },
+          {
+            "text": "On level six, a fresh wave of zombies spawns near the gate every thirty seconds.",
+            "bin": 0,
+            "reason": "Level six is a game clue. The zombies appear near the gate."
+          },
+          {
+            "text": "Salmon swim hundreds of kilometres upriver to spawn in the stream where they hatched.",
+            "bin": 1,
+            "reason": "Salmon swim back to where they hatched to lay their own eggs."
+          },
+          {
+            "text": "One silly video spawned a whole craze of people dancing sideways like crabs.",
+            "bin": 2,
+            "reason": "The craze was a new thing that came from the video."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,897 @@
+{
+  "skill": {
+    "id": "1.4",
+    "name": "Predict from clues, then check",
+    "codes": [
+      "VC2E5LY09"
+    ],
+    "why": "Good readers guess what's coming, then read on to see if they were right.",
+    "how": "Spot the clues, ask what they point to, make a guess, then check it.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Stories drop clues before something big happens.",
+            "show": "The ground **shook**. A **huge shadow** fell over Zed."
+          },
+          {
+            "say": "I spot the clues: shaking ground, a huge shadow."
+          },
+          {
+            "say": "I ask what they point to. Something giant is coming!"
+          },
+          {
+            "say": "That guess is called a prediction. Clues back it up."
+          },
+          {
+            "say": "Then I read on to check if I was right.",
+            "show": "A **giant robot** stomped round the corner. Nailed it."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Mo's cake had been in the oven for two hours. Black smoke curled out of the oven door. The smoke alarm started to beep.",
+          "prompt": "What will Mo find when he opens the oven?",
+          "hint": "What do two hours and black smoke tell you?",
+          "success": "Two hours and black smoke are the clues. Mo opened the oven. The cake was a lump of charcoal.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "a burnt cake"
+              },
+              {
+                "text": "a perfect cake",
+                "reason": "Two hours and black smoke mean it cooked far too long. It won't be perfect."
+              },
+              {
+                "text": "a frozen cake",
+                "reason": "An oven heats things up, and the smoke shows it got very hot."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "text": "Dark clouds rolled in over the footy oval. Tully's mum grabbed the umbrellas from the ute. The wind began to howl.",
+          "prompt": "Which prediction do the clues support best?",
+          "hint": "What do dark clouds and umbrellas usually mean?",
+          "success": "Clouds, umbrellas and wind all point to rain. Two minutes later, the oval was a swamp.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "It's about to rain."
+              },
+              {
+                "text": "It will be a hot, sunny arvo.",
+                "reason": "Dark clouds and a howling wind don't fit a hot, sunny arvo."
+              },
+              {
+                "text": "The match will start early.",
+                "reason": "Nothing here is about the start time. All the clues are about the weather."
+              }
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "hintatoo",
+      "name": "Hintatoo",
+      "evolved": "Hintacrest",
+      "blurb": "A sulphur-crested cockatoo that keeps lookout for its flock. It reads the clues, screeches what's coming, then waits to see if it was right."
+    }
+  },
+  "encounters": [
+    {
+      "id": "1.4-b1-1",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "A page from Mo's diary is stuck in the Hintatoo's tree.",
+      "text": "Last night I heard a scratching sound in the kitchen. Scratch, scratch, scratch. I crept down the stairs with a torch. The biscuit tin was on the floor. Its lid was off. There was a trail of crumbs across the tiles. The crumbs led to a small hole in the wall. Two tiny eyes were shining in the hole. Then I heard a squeak.",
+      "prompt": "What will Mo find when he shines his torch into the hole?",
+      "success": "Tiny eyes, a squeak and crumbs leading to a hole. A fat mouse was munching a choc-chip biscuit.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a mouse eating biscuits"
+          },
+          {
+            "text": "a ghost",
+            "reason": "Ghosts don't leave crumbs or squeak. Tiny eyes in a small hole point to a small animal."
+          },
+          {
+            "text": "a lost dog",
+            "reason": "A dog couldn't fit in a small hole, and its eyes wouldn't be tiny."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is commentating sports day on the school speaker. She stops at the best bit.",
+      "text": "It was sports day, and Mia was in the 100 metre race. She was out in front. Her mum was cheering from the fence. But Mia's shoelace had come undone. It flapped with every step. The lace got longer and longer. It was dragging in the dirt now. The finish line was just ahead. Then Mia's left foot came down right on top of the lace.",
+      "prompt": "What will most likely happen next?",
+      "success": "Her foot landed on the loose lace. Mia tripped, rolled over the line and still came second!",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mia trips over."
+          },
+          {
+            "text": "Mia wins by a mile.",
+            "reason": "Her foot just landed on her own loose lace. Something is about to go wrong."
+          },
+          {
+            "text": "Mia's mum runs onto the track.",
+            "reason": "Her mum is cheering from the fence. Nothing hints that she'll run on."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b1-3",
+      "band": 1,
+      "topic": "gross-science",
+      "frame": "Gus has stuck a note on the lab fridge.",
+      "text": "Do NOT open this jar! I put a banana in it three weeks ago. Then I screwed the lid on tight. Every day the banana got browner. Now it is black and squishy. The jar is full of grey fuzz. It has made the whole fridge stink. Yesterday the lid started to bulge. Something inside is making gas. I am keeping it for science. From Gus",
+      "prompt": "Mo opens the jar anyway. Which prediction do the clues support best?",
+      "success": "The bulging lid means gas is trapped inside. POP! The stink hit Mo so hard his eyebrows curled.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It pops, and a terrible stink rushes out."
+          },
+          {
+            "text": "It smells fresh, like a ripe banana.",
+            "reason": "The banana is black, squishy and fuzzy. Nothing in that jar will smell fresh."
+          },
+          {
+            "text": "Nothing happens at all.",
+            "reason": "The lid is bulging with gas. When the lid comes off, that gas has to go somewhere."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b1-4",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Zed is watching his robot at the school fair.",
+      "prompt": "Zed predicts Sprocket is about to run out of power. Tap the clue that tells him.",
+      "success": "LOW BATTERY is the big clue. Sprocket's arms drooped, he beeped once, and he sat down in the cupcakes.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed built a robot called Sprocket for the ",
+          {
+            "tap": "school fair",
+            "reason": "This tells you where Sprocket is, not how much power he has left."
+          },
+          ". Sprocket was ",
+          {
+            "tap": "bright orange",
+            "reason": "Orange tells you how Sprocket looks, not how much power he has."
+          },
+          ", with long wobbly arms. He could carry trays of cupcakes. He could also ",
+          {
+            "tap": "beep a silly tune",
+            "reason": "The tune tells you what Sprocket can do, not that his power is low."
+          },
+          ". At ten o'clock, Sprocket carried his first tray. By lunch he had carried fifty trays. A red light on his chest began to flash. It said ",
+          {
+            "tap": "LOW BATTERY"
+          },
+          ". Sprocket's arms started to droop."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.4-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Mission control's notebook has clues from lots of different launch days.",
+      "prompt": "Match each clue to the prediction it supports.",
+      "success": "A ready crew, green ticks and calm skies point to a launch. Storms and warning lights point to a wait.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "The rocket will launch on time.",
+          "The launch will be delayed."
+        ],
+        "items": [
+          {
+            "text": "The crew have climbed in and strapped up.",
+            "bin": 0,
+            "reason": "The crew are in their seats and ready to go."
+          },
+          {
+            "text": "Lightning is flashing over the launch pad.",
+            "bin": 1,
+            "reason": "Nobody launches a rocket into a lightning storm. They will wait for it to pass."
+          },
+          {
+            "text": "A red warning light is flashing in mission control.",
+            "bin": 1,
+            "reason": "A warning light means something is wrong. They will stop and fix it first."
+          },
+          {
+            "text": "Every check on the launch list has a green tick.",
+            "bin": 0,
+            "reason": "Green ticks mean every part passed its check. Nothing needs fixing first."
+          },
+          {
+            "text": "The sky is clear and the wind is calm.",
+            "bin": 0,
+            "reason": "Clear, calm weather is perfect for a launch."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.4-b1-6",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is making smoothies. Zed wrote a prediction, but one word doesn't fit the clues.",
+      "text": "Mo was making smoothies for the whole crew. He had never used the blender before. He filled it right to the top with milk, bananas and ice cream. He couldn't find the lid, so he left it off. \"It'll be fine,\" Mo said. He turned the blender up as high as it would go. Gus ducked under the table. Wren grabbed an umbrella.",
+      "prompt": "Tap the word in Zed's prediction that doesn't fit the clues, then choose a better one.",
+      "success": "No lid, top speed, Gus hiding. Smoothie shot up like a fountain and covered every wall.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "I predict the kitchen will be ",
+          {
+            "tap": "spotless"
+          },
+          " after Mo makes his ",
+          {
+            "tap": "first",
+            "reason": "Mo has never used the blender before, so this is his first try. That fits."
+          },
+          " ",
+          {
+            "tap": "smoothie",
+            "reason": "Mo really is making smoothies, so this word fits."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "a mess"
+          },
+          {
+            "text": "tidy",
+            "reason": "A full blender with no lid on top speed will spray everywhere. The kitchen won't be tidy."
+          },
+          {
+            "text": "empty",
+            "reason": "The crew are in the kitchen, and Gus is hiding under the table. It won't be empty."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren's snorkelling diary is soggy, but you can still read it.",
+      "text": "Day 3 at Seal Rock. Indi and I snorkelled from our boat to the old shipwreck this morning. Before we got in, the skipper gave us one rule. If anything big comes near, swim straight back to the boat. The water was clear and calm. Hundreds of tiny silver fish swam around us. Then, all at once, every single fish darted into the wreck and hid. The water went strangely still. A big grey shadow slid across the sand below us. Indi grabbed my arm and pointed back at the boat. We both knew what that meant. I kicked my flippers as hard as I could.",
+      "prompt": "What will Wren and Indi do next?",
+      "success": "The skipper's rule and Indi pointing are the clues. They shot back to the boat. The shadow? A sleepy seal.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "They swim straight back to the boat."
+          },
+          {
+            "text": "They dive down for a closer look.",
+            "reason": "The skipper's rule says swim back if something big comes near. Indi pointed at the boat, not the shadow."
+          },
+          {
+            "text": "They stay and watch the silver fish.",
+            "reason": "The fish have all hidden in the wreck. There's nothing left to watch, and Wren is already kicking away."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed is going for a speedrun record. The Hintatoo is watching over his shoulder.",
+      "text": "Zed was one level away from the fastest time ever. His hands were sweaty. His thumbs ached. The timer said 59 minutes and 40 seconds. He needed to beat the boss in under twenty seconds. The boss was a giant slime that split in two whenever you hit it. It wobbled and growled. Zed had a secret plan. Instead of hitting the slime, he jumped right over it. There was a lever on the wall that nobody ever used. Zed had read about it on an old game forum. The lever held up a huge iron cage, which hung right above the slime.",
+      "prompt": "Which prediction do the clues support best?",
+      "success": "The lever holds a cage right above the slime. CLANG! The cage dropped, and Zed finished in 59:58.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Zed pulls the lever and traps the slime."
+          },
+          {
+            "text": "Zed hits the slime as hard as he can.",
+            "reason": "Hitting the slime makes it split in two. Zed's plan is to stop hitting it."
+          },
+          {
+            "text": "Zed gives up and switches off the game.",
+            "reason": "Zed has a secret plan and is one level from a record. Nothing hints that he'll quit."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b2-3",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Tully is exploring the old clock tower. The Hintatoo refuses to go in.",
+      "text": "The old clock tower had been empty for fifty years. At least, that's what the sign said. Tully pushed the heavy door open. It creaked. Her torch flickered. Cobwebs hung from the ceiling like old curtains, and the wind howled outside. Grey feathers were scattered across the bottom step. A mouse skeleton lay in the corner, picked perfectly clean. White splats ran all the way up the stairs, and they smelled terrible. Tully heard a soft hoot from the top of the tower. Then came a flap and a rustle. Something up there was shaking out its wings. She took a deep breath and started to climb.",
+      "prompt": "What will Tully find at the top of the stairs?",
+      "success": "Feathers, splats, a hoot and flapping wings. At the top, a huge owl blinked at Tully from its nest.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "a big bird nesting at the top"
+          },
+          {
+            "text": "a caretaker who still lives there",
+            "reason": "People don't hoot or shake out wings. The feathers and splats point to a bird."
+          },
+          {
+            "text": "nothing, because the tower is empty",
+            "reason": "The hoot and the flapping show that something is up there right now."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Maxx Vantablack is streaming a 'rescue'. Wren doesn't trust him.",
+      "prompt": "Wren predicts the Hintatoo won't reach a hospital. Tap the clue that backs her up.",
+      "success": "The van says Private Creature Collection. Sure enough, it drove straight past the hospital to Maxx's base.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Hey, Vantafam! Maxx Vantablack here, live from Hollowgum Island. Today I'm rescuing a rare Hintatoo from ",
+          {
+            "tap": "a dangerous storm",
+            "reason": "A storm is a reason to rescue an animal. It doesn't tell you where it's going."
+          },
+          ". The storm is getting really wild out here. Look how scared the little guy is! Don't worry, little buddy, Maxx is here. I'm putting him in this special rescue box. It's got ",
+          {
+            "tap": "air holes and a comfy blanket",
+            "reason": "These make the box sound kind. They don't tell you where the Hintatoo is going."
+          },
+          ". Wow, what a hero I am, right? My crew will drive him to ",
+          {
+            "tap": "the animal hospital",
+            "reason": "This is what Maxx says will happen. Look for a clue that says otherwise."
+          },
+          ". We're loading him into the van now. Oops, the camera's pointing at the van. Just ignore the sign on the side. It says Maxx's ",
+          {
+            "tap": "Private Creature Collection"
+          },
+          ". That's just an old sign. Now ",
+          {
+            "tap": "smash that like button",
+            "reason": "Streamers always ask for likes. It doesn't tell you where the van is going."
+          },
+          ", Vantafam!"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.4-b2-5",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi is backstage at the school concert, scribbling notes.",
+      "text": "The Year 6 band had practised every lunchtime for a month. Tonight was the big concert, and the hall was packed. Indi peeked out from backstage. The lights over the stage kept flickering on and off. The microphone squealed every time someone touched it. Ava, the singer, had a sore throat and could only croak. But the trumpet players knew every note by heart. They were warming up quietly in the corner, grinning. Mr Lee gave everyone a thumbs up. \"Two minutes!\" he called. Some little kids in the front row were already clapping. Indi crossed her fingers and wrote down what she had seen.",
+      "prompt": "Match each clue to the prediction it supports.",
+      "success": "Clues can point different ways. The lights did go out, but the trumpets played on in the dark.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Something will go wrong.",
+          "The band will play well."
+        ],
+        "items": [
+          {
+            "text": "The band practised every lunchtime for a month.",
+            "bin": 1,
+            "reason": "A month of practice means the band should know their song well."
+          },
+          {
+            "text": "The stage lights keep flickering.",
+            "bin": 0,
+            "reason": "Flickering lights might go out in the middle of the song."
+          },
+          {
+            "text": "The microphone squeals when it's touched.",
+            "bin": 0,
+            "reason": "A squealing microphone could drown out the music."
+          },
+          {
+            "text": "Ava can only croak.",
+            "bin": 0,
+            "reason": "A singer with a sore throat will struggle to sing."
+          },
+          {
+            "text": "The trumpet players know every note by heart.",
+            "bin": 1,
+            "reason": "Knowing every note by heart means they're ready to play well."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.4-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo left a note on the crew's fridge. Zed has a prediction.",
+      "text": "Dear crew, I have made a surprise dinner! It is in the big pot on the stove. I used every leftover in the fridge. There was cold spaghetti, three fish fingers, half a jar of jam and some very old cheese. I also added a whole bottle of hot chilli sauce. It smells a bit like feet, but that's just the cheese. Gus tasted it and ran straight to the sink. He drank four glasses of water. Then he went a funny shade of green. Tully took one sniff and opened all the windows. I think they just love it! Come and get it! Love, Mo",
+      "prompt": "Tap the pieces to build the prediction the clues support best.",
+      "success": "Gus's green face is the best clue. That night, the whole crew ordered fish and chips instead.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The crew",
+          "will fight over",
+          "will stay away from",
+          "Mo's surprise dinner."
+        ],
+        "accept": [
+          "The crew will stay away from Mo's surprise dinner."
+        ],
+        "reason": "Gus ran to the sink and turned green. The clues say the dinner is awful, so nobody will want it."
+      }
+    },
+    {
+      "id": "1.4-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is reading the sports page of the Hollowgum Herald out loud.",
+      "text": "DRAMA AT THE POOL\n\nNobody expected much from twelve-year-old Pia Moretti in last night's 200 metre freestyle final. At the halfway mark, she was dead last, a full body length behind the leader. Most of the crowd had stopped watching her. But her coach, sitting by the pool, didn't look worried at all. In fact, he was smiling. Pia had swum the same way in every race this season. She always swims the first half slowly to save her energy for the end. Her rivals, meanwhile, had gone out as fast as they could. By the third lap, the leader's arms were slapping the water, and her head was bobbing up and down. The swimmer in second place kept grabbing at the lane rope. Pia's stroke looked exactly the same as it had at the start: long, smooth and steady. With one lap to go, she took a deep breath and put her head down.",
+      "prompt": "What will most likely happen in the last lap?",
+      "success": "She saved her energy while her rivals tired. Pia flew past every swimmer and touched the wall first.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Pia speeds up and passes the tired swimmers."
+          },
+          {
+            "text": "Pia stays last because she is too far behind.",
+            "reason": "She's only one body length back, and she's been saving energy for this. Her coach is smiling."
+          },
+          {
+            "text": "The leader speeds up and wins easily.",
+            "reason": "The leader's arms are slapping and her head is bobbing. She's tiring, not speeding up."
+          },
+          {
+            "text": "Pia runs out of energy and slows down.",
+            "reason": "Pia's stroke is still smooth and steady. She saved her energy, so she isn't the tired one."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b3-2",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus has built a cleaning robot. The Hintatoo has raised its crest.",
+      "text": "Gus had finally finished his cleaning robot, Sweepy. Its job was simple: find anything sticky, smelly or slimy, and put it straight in the bin. On its first morning, Sweepy did brilliantly. It binned a mouldy apple core from under the couch. It binned a pair of Mo's socks that could stand up on their own. It even binned a melted lolly that had been glued to the carpet since Easter. Gus was thrilled. \"Sweepy never stops until a job is done,\" he told the crew. \"Not even if you beg.\" Then he grinned. \"Now,\" he said proudly, \"come and see my real masterpiece.\" He opened the lab door. On the bench sat his prize project: Slimeon, a giant bucket of glowing green slime that had taken him six months to grow. It was sticky. It was smelly. It was very, very slimy. Sweepy's eye turned red. Its arms reached forward. Gus was too busy showing off to notice.",
+      "prompt": "Which prediction do the clues support best?",
+      "success": "Slimeon is sticky, smelly and slimy, which is exactly Sweepy's job. SPLOOSH. Into the wheelie bin it went.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Sweepy will put Slimeon in the bin."
+          },
+          {
+            "text": "Sweepy will clean the lab floor around the bucket.",
+            "reason": "Sweepy bins anything sticky, smelly or slimy. Slimeon is all three, so it won't be left alone."
+          },
+          {
+            "text": "Sweepy will break down from working too hard.",
+            "reason": "Nothing hints that Sweepy is tired or broken. Its red eye and reaching arms show it's about to act."
+          },
+          {
+            "text": "Gus will switch Sweepy off just in time.",
+            "reason": "The text says Gus is too busy showing off to notice. He won't see it coming."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "The crew picked up a log from a space station passing over Hollowgum Island.",
+      "text": "Captain's log, Space Station Kestrel, Day 41.\n\nSomething strange is happening on board. Every night this week, a packet of dried strawberries has gone missing from the food locker. The locker has a keypad, and apart from me, only three crew know the code. Commander Ruiz hates strawberries. She says they taste like sweet cardboard, and she always swaps hers for crackers. Dr Okafor has been outside on a spacewalk every night this week, fixing the solar panels, so he hasn't been inside after dinner at all. Engineer Bao says he has been fast asleep in his sleeping pod. But yesterday I noticed tiny pink crumbs floating around the door of Bao's pod. This morning, his fingertips were stained red. When I mentioned the missing strawberries at breakfast, he suddenly remembered he had to check the engines, and floated off very fast. Tonight, I'm going to hide behind the food locker and watch.",
+      "prompt": "Who will the captain most likely catch at the locker tonight?",
+      "success": "Pink crumbs, red fingers, a sudden escape. At midnight, Bao floated up to the locker, licking his lips.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Engineer Bao"
+          },
+          {
+            "text": "Commander Ruiz",
+            "reason": "Ruiz hates strawberries and swaps hers for crackers. She has no reason to take them."
+          },
+          {
+            "text": "Dr Okafor",
+            "reason": "Okafor is outside on a spacewalk every night, so he can't be at the locker."
+          },
+          {
+            "text": "Nobody, because the packets are floating away",
+            "reason": "The locker is locked with a keypad, so packets can't drift out. Someone who knows the code is taking them."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b3-4",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's new patient at the shelter keeps trying to leave.",
+      "prompt": "Wren predicts Bruno will escape by tunnelling. Tap the clue that backs her up best.",
+      "success": "Fresh dirt piling up means a tunnel. Next morning, Bruno popped up in the vegetable garden, wearing a cabbage.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Bruno the wombat arrived at Wren's animal shelter ",
+          {
+            "tap": "on Monday",
+            "reason": "This tells you when Bruno arrived, not how he will get out."
+          },
+          ". Wren has looked after plenty of wombats, but none as determined as Bruno. By Wednesday, he had already tried to escape twice. First he tried to squeeze under the gate, so Wren fitted it with ",
+          {
+            "tap": "a heavy padlock",
+            "reason": "The padlock stops Bruno using the gate. It doesn't show that he's digging."
+          },
+          " and a metal plate along the bottom. Then he tried to climb out, but the pen has ",
+          {
+            "tap": "a tall wire fence",
+            "reason": "The fence stops Bruno climbing. It tells you one way he won't escape, not how he will."
+          },
+          ", and wombats are hopeless climbers. Wombats are champion diggers, though, and their burrows can stretch for metres underground. Now Bruno spends his whole day in the far corner of the pen, with his back to everyone. Every evening, Wren finds ",
+          {
+            "tap": "a bigger pile of fresh dirt"
+          },
+          " behind him. His claws are always caked in mud, and he is too tired to eat his carrots. Last night, Wren heard a muffled thump from somewhere under the vegetable garden next door. \"He's up to something,\" Wren told the crew."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.4-b3-5",
+      "band": 3,
+      "topic": "art",
+      "frame": "The Hollowgum mural contest is today. Indi scribbled notes in her sketchbook.",
+      "prompt": "Match each clue to the prediction it supports.",
+      "success": "Each clue points one way. Wet paint and rain mean runs, smiles mean a win, and the clock means trouble.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "The paint will run.",
+          "The judges will love it.",
+          "Indi will run out of time."
+        ],
+        "items": [
+          {
+            "text": "Dark clouds are rolling in, and Indi's paint is still wet.",
+            "bin": 0,
+            "reason": "Rain on wet paint makes it drip and run down the wall."
+          },
+          {
+            "text": "The first fat raindrops are splashing on the fresh paint.",
+            "bin": 0,
+            "reason": "Raindrops are already hitting paint that hasn't dried."
+          },
+          {
+            "text": "The head judge loves bright colours, and Indi's mural glows.",
+            "bin": 1,
+            "reason": "Indi's mural has exactly what the head judge likes."
+          },
+          {
+            "text": "The judges stood smiling at Indi's wall for ten whole minutes.",
+            "bin": 1,
+            "reason": "Judges who smile at a mural for that long really like it."
+          },
+          {
+            "text": "Judging starts at noon, and Indi still has half a wall to paint.",
+            "bin": 2,
+            "reason": "Half a wall is a lot of painting, and the judging deadline is close."
+          },
+          {
+            "text": "It's 11:50, and Indi hasn't even started on the sky.",
+            "bin": 2,
+            "reason": "Ten minutes is not enough time to paint a whole sky."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.4-b3-6",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is running the sausage sizzle at the school fete. Zed's prediction has a word that doesn't fit.",
+      "text": "The school fete started at nine, and Mo was in charge of the sausage sizzle. He had bought two hundred sausages, which he was very proud of. Unfortunately, he had also forgotten the bread. Tully raced home to fetch some, but her house is forty minutes away by bike. Meanwhile, a long line of hungry families had formed in front of the barbecue. Mo cooked the first fifty sausages anyway and piled them on a tray behind him. Within minutes, the smell had drifted across the whole oval. Then a seagull landed on the edge of the barbecue. Then another landed. Then about thirty more arrived. The seagulls stood perfectly still, staring at the tray with their beady eyes. One of them hopped a little closer. The families in the line started to grumble. Mo was busy waving his tongs at the line, shouting, \"Bread's coming, I promise!\" He did not look behind him at the tray of cooked sausages.",
+      "prompt": "Tap the word in Zed's prediction that doesn't fit the clues, then choose a better one.",
+      "success": "Thirty hungry seagulls and nobody watching the tray. By the time the bread came, there wasn't a cooked sausage left.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The ",
+          {
+            "tap": "seagulls",
+            "reason": "The seagulls really are gathering, so this part fits."
+          },
+          " will ",
+          {
+            "tap": "ignore"
+          },
+          " the ",
+          {
+            "tap": "sausages",
+            "reason": "The cooked sausages are sitting right there on the tray. This part fits."
+          },
+          " while Mo ",
+          {
+            "tap": "shouts",
+            "reason": "Mo really is busy shouting at the line, so this part fits."
+          },
+          " at the line."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "steal"
+          },
+          {
+            "text": "guard",
+            "reason": "Guard means keep safe. Thirty hungry seagulls aren't there to protect Mo's sausages."
+          },
+          {
+            "text": "cook",
+            "reason": "Seagulls can't cook, and these sausages are already cooked."
+          },
+          {
+            "text": "sell",
+            "reason": "Seagulls can't sell anything. Mo is the one running the stall."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b4-1",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "A story is going round the campfire on Hollowgum Island. The Hintatoo's crest is standing straight up.",
+      "text": "Camp Ironbark, night three. The campfire had burned down to a sullen orange glow when Hamish first saw the light. It hovered above the lake, pale and wobbling, about a hundred metres from shore. \"That's her,\" whispered Priya, gripping her marshmallow stick. \"The Lady of the Lake. Mr Okoro told us about her on the first night. She drifts across the water, searching for campers who haven't brushed their teeth.\" Nobody laughed. The light crept slowly towards the jetty. As it came closer, a steady splash, splash, splash carried across the water, as regular as a ticking clock. Hamish glanced around the circle of faces. Everyone from Cabin 4 was there. The camp cook was snoring in her deckchair. But Mr Okoro's chair, the one with the squeaky leg, was empty, and his marshmallows sat untouched beside it. Earlier that afternoon, Hamish had noticed that one of the camp kayaks was missing from the rack. He had also seen Mr Okoro carrying a white bedsheet and a head torch towards the boatshed, humming to himself and grinning in a way that made Hamish deeply suspicious. The light reached the end of the jetty and stopped. A low, wobbly voice moaned, \"Whooo hasn't brushed their teeeeeth?\" Hamish reached for the big spotlight and switched it on.",
+      "prompt": "What will the spotlight most likely show?",
+      "success": "Missing kayak, sheet, head torch, empty chair. The spotlight lit up Mr Okoro, sheet flapping, paddle in hand.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mr Okoro in a kayak, wearing a white sheet"
+          },
+          {
+            "text": "a real ghost floating above the water",
+            "reason": "The steady paddling, missing kayak, sheet and head torch all point to a person, not a ghost."
+          },
+          {
+            "text": "a fisherman rowing home to the jetty",
+            "reason": "A passing fisherman wouldn't moan about brushing teeth. The voice is aimed at the campers."
+          },
+          {
+            "text": "the camp cook playing a trick",
+            "reason": "The cook is snoring in her deckchair by the fire, so she can't be out on the lake."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b4-2",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx Vantablack is live again, and this time he's after a Hintatoo.",
+      "text": "What's up, Vantafam! It's your boy Maxx Vantablack, coming to you live from the deepest, darkest gully on Hollowgum Island. Tonight I'm finally going to \"rescue\" a wild Hintatoo. These birds are super rare, and everybody says they're impossible to catch, because they sit completely still for hours, studying everything around them before they move a single feather. But nobody is smarter than Maxx. Last week three of my traps failed, but that was totally Jono's fault. Check out my genius trap. I've tipped a pile of sunflower seeds on this rock, right under my net. When the Hintatoo swoops down for the seeds, my assistant Jono pulls the rope, and BAM, the net drops. Simple. This one's going straight into my private collection. I mean, the rescue centre. Okay, Jono, get ready. Jono? Why are you sneezing? Oh, great, he's allergic to feathers. Anyway, the Hintatoo is right there on that branch, staring at us. It's been staring for twenty minutes. It's blinking really slowly, which is kind of creepy. It's looked at the seeds, then at the net, then at the rope, then at Jono, then back at the net. Honestly, it's almost like it's thinking. Whatever, it's just a bird. Here it comes, Vantafam! It's spreading its wings! It's leaning towards the seeds...",
+      "prompt": "What will most likely happen next?",
+      "success": "It had studied the whole trap. It grabbed the seeds, the net fell on Maxx, and the stream cut out.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The Hintatoo will grab the seeds without being caught."
+          },
+          {
+            "text": "The Hintatoo will fly straight into the net.",
+            "reason": "It has studied the seeds, the net and the rope for twenty minutes. It has spotted the trap."
+          },
+          {
+            "text": "Jono will pull the rope at exactly the right moment.",
+            "reason": "Jono can't stop sneezing, and the Hintatoo has been watching him. The clues point against perfect timing."
+          },
+          {
+            "text": "Maxx will give up and switch the stream off.",
+            "reason": "Maxx is excited because he thinks the bird is coming. Nothing hints that he's about to give up."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b4-3",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Hollowgum Herald has landed on the crew's doorstep. Tully has circled one story.",
+      "text": "SANDCASTLE CHAMPIONSHIP GOES AHEAD DESPITE WARNINGS\n\nOrganisers of the Hollowgum Sandcastle Championship have refused to move tomorrow's event, even though the weather service has issued a king tide warning for the entire coast. The championship begins at 1 pm on the flat stretch of sand below Gull Point, where competitors will have exactly three hours to build. More than sixty teams are expected, and the castles will be judged at the end of the three hours. According to the tide chart pinned up at the surf club, high tide will arrive at 3:40 pm, and it is expected to be the highest tide of the year. Locals say that even during an ordinary high tide, the water reaches the bottom of the Gull Point stairs, and Gull Point is the lowest part of the beach. Some families have asked for the start to be moved to the morning, when the tide is out. Last year's champion, eleven-year-old Archie Tran, said he wasn't worried. \"I'm building a moat this year,\" he said. \"A really deep one.\" Head organiser Bev Saddler insists the event is perfectly safe. \"The judges will be sitting up on the dunes,\" she said, \"so they'll have a lovely view of the whole beach.\" Meanwhile, the surf club has quietly moved its rescue boards and flags to the top of the car park.",
+      "prompt": "Which prediction do the clues support best?",
+      "success": "Building runs until 4 pm, but high tide comes at 3:40. A wave swallowed Archie's castle, moat and all.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The sea will wash over the castles before building time ends."
+          },
+          {
+            "text": "Archie's deep moat will hold back the king tide.",
+            "reason": "An ordinary high tide already reaches the stairs. A moat can't hold back the year's highest tide."
+          },
+          {
+            "text": "The event will finish safely before high tide arrives.",
+            "reason": "Building runs from 1 pm to 4 pm, but high tide comes at 3:40. The sea arrives first."
+          },
+          {
+            "text": "The organisers will move the event to another beach.",
+            "reason": "The organisers have refused to move it, and they say it's perfectly safe."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.4-b4-4",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "The Hintatoo is reading Gus's lab notes over his shoulder.",
+      "prompt": "Gus predicts Blob 7 will escape tonight. Tap the clue that shows it is strong enough to get out.",
+      "success": "It can lift the lid, bricks and all. At 2 am, Mo woke to a gurgle and one sock left.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "LAB NOTES, DAY 12. Specimen: Blob 7. Blob 7 began as a teaspoon of green goo that I scraped from the bottom of Mo's lunchbox, and it is now the size of a beach ball. Blob 7 is mostly harmless. It eats only bread, bananas and, unfortunately, socks. On Thursday, it ate a whole loaf of bread in four minutes. Mo says it is disgusting, but I think it is beautiful. It ",
+          {
+            "tap": "shrinks away from bright light",
+            "reason": "This tells you what Blob 7 avoids, not whether it's strong enough to escape."
+          },
+          ", so I keep its tank in the darkest corner of the lab. It has started making ",
+          {
+            "tap": "a soft gurgling noise",
+            "reason": "The gurgle is how Blob 7 says hello. It tells you nothing about its strength."
+          },
+          " whenever someone walks past, which I believe is how it says hello. Yesterday I placed a heavy glass lid on top of the tank, weighed down with three bricks. This morning I watched Blob 7 stretch upwards and ",
+          {
+            "tap": "lift the lid, bricks and all"
+          },
+          ", a full ten centimetres, before lowering it again very gently, as if it were practising. Tonight Mo is sleeping over in the lab, because his room is being painted. He has left ",
+          {
+            "tap": "his dirty footy socks",
+            "reason": "The socks give Blob 7 a reason to get out, but they don't show it has the strength."
+          },
+          " in a pile right beside the tank. I have reminded him to ",
+          {
+            "tap": "switch off the lights",
+            "reason": "Darkness makes Blob 7 more comfortable, but it doesn't show it's strong enough to escape."
+          },
+          ". Mo says he isn't scared of a bucket of goo, and he plans to sleep like a log."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.4-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "Tully is tipping the winner of the Battle of the Bands. Not every clue she wrote down is useful.",
+      "prompt": "Tully predicts the Rattletins will win. Match each clue to what it does to her prediction.",
+      "success": "Good predictors weigh every clue and ignore the ones that don't matter. The Rattletins came second, by one point.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "makes a win more likely",
+          "makes a win less likely",
+          "doesn't help predict"
+        ],
+        "items": [
+          {
+            "text": "The Rattletins have won the last three heats by a huge margin.",
+            "bin": 0,
+            "reason": "Winning three heats easily shows they usually beat the other bands."
+          },
+          {
+            "text": "Their lead singer lost her voice at yesterday's rehearsal and is still whispering.",
+            "bin": 1,
+            "reason": "A whispering singer will make their performance much weaker."
+          },
+          {
+            "text": "The Rattletins' drummer has dyed his hair bright purple for the night.",
+            "bin": 2,
+            "reason": "Hair colour has nothing to do with how well a band plays."
+          },
+          {
+            "text": "The judges will give double points for original songs, and the Rattletins wrote every one of theirs.",
+            "bin": 0,
+            "reason": "Double points for their own songs gives the Rattletins a big advantage."
+          },
+          {
+            "text": "Two of their guitar strings snapped during the warm-up, and nobody has any spares.",
+            "bin": 1,
+            "reason": "Playing with missing strings will make their songs sound worse."
+          },
+          {
+            "text": "The competition is being held in the school gym, which has a shiny new floor.",
+            "bin": 2,
+            "reason": "The floor is the same for every band, so it doesn't help you pick a winner."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.4-b4-6",
+      "band": 4,
+      "topic": "space",
+      "frame": "A letter has arrived from the Hollowgum Astronomy Club.",
+      "text": "Dear Astronomy Club members,\n\nOn the night of Friday the 14th, Comet Varga will pass close enough to Earth to be seen without a telescope. It will not return for another 3,000 years, so this really is a once-in-a-lifetime event. The comet will be visible from about 9 pm until midnight, low in the southern sky.\n\nUnfortunately, the weather service is forecasting thick, low cloud over the whole town from late afternoon on the 14th, and it is not expected to clear until Sunday. Low cloud like this usually sits below about 600 metres.\n\nFor this reason, the club has booked a bus to the lookout on Mount Ember, which stands 900 metres above sea level. From the summit, members should be looking down on the cloud rather than up at it. The bus leaves the town hall at 6 pm sharp and returns at 1 am. Seats are limited to forty, and thirty-two have already been taken.\n\nPlease bring warm clothes, a thermos and a torch with a red cover, because white light ruins everyone's night vision. Members who would rather stay home are welcome to join our online chat, although I'm afraid there may not be much to chat about.\n\nClear skies,\nProfessor Ada Finch, Club President",
+      "prompt": "Tap the pieces to build Professor Finch's prediction for members who stay in town.",
+      "success": "The cloud sits over the town all night. On Friday, the online chat was nothing but photos of grey sky.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Members who stay in town",
+          "will see the comet clearly",
+          "will miss the comet",
+          "because",
+          "the cloud will hide it.",
+          "the mountain is above the cloud."
+        ],
+        "accept": [
+          "Members who stay in town will miss the comet because the cloud will hide it."
+        ],
+        "reason": "The cloud covers the town all night, so people there can't see the sky. Only the mountain pokes above it."
+      }
+    }
+  ]
+}

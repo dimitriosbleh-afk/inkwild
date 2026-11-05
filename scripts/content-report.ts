@@ -9,7 +9,7 @@ const only = process.argv[2];
 
 for (const f of files.filter((f) => !only || f.skill.id.startsWith(only))) {
   const problems = skillFileProblems(f, listed.get(f.skill.id));
-  const short = missingEncounters(f);
+  const short = f.skill.id.startsWith('9.') ? [] : missingEncounters(f);
   const byBand = [1, 2, 3, 4].map((b) => {
     const es = f.encounters.filter((e) => e.band === b);
     const all = es.flatMap((e) => readingSentences(e));

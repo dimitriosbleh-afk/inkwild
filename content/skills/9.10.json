@@ -1,0 +1,125 @@
+{
+  "skill": {
+    "id": "9.10",
+    "name": "Crew writing jobs: a news report, a persuasive letter, an exposé",
+    "codes": [
+      "VC2E5LY10",
+      "VC2E6LY09"
+    ],
+    "why": "Each writing job has a purpose: inform, persuade or reveal the truth.",
+    "how": "News answers who, what, when and where. Letters give reasons. Exposés show the proof.",
+    "teach": {
+      "crew": "rescuer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "The crew has three writing jobs. Each has its own shape."
+          },
+          {
+            "say": "A news report tells what happened, fast.",
+            "show": "**Yesterday at 6pm, forty Creatures vanished from Comma Cay.**"
+          },
+          {
+            "say": "A persuasive letter gives reasons to change someone's mind.",
+            "show": "Please ban drones over the bay, **because they scare nesting birds**."
+          },
+          {
+            "say": "An exposé shows the proof behind a lie.",
+            "show": "Maxx says he rescues Creatures. **Here is a photo of his cages.**"
+          },
+          {
+            "say": "So first decide: am I telling, persuading or exposing?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Wren is writing for the crew's news channel.",
+          "prompt": "Which is the best opening for a news report?",
+          "hint": "News answers who, what, when and where. Which one does?",
+          "success": "It tells when, where and what happened, straight away. That's how news reports begin.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Last night at Inkwell Bay, Maxx Vantablack's boat ran aground on a sandbar."
+              },
+              {
+                "text": "Dear Mayor, I am writing to ask you to ban Maxx's boat.",
+                "reason": "That's the start of a letter. A news report jumps straight into what happened."
+              },
+              {
+                "text": "Maxx is the worst person in the world and everyone hates him.",
+                "reason": "That's an opinion, not news. A report sticks to the facts."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "frame": "Wren's desk is covered in scraps from three different writing jobs.",
+          "prompt": "Put each line with the writing job it belongs to.",
+          "hint": "Ask: is it telling, persuading or catching out a lie?",
+          "success": "News reports facts, letters try to persuade, and exposés set a claim beside the proof that it's false.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "news report",
+              "persuasive letter",
+              "exposé"
+            ],
+            "items": [
+              {
+                "text": "Three Creatures were found safe on Hollowgum Island on Monday.",
+                "bin": 0,
+                "reason": "It reports what happened, when and where, with no opinion."
+              },
+              {
+                "text": "I urge you to close Maxx's channel before more Creatures disappear.",
+                "bin": 1,
+                "reason": "It's trying to change someone's mind and get them to act."
+              },
+              {
+                "text": "Maxx told fans the cages were 'rescue homes'. These photos show locks on the outside.",
+                "bin": 2,
+                "reason": "It sets Maxx's claim beside proof that it's a lie."
+              },
+              {
+                "text": "Please let us start a Creature club at lunchtime, because it would help shy kids make friends.",
+                "bin": 1,
+                "reason": "It asks someone to do something and gives a reason, so it's persuading."
+              },
+              {
+                "text": "Maxx claims he feeds his Creatures every day. His own receipts show no food since June.",
+                "bin": 2,
+                "reason": "It catches Maxx out by putting his claim next to the proof."
+              },
+              {
+                "text": "A storm closed the Inkwell Bay ferry at 4pm yesterday.",
+                "bin": 0,
+                "reason": "It's a plain fact about what happened, when and where."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "beamquid",
+      "name": "Beamquid",
+      "evolved": "Beamquisitor",
+      "blurb": "A little squid that flashes a beam on anything hidden. Maxx hates it, because it always finds his secret cages."
+    },
+    "workshop": {
+      "mentor": "MAXX'S 'RESCUE CENTRE' IS A CAGE FARM.\nFor months, mega-streamer Maxx Vantablack has told his followers that every Creature he catches goes to a 'five-star rescue centre'. Last Tuesday, our crew went to see it for ourselves. There was no centre. There was a rusty shed behind his mansion, with forty-two cages stacked to the roof and a padlock on every door. The 'organic Creature food' from his streams was a bucket of stale chips. Maxx says our photos are fake. Then he should explain why the same shed is in the background of his own stream from last week. We are asking every follower to watch our video, then unfollow. The Creatures can't speak up. You can.",
+      "ask": "Pick a crew writing job: a news report on a Creature loose at the footy, a letter asking for longer lunch, or an exposé of Maxx's lies.",
+      "checklist": [
+        "I picked one job: inform, persuade or expose.",
+        "I made my opening get straight to the point.",
+        "I backed it up with facts, reasons or proof.",
+        "I ended with a strong last line."
+      ]
+    }
+  },
+  "encounters": []
+}

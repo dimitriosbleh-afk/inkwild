@@ -41,8 +41,13 @@ function agrees(e: Encounter, answer: unknown): boolean {
   }
 }
 
-const recheckPath = new URL('recheck.answers.json', dir);
-const recheck = new Map<string, Answer>(existsSync(recheckPath) ? (JSON.parse(readFileSync(recheckPath, 'utf8')) as Answer[]).map((a) => [a.id, a]) : []);
+const { readdirSync } = await import('node:fs');
+const recheck = new Map<string, Answer>(
+  readdirSync(dir)
+    .filter((f) => /^recheck.*\.answers\.json$/.test(f))
+    .sort()
+    .flatMap((f) => (JSON.parse(readFileSync(new URL(f, dir), 'utf8')) as Answer[]).map((a) => [a.id, a] as const)),
+);
 const rows: { id: string; flag: string; detail: string; score: number }[] = [];
 let checked = 0;
 for (const f of files) {

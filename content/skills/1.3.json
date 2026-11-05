@@ -1,0 +1,902 @@
+{
+  "skill": {
+    "id": "1.3",
+    "name": "Infer the why: work out a reason the text never states",
+    "codes": [
+      "VC2E5LY09",
+      "VC2E6LY08"
+    ],
+    "why": "Texts don't explain everything. Good readers fill the gaps with clues.",
+    "how": "Ask why it happened. Find the clues, add what you know, and check it fits.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Sometimes a text shows what happened, but not why.",
+            "show": "Mo **opened every window** in the house."
+          },
+          {
+            "say": "So look for a clue nearby.",
+            "show": "Mo opened every window. **The kitchen was full of smoke.**"
+          },
+          {
+            "say": "Add what you know. Smoke fills a room when food burns."
+          },
+          {
+            "say": "So the why: Mo burnt something and needed fresh air."
+          },
+          {
+            "say": "Check it. The text never said it, but the clues do."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Tully put on her raincoat and grabbed an umbrella. Outside, the sky had turned dark grey.",
+          "prompt": "Why did Tully take an umbrella?",
+          "hint": "What does a dark grey sky tell you?",
+          "success": "A dark grey sky means rain could be coming. The text never says it, but the clues do.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "She thought it might rain."
+              },
+              {
+                "text": "She wanted to block the sun.",
+                "reason": "The sky is dark grey. There's no sun to block."
+              },
+              {
+                "text": "She was going swimming.",
+                "reason": "Nothing in the text is about swimming. Look at the sky."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "Tap the clue that tells you why Biscuit is whining.",
+          "hint": "What is Biscuit pushing around?",
+          "success": "The bowl is empty. Add what you know: dogs whine for food. Biscuit is hungry.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Biscuit whined and pushed his bowl across the floor with his nose. ",
+              {
+                "tap": "The bowl was blue.",
+                "reason": "The colour of the bowl doesn't explain the whining."
+              },
+              " ",
+              {
+                "tap": "The bowl was empty."
+              },
+              " ",
+              {
+                "tap": "It was a sunny day.",
+                "reason": "The weather doesn't explain why he's pushing his bowl around."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "cubbler",
+      "name": "Cubbler",
+      "evolved": "Cubblestone",
+      "blurb": "A wombat that leaves neat cube-shaped clues wherever it goes. It never tells you why it dug, so you'll have to work it out."
+    }
+  },
+  "encounters": [
+    {
+      "id": "1.3-b1-1",
+      "band": 1,
+      "topic": "funny",
+      "frame": "A Cubbler is snuffling around the classroom door. Something odd is going on.",
+      "text": "Mo walked into class wearing a big woolly beanie. It was the hottest day of the year. Everyone else was in shorts and thongs. The teacher asked him to take it off. 'No thanks,' said Mo, and pulled it down even lower. He kept it on all morning, even when sweat dripped off his nose. At lunch, a gust of wind blew it off. Under it, his hair was bright green. 'The box said brown,' he groaned.",
+      "prompt": "Why did Mo keep his beanie on?",
+      "success": "His hair was bright green under it. The text never says 'to hide it', but the clues do.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "because he was cold",
+            "reason": "It was the hottest day of the year, and sweat was dripping off his nose."
+          },
+          {
+            "text": "to hide his green hair"
+          },
+          {
+            "text": "because the teacher told him to",
+            "reason": "The teacher asked him to take it off, not keep it on."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.3-b1-2",
+      "band": 1,
+      "topic": "gross-science",
+      "frame": "Gus is about to start a new experiment. The Cubbler has backed away.",
+      "prompt": "Tap the clue that tells you why Gus needed a peg on his nose.",
+      "success": "Food left in a bag for a whole term would stink. That's why Gus needed the peg.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "It was the first day of the new term. Gus put a peg on his nose. ",
+          {
+            "tap": "Then he pulled on two pairs of rubber gloves.",
+            "reason": "This is what Gus did next. It doesn't explain the peg."
+          },
+          " He opened his old lunchbox very slowly. ",
+          {
+            "tap": "It had been at the bottom of his bag since the end of last term."
+          },
+          " ",
+          {
+            "tap": "The lunchbox was bright red.",
+            "reason": "The colour of the lunchbox doesn't explain the peg."
+          },
+          " ",
+          {
+            "tap": "Mo said he would help.",
+            "reason": "Mo offering to help doesn't explain why Gus needed a peg."
+          },
+          " Mo took one look inside and went to sit on the other side of the room. Gus wrote 'Day 1' in his science book."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.3-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is telling the crew about the best part of Saturday's footy.",
+      "text": "Halfway through the footy game, the umpire blew her whistle. Everyone stopped. A big brown dog was racing across the oval. The footy was in its mouth. Three players chased after it. The dog thought this was a great game. It ran in circles and wagged its tail. It took ten minutes to get the ball back. The ball was very soggy. Tully said it was the best part of the game.",
+      "prompt": "Why did three players chase the dog?",
+      "success": "The footy was in the dog's mouth. You can't play without the ball, so they chased it.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to get the footy back"
+          },
+          {
+            "text": "to give it a pat",
+            "reason": "The dog had their footy in its mouth. They wanted the ball, not a pat."
+          },
+          {
+            "text": "because it bit someone",
+            "reason": "Nothing in the text says anyone was bitten. The dog was playing."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.3-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "The crew camped on a hill to watch shooting stars. The Cubbler dug itself a warm burrow.",
+      "text": "The crew camped out on the hill to watch the meteor shower. It was a clear night, so the stars were bright. It was also freezing. There was frost on the grass. And the mozzies were everywhere. Zed put on two beanies. Tully put bug spray on her arms. Mo wrapped himself in three blankets. Gus kept slapping his neck. At midnight, a shooting star zipped across the sky. Everyone cheered.",
+      "prompt": "Match each thing the crew did to the reason they did it.",
+      "success": "Beanies and blankets are for the cold. Bug spray and slapping are for the mozzies.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "because it was freezing",
+          "because of the mozzies"
+        ],
+        "items": [
+          {
+            "text": "Zed put on two beanies.",
+            "bin": 0,
+            "reason": "Beanies keep your head warm, and there was frost on the grass."
+          },
+          {
+            "text": "Tully put bug spray on her arms.",
+            "bin": 1,
+            "reason": "Bug spray keeps mozzies away."
+          },
+          {
+            "text": "Mo wrapped himself in three blankets.",
+            "bin": 0,
+            "reason": "Blankets keep you warm on a freezing night."
+          },
+          {
+            "text": "Gus kept slapping his neck.",
+            "bin": 1,
+            "reason": "People slap at their skin when mozzies land on them."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.3-b1-5",
+      "band": 1,
+      "topic": "food",
+      "frame": "Gus wrote a note about Indi's lunch. He got the reason wrong.",
+      "text": "Indi opened her lunchbox and shut it again, fast. She pushed it to the far end of the table. Inside was Mum's leftover fish curry. It had been in her bag all morning. Her bag had been sitting in the hot sun. A fly landed on the lid, then flew away very quickly. Zed held his nose. Indi ate an apple for lunch instead.",
+      "prompt": "Tap the part of Gus's note that's wrong, then choose a better reason.",
+      "success": "Fish curry sitting in the hot sun all morning would stink. Even the fly left fast.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi pushed her ",
+          {
+            "tap": "lunchbox",
+            "reason": "That's right. She pushed her lunchbox away. Check the reason."
+          },
+          " away because ",
+          {
+            "tap": "she was full"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "it was empty",
+            "reason": "Inside was Mum's leftover fish curry, so it wasn't empty."
+          },
+          {
+            "text": "it smelled bad"
+          },
+          {
+            "text": "she didn't like the colour",
+            "reason": "The text never mentions a colour. Look at the clues about the sun and the fly."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.3-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "Zed has homework. His little brother has drums.",
+      "text": "Zed was trying to do his maths homework. Next door, his little brother was learning the drums. Boom. Crash. Boom-boom-CRASH. He had been playing the same song for two hours. He still couldn't get it right. Zed's pencil jumped every time the cymbal crashed. At last, Zed put on his big headphones. He didn't play any music. He just sat there in the quiet and finished his maths.",
+      "prompt": "Why did Zed put on his headphones?",
+      "success": "The drumming was so loud his pencil jumped. Headphones with no music just block out noise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to listen to music",
+            "reason": "The text says he didn't play any music."
+          },
+          {
+            "text": "because his ears were cold",
+            "reason": "Nothing in the text is about cold. Look at the noise next door."
+          },
+          {
+            "text": "to block out the drums"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.3-b2-1",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren had a surprise visitor in the backyard. The Cubbler was very jealous.",
+      "text": "It was 43 degrees in Hollowgum on Saturday, the hottest day in ten years. At about two o'clock, Wren heard scratching on the back fence. A koala had climbed down from the gum tree and walked across the lawn to the swimming pool. It sat on the top step and drank and drank. It didn't swim. It didn't even get its bottom wet. Wren's dog, Pickle, was asleep inside under the fan, so nothing had chased it. The creek at the bottom of the hill had dried up two weeks ago. After about ten minutes, the koala climbed slowly back up the tree. Wren left a big bowl of water at the bottom of the trunk, just in case. The next morning, the bowl was empty.",
+      "prompt": "Why did the koala come down to the pool?",
+      "success": "It was 43 degrees and the creek had dried up. It drank and drank, so it came for water.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "A dog chased it out of the tree.",
+            "reason": "Pickle was asleep inside, so nothing chased it."
+          },
+          {
+            "text": "It wanted a swim to cool off.",
+            "reason": "It didn't swim. It didn't even get its bottom wet."
+          },
+          {
+            "text": "It needed a drink."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.3-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed and his online friend are one level from the end. Then something happens.",
+      "prompt": "Tap the clue that explains why Kira left the game so suddenly.",
+      "success": "Someone was calling Kira because 'it' was on the table getting cold. That's dinner, so she went.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed and his online friend Kira were one level away from beating the Ice Queen. They had been trying all afternoon. ",
+          {
+            "tap": "Kira's character was wearing a silly pumpkin hat.",
+            "reason": "The hat is just for fun. It doesn't explain why she left."
+          },
+          " Zed had five potions left, and Kira had three. 'Okay, this is it,' Zed said into his headset. ",
+          {
+            "tap": "Just then, a voice behind Kira called, 'Kira! It's on the table and it's getting cold!'"
+          },
+          " ",
+          {
+            "tap": "Kira's character froze in the middle of the ice cave.",
+            "reason": "This shows something happened, but not why. Look at what came just before."
+          },
+          " Then a message popped up: Kira has left the game. ",
+          {
+            "tap": "Zed's character slipped on the ice and fell into a pit.",
+            "reason": "This happened to Zed after Kira had already gone."
+          },
+          " Zed groaned and took off his headset. Twenty minutes later, Kira came back online. She was still chewing."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.3-b2-3",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Cubbler is digging in the sand at Hollowgum Beach. It has found something blue.",
+      "text": "Hollowgum Beach was packed on Sunday morning. The sky was clear, the sea was calm, and the water was the warmest it had been all summer. Then, at about eleven o'clock, people started running out of the water. 'Ow! Something stung me!' yelled a boy, holding his arm. Along the edge of the sand, hundreds of little blue blobs had washed up. They looked like tiny balloons with long, stringy tails. A few minutes later, the lifesavers put up red flags and blew their whistles. Nobody was allowed back in the water for the rest of the day. The lifesavers spent the afternoon looking after stung swimmers and scooping the blue blobs into buckets.",
+      "prompt": "Why did the lifesavers close the beach?",
+      "success": "People were being stung, and stingy blue blobs had washed up. Swimming wasn't safe.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Stinging blue creatures had washed in."
+          },
+          {
+            "text": "A storm was coming.",
+            "reason": "The sky was clear and the sea was calm. There's no sign of a storm."
+          },
+          {
+            "text": "The water was too cold.",
+            "reason": "The text says the water was the warmest it had been all summer."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.3-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus's robot butler is acting strangely. The Cubbler is hiding under the table.",
+      "text": "Gus's robot butler, Jeeves, had been working perfectly all week. On Friday afternoon, though, things got weird. At lunch, Mo had been fiddling with the buttons on Jeeves's control panel, giggling to himself. He had pressed one marked PARTY MODE. At three o'clock, a little red battery light on Jeeves's back started flashing. Gus didn't notice, because he was busy in the lab. By four o'clock, Jeeves was rolling around the kitchen blasting loud music. Rainbow lights were flashing on his head. He was also moving slower and slower, and his arms had drooped until they hung limp by his sides. At five o'clock, he stopped in the middle of the floor. He didn't move again until Gus plugged him in.",
+      "prompt": "Match each strange thing Jeeves did to the reason for it.",
+      "success": "Music and rainbow lights came from party mode. Slowing down, drooping and stopping came from the flat battery.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "because his battery was running low",
+          "because of party mode"
+        ],
+        "items": [
+          {
+            "text": "Jeeves blasted loud music.",
+            "bin": 1,
+            "reason": "Loud music is what you'd expect from a button called PARTY MODE."
+          },
+          {
+            "text": "Rainbow lights flashed on his head.",
+            "bin": 1,
+            "reason": "Flashing rainbow lights are a party thing, and Mo pressed PARTY MODE."
+          },
+          {
+            "text": "Jeeves moved slower and slower.",
+            "bin": 0,
+            "reason": "Machines slow down when their batteries run low, and his battery light was flashing."
+          },
+          {
+            "text": "His arms drooped until they hung limp.",
+            "bin": 0,
+            "reason": "Limp arms mean he was running out of power. Party mode made him louder and brighter, not floppier."
+          },
+          {
+            "text": "He stopped in the middle of the floor.",
+            "bin": 0,
+            "reason": "Plugging him in got him going again, so a flat battery stopped him."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.3-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed wrote a note about the 'haunted' hall. He got the reason wrong.",
+      "text": "For three weeks, people in Hollowgum had been whispering about the old church hall. Every Thursday night, its lights came on at seven o'clock. Strange, high voices floated out of the windows. 'It's haunted,' said Zed. On the fourth Thursday, the crew crept up to the hall to look. Through the window, they saw twenty old people standing in a circle. Each one was holding a sheet of music. A woman at the piano tapped a stick and called out, 'From the top, everyone!' The voices started again. A man in the front row sang so high that a glass of water on the piano wobbled. At eight o'clock, everyone came out holding cups of tea and arguing about biscuits.",
+      "prompt": "Tap the part of Zed's note that's wrong, then choose a better reason.",
+      "success": "Sheet music, a piano and 'From the top, everyone!' all point to a choir practising.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The lights came on every ",
+          {
+            "tap": "Thursday",
+            "reason": "That's right. The lights came on every Thursday night. Check the reason."
+          },
+          " night because ",
+          {
+            "tap": "a ghost was there"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "the cleaners were working",
+            "reason": "The people inside were holding music and singing, not cleaning."
+          },
+          {
+            "text": "a movie was on",
+            "reason": "Nobody was watching a screen. They stood in a circle, singing from sheets of music."
+          },
+          {
+            "text": "a choir was practising"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.3-b2-6",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mum has a plan. The Cubbler can smell chocolate in the freezer.",
+      "text": "Mum bought a big packet of choc-chip biscuits for the school fete on Saturday. The last time she bought biscuits, the whole packet vanished in one night. Mo had crumbs on his pillow the next morning, and a chocolate smudge on his ear. This time, Mum tipped the frozen peas into a bowl. She put the biscuits inside the empty peas box and pushed it right to the back of the freezer. On Friday night, Mo opened the freezer and looked around. He moved the ice cream. He looked at the peas box, then shut the door. Mo hates peas. 'Where are the biscuits?' he asked. 'What biscuits?' said Mum, smiling.",
+      "prompt": "Why did Mum put the biscuits in the peas box?",
+      "success": "Mo ate the last packet, and he hates peas. A peas box is the last place he'd look.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "So Mo wouldn't find them."
+          },
+          {
+            "text": "Because Mo asked her to keep them cold.",
+            "reason": "Mo didn't even know where they were. He asks, 'Where are the biscuits?'"
+          },
+          {
+            "text": "Because Mo loves peas.",
+            "reason": "The text says Mo hates peas. That's why the box was a good hiding spot."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.3-b3-1",
+      "band": 3,
+      "topic": "music",
+      "frame": "The school band has a problem. The Cubbler has been listening at the music room door.",
+      "text": "Sam had been practising his trumpet solo for 'Sunrise March' every night for six weeks. The concert was only two weeks away. His neighbours knew every note. He even played it in the shower, which was difficult. On Monday, he came to school with a brand-new set of braces, shiny and silver across his top and bottom teeth. At band practice that afternoon, he lifted his trumpet, blew one note and winced. He tried again, and his eyes watered. He put the trumpet down on his knee and pressed his lips together. At lunch the next day, he ate only mashed potato, very slowly. After practice, he went to see Mr Okoro, the band teacher. On Tuesday, Mr Okoro announced that Lucy would play the solo at the concert instead. Lucy's mouth fell open, because she hadn't even known the solo was free. Lucy played the solo beautifully. Sam played the triangle. He hit it perfectly, every time, and smiled carefully with his mouth closed.",
+      "prompt": "Why did Sam stop playing the trumpet solo?",
+      "success": "He winced and his eyes watered the day he got braces. Playing with new braces hurt.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He hadn't practised enough.",
+            "reason": "He practised every night for six weeks. His neighbours knew every note."
+          },
+          {
+            "text": "Lucy asked to have the solo.",
+            "reason": "Lucy didn't even know the solo was free. Her mouth fell open."
+          },
+          {
+            "text": "His new braces made playing hurt."
+          },
+          {
+            "text": "He wanted to play the triangle instead.",
+            "reason": "The triangle came after he gave up the solo. The clues are about his sore mouth."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.3-b3-2",
+      "band": 3,
+      "topic": "space",
+      "frame": "A log from a space station has beamed down to Hollowgum. Gus is reading it with goggles on, just in case.",
+      "prompt": "Tap the clue that tells you why the crew wore goggles at dinner.",
+      "success": "Floating soup blobs had splatted into faces. Goggles protect your eyes, so the clue explains them.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Day 12 aboard the Kookaburra Space Station, home to six crew members and one very old pot plant. Tonight, before dinner, Commander Ali Reyes made an announcement. 'Everybody, please put on your swimming goggles,' she said. Nobody argued. ",
+          {
+            "tap": "Commander Reyes has been an astronaut for eleven years.",
+            "reason": "How long she's been an astronaut doesn't explain the goggles."
+          },
+          " Tonight's dinner was a treat: real onion soup in squeezy pouches. Everyone cheered when the pouches came out. ",
+          {
+            "tap": "The soup had come up on the last supply rocket.",
+            "reason": "This tells you where the soup came from, not why they needed goggles."
+          },
+          " ",
+          {
+            "tap": "In space, nothing stays put, so everyone strapped their feet to the floor.",
+            "reason": "This explains the foot straps, not the goggles."
+          },
+          " ",
+          {
+            "tap": "Yesterday, a soup pouch had burst, and stinging, oniony blobs had floated around the cabin for hours, splatting into people's faces."
+          },
+          " Engineer Tom Pike had been wiping soup out of his eyebrows until bedtime. Even the pot plant had soup on it. Tonight, everyone squeezed their pouches very, very gently. ",
+          {
+            "tap": "After dinner, the crew played cards with magnets on the back.",
+            "reason": "This happened after dinner, and it's about cards, not goggles."
+          },
+          " Tom won three games, and nobody got soup in their eye."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.3-b3-3",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "There are worms all over the back veranda. The Cubbler is very interested.",
+      "text": "Gus keeps a worm farm on the back veranda: three stacked trays full of soil, food scraps and about two thousand worms. On Tuesday, he fed them a whole pumpkin, which they love. On Wednesday night, a huge storm rolled across Hollowgum. It rained so hard that the gutters overflowed, and water poured off the veranda roof for hours, right on top of the worm farm. On Thursday morning, Gus opened the back door and nearly stepped on a worm. Then another. Then about forty more, all wriggling across the tiles away from the farm. Gus checked the lid, and it was still clipped on tight. The worms had squeezed out through the little drain holes in the bottom. When he lifted the top tray, the bottom tray was full to the brim with brown water, like a tiny swimming pool. Gus spent the whole morning picking up worms with a spoon and putting them in a bucket of dry soil. Mo helped by screaming.",
+      "prompt": "Why did the worms crawl out of the farm?",
+      "success": "Water poured onto the farm all night and the bottom tray was full. The worms were escaping the flood.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "They were hungry.",
+            "reason": "Gus fed them a whole pumpkin on Tuesday, which they love."
+          },
+          {
+            "text": "The lid had been left off.",
+            "reason": "The lid was still clipped on tight. They squeezed out through the drain holes."
+          },
+          {
+            "text": "They were escaping the heat.",
+            "reason": "It was a stormy, wet night. Nothing in the text says it was hot."
+          },
+          {
+            "text": "Their farm had filled with water."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.3-b3-4",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wants to know why the coach made the call she did. So does the Cubbler.",
+      "text": "With four seconds left in the netball grand final, the scores were level, and Hollowgum had one last shot. Coach Dee called a time-out and looked along her team. Ruby, her own daughter, was the tallest player on court, but she had missed her last three shots and was staring at the ground. Jess had scored the most goals all season, but she had twisted her ankle in the second quarter and was sitting on the bench with an ice pack. Then there was Mia. Mia hadn't missed a single shot all afternoon. Before the game, while the others were bouncing around nervously, she had been sitting on the bench calmly reading a book. Coach Dee handed her the ball and said, 'Your shot.' Mia stepped up, breathed out, and the ball dropped through the ring without touching the sides. Ruby ran over and lifted her right off the ground.",
+      "prompt": "Why did Coach Dee pick Mia? Match each possible reason to the right box.",
+      "success": "Clues back up the perfect shooting and the calm. Being tallest, the coach's daughter or top scorer fit others.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "A clue backs this up",
+          "No clue backs this up"
+        ],
+        "items": [
+          {
+            "text": "Mia hadn't missed a shot all game.",
+            "bin": 0,
+            "reason": "The text says Mia 'hadn't missed a single shot all afternoon'."
+          },
+          {
+            "text": "Mia stays calm under pressure.",
+            "bin": 0,
+            "reason": "She calmly read a book while the others bounced around nervously."
+          },
+          {
+            "text": "Mia was the tallest player on court.",
+            "bin": 1,
+            "reason": "The text says Ruby was the tallest, not Mia."
+          },
+          {
+            "text": "Mia is the coach's daughter.",
+            "bin": 1,
+            "reason": "Ruby is the coach's daughter, not Mia."
+          },
+          {
+            "text": "Mia had scored the most goals all season.",
+            "bin": 1,
+            "reason": "That was Jess, who was on the bench with a twisted ankle."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.3-b3-5",
+      "band": 3,
+      "topic": "animals",
+      "frame": "The ranger wrote a quick note about the Hollowgum cockatoo. She got the reason wrong.",
+      "text": "Ranger's report, Hollowgum Camping Ground. Since Monday, a sulphur-crested cockatoo has visited tent 4 every single morning at about seven o'clock. It does not visit any of the other twenty tents. The family in tent 4 told me they have tried everything to get rid of it. They have shouted, flapped towels and even played loud music at it, but it just screeches back and waits on their car roof. I noticed that they eat breakfast at a fold-out table outside their tent. They leave open packets of chips and bread on it overnight. The other campers pack their food into their cars at night. This morning, I watched the cockatoo land on the table, tear open a bag of chips and fling them all over the grass. Then it chewed the corner off the table, just for fun. I have given the family a plastic tub with a clip-on lid. I will check again tomorrow.",
+      "prompt": "Tap the part of the note that's wrong, then choose a better reason.",
+      "success": "Tent 4 is the only one with food left out overnight. That's what keeps the cockatoo coming back.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The cockatoo keeps visiting ",
+          {
+            "tap": "tent 4",
+            "reason": "That's right. It only visits tent 4. Check the reason."
+          },
+          " because ",
+          {
+            "tap": "the tent is bright yellow"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "the family feeds it on purpose",
+            "reason": "They've tried to get rid of it by shouting and flapping towels."
+          },
+          {
+            "text": "the family leaves food out"
+          },
+          {
+            "text": "it is nesting in the tent",
+            "reason": "It waits on the car roof and visits in the morning. Nothing says it nests there."
+          },
+          {
+            "text": "it likes the family's music",
+            "reason": "They played loud music to scare it off, and it screeched back."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "1.3-b3-6",
+      "band": 3,
+      "topic": "art",
+      "frame": "It's the school art show. Indi's painting is hiding under a sheet.",
+      "text": "Indi's painting had been finished for a week. It was the biggest thing she had ever painted: her nan, sitting in her garden among her prize-winning tomatoes, with her old dog, Biscuit, asleep at her feet. The paint had dried days ago. The art show opened in the school hall at six o'clock, and Indi's painting was hung right by the door. But Indi had draped a bedsheet over it and stuck on a sign that said DO NOT PEEK. Zed peeked anyway, and Indi chased him out of the hall. All evening, she kept checking her watch and looking out at the car park. Nan's bus from Pine Gully was due at seven. At five past seven, Nan walked through the door. Indi grabbed her hand, led her to the painting and pulled off the sheet. Nan stood there for a long time without saying anything. Then she said, 'You've even got Biscuit's snore right.'",
+      "prompt": "Why did Indi keep her painting covered until seven o'clock?",
+      "success": "She waited for Nan's bus, then uncovered it the moment Nan arrived. It was a surprise for Nan.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She wanted it to be a surprise for Nan."
+          },
+          {
+            "text": "The paint was still wet.",
+            "reason": "The text says the paint had dried days ago."
+          },
+          {
+            "text": "She was embarrassed by it.",
+            "reason": "It was hung right by the door, and she couldn't wait to show Nan. That's not embarrassment."
+          },
+          {
+            "text": "She didn't want Zed to copy it.",
+            "reason": "Nothing says anyone would copy it. She was watching for Nan's bus."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.3-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "Maxx Vantablack is streaming a 'rescue'. Wren has been watching the replay with the Cubbler.",
+      "text": "MAXX VANTABLACK LIVE: RESCUE DAY! Maxx has millions of followers, and most of them believe he rescues creatures for a living. 'Maxxers, welcome back! Today I'm saving a super-rare Glimmerwing from the dangerous wild. Look how happy it is in its new home!' He swung the camera towards a small glass box on his desk. Inside, a little silver creature was flapping against the walls, again and again, until its wings made a soft tapping sound on the glass. 'Ha, it's dancing!' said Maxx. The chat filled with hearts. Then one message popped up in red: 'Is it trying to get out?' Another followed: 'Why does it keep hitting the glass?' Maxx stopped smiling. He leaned forward, read the messages, and quickly tilted the camera up towards the ceiling, so that the box disappeared from the shot. 'Oops, camera slipped!' he said brightly. 'Anyway, let's talk about my new hoodie range.' He held up a hoodie with his own face on it. For the rest of the stream, the camera never pointed at the desk again, even though his battery showed 96 per cent and the room was perfectly well lit. Afterwards, Wren watched the replay four times, pausing each time on the moment the camera tilted. Then she quietly started packing her rescue kit.",
+      "prompt": "Why did Maxx tilt the camera away from the box?",
+      "success": "He read the worried messages, stopped smiling and tilted it straight away. He was hiding the creature's struggle.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The camera slipped by accident.",
+            "reason": "He says it slipped, but he read the worried messages first and never pointed it back."
+          },
+          {
+            "text": "His camera battery was running low.",
+            "reason": "His battery showed 96 per cent, so that wasn't the problem."
+          },
+          {
+            "text": "He didn't want viewers to see the creature trying to escape."
+          },
+          {
+            "text": "The room was too dark to film.",
+            "reason": "The text says the room was perfectly well lit."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.3-b4-2",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Cubbler dug up an old fishing log on the beach. The skipper turned back early.",
+      "prompt": "Tap the clue that explains why Captain Loretta turned back early.",
+      "success": "The radio warned of ninety-kilometre winds by afternoon. She turned back to beat the storm home.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Log of the fishing boat Saltbush, Thursday. We left Hollowgum harbour at five o'clock this morning under a clear, pink sky, planning to fish the deep reef until sunset. The forecast the night before had promised light winds all day, and Loretta has fished these waters for thirty years. ",
+          {
+            "tap": "By nine o'clock our nets were already half full of snapper, the best catch we'd had all month.",
+            "reason": "A great catch would make you want to stay out. It doesn't explain turning back."
+          },
+          " ",
+          {
+            "tap": "Young Kip was seasick twice over the side, but he felt better after a ginger biscuit.",
+            "reason": "Kip felt better after his biscuit, so he isn't the reason they went home."
+          },
+          " At half past nine, the radio crackled. ",
+          {
+            "tap": "The weather bureau announced that a fierce southerly change would hit the coast by early afternoon, with winds of up to ninety kilometres an hour."
+          },
+          " Captain Loretta listened carefully, then looked south, where a thin grey line had appeared along the horizon. She said nothing, but she pulled in the nets, turned the Saltbush around and pushed the engine as hard as it would go. ",
+          {
+            "tap": "On the way back, a pod of dolphins rode our bow wave for almost a kilometre.",
+            "reason": "The dolphins came after she had already turned around."
+          },
+          " We tied up at the jetty at twenty past twelve. By one o'clock, the harbour was white with foam, and the masts of the moored boats were swinging like windscreen wipers. Captain Loretta poured herself a cup of tea and said, 'Snapper keeps.'"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "1.3-b4-3",
+      "band": 4,
+      "topic": "robots",
+      "frame": "The museum's cleaning robots have gone strange. The Cubbler has been reading the guard's report.",
+      "text": "Hollowgum Museum has a team of twelve cleaning robots, six in the east wing and six in the west wing. They are round, about the size of a cake tin, and each one has a name painted on its lid. For two years, they have swept the floors every night without any trouble. This week, however, the night guard, Ron, wrote a report full of surprises in neat capital letters. On Tuesday evening, every robot in the building downloaded a software update. On Wednesday morning, the cleaners polished the floors of the east wing with a new, extra-shiny wax, but they ran out before they could do the west wing. That night, all twelve robots began announcing the time in French every fifteen minutes. All twelve also started humming the same tune, which nobody could name. Meanwhile, the six robots in the east wing kept skidding sideways, spinning in slow circles and bumping into display cases. One of them slid gently into the dinosaur skeleton and stayed there until morning, pressed against its leg. The west-wing robots, by contrast, cleaned in perfectly straight lines between their announcements. The museum has now undone the update and covered the east-wing floors with rubber mats, and the dinosaur is reported to be unharmed.",
+      "prompt": "Match each strange thing the robots did to its most likely cause.",
+      "success": "What all twelve did came from the update. What only the east-wing robots did came from the wax.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the software update",
+          "the new floor wax"
+        ],
+        "items": [
+          {
+            "text": "Robots announced the time in French.",
+            "bin": 0,
+            "reason": "All twelve did this, in both wings. Only the update reached every robot."
+          },
+          {
+            "text": "Robots hummed a tune nobody could name.",
+            "bin": 0,
+            "reason": "All twelve hummed, including the west wing, which had no wax."
+          },
+          {
+            "text": "Robots skidded sideways.",
+            "bin": 1,
+            "reason": "Only east-wing robots skidded, and only the east wing got the shiny wax."
+          },
+          {
+            "text": "Robots spun in slow circles.",
+            "bin": 1,
+            "reason": "Only east-wing robots spun. The west-wing robots, on unwaxed floors, went straight."
+          },
+          {
+            "text": "A robot slid into the dinosaur skeleton.",
+            "bin": 1,
+            "reason": "Sliding is what happens on a slippery floor, and the west wing had no new wax."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1.3-b4-4",
+      "band": 4,
+      "topic": "food",
+      "frame": "The Hollowgum Herald is puzzled by the bakery. The Cubbler can smell fresh bread.",
+      "text": "Every morning for twenty-two years, Rosa Bellini has baked bread at the Hollowgum Bakery, and every afternoon she has sold it at full price. Her sourdough is famous across the island, and on Saturdays the queue stretches past the chemist. So people were surprised on Thursday when they found a hand-written sign in the window: FREE BREAD TODAY. TAKE AS MUCH AS YOU LIKE. One man took eleven loaves and a bag of rolls. By lunchtime, the shelves were bare. Some customers were suspicious and asked whether the bread was stale, but it was still warm, and the smell drifted all the way down the street. Others wondered if it was Rosa's birthday, but her birthday is in June, and this is November. On Friday morning, the bakery stayed dark. Another sign had appeared, taped neatly beneath the first: CLOSED FOR TWO WEEKS WHILE WE PUT IN A NEW OVEN. SEE YOU SOON. Inside, the old brick oven had already been pulled out, and a builder's skip in the lane was filling up with rubble. When a reporter from the Hollowgum Herald finally reached Rosa by phone, she would only say, 'Good bread should be eaten, not thrown in a bin.' Then she hung up, because she was busy painting the new counter.",
+      "prompt": "Why did Rosa give away all her bread on Thursday?",
+      "success": "The bakery was closing for two weeks, and she says good bread shouldn't be thrown in a bin.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It had gone stale.",
+            "reason": "The bread was still warm, and its smell drifted down the street."
+          },
+          {
+            "text": "It was her birthday.",
+            "reason": "Her birthday is in June, and this happened in November."
+          },
+          {
+            "text": "She wanted her picture in the newspaper.",
+            "reason": "She barely spoke to the reporter and then hung up."
+          },
+          {
+            "text": "The bakery was closing for two weeks, and she didn't want the bread wasted."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "1.3-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Someone summed up Beryl's letter to the Herald. They got the reason wrong.",
+      "text": "Dear Editor, I am writing about my neighbour, Mr Desmond Pratt of 14 Wattle Street. His lawn is the neatest on the street, and he mows it every Saturday. At five o'clock last Saturday morning, while it was still dark, Mr Pratt started his lawnmower. It was so loud that it set off three dogs and a car alarm. He mowed his front lawn, his back lawn and, for some reason, the strip of grass outside the post office. I was furious, and I marched over in my dressing gown to complain. Mr Pratt was wearing a head torch and a very large straw hat. He simply pointed at the newspaper on his porch, where the headline read RECORD HEAT: 44 DEGREES BY MIDDAY. He told me that the last time he mowed at lunchtime in summer, he had to lie in the paddling pool for an hour afterwards. By nine o'clock he had finished and gone inside, and by noon the footpath was too hot to stand on in thongs. I still do not think anyone should mow in the dark. However, I would like to thank Mr Pratt for doing my lawn as well, which he did while I was getting dressed. Yours sincerely, Beryl Tonks",
+      "prompt": "Tap the part of the summary that's wrong, then choose a better reason.",
+      "success": "He pointed at the 44-degree headline and remembered nearly melting last time. He was beating the heat.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mr Pratt mowed at ",
+          {
+            "tap": "five o'clock in the morning",
+            "reason": "That's right. He started his mower at five. Check the reason."
+          },
+          " because ",
+          {
+            "tap": "he wanted to annoy his neighbours"
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "it would be far too hot later"
+          },
+          {
+            "text": "he was going away for the day",
+            "reason": "Nothing says he was going anywhere. He finished and went inside."
+          },
+          {
+            "text": "his mower only works in the dark",
+            "reason": "Nothing says that about his mower. He pointed at the heat headline instead."
+          },
+          {
+            "text": "the post office asked him to",
+            "reason": "Beryl says he mowed the post office strip 'for some reason'. Nobody asked him."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "1.3-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully can't believe the coach took Jaz off. The Cubbler thinks there's a reason.",
+      "text": "It was the last home game of the season. With six minutes left in the last quarter, the Reef Rays were leading the Sandflies by sixty-two points, and their star forward, Jaz Kemp, had already kicked eight goals. She had never kicked nine in a game, and the crowd was chanting her name. Her little brother was holding up a sign that said NINE! Then Coach Harris called for a change. Jaz jogged to the bench, looked up at the scoreboard and threw her hands in the air. 'Coach! One more goal!' she pleaded. 'I feel great! I could run all day!' Coach Harris just shook his head and handed her a water bottle. Earlier in the week, he had told the local paper that the grand final against Seabreeze, the only team to beat the Rays all season, was next Saturday. 'We'll need every player fit and firing for that one,' he had said. 'I'm not taking any silly risks between now and then.' The two players sitting next to Jaz on the bench were the team's next-best forwards, and he had taken them off ten minutes earlier. Jaz sulked for exactly three minutes, then cheered louder than anyone when a teammate kicked the final goal.",
+      "prompt": "Why did Coach Harris take Jaz off?",
+      "success": "The grand final is next week, he wants everyone fit, and the game was already won. He was protecting her.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "To keep her safe for the grand final."
+          },
+          {
+            "text": "She was playing badly.",
+            "reason": "She had kicked eight goals and the crowd was chanting her name."
+          },
+          {
+            "text": "She was injured.",
+            "reason": "She jogged off saying she felt great and could run all day."
+          },
+          {
+            "text": "She asked to come off.",
+            "reason": "She begged to stay on for one more goal."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "skill": {
+    "id": "9.4",
+    "name": "Dialogue that moves the story on",
+    "codes": [
+      "VC2E5LE05"
+    ],
+    "why": "Every line of talk should push the story forward, not just fill space.",
+    "how": "Cut the hellos. Keep lines that reveal something, cause trouble or make a choice.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Some talk just fills space. Nothing happens.",
+            "show": "'Hi.' 'Hi.' 'How are you?' 'Good.'"
+          },
+          {
+            "say": "Good talk reveals something new.",
+            "show": "'**I've seen Maxx's van at the jetty.**'"
+          },
+          {
+            "say": "Or it starts trouble.",
+            "show": "'**Don't tell Wren,** but I let the Creature out.'"
+          },
+          {
+            "say": "Or it forces someone to choose.",
+            "show": "'**We can save the egg or the boat. Not both.**'"
+          },
+          {
+            "say": "Before you keep a line, ask: what does it change?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "The crew is hiding behind a rock, watching Maxx's boat.",
+          "prompt": "Which line of talk moves the story on?",
+          "hint": "Which line changes what the crew might do next?",
+          "success": "An open cage door is news. Now the crew has a chance, and the story speeds up.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "'Look, he's left the cage door open,' whispered Zed."
+              },
+              {
+                "text": "'Hello, Zed,' said Tully. 'Hello, Tully,' said Zed.",
+                "reason": "They just say hello. Nothing new happens, so the story stands still."
+              },
+              {
+                "text": "'It's a nice night,' said Mo.",
+                "reason": "It's chit-chat. It doesn't reveal anything or cause any trouble."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "frame": "Tully is cutting lines from her script for the ship's play.",
+          "prompt": "Put each line in the right bin.",
+          "hint": "Ask: does anything change after this line?",
+          "success": "Lines that bring news, start trouble or force a choice move the story. Chit-chat just fills space.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "moves it on",
+              "just fills space"
+            ],
+            "items": [
+              {
+                "text": "'The bridge is out. We'll have to swim.'",
+                "bin": 0,
+                "reason": "It gives news that changes the plan."
+              },
+              {
+                "text": "'Um, so, yeah. OK.'",
+                "bin": 1,
+                "reason": "Nothing is really said, so nothing changes."
+              },
+              {
+                "text": "'I gave Maxx our map. Sorry.'",
+                "bin": 0,
+                "reason": "A confession like that starts trouble straight away."
+              },
+              {
+                "text": "'Nice weather today, isn't it?'",
+                "bin": 1,
+                "reason": "Weather chat doesn't push the story anywhere."
+              },
+              {
+                "text": "'Pick one: the map or the snacks.'",
+                "bin": 0,
+                "reason": "It forces a choice, and choices drive stories."
+              },
+              {
+                "text": "'Hi, Mo.' 'Hi, Gus.'",
+                "bin": 1,
+                "reason": "Hellos fill space but tell us nothing new."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "natterflit",
+      "name": "Natterflit",
+      "evolved": "Nattersoar",
+      "blurb": "A glider that chatters as it leaps from tree to tree. Each squeak carries it further, so it's never stuck on one branch."
+    },
+    "workshop": {
+      "mentor": "'Don't freak out,' said Mo, 'but the soup is moving.'\nGus leaned over the pot. Something green blinked back. 'That's not soup. That's a Creature.'\n'It was soup when I started,' said Mo.\n'Then where did the soup go?' asked Gus.\nMo went very quiet. Then he burped, and a tiny bubble of light floated out of his mouth.\n'OK,' said Tully, grabbing the first-aid kit. 'Nobody tell Wren. And nobody, under any circumstances, tell Maxx's followers we've got a glowing chef.'\nOutside, a drone buzzed past the porthole, its red light blinking.\n'Too late,' whispered Zed.",
+      "ask": "Write a scene that's mostly talk, where every line changes something. Ideas: the crew finds Maxx's van, a lost footy bet, a ghost on the phone.",
+      "checklist": [
+        "I cut the hellos and chit-chat.",
+        "I made every line change something.",
+        "I started a new line for each new speaker.",
+        "I made it clear who is talking."
+      ]
+    }
+  },
+  "encounters": []
+}
