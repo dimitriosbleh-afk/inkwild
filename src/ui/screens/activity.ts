@@ -10,11 +10,16 @@ import { h } from '../dom';
 import { passage, widget } from '../formats';
 import { burst, shake } from '../fx';
 import { readable } from '../speech';
+import { nextPrompt, writeScreen } from './write';
 
 export function activityScreen(app: App, { branch }: { branch: BranchId }): ScreenView {
   const store = app.store;
   if (!store.save.activity) {
     const events = store.dispatch({ type: 'begin', branch });
+    if (!content.branch(branch).marked && !store.save.activity) {
+      const skill = nextPrompt(app);
+      if (skill) return writeScreen(app, { skill });
+    }
     if (events.some((e) => e.type === 'empty') || !store.save.activity) return charting(app, branch);
   }
   const a = store.save.activity!;

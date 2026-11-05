@@ -1,4 +1,5 @@
-import { content, crew } from '../../app/content';
+import { chapters, content, crew } from '../../app/content';
+import { unreadChapters } from '../../story/chapters';
 import { onHomeScreen } from '../../app/persist';
 import { today } from '../../app/store';
 import { CREW_LOOKS } from '../../art/crew';
@@ -147,7 +148,7 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
 
   scene.onNear = (poi) => {
     action.disabled = !poi;
-    action.textContent = poi ? ACTION_LABEL[poi.kind] : '·';
+    action.textContent = poi ? (poi.kind === 'grass' && branch === 'workshop' ? 'WRITE' : ACTION_LABEL[poi.kind]) : '·';
     if (!poi) speech.replaceChildren();
   };
   scene.onStep = (poi) => {
@@ -158,6 +159,7 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
     if (poi) use(poi);
   });
 
+  const unread = unreadChapters(content, s, chapters).length;
   const title = home ? 'HOME ISLAND' : b!.island.toUpperCase();
   const sub = home ? `${content.branches.filter((x) => s.branches[x.id].keeper).length}/9 BADGES · ${s.daysPlayed} DAYS` : b!.name.toUpperCase();
   el.append(
@@ -170,6 +172,7 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
         { class: 'row' },
         home ? h('button', { class: 'alt', onclick: () => continueTo(app) }, 'QUICK PLAY') : h('button', { class: 'alt', onclick: () => app.go({ name: 'map' }) }, 'MAP'),
         h('button', { class: 'alt', onclick: () => app.go({ name: 'guide' }) }, 'FIELD GUIDE'),
+        h('button', { class: 'alt', onclick: () => app.go({ name: 'story' }) }, 'LOGBOOK', unread > 0 ? h('span', { class: 'tide-tag' }, String(unread)) : null),
         h('button', { class: 'ghost', onclick: () => app.go({ name: 'settings' }) }, '⚙ SETTINGS'),
       ),
     ),

@@ -20,8 +20,9 @@ export function isUnlocked(content: Content, save: Save, id: SkillId): boolean {
   const i = skills.findIndex((s) => s.id === id);
   if (i <= 0) return true;
   const prev = skillProgress(save, skills[i - 1]!.id);
-  if (!prev.taught || prev.done < PRACTICE_TO_UNLOCK) return false;
   const b = content.branch(skill.branch);
+  if (!b.marked) return prev.mastered;
+  if (!prev.taught || prev.done < PRACTICE_TO_UNLOCK) return false;
   if (b.marked && i === b.keeperAfter) return save.branches[skill.branch].keeper;
   return true;
 }

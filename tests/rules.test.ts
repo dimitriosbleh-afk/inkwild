@@ -52,6 +52,29 @@ describe('content rule checks', () => {
     expect(problemsAfter((f) => (f.skill.codes = ['VC2E6LA05'])).join()).toMatch(/differ from the Skill list/);
   });
 
+  it('reject a Band with fewer than three formats', () => {
+    const one = problemsAfter((f) => {
+      const model = f.encounters.find((e) => e.band === 1 && e.body.format === 'choose')!;
+      f.encounters = f.encounters.map((e) => (e.band === 1 ? { ...model, id: e.id } : e));
+    });
+    expect(one.join()).toMatch(/uses 1 formats/);
+  });
+
+  it('reject a topic used three times in one Band', () => {
+    expect(problemsAfter((f) => f.encounters.filter((e) => e.band === 2).forEach((e) => (e.topic = 'space'))).join()).toMatch(/topic space used/);
+  });
+
+  it('reject a hard-Band choose with only three options', () => {
+    expect(problemsAfter((f) => {
+      const e = f.encounters.find((x) => x.band === 3 && x.body.format === 'choose')!;
+      if (e.body.format === 'choose') e.body.options.pop();
+    }).join()).toMatch(/needs 4 options/);
+  });
+
+  it('reject a Teach beat that is too long', () => {
+    expect(problemsAfter((f) => (f.skill.teach.iDo.beats[0]!.say = 'word '.repeat(20))).join()).toMatch(/keep it to 12/);
+  });
+
   it('reject an accepted sentence the tiles cannot build', () => {
     expect(buildable(['The cat', 'sat.'], 'The cat sat.')).toBe(true);
     expect(buildable(['The cat', 'sat.'], 'The dog sat.')).toBe(false);

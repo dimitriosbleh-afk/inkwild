@@ -16,7 +16,8 @@ export type Action =
   | { type: 'keeper'; branch: BranchId }
   | { type: 'advance' }
   | { type: 'answer'; response: Response }
-  | { type: 'retreat' };
+  | { type: 'retreat' }
+  | { type: 'piece'; skill: SkillId; title: string; text: string; ticks: boolean[] };
 
 export type GameEvent =
   | { type: 'secondLook'; reason: string }
@@ -91,6 +92,8 @@ class Run {
         return this.answer(action.response);
       case 'retreat':
         return this.retreat();
+      case 'piece':
+        return this.piece(action);
     }
   }
 
@@ -141,6 +144,30 @@ class Run {
   private advance(): void {
     const a = this.save.activity;
     if (a?.kind === 'teach' && a.step === 0) this.save.activity = { ...a, step: 1, tries: 0 };
+  }
+
+  /** A finished Piece: kept on the iPad, never judged. Finishing one befriends and evolves that prompt's Creature. */
+  private piece(a: Extract<Action, { type: 'piece' }>): void {
+    const skill = this.content.skill(a.skill);
+    if (!skill.workshop || !isUnlocked(this.content, this.save, skill.id) || !a.text.trim()) return;
+    const before = this.openState(skill.branch);
+    const p = skillProgress(this.save, skill.id);
+    this.save.pieces.push({ id: `${skill.id}-${this.save.pieces.length + 1}`, skill: skill.id, title: a.title.trim() || skill.name, text: a.text, ticks: a.ticks, day: this.ctx.day });
+    if (p.done === 0) this.events.push({ type: 'befriended', skill: skill.id, creature: skill.creature.id, shiny: false });
+    const firstFinish = !p.mastered;
+    this.save.skills[skill.id] = { ...p, taught: true, done: p.done + 1, xp: p.xp + 30, mastered: true };
+    if (firstFinish) this.events.push({ type: 'evolved', skill: skill.id, creature: skill.creature.id });
+    if (this.save.lastPlayed !== this.ctx.day) {
+      this.save.daysPlayed += 1;
+      this.save.lastPlayed = this.ctx.day;
+    }
+    this.save.branches[skill.branch].lastDay = this.ctx.day;
+    const all = this.content.skillsOf(skill.branch).every((sk) => skillProgress(this.save, sk.id).mastered);
+    if (all && !this.save.branches[skill.branch].keeper) {
+      this.save.branches[skill.branch].keeper = true;
+      this.events.push({ type: 'badge', branch: skill.branch });
+    }
+    this.announceUnlocks(skill.branch, before);
   }
 
   private retreat(): void {

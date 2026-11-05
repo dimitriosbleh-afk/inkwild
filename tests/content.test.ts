@@ -47,3 +47,15 @@ describe('content bank', () => {
     expect(files.map((f) => f.skill.id).filter((id) => !listed.has(id))).toEqual([]);
   });
 });
+
+describe('story chapters', () => {
+  it('passes every chapter check', async () => {
+    const { readdirSync, readFileSync: read } = await import('node:fs');
+    const { chapterProblems } = await import('../src/content/rules');
+    const dir = new URL('../content/chapters/', import.meta.url);
+    const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+    const ids = new Set(branches.map((b) => b.id));
+    const problems = files.flatMap((f) => chapterProblems(JSON.parse(read(new URL(f, dir), 'utf8')), ids));
+    expect(problems.map((p) => `${p.where}: ${p.problem}`)).toEqual([]);
+  });
+});

@@ -103,6 +103,8 @@ export interface Skill {
   how: string;
   teach: Teach;
   creature: CreatureDef;
+  /** Story workshop Skills only: a short mentor text, the writing prompt, and the Student's own checklist. Never marked. */
+  workshop?: { mentor: string; ask: string; checklist: string[] };
 }
 
 export interface Content {

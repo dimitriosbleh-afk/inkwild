@@ -281,7 +281,7 @@ export function settingsScreen(app: App): ScreenView {
         'div',
         { class: 'panel' },
         h('h3', {}, 'YOU'),
-        h('div', { class: 'row' }, h('button', { class: 'alt', onclick: () => app.go({ name: 'firstRun' }) }, 'CAPTAIN & INTERESTS'), h('button', { class: 'alt', onclick: () => app.go({ name: 'backup' }) }, 'BACKUP CODE'), h('button', { class: 'alt', onclick: () => app.go({ name: 'progress' }) }, 'SHOW MY TEACHER')),
+        h('div', { class: 'row' }, h('button', { class: 'alt', onclick: () => app.go({ name: 'firstRun' }) }, 'CAPTAIN & INTERESTS'), h('button', { class: 'alt', onclick: () => app.go({ name: 'backup' }) }, 'BACKUP CODE'), h('button', { class: 'alt', onclick: () => app.go({ name: 'progress' }) }, 'SHOW MY TEACHER'), h('button', { class: 'alt', onclick: () => app.go({ name: 'pieces' }) }, 'MY WRITING')),
       ),
     );
   draw();

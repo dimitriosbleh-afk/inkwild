@@ -2,6 +2,7 @@ import branches from '../../content/branches.json';
 import crewData from '../../content/crew.json';
 import { buildContent, type SkillFile } from '../content/bank';
 import type { Branch, CrewId } from '../content/types';
+import type { Chapter } from '../story/chapters';
 
 const files = Object.values(
   import.meta.glob<SkillFile>('../../content/skills/*.json', { eager: true, import: 'default' }),
@@ -10,3 +11,7 @@ const files = Object.values(
 export const content = buildContent(branches as Branch[], files);
 export const crew = crewData as Record<CrewId, { name: string; role: string; passion: string }>;
 export const GAME_TITLE = 'Inkwild';
+
+export const chapters: Chapter[] = Object.values(
+  import.meta.glob<Chapter>('../../content/chapters/*.json', { eager: true, import: 'default' }),
+);

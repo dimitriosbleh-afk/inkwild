@@ -4,6 +4,8 @@ import { App } from './ui/app';
 import { activityScreen } from './ui/screens/activity';
 import { backupScreen, firstRunScreen, guideScreen, progressScreen, restoreScreen, settingsScreen } from './ui/screens/menus';
 import { homeScreen, islandScreen, mapScreen } from './ui/screens/world';
+import { storyScreen } from './ui/screens/story';
+import { piecesScreen, writeScreen } from './ui/screens/write';
 
 const app = new App(document.getElementById('app')!, {
   firstRun: firstRunScreen,
@@ -16,6 +18,9 @@ const app = new App(document.getElementById('app')!, {
   settings: settingsScreen,
   backup: backupScreen,
   progress: progressScreen,
+  story: storyScreen,
+  write: writeScreen,
+  pieces: piecesScreen,
 });
 app.start();
 void askToKeepStorage();

@@ -1,4 +1,5 @@
-import { content } from '../app/content';
+import { chapters, content } from '../app/content';
+import { unreadChapters } from '../story/chapters';
 import { Store } from '../app/store';
 import { creatureCanvas } from '../art/creatures';
 import type { BranchId, SkillId } from '../content/types';
@@ -17,7 +18,10 @@ export type Screen =
   | { name: 'guide' }
   | { name: 'settings' }
   | { name: 'backup' }
-  | { name: 'progress' };
+  | { name: 'progress' }
+  | { name: 'story'; chapter?: string }
+  | { name: 'write'; skill: SkillId }
+  | { name: 'pieces' };
 
 export type ScreenView = { el: HTMLElement; stop?: () => void };
 export type ScreenFn = (app: App, screen: never) => ScreenView;
@@ -39,6 +43,7 @@ export class App {
   }
 
   start(): void {
+    for (const c of unreadChapters(content, this.store.save, chapters)) if (c.unlock.kind !== 'start') this.announced.add(c.id);
     if (this.store.isNew) return this.go({ name: 'firstRun' });
     this.store.dispatch({ type: 'open' });
     this.go({ name: 'home' });
@@ -65,10 +70,17 @@ export class App {
     if (this.store.save.settings.sound) blip(kind);
   }
 
+  private announced = new Set<string>();
+
   private queueMoments(events: GameEvent[]): void {
     for (const e of events) {
       const m = this.moment(e);
       if (m) this.moments.push(m);
+    }
+    for (const c of unreadChapters(content, this.store.save, chapters)) {
+      if (this.announced.has(c.id)) continue;
+      this.announced.add(c.id);
+      this.moments.push(h('div', {}, h('h2', {}, 'NEW CHAPTER!'), h('div', { style: 'font-size:48px;margin:8px' }, '📖'), h('p', { class: 'note' }, `"${c.title}" is waiting in your Logbook.`)));
     }
     if (!this.showing) setTimeout(() => this.nextMoment(), 450);
   }

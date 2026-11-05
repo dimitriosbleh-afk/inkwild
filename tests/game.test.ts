@@ -285,3 +285,35 @@ function masterNearSide(): Player {
   }
   return p;
 }
+
+describe('Story workshop', () => {
+  it('keeps a finished Piece, befriends its Creature, and opens the next prompt', async () => {
+    const { buildContent } = await import('../src/content/bank');
+    const { step } = await import('../src/core/game');
+    const { branches } = await import('./fixture');
+    const prompt = (id: `${number}.${number}`) => ({
+      skill: {
+        id,
+        name: `Prompt ${id}`,
+        codes: ['VC2E5LE05'],
+        why: 'why',
+        how: 'how',
+        teach: { crew: 'artist' as const, iDo: { beats: [{ say: 'look' }] }, weDo: [content.skill('5.1').teach.weDo[0], content.skill('5.1').teach.weDo[1]] as [never, never] },
+        creature: { id: `w${id}`, name: `Inky ${id}`, evolved: `Big Inky ${id}`, blurb: '' },
+        workshop: { mentor: 'Once upon a time.', ask: 'Write an opening.', checklist: ['It hooks the reader'] },
+      },
+      encounters: [],
+    });
+    const bank = buildContent(branches, [prompt('9.1'), prompt('9.2')]);
+    const ctx = { day: 100, rand: () => 0.5 };
+    let save = new Player().save;
+    const before = step(bank, save, { type: 'piece', skill: '9.2', title: 'Too soon', text: 'x', ticks: [true] }, ctx);
+    expect(before.save.pieces).toEqual([]);
+    const done = step(bank, save, { type: 'piece', skill: '9.1', title: 'My hook', text: 'The door creaked.', ticks: [true] }, ctx);
+    save = done.save;
+    expect(save.pieces).toMatchObject([{ skill: '9.1', title: 'My hook', text: 'The door creaked.' }]);
+    expect(done.events.map((e) => e.type)).toEqual(expect.arrayContaining(['befriended', 'evolved', 'unlocked']));
+    const last = step(bank, save, { type: 'piece', skill: '9.2', title: 'End', text: 'The end.', ticks: [true] }, ctx);
+    expect(last.events.map((e) => e.type)).toContain('badge');
+  });
+});

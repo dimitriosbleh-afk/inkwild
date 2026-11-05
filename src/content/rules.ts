@@ -199,6 +199,28 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
   });
   if (!s.creature.id || !s.creature.name || !s.creature.evolved) add(id, 'creature needs id, name and evolved name');
 
+  if (id.startsWith('9.')) {
+    const w = s.workshop;
+    if (!w) add(id, 'Story workshop Skills need a workshop prompt');
+    else {
+      const n = wordCount(w.mentor);
+      if (n < 50 || n > 160) add(id, `mentor text is ${n} words; aim for 50 to 160`);
+      if (wordCount(w.ask) > 30) add(id, `writing prompt is ${wordCount(w.ask)} words; keep it to 30`);
+      if (w.checklist.length < 3 || w.checklist.length > 4) add(id, 'checklist needs 3 or 4 ticks');
+      w.checklist.forEach((c, i) => wordCount(c) > 10 && add(id, `checklist item ${i + 1} is over 10 words`));
+    }
+    if (file.encounters.length > 0) add(id, 'Story workshop Skills are never marked, so they have no Encounters');
+  } else if (s.workshop) add(id, 'only Story workshop Skills have a workshop prompt');
+  const reading = READING_BRANCHES.has(id.split('.')[0]!);
+  for (const band of BANDS) {
+    const es = file.encounters.filter((e) => e.band === band);
+    if (es.length === 0) continue;
+    const formats = new Set(es.map((e) => e.body.format)).size;
+    if (formats < 3) add(`${id} Band ${band}`, `uses ${formats} formats; use at least 3`);
+    const topics = new Map<string, number>();
+    for (const e of es) if (e.topic !== 'general') topics.set(e.topic, (topics.get(e.topic) ?? 0) + 1);
+    for (const [topic, n] of topics) if (n > 2) add(`${id} Band ${band}`, `topic ${topic} used ${n} times; at most 2`);
+  }
   const ids = new Set<string>();
   for (const e of file.encounters) {
     const where = `${id} ${e.id}`;
@@ -208,9 +230,18 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
     if (!BANDS.includes(e.band)) add(where, `band ${e.band} is not 1 to 4`);
     if (!TOPICS.has(e.topic)) add(where, `unknown topic ${e.topic}`);
     out.push(...taskProblems(e, where, e.band));
+    if (e.body.format === 'choose' && e.band >= 3 && e.body.options.length < 4) add(where, `Band ${e.band} choose needs 4 options, has ${e.body.options.length}`);
+    if (reading && e.text && sentences(e.text).length >= 3) {
+      const [lo, hi] = BAND_TARGETS[e.band].passage;
+      const n = wordCount(e.text);
+      if (n < lo * 0.85 || n > hi * 1.15) add(where, `passage is ${n} words; Band ${e.band} wants ${lo} to ${hi}`);
+    }
   }
   return out;
 }
+
+/** Branches whose Encounters are about reading whole texts, so passages are held to the Band's length. */
+const READING_BRANCHES = new Set(['1', '2', '3', '4', '7']);
 
 export function missingEncounters(file: SkillFile): Band[] {
   return BANDS.filter((band) => file.encounters.filter((e) => e.band === band).length < ENCOUNTERS_PER_BAND);
@@ -229,4 +260,29 @@ export function parseSkillList(markdown: string): ListedSkill[] {
     name: name!.trim(),
     codes: codes!.split(',').map((c) => c.trim()),
   }));
+}
+
+export const CHAPTER_WORDS: Record<Band, [number, number]> = { 1: [180, 320], 2: [280, 450], 3: [400, 620], 4: [550, 850] };
+
+/** A Chapter is the same plot at four Bands: each within its length and sentence targets, in Australian spelling. */
+export function chapterProblems(c: { id: string; title: string; bands: Record<Band, string>; unlock: { kind: string; branch?: string } }, branchIds: Set<string>): Problem[] {
+  const out: Problem[] = [];
+  const add = (problem: string) => out.push({ where: `chapter ${c.id}`, problem });
+  if (!c.title.trim()) add('needs a title');
+  if (c.unlock.branch && !branchIds.has(c.unlock.branch)) add(`unlocks on unknown branch ${c.unlock.branch}`);
+  for (const band of BANDS) {
+    const text = c.bands[band];
+    if (!text?.trim()) {
+      add(`missing Band ${band}`);
+      continue;
+    }
+    const [lo, hi] = CHAPTER_WORDS[band];
+    const n = wordCount(text);
+    if (n < lo || n > hi) add(`Band ${band} is ${n} words; aim for ${lo} to ${hi}`);
+    const avg = averageSentenceLength(text);
+    if (avg > BAND_TARGETS[band].sentence) add(`Band ${band} sentences average ${avg.toFixed(1)}; keep to ${BAND_TARGETS[band].sentence}`);
+    const us = text.match(US_SPELLINGS);
+    if (us) add(`Band ${band} US spelling "${us[0]}"`);
+  }
+  return out;
 }
