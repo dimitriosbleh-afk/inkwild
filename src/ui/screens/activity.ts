@@ -7,6 +7,7 @@ import { currentTask, KEEPER_HP, type GameEvent } from '../../core/game';
 import type { Activity } from '../../core/save';
 import type { App, ScreenView } from '../app';
 import { h } from '../dom';
+import { SORT_LOOK } from '../../core/check';
 import { passage, widget } from '../formats';
 import { burst, shake } from '../fx';
 import { readable } from '../speech';
@@ -242,7 +243,7 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
           }
         }
         const title = e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
-        const why = e.outcome === 'shown' && e.reason ? [readable(e.reason), h('br'), h('br')] : [];
+        const why = e.outcome === 'shown' && e.reason && e.reason !== SORT_LOOK ? [readable(e.reason), h('br'), h('br')] : [];
         const box = h('div', { class: 'feedback good pop' }, h('b', {}, title), ...why, readable(e.success));
         feedback.replaceChildren(box, nextButtons(app, branch, events));
         if (e.outcome !== 'shown') {
