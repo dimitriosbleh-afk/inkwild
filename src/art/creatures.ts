@@ -4,8 +4,9 @@ import { TWOTIDE } from './drawn/twotide';
 import { BLUSTER } from './drawn/bluster';
 import { MANGROVES } from './drawn/mangroves';
 import { PEAKS } from './drawn/peaks';
+import { REDPEN } from './drawn/redpen';
 
-const DRAWN = { ...BASE, ...COMMA, ...TWOTIDE, ...BLUSTER, ...MANGROVES, ...PEAKS };
+const DRAWN = { ...BASE, ...COMMA, ...TWOTIDE, ...BLUSTER, ...MANGROVES, ...PEAKS, ...REDPEN };
 import { hash, makeSprite, type SpriteDef } from './sprite';
 
 const HUES = [8, 28, 45, 95, 140, 175, 200, 225, 265, 300, 330];
