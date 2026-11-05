@@ -1,0 +1,972 @@
+{
+  "skill": {
+    "id": "7.7",
+    "name": "Where a new paragraph starts",
+    "codes": [
+      "VC2E5LA04"
+    ],
+    "why": "Paragraphs show readers when something changes, so they don't get lost.",
+    "how": "Start a new paragraph when the time, place, topic or speaker changes.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A paragraph is a group of sentences about one thing."
+          },
+          {
+            "say": "When the time changes, start a new paragraph.",
+            "show": "**The next morning,** the snow had gone."
+          },
+          {
+            "say": "Start a new one when the place changes, too.",
+            "show": "**Back at the ship,** Mo was burning toast."
+          },
+          {
+            "say": "A new topic gets a new paragraph.",
+            "show": "Wombats have strong claws. **Wombat poo** is shaped like a cube."
+          },
+          {
+            "say": "And every new speaker gets a new paragraph.",
+            "show": "'Who ate my pie?' asked Tully. **'Not me,' said Mo.**"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Zed wrote about his gaming marathon as one big paragraph.",
+          "prompt": "Tap the sentence where a new paragraph should start.",
+          "hint": "Look for words that tell you the time has changed.",
+          "success": "'The next morning' jumps forward in time. A time change means a new paragraph.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Zed played his game all night. He beat three bosses. His eyes went square. ",
+              {
+                "tap": "He finally switched it off at 4 am.",
+                "reason": "This is still the same night. Nothing has changed yet."
+              },
+              " ",
+              {
+                "tap": "The next morning, he slept right through breakfast."
+              },
+              " ",
+              {
+                "tap": "Mo ate Zed's toast.",
+                "reason": "This is still the same morning as the sentence before."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "frame": "Indi wrote two paragraphs about the crew's busy day.",
+          "text": "Gus spent all day in his lab, mixing slime. Meanwhile, at the beach, Indi was painting the waves.",
+          "prompt": "Indi started a new paragraph at 'Meanwhile, at the beach'. Why?",
+          "hint": "'Meanwhile' means at the same time. So what else changed?",
+          "success": "The place changes, from Gus's lab to the beach. A new place means a new paragraph.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "The time changes.",
+                "reason": "'Meanwhile' means at the same time. Look at where each part happens."
+              },
+              {
+                "text": "The speaker changes.",
+                "reason": "Nobody speaks here. Look at where each part happens."
+              },
+              {
+                "text": "The place changes."
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "ledgeling",
+      "name": "Ledgeling",
+      "evolved": "Ledgewing",
+      "blurb": "A fairy martin that builds a fresh mud nest on a new ledge whenever the time, place, topic or speaker changes. One nest, one paragraph."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.7-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote about her ski race. The Ledgeling wants a new ledge for a new paragraph.",
+      "prompt": "Tully forgot to start a new paragraph. Tap the sentence where it should start.",
+      "success": "'On Sunday' jumps to a new day. When the time changes, start a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "On Saturday, Tully skied in the Peaks Cross-Country Race. ",
+          {
+            "tap": "It snowed the whole time.",
+            "reason": "This is still the race on Saturday. Nothing has changed yet."
+          },
+          " The track was icy and steep. ",
+          {
+            "tap": "Tully fell over twice but kept going.",
+            "reason": "This is still the same race on Saturday. Nothing has changed yet."
+          },
+          " She came fourth. ",
+          {
+            "tap": "On Sunday, her legs were so sore that she couldn't get out of bed."
+          },
+          " Mum brought her breakfast on a tray. ",
+          {
+            "tap": "Tully ate it lying down and got honey in her hair.",
+            "reason": "This is still Sunday in bed. It belongs with the sentence before."
+          },
+          " Her little brother laughed for ten minutes."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b1-2",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Indi wrote about the crew's day at the reef. A Ledgeling is nesting on the mast.",
+      "text": "The crew went snorkelling at Hollowgum Reef. Gus found a sea cucumber and squeezed it. It squirted him in the face. Wren swam with a turtle for ten minutes. Meanwhile, back on the Soggy Biscuit, Mo was making lunch. He put sardines on the jam sandwiches. Then he put jam on the sardine sandwiches. He was very proud of both.",
+      "prompt": "Indi started a new paragraph at 'Meanwhile, back on the Soggy Biscuit'. Why?",
+      "success": "The place changes, from the reef to the boat. A change of place starts a new paragraph.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The place changes."
+          },
+          {
+            "text": "The time changes.",
+            "reason": "'Meanwhile' means at the same time. It's the place that changes: from the reef to the boat."
+          },
+          {
+            "text": "The speaker changes.",
+            "reason": "Nobody speaks in this story. Look at where each part happens."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.7-b1-3",
+      "band": 1,
+      "topic": "funny",
+      "frame": "It's the last night of camp. The Ledgeling is listening from a branch.",
+      "prompt": "Tap the sentence where a new paragraph should start.",
+      "success": "Tully starts speaking. Every time a new person speaks, start a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "It was the last night of camp on Scaffold Peaks. The crew sat around the campfire. Mo stood up and cleared his throat. 'I have a joke,' he said. ",
+          {
+            "tap": "'Why did the snowman call his dog Frost?'",
+            "reason": "Mo is still speaking. It stays in his paragraph."
+          },
+          " ",
+          {
+            "tap": "'Because Frost bites!' he shouted.",
+            "reason": "Mo is still the speaker. Same speaker, same paragraph."
+          },
+          " ",
+          {
+            "tap": "He laughed so hard that he fell off his log.",
+            "reason": "This is still about Mo, right after his joke. Nobody new speaks yet."
+          },
+          " ",
+          {
+            "tap": "'That is the worst joke I have ever heard,' said Tully."
+          },
+          " She threw a marshmallow at him."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.7-b1-4",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Indi is writing a spooky story. The Ledgeling is building one nest for each paragraph.",
+      "text": "Indi wrote the first sentence of five new paragraphs. Each one shows a change.",
+      "prompt": "Match each paragraph opener to what changes.",
+      "success": "Time words, place words and new speakers all tell you a new paragraph is starting.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the time",
+          "the place",
+          "the speaker"
+        ],
+        "items": [
+          {
+            "text": "At midnight, the lights in the hut went out.",
+            "bin": 0,
+            "reason": "'At midnight' tells you the time has changed."
+          },
+          {
+            "text": "Up in the attic, something was scratching.",
+            "bin": 1,
+            "reason": "'Up in the attic' takes you to a new place."
+          },
+          {
+            "text": "'Who's there?' whispered Gus.",
+            "bin": 2,
+            "reason": "Gus starts speaking. A new speaker means a new paragraph."
+          },
+          {
+            "text": "The next morning, Zed found a possum in the attic.",
+            "bin": 0,
+            "reason": "'The next morning' tells you the time has changed."
+          },
+          {
+            "text": "'It was only a possum,' laughed Wren.",
+            "bin": 2,
+            "reason": "Wren starts speaking. A new speaker means a new paragraph."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.7-b1-5",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Tully wrote a note about Wren's wombat report. One word is wrong.",
+      "text": "Wren wrote a report on snow wombats. Snow wombats are short and very strong. They have thick fur to keep out the cold. Their claws are like little shovels. Wombat poo is shaped like a cube. Wombats leave their cube poos on rocks and logs. The cubes don't roll away. Other wombats sniff them to find out who lives nearby.",
+      "prompt": "Tap the word Tully got wrong, then choose a better one.",
+      "success": "Topic. The report moves from the wombat's body to its poo. A new topic gets a new paragraph.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren started a new paragraph at 'Wombat poo is shaped like a cube'. The first paragraph is about the wombat's ",
+          {
+            "tap": "body",
+            "reason": "That's right. The first paragraph is about fur, claws and strength."
+          },
+          ". The new one starts because the ",
+          {
+            "tap": "speaker"
+          },
+          " changes. It is all about ",
+          {
+            "tap": "poo",
+            "reason": "That's right. The new paragraph is all about cube poo."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "time",
+            "reason": "Nothing says the time changes. The report moves from bodies to poo."
+          },
+          {
+            "text": "topic"
+          },
+          {
+            "text": "place",
+            "reason": "The report stays with the same wombats. It's what it's about that changes."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.7-b1-6",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo wrote about Wren's birthday cake. The Ledgeling is waiting for a slice.",
+      "text": "Mo baked a cake for Wren's birthday. He used six eggs and a whole bag of sugar. He forgot the flour. The cake came out flat, like a pancake. Mo put candles on it anyway. That night, everyone sang to Wren. She blew out the candles and laughed. Then she ate the whole pancake cake in four bites.",
+      "prompt": "Which sentence should start a new paragraph?",
+      "success": "'That night' moves the story to a new time. A time change is a good place for a new paragraph.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "He forgot the flour.",
+            "reason": "This is still Mo baking the cake. Nothing has changed yet."
+          },
+          {
+            "text": "That night, everyone sang to Wren."
+          },
+          {
+            "text": "She blew out the candles and laughed.",
+            "reason": "This happens at the party, just after the singing. Same time, same place."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.7-b2-1",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed wrote up his Frostbite Quest level. The Ledgeling is circling the castle.",
+      "prompt": "Zed wrote it all as one paragraph. Tap the sentence where a new paragraph should start.",
+      "success": "'At the top of the mountain' moves to a new place. A change of place means a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "In Frostbite Quest, Zed's knight began the level in a tiny village at the bottom of a mountain. ",
+          {
+            "tap": "He bought a warm cloak and three fish pies from the village shop.",
+            "reason": "This is still in the village. Nothing has changed yet."
+          },
+          " The shopkeeper was a talking goat who charged double for everything. ",
+          {
+            "tap": "Zed paid anyway, because the goat looked grumpy.",
+            "reason": "This is still in the village shop with the goat. Same place, same paragraph."
+          },
+          " ",
+          {
+            "tap": "At the top of the mountain, a frozen castle glittered in the moonlight."
+          },
+          " Its gates were guarded by two snow trolls with icicle beards. ",
+          {
+            "tap": "Zed's knight hid behind a rock and threw a fish pie to distract them.",
+            "reason": "This is still at the castle on the mountain top. It belongs with the trolls."
+          },
+          " It worked. Snow trolls, it turns out, love fish pie more than anything in the world."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed wrote about the choir's big night. A Ledgeling is nesting in the stage lights.",
+      "text": "Before the concert, Ms Rao gathered the choir behind the stage. The hall was packed, and a snow machine hummed quietly above the curtain, ready for the last song. 'Remember to breathe from your belly,' she said. 'Watch me, not your parents. And whatever you do, don't look at the snow machine.' The choir nodded, very seriously. Gus put up his hand. 'What happens if we look at the snow machine?' he asked. He had his notebook open and his pencil ready. He looked as if he was hoping the answer would be disgusting.",
+      "prompt": "Zed started a new paragraph at 'Gus put up his hand'. Why?",
+      "success": "Gus starts speaking. Every new speaker gets a new paragraph, so readers can tell who's talking.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The time changes.",
+            "reason": "It's still the moment before the concert. Everyone is waiting behind the stage."
+          },
+          {
+            "text": "The place changes.",
+            "reason": "Everyone is still behind the stage. Look at who is talking."
+          },
+          {
+            "text": "The speaker changes."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b2-3",
+      "band": 2,
+      "topic": "space",
+      "frame": "Indi is writing a report on one of Saturn's moons. The Ledgeling is reading it upside down.",
+      "prompt": "Indi's report needs two paragraphs: what the moon is like, then what was discovered there. Tap the sentence where the second one should start.",
+      "success": "The report moves from what the moon is like to what Cassini discovered. A new topic, a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Enceladus is one of Saturn's moons. ",
+          {
+            "tap": "It is about 500 kilometres wide, small enough to fit inside Australia many times over.",
+            "reason": "This is still about what Enceladus is like. Same topic."
+          },
+          " Its surface is covered in ice, which makes it one of the shiniest objects in space. ",
+          {
+            "tap": "The ice is so cold, about minus 200 degrees, that it is as hard as rock.",
+            "reason": "This is still describing the moon's icy surface. Same topic, same paragraph."
+          },
+          " ",
+          {
+            "tap": "A spacecraft called Cassini flew past Enceladus in 2005 and spotted something amazing."
+          },
+          " Giant jets of water were spraying out of cracks near its south pole. ",
+          {
+            "tap": "Cassini later flew straight through the spray to find out what was in it.",
+            "reason": "This is still about what Cassini discovered. It belongs with the jets of water."
+          },
+          " Scientists found salt in the spray. That means there is probably a hidden ocean under the ice."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully wrote about the Reef Rays' comeback. The Ledgeling built a nest for each paragraph.",
+      "text": "These are the first sentences of six of Tully's paragraphs. Each one starts a new paragraph for a reason.",
+      "prompt": "Match each paragraph opener to what changes.",
+      "success": "Some openers jump in time, some move to a new place, and one brings in a new speaker.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the time",
+          "the place",
+          "the speaker"
+        ],
+        "items": [
+          {
+            "text": "By half-time, the Reef Rays were losing by twenty points.",
+            "bin": 0,
+            "reason": "'By half-time' jumps forward in the match."
+          },
+          {
+            "text": "In the change rooms, the coach threw her clipboard at the wall.",
+            "bin": 1,
+            "reason": "'In the change rooms' moves to a new place."
+          },
+          {
+            "text": "'We can still win this,' said the captain.",
+            "bin": 2,
+            "reason": "The captain starts speaking. A new speaker means a new paragraph."
+          },
+          {
+            "text": "Ten minutes into the last quarter, it started to snow.",
+            "bin": 0,
+            "reason": "'Ten minutes into the last quarter' jumps forward in time."
+          },
+          {
+            "text": "Up in the stands, Tully was chewing her scarf.",
+            "bin": 1,
+            "reason": "'Up in the stands' moves from the ground to a new place."
+          },
+          {
+            "text": "Out on the wing, the youngest player was waving for the ball.",
+            "bin": 1,
+            "reason": "'Out on the wing' moves to a new place on the ground."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.7-b2-5",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus wrote about his banana experiment. Zed wrote a note about it, and one word is wrong.",
+      "text": "Gus left a banana in his school bag on Monday. He had meant to eat it at lunch, but he got busy with a jar of worms. It was a perfectly normal banana, yellow and firm. He forgot all about it. Two weeks later, the bag began to smell. Tiny flies buzzed out of it whenever anyone opened the zip. Gus finally tipped the bag out on the kitchen table. The banana had turned black and runny, and it was wearing a fluffy grey coat. 'That's not gross,' said Gus. 'That's science.' He put it in a jar to study.",
+      "prompt": "Tap the word Zed got wrong, then choose a better one.",
+      "success": "Time. 'Two weeks later' jumps forward, and a big jump in time starts a new paragraph.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus started a new paragraph at 'Two weeks later', because the ",
+          {
+            "tap": "place"
+          },
+          " changes. In the first paragraph, the banana is ",
+          {
+            "tap": "yellow",
+            "reason": "That's right. On Monday, it was yellow and firm."
+          },
+          ". In the new one, it is ",
+          {
+            "tap": "black",
+            "reason": "That's right. Two weeks later, it was black and runny."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "speaker",
+            "reason": "Nobody speaks until the very end. The new paragraph starts with 'Two weeks later'."
+          },
+          {
+            "text": "topic",
+            "reason": "It's the same banana in the same bag. 'Two weeks later' shows what changes."
+          },
+          {
+            "text": "time"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b2-6",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote about his new robot. The Ledgeling is not sure it likes robots.",
+      "text": "The crew crowded around the table in the hut. Gus wheeled in his new robot, Sparky. It was made from a vacuum cleaner, two toasters and a lot of sticky tape. 'Sparky can do anything,' he said proudly. 'He can cook, clean and even tell jokes.' He pressed a red button on Sparky's back, and its eyes lit up. 'Sparky, make us some toast,' said Gus. 'Toast is not in my program,' said Sparky in a flat, crackly voice. 'Would you like a joke about toast instead?'",
+      "prompt": "Which sentence should start a new paragraph?",
+      "success": "Sparky starts speaking. Until then, Gus does all the talking, so that's where the new paragraph goes.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "'He can cook, clean and even tell jokes.'",
+            "reason": "Gus is still speaking. Same speaker, same paragraph."
+          },
+          {
+            "text": "'Sparky, make us some toast,' said Gus.",
+            "reason": "Gus is still the speaker here. His paragraph keeps going."
+          },
+          {
+            "text": "'Toast is not in my program,' said Sparky in a flat, crackly voice."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b3-1",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi wrote about her first art show. The Ledgeling is nesting on a picture frame.",
+      "prompt": "Indi wrote this as one paragraph. Tap the sentence where a new paragraph should start.",
+      "success": "'Three days later' jumps forward in time. A big jump in time is a clear place for a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Indi spent all of Friday setting up her first art show in the old ski lodge. She hung twelve paintings along the walls, each one showing a different Creature from Scaffold Peaks. ",
+          {
+            "tap": "The biggest painting, a Girderoo balancing on a ladder, took four people to lift.",
+            "reason": "This is still Friday, setting up the show. Nothing has changed yet."
+          },
+          " Her arms ached, but every painting hung perfectly straight. ",
+          {
+            "tap": "She stuck a tiny price tag beside each one, even though she secretly hoped nobody would buy them.",
+            "reason": "This is still Friday at the lodge, getting ready. It belongs in the same paragraph."
+          },
+          " ",
+          {
+            "tap": "Three days later, she came back to find a red SOLD sticker on every single painting."
+          },
+          " Her mouth fell open. ",
+          {
+            "tap": "Someone had bought all twelve and written 'From a fan' in the guest book.",
+            "reason": "This is still the moment she comes back. It belongs with the SOLD stickers."
+          },
+          " The handwriting looked a lot like Mo's, but Mo said he had no idea what she was talking about. He was also, for some reason, wearing a Girderoo painting as a cape."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b3-2",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren wrote a report on the bogong moths of Scaffold Peaks. A Ledgeling is eyeing them hungrily.",
+      "text": "Every spring, billions of bogong moths fly up to the Australian Alps. Some travel more than a thousand kilometres to get there. They fly at night, and scientists think they use the stars and the Earth's magnetic field to find their way. When they arrive, they squeeze into cool, dark cracks between the boulders. Thousands of moths can pack into a single square metre of rock, like a furry brown carpet. They stay there all summer, resting, and then fly home in autumn. Bogong moths are also an important food for many animals on the mountain. Mountain pygmy possums fatten up on them after waking from their long winter sleep. Ravens pick them out of the cracks with their beaks. Even foxes have been seen licking moths off the rocks like lollies.",
+      "prompt": "Wren started a new paragraph at 'Bogong moths are also an important food'. Why?",
+      "success": "The topic changes, from the moths' journey to the animals that eat them. A new topic needs a new paragraph.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The time changes.",
+            "reason": "There's no time jump. The new paragraph starts with 'Bogong moths are also', not a time."
+          },
+          {
+            "text": "The topic changes."
+          },
+          {
+            "text": "The place changes.",
+            "reason": "The moths stay in the same rocky cracks. What the report is about is what changes."
+          },
+          {
+            "text": "The speaker changes.",
+            "reason": "Nobody speaks in Wren's report. It's what the report is about that changes."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.7-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote about the Peaks Junior Cook-Off. The Ledgeling is hoping for crumbs.",
+      "prompt": "Tap the sentence where a new paragraph should start.",
+      "success": "Mo starts speaking. Whenever a new person speaks, a new paragraph starts.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The final round of the Peaks Junior Cook-Off was dessert, and Mo had made his famous gum-leaf pavlova. Chef Delphine, the head judge, took one bite and put down her spoon very slowly. ",
+          {
+            "tap": "She stared at the pavlova for a long time without saying a word.",
+            "reason": "This is still Chef Delphine, before anyone else speaks. It stays in her paragraph."
+          },
+          " 'In thirty years of judging,' she said at last, 'I have never tasted anything like this.' ",
+          {
+            "tap": "She dabbed her mouth with a napkin and took a long sip of water.",
+            "reason": "Chef Delphine is still the one speaking and acting. Same speaker, same paragraph."
+          },
+          " 'The meringue is crisp, the cream is light, and the gum leaves are certainly a choice.' ",
+          {
+            "tap": "'Is that a good thing or a bad thing?' asked Mo, gripping the edge of the table."
+          },
+          " His knees were shaking so much that the whole bench wobbled. ",
+          {
+            "tap": "He had stayed up until two in the morning picking the gum leaves by torchlight.",
+            "reason": "This is still about Mo, straight after he speaks. It belongs in his paragraph."
+          },
+          " He had never wanted an answer so badly in his whole life."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b3-4",
+      "band": 3,
+      "topic": "general",
+      "frame": "The Ledgeling found paragraph openers from books in the Peaks library.",
+      "text": "Each of these sentences starts a new paragraph in a book from the Peaks library. Each one starts a new paragraph because something changes.",
+      "prompt": "Match each paragraph opener to what changes.",
+      "success": "Time and place words, new speakers and new topics all signal a fresh paragraph.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the time",
+          "the place",
+          "the speaker",
+          "the topic"
+        ],
+        "items": [
+          {
+            "text": "Later that winter, the chairlift froze solid.",
+            "bin": 0,
+            "reason": "'Later that winter' jumps forward in time."
+          },
+          {
+            "text": "On the far side of the mountain, the snow was even deeper.",
+            "bin": 1,
+            "reason": "'On the far side of the mountain' moves to a new place."
+          },
+          {
+            "text": "'Nobody goes up there after dark,' said the ranger.",
+            "bin": 2,
+            "reason": "The ranger starts speaking. A new speaker means a new paragraph."
+          },
+          {
+            "text": "The second thing visitors should know about Scaffold Peaks is its weather.",
+            "bin": 3,
+            "reason": "This moves the guide on to a new subject: the weather."
+          },
+          {
+            "text": "Another reason to visit the Peaks is the food.",
+            "bin": 3,
+            "reason": "This moves on to a new subject: the food."
+          },
+          {
+            "text": "By the following spring, the ladders were finally fixed.",
+            "bin": 0,
+            "reason": "'By the following spring' jumps forward in time."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.7-b3-5",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Gus wrote a note about Zed's ghost story. One word is wrong.",
+      "text": "The crew had been snowed in at the old ski hut for two whole days. That evening, the fire crackled, and Mo told ghost stories until Gus put his fingers in his ears and hummed. Indi was drawing everyone by candlelight, and she gave Gus a very large nose. Zed was trying to get one bar of signal on his phone by holding it against the frosty window. Out by the frozen lake, a light was moving slowly across the ice. It bobbed and swayed, as if someone was carrying a lantern. It stopped in the middle of the lake for a long time. Then it went out. Nobody in the hut saw it, except one Ledgeling on the windowsill, who fluffed up its feathers and decided to sleep inside after all.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Place. The story moves from inside the hut to out on the frozen lake. A new place, a new paragraph.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Zed started a new paragraph at 'Out by the frozen lake', because the ",
+          {
+            "tap": "time"
+          },
+          " changes. The first paragraph happens inside the ",
+          {
+            "tap": "hut",
+            "reason": "That's right. Mo, Indi, Gus and Zed are all inside the hut."
+          },
+          ". The new one happens out on the ",
+          {
+            "tap": "ice",
+            "reason": "That's right. The light moves across the frozen lake."
+          },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "speaker",
+            "reason": "Nobody speaks in this part of the story. Look at where each part happens."
+          },
+          {
+            "text": "place"
+          },
+          {
+            "text": "weather",
+            "reason": "It's the same snowy evening all the way through. What changes is where it happens."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.7-b3-6",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Wren wrote about her first sea dragon. The Ledgeling has never seen the sea.",
+      "text": "Wren had always wanted to see a weedy sea dragon, and today was her chance. She rolled backwards off the dive boat and sank slowly through the cold green water. Below her, the kelp swayed like a forest in the wind. She swam between the long brown fronds, searching every shadow. For twenty minutes, she saw nothing but a grumpy crab. Then, just as her air was running low, something moved. A sea dragon, no longer than a ruler, drifted out from the kelp, its leafy fins fluttering. Wren hovered perfectly still and watched it for as long as she possibly dared, holding her breath. Back on the boat, she peeled off her mask and burst into happy tears. She wiped her eyes on the towel that Tully handed her. Mo asked if sea dragons breathe fire. Wren was too happy to explain.",
+      "prompt": "Which sentence should start a new paragraph?",
+      "success": "'Back on the boat' moves from under the water to the boat. A change of place starts a new paragraph.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She swam between the long brown fronds, searching every shadow.",
+            "reason": "Wren is still underwater, searching. Same time, same place."
+          },
+          {
+            "text": "Wren hovered perfectly still and watched it for as long as she possibly dared, holding her breath.",
+            "reason": "She's still underwater with the sea dragon. It belongs with the sentence before."
+          },
+          {
+            "text": "She wiped her eyes on the towel that Tully handed her.",
+            "reason": "Wren is still on the boat, just after she gets back. Same place, same paragraph."
+          },
+          {
+            "text": "Back on the boat, she peeled off her mask and burst into happy tears."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.7-b4-1",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus wrote about the Robot Ladder Race. A Ledgeling watched from the top of the tower.",
+      "prompt": "Gus wrote this as one paragraph. Tap the sentence where a new paragraph should start.",
+      "success": "'At the summit' jumps from the foot of the tower to the top. A new place starts a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The Robot Ladder Race began at the foot of the tallest tower on Scaffold Peaks, where twelve robots stood in a row with their engines humming in the cold. Gus had built his robot, Clank, out of a vacuum cleaner, two old toasters and the springs from Mo's mattress, which Mo still did not know about. ",
+          {
+            "tap": "Clank's suction-cup feet squeaked against the bottom rung as he waited for the starting horn.",
+            "reason": "This is still at the foot of the tower, before the race. Nothing has changed yet."
+          },
+          " Next to him, a sleek silver robot called Dazzle flashed its lights at the crowd. ",
+          {
+            "tap": "Its owner, a boy in a gold tracksuit, smirked at Gus and looked away.",
+            "reason": "This is still at the start line, at the bottom of the tower. It stays in the same paragraph."
+          },
+          " ",
+          {
+            "tap": "Gus patted Clank's toaster head and told him it didn't matter if they came last.",
+            "reason": "This is still at the foot of the tower before the horn. Same place, same paragraph."
+          },
+          " ",
+          {
+            "tap": "At the summit, four hundred rungs higher, a dented, smoking Clank hauled himself over the edge first, missing one toaster."
+          },
+          " The Architect, waiting beside a finish line scratched into the snow, clicked a stopwatch. ",
+          {
+            "tap": "Close behind him, Dazzle crawled over the edge with its lights flickering weakly.",
+            "reason": "This is still at the summit, at the finish line. It belongs with Clank arriving."
+          },
+          " Its batteries, it turned out, did not like the cold. The Architect handed Gus a trophy shaped like a ladder."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.7-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully wrote about how she made the Reef Rays junior squad. The Ledgeling has heard it eleven times.",
+      "text": "Every evening after school, Tully went down to the frozen oval at the bottom of Scaffold Peaks to practise kicking. Her goal was simple: to make the Reef Rays junior squad, the team she had supported since she was four years old. She set up a row of witches' hats along the boundary and tried to kick the ball between them from fifty metres out. Most of her kicks sailed wide, and one bounced off a seagull, who was not impressed. Her fingers went numb inside her gloves, and her breath came out in clouds. Still, she kept a notebook in her pocket and wrote down every single kick, the good ones and the terrible ones, until the floodlights switched off at seven. Six months later, on the same frozen oval, Tully kicked her hundredth goal in a row without missing once. The Reef Rays coach, who had been watching quietly from the fence, wrote something in a notebook of her own. Then she walked over and handed Tully an envelope with the club's logo on the front.",
+      "prompt": "Tully started a new paragraph at 'Six months later'. Why?",
+      "success": "The time changes: 'Six months later' jumps forward, while the place and the topic stay the same.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The place changes.",
+            "reason": "'On the same frozen oval' tells you the place stays the same."
+          },
+          {
+            "text": "The topic changes.",
+            "reason": "Both paragraphs are about Tully's goal of making the squad. Only the time jumps."
+          },
+          {
+            "text": "The speaker changes.",
+            "reason": "Nobody speaks in this story. The new paragraph starts with 'Six months later'."
+          },
+          {
+            "text": "The time changes."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.7-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing a report on his favourite insect. The Ledgeling has lost its appetite.",
+      "prompt": "Gus's report needs two paragraphs: what dung beetles do with dung, then how they find their way. Tap the sentence where the second one should start.",
+      "success": "The report moves from burying dung to steering by the stars. A new topic needs a new paragraph.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Dung beetles may have the most disgusting job in the animal kingdom, but they are also among the most useful. When an animal does a poo, these beetles can arrive within minutes, sometimes flying in from far away, following the smell. ",
+          {
+            "tap": "Some kinds shape the dung into a ball, which can be much heavier than the beetle itself, and roll it away.",
+            "reason": "This is still about how dung beetles deal with dung. Same topic, same paragraph."
+          },
+          " Others dig tunnels straight underneath the pile and drag the dung down into the soil. ",
+          {
+            "tap": "Either way, the dung ends up buried, where it feeds the beetle's young and makes the soil richer for plants.",
+            "reason": "This is still about burying dung and why it helps. It belongs with the sentences before."
+          },
+          " ",
+          {
+            "tap": "Their sense of direction is even more surprising, because some kinds roll their balls in a perfectly straight line at night."
+          },
+          " Scientists in South Africa discovered that one kind of beetle steers by looking at the Milky Way. ",
+          {
+            "tap": "When the researchers put tiny cardboard caps on the beetles to block their view of the sky, the beetles wandered in circles.",
+            "reason": "This is still about how beetles steer by the stars. It belongs with the Milky Way discovery."
+          },
+          " Gus has asked for a pack of tiny cardboard caps for his birthday. Nobody is sure why, and nobody wants to ask."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.7-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "The Ledgeling collected paragraph openers from the Peaks Orchestra's newsletter.",
+      "text": "Each of these sentences starts a new paragraph in the newsletter's story about the winter concert. Each one starts a new paragraph because something changes.",
+      "prompt": "Match each paragraph opener to what changes.",
+      "success": "Time and place openers, new speakers and new subjects all tell readers a fresh paragraph has begun.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the time",
+          "the place",
+          "the speaker",
+          "the topic"
+        ],
+        "items": [
+          {
+            "text": "Long before the doors opened, the orchestra had been warming up for hours.",
+            "bin": 0,
+            "reason": "'Long before the doors opened' moves the story to an earlier time."
+          },
+          {
+            "text": "Backstage, the conductor was searching frantically for her baton.",
+            "bin": 1,
+            "reason": "'Backstage' moves the story to a new place."
+          },
+          {
+            "text": "'Has anyone seen a stick about this long?' the conductor called.",
+            "bin": 2,
+            "reason": "The conductor starts speaking. A new speaker means a new paragraph."
+          },
+          {
+            "text": "Concert halls in the mountains face another problem altogether: the cold.",
+            "bin": 3,
+            "reason": "This moves the story on to a new subject: the cold."
+          },
+          {
+            "text": "By the interval, half the audience had fallen asleep under their blankets.",
+            "bin": 0,
+            "reason": "'By the interval' jumps forward in time."
+          },
+          {
+            "text": "Out in the car park, a lone trumpet player was practising a solo for his cat.",
+            "bin": 1,
+            "reason": "'Out in the car park' moves the story to a new place."
+          },
+          {
+            "text": "'That,' said the trumpet player's grandmother, 'was the best solo I've ever heard.'",
+            "bin": 2,
+            "reason": "The grandmother starts speaking. A new speaker means a new paragraph."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.7-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Gus wrote a note about Indi's story of Mo's new pizza. One word is wrong.",
+      "text": "Mo had invented a new pizza, and he was explaining it to the crew in great detail. He had been working on it for three days, and the kitchen of the hut still smelled of hot banana and burnt cheese. The crew sat around the table, each holding a slice, and nobody had taken a bite yet. 'The base is made from crushed crackers,' he said, waving a slice in the air. 'Then I add a layer of mashed banana, a handful of sardines and a sprinkle of crushed lollies. The cheese goes on last, so it can hold everything down, like a blanket.' He took a huge bite and closed his eyes, chewing slowly, as if he was listening to beautiful music. 'I call it the Mo-zzarella Surprise,' he said, with his mouth still full. Tully put down her slice very carefully, as if it might explode at any moment. 'Mo,' she said, 'the only surprise is that nobody has been sick yet.' Then she pushed the plate as far away from herself as her arm could reach, and wiped her fingers on Gus's jumper.",
+      "prompt": "Tap the word Gus got wrong, then choose a better one.",
+      "success": "Speaker. Mo does all the talking, then Tully answers. Each new speaker gets a new paragraph.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi started a new paragraph at 'Tully put down her slice', because the ",
+          {
+            "tap": "time"
+          },
+          " changes. In the first paragraph, ",
+          {
+            "tap": "Mo",
+            "reason": "That's right. Mo does all the talking in the first part."
+          },
+          " does all the talking. In the new one, ",
+          {
+            "tap": "Tully",
+            "reason": "That's right. Tully takes over and starts to speak."
+          },
+          " answers him."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "place",
+            "reason": "Everyone is still sitting around the same pizza. What changes is who is talking."
+          },
+          {
+            "text": "speaker"
+          },
+          {
+            "text": "topic",
+            "reason": "They are both talking about the same pizza. The change is who is speaking."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.7-b4-6",
+      "band": 4,
+      "topic": "space",
+      "frame": "A story called 'The List' was pinned up at the Peaks Star Club. A Ledgeling is reading it by starlight.",
+      "text": "The night before the launch, eleven-year-old Kip lay on the roof of his house at the foot of Scaffold Peaks and stared at the stars. He had a cheap plastic telescope, a thermos of hot chocolate and a list of every planet he wanted to visit, written in green felt-tip pen. Mars was at the top of the list, underlined three times. Below his house, the launch tower glittered with lights, and he could hear the clang of engineers working late. He promised himself that one day he would ride a rocket like that one, heading somewhere nobody had ever been. He fell asleep on the roof, still holding the telescope, and his mum had to carry him inside. Thirty years later, Commander Kip Ferreira stood at the window of the first ship ever to orbit Mars. The red planet filled the glass, dusty and enormous and silent. He reached into the pocket of his flight suit and pulled out a faded list, written in green felt-tip pen. Then he crossed off the first name on it.",
+      "prompt": "Which sentence should start a new paragraph?",
+      "success": "'Thirty years later' makes a huge jump in time, from a boy on a roof to a commander near Mars.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mars was at the top of the list, underlined three times.",
+            "reason": "This is still about Kip's list on the roof that night. Nothing has changed yet."
+          },
+          {
+            "text": "Thirty years later, Commander Kip Ferreira stood at the window of the first ship ever to orbit Mars."
+          },
+          {
+            "text": "He fell asleep on the roof, still holding the telescope, and his mum had to carry him inside.",
+            "reason": "This is still the night before the launch. It finishes the first part of the story."
+          },
+          {
+            "text": "He reached into the pocket of his flight suit and pulled out a faded list, written in green felt-tip pen.",
+            "reason": "This is still on the ship near Mars. It belongs with the commander at the window."
+          }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,884 @@
+{
+  "skill": {
+    "id": "7.10",
+    "name": "Repetition that holds a text together",
+    "codes": [
+      "VC2E6LA04"
+    ],
+    "why": "Repeated key words link sentences, so readers know they're still on the same thing.",
+    "how": "Spot the word that keeps coming back, plus other words for the same thing.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Writers repeat key words on purpose.",
+            "show": "The **ladder** was old. Nobody trusted the **ladder**."
+          },
+          {
+            "say": "The repeat tells you it's still the same thing."
+          },
+          {
+            "say": "Writers also use other words for that same thing.",
+            "show": "The **storm** hit at noon. The **blizzard** raged all night."
+          },
+          {
+            "say": "Together they make a chain. It holds the text together."
+          },
+          {
+            "say": "Follow the chain, and you'll know what the text is about."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "LOST: one blue beanie. My beanie has a pom-pom on top. I lost my beanie near the second ladder. If you find my beanie, please give it to Mo. It is my lucky beanie.",
+          "prompt": "Which word holds this note together?",
+          "hint": "Which word keeps coming back, sentence after sentence?",
+          "success": "Beanie. It comes back in every sentence, so the note stays about one thing.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "ladder",
+                "reason": "Ladder comes up only once. Look for a word in every sentence."
+              },
+              {
+                "text": "beanie"
+              },
+              {
+                "text": "pom-pom",
+                "reason": "The pom-pom is mentioned once. Another word keeps coming back."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the word in the second sentence that links back to the first.",
+          "hint": "Which word did you already read in the first sentence?",
+          "success": "Slime. Repeating it tells you the second sentence is about the same slime.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Gus found a jar of green slime. The ",
+              {
+                "tap": "slime"
+              },
+              " ",
+              {
+                "tap": "wobbled",
+                "reason": "Wobbled is a new word here. Look for one from the first sentence."
+              },
+              " when he ",
+              {
+                "tap": "poked",
+                "reason": "Poked is new. The first sentence doesn't say anything about poking."
+              },
+              " it."
+            ],
+            "answer": 0
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "chorrawong",
+      "name": "Chorrawong",
+      "evolved": "Chorrawonder",
+      "blurb": "A pied currawong that calls the same key word across the valley, again and again, so every tower on the peaks knows what the song is about."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.10-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "A Chorrawong is perched on a sign at the bottom of Wombat Hill.",
+      "text": "Welcome to Wombat Hill! Please keep away from the wombat burrows. A wombat may be sleeping inside. Wombats sleep all day and wake up at night. If you see a wombat, stay still and watch quietly. Do not feed the wombats. Their tummies only like grass. And please do not sit on a wombat. This has happened before. The wombat was not happy.",
+      "prompt": "Which word does the sign keep coming back to?",
+      "success": "Wombat. It comes back in nearly every sentence, which keeps the whole sign about one animal.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "grass",
+            "reason": "Grass comes up only once. Look for the word in almost every sentence."
+          },
+          {
+            "text": "wombat"
+          },
+          {
+            "text": "burrows",
+            "reason": "Burrows are mentioned once, near the start. Another word keeps coming back."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.10-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo cooked dinner in the hut on the third tower. The Chorrawong flew off before it was served.",
+      "prompt": "Tap the word in Mo's last line that links back to the first sentence.",
+      "success": "Soup. It was in the first sentence, so it links the ending back to the start.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo made a big pot of soup. He put in lentils, liquorice and a pinch of pepper. The crew sat down to eat. Gus took one sip and coughed. Zed held his nose. Tully pushed her bowl away. Wren fed hers to a passing raven. At last, Mo tried some himself. 'Hmm,' he said. 'This ",
+          {
+            "tap": "soup"
+          },
+          " ",
+          {
+            "tap": "tastes",
+            "reason": "This word isn't in the first sentence. Look for one that is."
+          },
+          " like a ",
+          {
+            "tap": "tyre",
+            "reason": "Tyre is new. The first sentence doesn't mention a tyre."
+          },
+          ".'"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.10-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote a report on the Snowcats' big game. One word breaks the chain.",
+      "prompt": "Tap the word that breaks the chain, then choose a better one.",
+      "success": "Snowcats. The report keeps naming the same two teams. A new team name would muddle readers.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The Snowcats played the Rams on Saturday. The ",
+          {
+            "tap": "Snowcats",
+            "reason": "That's right. The report is about the Snowcats, so the name keeps coming back."
+          },
+          " kicked the first goal. Then the Rams kicked three goals in a row. At half-time, the ",
+          {
+            "tap": "Penguins"
+          },
+          " were losing by ten points. In the second half, Tully kicked four goals. The Snowcats won by two points! The ",
+          {
+            "tap": "Rams",
+            "reason": "That's right. The Rams lost, so they went home grumpy."
+          },
+          " went home grumpy. The Snowcats sang their team song all the way home."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "Snowcats"
+          },
+          {
+            "text": "Rams",
+            "reason": "The Rams had just kicked three goals in a row. They were winning at half-time."
+          },
+          {
+            "text": "umpires",
+            "reason": "Umpires don't win or lose. The report is about the two teams."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.10-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed is reading a space comic in the hut. The Chorrawong is reading over his shoulder.",
+      "text": "Captain Nova flew her rocket towards a strange planet. The planet was purple and covered in bumps. Nova landed her ship in a crater. She climbed out of the spacecraft and looked around. The purple world was very quiet. Then the ground began to wobble. The planet was not a planet at all. It was a giant purple jellyfish! Nova ran back to her rocket and blasted off.",
+      "prompt": "Match each word to the thing it names.",
+      "success": "The writer used new words for the same two things. Following each chain keeps the story clear.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the rocket",
+          "the planet"
+        ],
+        "items": [
+          {
+            "text": "ship",
+            "bin": 0,
+            "reason": "Nova landed her ship. It's another word for her rocket."
+          },
+          {
+            "text": "spacecraft",
+            "bin": 0,
+            "reason": "She climbed out of the spacecraft, so it's what she flew in: the rocket."
+          },
+          {
+            "text": "a strange planet",
+            "bin": 1,
+            "reason": "This is the first name the story gives the planet."
+          },
+          {
+            "text": "the purple world",
+            "bin": 1,
+            "reason": "The planet was purple. 'The purple world' is the planet again."
+          },
+          {
+            "text": "a giant purple jellyfish",
+            "bin": 1,
+            "reason": "The planet turned out to be a jellyfish. Same thing, new words."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.10-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is planning a new game level. The Chorrawong knocked his notes off the table.",
+      "prompt": "Put the sentences in order. Each one should pick up a word from the one before.",
+      "success": "Door, bridge, cave, bats, key. Each repeated word hooks one sentence onto the next.",
+      "body": {
+        "format": "order",
+        "items": [
+          "The level starts at a big red door.",
+          "The door opens onto a wobbly bridge.",
+          "The bridge leads to a dark cave.",
+          "The cave is full of sleeping bats.",
+          "The bats guard the golden key."
+        ],
+        "reason": "Each sentence starts with the thing the last one ended on: door, bridge, cave, bats."
+      }
+    },
+    {
+      "id": "7.10-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo wrote a story for the crew newsletter. The Chorrawong thinks it's hilarious.",
+      "text": "Mo's sock had been in his boot for five weeks. The sock was very stiff. The smelly thing could stand up by itself. One night, the stinky sock walked out of the hut. It hopped down the ladder. Gus chased it with a jar. 'Come back!' he yelled. 'You're science!' But the sock was gone. Mo bought new socks. He keeps them in the fridge now.",
+      "prompt": "Which words all name the same thing?",
+      "success": "Sock, smelly thing, stinky sock. Different words, same sock. The chain keeps the story on track.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo's boot, the hut, the ladder",
+            "reason": "These are three different things. Look for different words for one thing."
+          },
+          {
+            "text": "sock, smelly thing, stinky sock"
+          },
+          {
+            "text": "Gus, a jar, the fridge",
+            "reason": "A person, a jar and a fridge are all different things."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.10-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Chorrawong found this story in the Scaffold Peaks Gazette, wrapped around a fish.",
+      "text": "A glass bottle washed up on Pebble Beach last Tuesday. Inside the bottle was a rolled-up letter. The letter was written in blue pencil by a girl called Marnie, forty years ago. In the letter, Marnie asked whoever found the bottle to write back. She drew a picture of her dog at the bottom. The bottle had floated around the bay for four decades before a beachcomber spotted it in the seaweed. Last week, the beachcomber posted a reply to the address on the letter. Marnie, now a grandmother, still lives there. She has written back, with a photo of her six grandchildren.",
+      "prompt": "Which two words does the writer repeat to hold this report together?",
+      "success": "Bottle and letter. They come back again and again, so every sentence links to the same story.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "beach and seaweed",
+            "reason": "Each of these comes up only once. Two other words keep coming back."
+          },
+          {
+            "text": "pencil and photo",
+            "reason": "The pencil and the photo are each mentioned once. Look for words that repeat."
+          },
+          {
+            "text": "bottle and letter"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.10-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "The crew found something in the hut on the fifth tower. The Chorrawong wishes they hadn't.",
+      "prompt": "Tap the word in the second paragraph that repeats a key word from the first.",
+      "success": "Bugle. Repeating it tells you the second paragraph is still about the same old bugle.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The crew found an old brass bugle in the hut on the fifth tower. It was dented and green with age. A label on the side said: PLAY ME AT SUNRISE. The crew argued about who should try it first.\n\nNext morning, Mo got up early and blew the ",
+          {
+            "tap": "bugle"
+          },
+          " as hard as he could. A sound like a sick ",
+          {
+            "tap": "cow",
+            "reason": "A cow is new in this paragraph. It wasn't in the first one."
+          },
+          " echoed around the ",
+          {
+            "tap": "peaks",
+            "reason": "This word is new here. Look for one you read in the first paragraph."
+          },
+          ". Snow slid off three roofs. A goat fainted. Tully sat up in her ",
+          {
+            "tap": "hammock",
+            "reason": "The hammock is new. The first paragraph doesn't mention it."
+          },
+          " and threw a boot at him. Mo bowed. Now there's a new note stuck on it, in Tully's writing: PLEASE DON'T."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.10-b2-3",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren is writing a fact sheet for the ranger station. One word breaks the chain.",
+      "prompt": "Tap the word that breaks the chain, then choose a better one.",
+      "success": "Possum. The fact sheet is about one animal, so its name keeps coming back. A new animal breaks the chain.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The mountain pygmy possum is one of the smallest mammals in the Alps. Fewer than three thousand are left in the wild. A grown ",
+          {
+            "tap": "possum",
+            "reason": "That's right. The fact sheet is about the possum, so its name comes back."
+          },
+          " weighs about the same as two teaspoons of sugar. In spring, it feasts on bogong moths that fly in from the plains. Each moth is full of fat, so the possums grow plump very quickly. In winter, the ",
+          {
+            "tap": "wombat"
+          },
+          " curls into a tiny ball under the snow and sleeps for up to seven months. While it sleeps, its heart slows right down. When the snow melts, the little ",
+          {
+            "tap": "possum",
+            "reason": "That's right. The possum wakes up and goes hunting for moths again."
+          },
+          " wakes up, stretches and goes hunting for moths again."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "bogong moth",
+            "reason": "Moths are the possum's food. It's the possum that sleeps under the snow."
+          },
+          {
+            "text": "possum"
+          },
+          {
+            "text": "bush rat",
+            "reason": "A bush rat would be a new animal. The fact sheet is about one animal: the possum."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.10-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "The Scaffold Peaks art show is on. The Chorrawong voted twice.",
+      "text": "At the Scaffold Peaks art show, two works got the most votes. Indi entered a painting of a snowstorm. Her canvas was huge, almost as tall as a ladder. Up close, the picture was just swirls of white and grey. From the back of the hall, the swirls turned into a blizzard. Zed entered a sculpture made of old game controllers. His tower of buttons and cords leaned to one side, as if it might fall over. Kids kept pressing the buttons on Zed's creation to see if anything happened. Nothing did. In the end, the judges split the prize. Indi's artwork won Best Colour. Zed's sculpture won Most Likely to Fall Over.",
+      "prompt": "Match each phrase to the work of art it names.",
+      "success": "Canvas, picture and artwork all mean Indi's painting. Tower and creation mean Zed's sculpture. Two chains, two works.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Indi's painting",
+          "Zed's sculpture"
+        ],
+        "items": [
+          {
+            "text": "her canvas",
+            "bin": 0,
+            "reason": "A canvas is what you paint on. 'Her canvas' is Indi's painting."
+          },
+          {
+            "text": "the picture",
+            "bin": 0,
+            "reason": "The picture is swirls of white and grey, just like Indi's snowstorm."
+          },
+          {
+            "text": "his tower of buttons and cords",
+            "bin": 1,
+            "reason": "Zed made his sculpture from game controllers, which have buttons and cords."
+          },
+          {
+            "text": "Zed's creation",
+            "bin": 1,
+            "reason": "Kids pressed the buttons on it. That's Zed's sculpture again."
+          },
+          {
+            "text": "Indi's artwork",
+            "bin": 0,
+            "reason": "Indi's artwork won Best Colour. It's another name for her painting."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.10-b2-5",
+      "band": 2,
+      "topic": "space",
+      "frame": "The observatory on the highest tower is writing a sign for visitors. The Chorrawong jumbled the lines.",
+      "prompt": "Put the sentences in order, so each one picks up an idea from the one before.",
+      "success": "Ice, ocean, living things, life beyond Earth. Each repeat hooks the next sentence on.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Far out in space, a small moon is covered in a thick shell of ice.",
+          "Under the ice lies a dark, salty ocean, deeper than any on Earth.",
+          "Some scientists think that ocean could be home to tiny living things.",
+          "If those living things exist, they would be the first life found beyond Earth.",
+          "Finding life beyond Earth would be the biggest discovery in history."
+        ],
+        "reason": "Each sentence picks up the end of the one before: ice, then ocean, then living things, then life beyond Earth."
+      }
+    },
+    {
+      "id": "7.10-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Something lives at the back of the hut fridge. The Chorrawong won't go near it.",
+      "text": "Something has been growing at the back of the hut fridge. Nobody knows how long it has been there. Tully found the blob on Monday, behind a jar of pickles. By Wednesday, the green monster had grown hairy spots. On Friday, it crept out of its container and onto the butter. Mo said it was a cheese. Wren said it was alive. Gus said it was his experiment, and he had been feeding it on purpose. The crew voted. Gus's experiment now lives in a jar on the windowsill, with a label that says DO NOT OPEN. The butter has been thrown out.",
+      "prompt": "The writer calls it 'the blob', 'the green monster' and 'Gus's experiment'. What do these names do?",
+      "success": "Different names for one thing make a chain. The chain keeps the whole text about the blob.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "They name three different things the crew found in the fridge.",
+            "reason": "There's only one thing growing in the fridge. Each name points to the same blob."
+          },
+          {
+            "text": "They all name one thing and keep the text about it."
+          },
+          {
+            "text": "They show what Mo, Wren and Gus each called it.",
+            "reason": "Mo said cheese and Wren said alive. 'The blob' and 'the green monster' are the writer's names."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.10-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "The Chorrawong watched the Peaks Cup ski race from the top of a snow gum.",
+      "text": "The Peaks Cup is the toughest ski race in the Alps. Every August, two hundred skiers line up at the bottom of the valley for a thirty-kilometre slog to the summit. This year, the favourite was a Year 6 girl named Ava Lin, who had already won the junior race twice. For most of the race, Ava sat calmly in fourth place, saving her strength. Then, at the steepest part of the climb, she made her move. She passed the leaders one by one, her poles flashing in the sun. By the final hill, the leading pack had shrunk to three skiers, and then to two. With a hundred metres to go, the twelve-year-old pulled ahead. The young champion crossed the line nine seconds clear and collapsed into a snowbank, laughing. 'My legs have turned into jelly,' she told reporters. 'Can somebody please carry me to the hot chocolate tent?'",
+      "prompt": "Which words all name Ava?",
+      "success": "A Year 6 girl, the twelve-year-old, the young champion: three names for Ava that link the report together.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "the favourite, the leaders, the leading pack",
+            "reason": "The favourite is Ava, but the leaders and the leading pack are groups of skiers."
+          },
+          {
+            "text": "a Year 6 girl, the twelve-year-old, the young champion"
+          },
+          {
+            "text": "the junior race, the Peaks Cup, the final hill",
+            "reason": "These name races and part of the course, not a person."
+          },
+          {
+            "text": "two hundred skiers, reporters, somebody",
+            "reason": "These are other people in the report. None of them is Ava."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.10-b3-2",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus has a new machine. The Chorrawong is watching from a safe distance.",
+      "prompt": "Tap the words that name the same thing as 'a machine' in the first sentence.",
+      "success": "His invention. Gus built the machine, so 'his invention' is a new name for it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus has built a machine to clear snow off the ladders of Scaffold Peaks. It is the size of a fridge, with two spinning brushes and a hose that blows hot air. On its first test, it cleared six ladders in ten minutes. Then Gus steered it towards ",
+          {
+            "tap": "the old cable car",
+            "reason": "The cable car is a different thing, stuck on the cliff. Gus's machine came to free it."
+          },
+          ", which has been stuck halfway up the cliff for forty years. Its door was frozen solid, and icicles hung from its roof like teeth. Gus pointed the hot-air hose at the door. With a long creak, ",
+          {
+            "tap": "the ancient carriage",
+            "reason": "This is another name for the cable car, not for Gus's machine."
+          },
+          " began to slide down its wire. It picked up speed, rattled past the crew and came to a gentle stop at ",
+          {
+            "tap": "the bottom station",
+            "reason": "The bottom station is a place, where the cable car stopped. It isn't the machine."
+          },
+          ", right where it was meant to be. The crew cheered. Gus patted ",
+          {
+            "tap": "his invention"
+          },
+          " on its brushes. The station manager, who had been waiting forty years for this moment, gave Gus a medal made of cardboard."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.10-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote a review of the café on the highest tower. One word breaks the chain.",
+      "prompt": "Tap the word that breaks the chain, then choose a better one.",
+      "success": "Dumplings. The café serves only one thing, so the review keeps naming it. Noodles would be a new dish.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Halfway up the highest tower, there is a tiny café that serves only one thing: dumplings. The walls are covered in photos of sweaty, happy climbers holding chopsticks. There are no tables, just a long wooden bench by the window and a view that goes all the way to the sea. The cook, Mrs Tran, makes four hundred of them every morning. Each ",
+          {
+            "tap": "dumpling",
+            "reason": "That's right. The café serves only dumplings, so the word keeps coming back."
+          },
+          " is folded by hand into a little purse shape and pinched shut at the top. Inside there is pork, ginger and a splash of hot soup, so you have to be careful when you bite. Climbers say the ",
+          {
+            "tap": "noodles"
+          },
+          " are worth the four-ladder climb. I tried six, burnt my tongue on the first one and didn't care one bit. Mrs Tran's ",
+          {
+            "tap": "dumplings",
+            "reason": "That's right. Mrs Tran has made the same dumplings for thirty years."
+          },
+          " have been on the menu for thirty years, and she has never changed the recipe. She says the secret is patience. I say the secret is the ginger. Either way, I'm climbing back up tomorrow."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "pancakes",
+            "reason": "The café serves only one thing, and it isn't pancakes."
+          },
+          {
+            "text": "ladders",
+            "reason": "The ladders are the hard part. The review is praising what's waiting at the top."
+          },
+          {
+            "text": "dumplings"
+          },
+          {
+            "text": "chips",
+            "reason": "Chips would be a new food. The café serves only dumplings."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.10-b3-4",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "The Chorrawong refuses to fly past Crag Tower after dark. Here's why.",
+      "text": "Climbers say the abandoned weather station on Crag Tower is haunted. Its last weather officer, Ned Pike, refused to leave during the great storm of 1962. The storm blew the roof off the old building, and Ned was never seen again. On windy nights, people at base camp say they see a light moving behind its broken windows. Some believe the old man is still up there, checking his instruments. Last winter, Wren and Zed climbed up to find out. It took them three hours and two thermoses of soup. Inside the crumbling hut, they found a wind gauge spinning wildly, a desk covered in frost and, in the corner, a battered lantern. The glass was cracked, but somebody had filled the lamp with fresh oil. Zed wanted to leave immediately. Wren wanted to know who had filled it. They are still arguing about that. Ned Pike, if he is up there, has said nothing at all.",
+      "prompt": "Match each phrase to the thing it names.",
+      "success": "Building and hut name the station. Officer and old man name Ned. The lamp is the lantern.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the weather station",
+          "Ned Pike",
+          "the lantern"
+        ],
+        "items": [
+          {
+            "text": "the old building",
+            "bin": 0,
+            "reason": "The storm blew the roof off the old building. That's the weather station."
+          },
+          {
+            "text": "its last weather officer",
+            "bin": 1,
+            "reason": "The station's last weather officer is named straight after: Ned Pike."
+          },
+          {
+            "text": "the old man",
+            "bin": 1,
+            "reason": "The old man is still checking his instruments. He's Ned, the weather officer."
+          },
+          {
+            "text": "the crumbling hut",
+            "bin": 0,
+            "reason": "Wren and Zed went inside the crumbling hut. It's the weather station again."
+          },
+          {
+            "text": "the lamp",
+            "bin": 2,
+            "reason": "Somebody filled the lamp with oil. It's the battered lantern in the corner."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.10-b3-5",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is writing a poster about bogong moths. The Chorrawong mixed up her sentences.",
+      "prompt": "Put the sentences in order, so each one picks up an idea from the one before.",
+      "success": "Moths, caves, furry walls, possums. Each sentence picks up a word from the last, so the paragraph flows.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Each spring, thousands of bogong moths fly hundreds of kilometres to the Australian Alps.",
+          "The moths spend the hot summer months packed into cool, dark caves near the peaks.",
+          "Inside the caves, they cling to the rock so tightly that the walls look furry.",
+          "This furry carpet of moths is a feast for hungry mountain pygmy possums.",
+          "The possums gobble so many that they double their weight before winter."
+        ],
+        "reason": "Each sentence repeats something from the one before: moths, then caves, then furry walls, then possums."
+      }
+    },
+    {
+      "id": "7.10-b3-6",
+      "band": 3,
+      "topic": "music",
+      "frame": "The Chorrawong found this article in the school newsletter. It hummed along.",
+      "text": "THE ORCHESTRA ON THE MOUNTAIN\n\nThe orchestra from Scaffold Peaks Primary has just finished its first ever tour. Its thirty players visited three schools in three days, carrying their instruments up and down more than two hundred ladders. Every player had to pack a beanie, two pairs of gloves and a very good attitude.\n\nThe orchestra's first stop was Pine Gully, where the hall was so cold that the trumpets froze to the players' lips. Nobody was hurt, but the first song was mostly squeaks. The trumpet players spent the rest of the day drinking warm water through straws.\n\nThe orchestra's second stop went much better. The players warmed their instruments by the fire before they started, and the audience asked for three encores. One parent said it was the best concert she had heard in years.\n\nThe orchestra finished the tour at home, playing to a packed hall. The principal cried. The caretaker danced. The conductor says that next year they will tour by helicopter.",
+      "prompt": "Each paragraph starts with the words 'The orchestra'. What does this repetition do?",
+      "success": "Starting each paragraph with 'the orchestra' links them all back to one group, so readers stay on track.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It shows each paragraph is about the orchestra at a new school.",
+            "reason": "The other schools only hosted. The same Scaffold Peaks orchestra travelled to every stop."
+          },
+          {
+            "text": "It shows that the paragraphs can be read in any order at all.",
+            "reason": "The paragraphs follow the tour in order: first stop, second stop, then home."
+          },
+          {
+            "text": "It tells readers each paragraph is still about the same orchestra."
+          },
+          {
+            "text": "It shows the orchestra played better at every stop.",
+            "reason": "The tour did improve, but 'The orchestra' never changes. It keeps readers on the same group."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.10-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Chorrawong found a museum newsletter in the Scaffold Peaks ranger hut.",
+      "text": "When a blue whale washed up on Pebble Bay three years ago, the town faced a problem the size of a bus. Nobody wanted to bury it, and nobody could move it. In the end, the local museum came up with a plan. Volunteers spent six months cleaning every bone, and then the long job of rebuilding began. This month, the skeleton finally went on display. Hanging from steel cables in the museum's main hall, the enormous frame stretches twenty-four metres from jaw to tail. Its ribs are taller than most adults, and its skull alone weighs as much as a small car. Visitors walk beneath the giant in silence, craning their necks. 'People expect to feel small,' says Dr Rosa Hemming, who led the project. 'What they don't expect is to feel moved.' Not everything went smoothly. Halfway through the rebuild, the team discovered that one flipper bone was missing, probably carried off by a dog. A local sculptor carved a replacement from pale wood, and only the sharpest-eyed visitors can spot it. The museum's new star has already doubled ticket sales. Dr Hemming says the volunteers, many of whom had never seen a whale before, now call it 'our girl'.",
+      "prompt": "Which set of words all name the whale skeleton on display?",
+      "success": "Skeleton, giant, museum's new star: three names for one thing, and the chain runs right through the article.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "the enormous frame, the giant, the main hall",
+            "reason": "The main hall is the room the skeleton hangs in, not the skeleton."
+          },
+          {
+            "text": "the skeleton, the giant, the museum's new star"
+          },
+          {
+            "text": "the enormous frame, the museum's new star, the team",
+            "reason": "The team is the volunteers who rebuilt the skeleton. They aren't the skeleton."
+          },
+          {
+            "text": "its ribs, its skull, one flipper bone",
+            "reason": "These are parts of the skeleton. The chain names the whole thing."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.10-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "The observatory posted this report on the noticeboard at base camp. The Chorrawong has been staring at the sky ever since.",
+      "prompt": "Tap the word in the last paragraph that echoes the title and ties the ending back to the start.",
+      "success": "Dark. The report starts with the darkest skies and ends with the island staying dark, so it comes full circle.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "DARK SKY PEAK\n\nScaffold Peaks has some of the darkest skies in the country. There are no streetlights, no shopping centres and no glowing billboards for a hundred kilometres. On a clear night, you can see thousands of stars, the pale band of the Milky Way and, if you're lucky, a satellite drifting silently past. Visitors come from all over the world just to lie on their backs in the snow and stare upwards.\n\nThat could soon change. A company has asked to build a floodlit ski run on the eastern slope, open until midnight every night of winter. The company has promised the lights will point downwards. Supporters say it will bring jobs and visitors to the island. Astronomers at the observatory say the glare would wash out half of what they study.\n\nThis week, the island ",
+          {
+            "tap": "council",
+            "reason": "The council is the group that will vote. It isn't in the title."
+          },
+          " will vote. Before it does, the observatory is inviting every resident to climb the highest tower on Saturday night, switch off their ",
+          {
+            "tap": "torches",
+            "reason": "Torches are new in this paragraph, and they aren't in the title."
+          },
+          " and simply look up. 'You can't protect something you've never seen,' says Leni Park, the observatory's youngest astronomer. If the vote goes one way, the ",
+          {
+            "tap": "floodlights",
+            "reason": "The floodlights come from the middle of the report, not the title."
+          },
+          " will switch on next June. If it goes the other way, the island will stay ",
+          {
+            "tap": "dark"
+          },
+          ", just as it has been for thousands of years."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.10-b4-3",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed wrote a game review for the crew newsletter. One word breaks the chain.",
+      "prompt": "Tap the word that breaks the chain, then choose a better one.",
+      "success": "Frostbite Frenzy. The review is about one game, so its name links the parts. Summit Smash is the rival.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Frostbite Frenzy is the best climbing game I have played this year, and I have played a lot of them. You play as Pip, a small, nervous goat who has to reach the top of a frozen mountain before a storm hits. ",
+          {
+            "tap": "Pip",
+            "reason": "That's right. Pip is the goat you play as, named a moment before."
+          },
+          " can jump, slide and headbutt, but she cannot swim, which becomes a serious problem on level six. The controls are simple: one button to jump and one to slide. What makes the game special is the way the mountain changes every time you play. Ice bridges collapse in different places, avalanches start at random, and the yetis who chase you are never in the same spot twice. I have played the first level forty times, and it has never been the same. The graphics are bright and chunky, and Pip's little scarf flaps in the wind as she climbs. My little brother, who is six, loved the headbutting most of all. Compared with last year's big hit, Summit Smash, ",
+          {
+            "tap": "Summit Smash"
+          },
+          " feels fresh, funny and surprisingly hard. My only complaint is the music, which is a single yodel played on a loop until you want to throw your controller into a snowdrift. Even so, if you only buy one game this winter, make it ",
+          {
+            "tap": "Frostbite Frenzy",
+            "reason": "That's right. The review ends by naming the game it has been about all along."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "Pip",
+            "reason": "Pip is the goat you play as. 'Fresh, funny and surprisingly hard' describes a whole game."
+          },
+          {
+            "text": "level six",
+            "reason": "Level six is only one part. The review compares two whole games."
+          },
+          {
+            "text": "the mountain",
+            "reason": "The mountain is the setting inside the game. The comparison is between two games."
+          },
+          {
+            "text": "Frostbite Frenzy"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.10-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi wrote this report for the Scaffold Peaks Gazette. The Chorrawong has a suspicion about the thief.",
+      "text": "THE CASE OF THE VANISHING SUNFLOWERS\n\nLast Thursday, the Ridge Gallery reported that its most valuable painting, a bright yellow canvas of sunflowers, had disappeared overnight. The small stone building sits on a ledge halfway up Crag Tower, and its only door had been locked from the inside. By morning, the masterpiece was gone, and the security guard was baffled. He said he had checked every room at midnight, and nothing had been out of place. Police searched every corner of the gallery. They found no footprints, no broken windows and no sign of a ladder. The only clue was a single yellow feather on the floor beneath the empty frame. It was Wren who solved the mystery. She noticed that the feather belonged to a young sulphur-crested cockatoo, and that a small window near the ceiling had been left open for fresh air. The next day she climbed the cliff above the building and found a nest. There, woven neatly into the twigs, was the missing artwork, torn into strips and arranged in a perfect yellow circle. The feathered burglar, it seems, simply liked the colour. The gallery has decided not to press charges. The cockatoo has declined to comment. Indi has offered to paint a replacement, in a slightly less tempting shade of blue.",
+      "prompt": "Match each phrase to the thing it names.",
+      "success": "Three chains run through the report: one for the painting, one for the gallery and one for the thief.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the painting",
+          "the gallery",
+          "the thief"
+        ],
+        "items": [
+          {
+            "text": "a bright yellow canvas of sunflowers",
+            "bin": 0,
+            "reason": "This is how the report first describes the missing painting."
+          },
+          {
+            "text": "the small stone building",
+            "bin": 1,
+            "reason": "The building on the ledge, with its one locked door, is the gallery."
+          },
+          {
+            "text": "the masterpiece",
+            "bin": 0,
+            "reason": "By morning, the masterpiece was gone. That's the stolen painting."
+          },
+          {
+            "text": "a young sulphur-crested cockatoo",
+            "bin": 2,
+            "reason": "The feather belonged to this bird, and the bird took the painting."
+          },
+          {
+            "text": "the missing artwork",
+            "bin": 0,
+            "reason": "The missing artwork was found woven into the nest. It's the painting again."
+          },
+          {
+            "text": "the feathered burglar",
+            "bin": 2,
+            "reason": "The feathered burglar liked the colour. That's the cockatoo who stole it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.10-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Tully wrote up Mo's record attempt for the newsletter. The Chorrawong scrambled her notes.",
+      "prompt": "Put the sentences in order. Follow the words each sentence picks up from the one before.",
+      "success": "Each sentence picks up something from the one before: pancake, pan, dish, batter, then a very stuck Mo.",
+      "body": {
+        "format": "order",
+        "items": [
+          "On Saturday, Mo tried to cook the world's biggest pancake on the roof of the highest hut.",
+          "For a frying pan, he borrowed a satellite dish from the observatory.",
+          "The dish was so wide that he had to stand in the middle of it to stir the batter.",
+          "By the time the batter was golden, Mo was stuck to it from the knees down.",
+          "The crew peeled him free with spatulas, and the record-breaking pancake fed forty climbers."
+        ],
+        "reason": "Pancake, then frying pan, then dish, then batter, then the sticky rescue. Each sentence picks up the last."
+      }
+    },
+    {
+      "id": "7.10-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Tully gave this speech to the Snowcats the night before the grand final. The Chorrawong was in the front row.",
+      "text": "Twelve months ago, we finished last. We lost every game but one, and that one was a draw against a team with eleven players. People laughed at us. Some of you nearly quit. I nearly quit. But Coach Ana told us something I have never forgotten. She said that climbing these peaks isn't about the whole ladder. It's about the next rung. One more rung.\n\nSo we trained in the snow. We ran the towers before breakfast, and we ran them again after school. We did push-ups in the hut while Mo cooked dinner, which, if you've tasted his cooking, was the easy part. When our legs were screaming, we said it to each other: one more rung.\n\nIn round nine, we were down by thirty points at half-time. Nobody gave up. We clawed back one goal at a time, and we won by a single point. One more rung.\n\nTomorrow we play the Rams, who haven't lost all year. They're bigger. They're faster. They've won three flags in a row. I'm not going to stand here and promise you we'll win. I'm going to tell you what we'll do. When it hurts, when we're behind, when the crowd goes quiet, we'll take one more rung. And then another.",
+      "prompt": "Tully keeps repeating 'one more rung'. What does this repetition do?",
+      "success": "It ties every part of the speech to one message. Each story ends back at 'one more rung'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It brings each part of the speech back to the round nine comeback.",
+            "reason": "Coach Ana's words came long before round nine. Round nine is only one of the parts."
+          },
+          {
+            "text": "It promises the team that they will beat the Rams tomorrow.",
+            "reason": "Tully says she won't promise a win. The phrase is about what they'll do, not the score."
+          },
+          {
+            "text": "It ties every part of her speech to one message: keep going."
+          },
+          {
+            "text": "It shows the speech is mostly about climbing ladders.",
+            "reason": "Ladders only appear in Coach Ana's saying. The rest is about footy: training, round nine and the final."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

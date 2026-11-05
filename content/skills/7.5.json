@@ -1,0 +1,930 @@
+{
+  "skill": {
+    "id": "7.5",
+    "name": "Sentence openers that put the message up front",
+    "codes": [
+      "VC2E5LA04"
+    ],
+    "why": "Readers notice the start of a sentence most. Put what matters there.",
+    "how": "Ask what the reader needs first. Put that at the start of the sentence.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Readers notice the start of a sentence the most."
+          },
+          {
+            "say": "So put the big message first.",
+            "show": "**The chairlift is broken.** Take the ladders instead."
+          },
+          {
+            "say": "Hide it at the end, and readers might miss it.",
+            "show": "Because of the wild wind last night, **the chairlift is broken**."
+          },
+          {
+            "say": "In a story, the start can tell readers when or where.",
+            "show": "**At midnight,** the snowman blinked. **Behind the hut,** something giggled."
+          },
+          {
+            "say": "That first chunk is called the opener. Make it count."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "The ranger is making a sign for the frozen lake.",
+          "prompt": "The ranger needs skaters to keep off the lake. Which sign puts that message up front?",
+          "hint": "Which sign tells skaters what to do in the first few words?",
+          "success": "The first words say 'Keep off the lake!' A skater gets the message straight away.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "After a warm night, the ice on the lake is thin. Keep off.",
+                "reason": "Skaters read about the weather first. 'Keep off' comes right at the end."
+              },
+              {
+                "text": "Keep off the lake! The ice is thin after a warm night."
+              },
+              {
+                "text": "The lake is a lovely spot for skating, but keep off today.",
+                "reason": "This starts by making the lake sound fun. 'Keep off' is hidden at the end."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "frame": "Tully wrote about her climb. She wants every sentence to start with the time.",
+          "prompt": "Tap the sentence that hides the time at the end.",
+          "hint": "Look at the first words of each sentence. Which one doesn't start with a time?",
+          "success": "'At noon' is at the end. Moving it to the front keeps the times lined up.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "At 7 am, we left the hut. ",
+              {
+                "tap": "By 9 am, we reached the first ladder.",
+                "reason": "This one starts with a time: 'By 9 am'."
+              },
+              " ",
+              {
+                "tap": "We ate our lunch on top of the tower at noon."
+              },
+              " ",
+              {
+                "tap": "At 3 pm, we finally saw Maxx World.",
+                "reason": "This one starts with a time: 'At 3 pm'."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "frontnip",
+      "name": "Frontnip",
+      "evolved": "Frontclawdor",
+      "blurb": "A spiny crayfish from the alpine creeks that always leads with its biggest claw. It snaps the most important words to the front of a sentence."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.5-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo is making a sign for his snow-cone stall. The Frontnip is snapping at his pencil.",
+      "text": "Mo set up a snow-cone stall at the bottom of the ladders. He made three flavours: lemon, raspberry and fish. The fish cones were a big mistake. They made Zed sneeze for an hour. One hiker said hers tasted like a wet sock. So Mo stopped making fish cones. Now he needs a new sign. Hikers only glance at it as they climb past. The first thing they must find out is that the fish cones are gone.",
+      "prompt": "Which sign puts Mo's message up front?",
+      "success": "'No more fish cones!' comes first. A hiker who only glances still gets the news.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "No more fish cones! Lemon and raspberry are still for sale."
+          },
+          {
+            "text": "Lemon and raspberry are still for sale, but no more fish cones.",
+            "reason": "This starts with lemon and raspberry. The news about fish cones is right at the end."
+          },
+          {
+            "text": "Thanks to a very sneezy Zed, there are no more fish cones.",
+            "reason": "Hikers read about Zed first. They have to read to the end to get the news."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.5-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully left her race diary on the chairlift. The Frontnip is reading it.",
+      "text": "Tully's race diary. At 8 am, I waxed my skis until they shone. At 9 am, I rode the chairlift up the mountain. My nose nearly froze off. ___, the race began. I zoomed down the slope like a rocket. At 11 am, they gave me a silver medal. At noon, I ate four hot chips and one cold pie. At 1 pm, I fell asleep on the bus with chips in my pocket.",
+      "prompt": "Tully's diary goes in time order. Which opener keeps it in time order?",
+      "success": "'At 10 am' tells the reader when. It fits between 9 am and 11 am.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "On the mountain,",
+            "reason": "This tells where, not when. The reader can't tell when the race began."
+          },
+          {
+            "text": "At 10 am,"
+          },
+          {
+            "text": "Luckily,",
+            "reason": "'Luckily' gives no time. The reader can't tell when the race began."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.5-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is checking the sign at Wombat Gully. A Frontnip is clinging to the post.",
+      "prompt": "Each rule should start with what to do. Tap the rule that makes the reader wait.",
+      "success": "'Keep dogs in the car' is right at the end. A busy reader might miss it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Welcome to Wombat Gully, home to forty snow wombats. Please follow these rules. ",
+          {
+            "tap": "Stay on the track at all times.",
+            "reason": "This rule starts with what to do: 'Stay on the track'."
+          },
+          " ",
+          {
+            "tap": "Take all your rubbish home with you.",
+            "reason": "This rule starts with what to do: 'Take all your rubbish home'."
+          },
+          " ",
+          {
+            "tap": "Because dogs here have chased the wombats before, keep dogs in the car."
+          },
+          " ",
+          {
+            "tap": "Close the gate behind you.",
+            "reason": "This rule starts with what to do: 'Close the gate'."
+          },
+          " Thank you, and enjoy your walk! The wombats will probably ignore you. They are very busy sleeping."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b1-4",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Indi is giving a tour of the old ski lodge. The Frontnip is hiding in her hood.",
+      "prompt": "Indi's tour goes floor by floor. Tap the opener that doesn't fit, then choose a better one.",
+      "success": "'In the attic' tells the reader where. The tour goes place by place, so each opener names a place.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The old ski lodge has three floors and an attic. Indi took the crew from the bottom to the top. ",
+          {
+            "tap": "On the ground floor",
+            "reason": "That's right. The kitchen is on the ground floor."
+          },
+          ", there is a kitchen full of cobwebs. ",
+          {
+            "tap": "On the first floor",
+            "reason": "That's right. The bunk beds are on the first floor."
+          },
+          ", there are six creaky bunk beds. On the second floor, a clock ticks, but it has no hands. ",
+          {
+            "tap": "Spookily"
+          },
+          ", there is a tiny door with a sign. It says KEEP OUT. Nobody opened it. Nobody even breathed."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "On the first floor",
+            "reason": "The first floor has the bunk beds. The tour has climbed to the last place."
+          },
+          {
+            "text": "On the ground floor",
+            "reason": "The ground floor has the kitchen. The tour started there and has moved up."
+          },
+          {
+            "text": "In the attic"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed is making a space game. The Frontnip wants the pop-up fixed.",
+      "text": "Players skim a pop-up in about one second. They need to see what to do first.",
+      "prompt": "Build the pop-up so it starts with what the player must do.",
+      "success": "The instruction comes first. Even a player who skims gets the message.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "When you reach the hatch,",
+          "before you open the hatch.",
+          "Grab your helmet",
+          "remember to grab your helmet."
+        ],
+        "accept": [
+          "Grab your helmet before you open the hatch."
+        ],
+        "reason": "Players skim, so start with 'Grab your helmet'. Starting with the hatch hides what to do."
+      }
+    },
+    {
+      "id": "7.5-b1-6",
+      "band": 1,
+      "topic": "music",
+      "frame": "The Peaks Band played in the old ski hut. The Frontnip clapped its claws.",
+      "text": "The Peaks Band played its first concert in the old ski hut. At 6 pm, the band set up. Behind the curtain, Mo tuned his banjo. It sounded like a goose. On the stage, Zed tripped over a cable. After the first song, the lights went out. Under a chair, Indi found a torch. She shone it on Mo, who was still playing. Everyone clapped, mostly for the torch.",
+      "prompt": "Match each sentence to what its opener tells the reader.",
+      "success": "Openers like 'At 6 pm' tell when. Openers like 'Under a chair' tell where.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "when",
+          "where"
+        ],
+        "items": [
+          {
+            "text": "At 6 pm, the band set up.",
+            "bin": 0,
+            "reason": "'At 6 pm' tells the reader when."
+          },
+          {
+            "text": "Behind the curtain, Mo tuned his banjo.",
+            "bin": 1,
+            "reason": "'Behind the curtain' tells the reader where."
+          },
+          {
+            "text": "On the stage, Zed tripped over a cable.",
+            "bin": 1,
+            "reason": "'On the stage' tells the reader where."
+          },
+          {
+            "text": "After the first song, the lights went out.",
+            "bin": 0,
+            "reason": "'After the first song' tells the reader when."
+          },
+          {
+            "text": "Under a chair, Indi found a torch.",
+            "bin": 1,
+            "reason": "'Under a chair' tells the reader where."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.5-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Soggy Biscuit's radio crackles. It's the lifeguard at Hollowgum Beach.",
+      "text": "It is a hot Saturday at Hollowgum Beach, and the water is packed with swimmers. Up in the lifeguard tower, Jas spots something through her binoculars. Hundreds of bluebottles are drifting towards the shore, their blue tails trailing behind them. A bluebottle sting is not deadly, but it really hurts. Jas grabs the loudspeaker. She knows that people on a beach only half listen to announcements. Most of them hear the first few words and go back to their sandcastles. Whatever she says first has to be the thing that matters most: everyone must get out of the water, right now.",
+      "prompt": "Which announcement puts Jas's message up front?",
+      "success": "'Everyone out of the water' comes first. Even half-listening swimmers hear what to do.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "On this sunny morning, with the tide coming in, everyone must get out of the water.",
+            "reason": "Swimmers hear about the weather and the tide first. The order to get out comes last."
+          },
+          {
+            "text": "Everyone out of the water right now! Hundreds of bluebottles are drifting towards the beach."
+          },
+          {
+            "text": "Bluebottles are drifting towards the beach, and everyone needs to get out of the water.",
+            "reason": "This starts with the bluebottles. Half-listening swimmers might miss the order to get out."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.5-b2-2",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Zed broke the Snow Castle speedrun record. The Frontnip is checking his write-up.",
+      "prompt": "Zed wanted every step to start with the time on the clock. Tap the step that breaks his plan.",
+      "success": "'2:05' is at the end of that step. Moving it to the front lets readers follow the clock.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed wrote up his record-breaking Snow Castle speedrun for the Peaks Gaming Club. He wanted every step to start with the time on the clock. That way, readers could follow along with his video. Here is what he wrote. ",
+          {
+            "tap": "At 0:30, I slid under the first gate just before it slammed shut.",
+            "reason": "This step starts with the time, '0:30', just like Zed planned."
+          },
+          " ",
+          {
+            "tap": "At 1:15, I wall-jumped past the angry snowman instead of fighting it.",
+            "reason": "This step starts with the time, '1:15', just like Zed planned."
+          },
+          " ",
+          {
+            "tap": "I grabbed the golden key from the frozen fountain at 2:05."
+          },
+          " ",
+          {
+            "tap": "At 2:40, I opened the castle door, and the clock stopped.",
+            "reason": "This step starts with the time, '2:40', just like Zed planned."
+          },
+          " The club gave Zed a gold sticker. His little brother gave him a high five and then spilled juice all over the controller."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b2-3",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren is writing a guide to the animals of Scaffold Peaks. A Frontnip is reading over her shoulder.",
+      "prompt": "Wren's guide goes zone by zone. Tap the opener that doesn't fit, then choose a better one.",
+      "success": "'At the bottom' names the zone. Each opener tells readers where they are on the mountain.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren's guide goes from the top of the mountain to the bottom, one zone at a time. ",
+          {
+            "tap": "On the icy summit",
+            "reason": "That's right. The summit is the top zone, where the ravens are."
+          },
+          ", ravens ride the wind and steal hikers' sandwiches. ",
+          {
+            "tap": "Halfway down",
+            "reason": "That's right. The snow gums and wombats are halfway down."
+          },
+          ", among the twisted snow gums, wombats dig deep burrows to escape the cold. ",
+          {
+            "tap": "Every winter"
+          },
+          ", platypus hunt for yabbies in the freezing streams. Wren says the bottom zone is the best place to spot one. You just have to stay very still and very quiet. Gus cannot do either, so he has never seen a platypus."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "At the bottom"
+          },
+          {
+            "text": "On the icy summit",
+            "reason": "The summit already has the ravens. The streams are at the bottom of the mountain."
+          },
+          {
+            "text": "Halfway down",
+            "reason": "Halfway down is where the wombats are. The guide has moved on to the streams."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.5-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Coach Bea is texting the Peaks Under-12s. The Frontnip is waiting to check it.",
+      "text": "Coach Bea needs to send a message to the Peaks Under-12s footy team. The oval is flooded again, after three days of melting snow. Training has moved from Tuesday to Thursday this week. Last time Coach Bea sent a message, half the team only read the first line. Three players turned up on the wrong day. They trained by themselves in the mud, with a family of ducks watching. One of them kicked a goal and the ducks didn't even clap. This time, Coach Bea wants the news to be impossible to miss.",
+      "prompt": "Build Coach Bea's message so the news comes first.",
+      "success": "The news is up front. Even players who read one line will turn up on Thursday.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "After three days of melting snow,",
+          "because the oval is flooded.",
+          "Training is on Thursday this week",
+          "the oval is flooded and training has moved to Thursday."
+        ],
+        "accept": [
+          "Training is on Thursday this week because the oval is flooded."
+        ],
+        "reason": "Players only read the first line. Start with 'Training is on Thursday', not the snow and the flood."
+      }
+    },
+    {
+      "id": "7.5-b2-5",
+      "band": 2,
+      "topic": "music",
+      "frame": "Mr Okafor pinned a notice to the music room door. The Frontnip is sorting it out.",
+      "text": "Mr Okafor teaches music at the school at the foot of Scaffold Peaks. Every week, he pins a notice to the music room door for the Peaks Band. Here is this week's. Bring your own drumsticks to every practice. On Friday, the band plays at the snow festival. In the music room, the old amp has finally exploded. Practise the new song every night this week. After lunch, we will meet next to the stage. Wear something warm, because the stage is outdoors. Please do not bring the goose again. Last year it ate a trumpet mouthpiece, and Mr Okafor is still upset.",
+      "prompt": "Match each sentence to what its opener puts up front.",
+      "success": "Some openers give an instruction, some tell when, and one tells where. Each puts a different message first.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "what to do",
+          "when",
+          "where"
+        ],
+        "items": [
+          {
+            "text": "Bring your own drumsticks to every practice.",
+            "bin": 0,
+            "reason": "It opens with 'Bring', telling the band what to do."
+          },
+          {
+            "text": "On Friday, the band plays at the snow festival.",
+            "bin": 1,
+            "reason": "'On Friday' tells when."
+          },
+          {
+            "text": "In the music room, the old amp has finally exploded.",
+            "bin": 2,
+            "reason": "'In the music room' tells where."
+          },
+          {
+            "text": "Practise the new song every night this week.",
+            "bin": 0,
+            "reason": "It opens with 'Practise', telling the band what to do."
+          },
+          {
+            "text": "After lunch, we will meet next to the stage.",
+            "bin": 1,
+            "reason": "'After lunch' tells when. The stage comes later in the sentence."
+          },
+          {
+            "text": "Wear something warm, because the stage is outdoors.",
+            "bin": 0,
+            "reason": "It opens with 'Wear something warm', telling the band what to do."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.5-b2-6",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi wrote about her mural day. One opener has gone missing, and the Frontnip is hunting for it.",
+      "text": "Indi painted a mural on the side of the ski hut in one very long day. At 9 am, she sketched the outline of a giant snow wombat. By lunchtime, she had painted its fur in six shades of brown. Her sandwich had a brown thumbprint on it. ___, she added the snowflakes and a tiny ladder up the wombat's back. Then the sun set, and the paint was still wet. That evening, the whole crew came outside with torches to see it. Mo said it looked like a giant potato. Indi decided that was a compliment.",
+      "prompt": "Indi's recount goes in time order. Which opener fits the gap?",
+      "success": "'In the afternoon' tells the reader when. It comes after lunchtime and before the sun sets.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Early that morning,",
+            "reason": "Early morning came before 9 am. The snowflakes went on after lunch."
+          },
+          {
+            "text": "On the wall,",
+            "reason": "The recount goes in time order. 'On the wall' tells where, not when."
+          },
+          {
+            "text": "In the afternoon,"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b3-1",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Tully is on lookout duty. The Frontnip is perched on the walkie-talkie.",
+      "text": "The crew is camping in a stone hut halfway up Scaffold Peaks. Tully is on lookout duty at the top of the tower ladder, eating a cold sausage. Suddenly she hears a buzzing sound. One of Maxx's MaxxCam drones is circling the camp, its little red light blinking as it films. If it spots the crew, Maxx will know exactly where they are. Tully has the walkie-talkie, but the others are noisy. Mo is singing in the kitchen, Gus is testing a slime cannon, and Zed is wearing headphones. They will only catch the first few words of whatever she says. Tully needs one message to get through before anything else: everyone must stay inside the hut. She takes a deep breath, holds down the button and gets ready to speak.",
+      "prompt": "Which message puts what Tully needs up front?",
+      "success": "'Stay inside the hut!' comes first. Even if the crew only hears three words, they know what to do.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Maxx's drone is circling the camp and filming everything. Stay inside the hut!",
+            "reason": "It starts with the drone. The instruction to stay inside is the last thing they hear."
+          },
+          {
+            "text": "Right now, from up here on the tower, I can see that you all need to stay inside.",
+            "reason": "It starts with where Tully is. The instruction is squashed at the very end."
+          },
+          {
+            "text": "Stay inside the hut! Maxx's drone is circling the camp and filming everything."
+          },
+          {
+            "text": "If you don't want to star in Maxx's next video, everyone needs to stay inside the hut.",
+            "reason": "The crew has to get through a joke about videos before they hear what to do."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b3-2",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Ranger Dot runs ghost tours in the old mine. The Frontnip is checking her script.",
+      "prompt": "Ranger Dot's script starts each sentence with where the group is. Tap the sentence that breaks the pattern.",
+      "success": "'Deep in the second tunnel' is at the end. Up front, it would tell the group where they are first.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Every Friday night, Ranger Dot leads a ghost tour through the abandoned mine on Scaffold Peaks. Her script moves through the mine one place at a time. Each sentence starts by telling the group where they are, so nobody gets lost in the dark. ",
+          {
+            "tap": "At the entrance, you'll see the old miners' boots, still lined up in a row.",
+            "reason": "This starts with the place: 'At the entrance'."
+          },
+          " ",
+          {
+            "tap": "Inside the first tunnel, listen for the tapping that nobody has ever explained.",
+            "reason": "This starts with the place: 'Inside the first tunnel'."
+          },
+          " ",
+          {
+            "tap": "There's a lunchbox that has been rotting for a hundred years, deep in the second tunnel."
+          },
+          " ",
+          {
+            "tap": "Down the rusty ladder, the air turns so cold that your breath glows in the torchlight.",
+            "reason": "This starts with the place: 'Down the rusty ladder'."
+          },
+          " ",
+          {
+            "tap": "Back at the entrance, you'll find that the boots have moved, every single time.",
+            "reason": "This starts with the place: 'Back at the entrance'."
+          },
+          " Nobody knows who moves them. Ranger Dot says it is probably the wind. She is the only one who laughs when she says it."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b3-3",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wrote a match report on the snow footy final. The Frontnip found a problem.",
+      "prompt": "Tap the opener that doesn't fit Tully's report, then choose a better one.",
+      "success": "'In the third quarter' tells the reader when. Tully's report goes quarter by quarter, in order.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Tully wrote a report on the Peaks Under-12s' snow footy final for the school newsletter. It was the coldest game in the history of the club, and the umpire wore two beanies. Tully's report goes quarter by quarter, so each sentence starts by telling the reader when. ",
+          {
+            "tap": "In the first quarter",
+            "reason": "That's right. The boundary goal came in the first quarter."
+          },
+          ", our full-forward kicked a goal from the boundary, which surprised everyone, including her. ",
+          {
+            "tap": "In the second quarter",
+            "reason": "That's right. The snowstorm rolled in during the second quarter."
+          },
+          ", a snowstorm rolled in, and nobody could see the ball, the posts or their own feet. ",
+          {
+            "tap": "Down near the goals"
+          },
+          ", the snow stopped, and we kicked three goals in a row while the other team built a snowman. ",
+          {
+            "tap": "In the last quarter",
+            "reason": "That's right. The final siren came in the last quarter."
+          },
+          ", we held on to win by two points, and the coach did a cartwheel in the snow. Nobody has let him forget it. He landed face first."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "In the first quarter",
+            "reason": "The first quarter already had the boundary goal. The report goes in order."
+          },
+          {
+            "text": "In the third quarter"
+          },
+          {
+            "text": "In the second quarter",
+            "reason": "The snowstorm was in the second quarter. In this part, the snow has stopped."
+          },
+          {
+            "text": "In the last quarter",
+            "reason": "The last quarter comes next, with the win and the cartwheel. This part comes before it."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.5-b3-4",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus is making a safety label for his robot. The Frontnip is keeping well away from it.",
+      "text": "Gus's robot, Clank, sparks and fizzes whenever he touches water, and his eyes pop out on springs. Hikers only read the start of the label on his back as he stomps past them up the ladders.",
+      "prompt": "Build Clank's safety label so the instruction comes first.",
+      "success": "The instruction leads. A hiker who reads only four words still knows to keep Clank dry.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Since Clank fizzes when wet",
+          "because he sparks",
+          "keep your water bottle away from him.",
+          "Keep Clank away from water",
+          "and his eyes shoot out on springs,",
+          "and his eyes pop out."
+        ],
+        "accept": [
+          "Keep Clank away from water because he sparks and his eyes pop out."
+        ],
+        "reason": "Hikers only read the start. Lead with 'Keep Clank away from water', not the reasons."
+      }
+    },
+    {
+      "id": "7.5-b3-5",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus has stuck his lab rules on the door of his tent. The Frontnip is reading them, nervously.",
+      "text": "Gus has set up a science lab in a tent at the bottom of Scaffold Peaks. It has a slime tank, a worm farm, a jar of snot and a green fridge that hums. Gus says the lab is perfectly safe, as long as everyone follows his rules. He has written them on a piece of cardboard and taped it to the tent flap. Wear goggles near the slime tank. Wash your hands, then wash them again. If the jar of snot starts to bubble, step back slowly. Never eat anything from the green fridge. Before you sniff any of the cheese samples, ask Gus. Mo read the rules and asked what happens if you break one. Gus thought about it for a long time. Then he said that nobody had ever broken one and lived to tell the tale. He was joking. Probably.",
+      "prompt": "Some of Gus's rules start with the instruction. Others make the reader wait. Match each rule.",
+      "success": "Rules that start with the instruction are quickest to follow. The others make you read to the end.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "starts with the instruction",
+          "makes the reader wait"
+        ],
+        "items": [
+          {
+            "text": "Wear goggles near the slime tank.",
+            "bin": 0,
+            "reason": "The instruction, 'Wear goggles', is the very first thing you read."
+          },
+          {
+            "text": "Wash your hands, then wash them again.",
+            "bin": 0,
+            "reason": "The instruction, 'Wash your hands', is the very first thing you read."
+          },
+          {
+            "text": "If the jar of snot starts to bubble, step back slowly.",
+            "bin": 1,
+            "reason": "You read about the bubbling jar first. 'Step back slowly' comes at the end."
+          },
+          {
+            "text": "Never eat anything from the green fridge.",
+            "bin": 0,
+            "reason": "The instruction, 'Never eat', is the very first thing you read."
+          },
+          {
+            "text": "Before you sniff any of the cheese samples, ask Gus.",
+            "bin": 1,
+            "reason": "You read about sniffing cheese first. 'Ask Gus' comes at the end."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.5-b3-6",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi painted the lookout tower. The Frontnip is checking her guidebook page.",
+      "text": "The Architect asked Indi to paint the four walls of the old lookout tower. There is one picture on each wall. Now Indi is writing a paragraph for the tower's guidebook. Each sentence starts by telling visitors which wall to look at. That way, they can walk around the tower and follow along. On the north wall, a flock of gang-gang cockatoos bursts out of a snow gum. On the east wall, the sun rises over Scaffold Peaks in seven shades of orange. On the west wall, Girderoo balances on a ladder while holding a cup of tea. ___, a family of snow wombats slides down a hill on a tea tray, eyes squeezed shut. Indi signed her name in tiny letters on the last wall, right under the smallest wombat's tail.",
+      "prompt": "Which opener fits the gap in Indi's paragraph?",
+      "success": "'On the south wall' tells visitors where to look. It's the only wall without a picture yet.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Last of all,",
+            "reason": "This tells when, not where. Visitors need to know which wall to look at."
+          },
+          {
+            "text": "On the north wall,",
+            "reason": "The north wall already has the cockatoos, and there's one picture per wall."
+          },
+          {
+            "text": "With a tiny brush,",
+            "reason": "This tells how Indi painted, not which wall visitors should look at."
+          },
+          {
+            "text": "On the south wall,"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.5-b4-1",
+      "band": 4,
+      "topic": "general",
+      "frame": "The ranger station is writing its morning notice. The Frontnip is waiting by the noticeboard.",
+      "text": "Every morning in winter, the rangers at Scaffold Peaks pin a notice to the board outside the ranger station. Hundreds of walkers pass the board on their way to the two tracks that lead to the summit. Most of them barely slow down. They glance at the first line of the notice, nod, and keep walking, already thinking about the view at the top. Last night, a metre of fresh snow fell on the eastern slopes, and strong winds piled it into unstable drifts above the east track. Ranger Okoye spent the early hours checking the slopes with a long metal probe, and she did not like what she found. The east track will stay closed until the snow settles. The west track, which is sheltered by a long rocky ridge, is still safe, although it is steeper and takes an extra hour. Last winter, a notice that began with a long weather report was ignored by almost everyone, and two walkers had to be rescued from a drift by a team on snowshoes. Ranger Okoye knows the one thing every walker must take away from the notice, even if they read only a few words: the east track is closed. She picks up her marker and starts writing.",
+      "prompt": "Which opening line puts the message Ranger Okoye needs up front?",
+      "success": "It opens with 'The east track to the summit is closed'. A walker who glances still gets the warning.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Following last night's heavy snowfall and strong winds, the east track to the summit is closed.",
+            "reason": "It opens with the weather. Walkers have to read a long way before they reach the closure."
+          },
+          {
+            "text": "Although the west track remains open for walkers, the east track to the summit is closed today.",
+            "reason": "It opens with the open track. A walker who glances might set off on the wrong one."
+          },
+          {
+            "text": "The east track to the summit is closed today; the west track remains open for walkers."
+          },
+          {
+            "text": "Rangers, who have been checking the slopes since dawn, have decided to close the east track.",
+            "reason": "It opens with the rangers' busy morning. The closure is pushed to the very end."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.5-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "A mission log from the starship Wattle has landed in the Frontnip's creek.",
+      "prompt": "Every entry in the log should start with the mission clock time. Tap the entry that breaks the pattern.",
+      "success": "'At 0600 hours' is buried at the end. Every other entry leads with the time, as mission control asked.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Commander Ayana Okoye kept a log during the starship Wattle's first trip to the frozen moon of Pellucia. Mission control asked for every entry to begin with the time on the mission clock, so that engineers on Earth could match each entry to the ship's data. The commander had never kept a log before, and she was so excited on launch day that she forgot the rule at least once. Here is the first page of her log, exactly as she wrote it. ",
+          {
+            "tap": "The main engines fired, and the whole ship shook like a washing machine full of shoes, at 0600 hours."
+          },
+          " ",
+          {
+            "tap": "At 0745 hours, we passed the last of the satellites and saw nothing but stars in every direction.",
+            "reason": "This entry leads with the time, '0745 hours', just as mission control asked."
+          },
+          " ",
+          {
+            "tap": "At 1130 hours, a warning light flashed, but it turned out the engineer had sat on a button.",
+            "reason": "This entry leads with the time, '1130 hours', just as mission control asked."
+          },
+          " ",
+          {
+            "tap": "At 1600 hours, Pellucia appeared in the window, glittering like a ball of crushed ice.",
+            "reason": "This entry leads with the time, '1600 hours', just as mission control asked."
+          },
+          " ",
+          {
+            "tap": "At 2215 hours, we landed safely on the ice, and the whole crew cheered so loudly that Earth heard it.",
+            "reason": "This entry leads with the time, '2215 hours', just as mission control asked."
+          },
+          " Mission control sent back a single word: 'Congratulations.' The engineer who sat on the button has been given a cushion with a sign on it that says SIT HERE, NOT THERE."
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.5-b4-3",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren is writing a report for the Field Guide. The Frontnip spotted a problem.",
+      "prompt": "Wren's report goes season by season. Tap the opener that doesn't fit, then choose a better one.",
+      "success": "'In winter' tells the reader which season. Wren's report moves through the year, one season at a time.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The mountain pygmy possum is smaller than a mouse, yet it survives some of the harshest weather in Australia, high on the boulder fields where the snow lies deepest. Wren has been watching one possum, which she calls Bramble, for a whole year through a hidden camera. Her report follows one possum through a whole year, and every sentence starts by naming the season. ",
+          {
+            "tap": "In spring",
+            "reason": "That's right. Waking up and feasting on bogong moths happens in spring."
+          },
+          ", the possum wakes up hungry and feasts on the bogong moths that arrive in their millions. ",
+          {
+            "tap": "In summer",
+            "reason": "That's right. Raising the babies happens in summer."
+          },
+          ", the possum raises up to four babies in a nest of shredded bark among the boulders. ",
+          {
+            "tap": "In autumn",
+            "reason": "That's right. Storing seeds and fattening up happens in autumn."
+          },
+          ", it stuffs itself with seeds and stores even more, until it is almost twice its usual weight. ",
+          {
+            "tap": "Deep under the boulders"
+          },
+          ", buried beneath a thick blanket of snow, the possum curls into a ball and sleeps for up to seven months, its heart barely beating. Then the snow melts, the moths return, and the whole cycle begins again. Wren thinks it is the toughest animal on the mountain, and she would like to see Gus try sleeping for seven months without a snack."
+        ],
+        "spot": 3,
+        "options": [
+          {
+            "text": "In autumn",
+            "reason": "Autumn already has its own sentence, about fattening up. The long sleep under the snow comes after it."
+          },
+          {
+            "text": "In spring",
+            "reason": "Spring is when the possum wakes and feasts. Here it is still asleep under the snow."
+          },
+          {
+            "text": "In summer",
+            "reason": "Summer is for raising babies, and there's no snow. This is the season of the long sleep."
+          },
+          {
+            "text": "In winter"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.5-b4-4",
+      "band": 4,
+      "topic": "food",
+      "frame": "Mo is writing his recipe for gum-leaf pancakes. The Frontnip is hoping for a taste.",
+      "text": "Every step on Mo's recipe card starts with the timing, because cooks glance at the clock first and the card second. The last time he wrote a step the other way round, Gus flipped a pancake into the ceiling fan.",
+      "prompt": "Build the next step on Mo's card so it starts with the timing.",
+      "success": "The timing leads, like every other step on the card. A cook who glances up sees exactly when to flip.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Grab a wide spatula",
+          "flip each gum-leaf pancake",
+          "needs flipping at the ten-minute mark.",
+          "After ten minutes in the pan,",
+          "because each gum-leaf pancake",
+          "with a wide spatula."
+        ],
+        "accept": [
+          "After ten minutes in the pan, flip each gum-leaf pancake with a wide spatula."
+        ],
+        "reason": "Every step on the card leads with the timing. Start with 'After ten minutes in the pan'."
+      }
+    },
+    {
+      "id": "7.5-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "The editor of the Peaks Post is training new reporters. The Frontnip is on the desk, eating a pencil.",
+      "text": "Ms Petrakis, the editor of the Peaks Post, tells every new reporter the same thing: the first words of a news story must deliver the news itself, not the weather, the scenery or the build-up. She has pinned these opening lines to the wall to show the difference.",
+      "prompt": "Match each opening line to whether it puts the news first or makes the reader wait.",
+      "success": "News-first openings tell you what happened straight away. The others make you wade through the build-up.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "news first",
+          "makes the reader wait"
+        ],
+        "items": [
+          {
+            "text": "A runaway robot vacuum has eaten the mayor's hat, two cupcakes and a microphone at the opening of the new chairlift.",
+            "bin": 0,
+            "reason": "The news, a robot vacuum eating the mayor's hat, comes in the very first words."
+          },
+          {
+            "text": "Snow has closed every ladder on the eastern towers, rangers announced this morning.",
+            "bin": 0,
+            "reason": "The news, the ladders being closed, comes first. Who announced it comes after."
+          },
+          {
+            "text": "On a quiet Tuesday, as the sun rose over the valley and the kettles boiled, a wombat broke into the bakery.",
+            "bin": 1,
+            "reason": "You read about Tuesday, sunrise and kettles before you reach the news about the wombat."
+          },
+          {
+            "text": "A local Year 6 student has built a slime that glows brighter than a torch.",
+            "bin": 0,
+            "reason": "The news, a slime that glows, is in the first few words."
+          },
+          {
+            "text": "After weeks of rumours, careful planning and a lot of arguing in the town hall, the chairlift will finally reopen.",
+            "bin": 1,
+            "reason": "You read about rumours and arguing first. The news, the chairlift reopening, is at the end."
+          },
+          {
+            "text": "The Peaks Under-12s have won the snow footy final by two points.",
+            "bin": 0,
+            "reason": "The news, the team winning the final, is the first thing you read."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.5-b4-6",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed is writing a walkthrough for the Ice Palace level. The Frontnip is stuck in the Kitchen.",
+      "text": "The Ice Palace is the hardest level in Frostbite Quest, and Zed has finally written a walkthrough for it. The palace has four rooms, which players must clear in this order: the Great Hall, the Kitchen, the Library and the Throne Room. Zed starts each sentence by naming the room, so a player who is stuck can find their place in the walkthrough at a glance. In the Great Hall, a swarm of ice bats swoops from the ceiling, so keep moving and never stand still under the chandelier. In the Kitchen, the frozen chef throws icicles shaped like fish fingers, which you can dodge by ducking behind the giant fridge. In the Library, every book is a trap, apart from the blue one on the bottom shelf, which opens a secret door. ___, the Ice Queen waits on a throne of frozen custard, and she can only be defeated by a well-aimed snowball to the crown. Zed says the custard throne is the most disgusting thing he has ever seen in a game, and he has played Sewer Slugs 3.",
+      "prompt": "Which opener fits the gap in Zed's walkthrough?",
+      "success": "'In the Throne Room' names the last room. Players who are stuck can find their place at a glance.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "In the Throne Room,"
+          },
+          {
+            "text": "In the Great Hall,",
+            "reason": "The Great Hall is the first room, with the ice bats. The Queen is in the last room."
+          },
+          {
+            "text": "After a long, hard fight,",
+            "reason": "This tells when, not which room. Each sentence in the walkthrough starts by naming the room."
+          },
+          {
+            "text": "With your very last life,",
+            "reason": "This tells how much health you have, not which room you're in."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

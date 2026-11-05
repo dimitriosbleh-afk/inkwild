@@ -1,6 +1,6 @@
 # Blind solve report
 
-1512 Encounters checked, 68 flagged for rewrite.
+1800 Encounters checked, 69 flagged for rewrite.
 
 | Encounter | Flag | Detail |
 |---|---|---|
@@ -48,6 +48,7 @@
 | 6.2-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: Items in a different order are equally correct. / List item order is not signalled by the tiles; any order of the three items gives a correct sentence. |
 | 6.2-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: Items in a different order are equally correct. / List item order is not signalled by the tiles; any order of the three items gives a correct sentence. |
 | 6.4-b3-5 | SECOND ANSWER, CONFIDENCE medium | also: 'Because the pitch, was frozen the match was called off.' has a stray comma AND a missing comma, so 'comma missing' could also be argued. / Chose 'wrong place' since a comma is present but misplaced. |
+| 7.12-b3-4 | SECOND ANSWER, CONFIDENCE medium | also: 'My account name is ZedPlays, and I play on a tablet.' is neutral enough to sit in the chat, though the crew already knows it; it is only really needed by support. / The account-name line is the one item with no register marker; it is decided by who needs the information. |
 | 1.1-b2-1 | SECOND ANSWER | also: through a gap no wider than a coin (how she left the tank, not how she got into the sea) / 'finally' points to the last step. |
 | 1.1-b2-2 | SECOND ANSWER | also: To pause it, clap your hands loudly. (pause is not off) |
 | 1.1-b3-2 | SECOND ANSWER | also: We were booked to play ... Friday the 3rd of March. (old date, not new) |
@@ -76,3 +77,4 @@
 | 1.7-b4-2 | CONFIDENCE medium | Two items are untrue (he refuses a release button; he denies the maps), so a bin is used twice. Fine only if the game allows repeated bins. |
 | 5.3-b4-6 | CONFIDENCE medium | 'given that' as cause is advanced vocabulary but unambiguous in meaning. |
 | 6.6-b3-2 | CONFIDENCE medium | 'Feed the possum Wren' has no comma, so Wren is not being addressed (either the possum is named Wren or Wren is the food). |
+| 7.2-b4-6 | CONFIDENCE medium | Slight story-logic wrinkle: the truck 'rumbled away' with the teapot, yet Wren then rescues the teapot 'from the truck'. A child could briefly wonder about the order of the two middle-bin truck sentences, but the bin assignment is unaffected. |

@@ -1,0 +1,969 @@
+{
+  "skill": {
+    "id": "7.1",
+    "name": "What is this text for? Narrate, recount, inform, explain, instruct, persuade",
+    "codes": [
+      "VC2E5LA03"
+    ],
+    "why": "Knowing what a text is for tells you how to read it.",
+    "how": "Ask what the writer wants: to entertain, retell, inform, explain, instruct or persuade.",
+    "teach": {
+      "crew": "nav",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Every text has a job. Ask: what does the writer want?"
+          },
+          {
+            "say": "A made-up story entertains. A recount retells real events.",
+            "show": "**Last Saturday**, **our class** climbed the big ladder."
+          },
+          {
+            "say": "A report gives facts. An explanation says how or why.",
+            "show": "Snow melts **because** the sun warms it."
+          },
+          {
+            "say": "A procedure tells you how to do something.",
+            "show": "**Hold** the rope. **Climb** to the next ladder."
+          },
+          {
+            "say": "A persuasive text wants you to agree, or to act.",
+            "show": "Everyone **should** visit Scaffold Peaks. **Book now!**"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Snow Angels in Four Steps. Lie on your back in fresh snow. Stretch your arms out wide. Sweep your arms and legs up and down. Stand up carefully and look at your angel.",
+          "prompt": "What is this text for?",
+          "hint": "Look at how each sentence starts. Is it telling you to do something?",
+          "success": "It instructs. Every sentence tells you what to do, one step at a time.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "to tell you how to make something"
+              },
+              {
+                "text": "to tell a made-up story",
+                "reason": "Nobody is in a story here. Each sentence tells you what to do next."
+              },
+              {
+                "text": "to convince you to visit the snow",
+                "reason": "It never says why you should go. It tells you how to make an angel."
+              }
+            ],
+            "answer": 0
+          }
+        },
+        {
+          "prompt": "This report gives facts, but one sentence tries to persuade. Tap it.",
+          "hint": "Which sentence tells you what you should do?",
+          "success": "'Should' gives an opinion and tells you what to do. That's persuading, not giving facts.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Snow gums grow high in the mountains. ",
+              {
+                "tap": "Their bark peels off in long strips.",
+                "reason": "This is a fact about snow gums. It doesn't ask you to do anything."
+              },
+              " ",
+              {
+                "tap": "Everyone should hug a snow gum at least once."
+              },
+              " ",
+              {
+                "tap": "Their leaves stay green all winter.",
+                "reason": "This is a fact you could check. It's informing you."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "whyrella",
+      "name": "Whyrella",
+      "evolved": "Whyrellion",
+      "blurb": "A crimson rosella that cracks open every text like a seed to find out what it's for. A story, a recipe or a sales pitch: it can taste the difference."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.1-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo pinned a recipe to the ladder at Base Camp. A Whyrella is pecking at it.",
+      "text": "Mo's Snow Slushie. You will need a clean cup, fresh snow and fruit juice. First, scoop the snow into the cup. Pack it down with a spoon. Next, pour the juice slowly over the top. Stir it twice. Then eat it fast, before it melts! Last, wash the cup and spoon in the hut sink. Do not use yellow snow. Ever.",
+      "prompt": "What is this text for?",
+      "success": "It instructs. It lists what you need, then tells you what to do, step by step.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to tell a made-up story about Mo",
+            "reason": "Nothing happens to Mo. Every line tells you what to do next."
+          },
+          {
+            "text": "to give facts about snow",
+            "reason": "It never says what snow is like. It tells you how to make a slushie."
+          },
+          {
+            "text": "to tell you how to make a slushie"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "A poster is flapping on the Tower Three ladder. The Whyrella squawks at it.",
+      "text": "Join the Peak Climbers Club! Climbing is the best sport on the island. It makes you strong. It makes you brave. You will make heaps of new friends. Our coaches are kind and patient. You don't need any gear, because we lend it to you. Every Year 5 and 6 kid should give it a go. Sign up at the hut on Tuesday arvo. Don't miss out!",
+      "prompt": "What does the writer want?",
+      "success": "It persuades. 'Best sport', 'should give it a go' and 'Don't miss out!' all push you to join.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to get you to join the club"
+          },
+          {
+            "text": "to tell you how to climb a ladder",
+            "reason": "It never tells you how to climb. It tells you why you should join."
+          },
+          {
+            "text": "to retell a club climbing trip",
+            "reason": "No trip happens in it. It's all about why you should sign up."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.1-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wind blew the Whyrella's notes off the tower. Each line came from a different text.",
+      "prompt": "Match each sentence to its job.",
+      "success": "Steps tell you what to do. Past events retell. 'Should' gives an opinion to convince you.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "tells you what to do",
+          "retells what happened",
+          "tries to convince you"
+        ],
+        "items": [
+          {
+            "text": "Put the bowl of seeds by the door.",
+            "bin": 0,
+            "reason": "This tells you what to do with the seeds. It's a step."
+          },
+          {
+            "text": "On Sunday, a rosella landed on Gus's head.",
+            "bin": 1,
+            "reason": "'On Sunday' and 'landed' show this already happened."
+          },
+          {
+            "text": "Fill the water dish every morning.",
+            "bin": 0,
+            "reason": "This tells you what to do each morning. It's a step."
+          },
+          {
+            "text": "Every school should have a bird feeder.",
+            "bin": 2,
+            "reason": "'Should' gives the writer's opinion. It's trying to win you over."
+          },
+          {
+            "text": "Then it flew off with his sandwich.",
+            "bin": 1,
+            "reason": "'Then' and 'flew' show this is the next thing that happened."
+          },
+          {
+            "text": "Wash your hands after you feed the birds.",
+            "bin": 0,
+            "reason": "This tells you what to do after feeding. It's a step."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.1-b1-4",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo wrote instructions for building a snowman. One sentence wandered off.",
+      "prompt": "This text tells you how to do something. Tap the sentence that doesn't.",
+      "success": "That sentence retells something that happened to Mo. Every other sentence tells you what to do.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "How to Build a Snowman. Use wet snow, because it sticks. ",
+          {
+            "tap": "Roll a big ball of snow for the body.",
+            "reason": "This tells you what to do first. It fits."
+          },
+          " ",
+          {
+            "tap": "Roll a smaller ball for the head.",
+            "reason": "This tells you what to do next. It fits."
+          },
+          " Lift the head onto the body. ",
+          {
+            "tap": "Last winter, my snowman fell over and squashed Gus."
+          },
+          " ",
+          {
+            "tap": "Push in two pebbles for eyes.",
+            "reason": "This is a step. It tells you what to do with the pebbles."
+          },
+          " Add a carrot nose. Tie a scarf around its neck. Stand back and wave at it."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b1-5",
+      "band": 1,
+      "topic": "space",
+      "frame": "Zed stuck a note on a page from the Scaffold Peaks library. The Whyrella shakes its head.",
+      "text": "The Moon. The Moon is a big ball of rock. It goes around Earth about once a month. It has no air and no water. The Moon does not make its own light. It shines because the Sun lights it up. Its ground is grey and dusty. It is covered in round holes called craters. Some craters are wider than a city.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "It informs. Each sentence gives a fact about what the Moon is like.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Zed's note: This text is about ",
+          {
+            "tap": "the Moon",
+            "reason": "That's right. Every sentence is about the Moon."
+          },
+          ". It was written to ",
+          {
+            "tap": "tell a made-up story"
+          },
+          ". It has ",
+          {
+            "tap": "a title",
+            "reason": "That's right. 'The Moon' at the top is its title."
+          },
+          " at the top."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "tell you how to get there",
+            "reason": "Nothing tells you how to get to the Moon. It's all facts about it."
+          },
+          {
+            "text": "give facts about it"
+          },
+          {
+            "text": "explain how it was made",
+            "reason": "It never says how the Moon was made. It says what it's like."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.1-b1-6",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The Whyrella found a story pinned inside an old hut on the peak.",
+      "text": "The snowman by the hut had always been still. But on the night of the big storm, it blinked. Then it smiled a crooked twig smile. 'Hello, Nell,' it said. Nell dropped her hot chocolate. 'Snowmen can't talk!' she squeaked. 'This one can,' said the snowman. 'And I'm very cold. Can I come inside?' Nell looked at the fire. She looked at the snowman. 'Maybe just the porch,' she said.",
+      "prompt": "What is this text for?",
+      "success": "It narrates. A talking snowman is made up, and the story is there to entertain you.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to give facts about snowmen",
+            "reason": "There are no facts here. Real snowmen can't blink or talk."
+          },
+          {
+            "text": "to entertain you with a story"
+          },
+          {
+            "text": "to tell you how to build a snowman",
+            "reason": "Nothing tells you how to build one. Things just happen to Nell."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.1-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus has been in the snow too long. The Whyrella brings him a page from the hut library.",
+      "text": "Why Do Your Toes Go Numb in the Snow? When your feet get cold, your body has a clever plan. It wants to keep your heart and brain warm first. So it squeezes the tiny blood tubes in your toes. Less warm blood flows down to your feet. Without that warm blood, your toes cool down even more. Soon the nerves in your toes slow down. They stop sending messages to your brain. That is why your toes feel numb, like they belong to someone else. When you warm up again, the blood rushes back. The nerves wake up all at once, which is why your toes tingle and itch.",
+      "prompt": "What is this text mainly for?",
+      "success": "It explains. Each step causes the next, from cold feet to numb toes, then tingling.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to describe the different parts of a foot",
+            "reason": "It only mentions toes, blood and nerves. It's about why toes go numb."
+          },
+          {
+            "text": "to explain why your toes go numb"
+          },
+          {
+            "text": "to tell you how to keep your toes warm",
+            "reason": "It never tells you what to do. It explains what happens inside your body."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.1-b2-2",
+      "band": 2,
+      "topic": "sport",
+      "frame": "The Peakside Primary newsletter blew up the ladder to Base Camp.",
+      "text": "Ski Day Report. Last Friday, Years 5 and 6 caught the early bus to Mount Ladder for our first ski day. It was minus two degrees when we arrived. First, the instructors split us into groups. The beginners learned how to stop by pointing their skis into a pizza shape. After lunch, we raced down the blue run in pairs. Mr Okafor fell over at the very first flag. He slid the rest of the way on his back, and he still came third. At three o'clock, we handed back our skis and boots. Everyone was asleep on the bus by four.",
+      "prompt": "What is this text for?",
+      "success": "It recounts. It retells one real school day in time order, from the early bus to the trip home.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to entertain with a made-up story about a teacher",
+            "reason": "It's a school newsletter about our class's own day. It retells what really happened."
+          },
+          {
+            "text": "to teach readers how to stop on skis",
+            "reason": "Only one sentence is about stopping. The text follows the whole day in order."
+          },
+          {
+            "text": "to retell what happened on the class ski day"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b2-3",
+      "band": 2,
+      "topic": "gaming",
+      "frame": "Maxx is streaming from the Maxx World building site. He says he's 'just sharing facts'.",
+      "prompt": "Maxx says he's only giving facts. Tap the sentence that shows what he really wants.",
+      "success": "'Best game ever made' is an opinion, and 'missing' pushes you to buy. That's persuading, not informing.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "'Maxx it out, Vantafam! Here are some facts about my new game, Peak Panic. ",
+          {
+            "tap": "It has twelve levels, all set on snowy mountains.",
+            "reason": "This is a fact about the game. It doesn't push you to do anything."
+          },
+          " ",
+          {
+            "tap": "You play as a goat who climbs ladders to dodge falling rocks.",
+            "reason": "This tells you what the game is about. It's a fact."
+          },
+          " Every level gets a little faster, and the rocks get bigger. Some of them are even on fire. There is a two-player mode, so you can race a friend. ",
+          {
+            "tap": "The music was played by a real orchestra.",
+            "reason": "This is a fact about the music, not a push to buy."
+          },
+          " Each player can choose from six goats, and one of them wears a gold crown. ",
+          {
+            "tap": "Anyone who doesn't buy it today is missing the best game ever made."
+          },
+          " ",
+          {
+            "tap": "The game comes out on Saturday.",
+            "reason": "This tells you when. It's a fact you could check."
+          },
+          " Stay gold!'"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.1-b2-4",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Whyrella has collected the first lines of six texts from the music hut.",
+      "prompt": "Match each first line to what its text is for.",
+      "success": "Facts inform. Commands like 'Hold' and 'Turn' instruct. 'That player should be you' is trying to persuade.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "to inform",
+          "to instruct",
+          "to persuade"
+        ],
+        "items": [
+          {
+            "text": "A violin has four strings and is played with a bow.",
+            "bin": 0,
+            "reason": "This gives facts about what a violin is like."
+          },
+          {
+            "text": "Hold the recorder with your left hand at the top.",
+            "bin": 1,
+            "reason": "This tells you what to do with your hands. It's an instruction."
+          },
+          {
+            "text": "Our school band needs a tuba player, and that player should be you.",
+            "bin": 2,
+            "reason": "'Should be you' is trying to get the reader to join."
+          },
+          {
+            "text": "Drums come in many sizes, from tiny bongos to huge bass drums.",
+            "bin": 0,
+            "reason": "This gives facts about drums. It doesn't ask you to do anything."
+          },
+          {
+            "text": "Turn the tuning peg slowly until the string sounds right.",
+            "bin": 1,
+            "reason": "This tells you what to do with the peg. It's an instruction."
+          },
+          {
+            "text": "Bagpipes have a bag, a blowpipe and three long pipes called drones.",
+            "bin": 0,
+            "reason": "This describes the parts of bagpipes. It's giving facts."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.1-b2-5",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren left a sticky note on a story in the Scaffold Peaks hut. Part of it is wrong.",
+      "text": "Pip the pygmy possum had slept all winter under a rock. When she woke up, she was starving. She poked her nose out of the snow and sniffed. Bogong moths! Hundreds of them were fluttering in the spring air. Pip licked her lips. But just then, a shadow swooped across the snow. It was Old Fang, the hungriest owl on the mountain. 'Breakfast,' he hooted. Pip dived back under her rock and held her breath. She waited until his wings had gone. Then she crept out the other side, caught three fat moths and ate them in the sun. 'Best breakfast ever,' she said, and burped.",
+      "prompt": "Tap the part Wren got wrong, then choose a better one.",
+      "success": "It narrates. A talking owl, a danger and an escape make it a made-up story to entertain you.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren's note: This text is about ",
+          {
+            "tap": "a pygmy possum",
+            "reason": "That's right. Pip is a pygmy possum."
+          },
+          " called Pip. It was written to ",
+          {
+            "tap": "retell real events"
+          },
+          ". The danger comes when ",
+          {
+            "tap": "an owl swoops in",
+            "reason": "That's right. Old Fang the owl is the danger Pip has to escape."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "give facts about pygmy possums",
+            "reason": "It has a fact or two, but it's a story with a talking owl and a problem to solve."
+          },
+          {
+            "text": "explain how possums sleep all winter",
+            "reason": "It never explains how. Waking up is just how the story starts."
+          },
+          {
+            "text": "entertain with a made-up story"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b2-6",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "A fact sheet washed up at the foot of the peaks. The Whyrella is trying to read it.",
+      "text": "Leafy Seadragons. Leafy seadragons are fish that live in cool, shallow water off southern Australia. They are related to seahorses. A leafy seadragon grows to about 35 centimetres long. Its body is covered in flaps that look like seaweed leaves. These flaps help it hide among the kelp. Its tiny fins are almost see-through, so it seems to drift like a loose piece of seaweed. Leafy seadragons are yellow, brown or green. They have no teeth. Instead, they suck up tiny shrimp through their long, thin snouts. Male seadragons carry the eggs on their tails until they hatch. Leafy seadragons are protected by law, so nobody is allowed to catch them.",
+      "prompt": "What is this text for?",
+      "success": "It informs. Each sentence gives a fact: where they live, size, looks, food and babies.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to give facts about leafy seadragons"
+          },
+          {
+            "text": "to convince people to protect seadragons",
+            "reason": "It says they're protected, but it never asks you to do anything."
+          },
+          {
+            "text": "to explain how seadragon eggs hatch",
+            "reason": "Eggs come up in one sentence. The rest describes what seadragons are like."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.1-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "The Architect keeps a shelf of nature books in the Tower One hut. The Whyrella has opened one.",
+      "text": "How Snow Gums Survive a Bushfire. Snow gums grow high in the mountains, where summer bushfires can sweep through the trees. A strong fire can kill every leaf and branch on a snow gum, but the tree is not finished. Hidden at the base of its trunk is a woody lump called a lignotuber. This lump stores food, and it is covered in sleeping buds. Because the lump is partly underground, the soil protects it from the heat of the flames. After the fire has passed, the burnt tree can no longer make food in its leaves. This change wakes the sleeping buds. They use the food stored in the lump to send up new green shoots. Within a few years, the shoots grow into a ring of new stems around the old, dead trunk. That is why many snow gums have several thin trunks instead of one thick one.",
+      "prompt": "What is this text mainly for?",
+      "success": "It explains. It follows a chain: fire kills the leaves, the buds wake, and new shoots grow.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to explain how a snow gum grows back after a fire"
+          },
+          {
+            "text": "to describe what snow gums look like and where they grow",
+            "reason": "It mentions where they grow, but it follows the steps of how a tree regrows after fire."
+          },
+          {
+            "text": "to convince readers to protect snow gums from bushfires",
+            "reason": "It never says what anyone should do. It explains what happens inside the tree."
+          },
+          {
+            "text": "to retell what happened to one snow gum in one fire",
+            "reason": "It's about snow gums in general, in present tense, not one tree on one day."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.1-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "A letter is pinned to the canteen door at Peakside Primary. The Whyrella has a crumb in its beak.",
+      "text": "Dear Principal Haddad, We are writing about the school canteen, which closes every winter because the hut has no heater. We think this needs to change. In winter, the walk to the general store takes twenty minutes through the snow. Last term, fourteen students missed lunch on blizzard days, and that is not fair. A small heater would cost about three hundred dollars, which our class can raise with a cake stall. A warm canteen could also sell hot soup, which would earn money for the school. Hungry students find it hard to concentrate, so a winter canteen would help everyone learn. Please put a heater in the canteen before the snow comes back. Our class has already asked the parents' club, and they have offered to help with the cake stall. We would be happy to help set the heater up, and we promise to keep the canteen tidy. Yours sincerely, Year 6, Room 3",
+      "prompt": "What is this letter mainly for?",
+      "success": "It persuades. It gives reasons and facts, then makes a request: 'Please put a heater in the canteen.'",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to give facts about the school canteen and its menu",
+            "reason": "The facts are there to back up a request. The letter is asking for a heater."
+          },
+          {
+            "text": "to retell what happened on last term's blizzard days",
+            "reason": "Those days are mentioned once, as a reason. The letter is asking for a change."
+          },
+          {
+            "text": "to explain how a heater would warm up the canteen",
+            "reason": "It never explains how heaters work. It argues for getting one."
+          },
+          {
+            "text": "to persuade the principal to put a heater in the canteen"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.1-b3-3",
+      "band": 3,
+      "topic": "space",
+      "frame": "The Architect's telescope tower has a library. The Whyrella has mixed up lines from three books.",
+      "prompt": "Match each sentence to the job of the book it came from.",
+      "success": "Explanations say how or why. Instructions tell you what to do. Recounts retell what happened, in past tense.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "explains how or why",
+          "instructs",
+          "recounts"
+        ],
+        "items": [
+          {
+            "text": "When a rocket burns its fuel, hot gas shoots out of the bottom and pushes it up.",
+            "bin": 0,
+            "reason": "This explains what makes a rocket go up: the gas pushes it."
+          },
+          {
+            "text": "Attach the fins to the bottom of the bottle with strong tape.",
+            "bin": 1,
+            "reason": "This tells the reader what to do with the fins."
+          },
+          {
+            "text": "Before we launched, Ms Lee checked that everyone was behind the rope.",
+            "bin": 2,
+            "reason": "'We launched' and 'checked' show this already happened, on one day."
+          },
+          {
+            "text": "Because there is no air in space, sound has nothing to travel through.",
+            "bin": 0,
+            "reason": "This explains why space is silent. It gives the cause."
+          },
+          {
+            "text": "Pump air into the bottle until the pressure builds, then stand well back.",
+            "bin": 1,
+            "reason": "'Pump' and 'stand' tell the reader what to do. 'Then' is just the next step."
+          },
+          {
+            "text": "At ten past two, our bottle rocket shot higher than the gym roof.",
+            "bin": 2,
+            "reason": "This retells one moment that already happened to the writer's class."
+          },
+          {
+            "text": "Then we measured how far it had flown, and Zed's rocket won.",
+            "bin": 2,
+            "reason": "'We measured' and 'won' retell what happened next that day."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.1-b3-4",
+      "band": 3,
+      "topic": "robots",
+      "frame": "The Architect's robot crane has a sign explaining how it works. Someone has added a line.",
+      "prompt": "This sign explains how the crane works. Tap the sentence that does a different job.",
+      "success": "That sentence gives an opinion and says what cities should do. The rest explain how the crane works.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "How the Tower Crane Lifts a Girder. ",
+          {
+            "tap": "When the driver presses the lift button, a motor at the top of the crane starts to turn a drum.",
+            "reason": "This explains the first step: the button starts the motor."
+          },
+          " ",
+          {
+            "tap": "As the drum turns, it winds in a steel cable, which pulls the hook upwards.",
+            "reason": "This explains what the turning drum causes."
+          },
+          " The girder hangs from the hook on two short chains, so it rises with it. While it climbs, a sensor in the hook measures how heavy the load is. If the load is too heavy, an alarm sounds and the motor stops. ",
+          {
+            "tap": "A heavy girder could tip the crane over, so concrete blocks hang off the back arm to balance it.",
+            "reason": "This explains why the crane doesn't tip over."
+          },
+          " ",
+          {
+            "tap": "Honestly, it is the most beautiful machine ever built, and every city should have ten."
+          },
+          " ",
+          {
+            "tap": "When the girder reaches the right height, a brake locks the drum so the cable can't unwind.",
+            "reason": "This explains how the girder stays up."
+          },
+          " Next, the driver swings the long arm around until the girder is above the right spot. Finally, the drum turns the other way, and the cable lowers the girder gently into place."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.1-b3-5",
+      "band": 3,
+      "topic": "music",
+      "frame": "Mo has labelled a poster on the music hut wall. The Whyrella thinks he's wrong.",
+      "text": "How a Guitar Makes Its Sound. When you pluck a guitar string, it moves backwards and forwards very quickly. This is called vibrating. A thick string vibrates more slowly than a thin one, so it makes a lower note. The vibrating string pushes on the air around it and makes tiny waves. On its own, a string is quite quiet, because it is too thin to move much air. That is why a guitar has a hollow wooden body. The string passes its shaking through the bridge into the thin wooden top of the guitar. The whole top starts to vibrate, and because it is much bigger than the string, it pushes far more air. The air inside the body bounces around and comes out of the round sound hole. By the time the sound reaches your ears, it is many times louder than the string alone. That is why you can hear a guitar from the back of a hall, even though its strings are thinner than spaghetti.",
+      "prompt": "Tap the part Mo got wrong, then choose a better one.",
+      "success": "It explains. It follows a chain of causes: the string vibrates, the body vibrates, the sound gets louder.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo's label: This text is about ",
+          {
+            "tap": "guitars",
+            "reason": "That's right. Every sentence is about a guitar."
+          },
+          ". It was written to ",
+          {
+            "tap": "describe what a guitar looks like"
+          },
+          ". It says the sound comes out of ",
+          {
+            "tap": "the round sound hole",
+            "reason": "That's right. The air inside the body comes out of the round sound hole."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "give facts about the different kinds of guitars",
+            "reason": "It only talks about one kind, with a hollow body. It follows how the sound gets louder."
+          },
+          {
+            "text": "tell you how to play your first chord",
+            "reason": "It never tells you to do anything. There are no steps to follow."
+          },
+          {
+            "text": "explain how a guitar makes its sound loud"
+          },
+          {
+            "text": "convince you to learn the guitar",
+            "reason": "There are no opinions or reasons to start playing. It just explains."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b3-6",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Indi found a story scratched into the wall of the old lift hut.",
+      "text": "The chairlift at Scaffold Peaks had been closed for twenty years, so Kit was surprised when it started to hum. One by one, the empty chairs swung past her, creaking in the wind. Then a chair stopped right in front of her, as if it was waiting. Its seat was dusted with fresh snow, but there were no footprints anywhere. Kit should have gone home. Instead, she climbed on. The chair rose through the fog, higher than the rock towers and higher than the clouds. At the very top was a tiny hut with a light in the window. Inside, a man made entirely of snow was pouring two cups of tea. 'You took your time,' he said. 'I've been sending that chair down every night since the year you were born.' Kit's mouth went dry. 'Why?' she whispered. The snowman smiled and pushed a cup towards her. 'Because,' he said, 'you're the only one who ever looked up.'",
+      "prompt": "What is this text for?",
+      "success": "It narrates. A snowman who talks and a mystery that builds show it's made up to entertain.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to retell what really happened on a chairlift ride",
+            "reason": "A man made of snow pours tea and talks. That can't be a real event."
+          },
+          {
+            "text": "to give facts about the old chairlift at Scaffold Peaks",
+            "reason": "It gives only one fact about the lift. The rest is a mystery that unfolds."
+          },
+          {
+            "text": "to entertain readers with a mysterious, made-up story"
+          },
+          {
+            "text": "to persuade readers to reopen the old chairlift",
+            "reason": "Nobody argues for anything. Things just happen to Kit, to keep you reading."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b4-1",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Maxx has stuck a 'Fact Sheet' to every ladder on Scaffold Peaks. The Whyrella is pulling one down.",
+      "text": "MAXX WORLD: THE FACTS. Maxx World will open next summer on the highest rock tower in Scaffold Peaks, and it will be the most incredible theme park in the history of the universe. Here are the facts, and every single one of them is true, because I checked them myself in the mirror this morning. The park will have forty-two rides, including the Vantavator, a gold lift that climbs three hundred metres in nine seconds. There will be fourteen food stalls, and every single one will sell my favourite snack, gold-dusted fairy floss. Experts agree that it will be the best day out on Earth, and those experts are me. The park will also feature rare Creatures from all over the archipelago, shown in comfortable, award-winning enclosures that are definitely not cages. Each visitor will also get a free selfie with me, which is worth at least a thousand dollars. Tickets cost just ninety-nine dollars, which is practically free when you think about how amazing I am. Only ten thousand tickets will be sold, so the smart Vantafam are already buying theirs. Do you really want to be the only kid in your class who missed out? Pre-order now through the gold button on my channel. Stay gold!",
+      "prompt": "The heading says 'The Facts'. What is this text really for?",
+      "success": "It persuades. Opinions, pressure ('missed out?') and 'Pre-order now' show the facts are just there to sell tickets.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to give readers useful facts about a new theme park",
+            "reason": "There are numbers, but they're picked to impress you, and it ends by telling you to buy."
+          },
+          {
+            "text": "to explain how the Vantavator lift climbs so fast",
+            "reason": "The lift gets one sentence, with no causes or steps. It's there to impress you."
+          },
+          {
+            "text": "to persuade readers to buy tickets to Maxx World"
+          },
+          {
+            "text": "to recount the day that Maxx World first opened its gates",
+            "reason": "The park hasn't opened yet. Everything is in the future: 'will open', 'will have'."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.1-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "Tully is reading up before the Architect's space camp. The Whyrella is reading over her shoulder.",
+      "text": "Why Astronauts' Bones Get Weaker in Space. On Earth, your skeleton works hard every second of the day, even when you are just standing in line at the canteen. Gravity pulls your body towards the ground, so your bones must hold up your weight with every step. This constant load sends a signal to special cells inside your bones, telling them to keep building fresh, strong bone. On a space station, however, astronauts float, so their legs, hips and spine have almost no weight to carry. Without that load, the bone-building cells receive no signal and slow down, while other cells keep breaking old bone down at the usual rate. As a result, an astronaut can lose around one per cent of the bone in their hips and legs every month. The lost minerals travel into the blood, which is also why some astronauts develop painful kidney stones. Exercise machines that make astronauts push against heavy springs can slow this loss, because they create some of the load that gravity normally provides. Astronauts also eat foods rich in calcium and vitamin D, which their bodies need to build new bone. Even so, after returning to Earth, it can take years for their bones to fully recover.",
+      "prompt": "What is this text mainly for?",
+      "success": "It explains. It links causes and effects: no weight, no signal, less bone built, weaker bones.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to give facts about daily life aboard a space station",
+            "reason": "Life on the station only comes up as part of the chain: no weight, no signal, weaker bones."
+          },
+          {
+            "text": "to instruct astronauts on how to use the exercise machines",
+            "reason": "The machines are mentioned, not taught. Nothing tells the reader what to do."
+          },
+          {
+            "text": "to persuade governments to stop sending people into space",
+            "reason": "It never says space travel is bad or that anything should stop."
+          },
+          {
+            "text": "to explain why bones lose strength without gravity"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.1-b4-3",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "The Scaffold Peaks library shelves its books by what they're for. The Whyrella has knocked a shelf over.",
+      "prompt": "Match each book title to what the book is for.",
+      "success": "'How to' and step-by-step guides instruct. 'How' and 'why' with causes explain. 'Should' persuades. Facts about a topic inform.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "to inform",
+          "to explain",
+          "to instruct",
+          "to persuade"
+        ],
+        "items": [
+          {
+            "text": "Why Game Consoles Overheat, and What Happens Inside When They Do",
+            "bin": 1,
+            "reason": "This 'why' asks for causes: what goes on inside the console. That's explaining."
+          },
+          {
+            "text": "Why Every School Should Have a Gaming Club",
+            "bin": 3,
+            "reason": "This 'why' gives an opinion with 'should'. It's arguing, not explaining."
+          },
+          {
+            "text": "Beat Lava Run in Under Two Minutes: Your Step-by-Step Guide",
+            "bin": 2,
+            "reason": "A step-by-step guide tells the reader what to do."
+          },
+          {
+            "text": "Handheld Consoles: Their Parts, Screens and Batteries",
+            "bin": 0,
+            "reason": "This describes what handheld consoles are made of. It gives facts about a topic."
+          },
+          {
+            "text": "How a Game Controller Turns a Button Press Into a Jump",
+            "bin": 1,
+            "reason": "This 'how' follows a process inside the controller. It explains, it doesn't instruct."
+          },
+          {
+            "text": "How to Run a Fair Gaming Tournament for Your Class",
+            "bin": 2,
+            "reason": "'How to' means the book tells the reader what to do, step by step."
+          },
+          {
+            "text": "The Big Book of Game Characters, From A to Z",
+            "bin": 0,
+            "reason": "An A to Z book gives facts about lots of characters. It informs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.1-b4-4",
+      "band": 4,
+      "topic": "sport",
+      "frame": "The Architect pinned an explanation to the ski hut wall. The Whyrella spotted a line that doesn't belong.",
+      "prompt": "This text explains how avalanches start. Tap the sentence doing a different job.",
+      "success": "That sentence instructs: it tells skiers what to do. Every other sentence explains a cause or an effect.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "How an Avalanche Starts. Every snowfall leaves a new layer on the mountainside, so by late winter the snow is built up like the pages of an enormous book. ",
+          {
+            "tap": "Some layers are packed hard by the wind, while others are made of loose, sugary crystals that barely stick to anything.",
+            "reason": "This explains why some layers are weak, which is where the trouble begins."
+          },
+          " ",
+          {
+            "tap": "When heavy fresh snow piles on top of a weak layer, the weak layer is squeezed until it can barely hold the weight above it.",
+            "reason": "This explains what puts strain on the weak layer."
+          },
+          " The weak layer is now like a shelf of thin glass holding up a pile of bricks. Then a trigger, such as a sudden warm day, a falling chunk of ice or even a single skier, can make it collapse. ",
+          {
+            "tap": "Because the slope is steep, the whole slab of snow above the broken layer begins to slide.",
+            "reason": "This explains what happens once the layer breaks, and why."
+          },
+          " ",
+          {
+            "tap": "Before you leave the hut, always check the avalanche warning board and never ski alone."
+          },
+          " ",
+          {
+            "tap": "As the slab speeds up, it breaks into blocks and churns up more snow, until it races downhill faster than a car.",
+            "reason": "This explains how the avalanche grows as it falls."
+          },
+          " That is why a small crack near the top of a slope can become a huge, roaring wall of snow by the bottom. Most avalanches happen on slopes that are about as steep as a playground slide, because steeper slopes shed their snow before it can build up."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.1-b4-5",
+      "band": 4,
+      "topic": "general",
+      "frame": "Gus wrote a label for a poster in the Architect's workshop. The Whyrella has its doubts.",
+      "text": "How a Compass Finds North. Deep inside the Earth, a core of hot, liquid iron is constantly churning, and this movement turns the whole planet into a gigantic, weak magnet. Like any magnet, the Earth has two magnetic poles, one near the North Pole and one near the South Pole, and invisible lines of magnetic force loop between them. Scientists call the space around a magnet, where its pull can be felt, a magnetic field. A compass needle is a thin sliver of magnetised metal, balanced on a pin so that it can spin with almost no friction. Because the needle is a tiny magnet itself, its ends are pulled by the Earth's magnetic field, and the needle swings until it lines up with those invisible lines. The end marked in red is attracted towards the magnetic pole in the north, which is why it always settles pointing that way. However, the magnetic pole is not in exactly the same place as the North Pole on a map, and it slowly wanders over the years. Near the far north of Canada, the gap between the two can be so large that a compass is almost useless. That is why a compass and a map can disagree by a few degrees.",
+      "prompt": "Tap the part Gus got wrong, then choose a better one.",
+      "success": "It explains. It links causes: a churning core makes a magnet, which pulls the needle round to point north.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's label: Topic: ",
+          {
+            "tap": "compasses",
+            "reason": "That's right. The whole text is about how a compass works."
+          },
+          ". Job: ",
+          {
+            "tap": "to teach hikers how to use a compass on a walk"
+          },
+          ". Key idea: ",
+          {
+            "tap": "the Earth acts like a giant magnet",
+            "reason": "That's right. The churning iron core turns the whole planet into a weak magnet."
+          },
+          "."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "to give facts about different kinds of compasses",
+            "reason": "Only one kind of compass is described. The text follows why its needle points north."
+          },
+          {
+            "text": "to convince walkers to always carry a compass",
+            "reason": "It never says anyone should carry one. It explains how the needle works."
+          },
+          {
+            "text": "to retell how the first compass was invented",
+            "reason": "No inventor or event appears. It's about how every compass works today."
+          },
+          {
+            "text": "to explain how a compass needle comes to point north"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.1-b4-6",
+      "band": 4,
+      "topic": "art",
+      "frame": "The Peakside Primary newsletter is out, and the Whyrella is on the front page.",
+      "text": "Tower Four Gets a Makeover. Last Thursday, after three months of planning, Room 6 finally painted a mural on the bare concrete wall at the foot of Tower Four. The day began badly: at eight o'clock the wall was still coated in frost, so Ms Petrakis sent everyone back inside for hot chocolate while the sun did its work. By ten, the wall was dry enough for the first coat of sky blue, which went on with rollers tied to broom handles. After recess, small groups took turns on the scaffolding to paint the snow gums, the ladders and, at Indi's insistence, a crimson rosella the size of a car. Just before lunch, a gust of wind knocked over a tin of red paint, and for a few panicked minutes it looked as if the rosella had sprung a leak. Zed rescued the moment by turning the spill into a row of fallen leaves. In the afternoon, the class added the outlines and signed their names in the bottom corner. Parents arrived at three for the unveiling, and the principal declared it the brightest thing on the island. Room 6 would like to thank the hardware store for donating the paint.",
+      "prompt": "What is this newsletter article for?",
+      "success": "It recounts. It follows one real day in time order, from the frosty morning to the unveiling at three.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "to recount how Room 6 painted the Tower Four mural"
+          },
+          {
+            "text": "to entertain readers with a made-up tale about a paint spill",
+            "reason": "It's a school newsletter naming a real class, day and times. It retells events, not a made-up plot."
+          },
+          {
+            "text": "to instruct readers on how to paint a mural on concrete",
+            "reason": "It says what Room 6 did, in past tense. It never tells the reader what to do."
+          },
+          {
+            "text": "to persuade the principal to let Room 6 paint more walls",
+            "reason": "Nobody asks for anything. The principal already loves it, and the class just says thanks."
+          }
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,947 @@
+{
+  "skill": {
+    "id": "7.4",
+    "name": "The topic sentence that guides a paragraph",
+    "codes": [
+      "VC2E5LA04"
+    ],
+    "why": "A topic sentence tells you what the whole paragraph is about.",
+    "how": "Find the sentence that every other sentence backs up. Check each one fits.",
+    "teach": {
+      "crew": "gamer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "A paragraph is a group of sentences about one idea."
+          },
+          {
+            "say": "The first sentence often tells you that idea.",
+            "show": "**Mo's cooking is dangerous.** His toast set off three alarms."
+          },
+          {
+            "say": "That's the topic sentence. It's the boss of the paragraph."
+          },
+          {
+            "say": "Every other sentence backs the boss up.",
+            "show": "Mo's cooking is dangerous. **His toast set off three alarms.**"
+          },
+          {
+            "say": "If a sentence doesn't back up the boss, it doesn't belong."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "___ They sleep in their burrows for most of the day. They often nap for up to sixteen hours. On cold days, they hardly wake up at all. Even when they do come out, they find a sunny spot and doze off again.",
+          "prompt": "Which topic sentence fits this paragraph?",
+          "hint": "What do all the sentences have in common?",
+          "success": "Every sentence is about sleeping, so the topic sentence must be about sleeping too.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Wombats live in burrows.",
+                "reason": "Burrows come up once, but every sentence is about sleeping."
+              },
+              {
+                "text": "Wombats spend most of their time asleep."
+              },
+              {
+                "text": "Wombats eat grass at night.",
+                "reason": "Nothing here is about food. The paragraph is about sleep."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Tap the sentence that doesn't back up the topic sentence.",
+          "hint": "The topic sentence is about inventions going wrong. Which sentence isn't?",
+          "success": "Toast with honey isn't an invention going wrong. It doesn't back up the boss.",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              "Gus's inventions often go wrong. ",
+              {
+                "tap": "His snot-powered rocket blew up in the kitchen.",
+                "reason": "An exploding rocket is an invention going wrong. It fits."
+              },
+              " ",
+              {
+                "tap": "Gus likes to eat toast with honey."
+              },
+              " ",
+              {
+                "tap": "His self-tying shoelaces tied his feet together.",
+                "reason": "Tied-up feet are an invention going wrong. It fits."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "heddrake",
+      "name": "Heddrake",
+      "evolved": "Heddragor",
+      "blurb": "A mountain dragon lizard that suns itself on the top rock of every tower. Wherever its head points, its whole long tail follows, like a paragraph behind its topic sentence."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.4-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing about wombats. A Heddrake is sitting where her topic sentence should be.",
+      "text": "___ Their front claws are short, thick and very strong. They can dig a hole big enough to hide in within a few minutes. They use their back legs to kick the dirt out behind them. Some wombat burrows are longer than a footy field. A wombat's pouch faces backwards, so no dirt gets in while it digs. Wombats even dig to get away from the hot sun.",
+      "prompt": "Which topic sentence fits this paragraph?",
+      "success": "Claws, holes, kicking dirt and long burrows are all about digging. So the topic sentence is about digging.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Wombats have strong front claws.",
+            "reason": "That's just one detail. The paragraph is about all of their digging."
+          },
+          {
+            "text": "Wombats eat grass and roots at night.",
+            "reason": "Nothing here is about food. Every sentence is about digging."
+          },
+          {
+            "text": "Wombats are amazing diggers."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b1-2",
+      "band": 1,
+      "topic": "food",
+      "frame": "Tully wrote a paragraph about Mo's cooking. The Heddrake thinks one sentence wandered in.",
+      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
+      "success": "Tully's favourite food has nothing to do with Mo's pancakes. It doesn't back up the topic sentence.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo's pancakes are famous for all the wrong reasons. ",
+          {
+            "tap": "Last week, one stuck to the ceiling.",
+            "reason": "A pancake on the ceiling is a disaster. It backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "Another one was so hard that Gus used it as a doorstop.",
+            "reason": "A pancake doorstop is a disaster too. It fits."
+          },
+          " ",
+          {
+            "tap": "Tully's favourite food is pizza."
+          },
+          " ",
+          {
+            "tap": "Once, Mo forgot the eggs and made pancake soup.",
+            "reason": "Pancake soup is another wrong reason to be famous. It fits."
+          },
+          " The smoke alarm goes off every time he picks up the pan. Nobody has ever asked for seconds."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b1-3",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Zed wrote a paragraph about Tully. The Heddrake says his topic sentence doesn't match.",
+      "prompt": "Tap the word in the topic sentence that doesn't fit, then choose a better one.",
+      "success": "Races, sprints and cross-country are all running. The topic sentence must say Tully is the best runner.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Tully",
+            "reason": "That fits. Every sentence is about Tully."
+          },
+          " is the ",
+          {
+            "tap": "best",
+            "reason": "That fits. She wins every race, so she's the best."
+          },
+          " ",
+          {
+            "tap": "swimmer"
+          },
+          " at Peakside Primary. She won every race at the athletics carnival. She can sprint 100 metres faster than anyone in her class. Even the Year 6 kids can't keep up with her on the cross-country course. Her running shoes have holes in the toes from so much training. Her coach says she could run for Victoria one day."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "jumper",
+            "reason": "The paragraph never mentions jumping. It's all races and sprints."
+          },
+          {
+            "text": "runner"
+          },
+          {
+            "text": "footy player",
+            "reason": "Footy isn't in this paragraph. Every detail is about running."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.4-b1-4",
+      "band": 1,
+      "topic": "space",
+      "frame": "Gus wrote two paragraphs about the Moon. The Heddrake shook all the sentences loose.",
+      "prompt": "Match each sentence to the topic sentence it backs up.",
+      "success": "Dust, rocks and craters describe the Moon. Suits and visors are gear that astronauts need.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "The Moon is a dusty, rocky place.",
+          "Astronauts need special gear on the Moon."
+        ],
+        "items": [
+          {
+            "text": "Its ground is covered in grey dust.",
+            "bin": 0,
+            "reason": "Grey dust tells you what the Moon is like."
+          },
+          {
+            "text": "They wear suits that hold air to breathe.",
+            "bin": 1,
+            "reason": "A suit with air is special gear for astronauts."
+          },
+          {
+            "text": "Big rocks lie all over its craters.",
+            "bin": 0,
+            "reason": "Rocks and craters describe the Moon itself."
+          },
+          {
+            "text": "Their helmets have gold visors to block the bright sun.",
+            "bin": 1,
+            "reason": "A helmet visor is special gear for astronauts."
+          },
+          {
+            "text": "There are no rivers, lakes or trees.",
+            "bin": 0,
+            "reason": "This tells you what the Moon's land is like."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.4-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed is writing about his new game. The Heddrake has the pieces of his topic sentence.",
+      "text": "___ Zed has tried level one forty times. The lava rises faster every second. The jumps are so far apart that you need perfect timing. Some levels have no ground at all, just tiny floating rocks. The last boss throws fireballs from both hands. Even Zed's little brother gave up after one minute. Zed's best score is still zero. He says he will beat it by Christmas.",
+      "prompt": "Build a topic sentence for Zed's paragraph.",
+      "success": "Forty tries, fast lava and a score of zero all show the game is hard. The topic sentence says so.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Zed's little brother",
+          "is very easy to win.",
+          "Zed's new game",
+          "is very hard to beat."
+        ],
+        "accept": [
+          "Zed's new game is very hard to beat."
+        ],
+        "reason": "Every sentence is about how hard the game is. The topic sentence must say that."
+      }
+    },
+    {
+      "id": "7.4-b1-6",
+      "band": 1,
+      "topic": "ocean",
+      "frame": "Wren is writing about octopuses. The Heddrake ate her first sentence.",
+      "text": "___ One octopus at an aquarium squeezed out of its tank at night. It slid across the floor and down a drain to the sea. Octopuses can fit through any gap bigger than their beak. They can even unscrew the lid of a jar from the inside. Others have climbed out of fishing boats and crawled back into the water. Some aquariums now put locks on their tanks.",
+      "prompt": "Which topic sentence fits this paragraph?",
+      "success": "Squeezing out, sliding down drains and opening jars are all escapes. The topic sentence must say that.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Octopuses are great escape artists."
+          },
+          {
+            "text": "One octopus slid down a drain.",
+            "reason": "That's one detail, not the main idea. The paragraph is about lots of escapes."
+          },
+          {
+            "text": "Octopuses live in the sea.",
+            "reason": "That's true, but it doesn't say what this paragraph is about: escaping."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.4-b2-1",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Mo wrote a paragraph about Gus's latest invention. The Heddrake pinched the topic sentence.",
+      "text": "___ On its first day, it sucked up Zed's left sock and then spat it out in the bathroom. On its second day, it got stuck under the couch and beeped for three hours. It ran over a tub of yoghurt and drew white stripes across the kitchen floor. Then it chased the cat up the curtains and knocked over a pot plant. Every night, it parks itself in the middle of the hallway, where somebody trips over it. By Friday, there was more dirt on the floor than when Gus started. Mo now calls it the Mess Machine. Gus says it just needs a few small changes.",
+      "prompt": "Which topic sentence fits this paragraph?",
+      "success": "Every detail is a new mess. The topic sentence has to cover all of them, not just one.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Gus's robot vacuum once ate one of Zed's socks.",
+            "reason": "That's only the first detail. The paragraph lists lots of messes."
+          },
+          {
+            "text": "Gus's robot vacuum makes more mess than it cleans."
+          },
+          {
+            "text": "Gus built his robot vacuum out of an old fan.",
+            "reason": "Nothing here says how Gus built it. Every sentence is about the mess it makes."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.4-b2-2",
+      "band": 2,
+      "topic": "animals",
+      "frame": "The Heddrake is reading a paragraph about Bogong moths. One sentence makes it flick its tail.",
+      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
+      "success": "Colour and size are true facts, but they aren't about the journey. They don't back up the topic sentence.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Bogong moths make an amazing journey every spring. ",
+          {
+            "tap": "Millions of them fly from the warm plains to the cool mountains.",
+            "reason": "This is the journey itself. It backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "Some travel more than a thousand kilometres, which is a long way for a moth.",
+            "reason": "This shows how far the journey is. It fits."
+          },
+          " ",
+          {
+            "tap": "Bogong moths are brown and about as long as a paperclip."
+          },
+          " ",
+          {
+            "tap": "They fly mostly at night, using the stars to help them find their way.",
+            "reason": "This tells how they find their way on the journey. It fits."
+          },
+          " When they arrive, they crowd into cool caves high in the mountains. In autumn, they make the whole trip back again. Scientists are still amazed that a moth with a brain smaller than a grain of rice can do this."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Tully wrote a paragraph about Mo's new drum kit. The Heddrake says her topic sentence is off.",
+      "prompt": "Tap the word in the topic sentence that doesn't fit, then choose a better one.",
+      "success": "Every complaint comes from people living nearby. The topic sentence should name his neighbours.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo's ",
+          {
+            "tap": "drum",
+            "reason": "That fits. Every sentence is about his drumming."
+          },
+          " practice drives his ",
+          {
+            "tap": "teacher"
+          },
+          " ",
+          {
+            "tap": "crazy",
+            "reason": "That fits. Banging on walls, earmuffs and a petition show they're going crazy."
+          },
+          ". Every afternoon, Mrs Novak next door bangs on the wall. The Patels across the road have bought earmuffs. Old Mr Fry from the house behind has put a sign on his fence that says PLEASE STOP. Last week, three people from down the street came to complain at once. Even the family at the end of the road can hear him over their telly. A man two streets away says he can feel the beat through his floor. The people in the flats on the corner have started a petition. Mo says it's called practice for a reason."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "parents",
+            "reason": "His parents aren't in the paragraph. Every complaint comes from people living nearby."
+          },
+          {
+            "text": "band",
+            "reason": "No band members appear. It's the people living nearby who complain."
+          },
+          {
+            "text": "neighbours"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b2-4",
+      "band": 2,
+      "topic": "art",
+      "frame": "Gus wrote three paragraphs about Indi. The Heddrake has jumbled the sentences.",
+      "prompt": "Match each sentence to the topic sentence it backs up.",
+      "success": "Each sentence backs up just one topic sentence: the sketchbook, the terrible disguises or the murals.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Indi's sketchbook goes everywhere with her.",
+          "Indi's disguises are terrible.",
+          "Indi's murals brighten up the island."
+        ],
+        "items": [
+          {
+            "text": "She draws in it on the bus, at lunch and even in the bath.",
+            "bin": 0,
+            "reason": "'It' is the sketchbook, and she takes it everywhere."
+          },
+          {
+            "text": "Her fake moustaches keep falling into people's soup.",
+            "bin": 1,
+            "reason": "A moustache that falls off is a terrible disguise."
+          },
+          {
+            "text": "Her snow gum mural covers the whole wall of the ferry shed.",
+            "bin": 2,
+            "reason": "A wall-sized mural brightens up the island."
+          },
+          {
+            "text": "She once fell asleep with it under her pillow.",
+            "bin": 0,
+            "reason": "Even in bed, the sketchbook is with her."
+          },
+          {
+            "text": "Her robot disguise was a cardboard box with two eye holes.",
+            "bin": 1,
+            "reason": "A box with eye holes fools nobody. It's a terrible disguise."
+          },
+          {
+            "text": "She painted a giant rosella on the side of the Tower Four hut.",
+            "bin": 2,
+            "reason": "A giant painted rosella is a mural that brightens up the island."
+          },
+          {
+            "text": "Her goat costume had a zip down the front and her face poking out.",
+            "bin": 1,
+            "reason": "A goat with a zip and a girl's face is a terrible disguise."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.4-b2-5",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Tully is writing about the old hut on Tower Six. The Heddrake won't go near the first line.",
+      "text": "___ Its door creaks open by itself, even when there is no wind. At night, people walking past have seen a pale light moving from window to window. Hikers say the fireplace is always warm, but nobody ever lights it. Once, Tully left a sandwich on the table. In the morning, it was gone, with only crumbs and a note that said 'Thanks.' Visitors who sign the hut's guestbook sometimes find a new name added the next morning, in handwriting nobody knows. Mo swears he heard someone humming in the empty kitchen. Even the goats refuse to graze near its walls. The Architect will not go inside after dark.",
+      "prompt": "Which topic sentence fits this paragraph?",
+      "success": "A creaky door, a moving light, a warm fireplace and a thank-you note are all spooky mysteries.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "The old hut on Tower Six has a creaky door.",
+            "reason": "The door is only the first detail. The paragraph is full of other strange happenings."
+          },
+          {
+            "text": "The old hut on Tower Six was built a hundred years ago.",
+            "reason": "Nothing here says when it was built. The paragraph is about strange happenings."
+          },
+          {
+            "text": "The old hut on Tower Six is full of spooky mysteries."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Wren wrote a paragraph about Mo. The Heddrake has the pieces of her topic sentence.",
+      "text": "___ When he starts with 'Why did the snowman...', Tully covers her ears. Gus pretends to be asleep, even in the middle of lunch. Zed groans so loudly that the goats run away. Indi draws a little sad face in her sketchbook every time he starts. Wren just shakes her head and keeps walking. Last week, Mo told a joke about a penguin and a pie, and the whole crew groaned at once. Even the Heddrake hides its head under its tail. Nobody has laughed at one of his jokes since Year 3. Mo tells another one anyway, because he says groans count as applause.",
+      "prompt": "Build a topic sentence for Wren's paragraph.",
+      "success": "Covered ears, fake sleep and loud groans are all reactions to Mo's jokes. The topic sentence names that.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Mo's soups",
+          "always make the crew groan.",
+          "Mo's jokes",
+          "always make the crew laugh."
+        ],
+        "accept": [
+          "Mo's jokes always make the crew groan."
+        ],
+        "reason": "Every sentence is about the crew groaning at Mo's jokes. Nobody laughs, and no soup appears."
+      }
+    },
+    {
+      "id": "7.4-b3-1",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "Wren is writing about the reef for the Scaffold Peaks library. The Heddrake has her topic sentence.",
+      "text": "___ A sea anemone looks like a plant, but it is really an animal with dozens of stinging tentacles. Most small fish keep well away, because one touch can stun them. A clownfish, however, is covered in a special coat of slime that stops the tentacles from stinging it. This means it can hide among them, safe from bigger fish that would eat it. Some clownfish spend their whole lives in a single anemone, rarely swimming more than a metre or two from it. In return, the clownfish does jobs for the anemone. It chases away butterflyfish, which love to nibble on anemone tentacles. It drops scraps of its food, which the anemone gobbles up. Its constant wriggling even stirs up the water, bringing fresh oxygen to the anemone. Scientists have found that anemones with clownfish living in them grow faster and stay healthier than anemones without. Neither of them would do nearly as well on its own.",
+      "prompt": "Which topic sentence fits this paragraph best?",
+      "success": "The anemone protects the clownfish, and the clownfish feeds and guards the anemone. Both sides help.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Clownfish are protected from stings by a special coat of slime.",
+            "reason": "That's one detail. The paragraph also shows what the clownfish does for the anemone."
+          },
+          {
+            "text": "Sea anemones are animals, even though they look like plants.",
+            "reason": "That's only mentioned once. The paragraph is about how the two animals help each other."
+          },
+          {
+            "text": "Clownfish need sea anemones, but anemones get nothing back in return.",
+            "reason": "The paragraph says the opposite: the anemone gets food, oxygen and protection."
+          },
+          {
+            "text": "Clownfish and sea anemones help each other to survive."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.4-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wrote a paragraph about netball for the Peakside newsletter. The Heddrake spotted a stray sentence.",
+      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
+      "success": "Seven players in lettered bibs is true, but it isn't about passing. It doesn't back up the topic sentence.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "In netball, players can't run with the ball, so passing is everything. ",
+          {
+            "tap": "Once you catch the ball, you have just three seconds to pass it or shoot.",
+            "reason": "Three seconds to get rid of it shows how much passing matters. It fits."
+          },
+          " ",
+          {
+            "tap": "You can pivot on one foot to find a teammate, but you can't take a step.",
+            "reason": "Pivoting is how you find someone to pass to. It fits."
+          },
+          " ",
+          {
+            "tap": "Netball teams have seven players, and each one wears a bib with letters on it."
+          },
+          " ",
+          {
+            "tap": "Good teams move the ball down the court with quick, short passes that defenders can't reach.",
+            "reason": "This is about passing well. It backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "A bounce pass can slip under a tall defender's arms when a high pass would be caught.",
+            "reason": "This is a passing trick. It backs up the topic sentence."
+          },
+          " Players who hold the ball too long are penalised, and the other team gets a free pass. A clever pass to the right player can split the defence wide open, even from the far end of the court. Players practise passing more than anything else at training, often throwing hundreds of balls in a single session. In the end, the team that passes best usually wins."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo wrote a paragraph about making sushi. The Heddrake says one word in his topic sentence is wrong.",
+      "prompt": "Tap the word in the topic sentence that doesn't fit, then choose a better one.",
+      "success": "Falling-apart rolls, years of training and dozens of tries are all about practice. That's the paragraph's idea.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Making sushi",
+            "reason": "That fits. Every sentence is about making sushi."
+          },
+          " takes ",
+          {
+            "tap": "a lot of",
+            "reason": "That fits. Years of training and thousands of rolls are a lot."
+          },
+          " ",
+          {
+            "tap": "money"
+          },
+          ". Your first few rolls will probably fall apart the moment you pick them up. Spreading the rice thinly without squashing it is a skill that you learn slowly. Cooking the rice takes practice too, because it has to be cooked, cooled and seasoned just right. Even rolling the bamboo mat evenly can take dozens of tries before it feels natural. Cutting clean slices with a wet knife needs a steady hand, and your hand gets steadier each time. In some countries, sushi chefs train for years before they are allowed to make sushi for customers. Experienced chefs can roll a perfect piece in seconds, but only because they've made thousands before. Mo has made forty rolls this week, and the last three actually looked like sushi. He says that by next month, they might even taste like it."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "rice",
+            "reason": "Rice comes up, but the paragraph is about how long it takes to get good."
+          },
+          {
+            "text": "practice"
+          },
+          {
+            "text": "seaweed",
+            "reason": "Seaweed isn't even in the paragraph. Each detail is about getting better with practice."
+          },
+          {
+            "text": "courage",
+            "reason": "Nothing here is scary. The details are about skills that improve with practice."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.4-b3-4",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Indi wrote three paragraphs about crimson rosellas. The Heddrake knocked the sentences off the page.",
+      "prompt": "Match each sentence to the topic sentence it backs up.",
+      "success": "Colours help you recognise them, seeds and fruit are food, and calls and screeching are noise.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Crimson rosellas are easy to recognise.",
+          "Crimson rosellas eat all sorts of seeds and fruit.",
+          "Crimson rosellas are very noisy birds."
+        ],
+        "items": [
+          {
+            "text": "Adults have bright red bodies and blue cheeks.",
+            "bin": 0,
+            "reason": "Red bodies and blue cheeks help you recognise them."
+          },
+          {
+            "text": "They crack open seeds from gum trees and grasses with their strong beaks.",
+            "bin": 1,
+            "reason": "This is about seeds they eat."
+          },
+          {
+            "text": "Their sharp, ringing calls echo across the valley at dawn.",
+            "bin": 2,
+            "reason": "Calls that echo across a valley show how noisy they are."
+          },
+          {
+            "text": "In orchards, they sometimes help themselves to apples and pears.",
+            "bin": 1,
+            "reason": "Apples and pears are fruit they eat."
+          },
+          {
+            "text": "Their wings and tails are edged with deep blue.",
+            "bin": 0,
+            "reason": "Blue-edged wings are another way to recognise them."
+          },
+          {
+            "text": "When a flock squabbles over food, the screeching can be heard a long way off.",
+            "bin": 2,
+            "reason": "It mentions food, but the point is the screeching. That backs up 'noisy'."
+          },
+          {
+            "text": "They also nibble on blossoms and the berries of mountain shrubs.",
+            "bin": 1,
+            "reason": "Blossoms and berries are more things they eat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.4-b3-5",
+      "band": 3,
+      "topic": "gross-science",
+      "frame": "Gus is writing a paragraph about stomachs. The Heddrake swallowed his topic sentence.",
+      "text": "___ The acid inside your stomach is strong enough to dissolve some kinds of metal, so you might expect it to eat through the stomach itself. It doesn't, because the stomach has several clever defences. Its inside wall is coated with a thick layer of slimy mucus, which stops the acid from touching the stomach's cells. The cells in that wall also release a chemical that weakens any acid that gets too close. This mucus is constantly topped up, so there is never a gap for the acid to sneak through. Some of the cells that make the acid even sit tucked away in tiny pits, out of its reach. Even so, some cells do get damaged, so the stomach replaces its entire lining every few days. Its muscles keep squeezing and churning, mixing food with the acid while keeping the wall moving. Thanks to all of this, the acid breaks down your lunch without ever breaking down you.",
+      "prompt": "Which topic sentence fits this paragraph best?",
+      "success": "Mucus, a weakening chemical and a new lining all protect the stomach from its own acid.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Your stomach is built to survive its own powerful acid."
+          },
+          {
+            "text": "Stomach acid is strong enough to dissolve some kinds of metal.",
+            "reason": "That's how the paragraph starts its point, but most of it is about how the stomach protects itself."
+          },
+          {
+            "text": "Your stomach makes rumbling noises when it is empty.",
+            "reason": "Rumbling isn't in the paragraph. It's about how the stomach survives its acid."
+          },
+          {
+            "text": "Stomach acid often burns holes right through the stomach wall.",
+            "reason": "The paragraph says the opposite: the acid 'doesn't' eat through, thanks to the stomach's defences."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.4-b3-6",
+      "band": 3,
+      "topic": "space",
+      "frame": "Tully wrote a paragraph about life on a space station. The Heddrake spotted a sentence that floated off topic.",
+      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
+      "success": "Orbiting sixteen times a day is a true fact, but it isn't about simple jobs being hard. It doesn't fit.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Living on a space station turns simple jobs into hard work. ",
+          {
+            "tap": "Drinking water floats out of a cup, so astronauts have to suck it from sealed pouches through a straw.",
+            "reason": "A drink becomes a tricky job. This backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "To sleep, they zip themselves into sleeping bags strapped to the wall, so they don't drift around.",
+            "reason": "Even sleeping takes extra work. This fits."
+          },
+          " ",
+          {
+            "tap": "The space station travels all the way around Earth about sixteen times every day."
+          },
+          " ",
+          {
+            "tap": "Washing their hair means rubbing in a special shampoo that doesn't need rinsing, then towelling it dry.",
+            "reason": "Washing hair turns into a big job. This backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "The toilet uses a fan that sucks waste away, because nothing falls down in space.",
+            "reason": "Going to the toilet becomes hard work. This fits."
+          },
+          " Cutting fingernails is done next to an air vent, so the clippings get sucked away instead of floating into someone's eye. Getting dressed can take ages, because socks and shirts keep drifting off. Even dropping a crumb can be a problem, because it may float into a machine. Astronauts say it takes weeks to get used to it all."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b4-1",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is writing a report on rescue robots. The Heddrake has made off with his topic sentence.",
+      "text": "___ After an earthquake, rescuers must find survivors inside collapsed buildings that could crumble further at any moment. Instead of sending people in first, many teams now send snake-like robots that can wriggle through gaps narrower than a person's arm, carrying cameras, microphones and lights. During bushfires, drones fly through thick smoke that would blind a pilot, using heat cameras to spot people and animals that are trapped. After an accident at a nuclear power station in Japan, robots were sent into areas where the radiation was strong enough to make a person seriously ill within minutes. Police use tough, tank-like robots to inspect suspicious packages, so that no officer has to stand beside one. In flooded mines, swimming robots search the black, freezing water long before it would be safe for divers. Underwater robots check bridges and ships for damage after storms, so divers don't have to search in dangerous currents. Some robots can even carry water bottles and radios to trapped survivors while human teams dig towards them. In every case, a person still steers the robot, watches its cameras and decides what to do next, but that person can stay at a safe distance. Each robot that goes in first means one fewer human life put at risk.",
+      "prompt": "Which topic sentence fits this paragraph best?",
+      "success": "Collapsed buildings, smoke, radiation, packages and floods are all dangerous jobs that robots now do first.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Snake robots can wriggle through gaps that are narrower than a person's arm.",
+            "reason": "That's one detail. The paragraph covers many kinds of dangerous jobs."
+          },
+          {
+            "text": "Robots are becoming cheaper and easier to build every year.",
+            "reason": "Cost isn't mentioned anywhere. The paragraph is about dangerous jobs."
+          },
+          {
+            "text": "Robots are taking on the most dangerous jobs in disaster zones."
+          },
+          {
+            "text": "Robots will soon replace human rescuers altogether.",
+            "reason": "The paragraph says people still steer the robots and decide what to do."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b4-2",
+      "band": 4,
+      "topic": "music",
+      "frame": "Indi wrote a paragraph about music lessons for the newsletter. The Heddrake thinks one sentence has drifted.",
+      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
+      "success": "That sentence is about why the violin is hard, not about how learning changes the brain. It drifts off topic.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Scientists have found that learning a musical instrument changes the way the brain works. ",
+          {
+            "tap": "Brain scans show that the area linking the left and right sides of the brain grows thicker in people who have played since childhood.",
+            "reason": "A thicker link inside the brain is a change. It backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "Musicians also tend to be better at picking out one voice in a noisy room, because their brains have practised separating sounds.",
+            "reason": "This is a change in how the brain handles sound. It fits."
+          },
+          " ",
+          {
+            "tap": "The violin is one of the hardest instruments to learn, because it has no frets to show where your fingers go."
+          },
+          " ",
+          {
+            "tap": "Reading music while moving your hands trains the brain to handle several jobs at once, which can help with other tasks too.",
+            "reason": "This shows the brain learning to juggle jobs. It backs up the topic sentence."
+          },
+          " ",
+          {
+            "tap": "Some studies have found that children who practise an instrument remember lists of words more easily.",
+            "reason": "Better memory is another change in the brain. It fits."
+          },
+          " Learning to play also seems to strengthen the parts of the brain that control small, careful finger movements. In older adults, playing an instrument has been linked to keeping the mind sharper for longer. Musicians even seem to react faster when they hear a sound, because their brains process it more quickly. These changes seem to appear whether a student plays the drums, the piano or the recorder, as long as they practise regularly. Researchers have even found differences after just a year of weekly lessons, which suggests the brain starts adapting quickly."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b4-3",
+      "band": 4,
+      "topic": "gaming",
+      "frame": "Zed wrote a paragraph about speedrunners. The Heddrake says his topic sentence promises the wrong thing.",
+      "prompt": "Tap the word in the topic sentence that doesn't fit, then choose a better one.",
+      "success": "Repeating one jump, studying recordings and memorising routes all show speedrunners rely on practice.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          {
+            "tap": "Speedrunners",
+            "reason": "That fits. The whole paragraph is about speedrunners."
+          },
+          ", who race to finish video games as fast as possible, rely on ",
+          {
+            "tap": "luck"
+          },
+          " ",
+          {
+            "tap": "more than anything else",
+            "reason": "That fits. The paragraph does show one thing matters most. Check what they rely on."
+          },
+          ". A top speedrunner might repeat a single tricky jump hundreds of times in one evening, alone in their room, until their thumbs move without thinking. Many record every attempt and then watch the recordings back frame by frame, looking for the exact moment where they lost a fraction of a second. They break a game into short sections and drill each one separately. Then they practise joining the sections together. Most attempts still end in failure, so they reset and try again. Before a serious run, they write out a route, listing every shortcut, every enemy to skip and every item to grab, and then they memorise it like a script. Some spend months on a single game, playing the same opening level over and over until their timing is perfect. Even after a record, they keep practising, because someone else is always practising too. When a world record finally falls, it is almost always because someone has put in more hours than anybody before them. As one record holder put it, the fastest run looks effortless only because of the thousands of slow ones behind it."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "talent",
+            "reason": "Nobody here is just born good at it. Every detail is about hours of repeating and studying."
+          },
+          {
+            "text": "teamwork",
+            "reason": "They practise alone in their rooms. Nothing here is about working as a team."
+          },
+          {
+            "text": "practice"
+          },
+          {
+            "text": "equipment",
+            "reason": "Recordings come up once, but the details are about practising, studying and memorising."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.4-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi is planning a report on murals with three paragraphs. The Heddrake scattered her notes across the hut.",
+      "prompt": "Match each sentence to the topic sentence it backs up.",
+      "success": "Each detail backs up one idea: how murals change a place, how they're planned, or how the paint survives.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Murals can change how a neighbourhood feels.",
+          "Painting a mural takes careful planning.",
+          "Mural paint has to survive harsh weather."
+        ],
+        "items": [
+          {
+            "text": "After a bright mural went up on the old ferry shed, people began stopping to chat and take photos there.",
+            "bin": 0,
+            "reason": "People stopping to chat shows the place feels different now."
+          },
+          {
+            "text": "Before a single drop of paint goes on, the artist measures the wall and draws the whole design to scale.",
+            "bin": 1,
+            "reason": "Measuring and drawing to scale are planning steps."
+          },
+          {
+            "text": "Outdoor paints contain special chemicals that stop the colours fading in strong sunlight.",
+            "bin": 2,
+            "reason": "Stopping colours fading in the sun helps the paint survive the weather."
+          },
+          {
+            "text": "Shop owners on one grey street said customers felt safer once the walls were covered in colour.",
+            "bin": 0,
+            "reason": "Feeling safer is a change in how the street feels."
+          },
+          {
+            "text": "Artists also work out how many litres of each colour they need before they buy any paint.",
+            "bin": 1,
+            "reason": "Working out how much paint to buy, before buying it, is careful planning."
+          },
+          {
+            "text": "A clear top coat is rolled over the finished mural to shield it from rain, frost and snow.",
+            "bin": 2,
+            "reason": "A top coat shields the paint from rain and frost. That's surviving the weather."
+          },
+          {
+            "text": "The design is then split into a grid, so that each square can be copied onto the wall in the right place.",
+            "bin": 1,
+            "reason": "Splitting the design into a grid is careful planning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.4-b4-5",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "The Architect wrote a paragraph for the Tower Six hut, where everyone says there's a ghost. The Heddrake has the topic sentence.",
+      "text": "___ Some buildings produce very low sounds, from wind rushing past or old pipes rumbling, that are too deep for our ears to hear. Experiments have shown that these sounds can still make people feel uneasy, shivery or as if someone is watching them. Old timber floors creak and pop as they cool down at night, which can sound remarkably like slow footsteps in an empty room. Draughts sneaking through cracks in walls can create sudden cold spots and make doors swing open on their own. Certain moulds that grow in damp, closed-up houses have been linked to headaches and confusion, which can make people doubt what they are seeing. Our brains are also wired to find faces everywhere, so a stain on a wall or a curtain in the moonlight can look alarmingly like a figure. Tiredness plays a part as well, because a sleepy brain is far more likely to mistake a shadow for a person. Even suggestion matters: people who are told a house is haunted report many more strange experiences inside it. Bad air from old heaters can also cause dizziness and strange visions, which is why investigators often check for it first. None of this proves that ghosts don't exist, but it does mean that a creaky, chilly house is not good evidence that they do.",
+      "prompt": "Which topic sentence fits this paragraph best?",
+      "success": "Low sounds, cooling floors, draughts, mould and face-spotting are all ordinary causes of 'ghostly' feelings.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Ghost stories have been told around campfires for thousands of years.",
+            "reason": "The paragraph never mentions the history of ghost stories. It explains spooky feelings."
+          },
+          {
+            "text": "Many so-called hauntings have simple scientific explanations."
+          },
+          {
+            "text": "Sounds too low for us to hear can make people feel uneasy.",
+            "reason": "That's only the first detail. The paragraph gives many other explanations too."
+          },
+          {
+            "text": "Scientists have now proven that some old houses really are haunted.",
+            "reason": "The paragraph says a creaky house is 'not good evidence' for ghosts. Nothing is proven."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.4-b4-6",
+      "band": 4,
+      "topic": "general",
+      "frame": "Wren wrote a paragraph about snow gums for the Architect. The Heddrake has the pieces of her topic sentence.",
+      "text": "___ In winter, the high country around Scaffold Peaks can drop to fifteen degrees below zero, and snow can bury the lower branches for months. Snow gums cope by making a natural antifreeze in their leaves, so the water inside doesn't turn to ice and burst the cells. Their leaves are thick and waxy, which stops them drying out in the icy air. Their branches are bendy rather than stiff, which lets heavy snow slide off instead of snapping them. Summer brings a different danger, because the same slopes can be swept by bushfires. A fierce fire may burn every leaf on a snow gum, but a woody lump at the base of its trunk, protected by the soil, survives the heat. The lump is packed with stored food and sleeping buds, ready for exactly this moment. Within weeks of the fire, that lump sends up bright green shoots, and in a few years a new ring of trunks has grown. Some snow gums on the slopes have lived through several fires this way over hundreds of years. Many other trees would be killed outright by a fire that strong. That is why so many snow gums on the peaks have several twisted trunks instead of one.",
+      "prompt": "Build a topic sentence that covers the whole paragraph.",
+      "success": "The first half is about freezing winters and the second half is about bushfires. The topic sentence covers both.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Snow gums can survive",
+          "Snow gums cannot survive",
+          "both freezing winters",
+          "both strong winds",
+          "and fierce bushfires."
+        ],
+        "accept": [
+          "Snow gums can survive both freezing winters and fierce bushfires."
+        ],
+        "reason": "Half the paragraph is about winter cold and half is about bushfire. Wind isn't in it, and they do survive."
+      }
+    }
+  ]
+}

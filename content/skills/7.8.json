@@ -1,0 +1,954 @@
+{
+  "skill": {
+    "id": "7.8",
+    "name": "Linking words between ideas (however, as a result, meanwhile)",
+    "codes": [
+      "VC2E5LA04"
+    ],
+    "why": "Linking words tell readers how two ideas connect, so the meaning is clear.",
+    "how": "Ask how the ideas connect: a contrast, a result, the same time, or one more.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Linking words show how two ideas connect."
+          },
+          {
+            "say": "However shows a surprise, or the opposite.",
+            "show": "Mo practised his joke all week. **However,** nobody laughed."
+          },
+          {
+            "say": "As a result shows what happened because of something.",
+            "show": "Gus spilled the slime. **As a result,** the floor glowed green."
+          },
+          {
+            "say": "Meanwhile shows two things happening at the same time.",
+            "show": "Zed was gaming in the hut. **Meanwhile,** Mo was burning dinner."
+          },
+          {
+            "say": "In addition adds one more idea.",
+            "show": "Wombats dig burrows. **In addition,** they do cube-shaped poo."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Gus is writing up his slime experiment.",
+          "text": "Gus forgot to put the lid on his slime. ___, it dried out overnight.",
+          "prompt": "Which linking word fits the gap?",
+          "hint": "Did the second thing happen because of the first?",
+          "success": "No lid caused the drying out. 'As a result' shows one thing caused another.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "However,",
+                "reason": "'However' shows a surprise. Drying out is what you'd expect with no lid."
+              },
+              {
+                "text": "As a result,"
+              },
+              {
+                "text": "Meanwhile,",
+                "reason": "'Meanwhile' means something else at the same time. The drying out happened because of the lid."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "frame": "Mo has a bag of linking words. He wants them sorted.",
+          "prompt": "Match each linking word to what it shows.",
+          "hint": "Ask: is it a surprise, a cause, the same time, or one more idea?",
+          "success": "Each linking word does one job: contrast, result, same time or one more.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "a contrast",
+              "a result",
+              "the same time",
+              "one more idea"
+            ],
+            "items": [
+              {
+                "text": "However,",
+                "bin": 0,
+                "reason": "'However' shows a surprise or an opposite."
+              },
+              {
+                "text": "As a result,",
+                "bin": 1,
+                "reason": "'As a result' shows what happened because of something."
+              },
+              {
+                "text": "Meanwhile,",
+                "bin": 2,
+                "reason": "'Meanwhile' shows two things happening at the same time."
+              },
+              {
+                "text": "In addition,",
+                "bin": 3,
+                "reason": "'In addition' adds one more idea."
+              },
+              {
+                "text": "On the other hand,",
+                "bin": 0,
+                "reason": "'On the other hand' shows the opposite side."
+              },
+              {
+                "text": "Because of this,",
+                "bin": 1,
+                "reason": "'Because of this' shows what happened because of something."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "tethrin",
+      "name": "Tethrin",
+      "evolved": "Tethrinweave",
+      "blurb": "An orb-weaving spider from the snow gums that spins a silk bridge between two ideas. The bridge only holds if the linking word fits."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.8-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo baked muffins for the crew. A Tethrin is spinning a web over the oven.",
+      "text": "Mo wanted to bake muffins for the crew. He read the recipe three times. He measured everything with care. He even wore a chef's hat. Mo followed the recipe exactly. ___, his muffins came out as flat as coins. Gus used one as a frisbee. Wren fed one to a wombat. The wombat spat it out.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "You'd expect perfect muffins. 'However' shows the surprise: they came out flat.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Also,",
+            "reason": "'Also' adds a similar idea. Flat muffins are the opposite of what Mo wanted."
+          },
+          {
+            "text": "As a result,",
+            "reason": "Following a recipe should make good muffins, not flat ones. This isn't a result."
+          },
+          {
+            "text": "However,"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.8-b1-2",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren wrote about a baby wombat. The Tethrin is hanging from the doorframe.",
+      "prompt": "Tap the linking word that shows a result.",
+      "success": "'As a result' shows the blanket caused something: the wombat stopped shivering.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren found a baby wombat alone in the snow. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "'Meanwhile' shows two things at the same time, not a result."
+          },
+          ", back at the hut, Mo was making soup. Wren carried the wombat inside. It was cold and wet. ",
+          {
+            "tap": "However",
+            "reason": "'However' shows a surprise, not a result."
+          },
+          ", it would not drink any milk. Wren wrapped it in a warm blanket. ",
+          {
+            "tap": "As a result"
+          },
+          ", it stopped shivering. ",
+          {
+            "tap": "Also",
+            "reason": "'Also' adds one more thing. It doesn't show a result."
+          },
+          ", it started to snore. Mo said it snored louder than Gus."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.8-b1-3",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed wrote about his worst game ever. The Tethrin says one linking word is wrong.",
+      "prompt": "Tap the linking word that doesn't fit, then choose a better one.",
+      "success": "The batteries dying caused the fall. 'As a result' shows one thing caused another.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Zed was one jump from the end of Lava Run. His hands were sweaty. ",
+          {
+            "tap": "Then",
+            "reason": "That's right. 'Then' shows what happened next."
+          },
+          " his controller ran out of batteries. ",
+          {
+            "tap": "However"
+          },
+          ", his knight stood still and sank into the lava. Zed groaned and lay on the floor. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "That's right. Mo was in the kitchen at the same time."
+          },
+          ", in the kitchen, Mo dropped a tray of sausage rolls. Nobody ate dinner until ten."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "Also",
+            "reason": "'Also' adds one more idea. The knight sank because the batteries died."
+          },
+          {
+            "text": "As a result"
+          },
+          {
+            "text": "Meanwhile",
+            "reason": "'Meanwhile' is for something else happening at the same time. The sinking was caused by the batteries."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.8-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully is writing about the grand final. The Tethrin is spinning between the goalposts.",
+      "text": "It was the last minute of the grand final. The scores were level.",
+      "prompt": "Build the two sentences, using the linking word that fits.",
+      "success": "The crowd went wild because of the goal. 'As a result' shows that.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Tully kicked the winning goal.",
+          "As a result,",
+          "However,",
+          "the crowd went wild."
+        ],
+        "accept": [
+          "Tully kicked the winning goal. As a result, the crowd went wild."
+        ],
+        "reason": "The crowd cheered because of the goal. That's a result, so use 'As a result'."
+      }
+    },
+    {
+      "id": "7.8-b1-5",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo wrote some short stories for the crew newsletter. The Tethrin ate his linking words.",
+      "text": "Mo wrote these little stories, but he left out the linking words.",
+      "prompt": "Match each pair of sentences to the linking word that fits the gap.",
+      "success": "'However' shows a surprise, 'As a result' shows a cause, and 'Meanwhile' shows the same time.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "However,",
+          "As a result,",
+          "Meanwhile,"
+        ],
+        "items": [
+          {
+            "text": "Mo told his best joke. ___, nobody laughed.",
+            "bin": 0,
+            "reason": "You'd expect laughing after a best joke. Nobody laughing is a surprise."
+          },
+          {
+            "text": "Gus sat on a whoopee cushion. ___, the whole class giggled.",
+            "bin": 1,
+            "reason": "The giggling happened because of the whoopee cushion."
+          },
+          {
+            "text": "Wren was feeding the wombats. ___, in the kitchen, Mo was burning the toast.",
+            "bin": 2,
+            "reason": "Two things are happening at the same time, in different places."
+          },
+          {
+            "text": "The sign said WET PAINT. ___, Mo touched it anyway.",
+            "bin": 0,
+            "reason": "The sign says don't touch. Mo touching it anyway is the opposite."
+          },
+          {
+            "text": "Mo ate twelve pickles. ___, he had pickle burps all day.",
+            "bin": 1,
+            "reason": "The burps happened because of the pickles."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.8-b1-6",
+      "band": 1,
+      "topic": "space",
+      "frame": "Indi is making a poster about Mars. The Tethrin is hanging from the corner.",
+      "text": "Indi's poster is all about Mars. Mars is called the red planet. Its dust is full of rust, which makes it red. Mars has two tiny moons. ___, it has the tallest volcano in the whole solar system. It is almost three times as tall as the tallest mountain on Earth. Indi drew it with a rocket flying past.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "The volcano is one more cool fact about Mars. 'In addition' adds one more idea.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "However,",
+            "reason": "There's no surprise. Both sentences are cool facts about Mars."
+          },
+          {
+            "text": "In addition,"
+          },
+          {
+            "text": "As a result,",
+            "reason": "Having two moons doesn't make a volcano tall. This is just one more fact."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.8-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Wren went diving with the turtle hatchlings. A Tethrin waited on the mast.",
+      "text": "Wren held her breath and dived down beside the reef. She had been waiting all year to see the turtle hatchlings swim out to sea. Down in the blue water, dozens of tiny turtles flapped past her mask like wind-up toys. One bumped right into her nose. She stayed down until her lungs burned. ___, back on the Soggy Biscuit, Mo was trying to flip pancakes on a stove that rocked with every wave. The first pancake landed on the deck. The second landed on Gus.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "Wren's dive and Mo's pancakes happen at the same time, in different places. That's 'Meanwhile'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As a result,",
+            "reason": "Wren's dive didn't cause Mo's pancake trouble. These two things happen at the same time."
+          },
+          {
+            "text": "Meanwhile,"
+          },
+          {
+            "text": "Also,",
+            "reason": "'Also' adds one more idea about the same thing. The story jumps to Mo, at the same time."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.8-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus wrote about his robot dog at the science fair. The Tethrin is tangled in its tail.",
+      "prompt": "Tap the linking word that shows a contrast: something that goes against what you'd expect.",
+      "success": "Rusty worked perfectly at home, then hid from the judges. 'However' shows that surprising contrast.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Gus spent the whole holidays building a robot dog called Rusty for the Peaks Science Fair. He gave it springy legs, a wagging tail made from a toilet brush and two torches for eyes. ",
+          {
+            "tap": "In addition",
+            "reason": "'In addition' adds one more thing Gus did. It isn't a contrast."
+          },
+          ", he programmed it to fetch a ball and bark a song. On the morning of the fair, Rusty worked perfectly in the kitchen. ",
+          {
+            "tap": "However"
+          },
+          ", the moment it saw the judges, it hid under the table and refused to come out. Gus tried everything, including a sausage. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "'Meanwhile' shows two things at the same time. It isn't a contrast."
+          },
+          ", at the next table, a volcano project erupted and covered the judges in pink foam. ",
+          {
+            "tap": "As a result",
+            "reason": "'As a result' shows what happened because of the foam. It isn't a contrast."
+          },
+          ", the judges were too busy wiping their glasses to notice Rusty at all. When they finally looked, Rusty was sitting on the table, wagging its toilet-brush tail. It won a special prize for Best Recovery."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.8-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Zed wrote about the Peaks Band's big night. The Tethrin says one linking word is wrong.",
+      "prompt": "Tap the linking word that doesn't fit, then choose a better one.",
+      "success": "You'd expect the band to stop in the dark. 'However' shows they did the opposite.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The Peaks Band had practised their new song every day for a month. ",
+          {
+            "tap": "As a result",
+            "reason": "That's right. Knowing every note happened because of all that practice."
+          },
+          ", they knew every note by heart. On the night of the concert, they walked on stage, and the crowd went quiet. Halfway through the first verse, the power went out, and the hall went completely dark. ",
+          {
+            "tap": "Also"
+          },
+          ", the band kept playing, because they didn't need to see their music. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "That's right. Gus was in the car park while the band played."
+          },
+          ", out in the car park, Gus was hunting for the fuse box with a torch in his mouth. When the lights came back on, the crowd was still singing along."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "However"
+          },
+          {
+            "text": "As a result",
+            "reason": "The power going out wouldn't make a band keep playing. They kept going in spite of it."
+          },
+          {
+            "text": "Meanwhile",
+            "reason": "'Meanwhile' is for something else at the same time. This is the band carrying on in spite of the dark."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.8-b2-4",
+      "band": 2,
+      "topic": "spooky",
+      "frame": "Zed and Indi crept into the old mine. A Tethrin's web glinted in the torchlight.",
+      "text": "Zed and Indi crept into a cave behind the old mine to look for Maxx's secret base. Zed's torch beam wobbled across the wet rock walls.",
+      "prompt": "Build the next two sentences, using the linking word that fits.",
+      "success": "An empty cave shouldn't have breathing in it. 'However' shows that creepy surprise.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The cave was supposed to be empty.",
+          "However,",
+          "As a result,",
+          "In addition,",
+          "something was breathing in the dark."
+        ],
+        "accept": [
+          "The cave was supposed to be empty. However, something was breathing in the dark."
+        ],
+        "reason": "Breathing in an empty cave goes against what you'd expect. That's a contrast, so use 'However'."
+      }
+    },
+    {
+      "id": "7.8-b2-5",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi wrote about a week of painting in the snow. The Tethrin ate her linking words.",
+      "text": "Indi wrote these pairs of sentences for her art diary, but she left out the linking words.",
+      "prompt": "Match each pair of sentences to the linking word that fits the gap.",
+      "success": "Each gap needed the word that matches the link: a surprise, a cause, the same time, or one more.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "However,",
+          "As a result,",
+          "Meanwhile,",
+          "In addition,"
+        ],
+        "items": [
+          {
+            "text": "Indi's paint froze. ___, she warmed the tubes in her armpits.",
+            "bin": 1,
+            "reason": "Warming the tubes happened because the paint froze."
+          },
+          {
+            "text": "Indi was painting the hut door. ___, at the creek, Wren rescued a frog.",
+            "bin": 2,
+            "reason": "Two things are happening at the same time, in different places."
+          },
+          {
+            "text": "The mural was meant to be a wombat. ___, it looked more like a potato.",
+            "bin": 0,
+            "reason": "A potato is not what Indi meant to paint. That's a surprise."
+          },
+          {
+            "text": "Indi painted the hut's door blue. ___, she painted its window frames yellow.",
+            "bin": 3,
+            "reason": "This adds one more thing Indi painted."
+          },
+          {
+            "text": "Indi ran out of red paint. ___, her sunset is orange.",
+            "bin": 1,
+            "reason": "The sunset is orange because there was no red paint left."
+          },
+          {
+            "text": "Indi hates drawing horses. ___, her best drawing is a horse.",
+            "bin": 0,
+            "reason": "You'd expect her best drawing not to be a horse. That's a contrast."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.8-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus is writing a report called 'Why Snot Is Brilliant'. The Tethrin is keeping well back.",
+      "text": "Most people think snot is disgusting, but Gus thinks it is one of the best things about the human body. Your nose makes snot all day, every day, even when you don't have a cold. Most of it slides down the back of your throat, and you swallow it without noticing. Snot has two important jobs. First, it traps dust and germs before they can get into your lungs. ___, it keeps the inside of your nose from drying out. Gus says that without snot, breathing would feel like sucking air through a sandpaper straw. Mo has asked him to stop saying this at dinner.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "Keeping your nose moist is snot's second job. 'In addition' adds one more idea.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "However,",
+            "reason": "There's no surprise here. Both sentences are good things snot does."
+          },
+          {
+            "text": "As a result,",
+            "reason": "Trapping dust doesn't make your nose moist. This is a second, separate job."
+          },
+          {
+            "text": "In addition,"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.8-b3-1",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren is writing a guide to snow wombats for hikers. The Tethrin is hiding from one.",
+      "text": "Snow wombats are the bulldozers of Scaffold Peaks. They are about a metre long, as heavy as a big dog, and shaped a bit like a furry barrel. Their legs are short and stumpy, and they waddle from side to side when they walk. Most of the day, they sleep in their burrows, snoring loudly. When they do come out, they spend hours munching grass with their heads down, barely looking up. All of this makes wombats look slow and clumsy. ___, they can run faster than most people when they are frightened, and they can keep going for a long time. Many hikers have found this out the hard way, after trying to get too close for a selfie. Wren's advice is simple: give them space, and never stand between a wombat and its burrow.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "Wombats look slow, but they're fast. 'However' shows a surprise that goes against what you'd expect.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "As a result,",
+            "reason": "Looking clumsy doesn't make wombats fast. The speed is a surprise, not a result."
+          },
+          {
+            "text": "In addition,",
+            "reason": "Running fast isn't one more clumsy thing. It's the opposite of how they look."
+          },
+          {
+            "text": "However,"
+          },
+          {
+            "text": "Meanwhile,",
+            "reason": "Nothing else is happening at the same time. Both sentences describe wombats."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.8-b3-2",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully wrote about the snow footy grand final. The Tethrin watched from the goalpost.",
+      "prompt": "Tap the linking word that shows two things happening at the same time.",
+      "success": "'Meanwhile' shows the coach was busy in the change rooms while Tully took her place.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "The snow footy grand final was played on the frozen oval at the bottom of Scaffold Peaks, in front of the biggest crowd the Peaks had ever seen. Tully's team had trained hard all winter, running up and down the ladders every morning. ",
+          {
+            "tap": "As a result",
+            "reason": "'As a result' shows one thing caused another, not two things at the same time."
+          },
+          ", they were the fittest team in the whole league. In the grand final, they were winning by a point with one minute left. ",
+          {
+            "tap": "However",
+            "reason": "'However' shows a surprise or a contrast, not two things at the same time."
+          },
+          ", their captain had just slipped on the ice and hurt her knee. Tully took her place in the centre square, her heart thumping. ",
+          {
+            "tap": "Meanwhile"
+          },
+          ", in the change rooms, the coach was wrapping the captain's knee in a bag of frozen peas. The siren was about to go. ",
+          {
+            "tap": "In addition",
+            "reason": "'In addition' adds one more problem. It doesn't show two things at the same time."
+          },
+          ", the snow was getting heavier, and nobody could see the ball. The team held on and won by a single point. ",
+          {
+            "tap": "Afterwards",
+            "reason": "'Afterwards' means later on, not at the same time."
+          },
+          ", Tully said it was the longest minute of her life."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.8-b3-3",
+      "band": 3,
+      "topic": "food",
+      "frame": "Indi wrote about Mo's five-alarm chilli. The Tethrin says one linking word is wrong.",
+      "prompt": "Tap the linking word that doesn't fit, then choose a better one.",
+      "success": "Zed drank the milk because of the chilli. 'As a result' shows one thing caused another.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "It was Mo's turn to cook, and the whole crew was nervous. Last time, he had served seaweed spaghetti with custard. This time, Mo made his famous five-alarm chilli for the crew's dinner in the hut. He used three kinds of chilli, a whole bulb of garlic and a secret ingredient he refused to name. ",
+          {
+            "tap": "In addition",
+            "reason": "That's right. Mo added one more thing to the chilli."
+          },
+          ", he added a squeeze of lime, because he said it would 'calm things down'. It did not calm anything down. Zed took one spoonful, and his face turned the colour of a tomato. ",
+          {
+            "tap": "However"
+          },
+          ", he drank a whole jug of milk without stopping for breath. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "That's right. Gus was busy with the pot while Zed was drinking."
+          },
+          ", Gus was scraping a sample from the pot into a test tube. He said the chilli was hot enough to melt plastic, and he was planning to prove it. Mo said it was his best chilli yet, and asked who wanted seconds. Nobody did."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "In addition",
+            "reason": "Drinking milk isn't one more ingredient. It happened because of the chilli."
+          },
+          {
+            "text": "Meanwhile",
+            "reason": "'Meanwhile' is for something else at the same time. Zed drank because of the chilli."
+          },
+          {
+            "text": "Even so",
+            "reason": "'Even so' shows a surprise. Drinking milk after hot chilli is exactly what you'd expect."
+          },
+          {
+            "text": "As a result"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.8-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed is reviewing Frostbite Quest for the Peaks Gaming Club. A Tethrin is spinning across his screen.",
+      "text": "Zed thinks Frostbite Quest has two brilliant features, and he wants his review to list them both. He's writing the part of the review that describes them.",
+      "prompt": "Build Zed's two sentences, using the linking word that fits.",
+      "success": "Both sentences are brilliant features. 'In addition' adds the second one to the first.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "The music changes when you sneak.",
+          "In addition,",
+          "However,",
+          "As a result,",
+          "Meanwhile,",
+          "the snow melts wherever you walk."
+        ],
+        "accept": [
+          "The music changes when you sneak. In addition, the snow melts wherever you walk."
+        ],
+        "reason": "Zed is listing two brilliant features. You're adding one more, so use 'In addition'."
+      }
+    },
+    {
+      "id": "7.8-b3-5",
+      "band": 3,
+      "topic": "general",
+      "frame": "Tully read out the Scaffold Peaks weather report. The Tethrin's web is covered in frost.",
+      "text": "Tully's weather report for Scaffold Peaks uses lots of linking words. These sentences come from it.",
+      "prompt": "Match each sentence to what its linking word shows.",
+      "success": "Each linking word shows one kind of link: a contrast, a result, the same time or one more idea.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a contrast",
+          "a result",
+          "the same time",
+          "one more idea"
+        ],
+        "items": [
+          {
+            "text": "Even so, Gus refused to wear a beanie.",
+            "bin": 0,
+            "reason": "'Even so' shows something that goes against what you'd expect."
+          },
+          {
+            "text": "Because of this, the chairlift closed early.",
+            "bin": 1,
+            "reason": "'Because of this' shows what happened because of something."
+          },
+          {
+            "text": "At that very moment, down in the valley, the rangers were packing up.",
+            "bin": 2,
+            "reason": "'At that very moment' shows two things happening at the same time."
+          },
+          {
+            "text": "On top of that, it started to hail.",
+            "bin": 3,
+            "reason": "'On top of that' adds one more idea, here one more bit of bad weather."
+          },
+          {
+            "text": "For this reason, the hikers turned back.",
+            "bin": 1,
+            "reason": "'For this reason' shows what happened because of something."
+          },
+          {
+            "text": "On the other hand, the west track was perfectly safe.",
+            "bin": 0,
+            "reason": "'On the other hand' shows the opposite side."
+          },
+          {
+            "text": "Furthermore, the hut had run out of firewood.",
+            "bin": 3,
+            "reason": "'Furthermore' adds one more idea."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.8-b3-6",
+      "band": 3,
+      "topic": "space",
+      "frame": "A diary from the space station Bluegum has floated down to Scaffold Peaks. The Tethrin is reading it.",
+      "text": "Living on a space station sounds glamorous, but it comes with some unusual problems. The Bluegum is the size of a small house. Six astronauts live on it for six months at a time. Everything floats, including crumbs, water droplets and anything you forget to clip down. The crew of the station Bluegum sleep in sleeping bags strapped to the wall, so they don't drift into each other in the night. Their food comes in pouches, and they drink through straws, because an open cup of juice would turn into a floating, wobbly ball. On their third day, the station's only toilet broke. ___, the crew had to use special plastic bags for a whole week while they waited for a spare part. The commander described it as the longest week of her life. When the spare part finally arrived, the whole crew clapped.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "The broken toilet caused the plastic bags. 'As a result' shows one thing caused another.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "On the other hand,",
+            "reason": "'On the other hand' shows a contrast. Using bags is what you'd expect when the toilet breaks."
+          },
+          {
+            "text": "Meanwhile,",
+            "reason": "'Meanwhile' is for something else at the same time. The bags were needed because the toilet broke."
+          },
+          {
+            "text": "As a result,"
+          },
+          {
+            "text": "In addition,",
+            "reason": "Using bags isn't one more broken thing. It happened because the toilet broke."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.8-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Wren is writing a Field Guide entry on box jellyfish. The Tethrin is very glad it lives on a mountain.",
+      "text": "Box jellyfish drift through the warm waters of northern Australia, and they are among the most venomous animals on Earth. Their bodies are almost see-through, shaped like a pale box, and each one trails up to sixty tentacles that can stretch three metres long. Every tentacle is lined with thousands of tiny stinging cells, which fire like microscopic harpoons the moment they touch skin. A single sting can be agonising, and a serious one can be deadly to a human, which is why swimmers in the north wear stinger suits and swim inside netted areas during the summer months. Box jellyfish are not like other jellyfish. They can swim, rather than just drift. They even have eyes, twenty-four of them. Most animals in the sea keep well away from box jellyfish. Fish dart away from them. Crabs hide. ___, some sea turtles eat them without seeming to notice the stings at all, munching through their tentacles like noodles. Scientists are still working out exactly how the turtles do it. Wren thinks the turtles deserve a medal, and possibly a stinger suit of their own.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "Most animals avoid them, but turtles eat them. 'Nevertheless' shows that surprise.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Consequently,",
+            "reason": "Other animals keeping away doesn't cause turtles to eat jellyfish. It's a surprise, not a result."
+          },
+          {
+            "text": "Furthermore,",
+            "reason": "Turtles eating them isn't one more reason to keep away. It's the opposite: a surprising exception."
+          },
+          {
+            "text": "For example,",
+            "reason": "Turtles aren't an example of animals keeping away. They do the opposite."
+          },
+          {
+            "text": "Nevertheless,"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.8-b4-2",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Tully wrote about the day the chairlift robot ran out of power. The Tethrin was stuck on chair nine.",
+      "prompt": "Tap the linking word that shows a result.",
+      "success": "'Consequently' shows the buried solar panels caused the batteries to drain and the chairlift to stop.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "For thirty years, the chairlift on Scaffold Peaks was run by an elderly robot called Gondola-7, who was famous for never being late and for humming old songs badly. ",
+          {
+            "tap": "Furthermore",
+            "reason": "'Furthermore' adds one more fact about Gondola-7. It doesn't show a result."
+          },
+          ", it insisted on saying 'Mind the gap!' to every passenger, even though there was no gap to mind. Last winter, a blizzard buried its solar panels under two metres of snow. ",
+          {
+            "tap": "Consequently"
+          },
+          ", its batteries drained, and the chairlift ground to a halt with forty skiers dangling above the valley. The rangers radioed for help, but the nearest repair team was three hours away. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "'Meanwhile' shows something happening at the same time. It doesn't show a result."
+          },
+          ", up on the chairs, the stranded skiers were getting very cold and slightly grumpy. Gus, who happened to be skiing that day, climbed the nearest tower with a toolbox clamped between his teeth. ",
+          {
+            "tap": "Nevertheless",
+            "reason": "'Nevertheless' shows a surprise or a contrast. It doesn't show a result."
+          },
+          ", even he could not find a spare battery anywhere on the mountain. In the end, he hooked Gondola-7 up to a hundred potato batteries from the school science room, and the chairs creaked back into motion. Gondola-7 hummed all the way to the bottom, louder and worse than ever. Every skier said it was the most beautiful song they had ever heard."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.8-b4-3",
+      "band": 4,
+      "topic": "art",
+      "frame": "Zed wrote about Indi and the Peaks Art Prize. The Tethrin says one linking word is wrong.",
+      "prompt": "Tap the linking word that doesn't fit, then choose a better one.",
+      "success": "Most people would give up, but Indi kept going. 'Nevertheless' shows she did the opposite of what you'd expect.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi had entered the Peaks Art Prize every year since she was seven, and every year she had come close but never won. This year, she had a plan: a huge painting of a Ledgeling caught in a snowstorm. Three weeks before the Peaks Art Prize, Indi fell off a ladder while painting a mural and broke her right wrist. ",
+          {
+            "tap": "As a result",
+            "reason": "That's right. She couldn't hold a brush because her wrist was broken."
+          },
+          ", she could not hold a brush in her painting hand for at least six weeks. Most people would have given up on the prize and waited until next year. ",
+          {
+            "tap": "Consequently"
+          },
+          ", Indi taped a brush to her left hand and started again, even though her first lines wobbled like jelly. ",
+          {
+            "tap": "Meanwhile",
+            "reason": "That's right. Gus and Mo were helping while Indi practised."
+          },
+          ", Gus built her a stand that held the canvas at exactly the right height, and Mo kept her supplied with gum-leaf pancakes, whether she wanted them or not. On the day of the judging, her painting of a Ledgeling in a snowstorm won second prize. The judges said the wobbly lines made the snowstorm look as if it was really moving. Indi has decided to keep painting with her left hand, just to see what else it can do."
+        ],
+        "spot": 1,
+        "options": [
+          {
+            "text": "Furthermore",
+            "reason": "Indi carrying on isn't one more reason to give up. It's the opposite of what most people would do."
+          },
+          {
+            "text": "Nevertheless"
+          },
+          {
+            "text": "For this reason",
+            "reason": "Most people giving up isn't why Indi kept painting. She kept going in spite of it."
+          },
+          {
+            "text": "Meanwhile",
+            "reason": "'Meanwhile' is for something else at the same time. This is Indi refusing to give up."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.8-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "Mo is writing the story of the Peaks Band's disastrous concert. The Tethrin has spun a web across the drum kit.",
+      "text": "The speakers had blown halfway through the Peaks Band's concert. Mo's story keeps jumping between the stage and the car park, where Gus was trying to fix them.",
+      "prompt": "Build the next two sentences of Mo's story, using the linking word that fits.",
+      "success": "The drum solo and the rewiring happen at the same time, in different places. That's 'Meanwhile'.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "On stage, the drummer was stalling for time with the longest drum solo in history.",
+          "Meanwhile,",
+          "Consequently,",
+          "Nevertheless,",
+          "out in the car park, Gus was rewiring the speakers with a paperclip."
+        ],
+        "accept": [
+          "On stage, the drummer was stalling for time with the longest drum solo in history. Meanwhile, out in the car park, Gus was rewiring the speakers with a paperclip."
+        ],
+        "reason": "The solo and the rewiring happen at the same time in different places. That calls for 'Meanwhile'."
+      }
+    },
+    {
+      "id": "7.8-b4-5",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo collected the crew's funniest moments for the end-of-year newsletter. The Tethrin ate his linking words.",
+      "text": "Mo wrote these pairs of sentences for the newsletter, but he left out the linking words.",
+      "prompt": "Match each pair of sentences to the linking word that fits the gap.",
+      "success": "Each gap needed the link that matches the ideas: a surprise, a result, the same time or one more.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Nevertheless,",
+          "Consequently,",
+          "Meanwhile,",
+          "Furthermore,"
+        ],
+        "items": [
+          {
+            "text": "Mo's sardine trifle smelled like a fish market on a hot day. ___, the judges gave it first prize.",
+            "bin": 0,
+            "reason": "You'd expect a smelly trifle to lose. Winning first prize is a surprise."
+          },
+          {
+            "text": "Gus left his slime experiment on the heater overnight. ___, the hut smelled of hot feet for a week.",
+            "bin": 1,
+            "reason": "The smell happened because the slime was left on the heater."
+          },
+          {
+            "text": "Zed was beating the final boss in the lounge. ___, in the kitchen, Mo was setting fire to a tea towel.",
+            "bin": 2,
+            "reason": "Two things are happening at the same time, in different rooms."
+          },
+          {
+            "text": "The crew's hut has no hot water. ___, its roof leaks every time it snows.",
+            "bin": 3,
+            "reason": "This adds one more problem with the hut."
+          },
+          {
+            "text": "The Architect told Mo never to cook on the ladders. ___, Mo fried an egg on rung forty-two.",
+            "bin": 0,
+            "reason": "Mo was told not to, and he did it anyway. That goes against what you'd expect."
+          },
+          {
+            "text": "Mo's joke book weighs four kilograms. ___, the crew made him leave it at the bottom of the tower.",
+            "bin": 1,
+            "reason": "The crew made him leave it because it was so heavy."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.8-b4-6",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing a report called 'In Praise of Earwax'. The Tethrin is covering its ears, all eight of them.",
+      "text": "Gus is fascinated by earwax, and he wants everyone else to be too. He has written a whole report about it. He has drawn diagrams. He has even brought samples to school, which his teacher asked him to take home. Earwax is made by tiny glands in the skin of your ear canal, and it comes in two main types: a wet, sticky, honey-coloured kind and a dry, flaky, grey kind. Which type you have depends on your family, a bit like the colour of your eyes. Gus says earwax is not dirt at all, but a clever piece of body engineering. It slowly moves outwards from deep inside your ear, carried along by the movement of your jaw every time you talk or chew. Along the way, it traps dust, dirt and the occasional tiny insect before they can reach your eardrum. ___, it contains natural chemicals that help fight off germs, which keeps the inside of your ear healthy. Gus once made candles out of his own earwax, which smelled like old cheese. He does not recommend trying this at home.",
+      "prompt": "Which linking word fits the gap?",
+      "success": "Fighting germs is a second, separate good thing about earwax. 'Furthermore' adds one more idea.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Consequently,",
+            "reason": "Trapping dust doesn't cause earwax to contain germ-fighting chemicals. It's a separate fact."
+          },
+          {
+            "text": "Furthermore,"
+          },
+          {
+            "text": "Nevertheless,",
+            "reason": "There's no surprise or contrast. Both sentences are good things earwax does."
+          },
+          {
+            "text": "Meanwhile,",
+            "reason": "'Meanwhile' is for something else happening at the same time. This adds one more job earwax does."
+          }
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

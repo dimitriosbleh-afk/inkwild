@@ -1,0 +1,977 @@
+{
+  "skill": {
+    "id": "7.3",
+    "name": "Features that fit the purpose (tense, headings, command verbs)",
+    "codes": [
+      "VC2E5LA03",
+      "VC2E5LY08"
+    ],
+    "why": "The right features help a text do its job, and help you read it.",
+    "how": "Ask what the text is for. Then check its tense, headings and verbs fit.",
+    "teach": {
+      "crew": "artist",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Each kind of text has its own tools."
+          },
+          {
+            "say": "Instructions start with a bossy word that says what to do.",
+            "show": "**Hold** the ladder. **Climb** slowly."
+          },
+          {
+            "say": "That bossy word is called a command verb."
+          },
+          {
+            "say": "Recounts already happened, so they use past tense.",
+            "show": "We **climbed** the tower and **ate** our lunch."
+          },
+          {
+            "say": "Reports use headings, so readers can find facts fast.",
+            "show": "**Food**: Possums eat seeds, berries and moths."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "How to Make a Paper Plane. Fold the paper in half the long way. Open it up again. ___",
+          "prompt": "Which sentence fits as the next step?",
+          "hint": "Steps start with a command verb. Which one tells you what to do?",
+          "success": "'Fold' is a command verb. It tells the reader what to do, like the other steps.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "I folded the top corners into the middle.",
+                "reason": "That tells what someone did. A step tells the reader what to do."
+              },
+              {
+                "text": "Paper planes are fun to fly.",
+                "reason": "That's an opinion, not a step. It doesn't tell you what to do."
+              },
+              {
+                "text": "Fold the top corners into the middle."
+              }
+            ],
+            "answer": 2
+          }
+        },
+        {
+          "prompt": "This recount is about yesterday. Tap the word in the wrong tense, then choose a better one.",
+          "hint": "A recount tells what already happened. Which word doesn't sound like the past?",
+          "success": "'Dropped' is past tense, like 'climbed'. Recounts tell what already happened.",
+          "body": {
+            "format": "fix",
+            "parts": [
+              "Yesterday, the crew ",
+              {
+                "tap": "climbed",
+                "reason": "'Climbed' is past tense. It fits a recount."
+              },
+              " Tower Four. At the top, Mo ",
+              {
+                "tap": "drops"
+              },
+              " his sandwich. A hungry raven ",
+              {
+                "tap": "snatched",
+                "reason": "'Snatched' is past tense. It fits a recount."
+              },
+              " it before it hit the ground."
+            ],
+            "spot": 1,
+            "options": [
+              {
+                "text": "will drop",
+                "reason": "'Will drop' hasn't happened yet. This recount is about yesterday."
+              },
+              {
+                "text": "dropped"
+              },
+              {
+                "text": "is dropping",
+                "reason": "'Is dropping' is happening right now. The recount is about yesterday."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "fittlet",
+      "name": "Fittlet",
+      "evolved": "Fittlewarden",
+      "blurb": "A dusky antechinus that keeps the right tool for every job in its nest: command verbs for recipes, past tense for diaries, headings for reports. Hand it the wrong tool and it squeaks."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.3-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's muffin recipe is stuck to the hut fridge. A Fittlet licked off step 5.",
+      "text": "Mo's Mountain Muffins. You will need flour, milk, two eggs, sugar and blueberries. Ask an adult to help with the oven. Step 1: Turn on the oven. Step 2: Mix the flour, milk, eggs and sugar in a bowl. Step 3: Stir in the blueberries. Step 4: Spoon the mix into a muffin tray. Step 5: ___ Step 6: Let them cool, then eat three.",
+      "prompt": "Which sentence fits as step 5?",
+      "success": "'Bake' is a command verb. A step tells the reader what to do, like every other step here.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo baked the muffins for twenty minutes.",
+            "reason": "That tells what Mo did. A step tells the reader what to do."
+          },
+          {
+            "text": "Bake the muffins for twenty minutes."
+          },
+          {
+            "text": "Muffins are small, round cakes.",
+            "reason": "That's a fact for a report. It doesn't tell you what to do next."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.3-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote a recount of the snow footy match. The Fittlet spotted a slip.",
+      "prompt": "This recount is about the past. Tap the word in the wrong tense, then choose a better one.",
+      "success": "'Slipped' is past tense, like the rest. A recount tells what already happened.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Last Saturday, our team ",
+          {
+            "tap": "played",
+            "reason": "'Played' is past tense. It fits the recount."
+          },
+          " footy in the snow. It was so cold that the ball felt like a rock. In the first quarter, Tully ",
+          {
+            "tap": "kicked",
+            "reason": "'Kicked' is past tense. It fits the recount."
+          },
+          " a goal from the boundary. Then Mo ",
+          {
+            "tap": "slips"
+          },
+          " on the ice. He ",
+          {
+            "tap": "slid",
+            "reason": "'Slid' is past tense. It fits the recount."
+          },
+          " all the way to the fence on his tummy. The umpire laughed so hard that he dropped his whistle. In the end, we won by two points. Everyone had hot chips after the game."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "will slip",
+            "reason": "'Will slip' hasn't happened yet. The game was last Saturday."
+          },
+          {
+            "text": "is slipping",
+            "reason": "'Is slipping' is happening right now. The game was last Saturday."
+          },
+          {
+            "text": "slipped"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.3-b1-3",
+      "band": 1,
+      "topic": "robots",
+      "frame": "Gus is writing a procedure for the Fittlet. Step 3 fell apart.",
+      "text": "How to Build a Box Bot. You will need a shoebox, four wheels, a screwdriver, glue and two bottle tops. The wheels are heavy, and glue or tape will not hold them. Ask an adult to help with the screwdriver. Step 1: Paint the shoebox silver. Step 2: Let the paint dry overnight. Step 3: ___ Step 4: Glue on two bottle tops for eyes. Step 5: Give your bot a funny name, like Sir Clanks-a-Lot.",
+      "prompt": "Build step 3. Steps tell the reader what to do, using things that will work.",
+      "success": "'Screw' tells the reader what to do, and only the screwdriver will hold the heavy wheels.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Glue",
+          "the wheels",
+          "Screw",
+          "onto the box.",
+          "Tape"
+        ],
+        "accept": [
+          "Screw the wheels onto the box."
+        ],
+        "reason": "Every step starts with a command verb. Glue and tape won't hold the heavy wheels, so use 'Screw'."
+      }
+    },
+    {
+      "id": "7.3-b1-4",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing a report on mountain pygmy possums. The Fittlet ran off with a heading.",
+      "text": "Mountain Pygmy Possums. ___ Mountain pygmy possums eat lots of different things. In spring and summer, their favourite food is Bogong moths. They can catch hundreds in one night. They also eat seeds, berries and fruit. In autumn, they eat so much that they nearly double their weight. They hide seeds under rocks, too. In winter, they snack on these seeds when they wake up.",
+      "prompt": "Which heading fits the gap in this report?",
+      "success": "Every sentence is about food: moths, seeds, berries and fruit. A heading names what the section is about.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "What They Eat"
+          },
+          {
+            "text": "Where They Live",
+            "reason": "Nothing here says where they live. Every sentence is about food."
+          },
+          {
+            "text": "How They Look",
+            "reason": "Nothing here describes their fur, size or tail. It's all about food."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.3-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed wrote a recount of last night's gaming. The Fittlet found a sentence that slipped into the wrong time.",
+      "prompt": "A recount tells what already happened. Tap the sentence in the wrong tense.",
+      "success": "'Wants' sounds like it's happening now. The rest is past tense, so it should be 'wanted'.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Last night, Zed played Lava Run for three hours. ",
+          {
+            "tap": "He cleared level six on his very first try.",
+            "reason": "'Cleared' is past tense. It fits the recount."
+          },
+          " ",
+          {
+            "tap": "Then his little brother wants a turn."
+          },
+          " ",
+          {
+            "tap": "Zed handed him the controller.",
+            "reason": "'Handed' is past tense. It fits the recount."
+          },
+          " His brother fell in the lava straight away. ",
+          {
+            "tap": "He cried until Mum came in.",
+            "reason": "'Cried' and 'came' are past tense. They fit the recount."
+          },
+          " Zed took the controller back and finished the level. Mum said it was time for bed."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.3-b1-6",
+      "band": 1,
+      "topic": "art",
+      "frame": "Indi wrote a procedure and a recount about painting the tower. The Fittlet mixed up the lines.",
+      "prompt": "Match each line to the feature it shows.",
+      "success": "A heading names a part. Command verbs tell you what to do. Past tense tells what already happened.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a heading",
+          "starts with a command verb",
+          "uses past tense"
+        ],
+        "items": [
+          {
+            "text": "What You Need",
+            "bin": 0,
+            "reason": "This names a part of the procedure. It's a heading."
+          },
+          {
+            "text": "Mix the grey paint with a drop of white.",
+            "bin": 1,
+            "reason": "'Mix' tells you what to do. It's a command verb."
+          },
+          {
+            "text": "On Monday, Indi painted the tall tower.",
+            "bin": 2,
+            "reason": "'Painted' shows this already happened. It's past tense."
+          },
+          {
+            "text": "Paint a thin line for the ladder.",
+            "bin": 1,
+            "reason": "'Paint' tells you what to do. It's a command verb."
+          },
+          {
+            "text": "Then she added a tiny ladder.",
+            "bin": 2,
+            "reason": "'Added' shows this already happened. It's past tense."
+          },
+          {
+            "text": "Wash your brush in the jar.",
+            "bin": 1,
+            "reason": "'Wash' tells you what to do. It's a command verb."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.3-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "Tully is writing a report on Mars for the telescope tower. The Fittlet wants to add a sentence.",
+      "text": "Mars. Mars is the fourth planet from the Sun. It is often called the Red Planet, because its soil is full of rusty iron dust. Mars is about half the size of Earth. A day on Mars is only a little longer than a day on Earth, but a year there lasts almost two Earth years. Mars is much colder than Earth, and the air is too thin for people to breathe. It has the biggest volcano in the whole solar system, called Olympus Mons. It is about three times as tall as the highest mountain on Earth. Huge dust storms sometimes cover the whole planet for weeks.",
+      "prompt": "Which sentence fits this information report?",
+      "success": "Reports give facts in present tense, like 'Mars has two small moons'. They don't tell stories or give orders.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Last night, we looked at Mars through Gus's telescope.",
+            "reason": "That's a recount: 'we' and past tense for one night. Reports give facts that are always true."
+          },
+          {
+            "text": "You should look for Mars in the night sky tonight.",
+            "reason": "'You should' tells the reader what to do. A report just gives facts."
+          },
+          {
+            "text": "Mars has two small moons, called Phobos and Deimos."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.3-b2-2",
+      "band": 2,
+      "topic": "food",
+      "frame": "Mo is writing a report on honey. The Fittlet has honey on its whiskers and a mistake on its mind.",
+      "prompt": "Reports describe what is always true. Tap the word in the wrong tense, then choose a better one.",
+      "success": "Bees always do this, so the report needs present tense: 'the bees fan the nectar'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Honey. Honey is a thick, sweet liquid made by bees. Bees ",
+          {
+            "tap": "collect",
+            "reason": "'Collect' is present tense. Bees always do this, so it fits a report."
+          },
+          " nectar from flowers with their long tongues. They ",
+          {
+            "tap": "carry",
+            "reason": "'Carry' is present tense. It fits a report."
+          },
+          " it back to the hive in a special stomach. Inside the hive, the bees ",
+          {
+            "tap": "fanned"
+          },
+          " the nectar with their wings until most of the water dries up. Then they ",
+          {
+            "tap": "seal",
+            "reason": "'Seal' is present tense. It fits a report."
+          },
+          " the honey inside tiny wax cells. Bees make honey so that they have food to eat in winter. Honey can last for many years without going off. A single bee makes only about a teaspoon of honey in its whole life. That means one jar of honey takes the work of hundreds of bees."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "had fanned",
+            "reason": "'Had fanned' is past. Reports describe what bees always do, so they use present tense."
+          },
+          {
+            "text": "fan"
+          },
+          {
+            "text": "were fanning",
+            "reason": "'Were fanning' is past too. Bees still do this, so the report needs present tense."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.3-b2-3",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren wrote a procedure for setting up a bird bath on Tower Two. The Fittlet spotted a step that doesn't fit.",
+      "prompt": "One step isn't written like a step. Tap it.",
+      "success": "Steps start with a command verb, like 'Fill'. 'Wren filled' tells what Wren did, like a recount.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "How to Set Up a Bird Bath. You will need a wide, shallow dish, some smooth stones and a jug of clean water. ",
+          {
+            "tap": "Choose a spot that is close to a bush, so birds can hide if a cat comes.",
+            "reason": "'Choose' is a command verb. It tells the reader what to do."
+          },
+          " ",
+          {
+            "tap": "Place the dish on flat ground or on top of an old stump.",
+            "reason": "'Place' is a command verb. It tells the reader what to do."
+          },
+          " ",
+          {
+            "tap": "Put a few stones in the dish, so small birds have somewhere to stand.",
+            "reason": "'Put' is a command verb. This is a step."
+          },
+          " ",
+          {
+            "tap": "Wren filled the dish with clean water every morning."
+          },
+          " ",
+          {
+            "tap": "Scrub the dish once a week to keep it clean.",
+            "reason": "'Scrub' is a command verb. This is a step."
+          },
+          " Top up the water on hot days, because birds drink more when it's warm. Then sit very still and wait for your first visitor."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.3-b2-4",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's ski day recount has a sentence missing. The Fittlet found the pieces in the snow.",
+      "text": "Ski Day. Last Friday, our class went skiing at Mount Ladder. It was so cold that our eyelashes froze. In the morning, we learned how to stop by pointing our skis into a pizza shape. Mr Okafor fell over four times, even though he was the teacher. At lunch, we ate hot soup in the lodge and dried our gloves by the fire. Mo spilled his soup on Zed's beanie. ___ Tully went so fast that she crashed into a snowman at the bottom. Luckily, the snowman was fine. Mr Okafor gave it a new carrot nose. Then we caught the bus home, and everyone was too tired to talk.",
+      "prompt": "Build the missing sentence of the recount.",
+      "success": "'Raced' is past tense, like the rest of the recount. The ski day already happened.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "After lunch,",
+          "we",
+          "race",
+          "raced",
+          "down the blue run."
+        ],
+        "accept": [
+          "After lunch, we raced down the blue run."
+        ],
+        "reason": "A recount tells what already happened, so it needs past tense: 'raced', not 'race'."
+      }
+    },
+    {
+      "id": "7.3-b2-5",
+      "band": 2,
+      "topic": "music",
+      "frame": "Indi is writing a report on the alphorn. The Fittlet pinched one of her headings.",
+      "text": "The Alphorn. ___ To play an alphorn, you press your lips against the cup-shaped mouthpiece and buzz them. It feels a bit like blowing a raspberry. You change the note by buzzing your lips faster or slower. That's because an alphorn has no keys or holes. Players usually stand up, with the far end of the horn resting on the ground. Because the horn is so long, the player has to take very deep breaths. Playing a long song can leave your lips feeling numb and tingly. A good player can make the sound carry across a whole valley. Most players practise outside, so they don't annoy their neighbours.",
+      "prompt": "Which heading fits this section best?",
+      "success": "Every sentence is about playing: buzzing, changing notes, standing and breathing. The heading should say so.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "What It Looks Like",
+            "reason": "It mentions the mouthpiece and the length, but only to explain how you play it."
+          },
+          {
+            "text": "How It Is Played"
+          },
+          {
+            "text": "Where It Comes From",
+            "reason": "Nothing here says where alphorns come from. It's all about playing one."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.3-b2-6",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus wrote a slime procedure, a slime recount and a slime report. The Fittlet got slime on all of them.",
+      "prompt": "Match each sentence to the feature it shows.",
+      "success": "Command verbs give steps. Past tense retells what happened. Present tense gives facts that are always true.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "starts with a command verb",
+          "past tense, for a recount",
+          "present tense, for a report"
+        ],
+        "items": [
+          {
+            "text": "Squeeze the slime between your fingers.",
+            "bin": 0,
+            "reason": "'Squeeze' tells the reader what to do. It's a command verb."
+          },
+          {
+            "text": "Gus dropped the slime on the cat.",
+            "bin": 1,
+            "reason": "'Dropped' shows this already happened, once. It's past tense."
+          },
+          {
+            "text": "Slime is a thick, gooey liquid.",
+            "bin": 2,
+            "reason": "'Is' gives a fact that is always true. That's present tense, for a report."
+          },
+          {
+            "text": "Add a spoon of glue to the bowl.",
+            "bin": 0,
+            "reason": "'Add' tells the reader what to do. It's a command verb."
+          },
+          {
+            "text": "The cat ran under the bed.",
+            "bin": 1,
+            "reason": "'Ran' shows this already happened. It's past tense."
+          },
+          {
+            "text": "Snails make slime to help them slide.",
+            "bin": 2,
+            "reason": "'Make' gives a fact about snails that is always true. It's present tense."
+          },
+          {
+            "text": "Stir it until it stops sticking to the spoon.",
+            "bin": 0,
+            "reason": "'Stir' tells the reader what to do. It's a command verb."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.3-b3-1",
+      "band": 3,
+      "topic": "ocean",
+      "frame": "The Fittlet is helping Wren finish her report on blue whales for the Scaffold Peaks library.",
+      "text": "Blue Whales. Blue whales live in every ocean in the world, from the icy waters near Antarctica to warm seas near the equator. An adult blue whale can grow to about thirty metres long, which is longer than two buses parked end to end. Its heart is about the size of a small car, and it beats only a few times a minute when the whale dives. Despite their huge size, blue whales eat some of the smallest animals in the sea. They gulp enormous mouthfuls of water, then push it out through bristly plates called baleen, which trap tiny shrimp called krill. A single blue whale can eat around four tonnes of krill in one day. Their skin is blue-grey with pale spots, but it looks bright blue underwater. Blue whales make deep, rumbling calls that can travel hundreds of kilometres underwater. Scientists think they use these calls to find each other across the empty ocean. Blue whales can live for eighty or ninety years.",
+      "prompt": "Which sentence fits this information report?",
+      "success": "Reports give facts that are true for the whole group, in present tense. Only this sentence does that.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Last summer, our class spotted a blue whale from the ferry.",
+            "reason": "That's a recount: past tense, for one trip. A report gives facts about all blue whales."
+          },
+          {
+            "text": "Everyone should see a blue whale at least once in their life.",
+            "reason": "'Should' gives the writer's opinion. Reports stick to facts."
+          },
+          {
+            "text": "Blue whales are the largest animals that have ever lived on Earth."
+          },
+          {
+            "text": "Listen carefully for the whale's low song when you dive.",
+            "reason": "That's a command, like a step in a procedure. A report doesn't tell the reader what to do."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.3-b3-2",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed wrote a report on his new console for the Scaffold Peaks newsletter. The Fittlet thinks a heading is wrong.",
+      "prompt": "Tap the heading that doesn't fit its section, then choose a better one.",
+      "success": "That section is about charging and how long a charge lasts. 'Battery' tells readers where to find that.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "The Pocket Peak Console. The Pocket Peak is a handheld games console made for playing outdoors, even in the snow. ",
+          {
+            "tap": "Screen",
+            "reason": "That heading fits. This section is all about the screen."
+          },
+          ": Its screen is seven centimetres wide and stays bright in full sunshine. A special coating stops it fogging up in the cold, so you can still see your game. ",
+          {
+            "tap": "Controls",
+            "reason": "That heading fits. This section is all about the joysticks and buttons."
+          },
+          ": It has two joysticks, four coloured buttons and a big round jump button. The buttons are extra large, so you can press them while you're wearing gloves. ",
+          {
+            "tap": "Price"
+          },
+          ": The Pocket Peak charges in two hours, using a cable or the small solar panel on its back. A full charge lasts about nine hours of play, and a light flashes red when it's running low. In very cold weather, a charge runs out faster, so keep the console in a warm pocket. ",
+          {
+            "tap": "Games",
+            "reason": "That heading fits. This section is about the games you can play."
+          },
+          ": It comes with three games built in, including Lava Run, and you can download more than two hundred others."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "Screen",
+            "reason": "The screen already has its own section. This one is about charging and power."
+          },
+          {
+            "text": "Sound",
+            "reason": "Nothing in this section is about sound. It's about charging and how long a charge lasts."
+          },
+          {
+            "text": "Size",
+            "reason": "Nothing here says how big the console is. It's about charging and power."
+          },
+          {
+            "text": "Battery"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.3-b3-3",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Mo is writing a ghost-hunting guide for Tower Six. The Fittlet is hiding behind his pencil case.",
+      "text": "How to Hunt for Ghosts on Tower Six. The hut at the top of Tower Six is said to be haunted by a ghost who loves porridge. You will need a torch, a notebook, a spoon and a bowl of warm porridge. Wear soft shoes, because ghosts hate loud footsteps. Never bring Gus, because he always screams. Go on a still night, when the wind won't drown out any spooky noises. Step 1: Climb the ladder slowly, so that you don't scare the ghost away. Step 2: ___ Step 3: Place the porridge in the middle of the floor and switch off your torch. Step 4: Sit in the corner and count to one hundred, very quietly. Step 5: Switch your torch back on and check the bowl. If the porridge is gone, write down the time in your notebook. If it is still there, the ghost was not hungry tonight, so try again next week.",
+      "prompt": "Build step 2 of Mo's ghost-hunting guide.",
+      "success": "'Knock' is a command verb, and 'open' is present tense. Together they tell the reader what to do, and when.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Before you open the door,",
+          "you knocked three times.",
+          "knock three times.",
+          "Mo knocked three times."
+        ],
+        "accept": [
+          "Before you open the door, knock three times."
+        ],
+        "reason": "A step needs a command verb, so end with 'knock three times.' The others tell what already happened."
+      }
+    },
+    {
+      "id": "7.3-b3-4",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi wrote a report on mosaics for the art hut wall. The Fittlet thinks one sentence doesn't belong.",
+      "prompt": "Tap the sentence that doesn't fit an information report.",
+      "success": "'Honestly the most beautiful' is the writer's opinion. Reports stick to facts that a reader could check.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mosaics. A mosaic is a picture made from many small pieces of tile, glass or stone. ",
+          {
+            "tap": "The pieces are called tesserae, and they are usually about the size of a fingernail.",
+            "reason": "This is a fact about the pieces, in present tense. It fits a report."
+          },
+          " ",
+          {
+            "tap": "Mosaic makers press the pieces into wet cement, leaving small gaps between them.",
+            "reason": "This describes how mosaics are made, as a fact. It fits a report."
+          },
+          " ",
+          {
+            "tap": "Mosaics are honestly the most beautiful kind of art in the whole world."
+          },
+          " ",
+          {
+            "tap": "Once the cement dries, the gaps are filled with a paste called grout, which holds everything in place.",
+            "reason": "This is a fact about grout, in present tense. It fits a report."
+          },
+          " ",
+          {
+            "tap": "Because tile and stone don't fade, mosaics can last for thousands of years.",
+            "reason": "This is a fact you could check. It fits a report."
+          },
+          " Some of the oldest mosaics in the world are more than four thousand years old. Many old mosaics show animals, food and scenes from everyday life. Today, mosaics are often used to decorate walls, floors and swimming pools. Some modern mosaics are made from bottle tops, buttons or broken plates. One mosaic in a train station is made from over a million pieces."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.3-b3-5",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus wrote a recount of building his robot arm. The Architect wants it turned into a procedure.",
+      "text": "How I Built My Robot Arm. Last week, I built a robot arm out of cardboard, straws and string, and it can pick up a lolly. I wanted to make a hand that could help Mo in the kitchen. It took me two whole afternoons and nearly a whole bottle of glue. First, I cut a long strip of cardboard for each finger. Then I folded each strip in three places, so the fingers could bend like real ones. Next, I cut the straws into short pieces and glued them along each finger. After that, I threaded a piece of string through the straws on every finger. Then I glued all five fingers onto a cardboard palm. Finally, I tied the loose ends of the strings to a ring that fits on my finger. When I pulled the ring, the fingers curled up and grabbed the lolly. Mo ate the lolly before I could take a photo. Tully says the arm looks like a cardboard spider.",
+      "prompt": "Which is Gus's first step, rewritten correctly for a procedure?",
+      "success": "A procedure step starts with a command verb that tells the reader what to do: 'cut'.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "First, I will cut a long strip of cardboard for each finger.",
+            "reason": "That's still Gus talking about himself. A step tells the reader what to do."
+          },
+          {
+            "text": "First, a long strip of cardboard was cut for each finger.",
+            "reason": "This says what was done, not what to do. A step starts with a command verb."
+          },
+          {
+            "text": "First, Gus cut a long strip of cardboard for each finger.",
+            "reason": "This still tells what Gus did, in past tense. It's a recount sentence."
+          },
+          {
+            "text": "First, cut a long strip of cardboard for each of the fingers."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.3-b3-6",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is writing four texts about tennis. The Fittlet sorted her notes into one big pile.",
+      "prompt": "Match each feature to the kind of text it fits best.",
+      "success": "Commands and 'What you need' fit procedures. Past tense fits recounts. Facts under sub-headings fit reports. Opinions and questions persuade.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "procedure",
+          "recount",
+          "information report",
+          "persuasive text"
+        ],
+        "items": [
+          {
+            "text": "Verbs like 'Grip' and 'Swing' at the start of each line",
+            "bin": 0,
+            "reason": "These are command verbs. They tell the reader what to do, step by step."
+          },
+          {
+            "text": "A list headed 'What you need'",
+            "bin": 0,
+            "reason": "A procedure lists what you need before the steps begin."
+          },
+          {
+            "text": "Past-tense verbs and time words, such as 'After the match'",
+            "bin": 1,
+            "reason": "Past tense and time words retell what happened, in order."
+          },
+          {
+            "text": "Sub-headings like 'History' and 'Famous Players', with present-tense facts",
+            "bin": 2,
+            "reason": "Sub-headings sort the facts about a topic, and present tense shows they are true now."
+          },
+          {
+            "text": "Strong opinion words, such as 'must' and 'the best'",
+            "bin": 3,
+            "reason": "Opinion words push the reader to agree."
+          },
+          {
+            "text": "A question to the reader, such as 'Who wouldn't want a new court?'",
+            "bin": 3,
+            "reason": "A question like this nudges the reader to agree with the writer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.3-b4-1",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren is finishing her report on wedge-tailed eagles. The Fittlet is perched on her pencil.",
+      "text": "Wedge-tailed Eagles. Wedge-tailed eagles are the largest birds of prey in Australia, with wings that can stretch more than two metres from tip to tip. They are found all over the mainland and in Tasmania, from deserts and farmland to the high, snowy country around Scaffold Peaks. Adults are mostly dark brown, almost black, while young birds are a lighter, golden brown that darkens as they age. The eagle gets its name from its long tail, which is shaped like a wedge and helps it steer as it soars on warm, rising air. Like other birds of prey, they have hooked beaks for tearing meat and strong, curved claws called talons for gripping. Wedge-tailed eagles hunt rabbits, lizards and other small animals, and they also feed on animals that are already dead. Their eyesight is so sharp that they can spot a rabbit moving from more than a kilometre away. They can soar higher than almost any other Australian bird, sometimes more than a kilometre above the ground. Pairs often stay together for many years and return to the same nesting area each spring. A pair usually raises one or two chicks a year, and both parents take turns bringing food to the nest.",
+      "prompt": "Which sentence fits this information report best?",
+      "success": "Reports give facts about the whole species, in present tense. This one describes how all wedge-tailed eagles nest.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Wedge-tailed eagles are clearly the most magnificent birds you could ever hope to see.",
+            "reason": "'Clearly the most magnificent' is an opinion. Reports stick to facts that can be checked."
+          },
+          {
+            "text": "Wedge-tailed eagles build their nests from sticks, often in the tallest tree on a hillside."
+          },
+          {
+            "text": "Watch the eagle's wingtips closely as it circles, and you will see them spread like fingers.",
+            "reason": "That's a command to the reader. Reports describe; they don't tell the reader what to do."
+          },
+          {
+            "text": "We watched a wedge-tailed eagle snatch a rabbit from the paddock behind our school.",
+            "reason": "That's a recount: 'we' and past tense for one event. A report describes the whole species."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.3-b4-2",
+      "band": 4,
+      "topic": "space",
+      "frame": "The Architect is writing an explanation for the telescope tower. The Fittlet noticed a verb that doesn't fit.",
+      "prompt": "This explanation describes what always happens. Tap the word in the wrong tense, then choose a better one.",
+      "success": "Explanations of how things always work use present tense. Stars still do this, so the layers 'swell'.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "How a Star Like the Sun Dies. A star shines because, deep in its core, it squashes tiny pieces of hydrogen together to make a new gas called helium, and this releases huge amounts of energy. For billions of years, that energy pushes outwards just as hard as gravity pulls inwards, so the star stays the same size. When the hydrogen in the core finally runs out, however, the push weakens, and gravity ",
+          {
+            "tap": "squeezes",
+            "reason": "'Squeezes' is present tense. It fits an explanation of what always happens."
+          },
+          " the core tighter. The squeezed core grows hotter than ever, and the extra heat ",
+          {
+            "tap": "pushes",
+            "reason": "'Pushes' is present tense. It fits an explanation of what always happens."
+          },
+          " the star's outer layers outwards. The layers ",
+          {
+            "tap": "swelled"
+          },
+          " into a gigantic red giant, hundreds of times wider than the star once was. Over thousands of years, those loose outer layers ",
+          {
+            "tap": "drift",
+            "reason": "'Drift' is present tense. It fits an explanation of what always happens."
+          },
+          " away into space, forming a glowing cloud of gas. Astronomers call this cloud a planetary nebula, even though it has nothing to do with planets. All that remains is the tiny, white-hot core, called a white dwarf, which slowly cools for billions of years. A white dwarf is only about the size of Earth, but a teaspoon of it would weigh as much as a truck. Our own Sun is only about halfway through its life, so this won't happen for around five billion years."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "had swollen",
+            "reason": "'Had swollen' puts it in the past. Stars still do this, so the explanation needs present tense."
+          },
+          {
+            "text": "were swelling",
+            "reason": "'Were swelling' is past tense too. The explanation describes what always happens."
+          },
+          {
+            "text": "swell"
+          },
+          {
+            "text": "used to swell",
+            "reason": "'Used to' means it no longer happens. Stars still do this, so it needs present tense."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.3-b4-3",
+      "band": 4,
+      "topic": "food",
+      "frame": "Mo is writing his honeycomb procedure for the Scaffold Peaks cookbook. The Fittlet knocked step 4 to bits.",
+      "text": "Mo's Mountain Honeycomb. Honeycomb is a crunchy, golden lolly full of tiny air bubbles, and it takes about twenty minutes to make. It gets its name because its bubbles make it look like the wax inside a beehive. Because the sugar gets extremely hot, an adult must be in the kitchen the whole time. You will need a saucepan, a wooden spoon, a whisk, a baking tray lined with paper, one cup of sugar, four tablespoons of golden syrup and two teaspoons of bicarb soda. Read every step before you begin, because the last few happen very quickly. Step 1: Line the tray with baking paper and keep it next to the stove. Step 2: Put the sugar and golden syrup into the saucepan and heat them gently, stirring until the sugar melts. Step 3: Turn up the heat and let the mixture bubble without stirring, watching it closely the whole time. Step 4: ___ Step 5: Quickly whisk in the bicarb soda, and stand back as the mixture foams up like a volcano. Step 6: Pour it straight into the tray, leave it to set for an hour, then smash it into chunks. Store the chunks in a sealed jar, because honeycomb turns sticky if it's left out in the air.",
+      "prompt": "Build step 4 of Mo's honeycomb procedure.",
+      "success": "'Take' is a command verb, and 'turns' keeps the timing in present tense. That's how a step reads.",
+      "body": {
+        "format": "build",
+        "tiles": [
+          "Once the mixture turned golden,",
+          "Mo took the saucepan off the heat straight away.",
+          "Once the mixture turns golden,",
+          "take the saucepan off the heat straight away."
+        ],
+        "accept": [
+          "Once the mixture turns golden, take the saucepan off the heat straight away."
+        ],
+        "reason": "Steps use a command verb, 'take', and present tense for when to do it: 'Once the mixture turns golden'."
+      }
+    },
+    {
+      "id": "7.3-b4-4",
+      "band": 4,
+      "topic": "music",
+      "frame": "Indi wrote a procedure for the music hut. The Fittlet found a step that isn't written like the others.",
+      "prompt": "Every step but one uses a command verb to tell the reader what to do. Tap the one that doesn't.",
+      "success": "'Should then be wound' never tells the reader to act. As a step, it would be 'Wind the new string'.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "How to Change a Guitar String. Old strings sound dull and can snap halfway through a song, which is never a good look on stage. Most guitars have six strings, and the thinnest one breaks most often. Changing one takes about ten minutes, and you will need a new string, a pair of wire cutters and a tuner. ",
+          {
+            "tap": "Carefully loosen the old string by turning its tuning peg until the string goes floppy.",
+            "reason": "'Carefully' says how, but 'loosen' is the command verb. It tells the reader what to do."
+          },
+          " ",
+          {
+            "tap": "Unwind the string from the peg and pull its other end out of the bridge.",
+            "reason": "'Unwind' and 'pull' are command verbs. This step tells the reader what to do."
+          },
+          " ",
+          {
+            "tap": "Once the old string is off, thread the new one through the bridge and up to the peg.",
+            "reason": "It opens with when, but 'thread' is still the command verb. It fits."
+          },
+          " ",
+          {
+            "tap": "The new string should then be wound around the peg about three times."
+          },
+          " ",
+          {
+            "tap": "Tighten the string slowly, checking the tuner as you go, until it plays the right note.",
+            "reason": "'Tighten' is the command verb. It tells the reader exactly what to do."
+          },
+          " Finally, snip off the spare end with the wire cutters, leaving about a centimetre sticking out. Strum gently for a minute or two, because new strings stretch and usually need tuning again. If a string keeps going out of tune, give it a day to settle before you blame the guitar. Keep the old string coiled up in your case, in case you ever need a spare in a hurry."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.3-b4-5",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing a report called 'The Human Nose'. The Fittlet swallowed one of his sub-headings.",
+      "text": "___ Snot might be revolting, but your body would be in serious trouble without it. Its first job is to trap things. Every time you breathe in, the sticky snot lining your nose catches dust, pollen and germs before they can reach your lungs. Its second job is to keep the inside of your nose moist, because a dry nose cracks and bleeds easily. Some snot even traps specks of smoke and tiny bugs, holding them until they can be swept away. Snot also warms and dampens the air on its way in, so that cold, dry air doesn't irritate your lungs. It even contains special chemicals that attack some germs, which means it works a little like a security guard at the door. Without snot, every breath would carry dirt and germs straight into your chest. Tiny hairs called cilia sweep the dirty snot towards the back of your throat, where you swallow it without noticing, dust and all. When you catch a cold, your nose makes extra snot to flush the germs out, which is why it runs. Your nose makes fresh snot all day long, so this protection never runs out. So the next time you need a tissue, remember that your snot is busy keeping you healthy.",
+      "prompt": "Which sub-heading fits this section best?",
+      "success": "Every sentence is about what snot does for your body: trapping, wetting, warming and fighting germs.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "What Snot Is Made Of",
+            "reason": "It mentions chemicals once, but only to show a job snot does: attacking germs."
+          },
+          {
+            "text": "Why Your Body Needs Snot"
+          },
+          {
+            "text": "Why Your Nose Runs When You Have a Cold",
+            "reason": "That's only one sentence near the end. The section covers all of snot's jobs."
+          },
+          {
+            "text": "How to Blow Your Nose Properly",
+            "reason": "Nothing tells you what to do. A 'How to' heading suits a procedure, not this section."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.3-b4-6",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Wren is writing two texts for the Scaffold Peaks rock pools: a safety procedure and an explanation of tides. The Fittlet shuffled her notes.",
+      "prompt": "Match each sentence to the text it fits.",
+      "success": "The procedure uses command verbs: check, leave, head. The explanation uses present tense to show how tides always work.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the safety procedure",
+          "the explanation of tides"
+        ],
+        "items": [
+          {
+            "text": "Check the tide chart at the beach hut before you walk out to the rock pools.",
+            "bin": 0,
+            "reason": "'Check' is a command verb. It tells the reader what to do."
+          },
+          {
+            "text": "Because the Moon's gravity pulls on the ocean, the water bulges out towards it.",
+            "bin": 1,
+            "reason": "This gives a cause, in present tense. It explains how tides work."
+          },
+          {
+            "text": "As Earth spins, each beach passes through a bulge, and the tide comes in.",
+            "bin": 1,
+            "reason": "This explains what makes the tide come in, in present tense."
+          },
+          {
+            "text": "Leave yourself at least an hour to get back before the water returns.",
+            "bin": 0,
+            "reason": "'Leave' is a command verb. It tells the reader what to do."
+          },
+          {
+            "text": "When the beach moves away from the bulge, the water drains back and the tide goes out.",
+            "bin": 1,
+            "reason": "This explains what makes the tide go out. It doesn't tell anyone to do anything."
+          },
+          {
+            "text": "Once the tide has turned, head straight back to the sand without stopping.",
+            "bin": 0,
+            "reason": "It starts with when, but 'head' is a command verb. It tells the reader what to do."
+          },
+          {
+            "text": "Earth spins once a day and the Moon pulls up a bulge on each side, so most beaches get two high tides daily.",
+            "bin": 1,
+            "reason": "This explains why there are two high tides. It gives causes, not commands."
+          }
+        ]
+      }
+    }
+  ]
+}

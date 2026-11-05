@@ -1,0 +1,795 @@
+{
+  "skill": {
+    "id": "7.2",
+    "name": "Put the stages in order",
+    "codes": [
+      "VC2E5LA03",
+      "VC2E6LA03"
+    ],
+    "why": "Texts are built in stages. Each stage gets the reader ready for the next.",
+    "how": "Ask what each part needs to come before it. Then build from the start.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Texts are built in stages, like a tower: bottom up."
+          },
+          {
+            "say": "A recount starts by telling who, when and where.",
+            "show": "**Last Saturday**, **Gus and Mo** climbed **Tower Two**."
+          },
+          {
+            "say": "Next come the events. Each one needs the one before.",
+            "show": "Mo **dropped the rope**. Gus **picked it up**."
+          },
+          {
+            "say": "Gus can't pick up a rope Mo hasn't dropped!"
+          },
+          {
+            "say": "So ask: what must happen before this part makes sense?"
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Gus's hot chocolate steps fell down the ladder.",
+          "prompt": "Put the steps in order.",
+          "hint": "Which step can only happen once the milk is hot?",
+          "success": "You can't heat milk that isn't in the mug, or stir cocoa into milk that isn't hot yet.",
+          "body": {
+            "format": "order",
+            "items": [
+              "Fill a mug with milk.",
+              "Heat the milk in the microwave for one minute.",
+              "Stir two spoons of cocoa into the hot milk.",
+              "Drop three marshmallows on top and drink it."
+            ],
+            "reason": "Check that each step has what it needs. Is there hot milk yet to stir the cocoa into?"
+          }
+        },
+        {
+          "text": "Then the wind picked up, and the rope bridge started to swing. Wren grabbed the rail and didn't let go. At last, they reached the other side, shaking but safe.",
+          "prompt": "This recount is missing its opening. Which part should go first?",
+          "hint": "The opening tells who, when and where. Which one does that?",
+          "success": "It tells who, when and where. 'Then the wind picked up' only makes sense once they're on the bridge.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "That night, they told everyone about the swinging bridge.",
+                "reason": "'That night' is after they crossed. It belongs at the end."
+              },
+              {
+                "text": "Last Sunday, Wren and Tully crossed the rope bridge to Tower Five."
+              },
+              {
+                "text": "Wren said she would never cross a rope bridge again.",
+                "reason": "She can only say 'never again' after the crossing. This belongs at the end."
+              }
+            ],
+            "answer": 1
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "stagglet",
+      "name": "Stagglet",
+      "evolved": "Stagglewing",
+      "blurb": "A silver alpine butterfly that grows in stages: egg, caterpillar, chrysalis, then wings. It can't skip a stage, and neither can a text."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.2-b1-1",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's snow cone recipe fell down the ladder. A Stagglet is sitting on the jumbled cards.",
+      "prompt": "Put Mo's steps in order.",
+      "success": "Snow in, press it, pour on cordial, eat. Each step uses what the step before made.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Scoop some snow into a paper cup.",
+          "Press the snow down hard with a spoon.",
+          "Pour the cordial over the pressed snow.",
+          "Eat it quickly, before it all melts."
+        ],
+        "reason": "Each step needs the one before. You can't press snow that isn't in the cup yet."
+      }
+    },
+    {
+      "id": "7.2-b1-2",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully wrote a recount of Saturday's game. The Stagglet shuffled the pages.",
+      "prompt": "Put Tully's recount in order.",
+      "success": "Who, when and where come first. The lost ball, the spare ball and the goal follow, then what happened after.",
+      "body": {
+        "format": "order",
+        "items": [
+          "On Saturday, Tully's team played footy in the snow.",
+          "In the first quarter, Tully kicked the ball into a snowdrift.",
+          "Nobody could find it, so the umpire got out a spare ball.",
+          "With the spare ball, Tully kicked the winning goal.",
+          "After the game, they found the first ball frozen in the drift."
+        ],
+        "reason": "The umpire only needs a spare ball once the first one is lost. Find what each part needs."
+      }
+    },
+    {
+      "id": "7.2-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "The Stagglet's cousin is a Bogong moth. Someone moved a line in its life story.",
+      "prompt": "One sentence has been moved to the wrong place. Tap it.",
+      "success": "There's no moth yet at that point, only an egg. Flying to the mountains belongs at the very end.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "How a Bogong Moth Grows. ",
+          {
+            "tap": "A Bogong moth starts life as a tiny egg on a leaf.",
+            "reason": "This is the very start of its life, so it belongs first."
+          },
+          " ",
+          {
+            "tap": "The new moth flies all the way to the mountains."
+          },
+          " ",
+          {
+            "tap": "The egg hatches into a hungry caterpillar.",
+            "reason": "This comes right after the egg. It's in the right place."
+          },
+          " The caterpillar eats leaves all winter and grows fat. ",
+          {
+            "tap": "Then it digs into the soil and makes a hard case around itself.",
+            "reason": "It digs in after it has grown fat. This is in the right place."
+          },
+          " ",
+          {
+            "tap": "In spring, a moth crawls out of the case.",
+            "reason": "The moth can only crawl out after the case is made. This fits."
+          },
+          " It dries its wings in the warm sun."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.2-b1-4",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "The Stagglet found half a story in the Tower Six hut. The next page is missing.",
+      "text": "Bea lived in a little hut at the foot of Tower Six. One night, a storm howled around the hut. Bea was tucked up in bed when she heard a noise. Scratch. Scratch. Scratch. It was coming from the roof! She grabbed her torch and crept outside into the wind. Something small was stuck in the gutter. It was squeaking.",
+      "prompt": "Which part should come next?",
+      "success": "Bea has just found something in the gutter. Next she has to get it out and see what it is.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Once upon a time, a girl called Bea lived in a hut.",
+            "reason": "That's an opening. We already know who Bea is and where she lives."
+          },
+          {
+            "text": "So Bea put the possum back in the gutter.",
+            "reason": "She can't put it back before she lifts it out. And we don't know it's a possum yet."
+          },
+          {
+            "text": "Bea reached up and lifted it out. It was a baby possum."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.2-b1-5",
+      "band": 1,
+      "topic": "art",
+      "frame": "Indi wrote a procedure for painting a snow gum. The Stagglet chewed it into pieces.",
+      "prompt": "Match each piece to its stage of the procedure.",
+      "success": "The goal names what you'll make. Then comes what you need. The steps tell you what to do.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the goal",
+          "what you need",
+          "the steps"
+        ],
+        "items": [
+          {
+            "text": "How to Paint a Snow Gum",
+            "bin": 0,
+            "reason": "This names what you will make. That's the goal, at the top."
+          },
+          {
+            "text": "a big sheet of paper",
+            "bin": 1,
+            "reason": "This is a thing to get ready before you start."
+          },
+          {
+            "text": "Paint a twisty grey trunk.",
+            "bin": 2,
+            "reason": "This tells you what to do. It's a step."
+          },
+          {
+            "text": "three pots of paint",
+            "bin": 1,
+            "reason": "This is a thing you need before you start."
+          },
+          {
+            "text": "a thin brush",
+            "bin": 1,
+            "reason": "This is a tool you need before you start."
+          },
+          {
+            "text": "Add red and yellow stripes to the bark.",
+            "bin": 2,
+            "reason": "This tells you what to do to the trunk. It's a step."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.2-b1-6",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Indi drew a comic of Mo's worst day. The Stagglet mixed up the panels.",
+      "text": "Mo was the worst cook on Scaffold Peaks. But he was very proud of his pies. One morning, he baked a giant meat pie for the Peaks Picnic. The pie was still hot, and it smelled amazing. The picnic was at the very top of Tower Two. That meant fifty rungs of ladder, with a pie in one hand. What could possibly go wrong?",
+      "prompt": "Here's how Mo's story starts. Put the rest in order.",
+      "success": "The pie slips, lands on the goat, gets eaten, and only then does Mo need a new one.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Halfway up the ladder, the pie slipped out of Mo's hand.",
+          "It spun through the air and landed on a goat's head.",
+          "The goat licked its lips and ate the whole pie.",
+          "So Mo climbed down and baked another pie. This time, he used a backpack."
+        ],
+        "reason": "The goat can't eat the pie until it lands on its head. Find what each part needs."
+      }
+    },
+    {
+      "id": "7.2-b2-1",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus grazed his knee on Tower Three. He's explaining his scab to anyone who will listen.",
+      "prompt": "Put Gus's explanation of a scab in order.",
+      "success": "Broken tubes, leaking blood, a net of platelets, a crusty scab, then new skin. Each step causes the next.",
+      "body": {
+        "format": "order",
+        "items": [
+          "When you graze your knee, tiny blood tubes under the skin break open.",
+          "Blood leaks out, and sticky cells called platelets rush to the graze.",
+          "The platelets clump together and spin a net of threads that traps the blood.",
+          "The trapped blood dries out and hardens into a crusty brown scab.",
+          "Under the scab, new skin grows, until one day the scab falls off by itself."
+        ],
+        "reason": "Each step causes the next. Blood can't be trapped until the platelets have made their net."
+      }
+    },
+    {
+      "id": "7.2-b2-2",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is teaching the Stagglet to build a tiny buzzing robot. The steps got shuffled.",
+      "prompt": "Put the steps for building a bristlebot in order.",
+      "success": "Each step builds on the one before: head, tape, motor, battery, then the buzz that makes it scuttle.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Snip the bristly head off an old toothbrush.",
+          "Stick a strip of foam tape on top of the snipped-off head.",
+          "Press a tiny buzzing motor onto the foam tape.",
+          "Tape a flat coin battery beside the motor.",
+          "Touch the motor's loose wire to the battery, and the motor starts to buzz.",
+          "Set your buzzing bot on the table and watch it scuttle away."
+        ],
+        "reason": "Check what each step needs. The battery goes beside the motor, so the motor must be on first."
+      }
+    },
+    {
+      "id": "7.2-b2-3",
+      "band": 2,
+      "topic": "sport",
+      "frame": "Tully's ski race recount is pinned up in the Tower One hut. Someone has moved a part.",
+      "prompt": "One part of Tully's recount has been moved. Tap it.",
+      "success": "She can't get a medal at the bottom before the race has even started. That part belongs after the finish.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Last Sunday, Tully entered her very first ski race, on the steep north slope of Mount Ladder. ",
+          {
+            "tap": "Before the start, she waxed her skis and checked her boot buckles twice.",
+            "reason": "Getting ready comes before the race starts. This is in the right place."
+          },
+          " ",
+          {
+            "tap": "At the bottom, the judges hung a silver medal around her neck."
+          },
+          " At the starting gate, her knees were wobbling, and she could hear her heart thumping. ",
+          {
+            "tap": "When the horn blew, she pushed off and flew down the slope.",
+            "reason": "This is the start of the race, right after the gate. It fits."
+          },
+          " ",
+          {
+            "tap": "Halfway down, she skidded on a patch of ice but kept her balance.",
+            "reason": "Halfway down comes after she pushes off. It fits."
+          },
+          " ",
+          {
+            "tap": "She crossed the finish line in second place, just behind a Year 6 boy.",
+            "reason": "Finishing comes after the middle of the run. It fits."
+          },
+          " That night, she slept with the medal still on, and she snored like a snowplough."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.2-b2-4",
+      "band": 2,
+      "topic": "space",
+      "frame": "The Stagglet is reading an explanation in the telescope tower. A sentence has fallen out.",
+      "text": "How the Moon Seems to Change Shape. The Moon does not make any light of its own. ___ As the Moon travels around Earth, we see different amounts of that sunlit half. When we can see all of the sunlit half, we call it a full Moon. When we can see only half of it, we call it a half Moon. When we can see just a thin sliver, we call it a crescent. It takes about a month for the Moon to go all the way around Earth and start again. That is why the Moon seems to change shape through the month, even though it is always round.",
+      "prompt": "Which sentence fills the gap?",
+      "success": "The next sentence talks about 'that sunlit half'. So the gap must first say the Sun lights up one half.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Instead, the Sun shines on it and lights up one half."
+          },
+          {
+            "text": "When we can see none of the sunlit half, we call it a new Moon.",
+            "reason": "This talks about 'the sunlit half' before the text has said what lights the Moon."
+          },
+          {
+            "text": "So the Moon stays dark, and nobody on Earth can see it.",
+            "reason": "That doesn't fit. The very next sentence says we see its sunlit half."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.2-b2-5",
+      "band": 2,
+      "topic": "music",
+      "frame": "The Stagglet is helping Wren sort her recount of the band concert into stages.",
+      "prompt": "Match each sentence to its stage of the recount.",
+      "success": "The opening sets up who, when and where. The events go in order. The ending wraps up the night.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "who, when and where",
+          "what happened",
+          "how it ended"
+        ],
+        "items": [
+          {
+            "text": "Last Friday night, the Peakside band played at the Snow Gum Hall.",
+            "bin": 0,
+            "reason": "This tells who, when and where. It sets up the recount."
+          },
+          {
+            "text": "First, the drummer counted us in, and we started our first song.",
+            "bin": 1,
+            "reason": "This is the first event of the concert."
+          },
+          {
+            "text": "Halfway through, a string on Maya's violin snapped, but she borrowed Mr Lin's and kept going.",
+            "bin": 1,
+            "reason": "This happened in the middle of the concert. The snap and the borrowed violin are both events."
+          },
+          {
+            "text": "After that, Gus sang a slow song in a very wobbly voice.",
+            "bin": 1,
+            "reason": "This is the next event, after Maya's violin trouble. The concert isn't over yet."
+          },
+          {
+            "text": "At the end, the crowd cheered, and we went home tired but proud.",
+            "bin": 2,
+            "reason": "This wraps up the night: the cheering, going home and how they felt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.2-b2-6",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Mo is telling the Stagglet a story about a pelican. He keeps losing his place.",
+      "prompt": "Put Mo's story in order.",
+      "success": "The note comes in the bottle, so Ari rows out, meets the pelican, then brings it home.",
+      "body": {
+        "format": "order",
+        "items": [
+          "One windy morning, Ari found a glass bottle bobbing in Gull Bay, with a note inside.",
+          "The note said, 'Help! I'm stuck on Gull Rock. Please bring chips.'",
+          "Ari rowed her little boat out to Gull Rock as fast as she could.",
+          "When she got there, a very grumpy pelican was sitting on the rock, holding a pen in its beak.",
+          "Ari shared her chips and rowed the pelican back to shore, and it never wrote another note."
+        ],
+        "reason": "Ari can't read the note before she finds the bottle. Look for what each part needs first."
+      }
+    },
+    {
+      "id": "7.2-b3-1",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is making damper on the campfire at Base Camp. The Stagglet knocked his recipe into the snow.",
+      "prompt": "Put Mo's damper steps in order.",
+      "success": "Crumbs, then dough, a loaf, the coals, then the hollow tap. Each step changes what the last made.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Rub the flour, salt and butter together in a bowl until it looks like breadcrumbs.",
+          "Pour in the milk and stir until the crumbs turn into a soft, sticky dough.",
+          "Knead the dough on a floured bench, then shape it into a round loaf.",
+          "Wrap the loaf in foil and bury it in the hot coals at the edge of the campfire.",
+          "After thirty minutes, dig it out and tap the bottom: if it sounds hollow, it's cooked."
+        ],
+        "reason": "Follow what the mixture becomes. You need crumbs before dough, and dough before a loaf."
+      }
+    },
+    {
+      "id": "7.2-b3-2",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed wrote a story about the Peaks Gaming Cup. The Stagglet thinks one part is out of place.",
+      "prompt": "One part of Zed's story has been moved. Tap it.",
+      "success": "The early-jump trick and the win can't happen before the controller is even lost. That part belongs near the end.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed had won the Peaks Gaming Cup three years in a row, always with his lucky blue controller. ",
+          {
+            "tap": "On the morning of this year's final, he opened his bag and froze, because the controller wasn't there.",
+            "reason": "Finding it missing is the problem. It has to come before the search."
+          },
+          " ",
+          {
+            "tap": "He pressed every jump a moment early, and he flew past the other three players to win."
+          },
+          " ",
+          {
+            "tap": "He searched the hut, the ladder and the snow outside, but it was nowhere to be found.",
+            "reason": "He searches right after finding it missing. This fits."
+          },
+          " With ten minutes to go, he had to borrow a sticky old controller from the lost-property box. ",
+          {
+            "tap": "Every jump came out late, and by the last level he had dropped to fourth place.",
+            "reason": "Late jumps can only happen once he's using the sticky controller. This fits."
+          },
+          " Then he remembered something Gus always said about old controllers: press early, because their buttons are slow. ",
+          {
+            "tap": "That night, he found the blue controller in the fridge, right next to Mo's custard.",
+            "reason": "Finding it that night is the twist at the end. It's in the right place."
+          },
+          " Mo said he had no idea how it got there, but his custard did taste a bit like plastic."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.2-b3-3",
+      "band": 3,
+      "topic": "art",
+      "frame": "Mo copied out Indi's painting procedure for the Stagglet, but he left out a step.",
+      "text": "How to Paint a Night Sky over the Peaks. This painting looks best on thick paper, because thin paper wrinkles when it gets wet. Ask an adult to cover the table with newspaper first. You will need a pencil, one wide brush, a jar of water and three paints: dark blue, white and black. 1. Sketch the outline of the rock towers lightly in pencil, along the bottom of the page. 2. Paint the whole sky dark blue, right up to the pencil line. 3. Dip the same brush in white paint and dab stars across the wet sky, so they blur a little and glow. 4. Fill in the rock towers with black paint, then leave the whole picture to dry flat overnight. Your painting should be dry and ready to hang by breakfast. If it curls at the edges, press it flat under a pile of heavy books for a day.",
+      "prompt": "Mo left out this step: 'Rinse the blue off your brush in the jar of water.' Where does it belong?",
+      "success": "The blue gets on the brush in step 2. It must come off before step 3 dips it in white.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "between steps 1 and 2",
+            "reason": "The brush hasn't touched any paint yet, so there's no blue to rinse off."
+          },
+          {
+            "text": "between steps 3 and 4",
+            "reason": "By step 3 the brush is already in the white. The blue has to come off first."
+          },
+          {
+            "text": "between steps 2 and 3"
+          },
+          {
+            "text": "after step 4",
+            "reason": "That's far too late. The white stars would already be streaky blue."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.2-b3-4",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren's rescue diary got wet, and the Stagglet is trying to put the pages back in order.",
+      "prompt": "Put Wren's rescue recount in order.",
+      "success": "Find, carry, check, care, get strong, fly free. Each part needs the one before it.",
+      "body": {
+        "format": "order",
+        "items": [
+          "On Tuesday morning, Wren found a crimson rosella sitting in the snow beside Tower Two, unable to fly.",
+          "She wrapped it gently in her scarf and carried it down the ladder to the crew's hut.",
+          "In the hut, she checked the bird all over and found that one wing was badly bruised.",
+          "For a week, she kept the rosella in a warm box and fed it seeds and slices of apple.",
+          "By the next Tuesday, it was flapping so hard that it knocked the lid off the box.",
+          "Wren carried it back to Tower Two and watched it fly off to join its noisy flock."
+        ],
+        "reason": "The rosella can't knock the lid off a box it hasn't been put in yet. Check what each part needs."
+      }
+    },
+    {
+      "id": "7.2-b3-5",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Room 3 wrote a persuasive letter about robot helpers. The Stagglet is sorting the pieces.",
+      "prompt": "Match each part of the letter to its stage.",
+      "success": "The opening gives the writer's view. Each reason backs it up. The ending sums up and asks for action.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "opening: the writer's view",
+          "a reason",
+          "ending: sums up and asks"
+        ],
+        "items": [
+          {
+            "text": "Imagine a classroom where a robot hands out the pencils. We believe every classroom should have one.",
+            "bin": 0,
+            "reason": "'Imagine' draws you in, and 'We believe' states the view the letter will argue."
+          },
+          {
+            "text": "Firstly, robots never get tired, so they could help with jobs all day long.",
+            "bin": 1,
+            "reason": "This gives one reason to back up the view."
+          },
+          {
+            "text": "Secondly, a robot helper would give teachers more time to help students.",
+            "bin": 1,
+            "reason": "This gives a second reason to back up the view."
+          },
+          {
+            "text": "Finally, building and fixing the robot would teach us real engineering skills.",
+            "bin": 1,
+            "reason": "'Finally' starts the last reason, but it's still a reason, not the ending."
+          },
+          {
+            "text": "For all these reasons, our school must get a robot helper. Please sign our letter to the principal.",
+            "bin": 2,
+            "reason": "'For all these reasons' sums up, and 'Please sign' asks the reader to act."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.2-b3-6",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Tully is telling a scary story around the campfire. The Stagglet keeps interrupting, so it's jumbled.",
+      "prompt": "Put Tully's story in order.",
+      "success": "They arrive, find the stopped clocks, start them, hear the stairs, open the cellar, then meet the goat.",
+      "body": {
+        "format": "order",
+        "items": [
+          "When the crew reached the old weather station, the door was hanging open and the lights were on.",
+          "Inside, every clock on the wall had stopped at exactly three minutes past midnight.",
+          "Gus tapped the biggest clock, and all of the clocks began ticking again at once.",
+          "As the clocks ticked, a slow thump started up the cellar stairs, in time with them.",
+          "The cellar door creaked open, and a very old goat wandered out, chewing a weather report.",
+          "The crew laughed so hard that Mo had to sit down, and the goat ate his hat."
+        ],
+        "reason": "The thumping is 'in time with' the ticking, so the clocks must start first. Check what each part needs."
+      }
+    },
+    {
+      "id": "7.2-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "The Architect keeps a pearl in a glass case. The Stagglet has jumbled the explanation beside it.",
+      "prompt": "Put the explanation of how a pearl forms in order.",
+      "success": "An intruder gets in, the oyster coats it, layers build up and harden, and more layers make it more valuable.",
+      "body": {
+        "format": "order",
+        "items": [
+          "A pearl begins when a tiny intruder, such as a speck of grit, slips inside an oyster's shell.",
+          "Because the intruder irritates the oyster's soft flesh, the oyster coats it in a smooth, shiny substance called nacre.",
+          "Layer after layer of nacre builds up over months and years, until the intruder is completely sealed inside.",
+          "Eventually, these layers harden into a gleaming pearl, and the more layers there are, the more valuable it becomes.",
+          "That is why a pearl that grew inside an oyster for ten years is worth far more than one that grew for one."
+        ],
+        "reason": "Each stage is caused by the one before. 'That is why' needs the idea about more layers to come first."
+      }
+    },
+    {
+      "id": "7.2-b4-2",
+      "band": 4,
+      "topic": "sport",
+      "frame": "Room 6's persuasive text is going to the council. The Stagglet ate the last page.",
+      "text": "Build a Climbing Wall at Peaks Park! Every winter, Peaks Park sits empty, because there is nothing for young people to do there once the snow arrives. Our class believes the council should turn the old boat shed into an indoor climbing wall, and there are three strong reasons. Firstly, climbing builds strength, balance and confidence, and it is a sport that people of any size or age can enjoy. Doctors say that children who climb often sleep better and find it easier to concentrate at school. Unlike footy or netball, you don't need a whole team, so you can climb whenever you have a spare hour. Secondly, the nearest climbing gym is a two-hour bus ride away, which means most families on the island never get the chance to try it. A wall in the park would put the sport within walking distance of every school on Scaffold Peaks. Thirdly, a climbing wall would bring visitors to the park all year round, even in the middle of a blizzard. Those visitors would spend money in the local cafes and shops, which struggle every winter when the tourists stay away. The park's kiosk, which closes every June, could even stay open and hire local teenagers.",
+      "prompt": "This persuasive text is missing its final stage. Which part should come last?",
+      "success": "A persuasive text ends by summing up its view and asking the reader to act. Only this part does both.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "A fourth reason is that climbing walls also help people get over their fear of heights, which matters on an island of ladders.",
+            "reason": "The text promised three reasons and gave all three. Another reason doesn't sum up or ask for anything."
+          },
+          {
+            "text": "Peaks Park is a large, grassy area beside the harbour, with a playground, a boat shed and a small car park.",
+            "reason": "This describes the park. It's background for the start, not an ending."
+          },
+          {
+            "text": "For all these reasons, the council should build the wall before next winter. Please sign our petition at the library."
+          },
+          {
+            "text": "Last year, my cousin tried climbing in the city, and she loved it so much that she went back every weekend.",
+            "reason": "This is a small story. It doesn't sum up the reasons or ask the reader to do anything."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.2-b4-3",
+      "band": 4,
+      "topic": "space",
+      "frame": "An astronaut's diary has floated down to Scaffold Peaks. The Stagglet thinks a page was put back wrong.",
+      "prompt": "One part of the astronaut's recount has been moved. Tap it.",
+      "success": "'Replacing it' needs the broken panel to come first. That part belongs after she pulls herself towards it.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Yesterday I made my first spacewalk, six hours outside the space station, and I still can't quite believe it. ",
+          {
+            "tap": "The preparation began at dawn, when Sasha helped me squeeze into the bulky white suit and checked every seal twice.",
+            "reason": "Suiting up comes first, at dawn, before the airlock. It's in the right place."
+          },
+          " ",
+          {
+            "tap": "Replacing it took almost four hours, because every bolt had to be loosened with thick, clumsy gloves."
+          },
+          " ",
+          {
+            "tap": "Next, we spent an hour in the airlock breathing pure oxygen, so that our bodies would be ready for the low pressure outside.",
+            "reason": "This follows suiting up, and the airlock comes before going outside. It fits."
+          },
+          " ",
+          {
+            "tap": "When the outer hatch finally swung open, Earth filled the whole doorway, blue and impossibly bright.",
+            "reason": "The hatch opens after the wait in the airlock. It fits."
+          },
+          " For a few seconds I forgot to move at all, until Sasha's voice crackled in my helmet to remind me that we had a job to do. I clipped my safety line to the rail and pulled myself, hand over hand, towards the broken solar panel. A speck of space dust, travelling faster than a bullet, had cracked it right across the middle. ",
+          {
+            "tap": "By the time we floated back into the airlock, my fingers ached and my stomach was rumbling.",
+            "reason": "Coming back in happens once the outside job is done. It fits."
+          },
+          " Afterwards, the crew had saved me a pouch of warm spaghetti, which I ate upside down. Now my arms feel like that spaghetti, but I would go out again tomorrow if they asked me."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.2-b4-4",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo is telling the Stagglet about the Bake-Off, but he's too excited to tell it in order.",
+      "prompt": "Put Mo's Bake-Off story in order.",
+      "success": "Recipe, salt mistake, judges' faces, Mo's taste, the rush, the ribbon. Each part sets up the next.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Mo had entered the Scaffold Peaks Bake-Off with one secret weapon: his great-grandmother's recipe for a twelve-layer sponge cake.",
+          "While mixing, he misread the faded card and tipped in two cups of salt instead of two cups of sugar.",
+          "When the judges took their first bite of the salty cake, their faces crumpled, and the head judge spat hers into a napkin.",
+          "Seeing their faces, Mo tasted the cake himself, realised his mistake instantly and raced back to the kitchen with twenty minutes left.",
+          "With seconds to spare, he slid a lopsided, three-layer sponge onto the judges' table, still steaming from the oven.",
+          "It wasn't pretty, but it tasted wonderful, and Mo walked away with a ribbon for 'Best Comeback'."
+        ],
+        "reason": "The judges bite 'the salty cake', so the salt has to go in first. Check what each part needs."
+      }
+    },
+    {
+      "id": "7.2-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "Gus made a plan of the stages in the band's recount. The Stagglet thinks he got the ending wrong.",
+      "text": "Last Saturday, the Peakside Primary band played its biggest concert yet, at the Snow Gum Hall on top of Tower Five. We arrived at four o'clock, lugging our instruments up the last ladder, and spent an hour on a sound check while Mr Lin fussed over the microphones. The hall filled up quickly, and by seven every seat was taken. Even the Architect had come, sitting in the front row with a notebook open. Our first three songs went perfectly, and the audience clapped along to the fourth. Then, halfway through our fifth song, a storm knocked out the power, and the whole hall went black. For a moment, nobody moved. Somebody's baby started to cry, and somebody's grandad woke up with a snort. Then Tully switched on the torch on her phone, and one by one the audience did the same, until the stage was lit by hundreds of tiny lights. We played the rest of the concert by torchlight, without microphones, and somehow it sounded even better. When we finished our final song, the crowd begged for more, so we played it all again as an encore. The power came back on just as we were packing up, which everyone agreed was perfect timing.",
+      "prompt": "Tap the part of Gus's plan that's wrong, then choose a better one.",
+      "success": "The recount's last stage is the power coming back on while they pack up. That's how it ends.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Gus's plan: It opens with ",
+          {
+            "tap": "who, when and where",
+            "reason": "That's right. The first sentence tells who, when and where."
+          },
+          ". In the middle come the events, from the sound check to ",
+          {
+            "tap": "the power cut",
+            "reason": "That's right. The power cut comes after the first songs."
+          },
+          " and the torchlight songs. It ends with ",
+          {
+            "tap": "the sound check before the doors opened"
+          },
+          "."
+        ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "the crowd clapping along to the fourth song",
+            "reason": "That happens early, before the power cut. It isn't how the recount ends."
+          },
+          {
+            "text": "the audience switching on their torches",
+            "reason": "That's in the middle, straight after the power cut. More happens after it."
+          },
+          {
+            "text": "the band arriving with their instruments",
+            "reason": "That's near the start, just after who, when and where."
+          },
+          {
+            "text": "the power coming back on during packing up"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.2-b4-6",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Indi is planning a picture book about a possum on Scaffold Peaks. The Stagglet is helping her sort the stages.",
+      "prompt": "Match each sentence to its stage in the story.",
+      "success": "The first two set the scene. The builders start the trouble and the truck makes it worse. Wren solves it.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "sets the scene",
+          "the problem starts and grows",
+          "the problem is solved"
+        ],
+        "items": [
+          {
+            "text": "High on Tower Six, in a hut that nobody had used for years, lived a mountain pygmy possum called Pinch.",
+            "bin": 0,
+            "reason": "This introduces who and where. Nothing has gone wrong yet."
+          },
+          {
+            "text": "Every autumn, Pinch filled the hut's old teapot with seeds, ready for her long winter sleep.",
+            "bin": 0,
+            "reason": "This shows Pinch's normal life before the trouble starts."
+          },
+          {
+            "text": "Then one morning, a terrible crash woke Pinch: builders were smashing the hut's walls to make room for Maxx World.",
+            "bin": 1,
+            "reason": "The crash and the smashed walls are trouble. Pinch's normal life is over, so the problem has begun."
+          },
+          {
+            "text": "By lunchtime, the builders had carried off the teapot, seeds and all, and tossed it onto a truck.",
+            "bin": 1,
+            "reason": "Losing her winter food makes Pinch's problem worse."
+          },
+          {
+            "text": "As the truck rumbled away and the first snow began to fall, Pinch had nowhere to sleep and nothing to eat.",
+            "bin": 1,
+            "reason": "This is the problem at its worst: winter is coming and everything is gone."
+          },
+          {
+            "text": "Wren chased the truck to the bottom of the hill, rescued the teapot, then found Pinch and tucked them both into a hollow log.",
+            "bin": 2,
+            "reason": "Wren fixes everything: Pinch gets her seeds back and a new home."
+          }
+        ]
+      }
+    }
+  ]
+}

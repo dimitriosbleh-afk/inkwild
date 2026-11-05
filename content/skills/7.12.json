@@ -1,0 +1,999 @@
+{
+  "skill": {
+    "id": "7.12",
+    "name": "Formal or informal: matching the reader",
+    "codes": [
+      "VC2E5LA01",
+      "VC2E6LA01"
+    ],
+    "why": "The same message needs different words for a principal and for a mate.",
+    "how": "Check who's reading and why. Then pick words that fit them.",
+    "teach": {
+      "crew": "joker",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Before you write, ask: who is going to read this?"
+          },
+          {
+            "say": "To a mate, you can be relaxed.",
+            "show": "**Hey Zed, wanna** come to the footy this **arvo**?"
+          },
+          {
+            "say": "To the principal, you pick careful, polite words.",
+            "show": "**Dear Ms Lee**, **may we** use the oval **this afternoon**?"
+          },
+          {
+            "say": "Relaxed is called informal. Careful and polite is called formal."
+          },
+          {
+            "say": "Same message. Different reader. Different words."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "text": "Mo is writing to the school principal, Ms Lee. He wants to ask if the crew can use the hall for a cooking show.",
+          "prompt": "Which opening fits a letter to the principal?",
+          "hint": "Who is reading? Pick the words you'd use with the principal.",
+          "success": "'Dear Ms Lee, I am writing to ask' is polite and careful, just right for a principal.",
+          "body": {
+            "format": "choose",
+            "options": [
+              {
+                "text": "Yo Lee! Gimme the hall, yeah?",
+                "reason": "That's how you'd talk to a mate. A principal needs polite words."
+              },
+              {
+                "text": "Dear Ms Lee, I am writing to ask if we could use the hall."
+              },
+              {
+                "text": "Hey hey!! Guess what, we want the hall lol",
+                "reason": "That's text-message talk. A letter to the principal needs careful sentences."
+              }
+            ],
+            "answer": 1
+          }
+        },
+        {
+          "prompt": "Mo is texting his best mate, Gus. Tap the line that's far too formal for a mate.",
+          "hint": "Which line sounds like a letter from the bank, not a text to a mate?",
+          "success": "'I would be most grateful for your prompt reply' is for business letters. To a mate, say 'Let me know!'",
+          "body": {
+            "format": "tapText",
+            "parts": [
+              {
+                "tap": "Hey Gus!",
+                "reason": "That's a friendly, relaxed way to start a text to a mate."
+              },
+              " ",
+              {
+                "tap": "Wanna come to the beach this arvo?",
+                "reason": "'Wanna' and 'arvo' are relaxed words. They fit a text to a mate."
+              },
+              " ",
+              {
+                "tap": "I would be most grateful for your prompt reply."
+              },
+              " ",
+              {
+                "tap": "Bring snacks!",
+                "reason": "Short and cheeky. That's how mates text each other."
+              }
+            ],
+            "answer": 2
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "dappella",
+      "name": "Dappella",
+      "evolved": "Dappellatrix",
+      "blurb": "A superb fairy-wren that puts on smart blue feathers for important readers and plain brown ones for its mates. It always checks who's listening first."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.12-b1-1",
+      "band": 1,
+      "topic": "sport",
+      "frame": "A Dappella is watching Tully write a letter at the hut table.",
+      "text": "Tully is writing a letter to the mayor of Scaffold Peaks. She wants new goalposts for the snow oval. The old ones are bent and rusty. One fell over last week and nearly squashed a goat. The mayor is a busy, important person. Tully has never met her. She has drawn a picture of the goat to go with the letter. She wants the mayor to take her letter seriously.",
+      "prompt": "Which sentence fits Tully's letter to the mayor?",
+      "success": "Polite words like 'could' and 'please' fit an important reader like the mayor.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Oi, Mayor! Get us some new goalposts, yeah? These ones are cooked.",
+            "reason": "This is how you'd talk to a mate. The mayor needs polite, careful words."
+          },
+          {
+            "text": "Could the council please buy new goalposts for the snow oval?"
+          },
+          {
+            "text": "Hiya!! Goalposts r broken lol. Fix pls??",
+            "reason": "That's text-message talk. A letter to the mayor needs full, polite sentences."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.12-b1-2",
+      "band": 1,
+      "topic": "funny",
+      "frame": "Mo has an idea for lunchtimes. The Dappella is reading his letter over his shoulder.",
+      "prompt": "Tap the line that is too casual for a letter to the principal.",
+      "success": "'Trust me, bro' is how you talk to a mate. The principal needs careful, polite words.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo is writing to Ms Lee, the school principal. He wants to start a joke club at lunch. Ms Lee is very busy, and she likes polite letters.\n\n",
+          {
+            "tap": "Dear Ms Lee,",
+            "reason": "This is a polite way to start a letter to the principal."
+          },
+          "\n",
+          {
+            "tap": "I am writing to ask if I could start a joke club.",
+            "reason": "This is polite and clear, just right for a principal."
+          },
+          " ",
+          {
+            "tap": "It would run in the library on Fridays at lunch.",
+            "reason": "This gives the details in plain, careful words. It fits."
+          },
+          " ",
+          {
+            "tap": "It'll be epic, trust me, bro."
+          },
+          " ",
+          {
+            "tap": "Thank you for thinking about my idea.",
+            "reason": "Thanking the principal politely fits a formal letter."
+          },
+          "\nYours sincerely,\nMo"
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.12-b1-3",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is writing to the ranger station. The Dappella spotted a word that doesn't fit.",
+      "prompt": "Tap the word that's too casual, then choose a better one.",
+      "success": "Many. It's careful and clear, which fits a letter to a ranger you've never met.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren is writing a letter to Ranger Kim, who runs the ranger station. Ranger Kim has never met Wren. Wren wants her letter to sound polite and serious.\n\nDear Ranger Kim,\nI am writing about the wombats near the hut. There are ",
+          {
+            "tap": "heaps"
+          },
+          " of them now. One has dug a ",
+          {
+            "tap": "burrow",
+            "reason": "That's fine. Burrow is the right word for a wombat's home in any letter."
+          },
+          " under the shed. Could you please ",
+          {
+            "tap": "check",
+            "reason": "That's fine. 'Check' is polite and clear."
+          },
+          " that they are safe?\nYours sincerely,\nWren"
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "loads",
+            "reason": "Loads is a chatty word for mates. A letter to a ranger needs a careful word."
+          },
+          {
+            "text": "tonnes",
+            "reason": "Tonnes is chatty, and nobody counts wombats in tonnes!"
+          },
+          {
+            "text": "many"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b1-4",
+      "band": 1,
+      "topic": "food",
+      "frame": "The Dappella found a pile of notes and messages about the school canteen.",
+      "prompt": "Match each line to the reader it fits.",
+      "success": "Mates get relaxed words like 'wanna' and 'legend'. The principal gets polite ones like 'please' and 'Dear'.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "a text to your best mate",
+          "a letter to the principal"
+        ],
+        "items": [
+          {
+            "text": "Hey! Wanna grab a pie at lunch?",
+            "bin": 0,
+            "reason": "'Hey' and 'wanna' are relaxed. That's how you text a mate."
+          },
+          {
+            "text": "Dear Ms Lee, I would like to ask about the canteen menu.",
+            "bin": 1,
+            "reason": "'Dear Ms Lee' and 'I would like to ask' are polite, for the principal."
+          },
+          {
+            "text": "Lol, Mo's soup smells like feet.",
+            "bin": 0,
+            "reason": "A cheeky joke with 'lol' is for a mate, not the principal."
+          },
+          {
+            "text": "Could the canteen please sell fruit on Fridays?",
+            "bin": 1,
+            "reason": "'Could' and 'please' make a polite request. That fits the principal."
+          },
+          {
+            "text": "Save me a sausage roll, legend!",
+            "bin": 0,
+            "reason": "Calling someone 'legend' is mate talk. It's too casual for a principal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.12-b1-5",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed has just got a new game. The Dappella is perched on his tablet.",
+      "text": "Zed is texting his best mate, Kai. They have been mates since Prep. They sit together in class and play games most weekends. Zed has just got Peak Panic, a new climbing game. He wants Kai to come over after school and play it with him. He needs to send a quick text before the bell. Kai always replies in two seconds.",
+      "prompt": "Which text fits a message to Zed's best mate?",
+      "success": "'Yo Kai!' is relaxed and friendly, just how you'd text a mate you've known since Prep.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Yo Kai! Peak Panic at mine after school?"
+          },
+          {
+            "text": "Greetings, Kai. Kindly attend at 4 pm.",
+            "reason": "This is far too formal for a mate. It sounds like a letter from the council."
+          },
+          {
+            "text": "To whom it may concern: a gaming session will be held at 4 pm.",
+            "reason": "'To whom it may concern' is for strangers. Kai is Zed's best mate."
+          }
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "7.12-b1-6",
+      "band": 1,
+      "topic": "space",
+      "frame": "Indi wants her class to visit the observatory. The Dappella is helping her finish the email.",
+      "prompt": "Tap the sign-off that fits an email to Dr Park.",
+      "success": "'Kind regards' is polite and friendly, the right way to sign off to someone you haven't met.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Indi is emailing Dr Park, who is in charge of the observatory. Indi has never met her.\n\nDear Dr Park,\nI am in Year 6 at Scaffold Peaks Primary. Could my class please visit the observatory next month? We are learning about the planets.\n\nNow Indi needs to sign off. She could write: ",
+          {
+            "tap": "Cya!",
+            "reason": "That's how you'd sign off to a mate. Dr Park is someone Indi hasn't met."
+          },
+          " or ",
+          {
+            "tap": "Kind regards, Indi"
+          },
+          " or ",
+          {
+            "tap": "Luv ya, Indi xx",
+            "reason": "Kisses are for family and close friends, not someone you've never met."
+          },
+          " or ",
+          {
+            "tap": "Peace out, Indi",
+            "reason": "'Peace out' is slang for mates. An email to Dr Park needs a polite sign-off."
+          },
+          "."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.12-b2-1",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "The Year 5 class is writing to the council about Pebble Bay. The Dappella flew down to help.",
+      "text": "The Year 5 class is writing a letter to the Pebble Bay Council. Every weekend, the beach bins overflow, and rubbish blows into the sea. Last month, a seal pup got tangled in a chip packet and had to be rescued. The class wants the council to put out more bins before summer. The councillors meet next Tuesday to decide what to spend money on. They are busy adults, and none of them knows the class. Tully has been chosen to write the most important sentence of the letter, the one that asks for help. The class wants the councillors to take them seriously.",
+      "prompt": "Which sentence should Tully use in the letter to the council?",
+      "success": "'We are asking the council' is clear and polite, so the councillors will take the class seriously.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Seriously, guys, the bins are a total joke, so just chuck in a few more.",
+            "reason": "'Seriously, guys' and 'a total joke' are how you'd moan to mates, not ask a council."
+          },
+          {
+            "text": "omg the bins r SO full!!! can u fix it?? thx",
+            "reason": "Text speak and lots of !!! don't fit. The council needs full, careful sentences."
+          },
+          {
+            "text": "We are asking the council to put more bins at Pebble Bay before summer."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b2-2",
+      "band": 2,
+      "topic": "music",
+      "frame": "Lila is worried about the school music room. The Dappella is reading her letter to the newspaper.",
+      "prompt": "Tap the sentence that is too casual for a letter to the newspaper.",
+      "success": "'Like, totally the worst thing ever' is chatty talk. Newspaper readers expect careful, serious sentences.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Lila is writing a letter to the editor of the Scaffold Peaks Gazette. Hundreds of adults read the paper, and the editor only prints letters that are polite and serious. Lila has played the violin in that room since she was in Prep.\n\nDear Editor,\n",
+          {
+            "tap": "I am writing about the plan to close the music room at Scaffold Peaks Primary.",
+            "reason": "This is clear and serious. It tells the editor what the letter is about."
+          },
+          " ",
+          {
+            "tap": "More than eighty students use the room every week, for lessons, choir and band.",
+            "reason": "Facts in careful sentences are just right for a newspaper letter."
+          },
+          " ",
+          {
+            "tap": "Closing it would be, like, totally the worst thing ever."
+          },
+          " ",
+          {
+            "tap": "I hope the school council will think again before it makes a final decision.",
+            "reason": "This is polite and serious, which fits a letter to the editor."
+          },
+          "\nYours sincerely,\nLila Moretti, Year 5"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b2-3",
+      "band": 2,
+      "topic": "art",
+      "frame": "Indi is thanking the gallery for a class tour. The Dappella spotted a word that doesn't fit.",
+      "prompt": "Tap the word that's too casual, then choose a better one.",
+      "success": "Wonderful. It's warm but careful, the right kind of word for thanking a gallery director.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Indi is emailing Ms Hartley, the director of the Ridge Gallery, to thank her for a tour. Ms Hartley is very busy, and Indi has met her only once. Indi wants the email to sound polite and grown-up.\n\nDear Ms Hartley,\nThank you for showing our class around the Ridge Gallery on Friday. The giant mountain painting was ",
+          {
+            "tap": "sick"
+          },
+          ", and we learnt a lot about how ",
+          {
+            "tap": "artists",
+            "reason": "That's fine. 'Artists' is the right word in any email."
+          },
+          " mix their colours. Our favourite part was watching a painter mix the exact colour of snow. Some of us want to try painting snow gums at home now. We hope we can ",
+          {
+            "tap": "visit",
+            "reason": "That's fine. 'Visit' is polite and clear."
+          },
+          " the gallery again next term.\nKind regards,\nIndi Park, Year 6"
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "mega",
+            "reason": "Mega is chatty slang. A gallery director needs a careful, polite word."
+          },
+          {
+            "text": "wonderful"
+          },
+          {
+            "text": "totally rad",
+            "reason": "'Totally rad' is slang for mates, not for thanking a gallery director."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.12-b2-4",
+      "band": 2,
+      "topic": "robots",
+      "frame": "Gus is entering Sprocket in the Island Robot Challenge. The Dappella is sitting on Sprocket's head.",
+      "text": "Gus is filling in the official entry form for the Island Robot Challenge judges. At the same time, he's messaging his cousin Ari, who loves robots.",
+      "prompt": "Match each line to where it belongs.",
+      "success": "The form gets plain, careful facts for the judges. Ari gets excited, chatty lines.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the official entry form",
+          "a message to cousin Ari"
+        ],
+        "items": [
+          {
+            "text": "Name of robot: Sprocket. Purpose: to clear snow from ladders.",
+            "bin": 0,
+            "reason": "Plain facts under labels are what an official form asks for."
+          },
+          {
+            "text": "Guess what? Sprocket can clear a ladder in ten seconds flat!",
+            "bin": 1,
+            "reason": "'Guess what?' is excited chat. That's for Ari, not the judges."
+          },
+          {
+            "text": "The robot is powered by a rechargeable battery.",
+            "bin": 0,
+            "reason": "This is a calm, careful fact. It belongs on the judges' form."
+          },
+          {
+            "text": "It's got these massive brushes, you'd love it.",
+            "bin": 1,
+            "reason": "'You'd love it' talks to a friend. Judges don't need to be told that."
+          },
+          {
+            "text": "I agree to follow the competition rules.",
+            "bin": 0,
+            "reason": "Agreeing to the rules is a formal promise for the official form."
+          },
+          {
+            "text": "Come and watch me win, ok? Bring snacks.",
+            "bin": 1,
+            "reason": "Asking for snacks is cheeky and relaxed. That's a message to a cousin."
+          },
+          {
+            "text": "Weight of robot: twelve kilograms.",
+            "bin": 0,
+            "reason": "A label and a number is how official forms give facts."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.12-b2-5",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's latest experiment went badly. The Dappella has slime on its tail feathers.",
+      "text": "Gus's newest slime experiment has just exploded all over the hut kitchen. There is green goo on the ceiling, the fridge and the cat. Mo will be home in ten minutes, and Mo hates mess in his kitchen. Gus has already tried wiping it with a sock, which made things worse. The cat is not impressed. Gus grabs his tablet and posts in the crew's group chat. Everyone in the chat is a close mate. They send each other jokes and silly pictures all day long, and nobody in the chat ever writes long, careful sentences. Gus needs them to come and help him clean up, fast.",
+      "prompt": "Which message fits the crew's group chat?",
+      "success": "Short, excited and a bit silly. That's how mates talk to each other in a group chat.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Dear crew members, I regret to inform you of an incident in the kitchen.",
+            "reason": "'I regret to inform you' is for official letters. This is a chat full of mates."
+          },
+          {
+            "text": "SLIME EMERGENCY! Kitchen's covered. Grab a mop before Mo gets home!"
+          },
+          {
+            "text": "To all residents: please report to the kitchen for cleaning duties.",
+            "reason": "'To all residents' sounds like a notice from a boss, not a message to mates."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.12-b2-6",
+      "band": 2,
+      "topic": "animals",
+      "frame": "Wren found something in her beanie. The Dappella is reading her texts.",
+      "prompt": "Tap the line that is far too formal for a text to Finn.",
+      "success": "'Pursuant to our earlier discussion' is for business letters. An eight-year-old brother needs fun, simple words.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren is texting her little brother, Finn, who is eight. He loves animals and hates long words. Yesterday he sent Wren a picture of a wombat with three exclamation marks.\n\n",
+          {
+            "tap": "Finn!! Guess what I found?",
+            "reason": "Excited and short. That's how you text a little brother."
+          },
+          " ",
+          {
+            "tap": "A baby possum, asleep in my beanie!",
+            "reason": "Simple and fun. Finn will love it, and he'll understand every word."
+          },
+          " It sneezed on me twice. ",
+          {
+            "tap": "Pursuant to our earlier discussion, I shall forward photographs."
+          },
+          " ",
+          {
+            "tap": "Its tail is curly like a spring.",
+            "reason": "This uses easy words and a fun picture. It fits a text to Finn."
+          },
+          " Mum says I can't keep it, but the rangers will look after it until it's big enough to go back to the bush. I'm going to visit it every weekend. You can come too if you want. Call me after school, OK?"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b3-1",
+      "band": 3,
+      "topic": "space",
+      "frame": "Indi is visiting the Prep class to talk about the moon. The Dappella is hiding in her bag.",
+      "text": "Indi has been asked to give a talk about the moon to the Prep class at Scaffold Peaks Primary. The Preps are five years old. They will be sitting on the carpet in front of her, and some of them can't read yet. Their teacher, Ms Ford, has given Indi five minutes. 'Keep it simple and fun,' Ms Ford said. 'If they get bored, they start rolling around.' The Preps will have just come in from lunch, so they will be full of energy. Indi has made a big paper moon with craters drawn on in grey pencil, and she plans to let each child touch it at the end. She has also brought a torch, so she can show how the moon only shines because the sun lights it up. The hardest part, Indi thinks, will be the very first sentence. It has to grab the little ones straight away, before anyone starts rolling.",
+      "prompt": "Which opening fits Indi's talk to the Prep class?",
+      "success": "A friendly hello and a simple question suit five-year-olds. They can answer it and start listening.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Today I will explain why the moon appears to shine at night.",
+            "reason": "'I will explain' and 'appears' sound like a lesson for older kids. Preps need it simple and fun."
+          },
+          {
+            "text": "The moon is 384,400 kilometres away and covered in craters.",
+            "reason": "A giant number means nothing to a five-year-old. Ms Ford asked Indi to keep it simple."
+          },
+          {
+            "text": "Hi, everyone! Have you ever looked up and seen the moon at night?"
+          },
+          {
+            "text": "Good afternoon, everyone. My name is Indi, and my talk is about the moon.",
+            "reason": "This is polite but stiff, like a speech to grown-ups. It won't grab Preps before they start rolling."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b3-2",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo's biscuits arrived in crumbs. The Dappella is eating the crumbs while he writes.",
+      "prompt": "Tap the sentence that doesn't fit a complaint to the company.",
+      "success": "'Pretty gutted' and 'fave' are chat for mates. A complaint to strangers needs calm, polite words.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Mo bought a packet of Snowline Snacks choc-chip biscuits, and every single one was broken. He is emailing the company's customer service team, who he has never met, to ask for a refund. Snowline Snacks is a big company with offices on the mainland. He wants them to take his complaint seriously, so he has to sound calm and polite, even though he is cross.\n\nDear Customer Service Team,\n",
+          {
+            "tap": "On Saturday I bought a packet of your choc-chip biscuits from the shop at base camp.",
+            "reason": "This states the facts clearly and politely. It fits a complaint email."
+          },
+          " ",
+          {
+            "tap": "When I opened it, every biscuit had been crushed into crumbs.",
+            "reason": "Clear and calm. The company needs to know exactly what went wrong."
+          },
+          " The packet was still sealed, so the damage must have happened before it reached the shop. ",
+          {
+            "tap": "To be honest, I was pretty gutted, because they're my fave biscuits."
+          },
+          " ",
+          {
+            "tap": "I have kept the packet and the receipt in case you need them.",
+            "reason": "This is helpful and polite, which suits a formal complaint."
+          },
+          " ",
+          {
+            "tap": "I would be grateful if you could send me a refund or a new packet.",
+            "reason": "A polite request is the right way to finish a complaint to a company."
+          },
+          " Thank you for your time.\nKind regards,\nMo Haddad"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b3-3",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully is asking the council for new footy jumpers. The Dappella spotted a phrase that doesn't fit.",
+      "prompt": "Tap the words that are too casual, then choose better ones.",
+      "success": "Several. It's careful and exact, which suits an official application that councillors will compare with others.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Tully is writing the Snowcats Football Club's official application to the island council, asking for money for new jumpers. The councillors will read dozens of applications and choose which ones to fund. Tully knows they will only fund clubs that write clearly and seriously. Last year, an application written in text speak was thrown straight in the bin.\n\nTo the Councillors of Scaffold Peaks,\nThe Snowcats Football Club has forty junior players, aged eight to twelve. Our jumpers are now eleven years old, and ",
+          {
+            "tap": "a heap of"
+          },
+          " them have holes in the elbows. Some parents have patched the holes with tape. We are requesting four hundred dollars to buy new jumpers before the season ",
+          {
+            "tap": "begins",
+            "reason": "That's fine. 'Begins' is clear and careful."
+          },
+          ". In return, the club will ",
+          {
+            "tap": "display",
+            "reason": "That's fine. 'Display' is a formal word that suits an application."
+          },
+          " the council's name on the back of every jumper. The club has already raised two hundred dollars itself with a sausage sizzle. Thank you for considering our request.\nYours sincerely,\nTully Ngata, Junior Captain"
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "a truckload of",
+            "reason": "That's chatty and stretches the truth. Councillors need a careful, exact word."
+          },
+          {
+            "text": "a fair few of",
+            "reason": "That's relaxed, everyday talk. An official application needs formal words."
+          },
+          {
+            "text": "several of"
+          },
+          {
+            "text": "a bunch of",
+            "reason": "'A bunch of' is how you'd say it to mates, not in an application to council."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b3-4",
+      "band": 3,
+      "topic": "gaming",
+      "frame": "Zed's saved game has vanished. The Dappella is trying to comfort him.",
+      "text": "Zed's saved game of Peak Panic has vanished, along with forty hours of progress. He is writing to the game company's support team, and he is also telling the crew in their group chat.",
+      "prompt": "Match each line to where it belongs.",
+      "success": "The support team, who don't know Zed, get calm, polite facts. His mates get the dramatic version.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "email to the support team",
+          "message in the crew chat"
+        ],
+        "items": [
+          {
+            "text": "I am writing because my saved game has disappeared.",
+            "bin": 0,
+            "reason": "A calm, clear start explains the problem to strangers at the company."
+          },
+          {
+            "text": "Guess who just lost forty hours of Peak Panic.",
+            "bin": 1,
+            "reason": "'Guess who' is a joking way to share news with mates. The company needs a plain statement."
+          },
+          {
+            "text": "My account name is ZedPlays, in case you need it to find my file.",
+            "bin": 0,
+            "reason": "Only the support team needs your account name to find the file. The crew already knows it."
+          },
+          {
+            "text": "I'm never touching that tablet again. Ever.",
+            "bin": 1,
+            "reason": "This is a dramatic, personal outburst. It's for the crew, not the support team."
+          },
+          {
+            "text": "Could you please tell me whether the file can be recovered?",
+            "bin": 0,
+            "reason": "'Could you please' is a polite request for people you don't know."
+          },
+          {
+            "text": "Can someone come round after tea and cheer me up?",
+            "bin": 1,
+            "reason": "Asking for company only makes sense to mates. The support team can't come round to cheer Zed up."
+          },
+          {
+            "text": "Thank you for your help.",
+            "bin": 0,
+            "reason": "Politely thanking the support team is how a formal email ends."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.12-b3-5",
+      "band": 3,
+      "topic": "music",
+      "frame": "A real cellist visited Scaffold Peaks Primary. The Dappella is helping Lila thank her.",
+      "text": "Last week, a professional cellist named Ms Valentina Ruiz climbed all the way up to Scaffold Peaks Primary to play for the senior students. She carried her cello up four ladders on her back, wrapped in three blankets to keep out the cold. For an hour, she played music from all over the world and answered every question the students asked, even Gus's question about whether a cello could be played underwater. At the end, she let six students try her cello, which is two hundred years old. The principal has asked Lila to write a thank-you email to Ms Ruiz on behalf of the whole school. Ms Ruiz is an adult the students met only once. Lila has written most of the email, and it is warm and polite. She has also attached a photo of the whole school waving goodbye. Now she needs a final sentence, and the principal will read it before it is sent.",
+      "prompt": "Which final sentence fits Lila's thank-you email to Ms Ruiz?",
+      "success": "A warm, polite thank-you suits a professional guest. It shows the whole school valued her visit.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Anyway, thanks heaps for coming, and say hi to your cello for us!",
+            "reason": "'Thanks heaps' and a joke for the cello are matey. Ms Ruiz is a professional the school met once."
+          },
+          {
+            "text": "We formally acknowledge the musical services you provided.",
+            "reason": "This sounds like a business receipt. Lila's email is meant to be warm as well as polite."
+          },
+          {
+            "text": "I liked the third song best, but Gus says the fast one was better.",
+            "reason": "Lila writes for the whole school, so her own favourite song doesn't belong in the last line."
+          },
+          {
+            "text": "Thank you again for giving up your time to visit our school."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.12-b3-6",
+      "band": 3,
+      "topic": "funny",
+      "frame": "Mo is giving the Year 6 speech at the end-of-year assembly. The Dappella is in the back row.",
+      "prompt": "Tap the sentence that doesn't fit Mo's assembly speech.",
+      "success": "'Hang in there, mate' is how you'd talk to a friend. The mayor and parents need respect.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "At the end-of-year assembly, Mo has to give a speech on behalf of Year 6. The hall will be full of parents, grandparents, teachers and younger students, and the mayor will be sitting in the front row. Mo's teacher has told him that he can be friendly and a little bit funny, but he must be respectful. Mo has practised in front of the bathroom mirror all week. Here is his speech.\n\n",
+          {
+            "tap": "Good afternoon, Mayor Ruiz, teachers, parents and students.",
+            "reason": "Greeting the important guests by name is a respectful way to begin."
+          },
+          " ",
+          {
+            "tap": "My name is Mo, and I am proud to speak on behalf of Year 6.",
+            "reason": "This is clear and polite. It tells the audience who is speaking and why."
+          },
+          " ",
+          {
+            "tap": "This year we climbed more ladders, wrote more stories and ate more of my cooking than any class before us.",
+            "reason": "A gentle joke is fine in a friendly speech, and it's still respectful."
+          },
+          " We learnt that a good story needs a beginning, a middle and an end, just like a good speech. ",
+          {
+            "tap": "Hang in there, Mayor Ruiz, mate, because we're nearly done."
+          },
+          " We would like to thank our teachers for their patience. ",
+          {
+            "tap": "Thank you all for an unforgettable year.",
+            "reason": "A warm, polite thank-you is the right way to finish an assembly speech."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.12-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "Year 6 is writing to the Minister for the Environment. The Dappella has never seen the class so serious.",
+      "text": "For a whole term, Year 6 at Scaffold Peaks Primary has been studying Pebble Bay, the small cove at the foot of the island. They have counted the fish in its rock pools, photographed the seals that sunbake on its ledges and collected more than four thousand pieces of plastic from its sand. Their research shows that the bay is home to at least eleven kinds of fish found almost nowhere else, but that boats and rubbish are slowly damaging it. The class has decided to write to the Minister for the Environment, who has the power to turn the bay into a marine sanctuary. The Minister receives hundreds of letters every week and does not know anyone at the school. Ms Ford has warned the class that only letters that are respectful, serious and clearly written will be read past the first line. The class has also collected three hundred signatures from around the island. Wren has been chosen to write that first line, the one that asks for the sanctuary. The rest of the letter will include the fish count and a map of the bay. If it works, Pebble Bay could be protected for a hundred years.",
+      "prompt": "Which first line should Wren use in the letter to the Minister?",
+      "success": "'We respectfully ask' is formal and polite. A Minister reads many letters and takes careful ones seriously.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "We're hoping you might help us out and look after Pebble Bay for the fish.",
+            "reason": "'Help us out' is how you'd ask a neighbour. A Minister who doesn't know you needs a formal request."
+          },
+          {
+            "text": "The undersigned students require that Pebble Bay be made a sanctuary immediately.",
+            "reason": "It sounds formal, but 'require' and 'immediately' make a demand. Ms Ford asked for respectful letters."
+          },
+          {
+            "text": "We respectfully ask that you protect Pebble Bay as a marine sanctuary."
+          },
+          {
+            "text": "We counted four thousand bits of plastic and eleven rare fish, so please help.",
+            "reason": "The facts come later in the letter. Wren's first line must ask clearly for the sanctuary."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b4-2",
+      "band": 4,
+      "topic": "spooky",
+      "frame": "Wren's little cousin is coming to stay in the hut on Crag Tower. The Dappella helped draw the possums.",
+      "prompt": "Tap the sentence that is too formal for a message to Poppy.",
+      "success": "'Inspected' and 'safe to occupy' are words for a notice, not a scared seven-year-old. She needs warm, simple words.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren's cousin Poppy is seven. Next week she is coming to stay at the hut on Crag Tower, and she has heard all the ghost stories from the older kids at school. Last night Poppy sent Wren a wobbly drawing of a ghost with the words 'I'm scared' written underneath in purple crayon. Wren is writing back to cheer her up. Poppy has never stayed away from home before, and her mum says she has been sleeping with the light on. Wren wants Poppy to feel safe and excited, not worried.\n\n",
+          {
+            "tap": "Hi Poppy!",
+            "reason": "A cheerful hello is just right for a little cousin."
+          },
+          " Thank you for your drawing. ",
+          {
+            "tap": "Don't worry, the hut isn't haunted, it's just full of possums.",
+            "reason": "This is simple and kind, and it tells Poppy the truth in words she knows."
+          },
+          " ",
+          {
+            "tap": "I can confirm that the building has been inspected and is entirely safe to occupy."
+          },
+          " ",
+          {
+            "tap": "The scratching noises at night are just the possums having a midnight snack.",
+            "reason": "Friendly and easy to picture. It turns a scary sound into a funny one."
+          },
+          " One of them is called Biscuit, and he loves apple. If you're brave, you can feed him a slice. The hut has a big fireplace and a window where you can see the stars. ",
+          {
+            "tap": "I'll be right there with you, and we'll make hot chocolate with marshmallows.",
+            "reason": "Warm and comforting, which is exactly what a nervous seven-year-old needs."
+          },
+          " Bring your pyjamas with the penguins on them. Mo is cooking pancakes, but don't worry, I'll make sure they're normal ones. See you soon!\nLove, Wren"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.12-b4-3",
+      "band": 4,
+      "topic": "animals",
+      "frame": "Wren and Ranger Kim are writing up their quoll survey. The Dappella spotted a phrase that doesn't fit.",
+      "prompt": "Tap the words that are too casual, then choose a better word.",
+      "success": "Healthy. It's the precise, formal word scientists expect in a journal checked by experts.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren and Ranger Kim are writing up their quoll survey for the Alpine Wildlife Journal, which is read by scientists across the country. Every report in the journal is checked by experts before it is printed, and anything chatty is sent back to be rewritten.\n\nSurvey of spotted-tailed quolls, Snow Gum Gully\nIn June, we set twelve motion-sensing cameras along the creek in Snow Gum Gully. The weather was cold, with snow on eleven of the twenty-eight nights. Over four weeks, the cameras recorded sixty-three sightings of spotted-tailed quolls. Most sightings occurred between midnight and four in the morning. Ranger Kim identified each quoll by the pattern of white spots on its back. Two cameras were knocked over, probably by wombats, and had to be reset. On 19 June, we located a den beneath a fallen snow gum. The den contained a female and four young, all of which appeared ",
+          {
+            "tap": "in good nick"
+          },
+          ". The female was ",
+          {
+            "tap": "observed",
+            "reason": "That's fine. 'Observed' is the careful word scientists use."
+          },
+          " carrying food to the den on three separate nights. No foxes were recorded within two hundred metres of the den. We ",
+          {
+            "tap": "recommend",
+            "reason": "That's fine. 'Recommend' is formal and clear, right for a journal."
+          },
+          " that the gully be closed to campers until the young are old enough to leave the den. A full table of sightings is attached. This survey was funded by the Scaffold Peaks Council."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "pretty healthy",
+            "reason": "'Pretty' is a chatty hedge. Scientists write the exact word without it."
+          },
+          {
+            "text": "in top shape",
+            "reason": "'In top shape' is sporty chat. A journal checked by experts wants a precise word."
+          },
+          {
+            "text": "super fit",
+            "reason": "'Super fit' is how mates talk about athletes, not how scientists describe quolls."
+          },
+          {
+            "text": "healthy"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.12-b4-4",
+      "band": 4,
+      "topic": "art",
+      "frame": "Indi saw a famous painting at the Ridge Gallery. The Dappella perched on the frame.",
+      "text": "The Ridge Gallery is writing a label to hang beside Mina Ostrova's most famous painting, for every visitor to read. Meanwhile, Indi, who has just seen the painting, is texting her friend Sami about it.",
+      "prompt": "Match each line to where it belongs.",
+      "success": "The label gives calm, exact facts for every visitor. The text to Sami is excited and chatty.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "the gallery label",
+          "Indi's text to Sami"
+        ],
+        "items": [
+          {
+            "text": "Mina Ostrova, Sunrise over the Towers, 1998. Oil on canvas.",
+            "bin": 0,
+            "reason": "Artist, title, year and paint: these are the exact facts a gallery label gives."
+          },
+          {
+            "text": "Sami, you'd love this painting, it's taller than our classroom.",
+            "bin": 1,
+            "reason": "Talking straight to Sami about 'our classroom' only makes sense in a text to a friend."
+          },
+          {
+            "text": "Ostrova painted this work over eleven months, using four ladders and a crane.",
+            "bin": 0,
+            "reason": "This is a careful fact in formal words, written for any visitor."
+          },
+          {
+            "text": "They needed a crane to hang it, no joke.",
+            "bin": 1,
+            "reason": "'No joke' is how you talk to a mate, not how a gallery writes."
+          },
+          {
+            "text": "Meet me at the gallery after school?",
+            "bin": 1,
+            "reason": "Making plans to meet only makes sense in a message to a friend."
+          },
+          {
+            "text": "The painting is on loan from the Scaffold Peaks Council.",
+            "bin": 0,
+            "reason": "Who lent the painting is an official fact. It belongs on the label."
+          },
+          {
+            "text": "I stood there for an hour and forgot to eat my sandwich.",
+            "bin": 1,
+            "reason": "This is Indi's own chatty story. A gallery label wouldn't mention her sandwich."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.12-b4-5",
+      "band": 4,
+      "topic": "robots",
+      "frame": "Gus is presenting Sprocket to the Island Robot Challenge judges. The Dappella is holding his notes.",
+      "text": "Gus has made it to the final of the Island Robot Challenge. On Saturday he must stand in front of the judging panel and explain how Sprocket works. Each finalist has exactly three minutes. The panel is made up of three engineers: one builds bridges, one designs ski lifts, and one has spent twenty years making robots for hospitals. The bridge engineer is famous for asking 'How?' after every sentence. They will score each finalist on how well the robot works and how clearly its builder can explain it. Last year, a finalist lost points for saying his robot was 'basically magic'. Gus has practised his speech in front of the crew four times, and Mo has fallen asleep three of them. Tully has calculated that he has a 41 per cent chance of winning. Gus has cut every joke from the speech except one, and his notes are covered in grease and one chocolate fingerprint. He has written most of it, but he is stuck on the sentence that explains how Sprocket actually clears snow. Indi has reminded him that the judges are experts, and they want facts, not hype. The winner gets a trophy and a week at a real robotics lab.",
+      "prompt": "Which sentence should Gus use to explain Sprocket to the judges?",
+      "success": "Exact, technical words suit a panel of engineers. They want to know how Sprocket works, clearly and calmly.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "Sprocket's got two spinny brushes and a hot-air blower that gets the snow right off the ladders.",
+            "reason": "'Spinny' and 'gets the snow off' are chatty. Engineers want each part named exactly."
+          },
+          {
+            "text": "Sprocket uses two rotating brushes and a heated air nozzle to clear snow from ladder rungs."
+          },
+          {
+            "text": "Sprocket clears snow really well, which is exactly why it works so brilliantly.",
+            "reason": "This says it works, but not how. The bridge engineer would ask 'How?' straight away."
+          },
+          {
+            "text": "Sprocket is the most advanced snow-clearing robot ever built on this island.",
+            "reason": "This is hype, not facts. Indi warned Gus that the judges want to know how it works."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.12-b4-6",
+      "band": 4,
+      "topic": "sport",
+      "frame": "The Snowcats are hosting Pine Gully on Saturday. The Dappella is reading Tully's email before she sends it.",
+      "prompt": "Tap the sentence that is too casual for an email to Coach Daniels.",
+      "success": "'Pretty keen to get you back' is a matey dig. An email for the whole club must stay courteous.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Tully is the junior captain of the Snowcats. This Saturday, the Pine Gully Possums are travelling to Scaffold Peaks for a match, and the club has asked Tully to email their coach, Mr Daniels, to welcome the team and explain the arrangements. Tully has never met Coach Daniels. Her own coach has reminded her that the email represents the whole club, so it must be courteous and clear, even though the two teams are fierce rivals. Last season the Possums won by a single point, and some Snowcats fans have not forgiven them.\n\nDear Coach Daniels,\n",
+          {
+            "tap": "On behalf of the Snowcats, I would like to welcome your team to Scaffold Peaks for Saturday's match.",
+            "reason": "This is courteous and formal, a good way to welcome a visiting coach."
+          },
+          " ",
+          {
+            "tap": "The game will begin at 10 am on the snow oval, and lunch will be provided afterwards in the clubrooms.",
+            "reason": "Clear arrangements in careful sentences are exactly what a coach needs."
+          },
+          " Your bus can park at the bottom station, and our players will help carry your bags up the ladders. ",
+          {
+            "tap": "To be honest, we're pretty keen to get you back for last season."
+          },
+          " ",
+          {
+            "tap": "Please let me know if any of your players have food allergies.",
+            "reason": "A polite request about the players' needs fits a formal welcome email."
+          },
+          " If it snows heavily, the match will move to Sunday at the same time. ",
+          {
+            "tap": "We look forward to a great game.",
+            "reason": "A friendly, polite ending suits an email to another club."
+          },
+          "\nKind regards,\nTully Ngata, Junior Captain"
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}

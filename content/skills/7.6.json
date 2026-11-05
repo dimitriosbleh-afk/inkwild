@@ -1,0 +1,931 @@
+{
+  "skill": {
+    "id": "7.6",
+    "name": "Order the sentences into a paragraph",
+    "codes": [
+      "VC2E5LA04"
+    ],
+    "why": "Sentences in the wrong order confuse readers, even when every sentence is fine.",
+    "how": "Find the sentence that needs nothing before it. Then follow the clues: it, then, but.",
+    "teach": {
+      "crew": "engineer",
+      "iDo": {
+        "beats": [
+          {
+            "say": "Every sentence leaves clues about what came before it."
+          },
+          {
+            "say": "Words like he, it and they point back.",
+            "show": "**Gus** built a robot. **It** exploded."
+          },
+          {
+            "say": "Words like then and but link to the sentence before.",
+            "show": "Gus fixed it. **Then** it exploded again."
+          },
+          {
+            "say": "So start with the sentence that needs nothing before it.",
+            "show": "**A girl called Nell** found a key."
+          },
+          {
+            "say": "Then follow the clues, one link at a time."
+          }
+        ]
+      },
+      "weDo": [
+        {
+          "frame": "Gus dropped his notebook, and the sentences fell out.",
+          "prompt": "Put Gus's sentences in order.",
+          "hint": "Find the sentence that needs nothing before it. Then look for 'the jar' and 'the slime'.",
+          "success": "Each sentence picks up something from the one before: the jar, the slime, those socks.",
+          "body": {
+            "format": "order",
+            "items": [
+              "Gus found a jar at the back of the fridge.",
+              "Inside the jar was a lump of green slime.",
+              "The slime smelled exactly like Mo's footy socks.",
+              "Gus hid the jar inside one of those socks."
+            ],
+            "reason": "Start with the sentence that needs nothing before it. Then follow the clues: the jar, the slime, those socks."
+          }
+        },
+        {
+          "frame": "Tully is sorting sentences for a story about the storm.",
+          "prompt": "Could each sentence start a paragraph? Match each one.",
+          "hint": "Look at the first word. Does it point back to something?",
+          "success": "'It', 'Then' and 'However' point back, so those sentences need one before them.",
+          "body": {
+            "format": "sort",
+            "bins": [
+              "could start a paragraph",
+              "needs a sentence before it"
+            ],
+            "items": [
+              {
+                "text": "A huge storm hit Scaffold Peaks.",
+                "bin": 0,
+                "reason": "It needs nothing before it. It tells the reader what happened."
+              },
+              {
+                "text": "It knocked down three ladders.",
+                "bin": 1,
+                "reason": "'It' points back to something. The reader needs to know what first."
+              },
+              {
+                "text": "Then the chairlift stopped.",
+                "bin": 1,
+                "reason": "'Then' means something happened before this."
+              },
+              {
+                "text": "Wren found a baby wombat in the snow.",
+                "bin": 0,
+                "reason": "It needs nothing before it. We meet Wren and the wombat right here."
+              },
+              {
+                "text": "However, nobody was hurt.",
+                "bin": 1,
+                "reason": "'However' links to something before. Nobody was hurt in what?"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "creature": {
+      "id": "queuepillar",
+      "name": "Queuepillar",
+      "evolved": "Queuemoth",
+      "blurb": "Bag-shelter moth caterpillars from the snow gums that march nose to tail in one long line. Each one follows the clue left by the one in front."
+    }
+  },
+  "encounters": [
+    {
+      "id": "7.6-b1-1",
+      "band": 1,
+      "topic": "animals",
+      "frame": "Wren is reading the Queuepillars a bedtime story. The pages got muddled.",
+      "prompt": "Put Wren's sentences in order.",
+      "success": "Each sentence picks up something from the one before: the wombat, the scarf, the smell, then awake.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Wren found a baby wombat in the snow.",
+          "She wrapped the wombat in her red scarf.",
+          "The scarf smelled of Mo's burnt pancakes.",
+          "That smell woke the wombat right up.",
+          "Wide awake now, it licked Wren's nose."
+        ],
+        "reason": "Start with the sentence that needs nothing before it. Then follow the clues: the wombat, the scarf, that smell."
+      }
+    },
+    {
+      "id": "7.6-b1-2",
+      "band": 1,
+      "topic": "robots",
+      "frame": "The Queuepillars marched over Gus's robot story and mixed it up.",
+      "prompt": "Put the story about Gus's robot in order.",
+      "success": "Every sentence links back to the one before: he, Clank, the toast, then the burnt toast.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Gus built a robot out of old tins.",
+          "He called the robot Clank.",
+          "Clank's first job was to make toast.",
+          "But the toast came out black and smoking.",
+          "Clank ate the burnt toast himself and burped smoke."
+        ],
+        "reason": "'He' needs Gus first. 'Clank' needs the naming. 'The toast' needs the job. 'Burnt' needs the smoke."
+      }
+    },
+    {
+      "id": "7.6-b1-3",
+      "band": 1,
+      "topic": "food",
+      "frame": "Mo's story got shaken up in his bag. A Queuepillar is trying to line it up.",
+      "text": "Mo wrote a story about breakfast, but the sentences got shaken up in his bag. Here they are, all jumbled. It landed on the kitchen ceiling with a splat. Then it fell on Zed's head. Mo made a giant pancake for breakfast. He flipped it far too hard. Zed wore it like a hat for the rest of the day.",
+      "prompt": "Which sentence should start Mo's story?",
+      "success": "It needs nothing before it. It tells us who and what, so 'it' and 'he' make sense later.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It landed on the kitchen ceiling with a splat.",
+            "reason": "'It' points back to something. The reader doesn't know what yet."
+          },
+          {
+            "text": "Then it fell on Zed's head.",
+            "reason": "'Then' and 'it' both point back. Something must happen before this."
+          },
+          {
+            "text": "Mo made a giant pancake for breakfast."
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.6-b1-4",
+      "band": 1,
+      "topic": "sport",
+      "frame": "Tully's footy story fell off the fridge. The Queuepillars want to line it up.",
+      "prompt": "Tap the sentence that must come first.",
+      "success": "'Tully lined up for a shot' needs nothing before it. Every other sentence points back.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Tully's footy story fell off the fridge, and the sentences got mixed up. Only one of them can come first. The others all point back to something. ",
+          {
+            "tap": "She kicked the ball as hard as she could.",
+            "reason": "'She' points back to someone. The reader needs to meet her first."
+          },
+          " ",
+          {
+            "tap": "It flew right over the fence.",
+            "reason": "'It' points back to something. The reader doesn't know what yet."
+          },
+          " ",
+          {
+            "tap": "Tully lined up for a shot at goal."
+          },
+          " ",
+          {
+            "tap": "Then it splashed into the creek.",
+            "reason": "'Then' means something happened before. This can't come first."
+          },
+          " ",
+          {
+            "tap": "After that, nobody could find the ball.",
+            "reason": "'After that' points back to something that already happened."
+          },
+          " The ball is still in the creek. A duck is using it as a boat."
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.6-b1-5",
+      "band": 1,
+      "topic": "spooky",
+      "frame": "Indi is planning a spooky story. The Queuepillars are helping her sort the cards.",
+      "text": "Indi wrote some sentences on cards for a spooky story. She can't tell which ones could start a paragraph.",
+      "prompt": "Match each sentence: could it start a paragraph, or does it need a sentence before it?",
+      "success": "Sentences that start with it, he, then or however point back. They need a sentence before them.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "could start a paragraph",
+          "needs a sentence before it"
+        ],
+        "items": [
+          {
+            "text": "An old ski hut stood at the top of the hill.",
+            "bin": 0,
+            "reason": "It needs nothing before it. It tells the reader where we are."
+          },
+          {
+            "text": "It had a ghost in the attic.",
+            "bin": 1,
+            "reason": "'It' points back to something the reader hasn't met yet."
+          },
+          {
+            "text": "However, the ghost was scared of Mo.",
+            "bin": 1,
+            "reason": "'However' links to something before. The reader needs to meet the ghost first."
+          },
+          {
+            "text": "Then the ghost packed its bags.",
+            "bin": 1,
+            "reason": "'Then' means something happened before this."
+          },
+          {
+            "text": "Zed found a glowing sock in the snow.",
+            "bin": 0,
+            "reason": "It needs nothing before it. We meet Zed and the sock right here."
+          },
+          {
+            "text": "He put it in a jar by his bed.",
+            "bin": 1,
+            "reason": "'He' and 'it' point back. We need to meet them first."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.6-b1-6",
+      "band": 1,
+      "topic": "gaming",
+      "frame": "Zed wrote about his game. A Queuepillar has wandered out of line in it.",
+      "prompt": "One sentence is in the wrong place. Tap it, then choose where it belongs.",
+      "success": "'The door' points back to the secret door. Then 'the tunnel' has something to point back to.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Zed wrote about his favourite game, but one sentence is in the wrong place. ",
+          {
+            "tap": "Zed found a secret door in his game.",
+            "reason": "This is in the right place. It needs nothing before it, so it starts the paragraph."
+          },
+          " ",
+          {
+            "tap": "At the end of the tunnel, he found a chest.",
+            "reason": "'The tunnel' needs the tunnel sentence before it. Move that one, and this fits."
+          },
+          " ",
+          {
+            "tap": "Inside the chest was a golden controller.",
+            "reason": "This is in the right place. 'The chest' points back to the sentence just before."
+          },
+          " ",
+          {
+            "tap": "Behind the door was a dark tunnel."
+          },
+          " Zed played with the golden controller until midnight. Then his mum turned off the wifi."
+        ],
+        "spot": 3,
+        "options": [
+          {
+            "text": "At the very start",
+            "reason": "'The door' points back to a door. The reader must meet the door first."
+          },
+          {
+            "text": "Right after 'Zed found a secret door'"
+          },
+          {
+            "text": "Right after 'At the end of the tunnel'",
+            "reason": "That sentence already needs the tunnel. The tunnel must come before it, not after."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.6-b2-1",
+      "band": 2,
+      "topic": "space",
+      "frame": "A space comic blew into the Queuepillars' snow gum. Its sentences are muddled.",
+      "prompt": "Put the space story in order.",
+      "success": "Each sentence picks up the last one's new idea: the dust, then the floating dust, then the glint.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Captain Rosa Lim was the first person ever to land on the moon Pellucia.",
+          "As soon as she stepped out, her boots sank into soft blue dust.",
+          "The dust was so light that it floated up around her like smoke.",
+          "Through that floating dust, she spotted something glinting near a crater.",
+          "It was a gold sticker that said MAXX WAS HERE."
+        ],
+        "reason": "Start with the captain. Then follow the clues: she, the dust, that floating dust, something glinting."
+      }
+    },
+    {
+      "id": "7.6-b2-2",
+      "band": 2,
+      "topic": "gross-science",
+      "frame": "Gus's slime recipe got shuffled. The Queuepillars are not touching it.",
+      "prompt": "Put Gus's slime recipe in order.",
+      "success": "Each step picks up the last one: the glue, the pea soup, the drops. 'Finally' comes last.",
+      "body": {
+        "format": "order",
+        "items": [
+          "To make Gus's Famous Snot Slime, start by pouring a cup of glue into a bowl.",
+          "Stir a spoonful of green paint into the glue until it looks like pea soup.",
+          "Once the mixture looks like pea soup, add the activator one drop at a time.",
+          "When the drops have turned it thick and stringy, knead it with your hands.",
+          "Finally, leave your slime in the fridge overnight so it gets extra gloopy."
+        ],
+        "reason": "'Start by' begins the recipe. Then follow the clues: the glue, pea soup, the drops, and 'Finally'."
+      }
+    },
+    {
+      "id": "7.6-b2-3",
+      "band": 2,
+      "topic": "music",
+      "frame": "Mo is singing at the Snow Festival. The Queuepillars are in the front row.",
+      "text": "The Peaks Snow Festival had a stage made of ice, a choir of forty kids and a brass band that never stopped. Every year, someone was chosen to sing the festival song to open the show. This year, it was Mo's turn. He was so excited that he forgot to eat breakfast, which had never happened before. He wore his best beanie and a bow tie made of tinsel. When the band started, Mo stepped up to the microphone and took a huge breath. He had practised every night for three weeks, in the shower, on the ladders and once in his sleep.",
+      "prompt": "Which sentence should come next?",
+      "success": "'However' sets up a surprise after all that practice. It links straight back to the sentence before.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "She clapped so hard that both of her mittens flew off.",
+            "reason": "'She' has to point back to someone, but no girl or woman has been named yet."
+          },
+          {
+            "text": "However, he had practised the wrong song the whole time."
+          },
+          {
+            "text": "The second verse was even worse than the first.",
+            "reason": "'Even worse' means the first verse went badly. Mo hasn't sung a note yet."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.6-b2-4",
+      "band": 2,
+      "topic": "animals",
+      "frame": "The wind scattered Wren's notes. The Queuepillars are lining them back up.",
+      "prompt": "Tap the sentence that must come first.",
+      "success": "It's the only sentence that needs nothing before it. It introduces the possum, so 'it' makes sense later.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Wren's notes about the animals in the oldest snow gum were scattered by the wind. She needs to put them back together, starting with the sentence that comes first. ",
+          {
+            "tap": "Each night, it creeps down the trunk to hunt for beetles in the bark.",
+            "reason": "'It' points back to an animal. The reader hasn't met it yet."
+          },
+          " ",
+          {
+            "tap": "A mountain brushtail possum lives in a hollow near the top of the oldest snow gum."
+          },
+          " ",
+          {
+            "tap": "Its babies ride on its back until they are big enough to climb alone.",
+            "reason": "'Its' points back to an animal the reader hasn't met yet."
+          },
+          " ",
+          {
+            "tap": "After the hunt, it climbs back up and sleeps all day in the hollow.",
+            "reason": "'After the hunt' points back to a hunt. Something must come before it."
+          },
+          " ",
+          {
+            "tap": "This is why Wren calls the tree the Possum Hotel.",
+            "reason": "'This' points back to an idea from earlier. It can't come first."
+          },
+          " Gus calls it the Possum Toilet, because of what he found underneath it."
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.6-b2-5",
+      "band": 2,
+      "topic": "ocean",
+      "frame": "Tully kept a log of the dolphins that followed the Soggy Biscuit. The Queuepillars are seasick.",
+      "text": "Tully wrote these sentences in her log. Some point back to something before them, and some don't.",
+      "prompt": "Match each sentence to how it links to what came before.",
+      "success": "Pronouns like they and she point back to someone. Linking words like then and meanwhile point back to an event.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "needs nothing before it",
+          "points back with he, she, it or they",
+          "points back with a linking word"
+        ],
+        "items": [
+          {
+            "text": "A pod of dolphins followed the Soggy Biscuit all morning.",
+            "bin": 0,
+            "reason": "It needs nothing before it. We meet the dolphins right here."
+          },
+          {
+            "text": "They leapt over the waves in perfect pairs.",
+            "bin": 1,
+            "reason": "'They' points back to someone. The reader needs to meet them first."
+          },
+          {
+            "text": "Meanwhile, Mo was being sick over the side.",
+            "bin": 2,
+            "reason": "'Meanwhile' links to something else happening at the same time."
+          },
+          {
+            "text": "As a result, the dolphins swam a little further away.",
+            "bin": 2,
+            "reason": "'As a result' links back to whatever caused this."
+          },
+          {
+            "text": "She counted fourteen of them before lunch.",
+            "bin": 1,
+            "reason": "'She' and 'them' both point back. The reader needs to meet her and the dolphins first."
+          },
+          {
+            "text": "Tully kept a notebook of every sea creature on the trip.",
+            "bin": 0,
+            "reason": "It needs nothing before it. We meet Tully and her notebook right here."
+          },
+          {
+            "text": "Then the whole pod dived under the boat at once.",
+            "bin": 2,
+            "reason": "'Then' links back to something that happened just before."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.6-b2-6",
+      "band": 2,
+      "topic": "funny",
+      "frame": "Mo wrote about the Peaks Joke Competition. A Queuepillar has crawled out of line.",
+      "prompt": "One sentence is in the wrong place. Tap it, then choose where it belongs.",
+      "success": "'The joke' points back to Mo's joke, and 'the part about the carrots' needs it first.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo wrote this for the school newsletter. He was so proud of it that he read it out to the crew three times, but nobody noticed that one sentence was in the wrong place. ",
+          {
+            "tap": "Mo entered the Peaks Joke Competition with his best joke ever.",
+            "reason": "This is in the right place. It needs nothing before it, so it starts the paragraph."
+          },
+          " ",
+          {
+            "tap": "When Mo got to the part about the carrots, the judges stared at him in silence.",
+            "reason": "'The part about the carrots' needs the joke explained first. Move that sentence, and this fits."
+          },
+          " ",
+          {
+            "tap": "Then the smallest judge started to giggle.",
+            "reason": "This is in the right place. 'Then' follows the judges' silence."
+          },
+          " ",
+          {
+            "tap": "Soon the whole hall was laughing so hard that the ice stage cracked.",
+            "reason": "This is in the right place. 'Soon' follows the first giggle."
+          },
+          " ",
+          {
+            "tap": "The joke was about a snowman who was scared of carrots."
+          }
+        ],
+        "spot": 4,
+        "options": [
+          {
+            "text": "At the very start",
+            "reason": "'The joke' points back to a joke. Mo has to enter with it first."
+          },
+          {
+            "text": "Right after 'Then the smallest judge started to giggle'",
+            "reason": "The judges hear about the carrots before they giggle. The joke must come earlier."
+          },
+          {
+            "text": "Right after 'Mo entered the Peaks Joke Competition'"
+          }
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "7.6-b3-1",
+      "band": 3,
+      "topic": "sport",
+      "frame": "Tully's match report got shuffled. The Queuepillars are trying to march through it.",
+      "prompt": "Put Tully's match report in order.",
+      "success": "Each sentence grabs something new from the one before: the frozen ball, the umpire, his whistle.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Last Saturday, the Peaks Under-12s played their first ever game of snow footy.",
+          "Nobody had warned them that the ball would freeze solid by half-time.",
+          "That frozen ball bounced off Tully's boot like a rock and hit the umpire.",
+          "The umpire, who was wearing three beanies, didn't feel a thing.",
+          "However, he was so cross that he blew the whistle for the end of the game.",
+          "That final whistle sent both teams inside for hot chips, still arguing about the score."
+        ],
+        "reason": "Follow the chain: the team, that frozen ball, the umpire, 'However', then that final whistle."
+      }
+    },
+    {
+      "id": "7.6-b3-2",
+      "band": 3,
+      "topic": "robots",
+      "frame": "Gus wrote an explanation of his new robot. The Queuepillars knocked it over.",
+      "prompt": "Put Gus's explanation in order.",
+      "success": "Each sentence uses something from the one before: the Shovelator, the brushes, the bag, the creek.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Gus has invented a robot that clears snow from the ladders of Scaffold Peaks.",
+          "He calls it the Shovelator, and it is about the size of a wheelie bin.",
+          "On its front, the Shovelator has two spinning brushes made from old toothbrushes.",
+          "These brushes flick the snow off each rung and into a bag on the robot's back.",
+          "When the bag is full, the robot climbs down and empties it into the creek.",
+          "Once, it emptied the whole bag on the Architect instead of into the creek."
+        ],
+        "reason": "'He calls it' needs the robot. Then follow the clues: the Shovelator, these brushes, the bag, the creek."
+      }
+    },
+    {
+      "id": "7.6-b3-3",
+      "band": 3,
+      "topic": "art",
+      "frame": "Indi's paragraph about her tower mural got jumbled. The Queuepillars want to know where to start.",
+      "text": "Indi wrote a paragraph about the biggest painting she has ever done, but she dropped the cards on the way to the printer. Now the sentences are jumbled, and only one of them can come first. Indi wants the paragraph to make sense to someone who has never heard of the mural, so the first sentence has to set everything up. Here are the cards, in the order they landed on the floor. It took her eleven days, four ladders and nineteen tins of paint. On the twelfth day, she finally climbed down and saw the whole thing for the first time. Indi had been asked to paint a mural on the side of the Architect's tallest tower. The Architect also wanted a smaller one on the door. The mural showed every Creature on Scaffold Peaks, marching up the tower in a line. When she saw it, she laughed, because she had painted one Queuepillar upside down.",
+      "prompt": "Which sentence should start Indi's paragraph?",
+      "success": "It needs nothing before it. It introduces Indi and the mural, so 'it', 'she' and 'also' make sense later.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "It took her eleven days, four ladders and nineteen tins of paint.",
+            "reason": "'It' and 'her' point back. The reader doesn't know who or what yet."
+          },
+          {
+            "text": "Indi had been asked to paint a mural on the side of the Architect's tallest tower."
+          },
+          {
+            "text": "On the twelfth day, she finally climbed down and saw the whole thing for the first time.",
+            "reason": "'She' and 'the twelfth day' point back to earlier days. This can't come first."
+          },
+          {
+            "text": "The Architect also wanted a smaller one on the door.",
+            "reason": "'Also' and 'a smaller one' point back to something bigger. That must come first."
+          }
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "7.6-b3-4",
+      "band": 3,
+      "topic": "spooky",
+      "frame": "Zed wrote up his trip to the old fire tower. A Queuepillar is stuck out of line.",
+      "prompt": "One sentence is in the wrong place. Tap it.",
+      "success": "Zed borrows the rope and gloves before he climbs. That sentence belongs straight after he decides to go.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Zed wrote this for the crew's mystery files. He typed it in a hurry, by torchlight, and one sentence ended up in the wrong place. Every winter, a strange light appears in the window of the empty fire tower on Scaffold Peaks. Nobody has climbed the tower in forty years, because its ladder is rotten. ",
+          {
+            "tap": "Last week, Zed decided to find out what the light really was.",
+            "reason": "This is in the right place. Zed's plan comes straight after the mystery is set up."
+          },
+          " ",
+          {
+            "tap": "Halfway up the rotten ladder, one of the rungs snapped under his boot.",
+            "reason": "The climb does follow Zed's plan, but something is missing before it. Look for the getting-ready sentence."
+          },
+          " ",
+          {
+            "tap": "Somehow he made it to the top and pushed open the trapdoor.",
+            "reason": "This is in the right place. Reaching the top follows the snapped rung."
+          },
+          " ",
+          {
+            "tap": "He borrowed Gus's climbing rope and Indi's warmest gloves."
+          },
+          " ",
+          {
+            "tap": "Inside, a family of glow-worms had covered the ceiling, shining like a tiny night sky.",
+            "reason": "'Inside' belongs straight after Zed opens the trapdoor. Something has got in between them."
+          },
+          " Zed sat with them for an hour. Then he climbed down very, very slowly."
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.6-b3-5",
+      "band": 3,
+      "topic": "food",
+      "frame": "Mo is writing a script for his cooking show. The Queuepillars are hiding from the smell.",
+      "text": "Mo wrote three sentences for his cooking show, then wrote some more on sticky notes. Each sticky note follows on from one of his first three sentences.",
+      "prompt": "Match each sticky note to the sentence it follows on from.",
+      "success": "Each note points back: 'those eggs' to the eggs, 'the juice' to the pickle juice, the goggles to Gus.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Mo cracked six eggs into a bowl.",
+          "Then he poured in a cup of pickle juice.",
+          "The smell brought Gus running from his lab."
+        ],
+        "items": [
+          {
+            "text": "Two of those eggs had little green spots on them.",
+            "bin": 0,
+            "reason": "'Those eggs' points back to the eggs Mo cracked."
+          },
+          {
+            "text": "The juice fizzed and turned the whole mixture yellow.",
+            "bin": 1,
+            "reason": "'The juice' points back to the pickle juice."
+          },
+          {
+            "text": "He had run so fast that he still had his safety goggles on.",
+            "bin": 2,
+            "reason": "'Run so fast' and the goggles point back to Gus running from his lab."
+          },
+          {
+            "text": "All six of them were still cold from the fridge.",
+            "bin": 0,
+            "reason": "'All six of them' points back to the six eggs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.6-b3-6",
+      "band": 3,
+      "topic": "animals",
+      "frame": "Wren wrote about a lyrebird for the Field Guide. A Queuepillar wandered to the front.",
+      "prompt": "One sentence is in the wrong place. Tap it, then choose where it belongs.",
+      "success": "'The bird rings' needs the copycat who learnt the telephone ring. It belongs straight after that sentence.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Wren wrote this paragraph for the Field Guide after a visit to the ranger station, where she spent a whole afternoon drinking tea with the rangers and listening to the forest. When she read the paragraph back that night, she noticed that one sentence was in the wrong place. ",
+          {
+            "tap": "Every time the bird rings, the rangers sprint inside, only to find the line is silent."
+          },
+          " ",
+          {
+            "tap": "The superb lyrebird lives in the wet forests below the snowline of Scaffold Peaks.",
+            "reason": "This introduces the lyrebird. It needs nothing before it, so it should start the paragraph."
+          },
+          " ",
+          {
+            "tap": "This bird can copy almost any sound it hears, from kookaburras to car alarms.",
+            "reason": "This is in the right place. 'This bird' points back to the lyrebird."
+          },
+          " ",
+          {
+            "tap": "One copycat near the ranger station has learnt the ring of the station's old telephone.",
+            "reason": "This is in the right place. 'Copycat' points back to the copying."
+          },
+          " ",
+          {
+            "tap": "After three years of sprinting for nothing, the rangers have stuck a sign on the phone.",
+            "reason": "This needs the sprinting first. Find the sentence about sprinting and move that one."
+          },
+          " It says: DON'T BOTHER. IT'S PROBABLY THE BIRD. Wren says the bird has started copying the rangers' groans as well."
+        ],
+        "spot": 0,
+        "options": [
+          {
+            "text": "Right after 'This bird can copy almost any sound'",
+            "reason": "The bird hasn't learnt the telephone ring yet. That happens in the copycat sentence."
+          },
+          {
+            "text": "Right after 'After three years of sprinting'",
+            "reason": "Three years of sprinting can't come before the sprinting starts."
+          },
+          {
+            "text": "At the very end",
+            "reason": "The sign comes after three years of sprinting. The sprinting must come before it."
+          },
+          {
+            "text": "Right after 'One copycat near the ranger station'"
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.6-b4-1",
+      "band": 4,
+      "topic": "ocean",
+      "frame": "A page from a whale-watching guide floated up to the Soggy Biscuit. The Queuepillars want it in order.",
+      "prompt": "Put the guide's explanation in order.",
+      "success": "Each sentence hooks onto the one before: this journey, those calves, freezing, this milk, fat enough, there.",
+      "body": {
+        "format": "order",
+        "items": [
+          "Every winter, humpback whales leave the icy waters of Antarctica and swim thousands of kilometres north to warmer seas.",
+          "They make this enormous journey for one main reason: to give birth to their calves in calm, sheltered water.",
+          "Those calves are born with very little blubber, so they would freeze in the Antarctic water.",
+          "To stop them freezing, the mothers stay in the warm north until the calves have built up blubber on rich milk.",
+          "This milk is so thick and fatty that it looks a bit like toothpaste, and a calf drinks an enormous amount of it every day.",
+          "Once the calves are fat enough, the whales begin the long swim back south, towards Antarctica.",
+          "There, the hungry mothers finally feast on krill, after months without a proper meal."
+        ],
+        "reason": "Start with the sentence that names the whales. Then follow: this journey, those calves, freezing, this milk, fat enough, there."
+      }
+    },
+    {
+      "id": "7.6-b4-2",
+      "band": 4,
+      "topic": "general",
+      "frame": "The story of Scaffold Peaks' ladders is carved on a board, but the boards got stacked in the wrong order.",
+      "prompt": "Put the history of the ladders in order.",
+      "success": "Each sentence picks up the one before: instead of ladders, those ropes, the promise, keeping it, the spare.",
+      "body": {
+        "format": "order",
+        "items": [
+          "When the Architect first arrived on Scaffold Peaks, there was not a single ladder on the whole island.",
+          "Instead, climbers had to haul themselves up the rock towers on ropes, which often snapped in the freezing wind.",
+          "After one of those snapped ropes left the Architect dangling over a cliff for an entire afternoon, a promise was made.",
+          "The promise was simple: every tower on the island would have a ladder by the following winter.",
+          "Keeping it meant building four hundred ladders in less than a year, mostly by hand.",
+          "By the first snowfall, there were four hundred and one, because the Architect had built a spare.",
+          "That spare ladder still leans against the ranger station, and nobody has ever worked out what it is for."
+        ],
+        "reason": "Start where there are no ladders. Then follow: instead, those snapped ropes, the promise, keeping it, the spare."
+      }
+    },
+    {
+      "id": "7.6-b4-3",
+      "band": 4,
+      "topic": "gross-science",
+      "frame": "Gus is writing up his slime mould experiment. The Queuepillars are keeping their distance.",
+      "text": "Gus's favourite living thing is not an animal or a plant. It is a slime mould, a bright yellow blob that creeps across rotting logs on the forest floor below Scaffold Peaks. It has no brain, no eyes and no legs, yet it can find food faster than most people can find their shoes. Gus scraped a lump of it off a log near the creek, carried it home in a lunchbox and gave it a name: Custard. He fed Custard on oat flakes, which it loves, and kept it in a dark cupboard, which it also loves. Mo was not allowed to open the cupboard, after he mistook Custard for dessert and got as far as reaching for a spoon. Gus says slime moulds have been around for hundreds of millions of years, and that some scientists use them to plan train lines, because they are so good at finding the quickest route between two places. For his science fair project, Gus wanted to prove that Custard was smarter than it looked. He drew a maze on a tray, put an oat flake at the end of every path and placed Custard at the entrance. Then he closed the cupboard door and waited.",
+      "prompt": "Which sentence should come next in Gus's write-up?",
+      "success": "'Within two days' follows Gus closing the door and waiting. 'It' points back to Custard.",
+      "body": {
+        "format": "choose",
+        "options": [
+          {
+            "text": "This second maze was even harder, with a dead end at every single turn.",
+            "reason": "'This second maze' needs a first maze to be finished. Gus has only just started the first."
+          },
+          {
+            "text": "As a result, Gus decided never to use oat flakes in an experiment again.",
+            "reason": "'As a result' needs something to have gone wrong. The test hasn't even happened yet."
+          },
+          {
+            "text": "Despite this, Mo still thought the yellow blob looked delicious.",
+            "reason": "'Despite this' needs a reason not to eat it just before. The last sentence is about waiting."
+          },
+          {
+            "text": "Within two days, it had found the shortest path to every oat flake."
+          }
+        ],
+        "answer": 3
+      }
+    },
+    {
+      "id": "7.6-b4-4",
+      "band": 4,
+      "topic": "space",
+      "frame": "Tully wrote about the night the crew spotted a comet. One Queuepillar is marching the wrong way.",
+      "prompt": "One sentence is in the wrong place. Tap it.",
+      "success": "Tully must borrow the telescope before she can carry it up. That sentence belongs right after her plan.",
+      "body": {
+        "format": "tapText",
+        "parts": [
+          "Tully wrote this recount for the Peaks Star Club newsletter. She wrote it at midnight, wrapped in three blankets, and one sentence ended up in the wrong place. Every few thousand years, a comet called Frostwhisker swings past Earth, and this year it was due on the coldest night of winter. Tully had read that the best place in the whole archipelago to see it would be the summit of Scaffold Peaks, far from any town lights. ",
+          {
+            "tap": "She made up her mind to watch it from there, even though the summit was a two-hour climb.",
+            "reason": "This is in the right place. Tully's plan comes straight after she reads about the summit."
+          },
+          " ",
+          {
+            "tap": "Carrying that telescope up four hundred rungs in the dark took the whole crew, and Gus dropped the lens cap twice.",
+            "reason": "This needs a telescope to carry. Look for the sentence where Tully gets one."
+          },
+          " ",
+          {
+            "tap": "When they reached the top, the sky was so clear that the stars looked close enough to touch.",
+            "reason": "This is in the right place. Reaching the top follows the long climb."
+          },
+          " ",
+          {
+            "tap": "Just after midnight, Frostwhisker appeared above the eastern ridge, trailing a tail like a silver scarf.",
+            "reason": "This is in the right place. The comet appears once they are at the top, under the clear sky."
+          },
+          " ",
+          {
+            "tap": "First, though, she borrowed the Star Club's biggest telescope, which was taller than she was."
+          },
+          " ",
+          {
+            "tap": "Nobody spoke while it crossed the sky, not even Mo, who had brought a joke for the occasion.",
+            "reason": "'While it crossed the sky' must follow the comet appearing. Something has got in between them."
+          }
+        ],
+        "answer": 4
+      }
+    },
+    {
+      "id": "7.6-b4-5",
+      "band": 4,
+      "topic": "music",
+      "frame": "Zed is planning a story about Talent Night. The Queuepillars are tapping their many feet.",
+      "text": "Zed wrote three sentences for his story about Talent Night, then four more on sticky notes. Each sticky note follows on from one of the first three sentences.",
+      "prompt": "Match each sticky note to the sentence it follows on from.",
+      "success": "Each note hooks back onto one sentence: writing a song in a week, the saucepans, or the dark.",
+      "body": {
+        "format": "sort",
+        "bins": [
+          "Zed's band, the Frostbites, had one week to write a song for Talent Night.",
+          "Meanwhile, Mo was building a drum kit out of saucepans.",
+          "On the night, the power went out halfway through the first chorus."
+        ],
+        "items": [
+          {
+            "text": "Writing a whole song in a week turned out to be harder than any boss level.",
+            "bin": 0,
+            "reason": "'Writing a whole song in a week' points back to the band's one-week deadline."
+          },
+          {
+            "text": "The biggest pot made a deep boom, while the frying pan went ting.",
+            "bin": 1,
+            "reason": "'The biggest pot' and 'the frying pan' point back to Mo's saucepan drum kit."
+          },
+          {
+            "text": "His cymbal was a wok lid, and it rang for a full minute every time he hit it.",
+            "bin": 1,
+            "reason": "A wok lid cymbal belongs with the saucepan drum kit Mo is building."
+          },
+          {
+            "text": "In the darkness, the crowd lit up their phones and kept singing.",
+            "bin": 2,
+            "reason": "'In the darkness' points back to the power going out."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.6-b4-6",
+      "band": 4,
+      "topic": "funny",
+      "frame": "Mo wrote about his first day as camp cook. A Queuepillar has crawled into the wrong spot.",
+      "prompt": "One sentence is in the wrong place. Tap it, then choose where it belongs.",
+      "success": "'Halfway through stirring' follows Mo starting the porridge, and 'found the honey' needs him to go looking first.",
+      "body": {
+        "format": "fix",
+        "parts": [
+          "Mo wrote this recount for the camp newsletter. He was very proud of it, but when Tully read it out at breakfast the next day, everyone noticed that one sentence was in the wrong place. ",
+          {
+            "tap": "On the first morning of camp, Mo was put in charge of breakfast for forty hungry Year 6 students.",
+            "reason": "This is in the right place. It needs nothing before it, so it starts the recount."
+          },
+          " ",
+          {
+            "tap": "He decided to make his famous porridge, in a pot so large that he had to stand on a chair to stir it.",
+            "reason": "This is in the right place. 'He' and 'his famous porridge' follow Mo being put in charge of breakfast."
+          },
+          " ",
+          {
+            "tap": "By the time he found the honey, the porridge had set as hard as cement.",
+            "reason": "'Found the honey' needs Mo to go looking for honey first. Find that sentence and move it."
+          },
+          " ",
+          {
+            "tap": "The camp leader had to chip it out of the pot with a hammer and a chisel.",
+            "reason": "This is in the right place. Chipping it out follows the porridge setting hard."
+          },
+          " ",
+          {
+            "tap": "Those chips of porridge were so tough that Gus took three home to test as building bricks.",
+            "reason": "This is in the right place. 'Those chips' points back to the chipping."
+          },
+          " ",
+          {
+            "tap": "Halfway through stirring, he climbed down to look for honey and left the pot bubbling on the stove."
+          },
+          " The students ate toast instead, and Mo was given a new job: washing up. He has since written a recipe for Cement Porridge. Nobody has asked for it."
+        ],
+        "spot": 5,
+        "options": [
+          {
+            "text": "At the very start",
+            "reason": "'Halfway through stirring' needs Mo to be stirring something. He hasn't started cooking yet."
+          },
+          {
+            "text": "Right after 'On the first morning of camp'",
+            "reason": "Mo has been put in charge, but he has not started stirring the porridge yet."
+          },
+          {
+            "text": "Right after 'He decided to make his famous porridge'"
+          },
+          {
+            "text": "Right after 'By the time he found the honey'",
+            "reason": "Finding the honey can't come before he goes to look for it."
+          }
+        ],
+        "answer": 2
+      }
+    }
+  ]
+}
