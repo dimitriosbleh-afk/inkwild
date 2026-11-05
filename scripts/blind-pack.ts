@@ -53,6 +53,8 @@ function sheet(body: Body): Record<string, unknown> {
   }
 }
 
+const weDoTasks = (f: (typeof files)[number]): Encounter[] =>
+  f.skill.teach.weDo.map((t, i) => ({ ...t, id: `${f.skill.id}-weDo${i + 1}`, skill: f.skill.id, band: 1, topic: 'general' }) as Encounter);
 const bySkill = new Map<string, Encounter[]>();
 for (const f of files.filter((f) => f.skill.id.startsWith(prefix))) {
   bySkill.set(
@@ -61,6 +63,8 @@ for (const f of files.filter((f) => f.skill.id.startsWith(prefix))) {
   );
 }
 if (onlyIds) {
+  // We do tasks have no id of their own; a recheck names them 5.3-weDo1.
+  for (const f of files) bySkill.get(f.skill.id)?.push(...weDoTasks(f));
   const tasks = [...bySkill.values()].flat().filter((e) => onlyIds.has(e.id)).map((e) => ({ id: e.id, frame: e.frame, text: e.text, prompt: e.prompt, format: e.body.format, ...sheet(e.body) }));
   writeFileSync(new URL('recheck.tasks.json', out), JSON.stringify(tasks, null, 2));
   console.log(`wrote ${tasks.length} tasks to .scratch/blind/recheck.tasks.json`);

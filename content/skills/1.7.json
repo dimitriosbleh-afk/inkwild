@@ -52,7 +52,7 @@
               },
               {
                 "text": "Gus ate a banana from his schoolbag.",
-                "reason": "Untrue. Gus never ate it. He forgot it, and it rotted."
+                "reason": "Untrue. Read the first sentence again. What did Gus do with the banana?"
               }
             ],
             "answer": 0
@@ -61,14 +61,14 @@
         {
           "text": "Wren found a joey in a ditch after a storm. It was cold and wet. She wrapped it in her jumper and carried it to the vet hut. A week later, it was hopping around and eating grass.",
           "prompt": "Which is the best summary?",
-          "hint": "Watch out for a summary so vague it could fit any story.",
+          "hint": "Watch out for a summary that names who, but never says what happened.",
           "success": "It says who, what happened and how it ended, all in one true sentence.",
           "body": {
             "format": "choose",
             "options": [
               {
-                "text": "This story is about an animal.",
-                "reason": "Too broad. It could fit thousands of stories. It doesn't say what happened."
+                "text": "Something happened to Wren and a joey after a big storm.",
+                "reason": "Too broad. It names Wren and the joey, but what actually happened to them?"
               },
               {
                 "text": "Wren rescued a cold joey after a storm and nursed it back to health."
@@ -133,8 +133,8 @@
             "reason": "Too narrow. It's true, but it skips that she is lost."
           },
           {
-            "text": "This sign is about an animal.",
-            "reason": "Too broad. It doesn't say the wombat is lost or what to do."
+            "text": "Wren's sign tells you about a baby wombat called Pudding.",
+            "reason": "Too broad. It names Pudding, but what's wrong, and what should you do?"
           },
           {
             "text": "Pudding the wombat is lost, so call Wren if you see her."
@@ -163,7 +163,7 @@
           },
           {
             "text": "Astronauts dropped a bag of honey, and it fell and splashed all over the floor.",
-            "reason": "Untrue. The honey did not fall. It floated in blobs."
+            "reason": "Untrue. Remember, there is almost no gravity on the station."
           }
         ],
         "answer": 0
@@ -243,11 +243,11 @@
           },
           {
             "text": "a pile of Dad's old socks",
-            "reason": "The socks were only the nest. The possums made the scratching."
+            "reason": "The socks were only the nest. Who made the nest?"
           },
           {
             "text": "a big hungry rat",
-            "reason": "Untrue. Dad found possums, not a rat."
+            "reason": "Untrue. Look again at what Dad found with his torch."
           }
         ],
         "answer": 0
@@ -322,7 +322,7 @@
           },
           {
             "text": "Cameras showed the crabs were escaping each night through a gap in their own tank lid.",
-            "reason": "Untrue. The crabs didn't escape. Biscuit squeezed out of her own tank and ate them."
+            "reason": "Untrue. The crabs went missing, but look at who the cameras actually showed."
           },
           {
             "text": "An octopus sneaked out at night to eat crabs until keepers clipped her lid."
@@ -384,7 +384,7 @@
         "options": [
           {
             "text": "Mo is writing to say sorry for all the noise and to give the drum kit back.",
-            "reason": "Untrue. Mo asks to borrow the kit for another month."
+            "reason": "Untrue. Read the end of the letter. What does Mo ask for?"
           },
           {
             "text": "After complaints at home, Mo took the drums to the beach and wants them longer."
@@ -457,7 +457,7 @@
           },
           {
             "text": "he had his net ready",
-            "reason": "Too narrow. The net is a small detail. It skips the bite and the escape."
+            "reason": "Too narrow. The net is a small detail. What happened once Maxx grabbed it?"
           }
         ],
         "answer": 0
@@ -486,8 +486,8 @@
             "reason": "Untrue. The locals believed in the ghost. Zed and Tully were the ones who found Mo."
           },
           {
-            "text": "Two people go somewhere old and find something surprising.",
-            "reason": "Too broad. It's true, but it doesn't say what the mystery was or how it was solved."
+            "text": "A strange thing happened at the old Hollowgum lighthouse.",
+            "reason": "Too broad. Which strange thing? It never says what the light really was."
           }
         ],
         "answer": 0
@@ -578,7 +578,7 @@
           },
           {
             "text": "Wren had a ranger move the swooping magpie away from the school gate to keep everyone safe.",
-            "reason": "Untrue. The principal agreed to leave the magpie alone, so no ranger came."
+            "reason": "Untrue. Read the end of the diary. What did the principal decide?"
           },
           {
             "text": "Wren worked out why the magpie swooped and stopped the swooping without moving the bird."
@@ -595,14 +595,17 @@
       "id": "1.7-b3-5",
       "band": 3,
       "topic": "general",
-      "frame": "Tully summed up the festival notice, but one part is so vague the Gulpelli won't swallow it.",
+      "frame": "Tully summed up the festival notice, but one part leaves out the reason, so the Gulpelli won't swallow it.",
       "text": "Notice from the Hollowgum Festival Committee. For forty years, the highlight of our festival has been the Great Pumpkin Roll. Growers roll their giant pumpkins down Gumtree Hill, and the first to reach the bottom wins. Sadly, last year's winning pumpkin did not stop at the bottom. It bounced over the fence, rolled across the car park and smashed through the front window of the bakery. Nobody was hurt, but the bakery was closed for a month and the owner is still finding seeds. The committee has decided that the roll is now too dangerous. We know many of you will be disappointed, and so are we. This year, it will be replaced by the Great Pumpkin Paddle. Growers will hollow out their pumpkins and paddle them across Hollowgum Lake. Pumpkins must be grown by the person paddling them. Life jackets are compulsory. Prizes will be given for the fastest pumpkin and the best-decorated one. The baker has kindly agreed to judge the decorations.",
-      "prompt": "Tap the part of the summary that is too vague, then choose a better one.",
+      "prompt": "Tap the part of the summary that leaves out the reason, then choose a better one.",
       "success": "The bakery crash is the reason the notice gives, so naming it makes the summary complete.",
       "body": {
         "format": "fix",
         "parts": [
-          "The festival's ",
+          {
+            "tap": "For some reason"
+          },
+          ", the festival's ",
           {
             "tap": "Great Pumpkin Roll",
             "reason": "That part is right. The notice is about the end of the Pumpkin Roll."
@@ -612,23 +615,19 @@
             "tap": "replaced by a pumpkin boat race",
             "reason": "That part is right. The Pumpkin Paddle is a race across the lake in pumpkins."
           },
-          " ",
-          {
-            "tap": "for some reason"
-          },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "because nobody came to watch it last year",
-            "reason": "Untrue. The notice gives a different reason: last year's pumpkin smashed into the bakery."
+            "text": "Because nobody came to watch it last year",
+            "reason": "Untrue. Read the notice again. What happened to last year's winning pumpkin?"
           },
           {
-            "text": "because last year's winner smashed into the bakery"
+            "text": "Because last year's winner smashed into the bakery"
           },
           {
-            "text": "because life jackets are now compulsory",
+            "text": "Because life jackets are now compulsory",
             "reason": "Untrue. Life jackets are a rule for the new race, not the reason for the change."
           }
         ],
@@ -652,11 +651,11 @@
           },
           {
             "text": "The update made the mowers quieter as planned, but owners must now pay to have their lawns repaired.",
-            "reason": "Untrue. The mowers mowed circles instead, and lawn repairs are free."
+            "reason": "Untrue. Read what the update actually did to the lawns, and what repairs cost."
           },
           {
-            "text": "Hollowgum Robotics has some news for its customers.",
-            "reason": "Too broad. It's true, but it doesn't say what the news is."
+            "text": "Hollowgum Robotics has an important message for all Mowzo owners.",
+            "reason": "Too broad. It names the company and the mowers, but what's the message?"
           },
           {
             "text": "A faulty update made the mowers cut circles, so owners should switch them off while it's fixed."
@@ -688,8 +687,8 @@
             "reason": "Untrue. The scientist describes and names it. Ruby is only considering a name to suggest."
           },
           {
-            "text": "This article describes an event that happens on the coast.",
-            "reason": "Too broad. It's true, but it leaves out the discovery, which is the whole point."
+            "text": "Volunteers at Hollowgum Point had an exciting day at this year's Sea Slug Count.",
+            "reason": "Too broad. Exciting how? It leaves out what happened, which is the whole point."
           }
         ],
         "answer": 0
@@ -781,14 +780,14 @@
           },
           {
             "text": "The council moved Arthur because commuters complained that his saw music was too eerie.",
-            "reason": "Untrue. The council said the walkway was too crowded. Commuters actually campaigned to bring him back."
+            "reason": "Untrue. Check the reason the council gave. And what did the commuters do after he left?"
           },
           {
             "text": "When a much-loved busker was moved from the ferry terminal, commuters campaigned until he returned."
           },
           {
-            "text": "A musician has been in the local news.",
-            "reason": "Too broad. It's true, but it says nothing about what happened to Arthur."
+            "text": "Music at the Hollowgum ferry terminal means a lot to commuters.",
+            "reason": "Too broad. True, but what happened to the music, and what did commuters do about it?"
           }
         ],
         "answer": 2
@@ -825,7 +824,7 @@
         "options": [
           {
             "text": "the prize money went to the runner-up",
-            "reason": "Untrue. Dev kept the prize and gave the money to the school art room."
+            "reason": "Untrue. Read what the judges decided when they met again."
           },
           {
             "text": "the brown smudge was a coffee stain",
@@ -858,8 +857,8 @@
             "reason": "Untrue. The lamington melted, and the judge said it didn't count."
           },
           {
-            "text": "Something unexpected happened at a cooking event.",
-            "reason": "Too broad. It's true, but it doesn't say what went wrong or how it ended."
+            "text": "The Hollowgum Bakery's record attempt in the town square didn't go to plan.",
+            "reason": "Too broad. True, but what went wrong, and how did it end?"
           },
           {
             "text": "When the giant lamington melted, the bakers and townspeople turned it into a record-breaking trifle."

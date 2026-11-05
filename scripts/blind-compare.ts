@@ -63,7 +63,8 @@ for (const f of files) {
   const path = new URL(`${f.skill.id}.answers.json`, dir);
   if (!existsSync(path)) continue;
   const answers = JSON.parse(readFileSync(path, 'utf8')) as Answer[];
-  for (const e of f.encounters) {
+  const weDo = f.skill.teach.weDo.map((t, i) => ({ ...t, id: `${f.skill.id}-weDo${i + 1}` }) as unknown as Encounter).filter((e) => recheck.has(e.id));
+  for (const e of [...f.encounters, ...weDo]) {
     const a = recheck.get(e.id) ?? answers.find((x) => x.id === e.id);
     checked++;
     const enc = { ...e, skill: f.skill.id } as Encounter;

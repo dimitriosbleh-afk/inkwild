@@ -34,18 +34,22 @@
       "weDo": [
         {
           "text": "I opened the fridge. Something green was growing on my sandwich. I named it Kevin.",
-          "prompt": "Is this story told in first person or third person?",
+          "prompt": "How is this story told?",
           "hint": "Look outside speech marks. Does the teller say I or my?",
-          "success": "First person. The teller says I and my, so they're a character in the story.",
+          "success": "First person. The one who opened the fridge says I and my, so they are in the story.",
           "body": {
             "format": "choose",
             "options": [
               {
-                "text": "first person"
+                "text": "first person, told by the one who opened the fridge"
               },
               {
-                "text": "third person",
-                "reason": "The teller says I and my, so the teller is in the story."
+                "text": "third person, told by someone outside the story",
+                "reason": "Look outside speech marks. Does the teller ever say I or my?"
+              },
+              {
+                "text": "first person, told by Kevin",
+                "reason": "Kevin is the green thing on the sandwich. Somebody else named it."
               }
             ],
             "answer": 0
@@ -496,7 +500,7 @@
         "options": [
           {
             "text": "First person, because Tully says I several times, like 'I just need one kick'.",
-            "reason": "Tully's I's are all inside speech marks. Outside them, the teller calls her she."
+            "reason": "Check where Tully's I's sit. Are any of them outside speech marks?"
           },
           {
             "text": "Third person, because the teller is outside the story and calls Tully she."
@@ -633,7 +637,7 @@
           },
           {
             "text": "Zed, who is playing the game",
-            "reason": "Zed isn't in this passage. The teller says 'I am the Lava King.'"
+            "reason": "Zed isn't in this passage. Read the very first sentence: who does the teller say they are?"
           },
           {
             "text": "someone watching from outside the game",
@@ -716,7 +720,7 @@
         "options": [
           {
             "text": "First person, because the log entries say I.",
-            "reason": "The log entries are Captain Osei's words, inside quote marks. Outside them, the teller calls her she."
+            "reason": "The log entries are Captain Osei's words, in quote marks. Does the teller say I outside them?"
           },
           {
             "text": "First person, because we learn Captain Osei is frightened, even though she says she isn't.",
@@ -880,18 +884,18 @@
         "options": [
           {
             "text": "BX-4 says I outside speech marks, as the teller",
-            "reason": "BX-4's I's are all inside speech marks. That's a character talking, not the teller."
+            "reason": "Check each I. Is it the teller talking, or BX-4 talking in the canteen?"
           },
           {
             "text": "there are no speech marks and no I anywhere",
-            "reason": "BX-4 says I three times, inside speech marks. The I's are there, just not the teller's."
+            "reason": "BX-4 says I three times. Look at what sits around those words."
           },
           {
             "text": "every I in the story is inside speech marks"
           },
           {
             "text": "only Mrs Doyle speaks inside speech marks, never BX-4",
-            "reason": "BX-4 speaks inside speech marks too, and it says I three times."
+            "reason": "Find BX-4 talking to Mrs Doyle. What marks are around its words?"
           }
         ],
         "answer": 2
