@@ -231,9 +231,11 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
     if (!TOPICS.has(e.topic)) add(where, `unknown topic ${e.topic}`);
     out.push(...taskProblems(e, where, e.band));
     if (e.body.format === 'choose' && e.band >= 3 && e.body.options.length < 4) add(where, `Band ${e.band} choose needs 4 options, has ${e.body.options.length}`);
-    if (reading && e.text && sentences(e.text).length >= 3) {
+    const b = e.body;
+    const passage = e.text ?? (b.format === 'tapText' || b.format === 'fix' ? b.parts.map((p) => (typeof p === 'string' ? p : p.tap)).join('') : '');
+    if (reading && passage && sentences(passage).length >= 3) {
       const [lo, hi] = BAND_TARGETS[e.band].passage;
-      const n = wordCount(e.text);
+      const n = wordCount(passage);
       if (n < lo * 0.85 || n > hi * 1.15) add(where, `passage is ${n} words; Band ${e.band} wants ${lo} to ${hi}`);
     }
   }
