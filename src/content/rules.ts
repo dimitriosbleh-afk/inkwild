@@ -77,7 +77,7 @@ function bodyProblems(b: Body): string[] {
     case 'choose': {
       if (b.options.length < 2 || b.options.length > 4) out.push('choose needs 2 to 4 options');
       reasoned(b.options, b.answer, 'option');
-      const texts = b.options.map((o) => normalise(o.text).toLowerCase());
+      const texts = b.options.map((o) => normalise(o.text));
       if (new Set(texts).size !== texts.length) out.push('two options have the same text');
       break;
     }
