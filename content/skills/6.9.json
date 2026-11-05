@@ -26,7 +26,8 @@
             "format": "choose",
             "options": [
               { "text": "It's" },
-              { "text": "Its", "reason": "Its is for owning. Nothing is owned here. It means 'it is snowing'." }
+              { "text": "Its", "reason": "Its is for owning. Nothing is owned here. It means 'it is snowing'." },
+              { "text": "Its'", "reason": "An apostrophe after the s shows owners. Is anything owned here? Try saying 'it is'." }
             ],
             "answer": 0
           }
@@ -40,7 +41,8 @@
             "format": "choose",
             "options": [
               { "text": "Whose" },
-              { "text": "Who's", "reason": "Who's means 'who is'. 'Who is beanie is this?' makes no sense." }
+              { "text": "Who's", "reason": "Who's means 'who is'. 'Who is beanie is this?' makes no sense." },
+              { "text": "Whos", "reason": "Without an apostrophe this isn't a word. Are you asking 'who is', or who owns it?" }
             ],
             "answer": 0
           }
@@ -68,7 +70,7 @@
         "options": [
           { "text": "its" },
           { "text": "it's", "reason": "It's means 'it is'. 'Curled up in it is warm nest' makes no sense." },
-          { "text": "its'", "reason": "Its never takes an apostrophe at the end. Owning its has no apostrophe." }
+          { "text": "its'", "reason": "An apostrophe after the s shows many owners. One possum owns this nest. Does owning need a mark?" }
         ],
         "answer": 0
       }
@@ -86,7 +88,7 @@
         "options": [
           { "text": "Who's" },
           { "text": "Whose", "reason": "Whose asks who owns something. This means 'who is coming?'" },
-          { "text": "Whos", "reason": "'Who is' has been shortened, so it needs an apostrophe." }
+          { "text": "Whos", "reason": "'Who is' has been squashed together here. What shows where letters are missing?" }
         ],
         "answer": 0
       }
@@ -127,24 +129,25 @@
       "id": "6.9-b1-5",
       "band": 1,
       "topic": "gaming",
-      "frame": "Mo sent Zed a message. One word is wrong.",
+      "frame": "Mo sent Zed a message about their game. One word is wrong.",
       "prompt": "Tap the wrong word, then choose the fix.",
       "success": "It's. It means 'it is your turn', so it needs the apostrophe.",
       "body": {
         "format": "fix",
         "parts": [
+          "The game saved ",
+          { "tap": "its", "reason": "The score belongs to the game. That's owning, so no apostrophe is right." },
+          " score. ",
           { "tap": "Its" },
-          " your ",
-          { "tap": "turn", "reason": "Turn is fine. Look for the word that should mean 'it is'." },
-          ", ",
-          { "tap": "Zed", "reason": "Zed is fine. Look for the word that should mean 'it is'." },
-          "!"
+          " your turn, Zed! ",
+          { "tap": "Who's", "reason": "This means 'who is next?', so the apostrophe is right." },
+          " next?"
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
           { "text": "It's" },
-          { "text": "Its'", "reason": "Its' isn't a word. 'It is' shortens to it's." },
-          { "text": "Whose", "reason": "Whose asks who owns something. You need 'it is your turn'." }
+          { "text": "Its'", "reason": "An apostrophe after the s shows owners. Does the turn belong to anything? Try 'it is'." },
+          { "text": "Whose", "reason": "'Whose your turn' makes no sense. Try 'it is your turn'. Which word squashes that?" }
         ],
         "answer": 0
       }
@@ -249,18 +252,18 @@
       "body": {
         "format": "fix",
         "parts": [
-          "The robot plugs ",
-          { "tap": "itself", "reason": "Itself is fine. Look for the word that should show owning." },
-          " in and charges ",
+          "The robot plugs itself in when ",
+          { "tap": "it's", "reason": "This means 'it is tired', so the apostrophe is right." },
+          " tired and charges ",
           { "tap": "it's" },
           " ",
-          { "tap": "battery", "reason": "Battery is fine. Look for the word just before it." },
+          { "tap": "battery", "reason": "Battery is the thing being owned. Look at the word that shows the owner." },
           " every night."
         ],
         "spot": 1,
         "options": [
           { "text": "its" },
-          { "text": "its'", "reason": "Its never has an apostrophe at the end. Owning its has none at all." },
+          { "text": "its'", "reason": "An apostrophe after the s shows many owners. One robot owns this battery. Does owning need a mark?" },
           { "text": "it is", "reason": "'Charges it is battery' makes no sense. The battery belongs to the robot." }
         ],
         "answer": 0
@@ -349,19 +352,18 @@
       "body": {
         "format": "fix",
         "parts": [
-          "The lyrebird copied a chainsaw so well that ",
+          { "tap": "It's", "reason": "This means 'it is true', so the apostrophe is right." },
+          " true! The lyrebird copied a chainsaw so well that ",
           { "tap": "it's" },
-          " song fooled ",
-          { "tap": "two", "reason": "Two is fine. Look for the word that should show owning." },
-          " ",
-          { "tap": "rangers", "reason": "Rangers is fine. Look for the word that should show owning." },
-          "."
+          " song fooled two rangers. ",
+          { "tap": "Its", "reason": "The best trick belongs to the lyrebird. That's owning, so no apostrophe is right." },
+          " best trick is a car alarm."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
           { "text": "its" },
-          { "text": "it is", "reason": "'So well that it is song fooled' makes no sense. The song belongs to the bird." },
-          { "text": "its'", "reason": "Its never has an apostrophe at the end. Owning its has none at all." },
+          { "text": "it is", "reason": "'So well that it is song fooled' makes no sense. Whose song is it?" },
+          { "text": "its'", "reason": "An apostrophe after the s shows many owners. One lyrebird owns this song." },
           { "text": "whose", "reason": "'So well that whose song fooled' doesn't work. The song simply belongs to the lyrebird." }
         ],
         "answer": 0
@@ -378,8 +380,8 @@
         "format": "choose",
         "options": [
           { "text": "Who's going to guess whose snow possum this is?" },
-          { "text": "Whose going to guess whose snow possum this is?", "reason": "The first word means 'who is going to guess', so it needs who's." },
-          { "text": "Who's going to guess who's snow possum this is?", "reason": "The second word asks who owns the possum, so it needs whose." },
+          { "text": "Whose going to guess whose snow possum this is?", "reason": "The first word means 'who is going to guess'. Is that owning or shortening?" },
+          { "text": "Who's going to guess who's snow possum this is?", "reason": "The second word asks who owns the possum. Does owning take an apostrophe?" },
           { "text": "Whose going to guess who's snow possum this is?", "reason": "Both are swapped. First 'who is going to guess', then who owns the possum." }
         ],
         "answer": 0
@@ -399,7 +401,7 @@
           " the last song, and the guitar has lost ",
           { "tap": "its", "reason": "The string belongs to the guitar, so its with no apostrophe is right." },
           " top string. ",
-          { "tap": "Who's", "reason": "Who's means 'who has got a spare?' That's right." },
+          { "tap": "Who's", "reason": "This means 'who has got a spare?', so the apostrophe is right." },
           " got a spare? ",
           { "tap": "Who's" },
           " guitar is this anyway?"
@@ -472,17 +474,17 @@
         "parts": [
           "The captain, ",
           { "tap": "who's" },
-          " beard was frozen solid, refused to turn the ",
-          { "tap": "ship", "reason": "Ship is fine. Look for the word that should show owning." },
-          " around until the ",
-          { "tap": "penguins", "reason": "Penguins is fine. Look for the word that should show owning." },
-          " had crossed."
+          " beard is frozen solid, won't move the ship until the penguins have crossed. He doesn't care ",
+          { "tap": "who's", "reason": "This means 'who is in a hurry', so the apostrophe is right." },
+          " in a hurry or ",
+          { "tap": "whose", "reason": "The cargo belongs to someone. That's owning, so no apostrophe is right." },
+          " cargo is late."
         ],
         "spot": 0,
         "options": [
           { "text": "whose" },
-          { "text": "who is", "reason": "'Who is beard was frozen' makes no sense. The beard belongs to the captain." },
-          { "text": "who has", "reason": "'Who has beard was frozen' doesn't work. The beard belongs to the captain." }
+          { "text": "who is", "reason": "'Who is beard is frozen' makes no sense. The beard belongs to the captain." },
+          { "text": "who has", "reason": "'Who has beard is frozen' doesn't work. The beard belongs to the captain." }
         ],
         "answer": 0
       }
@@ -497,7 +499,7 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "It's", "reason": "It's means 'it has been a rough season'. That's right." },
+          { "tap": "It's", "reason": "This means 'it has been a rough season', so the apostrophe is right." },
           " been a rough season. The team has lost ",
           { "tap": "its", "reason": "The coach belongs to the team, so owning its is right." },
           " coach, ",
@@ -522,7 +524,7 @@
           { "text": "Whose idea was it to let the robot reprogram its own off switch?" },
           { "text": "Who's idea was it to let the robot reprogram its own off switch?", "reason": "Who's means 'who is'. You're asking who owns the idea." },
           { "text": "Whose idea was it to let the robot reprogram it's own off switch?", "reason": "The off switch belongs to the robot. Owning its has no apostrophe." },
-          { "text": "Who's idea was it to let the robot reprogram it's own off switch?", "reason": "Both words are about owning here, so neither needs an apostrophe." }
+          { "text": "Who's idea was it to let the robot reprogram it's own off switch?", "reason": "Try 'who is idea' and 'it is own off switch'. Does either make sense?" }
         ],
         "answer": 0
       }

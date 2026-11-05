@@ -27,7 +27,8 @@
             "format": "choose",
             "options": [
               { "text": "koala's" },
-              { "text": "koalas", "reason": "Koalas just means more than one koala. It doesn't show the ears belong to it." }
+              { "text": "koalas", "reason": "Koalas just means more than one koala. It doesn't show the ears belong to it." },
+              { "text": "koalas'", "reason": "That apostrophe means many koalas share the ears. How many koalas are in the snow?" }
             ],
             "answer": 0
           }
@@ -41,7 +42,8 @@
             "format": "choose",
             "options": [
               { "text": "penguins" },
-              { "text": "penguin's", "reason": "Nothing belongs to the penguins in this sentence. It just means more than one, so no apostrophe." }
+              { "text": "penguin's", "reason": "That apostrophe shows one owner. Is anything owned in this sentence?" },
+              { "text": "penguins'", "reason": "That apostrophe shows many owners. Does anything belong to them here?" }
             ],
             "answer": 0
           }
@@ -104,9 +106,9 @@
         "bins": ["shows an owner", "just more than one"],
         "items": [
           { "text": "Mo's pie", "bin": 0, "reason": "The pie belongs to Mo, so Mo gets 's." },
-          { "text": "two pies", "bin": 1, "reason": "Pies just means more than one pie. Nothing is owned." },
+          { "text": "the pies", "bin": 1, "reason": "Pies just means more than one pie. Nothing is owned." },
           { "text": "the chef's hat", "bin": 0, "reason": "The hat belongs to the chef, so chef gets 's." },
-          { "text": "three chefs", "bin": 1, "reason": "Chefs just means more than one chef. Nothing is owned." }
+          { "text": "the chefs", "bin": 1, "reason": "Chefs just means more than one chef. Nothing is owned." }
         ]
       }
     },
@@ -201,7 +203,7 @@
         "options": [
           { "text": "The yeti's sock smelled like old cheese." },
           { "text": "The yetis sock smelled like old cheese.", "reason": "Without an apostrophe, nothing shows the sock belongs to the yeti." },
-          { "text": "The yeti sock's smelled like old cheese.", "reason": "The apostrophe has to go on the owner, the yeti, not on the sock." }
+          { "text": "The yeti sock's smelled like old cheese.", "reason": "The apostrophe goes on the owner. Does the sock own anything, or is it owned?" }
         ],
         "answer": 0
       }
@@ -220,7 +222,7 @@
           { "text": "The koala's ears were frosty.", "bin": 0, "reason": "The ears belong to the koala, so koala gets 's." },
           { "text": "The koalas huddled together.", "bin": 1, "reason": "Koalas just means more than one koala. Nothing is owned." },
           { "text": "We heard a lyrebird's song.", "bin": 0, "reason": "The song belongs to the lyrebird, so lyrebird gets 's." },
-          { "text": "Two lyrebirds danced in the snow.", "bin": 1, "reason": "Lyrebirds just means more than one lyrebird. Nothing is owned." },
+          { "text": "The lyrebirds danced in the snow.", "bin": 1, "reason": "Lyrebirds just means more than one lyrebird. Nothing is owned." },
           { "text": "The dingo's paw prints led uphill.", "bin": 0, "reason": "The paw prints belong to the dingo, so dingo gets 's." }
         ]
       }
@@ -378,7 +380,7 @@
           { "text": "Indi's best brush froze in the jar of water." },
           { "text": "Indis best brush froze in the jar of water.", "reason": "Without an apostrophe, nothing shows the brush belongs to Indi." },
           { "text": "Indi's best brush's froze in the jar of water.", "reason": "The brush doesn't own anything here, so it needs no apostrophe." },
-          { "text": "Indis' best brush froze in the jar of water.", "reason": "Her name is Indi, not Indis. The apostrophe goes straight after Indi, then s." }
+          { "text": "Indis' best brush froze in the jar of water.", "reason": "Her name is Indi, not Indis. Write the owner's name exactly first. Then where does the mark go?" }
         ],
         "answer": 0
       }
@@ -513,14 +515,14 @@
       "topic": "funny",
       "frame": "Mo's neighbour owns a dog with a taste for vegetables.",
       "prompt": "Which sentence is punctuated correctly?",
-      "success": "Every owner gets 's: Mo owns the neighbour, the neighbour owns the dog, and the snowman owns the nose.",
+      "success": "Every 's answers 'whose?': whose neighbour? Mo's. Whose dog? The neighbour's. Whose nose? The snowman's.",
       "body": {
         "format": "choose",
         "options": [
           { "text": "Mo's neighbour's dog chewed the snowman's carrot nose." },
-          { "text": "Mo's neighbours dog chewed the snowman's carrot nose.", "reason": "The dog belongs to the neighbour, so neighbour needs 's too." },
-          { "text": "Mos neighbour's dog chewed the snowman's carrot nose.", "reason": "The neighbour is Mo's neighbour, so Mo needs an apostrophe too." },
-          { "text": "Mo's neighbour's dog chewed the snowmans carrot nose.", "reason": "The carrot nose belongs to the snowman, so snowman needs 's too." }
+          { "text": "Mo's neighbours dog chewed the snowman's carrot nose.", "reason": "Check every owner in the sentence. Who owns the dog?" },
+          { "text": "Mos neighbour's dog chewed the snowman's carrot nose.", "reason": "Check every owner in the sentence. Whose neighbour is it?" },
+          { "text": "Mo's neighbour's dog chewed the snowmans carrot nose.", "reason": "Check every owner, right to the end. Whose carrot nose is it?" }
         ],
         "answer": 0
       }

@@ -103,7 +103,7 @@
           },
           {
             "text": "Mo's pizza had cheese ham and pineapple.",
-            "reason": "There's no comma, so cheese and ham run together."
+            "reason": "There's no comma, so two of the items run together. Which two?"
           },
           {
             "text": "Mo's pizza had cheese, ham and, pineapple.",
@@ -148,7 +148,7 @@
           },
           {
             "text": ", seeds nuts",
-            "reason": "That comma comes before the list starts. Seeds and nuts still run together."
+            "reason": "That comma comes before the list starts. Which two items still run together?"
           }
         ],
         "answer": 0
@@ -159,8 +159,8 @@
       "band": 1,
       "topic": "sport",
       "frame": "Tully's footy bag spilled everywhere. Pack the list back up.",
-      "prompt": "Tap the pieces in order to make a list sentence.",
-      "success": "A comma between the first two items, and 'and' before the last one.",
+      "prompt": "Tap the pieces in order to make a list sentence. Use 'and' before the last item.",
+      "success": "Commas keep the first three items apart, and 'and' joins the last. One comma is left over.",
       "body": {
         "format": "build",
         "tiles": [
@@ -168,19 +168,40 @@
           "her boots",
           ",",
           "a footy",
+          ",",
+          ",",
+          "a cap",
           "and",
           "a drink bottle",
           "."
         ],
         "accept": [
-          "Tully packed her boots, a footy and a drink bottle.",
-          "Tully packed her boots, a drink bottle and a footy.",
-          "Tully packed a footy, her boots and a drink bottle.",
-          "Tully packed a footy, a drink bottle and her boots.",
-          "Tully packed a drink bottle, her boots and a footy.",
-          "Tully packed a drink bottle, a footy and her boots."
+          "Tully packed her boots, a footy, a cap and a drink bottle.",
+          "Tully packed her boots, a footy, a drink bottle and a cap.",
+          "Tully packed her boots, a cap, a footy and a drink bottle.",
+          "Tully packed her boots, a cap, a drink bottle and a footy.",
+          "Tully packed her boots, a drink bottle, a footy and a cap.",
+          "Tully packed her boots, a drink bottle, a cap and a footy.",
+          "Tully packed a footy, her boots, a cap and a drink bottle.",
+          "Tully packed a footy, her boots, a drink bottle and a cap.",
+          "Tully packed a footy, a cap, her boots and a drink bottle.",
+          "Tully packed a footy, a cap, a drink bottle and her boots.",
+          "Tully packed a footy, a drink bottle, her boots and a cap.",
+          "Tully packed a footy, a drink bottle, a cap and her boots.",
+          "Tully packed a cap, her boots, a footy and a drink bottle.",
+          "Tully packed a cap, her boots, a drink bottle and a footy.",
+          "Tully packed a cap, a footy, her boots and a drink bottle.",
+          "Tully packed a cap, a footy, a drink bottle and her boots.",
+          "Tully packed a cap, a drink bottle, her boots and a footy.",
+          "Tully packed a cap, a drink bottle, a footy and her boots.",
+          "Tully packed a drink bottle, her boots, a footy and a cap.",
+          "Tully packed a drink bottle, her boots, a cap and a footy.",
+          "Tully packed a drink bottle, a footy, her boots and a cap.",
+          "Tully packed a drink bottle, a footy, a cap and her boots.",
+          "Tully packed a drink bottle, a cap, her boots and a footy.",
+          "Tully packed a drink bottle, a cap, a footy and her boots."
         ],
-        "reason": "Put a comma between the first two items, then 'and' before the last one."
+        "reason": "Count the items. Which ones need a comma between them, and where does 'and' do that job?"
       }
     },
     {
@@ -278,7 +299,7 @@
           },
           {
             "text": "Mo loves cooking his friends and his dog.",
-            "reason": "Without the comma, Mo loves cooking his friends and his dog. Yikes!"
+            "reason": "Without a comma, Mo is cooking his friends and his dog. Yikes! Where does the first thing he loves end?"
           },
           {
             "text": "Mo loves, cooking his friends and his dog.",
@@ -360,8 +381,8 @@
       "band": 2,
       "topic": "music",
       "frame": "Zed's band poster blew off the lodge door. Put it back together.",
-      "prompt": "Tap the pieces in order to make a list sentence.",
-      "success": "A comma between the first two items, and 'and' before the last one.",
+      "prompt": "Tap the pieces in order to make a list sentence. Use 'and' before the last item.",
+      "success": "Commas keep the first three items apart, and 'and' joins the last. One comma is left over.",
       "body": {
         "format": "build",
         "tiles": [
@@ -369,19 +390,40 @@
           "a drummer",
           ",",
           "a singer",
-          "and",
+          ",",
+          ",",
           "two guitarists",
+          "and",
+          "a piano player",
           "."
         ],
         "accept": [
-          "The band needs a drummer, a singer and two guitarists.",
-          "The band needs a drummer, two guitarists and a singer.",
-          "The band needs a singer, a drummer and two guitarists.",
-          "The band needs a singer, two guitarists and a drummer.",
-          "The band needs two guitarists, a drummer and a singer.",
-          "The band needs two guitarists, a singer and a drummer."
+          "The band needs a drummer, a singer, two guitarists and a piano player.",
+          "The band needs a drummer, a singer, a piano player and two guitarists.",
+          "The band needs a drummer, two guitarists, a singer and a piano player.",
+          "The band needs a drummer, two guitarists, a piano player and a singer.",
+          "The band needs a drummer, a piano player, a singer and two guitarists.",
+          "The band needs a drummer, a piano player, two guitarists and a singer.",
+          "The band needs a singer, a drummer, two guitarists and a piano player.",
+          "The band needs a singer, a drummer, a piano player and two guitarists.",
+          "The band needs a singer, two guitarists, a drummer and a piano player.",
+          "The band needs a singer, two guitarists, a piano player and a drummer.",
+          "The band needs a singer, a piano player, a drummer and two guitarists.",
+          "The band needs a singer, a piano player, two guitarists and a drummer.",
+          "The band needs two guitarists, a drummer, a singer and a piano player.",
+          "The band needs two guitarists, a drummer, a piano player and a singer.",
+          "The band needs two guitarists, a singer, a drummer and a piano player.",
+          "The band needs two guitarists, a singer, a piano player and a drummer.",
+          "The band needs two guitarists, a piano player, a drummer and a singer.",
+          "The band needs two guitarists, a piano player, a singer and a drummer.",
+          "The band needs a piano player, a drummer, a singer and two guitarists.",
+          "The band needs a piano player, a drummer, two guitarists and a singer.",
+          "The band needs a piano player, a singer, a drummer and two guitarists.",
+          "The band needs a piano player, a singer, two guitarists and a drummer.",
+          "The band needs a piano player, two guitarists, a drummer and a singer.",
+          "The band needs a piano player, two guitarists, a singer and a drummer."
         ],
-        "reason": "Put a comma between the first two items, then 'and' before the last one."
+        "reason": "Count the items. Which ones need a comma between them, and where does 'and' do that job?"
       }
     },
     {
@@ -467,7 +509,7 @@
           },
           {
             "text": "Pack a tent a torch, two sleeping bags and some matches.",
-            "reason": "A comma is missing between the tent and the torch."
+            "reason": "One pair of items has nothing keeping them apart. Which pair?"
           }
         ],
         "answer": 0
@@ -496,7 +538,7 @@
           },
           {
             "text": "Mo made macaroni and cheese apple pie and fruit salad.",
-            "reason": "A comma is missing after 'cheese', so you can't tell where the first dish ends."
+            "reason": "Without a comma, you can't tell where the first dish ends. Where does it finish?"
           }
         ],
         "answer": 0
@@ -538,11 +580,11 @@
           },
           {
             "text": "foam and, glitter",
-            "reason": "A comma straight after 'and' is in the wrong spot. Foam and glitter just need a comma between them."
+            "reason": "A comma straight after 'and' is in the wrong spot. Where does one item end and the next begin?"
           },
           {
             "text": "foam glitter,",
-            "reason": "A comma after 'glitter' doesn't help. Shaving foam and glitter still run together."
+            "reason": "A comma at the end of this part doesn't help. Two items in it still run together."
           }
         ],
         "answer": 0
@@ -553,8 +595,8 @@
       "band": 3,
       "topic": "animals",
       "frame": "The Stashlet's winter store was dug up. Build the list of what's inside.",
-      "prompt": "Tap the pieces in order to make a list sentence.",
-      "success": "A comma between the first two items, 'and' before the last, and one full stop at the end.",
+      "prompt": "Tap the pieces in order to make a list sentence. Use 'and' before the last item.",
+      "success": "Commas keep the first three items apart, and 'and' joins the last. One full stop ends it.",
       "body": {
         "format": "build",
         "tiles": [
@@ -562,20 +604,41 @@
           "snow-gum seeds",
           ",",
           "dried berries",
+          ",",
+          ",",
+          "a lost mitten",
           "and",
           "one very old sock",
           ".",
           "."
         ],
         "accept": [
-          "The Stashlet hides snow-gum seeds, dried berries and one very old sock.",
-          "The Stashlet hides snow-gum seeds, one very old sock and dried berries.",
-          "The Stashlet hides dried berries, snow-gum seeds and one very old sock.",
-          "The Stashlet hides dried berries, one very old sock and snow-gum seeds.",
-          "The Stashlet hides one very old sock, snow-gum seeds and dried berries.",
-          "The Stashlet hides one very old sock, dried berries and snow-gum seeds."
+          "The Stashlet hides snow-gum seeds, dried berries, a lost mitten and one very old sock.",
+          "The Stashlet hides snow-gum seeds, dried berries, one very old sock and a lost mitten.",
+          "The Stashlet hides snow-gum seeds, a lost mitten, dried berries and one very old sock.",
+          "The Stashlet hides snow-gum seeds, a lost mitten, one very old sock and dried berries.",
+          "The Stashlet hides snow-gum seeds, one very old sock, dried berries and a lost mitten.",
+          "The Stashlet hides snow-gum seeds, one very old sock, a lost mitten and dried berries.",
+          "The Stashlet hides dried berries, snow-gum seeds, a lost mitten and one very old sock.",
+          "The Stashlet hides dried berries, snow-gum seeds, one very old sock and a lost mitten.",
+          "The Stashlet hides dried berries, a lost mitten, snow-gum seeds and one very old sock.",
+          "The Stashlet hides dried berries, a lost mitten, one very old sock and snow-gum seeds.",
+          "The Stashlet hides dried berries, one very old sock, snow-gum seeds and a lost mitten.",
+          "The Stashlet hides dried berries, one very old sock, a lost mitten and snow-gum seeds.",
+          "The Stashlet hides a lost mitten, snow-gum seeds, dried berries and one very old sock.",
+          "The Stashlet hides a lost mitten, snow-gum seeds, one very old sock and dried berries.",
+          "The Stashlet hides a lost mitten, dried berries, snow-gum seeds and one very old sock.",
+          "The Stashlet hides a lost mitten, dried berries, one very old sock and snow-gum seeds.",
+          "The Stashlet hides a lost mitten, one very old sock, snow-gum seeds and dried berries.",
+          "The Stashlet hides a lost mitten, one very old sock, dried berries and snow-gum seeds.",
+          "The Stashlet hides one very old sock, snow-gum seeds, dried berries and a lost mitten.",
+          "The Stashlet hides one very old sock, snow-gum seeds, a lost mitten and dried berries.",
+          "The Stashlet hides one very old sock, dried berries, snow-gum seeds and a lost mitten.",
+          "The Stashlet hides one very old sock, dried berries, a lost mitten and snow-gum seeds.",
+          "The Stashlet hides one very old sock, a lost mitten, snow-gum seeds and dried berries.",
+          "The Stashlet hides one very old sock, a lost mitten, dried berries and snow-gum seeds."
         ],
-        "reason": "Items in a list are split by commas, not full stops. 'And' joins the last one."
+        "reason": "Count the items. Commas split them, not full stops. Where does 'and' do the comma's job?"
       }
     },
     {
@@ -627,9 +690,9 @@
         ],
         "items": [
           {
-            "text": "Tully's bag held boots, shin, pads and a mouthguard.",
+            "text": "Tully's bag held boots, shin pads and a mouthguard.",
             "bin": 0,
-            "reason": "'Shin pads' is one thing, so no comma goes between 'shin' and 'pads'."
+            "reason": "A comma splits boots from shin pads, and 'shin pads' stays whole."
           },
           {
             "text": "Tully's bag held boots shin pads and a mouthguard.",
@@ -637,9 +700,9 @@
             "reason": "A comma is missing between boots and shin pads."
           },
           {
-            "text": "Tully's bag held boots shin pads, and a mouthguard.",
+            "text": "Tully's bag held boots, shin, pads and a mouthguard.",
             "bin": 2,
-            "reason": "The comma belongs after 'boots', not after 'pads'."
+            "reason": "'Shin pads' is one thing. Don't split it."
           },
           {
             "text": "Tully packed a ball a water bottle and a towel.",
@@ -716,7 +779,7 @@
           },
           {
             "text": "The expedition carried crampons ice axes, a satellite phone and enough food for a fortnight.",
-            "reason": "A comma is missing between crampons and ice axes."
+            "reason": "One pair of items has nothing keeping them apart. Which pair?"
           }
         ],
         "answer": 0
@@ -754,7 +817,7 @@
           },
           {
             "text": "meteorites the,",
-            "reason": "That comma splits 'the' from 'frozen lake'. The comma belongs after 'meteorites'."
+            "reason": "That comma splits 'the' from 'frozen lake'. Where does one item really end?"
           },
           {
             "text": "meteorites. The",
@@ -762,7 +825,7 @@
           },
           {
             "text": "meteorites, the,",
-            "reason": "The second comma splits 'the' from 'frozen lake'. Only the comma after 'meteorites' is needed."
+            "reason": "The second comma splits 'the' from 'frozen lake'. How many commas does this gap need?"
           }
         ],
         "answer": 0
@@ -773,8 +836,8 @@
       "band": 4,
       "topic": "art",
       "frame": "Indi's sign for her winter festival stall got scattered by the wind.",
-      "prompt": "Tap the pieces in order to make a list sentence.",
-      "success": "A comma between the first two items, and 'and' before the last one.",
+      "prompt": "Tap the pieces in order to make a list sentence. Use 'and' before the last item.",
+      "success": "Commas keep the first three items apart, and 'and' joins the last. One full stop ends it.",
       "body": {
         "format": "build",
         "tiles": [
@@ -782,20 +845,41 @@
           "painted lanterns",
           ",",
           "knitted beanies",
+          ",",
+          ",",
+          "snow globes",
           "and",
           "tiny ice sculptures",
           ".",
           "."
         ],
         "accept": [
-          "Indi's stall sold painted lanterns, knitted beanies and tiny ice sculptures.",
-          "Indi's stall sold painted lanterns, tiny ice sculptures and knitted beanies.",
-          "Indi's stall sold knitted beanies, painted lanterns and tiny ice sculptures.",
-          "Indi's stall sold knitted beanies, tiny ice sculptures and painted lanterns.",
-          "Indi's stall sold tiny ice sculptures, painted lanterns and knitted beanies.",
-          "Indi's stall sold tiny ice sculptures, knitted beanies and painted lanterns."
+          "Indi's stall sold painted lanterns, knitted beanies, snow globes and tiny ice sculptures.",
+          "Indi's stall sold painted lanterns, knitted beanies, tiny ice sculptures and snow globes.",
+          "Indi's stall sold painted lanterns, snow globes, knitted beanies and tiny ice sculptures.",
+          "Indi's stall sold painted lanterns, snow globes, tiny ice sculptures and knitted beanies.",
+          "Indi's stall sold painted lanterns, tiny ice sculptures, knitted beanies and snow globes.",
+          "Indi's stall sold painted lanterns, tiny ice sculptures, snow globes and knitted beanies.",
+          "Indi's stall sold knitted beanies, painted lanterns, snow globes and tiny ice sculptures.",
+          "Indi's stall sold knitted beanies, painted lanterns, tiny ice sculptures and snow globes.",
+          "Indi's stall sold knitted beanies, snow globes, painted lanterns and tiny ice sculptures.",
+          "Indi's stall sold knitted beanies, snow globes, tiny ice sculptures and painted lanterns.",
+          "Indi's stall sold knitted beanies, tiny ice sculptures, painted lanterns and snow globes.",
+          "Indi's stall sold knitted beanies, tiny ice sculptures, snow globes and painted lanterns.",
+          "Indi's stall sold snow globes, painted lanterns, knitted beanies and tiny ice sculptures.",
+          "Indi's stall sold snow globes, painted lanterns, tiny ice sculptures and knitted beanies.",
+          "Indi's stall sold snow globes, knitted beanies, painted lanterns and tiny ice sculptures.",
+          "Indi's stall sold snow globes, knitted beanies, tiny ice sculptures and painted lanterns.",
+          "Indi's stall sold snow globes, tiny ice sculptures, painted lanterns and knitted beanies.",
+          "Indi's stall sold snow globes, tiny ice sculptures, knitted beanies and painted lanterns.",
+          "Indi's stall sold tiny ice sculptures, painted lanterns, knitted beanies and snow globes.",
+          "Indi's stall sold tiny ice sculptures, painted lanterns, snow globes and knitted beanies.",
+          "Indi's stall sold tiny ice sculptures, knitted beanies, painted lanterns and snow globes.",
+          "Indi's stall sold tiny ice sculptures, knitted beanies, snow globes and painted lanterns.",
+          "Indi's stall sold tiny ice sculptures, snow globes, painted lanterns and knitted beanies.",
+          "Indi's stall sold tiny ice sculptures, snow globes, knitted beanies and painted lanterns."
         ],
-        "reason": "Items in a list are split by commas, not full stops. 'And' joins the last one."
+        "reason": "Count the items. Commas split them, not full stops. Where does 'and' do the comma's job?"
       }
     },
     {
@@ -900,7 +984,7 @@
           },
           {
             "text": "The snow carnival had a sack race an egg and spoon race and a tug of war.",
-            "reason": "A comma is missing between the sack race and the egg and spoon race."
+            "reason": "One pair of items has nothing keeping them apart. Which pair?"
           }
         ],
         "answer": 0
