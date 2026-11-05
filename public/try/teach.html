@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Inkwild · Teaching try-out · Skill 5.2</title>
+<style>
+:root {
+  --line: #0b0f22;
+  --panel: #1f2850;
+  --panel2: #2a3466;
+  --ink: #f4f1e8;
+  --gold: #f2c14e;
+  --gold-d: #a8792a;
+  --sky: #8fd3ff;
+  --sky-d: #4b8fbf;
+  --soft: #3a4688;
+  --good: #45d16b;
+  --bad: #ff7a6b;
+  --paper: #f4f1e8;
+  --paper-ink: #1b1f3a;
+  --pixel: 'Press Start 2P', ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
+  --read: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  --read-size: 21px;
+  /* Chunk colours: one colour per idea, everywhere. */
+  --main-bg: #ffe9a8; --main-bd: #e0a92e;
+  --dep-bg: #c9ecff;  --dep-bd: #3c8fd0;
+  --join-bg: #ffd2c9; --join-bd: #d9583b;
+  --who-bg: #d3f4d8;  --who-bd: #3aa55a;
+  --did-bg: #eadcff;  --did-bd: #8a5cd6;
+  --cl-bg: #e7e4f2;   --cl-bd: #8a86a8;
+  --bw: 150px; --bh: 180px; --ground: 46px; --foot: 18px;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { touch-action: manipulation; -webkit-text-size-adjust: 100%; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% -10%, #2b3678, #0d1126 70%) #0d1126;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--pixel); font-weight: 700; font-size: 13px; line-height: 1.6;
+  -webkit-user-select: none; user-select: none;
+}
+button, [role=button] { touch-action: manipulation; font: inherit; }
+
+/* ---------- top bar and tabs ---------- */
+.top {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(13, 17, 38, 0.96); border-bottom: 4px solid var(--line);
+  padding: max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 12px max(14px, env(safe-area-inset-left));
+}
+.brand { color: var(--sky); font-size: 11px; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+.tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 1100px; margin: 0 auto; }
+.tab {
+  min-height: 60px; padding: 8px 6px; font: 700 13px/1.3 var(--pixel); text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--ink); background: var(--panel2); border: 4px solid var(--line);
+  box-shadow: 0 5px 0 #121736, 0 5px 0 4px var(--line); cursor: pointer;
+}
+.tab[aria-selected="true"] { background: var(--gold); color: #111; box-shadow: 0 5px 0 var(--gold-d), 0 5px 0 4px var(--line); }
+.tab:active { transform: translateY(3px); }
+
+main { margin: 0 auto; padding: 16px max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left)); }
+.pane { max-width: 900px; margin: 0 auto; }
+.pane[hidden] { display: none; }
+.b-grid { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "say" "stage" "tray" "out"; column-gap: 18px; }
+.b-say { grid-area: say; } .b-stage { grid-area: stage; } .b-tray { grid-area: tray; } .b-out { grid-area: out; }
+.b-tray .tray { margin-top: 10px; }
+.pane-bar { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin: 6px 0 14px; }
+.pane-bar h1 { font-size: 18px; margin: 0; color: var(--gold); text-shadow: 3px 3px 0 var(--line); letter-spacing: 1px; font-weight: 700; }
+.pane-bar p { margin: 4px 0 0; font: 400 15px/1.4 var(--read); color: var(--sky); }
+
+h2 { font-size: 16px; font-weight: 700; color: var(--gold); text-shadow: 3px 3px 0 var(--line); margin: 0 0 12px; letter-spacing: 1px; }
+.frame { color: var(--sky); font-size: 12px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+.panel {
+  background: var(--panel); border: 4px solid var(--line);
+  box-shadow: inset 0 0 0 4px var(--soft), 6px 6px 0 var(--line);
+  padding: 18px; margin-bottom: 16px;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  font: 700 14px/1.2 var(--pixel); color: #111; background: var(--gold); text-transform: uppercase; letter-spacing: 0.5px;
+  border: 4px solid var(--line); padding: 14px 18px; min-height: 56px; min-width: 56px;
+  box-shadow: 0 5px 0 var(--gold-d), 0 5px 0 4px var(--line); cursor: pointer;
+}
+.btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 1px 0 var(--gold-d), 0 1px 0 4px var(--line); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.alt { background: var(--sky); box-shadow: 0 5px 0 var(--sky-d), 0 5px 0 4px var(--line); }
+.btn.ghost { background: var(--panel2); color: var(--ink); box-shadow: 0 5px 0 #121736, 0 5px 0 4px var(--line); }
+.btn.go { background: var(--good); box-shadow: 0 5px 0 #2a8a45, 0 5px 0 4px var(--line); }
+.btn.big { font-size: 17px; padding: 18px 26px; }
+.row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.actions { display: flex; gap: 14px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+
+/* ---------- reading text, speech ---------- */
+.reading { font-family: var(--read); font-weight: 500; font-size: var(--read-size); line-height: 1.5; }
+.speech { background: var(--paper); color: var(--paper-ink); border: 4px solid var(--line); box-shadow: 6px 6px 0 var(--line); padding: 14px 16px; flex: 1; }
+.speech > b { display: block; font-family: var(--pixel); font-size: 12px; color: #a8442a; margin-bottom: 6px; letter-spacing: 1px; }
+.talk { display: flex; gap: 16px; align-items: flex-start; }
+.talk canvas { flex: none; }
+canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+.paper { background: var(--paper); color: var(--paper-ink); border: 4px solid var(--line); padding: 16px 18px; margin: 14px 0; }
+.ask { font-family: var(--read); font-size: calc(var(--read-size) * 1.02); font-weight: 700; margin: 14px 0 10px; color: var(--ink); }
+.yesno { display: flex; gap: 16px; }
+.yesno .btn { min-width: 140px; font-size: 18px; }
+.btn.tried { opacity: 0.55; }
+.btn.right { background: var(--good); box-shadow: 0 5px 0 #2a8a45, 0 5px 0 4px var(--line); }
+.fb { margin-top: 14px; padding: 14px 16px; border: 4px solid var(--line); font-family: var(--read); font-weight: 500; font-size: calc(var(--read-size) * 0.95); line-height: 1.45; }
+.fb > b { display: block; font-family: var(--pixel); font-size: 12px; margin-bottom: 6px; letter-spacing: 1px; }
+.fb.look { background: #3a2f5e; } .fb.look > b { color: var(--gold); }
+.fb.good { background: #1f4a37; } .fb.good > b { color: var(--good); }
+.fb .extra { margin-top: 8px; font-weight: 700; color: #bff5cf; }
+.dots { display: flex; gap: 8px; }
+.dots i { width: 14px; height: 14px; border: 3px solid var(--line); background: var(--panel2); display: block; }
+.dots i.on { background: var(--gold); }
+.foot-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+
+/* ---------- labelled chunks ---------- */
+.sent { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 8px; font-family: var(--read); font-weight: 700; font-size: calc(var(--read-size) * 1.15); line-height: 1.3; color: var(--paper-ink); }
+.sent.col { flex-direction: column; align-items: stretch; }
+.ch { display: inline-flex; flex-direction: column; align-items: stretch; border: 0; background: none; color: inherit; padding: 0; margin: 0; font: inherit; text-align: left; border-radius: 6px; }
+.ch-t { display: block; padding: 6px 8px; border-radius: 6px; border-bottom: 5px solid transparent; }
+.ch-tag {
+  display: block; align-self: flex-start; margin-top: 5px; padding: 3px 6px 2px;
+  font: 700 12px/1.3 var(--pixel); letter-spacing: 0.5px; color: #10142c; white-space: nowrap;
+  background: var(--tag, #ccc); border: 2px solid var(--line); visibility: hidden;
+}
+.ch.no-tag > .ch-tag { display: none; }
+.ch.on > .ch-tag { visibility: visible; animation: pop 0.4s ease-out; }
+.c-main { --bg: var(--main-bg); --bd: var(--main-bd); --tag: var(--gold); }
+.c-dep  { --bg: var(--dep-bg);  --bd: var(--dep-bd);  --tag: var(--sky); }
+.c-join { --bg: var(--join-bg); --bd: var(--join-bd); --tag: #ffa594; }
+.c-who  { --bg: var(--who-bg);  --bd: var(--who-bd);  --tag: #7fe08f; }
+.c-did  { --bg: var(--did-bg);  --bd: var(--did-bd);  --tag: #c7a8ff; }
+.c-clause { --bg: var(--cl-bg); --bd: var(--cl-bd); --tag: #cfcbe6; }
+.ch.on:not(.grp) > .ch-t { background: var(--bg); border-bottom-color: var(--bd); }
+.grp { padding: 6px; border: 3px solid transparent; }
+.grp > .grp-row { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: flex-start; }
+.grp.on { background: var(--bg); background: color-mix(in srgb, var(--bg) 60%, white); border-color: var(--bd); }
+.grp.on > .ch-tag { margin-top: 6px; }
+/* a whole clause shown as one chunk gets the same box as a clause made of smaller chunks */
+.ch.on:not(.grp).c-main, .ch.on:not(.grp).c-dep, .ch.on:not(.grp).c-clause { padding: 6px; border: 3px solid var(--bd); background: var(--bg); background: color-mix(in srgb, var(--bg) 60%, white); }
+.ch.on:not(.grp).c-main > .ch-t, .ch.on:not(.grp).c-dep > .ch-t, .ch.on:not(.grp).c-clause > .ch-t { background: transparent; border: 0; padding: 6px 6px 2px; }
+/* tappable chunks */
+button.ch.tapme { cursor: pointer; min-height: 56px; }
+button.ch.tapme > .ch-t, button.grp.tapme { box-shadow: 0 0 0 0 transparent; }
+button.ch.tapme:not(.grp) > .ch-t { background: #fff3c4; border: 2px dashed #8a7a3a; border-bottom-width: 5px; min-height: 52px; display: flex; align-items: center; }
+button.grp.tapme { background: #fff3c4; border: 3px dashed #8a7a3a; min-height: 56px; }
+button.ch.tapme.on:not(.grp) > .ch-t { background: var(--bg); border: 2px solid var(--bd); border-bottom-width: 5px; }
+button.grp.tapme.on { background: color-mix(in srgb, var(--bg) 60%, white); border: 3px solid var(--bd); }
+button.ch.tapme.on:not(.grp).c-main > .ch-t, button.ch.tapme.on:not(.grp).c-dep > .ch-t, button.ch.tapme.on:not(.grp).c-clause > .ch-t { background: transparent; border: 0; min-height: 0; }
+button.ch.tapme:active:not(:disabled) { transform: translateY(2px); }
+button.ch.tapme.tried { opacity: 0.55; }
+button.ch:disabled { cursor: default; }
+.strike { text-decoration: line-through; text-decoration-thickness: 3px; opacity: 0.5; }
+
+/* ---------- NOW tab: the game's own look ---------- */
+.speech.beat { min-height: 170px; }
+.show { margin-top: 12px; font-size: calc(var(--read-size) * 1.25); font-weight: 600; line-height: 1.7; }
+.hl { padding: 1px 5px; border-radius: 4px; border-bottom: 4px solid; }
+.hl-1 { background: #ffe9a8; border-color: #e0a92e; }
+.hl-2 { background: #c9ecff; border-color: #3c8fd0; }
+.hl-3 { background: #ffd2c9; border-color: #d9583b; }
+.why { font-family: var(--read); font-weight: 500; font-size: calc(var(--read-size) * 0.85); color: var(--sky); margin: 12px 0; }
+.why b { font-family: var(--pixel); font-size: 11px; }
+.prompt { font-family: var(--read); font-size: calc(var(--read-size) * 0.95); font-weight: 600; margin: 10px 0; }
+.hint { font-family: var(--read); font-weight: 500; font-size: calc(var(--read-size) * 0.85); color: var(--sky); margin: 8px 0; }
+.passage { background: var(--paper); color: var(--paper-ink); padding: 16px 18px; border: 4px solid var(--line); margin: 12px 0; font-family: var(--read); font-size: var(--read-size); line-height: 2.2; }
+.tap {
+  font-family: var(--read); font-size: inherit; font-weight: 600; color: var(--paper-ink);
+  background: #fff3c4; border: 2px dashed #8a7a3a; padding: 6px 8px; min-height: 56px;
+  margin: 2px 0; line-height: 1.4; border-radius: 4px; cursor: pointer;
+}
+.tap.crossed { background: #e6c9c4; text-decoration: line-through; }
+.tap.right { background: var(--good); }
+.chips { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.chip { font-family: var(--read); font-size: var(--read-size); font-weight: 600; padding: 10px 18px; text-transform: none; letter-spacing: 0; }
+.chip.crossed { background: #c9c3b6; text-decoration: line-through; }
+.chip.right { background: var(--good); }
+.bob { animation: idle 1.2s steps(2) infinite; }
+@keyframes idle { 50% { transform: translateY(-6px); } }
+
+/* ---------- B: blocks ---------- */
+.stage {
+  position: relative; height: 330px; margin: 14px 0 6px; overflow: hidden;
+  background: linear-gradient(#7cc4ff, #b4e1ff);
+  border: 4px solid var(--line); box-shadow: 6px 6px 0 var(--line);
+}
+.stage .ground { position: absolute; left: 0; right: 0; bottom: 0; height: var(--ground); background: #9bd16a; border-top: 6px solid #5a8a3f; }
+.stage .ground::after { content: ''; position: absolute; inset: 10px 0 0; background: repeating-linear-gradient(90deg, transparent 0 22px, #86bd57 22px 30px); opacity: 0.7; }
+.blk {
+  position: absolute; width: var(--bw); height: var(--bh);
+  border: 4px solid var(--line); color: var(--paper-ink);
+  box-shadow: inset -6px -6px 0 rgba(0,0,0,0.12), inset 6px 6px 0 rgba(255,255,255,0.55);
+  font: 700 19px/1.25 var(--read); padding: 26px 10px 30px; text-align: center;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  touch-action: none; cursor: grab;
+  transition: left 0.35s ease, bottom 0.35s ease, transform 0.45s cubic-bezier(0.55, 0.05, 0.9, 0.45), opacity 0.3s;
+}
+.blk.main { background: var(--main-bg); bottom: var(--ground); z-index: 2; }
+.blk.dep { background: var(--dep-bg); bottom: calc(var(--ground) + var(--foot)); z-index: 1; }
+/* main clause: two flat feet. dependent clause: one pointy foot, so it can't stand by itself */
+.blk.main::before, .blk.main::after { content: ''; position: absolute; bottom: -4px; width: 34px; height: 10px; background: var(--main-bd); border-top: 4px solid var(--line); }
+.blk.main::before { left: 10px; } .blk.main::after { right: 10px; }
+.blk.dep::after { content: ''; position: absolute; left: 50%; bottom: calc(-1 * var(--foot) - 4px); margin-left: -16px; border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: calc(var(--foot) + 2px) solid var(--line); }
+.blk .hook { position: absolute; top: 44%; width: 14px; height: 30px; background: var(--dep-bd); border: 4px solid var(--line); display: none; }
+.blk.dep.joins-right .hook { display: block; right: -16px; border-left: 0; }
+.blk.dep.joins-left .hook { display: block; left: -16px; border-right: 0; }
+.blk .jw { background: var(--join-bg); border-bottom: 4px solid var(--join-bd); padding: 0 3px; border-radius: 3px; }
+.blk:not(.named) .jw { background: none; border-bottom-color: transparent; }
+.blk .blk-tag, .blk .blk-jtag {
+  position: absolute; left: 4px; right: 4px; font: 700 11px/1.3 var(--pixel); letter-spacing: 0; text-align: center;
+  border: 2px solid var(--line); padding: 2px 2px; visibility: hidden; color: #10142c;
+}
+.blk .blk-tag { bottom: 6px; }
+.blk .blk-jtag { top: 6px; background: #ffa594; }
+.blk.main .blk-tag { background: var(--gold); }
+.blk.dep .blk-tag { background: var(--sky); }
+.blk.named .blk-tag, .blk.named .blk-jtag { visibility: visible; animation: pop 0.4s ease-out; }
+.blk.drag { cursor: grabbing; transition: none !important; z-index: 60 !important; box-shadow: inset -6px -6px 0 rgba(0,0,0,0.12), inset 6px 6px 0 rgba(255,255,255,0.55), 8px 12px 0 rgba(11,15,34,0.5); }
+.blk.picked { outline: 5px solid var(--gold); outline-offset: 3px; }
+.blk.glow { animation: glow 1s ease-in-out infinite; }
+@keyframes glow { 50% { outline: 5px solid #fff; outline-offset: 4px; } }
+.blk.wobble { animation: wobble 0.6s ease-in-out; transform-origin: 50% 100%; }
+@keyframes wobble { 20% { transform: rotate(5deg); } 45% { transform: rotate(-4deg); } 70% { transform: rotate(2deg); } 100% { transform: rotate(0); } }
+.blk.snapflash { animation: snapflash 0.5s ease-out; }
+@keyframes snapflash { 0% { filter: brightness(1.6); } 100% { filter: none; } }
+.tray {
+  display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; min-height: calc(var(--bh) + 60px);
+  padding: 14px 14px 34px; background: var(--panel2); border: 4px solid var(--line); margin-top: 10px; position: relative;
+}
+.tray .blk { position: relative; left: auto; bottom: auto; }
+.tray .blk.used { visibility: hidden; }
+/* in the tray every block looks the same, so colour and feet don't give the answer away */
+.tray .blk { background: var(--paper); }
+.tray .blk::before, .tray .blk::after { display: none; }
+.tray-label { position: absolute; left: 10px; top: 6px; font-size: 10px; color: var(--sky); }
+.slot {
+  position: absolute; width: var(--bw); height: var(--bh); bottom: calc(var(--ground) + var(--foot));
+  border: 4px dashed #fff; background: rgba(255,255,255,0.28); color: var(--line);
+  font: 700 13px/1.3 var(--pixel); display: grid; place-items: center; cursor: pointer; z-index: 3; padding: 6px;
+}
+.slot:active { background: rgba(255,255,255,0.5); }
+.do-line { display: inline-block; margin-top: 12px; padding: 10px 14px; background: var(--gold); color: #111; border: 4px solid var(--line); font: 700 calc(var(--read-size) * 0.95)/1.35 var(--read); }
+.howto { font-size: 10px; color: var(--sky); margin-top: 8px; letter-spacing: 0.5px; }
+
+/* ---------- C: chat ---------- */
+.chat { display: flex; flex-direction: column; gap: 14px; padding: 4px 0 8px; }
+.msg { display: flex; gap: 10px; align-items: flex-end; animation: rise 0.3s ease-out; }
+.msg.zed { flex-direction: row-reverse; }
+.msg canvas { flex: none; }
+.bubble { background: var(--paper); color: var(--paper-ink); border: 4px solid var(--line); box-shadow: 4px 4px 0 var(--line); padding: 12px 14px; max-width: 82%; }
+.bubble > b { display: block; font: 700 11px var(--pixel); letter-spacing: 1px; margin-bottom: 4px; }
+.msg.wren .bubble > b { color: #b8336a; }
+.msg.zed .bubble > b { color: #6a3fb0; }
+.msg.zed .bubble { background: #efe8ff; }
+.bubble .sent { margin-top: 10px; font-size: calc(var(--read-size) * 1.05); }
+.msg.you { justify-content: center; }
+.you-chip { background: var(--good); color: #10142c; border: 4px solid var(--line); padding: 8px 12px; font-size: 11px; letter-spacing: 0.5px; }
+.typing { display: flex; gap: 6px; padding: 6px 4px; }
+.typing i { width: 10px; height: 10px; background: var(--sky); display: block; animation: blink 1s steps(2) infinite; }
+.typing i:nth-child(2) { animation-delay: 0.2s; } .typing i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink { 50% { opacity: 0.2; } }
+.vote-q { font-family: var(--read); font-weight: 700; font-size: calc(var(--read-size) * 1.02); margin: 6px 0 12px; }
+.vote { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vote-btn {
+  display: flex; gap: 12px; align-items: center; text-align: left; min-height: 110px; padding: 12px 14px; cursor: pointer;
+  background: var(--paper); color: var(--paper-ink); border: 4px solid var(--line); box-shadow: 0 6px 0 #b9b2a0, 0 6px 0 4px var(--line);
+  font: 600 calc(var(--read-size) * 0.95)/1.35 var(--read);
+}
+.vote-btn b { display: block; font: 700 12px var(--pixel); letter-spacing: 1px; margin-bottom: 4px; }
+.vote-btn.wren b { color: #b8336a; } .vote-btn.zed b { color: #6a3fb0; }
+.vote-btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 2px 0 #b9b2a0, 0 2px 0 4px var(--line); }
+.vote-btn.tried { opacity: 0.55; }
+.vote-btn:disabled { cursor: default; }
+.skip-hint { font-size: 10px; color: var(--sky); text-align: center; margin-top: 6px; }
+
+/* ---------- move card ---------- */
+.card { background: var(--paper); color: var(--paper-ink); border: 4px solid var(--line); box-shadow: inset 0 0 0 4px #d8d0bb, 8px 8px 0 var(--line); padding: 20px 22px; }
+.card h2 { color: #a8442a; text-shadow: none; font-size: 18px; margin-bottom: 4px; }
+.card .sub { font: 600 17px var(--read); color: #555b80; margin-bottom: 14px; }
+.defs { display: grid; gap: 12px; margin: 10px 0 16px; }
+.def { display: grid; grid-template-columns: 210px 1fr; gap: 12px; align-items: start; font: 500 calc(var(--read-size) * 0.95)/1.4 var(--read); }
+.def .ch-tag { visibility: visible; font-size: 11px; margin-top: 3px; }
+.ex { border-top: 3px dashed #c9c1aa; padding-top: 12px; margin-top: 12px; }
+.ex .sent { font-size: calc(var(--read-size) * 1.05); }
+.test { margin-top: 16px; background: #1f2850; color: var(--ink); border: 4px solid var(--line); padding: 14px 16px; font: 700 calc(var(--read-size) * 1.05)/1.45 var(--read); }
+.test b { display: block; font: 700 11px var(--pixel); color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
+.joins { font: 600 16px var(--read); color: #555b80; margin-top: 6px; }
+.timing { font: 400 15px var(--read); color: var(--sky); margin-top: 14px; }
+
+/* ---------- links ---------- */
+.links { display: flex; justify-content: center; gap: 14px; padding: 18px 16px max(22px, env(safe-area-inset-bottom)); border-top: 4px solid var(--line); margin-top: 20px; background: rgba(13,17,38,0.8); }
+.links a { display: inline-flex; align-items: center; min-height: 56px; padding: 0 18px; color: var(--ink); text-decoration: none; background: var(--panel2); border: 4px solid var(--line); box-shadow: 0 5px 0 #121736, 0 5px 0 4px var(--line); font-size: 13px; }
+
+.pop { animation: pop 0.4s ease-out; }
+@keyframes pop { 0% { transform: scale(0.6); opacity: 0; } 70% { transform: scale(1.06); } 100% { transform: scale(1); opacity: 1; } }
+.shake { animation: shake 0.35s steps(2) 2; }
+@keyframes shake { 25% { transform: translate(-6px, 1px); } 75% { transform: translate(6px, -1px); } }
+@keyframes rise { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+@media (orientation: landscape) and (min-width: 1000px) {
+  /* Build it: talk on the left, blocks on the right, so stage and tray fit on one screen */
+  .pane.wide { max-width: 1140px; }
+  .b-grid { grid-template-columns: 340px minmax(0, 1fr); grid-template-areas: "say stage" "out tray"; align-items: start; }
+  .b-grid .talk { flex-direction: column; gap: 10px; }
+  .stage { height: 290px; margin-top: 0; }
+  .b-tray .tray { min-height: calc(var(--bh) + 50px); padding-bottom: 26px; }
+  .b-out .paper { margin-top: 12px; }
+  .b-out .sent { font-size: calc(var(--read-size) * 1.0); }
+  .pane-bar { margin: 0 0 10px; }
+  .brand { display: none; }
+}
+@media (max-width: 700px) {
+  .tab { font-size: 11px; }
+  .def { grid-template-columns: 1fr; gap: 4px; }
+  .vote { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">Inkwild · teaching try-out · Skill 5.2 main and dependent clauses</div>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+</header>
+<main id="main"></main>
+<footer class="links"><a href="../">Back to the game</a></footer>
+
+<script>
+'use strict';
+
+/* =========================================================
+   Tiny helpers
+   ========================================================= */
+function h(tag, attrs) {
+  const el = document.createElement(tag);
+  if (attrs) for (const k in attrs) {
+    const v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === 'class') el.className = v;
+    else if (k === 'style') el.style.cssText = v;
+    else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  const kids = Array.prototype.slice.call(arguments, 2);
+  (function add(list) {
+    for (const c of list) {
+      if (c == null || c === false) continue;
+      if (Array.isArray(c)) add(c);
+      else el.append(c instanceof Node ? c : String(c));
+    }
+  })(kids);
+  return el;
+}
+function btn(cls, label, onclick) { return h('button', { class: 'btn ' + (cls || ''), type: 'button', onclick: onclick }, label); }
+function shuffle(n) {
+  const idx = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+  return idx;
+}
+function shakeEl(el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+function scrollToEl(el) { setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 30); }
+
+/* =========================================================
+   Pixel portraits (same rows as src/art/captain.ts)
+   ========================================================= */
+const BODY = [
+  '......sss.......', '....bbbbbbb.....', '...sbbbbbbbs....', '...s.bbbbb.s....',
+  '.....bbbbb......', '.....pp.pp......', '.....pp.pp......', '....kk...kk.....',
+];
+const PONYTAIL = ['......hhhh......', '.....hhhhhhh....', '.....hsssh.hh...', '.....skssk..h...', '.....sssss......'];
+const BEANIE = ['.......r........', '......rrrr......', '.....rrrrrr.....', '.....skssk......', '.....sssss......'];
+const LOOKS = {
+  wren: { rows: ['................'].concat(PONYTAIL, BODY), pal: { s: '#c98d5f', h: '#5a3a22', b: '#ff8fb1', r: '#ff8fb1', p: '#2b2f4a', k: '#1b1b1b' } },
+  zed: { rows: ['................'].concat(BEANIE, BODY), pal: { s: '#f6d3b3', h: '#3a3a8a', b: '#9b6fd1', r: '#9b6fd1', p: '#2b2f4a', k: '#1b1b1b' } },
+};
+function portrait(who, scale) {
+  const def = LOOKS[who];
+  const c = document.createElement('canvas');
+  c.width = def.rows[0].length * scale; c.height = def.rows.length * scale;
+  const g = c.getContext('2d');
+  def.rows.forEach((row, y) => { for (let x = 0; x < row.length; x++) { const col = def.pal[row[x]]; if (col) { g.fillStyle = col; g.fillRect(x * scale, y * scale, scale, scale); } } });
+  c.setAttribute('aria-label', who === 'wren' ? 'Wren' : 'Zed');
+  return c;
+}
+
+/* =========================================================
+   Labelled chunks
+   piece = { id, t, c, tag, on, tap }  or  { id, kids:[...], c, tag, on, tap }
+   c: main | dep | join | who | did | clause
+   ========================================================= */
+function P(id, t, c, tag, more) { return Object.assign({ id: id, t: t, c: c, tag: tag }, more || {}); }
+function G(id, kids, c, tag, more) { return Object.assign({ id: id, kids: kids, c: c, tag: tag }, more || {}); }
+
+function sentence(pieces, opts) {
+  opts = opts || {};
+  const byId = {};
+  function make(p, insideButton) {
+    const group = !!p.kids;
+    const asButton = !!p.tap && !insideButton && !!opts.onTap;
+    const cls = ['ch', group ? 'grp' : '', p.c ? 'c-' + p.c : '', p.on ? 'on' : '', p.tag ? '' : 'no-tag', asButton ? 'tapme' : ''].join(' ');
+    const el = h(asButton ? 'button' : 'span', { class: cls, type: asButton ? 'button' : null });
+    if (group) el.append(h('span', { class: 'grp-row' }, p.kids.map((k) => make(k, insideButton || asButton))));
+    else el.append(h('span', { class: 'ch-t' }, p.t));
+    el.append(h('span', { class: 'ch-tag' }, p.tag || ' '));
+    if (p.id) byId[p.id] = el;
+    if (asButton) el.addEventListener('click', () => opts.onTap(p.id, el));
+    return el;
+  }
+  const el = h('div', { class: 'sent' + (opts.col ? ' col' : '') }, pieces.map((p) => make(p, false)));
+  return {
+    el: el, byId: byId,
+    reveal(ids) { ids.forEach((id) => byId[id] && byId[id].classList.add('on')); },
+    lock() { el.querySelectorAll('button').forEach((b) => { b.disabled = true; b.classList.remove('tried'); }); },
+  };
+}
+
+/* Pieces reused across tabs */
+const SHOW = {
+  fullBoth: () => [
+    G('d', [P('w', 'When', 'join', 'JOINING WORD', { on: 1 }), P('r', 'the joey sneezed,')], 'dep', 'DEPENDENT CLAUSE', { on: 1 }),
+    P('m', 'Wren grabbed a tissue.', 'main', 'MAIN CLAUSE', { on: 1 }),
+  ],
+  gusBoth: () => [
+    P('m', 'Gus held his nose', 'main', 'MAIN CLAUSE', { on: 1 }),
+    G('d', [P('b', 'because', 'join', 'JOINING WORD', { on: 1 }), P('r', 'the slime stank.')], 'dep', 'DEPENDENT CLAUSE', { on: 1 }),
+  ],
+};
+
+/* =========================================================
+   Speech box with Wren
+   ========================================================= */
+function wrenSays(scale) {
+  const text = h('div', { class: 'reading' });
+  const box = h('div', { class: 'speech' }, h('b', {}, 'WREN'), text);
+  const pic = portrait('wren', scale || 5);
+  pic.classList.add('bob');
+  return {
+    el: h('div', { class: 'talk' }, pic, box),
+    set(s) { text.textContent = s; text.classList.remove('pop'); void text.offsetWidth; text.classList.add('pop'); },
+  };
+}
+
+/* =========================================================
+   Content: the current game (verbatim from content/skills/5.2.json)
+   ========================================================= */
+const NOW = {
+  name: 'Main clause and dependent clause',
+  why: 'Every sentence needs a main clause to stand on. Extra clauses just hang on.',
+  beats: [
+    { say: 'Two doers, two actions. So two clauses.', show: 'When **the joey** **sneezed**, **Wren** **grabbed** a tissue.' },
+    { say: 'Say this part alone. Does it work?', show: '**Wren grabbed a tissue.**' },
+    { say: "Yep! It stands on its own. That's the main clause." },
+    { say: 'This part leaves you hanging. When the joey sneezed... what?', show: '**When the joey sneezed**...' },
+    { say: "It's a dependent clause. Like a joey, it can't go alone." },
+  ],
+  weDo: [
+    {
+      prompt: 'Tap the main clause.',
+      hint: 'Which part makes sense on its own?',
+      success: "'The possum hid in my boot' makes sense by itself, so it's the main clause.",
+      body: { format: 'tapText', answer: 1, parts: [
+        { tap: 'Because it was raining,', reason: "'Because it was raining' leaves you waiting for more. It can't stand alone." }, ' ',
+        { tap: 'the possum hid in my boot' }, ' ',
+        { tap: 'until the sun came out.', reason: "'Until the sun came out' leaves you waiting for more. It can't stand alone." },
+      ] },
+    },
+    {
+      prompt: 'Which one is a dependent clause?',
+      hint: 'Which one leaves you waiting for more?',
+      success: "'If the bus is late' leaves you waiting. If the bus is late... then what? That's a dependent clause.",
+      body: { format: 'choose', answer: 0, options: [
+        { text: 'if the bus is late' },
+        { text: 'the bus is late', reason: "This makes sense on its own: The bus is late. That's a main clause." },
+        { text: 'we will walk to school', reason: "This makes sense on its own too, so it's a main clause." },
+      ] },
+    },
+  ],
+};
+
+/* The game's highlighter: every **marked** part gets the next of three colours in turn. */
+function lit(text) {
+  const out = h('div', { class: 'reading show' });
+  text.split(/(\*\*[^*]+\*\*)/).forEach((part, i) => {
+    if (!part) return;
+    const m = part.match(/^\*\*([^*]+)\*\*$/);
+    if (m) out.append(h('span', { class: 'hl hl-' + ((Math.floor(i / 2) % 3) + 1) }, m[1]));
+    else out.append(part);
+  });
+  return out;
+}
+
+/* =========================================================
+   TAB: NOW
+   ========================================================= */
+function tabNow(root, sess) {
+  let at = 0;
+  const pic = portrait('wren', 6); pic.classList.add('bob');
+  const bubble = h('div', { class: 'speech beat' });
+  const dots = h('div', { class: 'dots' });
+  const next = btn('big', 'NEXT');
+  const skip = btn('ghost', 'GOT IT, LET ME TRY');
+  const draw = () => {
+    const beat = NOW.beats[at];
+    bubble.replaceChildren(h('b', {}, 'WREN'), h('div', { class: 'reading pop' }, beat.say), beat.show ? lit(beat.show) : null);
+    dots.replaceChildren.apply(dots, NOW.beats.map((_, i) => h('i', { class: i <= at ? 'on' : '' })));
+    next.textContent = at < NOW.beats.length - 1 ? 'NEXT' : 'MY TURN';
+  };
+  const go = () => nowTask(root, sess, 0);
+  next.addEventListener('click', () => { if (at < NOW.beats.length - 1) { at++; draw(); } else go(); });
+  skip.addEventListener('click', go);
+  draw();
+  root.replaceChildren(h('div', { class: 'panel' },
+    h('div', { class: 'frame' }, 'NEW MOVE · WREN THE MEDIC'),
+    h('h2', {}, NOW.name.toUpperCase()),
+    h('div', { class: 'row', style: 'align-items:flex-start;flex-wrap:nowrap;gap:18px;margin:10px 0' }, pic, bubble),
+    h('div', { class: 'why' }, h('b', {}, 'WHY: '), NOW.why),
+    h('div', { class: 'foot-row' }, dots, h('div', { class: 'row' }, skip, next)),
+  ));
+}
+
+/* The game's We do screen: first wrong answer gets a Second look, second wrong answer shows the answer. */
+function nowTask(root, sess, k) {
+  const task = NOW.weDo[k];
+  let tries = 0, done = false;
+  const pic = portrait('wren', 4); pic.classList.add('bob');
+  const feedback = h('div');
+  const panel = h('div', { class: 'panel' },
+    h('div', { class: 'frame' }, 'WE DO · WREN IS HELPING'),
+    h('div', { class: 'row', style: 'align-items:flex-start' }, pic, h('div', { style: 'flex:1;min-width:240px' })),
+    h('div', { class: 'prompt' }, task.prompt),
+    h('div', { class: 'hint' }, 'Hint: ' + task.hint));
+  let buttons = [], last = -1;
+  const body = task.body;
+  let widget;
+  if (body.format === 'tapText') {
+    widget = h('div', { class: 'passage' });
+    let n = 0;
+    body.parts.forEach((p) => {
+      if (typeof p === 'string') { widget.append(p); return; }
+      const i = n++;
+      const b = h('button', { class: 'tap', type: 'button', onclick: () => { last = i; answer(i); } }, p.tap);
+      buttons.push(b); widget.append(b);
+    });
+  } else {
+    buttons = body.options.map((o, i) => h('button', { class: 'btn chip', type: 'button', onclick: () => { last = i; answer(i); } }, o.text));
+    widget = h('div', { class: 'chips' }, shuffle(buttons.length).map((i) => buttons[i]));
+  }
+  const reasonOf = (i) => body.format === 'tapText' ? body.parts.filter((p) => typeof p !== 'string')[i].reason : body.options[i].reason;
+  function answer(i) {
+    if (done) return;
+    const right = i === body.answer;
+    if (!right && tries === 0) {
+      tries = 1;
+      buttons[last].classList.add('crossed');
+      shakeEl(pic);
+      feedback.replaceChildren(h('div', { class: 'fb look pop' }, h('b', {}, 'SECOND LOOK'), reasonOf(i)));
+      return;
+    }
+    done = true;
+    buttons.forEach((b, j) => { b.disabled = true; b.classList.toggle('right', j === body.answer); });
+    const title = right ? (tries === 0 ? 'SPOT ON!' : 'GOT IT!') : "HERE'S HOW IT GOES";
+    const box = h('div', { class: 'fb good pop' }, h('b', {}, title), right ? null : [reasonOf(i), h('br'), h('br')], task.success);
+    const nextBtn = k === 0 ? btn('big', 'NEXT', () => nowTask(root, sess, 1)) : btn('big', 'TRY IT FOR REAL', () => moveCard(root, sess, 'NOW'));
+    feedback.replaceChildren(box, h('div', { class: 'actions' }, nextBtn));
+    scrollToEl(feedback);
+  }
+  panel.append(widget, feedback);
+  root.replaceChildren(panel);
+  window.scrollTo(0, 0);
+}
+
+/* =========================================================
+   Practice used by A, B and C: the same two We do tasks, but
+   every wrong answer is a gentle nudge and another go, and
+   the answer ends up labelled.
+   ========================================================= */
+const PRACTICE = [
+  {
+    prompt: 'Tap the main clause.',
+    tip: 'Say each part alone. Which one makes sense?',
+    success: "'The possum hid in my boot' makes sense by itself, so it's the main clause.",
+    kind: 'tap', answer: 'm',
+    pieces: () => [
+      P('d1', 'Because it was raining,', 'dep', 'DEPENDENT CLAUSE', { tap: 1 }),
+      P('m', 'the possum hid in my boot', 'main', 'MAIN CLAUSE', { tap: 1 }),
+      P('d2', 'until the sun came out.', 'dep', 'DEPENDENT CLAUSE', { tap: 1 }),
+    ],
+    nudge: {
+      d1: "'Because it was raining' leaves you waiting for more. It can't stand alone.",
+      d2: "'Until the sun came out' leaves you waiting for more. It can't stand alone.",
+    },
+  },
+  {
+    prompt: 'Which one is a dependent clause?',
+    tip: 'Which one leaves you waiting for more?',
+    success: "'If the bus is late' leaves you waiting. If the bus is late... then what? That's a dependent clause.",
+    kind: 'pick', answer: 'a',
+    pieces: () => [
+      P('a', 'if the bus is late', 'dep', 'DEPENDENT CLAUSE', { tap: 1 }),
+      P('b', 'the bus is late', 'main', 'MAIN CLAUSE', { tap: 1 }),
+      P('c', 'we will walk to school', 'main', 'MAIN CLAUSE', { tap: 1 }),
+    ],
+    nudge: {
+      b: "This one makes sense on its own: The bus is late. Look for one that leaves you waiting.",
+      c: "This one makes sense on its own too. Look for one that leaves you waiting.",
+    },
+  },
+];
+
+function practice(root, sess, tabName, k) {
+  k = k || 0;
+  const task = PRACTICE[k];
+  const say = wrenSays(4);
+  say.set(k === 0 ? 'Your turn! Say each part alone and listen.' : 'One more. You’re getting good at this!');
+  const fb = h('div');
+  let pieces = task.pieces();
+  if (task.kind === 'pick') { const order = shuffle(pieces.length); pieces = order.map((i) => pieces[i]); }
+  const s = sentence(pieces, { onTap: onTap, col: task.kind === 'pick' });
+  function onTap(id, el) {
+    if (id === task.answer) {
+      s.reveal(pieces.map((p) => p.id));
+      s.lock();
+      fb.replaceChildren(h('div', { class: 'fb good pop' }, h('b', {}, 'YES!'), task.success),
+        h('div', { class: 'actions' }, k === 0 ? btn('big', 'NEXT', () => practice(root, sess, tabName, 1)) : btn('big', 'SEE THE MOVE CARD', () => moveCard(root, sess, tabName))));
+      scrollToEl(fb);
+    } else {
+      el.classList.add('tried'); shakeEl(el);
+      fb.replaceChildren(h('div', { class: 'fb look pop' }, h('b', {}, 'HAVE ANOTHER GO'), task.nudge[id]));
+    }
+  }
+  root.replaceChildren(h('div', { class: 'panel' },
+    h('div', { class: 'frame' }, 'PRACTICE ' + (k + 1) + ' OF 2'),
+    say.el,
+    h('div', { class: 'ask' }, task.prompt),
+    h('div', { class: 'hint' }, 'Tip: ' + task.tip),
+    h('div', { class: 'paper' }, s.el),
+    fb));
+  window.scrollTo(0, 0);
+}
+
+/* =========================================================
+   MOVE CARD: the same on every tab
+   ========================================================= */
+function tag(c, text) { return h('span', { class: 'ch c-' + c + ' on' }, h('span', { class: 'ch-tag', style: 'visibility:visible' }, text)); }
+function moveCard(root, sess, tabName) {
+  const secs = Math.round((Date.now() - sess.t0) / 1000);
+  const time = Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
+  root.replaceChildren(
+    h('div', { class: 'card pop' },
+      h('h2', {}, 'MOVE CARD'),
+      h('div', { class: 'sub' }, 'Main clauses and dependent clauses'),
+      h('div', { class: 'defs' },
+        h('div', { class: 'def' }, tag('clause', 'CLAUSE'), h('div', {}, 'A chunk with a who and a did-what.')),
+        h('div', { class: 'def' }, tag('main', 'MAIN CLAUSE'), h('div', {}, 'Makes sense by itself. It could be a sentence on its own.')),
+        h('div', { class: 'def' }, tag('dep', 'DEPENDENT CLAUSE'), h('div', {}, 'Starts with a joining word. It leaves you hanging, so it hangs on to a main clause.')),
+        h('div', { class: 'def' }, tag('join', 'JOINING WORD'), h('div', {}, 'A little word like when, because, if, after or until.')),
+      ),
+      h('div', { class: 'ex' }, sentence(SHOW.fullBoth()).el),
+      h('div', { class: 'ex' }, sentence(SHOW.gusBoth()).el),
+      h('div', { class: 'test' }, h('b', {}, 'THE TEST'), 'Say it alone. Does it make sense? Main clause.', h('br'), 'Leaves you hanging? Dependent clause.'),
+    ),
+    h('div', { class: 'timing' }, 'For James: this go at ' + tabName + ' took ' + time + ', from the start of the tab to this card.'),
+    h('div', { class: 'actions' }, btn('ghost', 'RESTART THIS TAB', () => restart(current))),
+  );
+  window.scrollTo(0, 0);
+}
+
+/* =========================================================
+   TAB A: TAP TO LEARN
+   ========================================================= */
+const A_STEPS = [
+  {
+    say: 'The joey sneezed on me again! So I grabbed a tissue.',
+    ask: 'Tap who did something.', kind: 'tap', answer: 'who',
+    s: () => [P('who', 'Wren', 'who', 'WHO', { tap: 1 }), P('did', 'grabbed', 'did', 'DID WHAT', { tap: 1 }), P('x', 'a tissue.', null, null, { tap: 1 })],
+    nudge: { did: 'Grabbed is what happened. Who did the grabbing?', x: "The tissue didn't do anything. It just got grabbed!" },
+    win: 'Yes! Wren is the who. Grabbed is what she did.', reveal: ['who', 'did'],
+  },
+  {
+    say: 'Now read it out loud. You know who, and what she did.',
+    ask: 'Does it make sense alone?', kind: 'yesno', answer: true,
+    s: () => [P('who', 'Wren', 'who', 'WHO', { on: 1 }), P('did', 'grabbed', 'did', 'DID WHAT', { on: 1 }), P('x', 'a tissue.')],
+    nudge: 'Read it once more. Do you know what happened? Is anything missing?',
+    win: 'Yes! It makes sense by itself. It could be a sentence on its own.',
+  },
+  {
+    say: 'This bit has a who and a did-what too. But listen...',
+    ask: 'Does it make sense alone?', kind: 'yesno', answer: false,
+    s: () => [P('w', 'When'), P('who', 'the joey', 'who', 'WHO', { on: 1 }), P('did', 'sneezed', 'did', 'DID WHAT', { on: 1 })],
+    nudge: "Say it out loud: 'When the joey sneezed...' Then what happened? Do you know?",
+    win: 'Right! When the joey sneezed... what? It leaves you hanging.',
+  },
+  {
+    say: 'One little word makes it hang. Can you find it?',
+    ask: 'Tap the word that leaves it hanging.', kind: 'tap', answer: 'w',
+    s: () => [P('w', 'When', 'join', 'JOINING WORD', { tap: 1 }), P('who', 'the joey', 'who', 'WHO', { on: 1, tap: 1 }), P('did', 'sneezed', 'did', 'DID WHAT', { on: 1, tap: 1 })],
+    nudge: { who: 'The joey is the who. Try the little word at the start.', did: 'Sneezed is the did-what. Try the little word at the start.' },
+    win: "Yes! Drop 'when' and 'The joey sneezed' works. Words like when are joining words.", reveal: ['w'],
+    extra: () => h('div', { class: 'extra' }, h('span', { class: 'strike' }, 'When'), ' The joey sneezed. ✓ makes sense'),
+  },
+  {
+    say: 'A joining word joins two bits into one sentence. Like this!',
+    ask: 'Tap the bit that could be a sentence by itself.', kind: 'tap', answer: 'm',
+    s: () => [
+      G('d', [P('w', 'When', 'join', 'JOINING WORD', { on: 1 }), P('r', 'the joey sneezed,')], 'dep', 'DEPENDENT CLAUSE', { tap: 1 }),
+      P('m', 'Wren grabbed a tissue.', 'main', 'MAIN CLAUSE', { tap: 1 }),
+    ],
+    nudge: { d: 'That bit starts with when, so it leaves you hanging. Try the other bit.' },
+    win: 'Yes! A bit with a who and a did-what is a clause. This one is the main clause.', reveal: ['m'],
+  },
+  {
+    say: "The other clause can't stand alone. It needs the main clause. It depends on it.",
+    ask: 'Tap the clause that depends on the main clause.', kind: 'tap', answer: 'd',
+    s: () => [
+      G('d', [P('w', 'When', 'join', 'JOINING WORD', { on: 1 }), P('r', 'the joey sneezed,')], 'dep', 'DEPENDENT CLAUSE', { tap: 1 }),
+      P('m', 'Wren grabbed a tissue.', 'main', 'MAIN CLAUSE', { tap: 1, on: 1 }),
+    ],
+    nudge: { m: "That's the main clause. It stands by itself. Tap the other one." },
+    win: "Yes! It depends on the main clause, so we call it a dependent clause.", reveal: ['d'],
+  },
+  {
+    say: 'A dependent clause can come last, too. Look for the joining word!',
+    ask: 'Tap the dependent clause.', kind: 'tap', answer: 'd',
+    s: () => [
+      P('m', 'Gus held his nose', 'main', 'MAIN CLAUSE', { tap: 1 }),
+      G('d', [P('b', 'because', 'join', 'JOINING WORD'), P('r', 'the slime stank.')], 'dep', 'DEPENDENT CLAUSE', { tap: 1 }),
+    ],
+    nudge: { m: "Say it alone: 'Gus held his nose.' That makes sense, so it's the main clause." },
+    win: "Yes! Because is the joining word. 'Because the slime stank' can't stand alone.", reveal: ['d', 'm', 'b'],
+  },
+];
+
+function tabA(root, sess) {
+  let i = 0;
+  function step() {
+    const st = A_STEPS[i];
+    const say = wrenSays(5);
+    say.set(st.say);
+    const fb = h('div');
+    const ask = h('div');
+    const dots = h('div', { class: 'dots' }, A_STEPS.map((_, j) => h('i', { class: j <= i ? 'on' : '' })));
+    let won = false;
+    const s = sentence(st.s(), { onTap: st.kind === 'tap' ? onTap : null });
+    function win() {
+      won = true;
+      if (st.reveal) s.reveal(st.reveal);
+      s.lock();
+      const last = i === A_STEPS.length - 1;
+      fb.replaceChildren(
+        h('div', { class: 'fb good pop' }, h('b', {}, 'WREN'), st.win, st.extra ? st.extra() : null),
+        h('div', { class: 'actions' }, btn('big', last ? 'PRACTICE' : 'NEXT', () => { if (last) practice(root, sess, 'A'); else { i++; step(); } })));
+      scrollToEl(fb);
+    }
+    function nudge(text) { fb.replaceChildren(h('div', { class: 'fb look pop' }, h('b', {}, 'HAVE ANOTHER GO'), text)); }
+    function onTap(id, el) {
+      if (won) return;
+      if (id === st.answer) { win(); return; }
+      el.classList.add('tried'); shakeEl(el);
+      nudge(st.nudge[id] || 'Not that one. Have another look.');
+    }
+    if (st.kind === 'tap') ask.append(h('div', { class: 'ask' }, st.ask));
+    else {
+      const yes = btn('alt', 'YES'), no = btn('alt', 'NO');
+      const pick = (val, b) => {
+        if (won) return;
+        if (val === st.answer) { b.classList.add('right'); yes.disabled = no.disabled = true; win(); }
+        else { b.classList.add('tried'); shakeEl(b); nudge(st.nudge); }
+      };
+      yes.addEventListener('click', () => pick(true, yes));
+      no.addEventListener('click', () => pick(false, no));
+      ask.append(h('div', { class: 'ask' }, st.ask), h('div', { class: 'yesno' }, yes, no));
+    }
+    const paper = h('div', { class: 'paper' }, s.el);
+    root.replaceChildren(h('div', { class: 'panel' },
+      h('div', { class: 'foot-row', style: 'margin:0 0 12px' }, h('div', { class: 'frame', style: 'margin:0' }, 'STEP ' + (i + 1) + ' OF ' + A_STEPS.length), dots),
+      say.el,
+      st.kind === 'tap' ? [ask, paper] : [paper, ask],
+      fb));
+    window.scrollTo(0, 0);
+  }
+  step();
+}
+
+/* =========================================================
+   TAB B: BUILD IT
+   ========================================================= */
+function px(name) { return parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)); }
+
+function makeBlock(kind, data) {
+  const t = h('span', { class: 'blk-t' });
+  const el = h('div', { class: 'blk ' + kind, role: 'button', tabindex: '0' },
+    kind === 'dep' ? h('span', { class: 'blk-jtag' }, 'JOINING WORD') : null,
+    t,
+    h('span', { class: 'blk-tag' }, kind === 'main' ? 'MAIN CLAUSE' : 'DEPENDENT CLAUSE'),
+    h('span', { class: 'hook' }));
+  el.kind = kind; el.data = data;
+  // pos: 'tray' | 'alone' | 'front' | 'back'
+  el.setText = (pos) => {
+    if (kind === 'main') {
+      t.textContent = data.t + (pos === 'back' || pos === 'tray' ? '' : '.');
+    } else {
+      const join = pos === 'front' ? data.join[0].toUpperCase() + data.join.slice(1) : data.join;
+      const end = pos === 'front' ? ',' : pos === 'back' ? '.' : '';
+      t.replaceChildren(h('span', { class: 'jw' }, join), ' ' + data.rest + end);
+    }
+  };
+  el.setBase = (transform, origin) => {
+    el.dataset.base = transform || '';
+    if (origin) el.style.transformOrigin = origin;
+    el.style.transform = transform || '';
+  };
+  el.setText('tray');
+  return el;
+}
+
+/* Drag with a finger, or just tap. Pointer events only, so a drag never fires a tap. */
+function draggable(el, handlers) {
+  let id = null, sx = 0, sy = 0, moved = false;
+  el.addEventListener('pointerdown', (e) => {
+    if (el.locked || id !== null) return;
+    id = e.pointerId; sx = e.clientX; sy = e.clientY; moved = false;
+    try { el.setPointerCapture(id); } catch (err) { /* ignore */ }
+  });
+  el.addEventListener('pointermove', (e) => {
+    if (e.pointerId !== id) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (!moved && Math.hypot(dx, dy) > 10) { moved = true; el.classList.add('drag'); }
+    if (moved) { e.preventDefault(); el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) ' + (el.dataset.base || ''); }
+  });
+  const finish = (e, cancelled) => {
+    if (e.pointerId !== id) return;
+    id = null;
+    el.classList.remove('drag');
+    if (cancelled) { el.style.transform = el.dataset.base || ''; return; }
+    if (!moved) { el.style.transform = el.dataset.base || ''; handlers.tap && handlers.tap(); return; }
+    const handled = handlers.drop && handlers.drop(e.clientX, e.clientY, e.clientX - sx, e.clientY - sy);
+    if (!handled) el.style.transform = el.dataset.base || '';
+  };
+  el.addEventListener('pointerup', (e) => finish(e, false));
+  el.addEventListener('pointercancel', (e) => finish(e, true));
+  el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handlers.tap && handlers.tap(); } });
+}
+
+function tabB(root, sess) {
+  const later = (ms, fn) => setTimeout(() => { if (sess.alive) fn(); }, ms);
+  const say = wrenSays(5);
+  const doLine = h('div', { class: 'do-line' });
+  const howto = h('div', { class: 'howto' }, 'DRAG A BLOCK, OR JUST TAP IT');
+  const ground = h('div', { class: 'ground' });
+  const stage = h('div', { class: 'stage' }, ground);
+  const below = h('div');
+  const trayHolder = h('div');
+  const fb = h('div');
+  const controls = h('div', { class: 'actions' });
+  const heading = h('div', { class: 'frame' }, 'PART 1 · TEST THE BLOCKS');
+  root.replaceChildren(h('div', { class: 'panel' }, heading,
+    h('div', { class: 'b-grid' },
+      h('div', { class: 'b-say' }, say.el, doLine, howto),
+      h('div', { class: 'b-stage' }, stage),
+      h('div', { class: 'b-tray' }, trayHolder),
+      h('div', { class: 'b-out' }, below, fb, controls))));
+  window.scrollTo(0, 0);
+
+  function tell(sayText, doText) { say.set(sayText); doLine.textContent = doText || ''; doLine.style.display = doText ? '' : 'none'; fb.replaceChildren(); }
+  function nudge(text) { fb.replaceChildren(h('div', { class: 'fb look pop' }, h('b', {}, 'HAVE ANOTHER GO'), text)); }
+  const W = () => stage.clientWidth;
+  const BW = () => px('--bw'), BH = () => px('--bh');
+
+  /* ---------- Part 1: the demo ---------- */
+  let state = 'pull';
+  const dep = makeBlock('dep', { join: 'when', rest: 'the joey sneezed' });
+  const main = makeBlock('main', { t: 'Wren grabbed a tissue' });
+  dep.setText('front'); main.setText('alone');
+  stage.append(dep, main);
+  const mainX = () => Math.round(W() / 2);
+  const joinedX = () => mainX() - BW() + 4;
+  const pulledX = () => Math.max(BH() + 10, joinedX() - 60);
+  function layoutDemo() {
+    main.style.left = mainX() + 'px';
+    dep.style.left = (state === 'pull' || state === 'nameMain' || state === 'nameDep' || state === 'named' ? joinedX() : pulledX()) + 'px';
+  }
+  dep.classList.add('joins-right');
+  dep.setBase('rotate(5deg)', '50% 100%');
+  layoutDemo();
+  tell('These two blocks make one sentence. Let’s test them.', 'Pull the left block away.');
+
+  function pull() {
+    state = 'falling';
+    dep.classList.remove('joins-right');
+    dep.setBase('', '50% 100%');
+    dep.style.left = pulledX() + 'px';
+    later(380, () => {
+      dep.style.transformOrigin = '0 100%';
+      dep.setBase('translateY(' + px('--foot') + 'px) rotate(-90deg)');
+      later(460, () => {
+        dep.style.transition = 'transform 0.12s ease-out';
+        dep.style.transform = 'translateY(' + px('--foot') + 'px) rotate(-82deg)';
+        later(130, () => { dep.style.transform = dep.dataset.base; later(140, () => { dep.style.transition = ''; }); });
+        state = 'poke';
+        tell('It fell over! When the joey sneezed... then what? It can’t stand alone.', 'Give the other block a poke.');
+      });
+    });
+  }
+  function poke() {
+    main.classList.remove('wobble'); void main.offsetWidth; main.classList.add('wobble');
+    if (state === 'poke') {
+      state = 'snap';
+      later(500, () => tell('It stays up! ‘Wren grabbed a tissue’ makes sense by itself.', 'Snap the fallen block back on.'));
+    }
+  }
+  function snap() {
+    state = 'nameMain';
+    dep.style.transformOrigin = '0 100%';
+    dep.setBase('');
+    later(480, () => {
+      dep.style.transformOrigin = '50% 100%';
+      dep.style.left = joinedX() + 'px';
+      later(360, () => {
+        dep.classList.add('joins-right');
+        dep.setBase('rotate(5deg)');
+        dep.classList.remove('snapflash'); void dep.offsetWidth; dep.classList.add('snapflash');
+        main.classList.remove('snapflash'); void main.offsetWidth; main.classList.add('snapflash');
+        below.replaceChildren(h('div', { class: 'paper pop' }, sentence([P('s', 'When the joey sneezed, Wren grabbed a tissue.')]).el));
+        tell('Click! It works again. Each block has a who and a did-what, so each one is a clause.', 'Tap the clause that stayed standing.');
+      });
+    });
+  }
+  draggable(dep, {
+    tap: () => {
+      if (state === 'pull') pull();
+      else if (state === 'snap') snap();
+      else if (state === 'poke') nudge('That one is already down! Poke the one still standing.');
+      else if (state === 'nameMain') { shakeEl(doLine); nudge('This one fell over, remember? Tap the one that stayed up.'); }
+      else if (state === 'nameDep') nameDep();
+    },
+    drop: (x, y, dx) => {
+      if (state === 'pull') { pull(); return true; }
+      if (state === 'snap') {
+        if (dx > 20) { snap(); return true; }
+        nudge('Push it towards the standing block to snap it on.');
+        return false;
+      }
+      return false;
+    },
+  });
+  draggable(main, {
+    tap: () => {
+      if (state === 'pull') { poke(); nudge('Not this one yet. Pull the left block away first.'); }
+      else if (state === 'poke' || state === 'snap') poke();
+      else if (state === 'nameMain') nameMain();
+      else if (state === 'nameDep') { shakeEl(doLine); nudge('That’s the one that stayed up. Tap the one that fell over.'); }
+    },
+    drop: () => { if (state === 'poke' || state === 'snap') { poke(); } return false; },
+  });
+  function nameMain() {
+    state = 'nameDep';
+    main.classList.add('named');
+    tell('That’s the main clause. It stands by itself.', 'Now tap the clause that fell over.');
+  }
+  function nameDep() {
+    state = 'named';
+    dep.classList.add('named');
+    below.replaceChildren(h('div', { class: 'paper pop' }, sentence(SHOW.fullBoth()).el));
+    tell('That’s the dependent clause. The joining word ‘when’ makes it lean on the main clause.', '');
+    controls.replaceChildren(btn('big', 'MY TURN TO BUILD', build));
+    scrollToEl(controls);
+  }
+
+  /* ---------- Part 2: build one ---------- */
+  function build() {
+    heading.textContent = 'PART 2 · BUILD ONE';
+    controls.replaceChildren();
+    below.replaceChildren();
+    trayHolder.replaceChildren();
+    stage.replaceChildren(ground);
+    let onGround = null, picked = null, busy = false, finished = false, attached = null;
+    relayoutBuild = () => {
+      if (onGround) onGround.style.left = centreX() + 'px';
+      if (slots.front) slots.front.style.left = (centreX() - BW() - 6) + 'px';
+      if (slots.back) slots.back.style.left = (centreX() + BW() + 6) + 'px';
+      if (attached) attached.el.style.left = (attached.side === 'front' ? centreX() - BW() + 4 : centreX() + BW() - 4) + 'px';
+    };
+    const slots = {};
+    const tray = h('div', { class: 'tray' }, h('span', { class: 'tray-label' }, 'BLOCKS'));
+    const blocks = [
+      makeBlock('dep', { join: 'because', rest: 'Gus sneezed' }),
+      makeBlock('main', { t: 'Mo ran for the door' }),
+      makeBlock('dep', { join: 'when', rest: 'the slime bubbled' }),
+    ];
+    blocks.forEach((b) => tray.append(b));
+    trayHolder.replaceChildren(tray);
+    tell('Your turn! Build a sentence that stands up.', 'Put a block on the ground. Pick one that can stand alone.');
+
+    const centreX = () => Math.round((W() - BW()) / 2);
+    const inStage = (x, y) => { const r = stage.getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom + 30; };
+
+    function stageCopy(b, pos, x) {
+      const c = makeBlock(b.kind, b.data);
+      c.setText(pos); c.style.left = x + 'px'; c.classList.add('pop'); c.locked = true;
+      stage.append(c);
+      return c;
+    }
+    function place(b, clientX) {
+      if (busy || finished) return;
+      if (b.kind === 'main') {
+        b.classList.add('used'); b.locked = true;
+        onGround = stageCopy(b, 'alone', centreX());
+        onGround.locked = false;
+        draggable(onGround, { tap: () => { onGround.classList.remove('wobble'); void onGround.offsetWidth; onGround.classList.add('wobble'); } });
+        showSlots();
+        tell('It stands! That’s your main clause.', 'Now snap a dependent clause on the front or the back.');
+        return;
+      }
+      if (!onGround) { tip(b); return; }
+      const r = onGround.getBoundingClientRect();
+      attach(b, clientX < r.left + r.width / 2 ? 'front' : 'back');
+    }
+    function tip(b) {
+      busy = true;
+      b.classList.add('used');
+      const c = stageCopy(b, 'alone', centreX());
+      later(450, () => {
+        c.classList.remove('pop');
+        c.setBase('translateY(' + px('--foot') + 'px) rotate(-90deg)', '0 100%');
+        say.set('Timber! ‘' + b.data.join[0].toUpperCase() + b.data.join.slice(1) + ' ' + b.data.rest + '’... then what? It needs a main clause to lean on.');
+        later(1700, () => {
+          c.style.opacity = '0';
+          later(320, () => { c.remove(); b.classList.remove('used'); b.classList.add('pop'); busy = false; });
+        });
+      });
+    }
+    function showSlots() {
+      ['front', 'back'].forEach((side) => {
+        const x = side === 'front' ? centreX() - BW() - 6 : centreX() + BW() + 6;
+        const s = h('button', { class: 'slot', type: 'button', style: 'left:' + x + 'px', onclick: () => {
+          if (picked) attach(picked, side);
+          else nudge('Pick a block from the tray first, then tap here.');
+        } }, side === 'front' ? 'SNAP ON THE FRONT' : 'SNAP ON THE BACK');
+        slots[side] = s; stage.append(s);
+      });
+    }
+    function attach(b, side) {
+      if (busy || finished || b.kind !== 'dep') return;
+      finished = true;
+      if (picked) picked.classList.remove('picked');
+      picked = null;
+      Object.values(slots).forEach((s) => s.remove());
+      b.classList.add('used');
+      blocks.forEach((x) => (x.locked = true));
+      const x = side === 'front' ? centreX() - BW() + 4 : centreX() + BW() - 4;
+      const c = stageCopy(b, side, side === 'front' ? x - 80 : x + 80);
+      attached = { el: c, side: side };
+      c.classList.add(side === 'front' ? 'joins-right' : 'joins-left');
+      c.style.transformOrigin = '50% 100%';
+      void c.offsetWidth; // start the slide from the drop side without waiting for a frame
+      (() => {
+        c.style.left = x + 'px';
+        later(380, () => {
+          c.setBase(side === 'front' ? 'rotate(5deg)' : 'rotate(-5deg)');
+          c.classList.add('named', 'snapflash'); onGround.classList.add('named', 'snapflash');
+          // main text needs a capital and full stop that match the order
+          if (side === 'front') onGround.setText('alone');
+          else onGround.setText('back');
+          const mainPiece = P('m', side === 'front' ? 'Mo ran for the door.' : 'Mo ran for the door', 'main', 'MAIN CLAUSE', { on: 1 });
+          const joinText = side === 'front' ? b.data.join[0].toUpperCase() + b.data.join.slice(1) : b.data.join;
+          const depPiece = G('d', [P('j', joinText, 'join', 'JOINING WORD', { on: 1 }), P('r', b.data.rest + (side === 'front' ? ',' : '.'))], 'dep', 'DEPENDENT CLAUSE', { on: 1 });
+          below.replaceChildren(h('div', { class: 'paper pop' }, sentence(side === 'front' ? [depPiece, mainPiece] : [mainPiece, depPiece]).el));
+          trayHolder.replaceChildren();
+          tell('You built it! A main clause, with a dependent clause hanging on.', '');
+          controls.replaceChildren(btn('ghost', 'BUILD ANOTHER', build), btn('big', 'PRACTICE', () => practice(root, sess, 'B')));
+          scrollToEl(controls);
+        });
+      })();
+    }
+    blocks.forEach((b) => draggable(b, {
+      tap: () => {
+        if (busy || finished) return;
+        if (b.kind === 'main' || !onGround) { place(b, 0); return; }
+        if (picked === b) { b.classList.remove('picked'); picked = null; doLine.textContent = 'Now snap a dependent clause on the front or the back.'; return; }
+        if (picked) picked.classList.remove('picked');
+        picked = b; b.classList.add('picked');
+        doLine.textContent = 'Now tap SNAP ON THE FRONT or SNAP ON THE BACK.';
+        fb.replaceChildren();
+      },
+      drop: (x, y) => {
+        if (busy || finished || !inStage(x, y)) return false;
+        b.style.transform = '';
+        place(b, x);
+        return true;
+      },
+    }));
+  }
+
+  let relayoutBuild = null;
+  sess.onResize = () => {
+    if (stage.contains(dep)) layoutDemo();
+    else if (relayoutBuild) relayoutBuild();
+  };
+}
+
+/* =========================================================
+   TAB C: TALK IT THROUGH
+   ========================================================= */
+const C_SHOW = {
+  joey: () => [P('a', 'The joey', 'who', 'WHO', { on: 1 }), P('b', 'sneezed.', 'did', 'DID WHAT', { on: 1 })],
+  when: () => [P('w', 'When'), P('a', 'the joey', 'who', 'WHO', { on: 1 }), P('b', 'sneezed.', 'did', 'DID WHAT', { on: 1 })],
+  whenJ: () => [P('w', 'When', 'join', 'JOINING WORD', { on: 1 }), P('a', 'the joey sneezed...')],
+  plain: () => [P('a', 'When the joey sneezed, Wren grabbed a tissue.')],
+  clauses: () => [
+    G('d', [P('w', 'When', 'join', 'JOINING WORD', { on: 1 }), P('r', 'the joey sneezed,')], 'clause', 'CLAUSE', { on: 1 }),
+    P('m', 'Wren grabbed a tissue.', 'clause', 'CLAUSE', { on: 1 }),
+  ],
+  mainOnly: () => [
+    G('d', [P('w', 'When', 'join', 'JOINING WORD', { on: 1 }), P('r', 'the joey sneezed,')], 'clause', 'CLAUSE', { on: 1 }),
+    P('m', 'Wren grabbed a tissue.', 'main', 'MAIN CLAUSE', { on: 1 }),
+  ],
+  both: SHOW.fullBoth,
+  gus: () => [P('a', 'Gus held his nose because the slime stank.')],
+  gusBoth: SHOW.gusBoth,
+};
+const C_SCRIPT = [
+  { who: 'zed', text: 'Wren! The joey just sneezed on my controller. Gross. But it’s also a sentence!', show: 'joey' },
+  { who: 'wren', text: 'Nice. A who, the joey. A did-what, sneezed. It makes sense by itself.' },
+  { who: 'zed', text: 'So this is a sentence too. It’s got a who and a did-what. Easy win!', show: 'when' },
+  { who: 'wren', text: 'Hmm. Read it out loud, Zed. Does it make sense by itself?' },
+  { vote: {
+    q: 'Is ‘When the joey sneezed.’ a sentence by itself? Who’s right?',
+    zed: 'Yes! It has a who and a did-what.', wren: 'No. It leaves you hanging.', right: 'wren',
+    ifRight: [{ who: 'zed', text: 'When the joey sneezed... what? Ugh. It’s like a level with no ending!' }],
+    ifWrong: [{ who: 'zed', text: 'Ha! See? They agree with me!' }, { who: 'wren', text: 'Okay, Zed. When the joey sneezed... what happened next?' }, { who: 'zed', text: 'Uh... loading... still loading...' }],
+  } },
+  { who: 'wren', text: 'It’s the word when. It makes you wait for more. When is a joining word.', show: 'whenJ' },
+  { who: 'zed', text: 'So I need to finish the level. Watch this!', show: 'plain' },
+  { who: 'wren', text: 'Now you’ve got two chunks. Each has a who and a did-what. Each chunk is a clause.', show: 'clauses' },
+  { who: 'zed', text: 'And the first clause is the boss clause. Because it’s first. Obviously.' },
+  { vote: {
+    q: 'Which clause is the boss? Who’s right?',
+    zed: '‘When the joey sneezed.’ It comes first!', wren: '‘Wren grabbed a tissue.’ It stands alone.', right: 'wren',
+    ifRight: [{ who: 'wren', text: 'Yep. The boss clause is the one that stands alone. Its real name is the main clause.', show: 'mainOnly' }],
+    ifWrong: [{ who: 'zed', text: 'First place always wins!' }, { who: 'wren', text: 'Not here. Say ‘When the joey sneezed’ alone. Still hanging?' }, { who: 'zed', text: '...Still hanging. Like my last boss fight.' }],
+  } },
+  { who: 'zed', text: 'And the other clause just leans on it. Like me leaning on Mo for snacks.' },
+  { who: 'wren', text: 'Exactly. It depends on the main clause. So it’s called a dependent clause.', show: 'both' },
+  { who: 'zed', text: 'Final boss. Gus wrote this one. The joining word is in the middle!', show: 'gus' },
+  { who: 'zed', text: 'So the whole thing is one big dependent clause. It’s all hanging!' },
+  { vote: {
+    q: 'Who’s right about Gus’s sentence?',
+    zed: 'The whole sentence leaves you hanging.', wren: 'Only ‘because the slime stank’ hangs.', right: 'wren',
+    ifRight: [{ who: 'wren', text: 'Yep. Say ‘Gus held his nose’ alone. It works! So that’s the main clause.', show: 'gusBoth' }],
+    ifWrong: [{ who: 'wren', text: 'Try my test. Say ‘Gus held his nose’ alone. Does it make sense?' }, { who: 'zed', text: '...Yes. Annoyingly.' }],
+  } },
+  { who: 'zed', text: 'Okay. Say it alone. Makes sense? Main clause. Leaves you hanging? Dependent clause. Save point!' },
+  { who: 'wren', text: 'Nice one, Zed. Now it’s your turn.' },
+];
+
+function tabC(root, sess) {
+  const queue = C_SCRIPT.slice();
+  const log = h('div', { class: 'chat' });
+  const bottom = h('div');
+  const hint = h('div', { class: 'skip-hint' }, 'TAP THE CHAT TO GO FASTER');
+  root.replaceChildren(h('div', { class: 'panel' }, h('div', { class: 'frame' }, 'WREN AND ZED · YOU DECIDE WHO’S RIGHT'), log, hint, bottom));
+  window.scrollTo(0, 0);
+  let timer = null, hurry = null, typing = null;
+  log.addEventListener('click', () => { if (hurry) { const f = hurry; hurry = null; f(); } });
+
+  function post(item) {
+    const bubble = h('div', { class: 'bubble reading' }, h('b', {}, item.who.toUpperCase()), item.text, item.show ? sentence(C_SHOW[item.show]()).el : null);
+    const m = h('div', { class: 'msg ' + item.who }, portrait(item.who, 4), bubble);
+    log.append(m);
+    scrollToEl(m);
+  }
+  function wait(ms) {
+    typing = h('div', { class: 'typing' }, h('i'), h('i'), h('i'));
+    log.append(typing);
+    const go = () => { clearTimeout(timer); hurry = null; if (typing) { typing.remove(); typing = null; } next(); };
+    hurry = go;
+    // the chat waits while its tab is hidden, so switching tabs never skips lines
+    const tick = () => { if (!sess.alive) return; if (root.closest('.pane').hidden) { timer = setTimeout(tick, 400); return; } go(); };
+    timer = setTimeout(tick, ms);
+  }
+  function readTime(item) { return Math.min(5200, 1100 + item.text.length * 42 + (item.show ? 1400 : 0)); }
+  function next() {
+    if (!sess.alive) return;
+    const item = queue.shift();
+    if (!item) { finish(); return; }
+    if (item.vote) { vote(item.vote, false); return; }
+    post(item);
+    wait(readTime(item));
+  }
+  function vote(v, again) {
+    hint.style.display = 'none';
+    const make = (who) => h('button', { class: 'vote-btn ' + who, type: 'button' }, portrait(who, 4), h('span', {}, h('b', {}, who.toUpperCase() + ' SAYS'), v[who]));
+    const zb = make('zed'), wb = make('wren');
+    const choose = (who) => {
+      zb.disabled = wb.disabled = true;
+      bottom.replaceChildren();
+      hint.style.display = '';
+      log.append(h('div', { class: 'msg you' }, h('div', { class: 'you-chip pop' }, 'YOU BACKED ' + who.toUpperCase())));
+      if (who === v.right) queue.unshift.apply(queue, v.ifRight);
+      else queue.unshift.apply(queue, v.ifWrong.concat([{ vote: Object.assign({}, v, { again: true }) }]));
+      next();
+    };
+    zb.addEventListener('click', () => choose('zed'));
+    wb.addEventListener('click', () => choose('wren'));
+    bottom.replaceChildren(h('div', { class: 'paper', style: 'background:#2a3466;color:var(--ink)' },
+      h('div', { class: 'frame' }, v.again ? 'VOTE AGAIN' : 'YOUR VOTE'),
+      h('div', { class: 'vote-q' }, v.q),
+      h('div', { class: 'vote' }, zb, wb)));
+    scrollToEl(bottom);
+  }
+  function finish() {
+    hint.style.display = 'none';
+    bottom.replaceChildren(h('div', { class: 'actions' }, btn('big', 'PRACTICE', () => practice(root, sess, 'C'))));
+    scrollToEl(bottom);
+  }
+  next();
+}
+
+/* =========================================================
+   Tabs, restart
+   ========================================================= */
+const TABS = [
+  { id: 'now', label: 'NOW', title: 'NOW', blurb: 'The game today, word for word from 5.2.json: five lines from Wren, then the two We do tasks.', build: tabNow },
+  { id: 'a', label: 'A · TAP TO LEARN', title: 'A · TAP TO LEARN', blurb: 'Seven short steps. One line from Wren and one small thing to tap in each.', build: tabA },
+  { id: 'b', label: 'B · BUILD IT', title: 'B · BUILD IT', blurb: 'Clauses are blocks. The dependent one falls over on its own. Then the student builds one.', build: tabB },
+  { id: 'c', label: 'C · TALK IT THROUGH', title: 'C · TALK IT THROUGH', blurb: 'Zed gets it wrong, Wren sorts it out, and the student votes at each turn.', build: tabC },
+];
+const panes = {}, sessions = {};
+let current = null;
+const tabsEl = document.getElementById('tabs');
+const mainEl = document.getElementById('main');
+TABS.forEach((t) => {
+  const b = h('button', { class: 'tab', type: 'button', role: 'tab', 'aria-selected': 'false', id: 'tab-' + t.id, onclick: () => select(t.id) }, t.label);
+  tabsEl.append(b);
+  const stage = h('div');
+  const pane = h('section', { class: 'pane' + (t.id === 'b' ? ' wide' : ''), hidden: true, role: 'tabpanel' },
+    h('div', { class: 'pane-bar' }, h('div', {}, h('h1', {}, t.title), h('p', {}, t.blurb)), btn('alt', 'RESTART', () => restart(t.id))),
+    stage);
+  mainEl.append(pane);
+  panes[t.id] = { tab: b, pane: pane, stage: stage, def: t };
+});
+function start(id) {
+  if (sessions[id]) sessions[id].alive = false;
+  const sess = { alive: true, t0: Date.now() };
+  sessions[id] = sess;
+  panes[id].stage.replaceChildren();
+  panes[id].def.build(panes[id].stage, sess);
+}
+function select(id) {
+  current = id;
+  TABS.forEach((t) => {
+    const p = panes[t.id];
+    p.pane.hidden = t.id !== id;
+    p.tab.setAttribute('aria-selected', String(t.id === id));
+  });
+  if (!sessions[id]) start(id);
+  if (history.replaceState) history.replaceState(null, '', '#' + id);
+  window.scrollTo(0, 0);
+}
+function restart(id) { start(id); window.scrollTo(0, 0); }
+window.addEventListener('resize', () => { const s = sessions[current]; if (s && s.onResize) s.onResize(); });
+const fromHash = location.hash.slice(1);
+select(panes[fromHash] ? fromHash : 'now');
+</script>
+</body>
+</html>
