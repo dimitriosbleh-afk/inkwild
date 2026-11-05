@@ -21,7 +21,8 @@ export type Screen =
   | { name: 'progress' }
   | { name: 'story'; chapter?: string }
   | { name: 'write'; skill: SkillId }
-  | { name: 'pieces' };
+  | { name: 'pieces' }
+  | { name: 'swap' };
 
 export type ScreenView = { el: HTMLElement; stop?: () => void };
 export type ScreenFn = (app: App, screen: never) => ScreenView;

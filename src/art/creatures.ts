@@ -1,4 +1,7 @@
-import { DRAWN } from './drawn';
+import { DRAWN as BASE } from './drawn';
+import { COMMA } from './drawn/comma';
+
+const DRAWN = { ...BASE, ...COMMA };
 import { hash, makeSprite, type SpriteDef } from './sprite';
 
 const HUES = [8, 28, 45, 95, 140, 175, 200, 225, 265, 300, 330];

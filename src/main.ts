@@ -6,6 +6,7 @@ import { backupScreen, firstRunScreen, guideScreen, progressScreen, restoreScree
 import { homeScreen, islandScreen, mapScreen } from './ui/screens/world';
 import { storyScreen } from './ui/screens/story';
 import { piecesScreen, writeScreen } from './ui/screens/write';
+import { swapScreen } from './ui/screens/swap';
 
 const app = new App(document.getElementById('app')!, {
   firstRun: firstRunScreen,
@@ -21,6 +22,7 @@ const app = new App(document.getElementById('app')!, {
   story: storyScreen,
   write: writeScreen,
   pieces: piecesScreen,
+  swap: swapScreen,
 });
 app.start();
 void askToKeepStorage();

@@ -252,7 +252,7 @@ export function guideScreen(app: App): ScreenView {
   const count = mine.size;
   const total = content.branches.reduce((n, b) => n + content.skillsOf(b.id).length, 0);
   return {
-    el: h('div', { class: 'centre' }, h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: () => app.go({ name: 'home' }) }, 'HOME'), h('h2', { style: 'margin:0' }, `FIELD GUIDE ${count}/${total}`)), sections),
+    el: h('div', { class: 'centre' }, h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: () => app.go({ name: 'home' }) }, 'HOME'), h('h2', { style: 'margin:0' }, `FIELD GUIDE ${count}/${total}`), h('button', { class: 'alt', onclick: () => app.go({ name: 'swap' }) }, 'SWAP')), sections),
   };
 }
 

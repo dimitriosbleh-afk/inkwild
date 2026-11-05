@@ -17,7 +17,8 @@ export type Action =
   | { type: 'advance' }
   | { type: 'answer'; response: Response }
   | { type: 'retreat' }
-  | { type: 'piece'; skill: SkillId; title: string; text: string; ticks: boolean[] };
+  | { type: 'piece'; skill: SkillId; title: string; text: string; ticks: boolean[] }
+  | { type: 'receive'; creature: string; shiny: boolean };
 
 export type GameEvent =
   | { type: 'secondLook'; reason: string }
@@ -32,7 +33,8 @@ export type GameEvent =
   | { type: 'badge'; branch: BranchId }
   | { type: 'retreated'; branch: BranchId }
   | { type: 'tide'; branch: BranchId }
-  | { type: 'empty'; branch: BranchId };
+  | { type: 'empty'; branch: BranchId }
+  | { type: 'received'; creature: string; shiny: boolean; already: boolean };
 
 export interface Step {
   save: Save;
@@ -94,6 +96,8 @@ class Run {
         return this.retreat();
       case 'piece':
         return this.piece(action);
+      case 'receive':
+        return this.receive(action.creature, action.shiny);
     }
   }
 
@@ -168,6 +172,21 @@ class Run {
       this.events.push({ type: 'badge', branch: skill.branch });
     }
     this.announceUnlocks(skill.branch, before);
+  }
+
+  /** A Swap gives a copy: the giver keeps theirs. A Creature already owned (or already received) adds nothing new. */
+  private receive(creature: string, shiny: boolean): void {
+    const skill = this.content.branches.flatMap((b) => this.content.skillsOf(b.id)).find((s) => s.creature.id === creature);
+    if (!skill) return;
+    const owned = (this.save.skills[skill.id]?.done ?? 0) > 0;
+    const had = this.save.received.find((r) => r.creature === creature);
+    const already = (owned && (!shiny || this.save.shinies.includes(creature))) || (!!had && (had.shiny || !shiny));
+    if (!already) {
+      if (owned && shiny) this.save.shinies.push(creature);
+      else if (had) had.shiny = true;
+      else this.save.received.push({ creature, shiny });
+    }
+    this.events.push({ type: 'received', creature, shiny, already });
   }
 
   private retreat(): void {
