@@ -218,14 +218,19 @@
       "id": "1.3-b1-5",
       "band": 1,
       "topic": "food",
-      "frame": "Gus wrote a note about Indi's lunch. He got the reason wrong.",
+      "frame": "Gus wrote a note about Indi's lunch. One part is wrong.",
       "text": "Indi opened her lunchbox and shut it again, fast. She pushed it to the far end of the table. Inside was Mum's leftover fish curry. It had been in her bag all morning. Her bag had been sitting in the hot sun. A fly landed on the lid, then flew away very quickly. Zed held his nose. Indi ate an apple for lunch instead.",
-      "prompt": "Tap the part of Gus's note that's wrong, then choose a better reason.",
+      "prompt": "Tap the part of Gus's note that's wrong, then choose a better one.",
       "success": "Fish curry sitting in the hot sun all morning would stink. Even the fly left fast.",
       "body": {
         "format": "fix",
         "parts": [
-          "Indi pushed her ",
+          "Indi's lunch was ",
+          {
+            "tap": "fish curry",
+            "reason": "That's right. Inside the lunchbox was Mum's leftover fish curry."
+          },
+          ". She pushed her ",
           {
             "tap": "lunchbox",
             "reason": "That's right. She pushed her lunchbox away. Check the reason."
@@ -236,7 +241,7 @@
           },
           "."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
             "text": "it was empty",
@@ -412,9 +417,9 @@
       "id": "1.3-b2-5",
       "band": 2,
       "topic": "spooky",
-      "frame": "Zed wrote a note about the 'haunted' hall. He got the reason wrong.",
+      "frame": "Zed wrote a note about the 'haunted' hall. One part is wrong.",
       "text": "For three weeks, people in Hollowgum had been whispering about the old church hall. Every Thursday night, its lights came on at seven o'clock. Strange, high voices floated out of the windows. 'It's haunted,' said Zed. On the fourth Thursday, the crew crept up to the hall to look. Through the window, they saw twenty old people standing in a circle. Each one was holding a sheet of music. A woman at the piano tapped a stick and called out, 'From the top, everyone!' The voices started again. A man in the front row sang so high that a glass of water on the piano wobbled. At eight o'clock, everyone came out holding cups of tea and arguing about biscuits.",
-      "prompt": "Tap the part of Zed's note that's wrong, then choose a better reason.",
+      "prompt": "Tap the part of Zed's note that's wrong, then choose a better one.",
       "success": "Sheet music, a piano and 'From the top, everyone!' all point to a choir practising.",
       "body": {
         "format": "fix",
@@ -427,6 +432,11 @@
           " night because ",
           {
             "tap": "a ghost was there"
+          },
+          ". At eight o'clock, everyone came out holding ",
+          {
+            "tap": "cups of tea",
+            "reason": "That's right. At eight, everyone came out holding cups of tea."
           },
           "."
         ],
@@ -619,9 +629,9 @@
       "id": "1.3-b3-5",
       "band": 3,
       "topic": "animals",
-      "frame": "The ranger wrote a quick note about the Hollowgum cockatoo. She got the reason wrong.",
+      "frame": "The ranger wrote a quick note about the Hollowgum cockatoo. One part is wrong.",
       "text": "Ranger's report, Hollowgum Camping Ground. Since Monday, a sulphur-crested cockatoo has visited tent 4 every single morning at about seven o'clock. It does not visit any of the other twenty tents. The family in tent 4 told me they have tried everything to get rid of it. They have shouted, flapped towels and even played loud music at it, but it just screeches back and waits on their car roof. I noticed that they eat breakfast at a fold-out table outside their tent. They leave open packets of chips and bread on it overnight. The other campers pack their food into their cars at night. This morning, I watched the cockatoo land on the table, tear open a bag of chips and fling them all over the grass. Then it chewed the corner off the table, just for fun. I have given the family a plastic tub with a clip-on lid. I will check again tomorrow.",
-      "prompt": "Tap the part of the note that's wrong, then choose a better reason.",
+      "prompt": "Tap the part of the note that's wrong, then choose a better one.",
       "success": "Tent 4 is the only one with food left out overnight. That's what keeps the cockatoo coming back.",
       "body": {
         "format": "fix",
@@ -631,13 +641,18 @@
             "tap": "tent 4",
             "reason": "That's right. It only visits tent 4. Check the reason."
           },
+          " each ",
+          {
+            "tap": "morning",
+            "reason": "That's right. It visits every single morning at about seven o'clock."
+          },
           " because ",
           {
             "tap": "the tent is bright yellow"
           },
           "."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
             "text": "the family feeds it on purpose",
@@ -829,9 +844,9 @@
       "id": "1.3-b4-5",
       "band": 4,
       "topic": "funny",
-      "frame": "Someone summed up Beryl's letter to the Herald. They got the reason wrong.",
+      "frame": "Someone summed up Beryl's letter to the Herald. One part is wrong.",
       "text": "Dear Editor, I am writing about my neighbour, Mr Desmond Pratt of 14 Wattle Street. His lawn is the neatest on the street, and he mows it every Saturday. At five o'clock last Saturday morning, while it was still dark, Mr Pratt started his lawnmower. It was so loud that it set off three dogs and a car alarm. He mowed his front lawn, his back lawn and, for some reason, the strip of grass outside the post office. I was furious, and I marched over in my dressing gown to complain. Mr Pratt was wearing a head torch and a very large straw hat. He simply pointed at the newspaper on his porch, where the headline read RECORD HEAT: 44 DEGREES BY MIDDAY. He told me that the last time he mowed at lunchtime in summer, he had to lie in the paddling pool for an hour afterwards. By nine o'clock he had finished and gone inside, and by noon the footpath was too hot to stand on in thongs. I still do not think anyone should mow in the dark. However, I would like to thank Mr Pratt for doing my lawn as well, which he did while I was getting dressed. Yours sincerely, Beryl Tonks",
-      "prompt": "Tap the part of the summary that's wrong, then choose a better reason.",
+      "prompt": "Tap the part of the summary that's wrong, then choose a better one.",
       "success": "He pointed at the 44-degree headline and remembered nearly melting last time. He was beating the heat.",
       "body": {
         "format": "fix",
@@ -844,6 +859,11 @@
           " because ",
           {
             "tap": "he wanted to annoy his neighbours"
+          },
+          ". He had finished by ",
+          {
+            "tap": "nine o'clock",
+            "reason": "That's right. Beryl says he had finished and gone inside by nine."
           },
           "."
         ],

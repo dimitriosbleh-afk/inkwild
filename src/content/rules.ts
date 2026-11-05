@@ -83,7 +83,7 @@ function bodyProblems(b: Body): string[] {
     }
     case 'tapText': {
       const t = taps(b.parts);
-      if (t.length < 2) out.push('tapText needs at least 2 tappable parts');
+      if (t.length < 3) out.push('tapText needs at least 3 tappable parts, so a guess is right no more than a third of the time');
       reasoned(t, b.answer, 'tap');
       break;
     }
@@ -105,7 +105,7 @@ function bodyProblems(b: Body): string[] {
     }
     case 'fix': {
       const t = taps(b.parts);
-      if (t.length < 2) out.push('fix needs at least 2 tappable parts');
+      if (t.length < 3) out.push('fix needs at least 3 tappable parts, so a guess is right no more than a third of the time');
       reasoned(t, b.spot, 'spot');
       reasoned(b.options, b.answer, 'fix option');
       break;

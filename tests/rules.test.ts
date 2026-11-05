@@ -85,6 +85,19 @@ describe('content rule checks', () => {
     ).toMatch(/longest option/);
   });
 
+  it('reject a fix task with only two tappable parts', () => {
+    expect(
+      problemsAfter((f) => {
+        const body = f.encounters.find((x) => x.body.format === 'fix')!.body;
+        if (body.format !== 'fix') return;
+        const taps = body.parts.filter((p) => typeof p !== 'string');
+        const keep = [taps[body.spot], taps.find((_, i) => i !== body.spot)];
+        body.parts = body.parts.filter((p) => typeof p === 'string' || keep.includes(p));
+        body.spot = body.parts.filter((p) => typeof p !== 'string').indexOf(keep[0]!);
+      }).join(),
+    ).toMatch(/at least 3 tappable parts/);
+  });
+
   it('reject an accepted sentence the tiles cannot build', () => {
     expect(buildable(['The cat', 'sat.'], 'The cat sat.')).toBe(true);
     expect(buildable(['The cat', 'sat.'], 'The dog sat.')).toBe(false);

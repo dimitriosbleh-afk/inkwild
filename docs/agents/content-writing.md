@@ -52,7 +52,7 @@ Use at least three different formats in each Band (`choose`, `tapText`, `order`,
 11. **One grammar.** Use the Victorian Curriculum v2.0 metalanguage. Leave out any case where traditional and functional grammar disagree, so a careful adult can't argue either way. Examples: compound predicates ("Mia ran and bought milk"), "-ing" and "to" clauses as the thing classified, reported speech, "so" as a joining word, "who" for animals, and "that" offered as wrong where it's acceptable. This applies to what students choose between; success lines and reasons may use everyday "so".
 12. **Sentence length counts everything the student reads:** passage, tappable text, the built sentence, sort and order items, and options of five words or more. Run-on Skills (5.13, 8.2) are exempt, because their long sentences are the point.
 13. **Bands 3 and 4 need 4 options** in choose tasks (sort bins can be 2 to 4 at any Band). When a Skill has only three categories, offer four sentences or four "type: reason" statements instead.
-14. **Students tap, never drag.** Prompts say "Match each...", "Put..." or "Tap...", never "Drag".
+14. **Students tap, never drag.** tapText and fix tasks need at least 3 tappable parts. Prompts say "Match each...", "Put..." or "Tap...", never "Drag".
 
 ## Reading Branches
 
