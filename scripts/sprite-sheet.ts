@@ -5,8 +5,9 @@ import { COMMA } from '../src/art/drawn/comma';
 import { TWOTIDE } from '../src/art/drawn/twotide';
 import { BLUSTER } from '../src/art/drawn/bluster';
 import { MANGROVES } from '../src/art/drawn/mangroves';
+import { PEAKS } from '../src/art/drawn/peaks';
 
-const DRAWN = { ...BASE, ...COMMA, ...TWOTIDE, ...BLUSTER, ...MANGROVES };
+const DRAWN = { ...BASE, ...COMMA, ...TWOTIDE, ...BLUSTER, ...MANGROVES, ...PEAKS };
 import type { SpriteDef } from '../src/art/sprite';
 
 /** Renders every hand-made Creature (base, evolved, shiny) into one PNG contact sheet, so art can be checked by eye. */
