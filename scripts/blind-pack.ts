@@ -21,7 +21,20 @@ const shuffle = <T>(xs: T[]): T[] => {
   }
   return a;
 };
-const joinParts = (parts: Part[]) => parts.map((p) => (typeof p === 'string' ? p : `[${p.tap}]`)).join('');
+/** Tappable parts in brackets; repeated texts get #1, #2 so a solver can say which one they mean. */
+const joinParts = (parts: Part[]) => {
+  const taps = parts.filter((p): p is { tap: string } => typeof p !== 'string').map((p) => p.tap);
+  const seen = new Map<string, number>();
+  return parts
+    .map((p) => {
+      if (typeof p === 'string') return p;
+      if (taps.filter((t) => t === p.tap).length < 2) return `[${p.tap}]`;
+      const n = (seen.get(p.tap) ?? 0) + 1;
+      seen.set(p.tap, n);
+      return `[${p.tap}#${n}]`;
+    })
+    .join('');
+};
 
 function sheet(body: Body): Record<string, unknown> {
   switch (body.format) {

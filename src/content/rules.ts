@@ -296,14 +296,17 @@ export function chapterProblems(c: { id: string; title: string; bands: Record<Ba
  */
 export function tells(file: SkillFile): string[] {
   const chooses = file.encounters.flatMap((e) => (e.body.format === 'choose' ? [e.body] : []));
-  if (chooses.length < 6) return [];
+  const sorts = file.encounters.flatMap((e) => (e.body.format === 'sort' ? [e.body] : []));
+  const even = sorts.filter((b) => new Set(b.bins.map((_, k) => b.items.filter((i) => i.bin === k).length)).size === 1).length;
+  const evenProblem = sorts.length >= 3 && even / sorts.length > 0.75 ? [`${even} of ${sorts.length} sorts split evenly across their bins; make some uneven so students can't count instead of read`] : [];
+  if (chooses.length < 6) return evenProblem;
   const unique = (pick: (lens: number[]) => number) =>
     chooses.filter((b) => {
       const lens = b.options.map((o) => wordCount(o.text) * 100 + o.text.length);
       const target = pick(lens);
       return lens[b.answer] === target && lens.filter((l) => l === target).length === 1;
     }).length;
-  const out: string[] = [];
+  const out: string[] = [...evenProblem];
   const longest = unique((l) => Math.max(...l));
   const shortest = unique((l) => Math.min(...l));
   if (longest / chooses.length > 0.5) out.push(`the answer is the longest option in ${longest} of ${chooses.length} choose tasks; even out option lengths`);

@@ -76,3 +76,5 @@ Write only your assigned `content/skills/<id>.json` files. Never edit anything i
 Students learn patterns fast. Across a Skill, the right option must not usually be the longest, the shortest, the only one with "because", or the only one that hedges. Write wrong options that are as long and as detailed as the right one. A good summary option and a too-narrow one can be the same length. The check fails a Skill when the right answer is the longest or shortest option in more than half its choose tasks.
 
 In fix tasks, every replacement option is a plausible word of the same kind, so the student has to check the text to choose. Never plant a flat opposite (loved/hated) and offer its antonym as the only sensible swap.
+
+Sorts must not always split evenly (3 and 3, or 2, 2 and 2). Vary the counts, for example 4 and 2, or 3, 2 and 1, so the last item can't be placed by counting. In sorts, don't let every item in one bin share a surface feature (every backed claim has a number) that the other bin lacks.

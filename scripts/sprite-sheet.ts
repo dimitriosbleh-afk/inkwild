@@ -3,8 +3,9 @@ import { crc32, deflateSync } from 'node:zlib';
 import { DRAWN as BASE } from '../src/art/drawn';
 import { COMMA } from '../src/art/drawn/comma';
 import { TWOTIDE } from '../src/art/drawn/twotide';
+import { BLUSTER } from '../src/art/drawn/bluster';
 
-const DRAWN = { ...BASE, ...COMMA, ...TWOTIDE };
+const DRAWN = { ...BASE, ...COMMA, ...TWOTIDE, ...BLUSTER };
 import type { SpriteDef } from '../src/art/sprite';
 
 /** Renders every hand-made Creature (base, evolved, shiny) into one PNG contact sheet, so art can be checked by eye. */

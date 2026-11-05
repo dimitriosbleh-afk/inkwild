@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { readContentFiles } from '../src/content/files';
 import { normalise, taps } from '../src/core/check';
-import type { Encounter } from '../src/content/types';
+import type { Encounter, Part } from '../src/content/types';
 
 /** Compares a blind solver's answers with the key. Any mismatch, low confidence or second defensible answer is flagged. */
 interface Answer {
@@ -16,20 +16,28 @@ const { files } = await readContentFiles(new URL('../content/', import.meta.url)
 const dir = new URL('../.scratch/blind/', import.meta.url);
 const same = (a: unknown, b: string) => typeof a === 'string' && normalise(a).toLowerCase() === normalise(b).toLowerCase();
 
+/** The tap a solver meant: exact text, or text#n for the n-th of several identical taps. */
+function tapLabel(parts: Part[], index: number): string {
+  const all = taps(parts).map((t) => t.tap);
+  const text = all[index]!;
+  if (all.filter((t) => t === text).length < 2) return text;
+  return `${text}#${all.slice(0, index + 1).filter((t) => t === text).length}`;
+}
+
 function agrees(e: Encounter, answer: unknown): boolean {
   const b = e.body;
   switch (b.format) {
     case 'choose':
       return same(answer, b.options[b.answer]!.text);
     case 'tapText':
-      return same(answer, taps(b.parts)[b.answer]!.tap);
+      return same(answer, tapLabel(b.parts, b.answer));
     case 'order':
       return Array.isArray(answer) && answer.length === b.items.length && b.items.every((it, i) => same(answer[i], it));
     case 'build':
       return b.accept.some((a) => same(answer, a));
     case 'fix': {
       const a = answer as { spot?: string; replacement?: string } | null;
-      return !!a && same(a.spot, taps(b.parts)[b.spot]!.tap) && same(a.replacement, b.options[b.answer]!.text);
+      return !!a && same(a.spot, tapLabel(b.parts, b.spot)) && same(a.replacement, b.options[b.answer]!.text);
     }
     case 'sort': {
       const a = answer as Record<string, string> | null;

@@ -181,6 +181,7 @@
           { "text": "stuff", "bin": 0, "reason": "Stuff could mean almost anything, so it's vague." },
           { "text": "nice", "bin": 0, "reason": "Nice tells you something is good, but not how. It's vague." },
           { "text": "thing", "bin": 0, "reason": "Thing could be any object at all, so it's vague." },
+          { "text": "sprint", "bin": 1, "reason": "Sprint means run as fast as you can, so it's precise." },
           { "text": "spatula", "bin": 1, "reason": "Spatula names one exact kitchen tool, so it's precise." },
           { "text": "drizzling", "bin": 1, "reason": "Drizzling means light, fine rain. That's precise." },
           { "text": "kelpie", "bin": 1, "reason": "Kelpie names one exact kind of dog, so it's precise." }
@@ -403,13 +404,14 @@
       "topic": "space",
       "frame": "Zed is sharpening the words in his space project.",
       "prompt": "Match each precise word to the vague word it could replace.",
-      "success": "Colossal and immense sharpen big. Microscopic and minuscule sharpen small. Dazzling and blinding sharpen bright.",
+      "success": "Colossal, immense and vast sharpen big. Microscopic and minuscule sharpen small. Dazzling and blinding sharpen bright.",
       "body": {
         "format": "sort",
         "bins": ["sharpens 'big'", "sharpens 'small'", "sharpens 'bright'"],
         "items": [
           { "text": "colossal", "bin": 0, "reason": "Colossal means enormous, so it sharpens big." },
           { "text": "immense", "bin": 0, "reason": "Immense means hugely big, so it sharpens big." },
+          { "text": "vast", "bin": 0, "reason": "Vast means huge and spread out, like space itself, so it sharpens big." },
           { "text": "microscopic", "bin": 1, "reason": "Microscopic means so small you need a microscope, so it sharpens small." },
           { "text": "minuscule", "bin": 1, "reason": "Minuscule means extremely small, so it sharpens small." },
           { "text": "dazzling", "bin": 2, "reason": "Dazzling means so bright it's hard to look at, so it sharpens bright." },
