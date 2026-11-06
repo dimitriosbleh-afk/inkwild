@@ -11,6 +11,8 @@ export const ENCOUNTERS_PER_BAND = 6;
 
 /** Word limits for the words around a task, read by every Band, so a nine-year-old can follow them. */
 export const LIMITS = { say: 20, ask: 14, show: 24, means: 16, why: 14, how: 16, feedback: 20 } as const;
+/** Students play with no sound and skip long crew talk, so a lesson step's lead-in and its win line stay short. */
+export const CREW_LIMIT = 12;
 
 export const BAND_TARGETS: Record<Band, { sentence: number; passage: [number, number] }> = {
   1: { sentence: 12, passage: [60, 120] },
@@ -366,9 +368,9 @@ export function teachProblems(iDo: Teach['iDo'], id: string): Problem[] {
   steps.forEach((st, i) => {
     const where = `I do step ${i + 1}`;
     const long = (label: string, text: string, max: number) => wordCount(text) > max && add(where, `${label} is ${wordCount(text)} words; keep it to ${max}`);
-    long('say', st.say, LIMITS.say);
+    long('say', st.say, CREW_LIMIT);
     long('ask', st.ask, LIMITS.ask);
-    long('win', st.win, LIMITS.feedback);
+    long('win', st.win, CREW_LIMIT);
     if (st.show) long('example', showText(st.show), LIMITS.show);
     const chunks = (st.show ?? []).filter((p): p is Chunk => typeof p !== 'string');
     for (const c of chunks) if (c.nudge) long('nudge', c.nudge, LIMITS.feedback);

@@ -13,7 +13,7 @@
       "iDo": {
         "steps": [
           {
-            "say": "Here's my game club notice. The checklist has three items. I check one item at a time.",
+            "say": "Three checklist items. I check one at a time.",
             "show": [
               {
                 "text": "Come and play Lava Leap!",
@@ -33,10 +33,10 @@
               "kind": "tap",
               "answer": 0
             },
-            "win": "Yes! That line is the proof, so item 1 is done. On to the next item."
+            "win": "Yes! That line is the proof. Item 1 is done."
           },
           {
-            "say": "Item 2: Gives the exact start time. Does my notice have proof? Read the item's words carefully.",
+            "say": "Item 2: Gives the exact start time. Read it carefully.",
             "show": [
               {
                 "text": "Come and play Lava Leap!",
@@ -57,11 +57,11 @@
               "answer": false,
               "nudge": "Read item 2 again: exact start time. Could you set a clock by 'after lunch'?"
             },
-            "win": "Right! After lunch is about time, but it isn't exact. Near enough still fails the item.",
+            "win": "Right! After lunch isn't exact. Near enough still fails.",
             "trap": true
           },
           {
-            "say": "So I fix item 2. But careful: a fix mustn't break an item that already passed.",
+            "say": "I fix item 2, without breaking an item that passed.",
             "ask": "Which edit fixes item 2 and keeps every other item?",
             "check": {
               "kind": "pick",
@@ -80,10 +80,10 @@
                 }
               ]
             },
-            "win": "Yes! 1.30 pm is exact, and the game and the place are still there. Every item passes."
+            "win": "Yes! 1.30 pm is exact, and nothing else broke."
           },
           {
-            "say": "Mo's recipe checklist says: Each step starts with a command verb, like Mix or Pour.",
+            "say": "Mo's checklist: each step starts with a command verb, like Mix.",
             "show": [
               {
                 "text": "Mix the flour and milk.",
@@ -103,10 +103,10 @@
               "kind": "tap",
               "answer": 1
             },
-            "win": "Yes! 'The eggs go in' doesn't tell you to do anything. Fix it: Add the eggs next."
+            "win": "Yes! It gives no order. Try: Add the eggs."
           },
           {
-            "say": "Tully's sign. Checklist: 1. What was found. 2. Where it was found. 3. Who to see.",
+            "say": "Tully's checklist: what was found, where, and who to see.",
             "show": [
               {
                 "text": "FOUND: a red footy boot,",
@@ -143,7 +143,7 @@
                 }
               ]
             },
-            "win": "Yes! Every item has proof. Don't hunt for a problem that isn't there.",
+            "win": "Yes! Every item passes. Don't invent a problem.",
             "trap": true
           }
         ],
