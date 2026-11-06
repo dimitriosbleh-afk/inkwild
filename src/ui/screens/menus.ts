@@ -257,7 +257,17 @@ export function guideScreen(app: App): ScreenView {
             const c = mine.get(skill.creature.id);
             const art = creatureCanvas(skill.creature.id, { scale: 5, evolved: c?.evolved ?? false, shiny: c?.shiny ?? false });
             if (c) art.classList.add('bob');
-            return h('div', { class: `card${c ? '' : ' unknown'}` }, art, c ? c.name.toUpperCase() : '???', c ? h('div', {}, `LV ${c.level}`) : null, c?.shiny ? h('span', { class: 'tag' }, 'SHINY') : null, c?.received ? h('span', { class: 'tag', style: 'background:var(--sky)' }, 'SWAP') : null);
+            const rusty = !!c && !c.received && !!s.skills[skill.id]?.rusty;
+            return h(
+              'div',
+              { class: `card${c ? '' : ' unknown'}` },
+              art,
+              c ? c.name.toUpperCase() : '???',
+              c ? h('div', {}, `LV ${c.level}`) : null,
+              c?.shiny ? h('span', { class: 'tag' }, 'SHINY') : null,
+              c?.received ? h('span', { class: 'tag', style: 'background:var(--sky)' }, 'SWAP') : null,
+              rusty ? h('span', { class: 'tag refresh-tag' }, 'NEEDS A REFRESH') : null,
+            );
           }),
         ),
       ),
@@ -277,7 +287,7 @@ export function settingsScreen(app: App): ScreenView {
     app.applySettings();
     draw();
   };
-  const toggle = (label: string, on: boolean, flip: () => void) => h('button', { class: on ? 'go' : 'ghost', onclick: flip }, `${label}: ${on ? 'ON' : 'OFF'}`);
+  const toggle = (label: string, on: boolean, flip: () => void) => h('button', { class: `${on ? 'go' : 'ghost'} setting`, onclick: flip, 'aria-pressed': String(on) }, `${label}: ${on ? 'ON' : 'OFF'}`);
   const draw = () =>
     el.replaceChildren(
       h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: () => app.go({ name: 'home' }) }, 'HOME'), h('h2', { style: 'margin:0' }, 'SETTINGS')),
@@ -289,7 +299,13 @@ export function settingsScreen(app: App): ScreenView {
         h('div', { class: 'row' }, ...[0, 1, 2].map((n) => h('button', { class: s().textSize === n ? 'go' : 'ghost', onclick: () => set((x) => (x.textSize = n as 0 | 1 | 2)) }, ['TEXT A', 'TEXT A+', 'TEXT A++'][n]!))),
         h('div', { class: 'row', style: 'margin-top:14px' }, toggle('EXTRA SPACING', s().spacing, () => set((x) => (x.spacing = !x.spacing))), toggle('CREAM PAGE', s().cream, () => set((x) => (x.cream = !x.cream)))),
       ),
-      h('div', { class: 'panel' }, h('h3', {}, 'SOUND'), h('p', { class: 'note' }, 'Tapping a word always reads it out. This switch is for music and sound effects.'), toggle('SOUND', s().sound, () => set((x) => (x.sound = !x.sound)))),
+      h(
+        'div',
+        { class: 'panel' },
+        h('h3', {}, 'SOUND'),
+        h('p', { class: 'note' }, 'Tapping a word always reads it out, and HEAR reads a whole crew line. SOUND is for music and sound effects. READ CREW LINES ALOUD reads each new crew line by itself.'),
+        h('div', { class: 'row' }, toggle('SOUND', s().sound, () => set((x) => (x.sound = !x.sound))), toggle('READ CREW LINES ALOUD', s().readAloud, () => set((x) => (x.readAloud = !x.readAloud)))),
+      ),
       h(
         'div',
         { class: 'panel' },

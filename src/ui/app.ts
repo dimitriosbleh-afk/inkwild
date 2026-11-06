@@ -8,6 +8,7 @@ import type { GameEvent } from '../core/game';
 import { h } from './dom';
 import { burst } from './fx';
 import { blip } from './sound';
+import { hush, setReadAloud } from './speech';
 
 export type Screen =
   | { name: 'firstRun' }
@@ -54,6 +55,7 @@ export class App {
 
   go<S extends Screen>(screen: S): void {
     this.current?.stop?.();
+    hush();
     const fn = this.screens[screen.name] as (app: App, s: S) => ScreenView;
     this.current = fn(this, screen);
     this.current.el.classList.add('screen');
@@ -67,6 +69,7 @@ export class App {
     document.body.classList.add(`size-${s.textSize}`);
     document.body.classList.toggle('spacing', s.spacing);
     document.body.classList.toggle('cream', s.cream);
+    setReadAloud(s.readAloud);
   }
 
   sfx(kind: Parameters<typeof blip>[0]): void {

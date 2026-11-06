@@ -2,9 +2,10 @@ import type { BranchId, Content, Encounter, EncounterId, Response, Skill, SkillI
 import { recordForBand } from './bands';
 import { check } from './check';
 import { interestWeight, poolKey, poolNear, weighted } from './pick';
-import { reviewFor } from './review';
+import { reviewFor, reviewPhase } from './review';
 import { isUnlocked, keeperOpen, masteredAt, unlockedSkills } from './route';
-import { skillProgress, type Activity, type Day, type Outcome, type Save } from './save';
+import { skillProgress, type Activity, type Day, type Marks, type Outcome, type Save } from './save';
+import { cleanMarks } from './sentence';
 
 export interface Ctx {
   day: Day;
@@ -18,9 +19,11 @@ export type Action =
   | { type: 'advance' }
   | { type: 'answer'; response: Response }
   | { type: 'retreat' }
-  | { type: 'piece'; skill: SkillId; title: string; text: string; ticks: boolean[] }
+  /** `marks`: for each checklist item, the words of the Piece the Student tapped to show it. */
+  | { type: 'piece'; skill: SkillId; title: string; text: string; marks: Marks }
   | { type: 'receive'; creature: string; shiny: boolean }
-  | { type: 'sentence'; skill: SkillId; text: string; ticks: boolean[] }
+  /** `marks`: for each check, the words of the sentence the Student tapped to show it. */
+  | { type: 'sentence'; skill: SkillId; text: string; marks: Marks }
   | { type: 'review' };
 
 export type GameEvent =
@@ -51,6 +54,8 @@ const XP_PER_ENCOUNTER = 10;
 const XP_PER_SENTENCE = 10;
 const SHINY_ODDS = 64;
 const TIDE_SHINY_ODDS = 16;
+/** Daily review misses in a row that make a Skill rusty. */
+export const RUSTY_AFTER = 2;
 export const KEEPER_HP = 100;
 export const HIT = { first: 25, second: 15, chip: 10, miss: 25 } as const;
 
@@ -160,15 +165,17 @@ class Run {
     if (this.save.activity) return;
     const ids = reviewFor(this.content, this.save, this.ctx.day, this.ctx.rand);
     if (ids.length === 0) return;
-    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, firsts: 0 };
+    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, firsts: 0, phase: reviewPhase(this.content, this.save, ids[0]!) };
   }
 
   /** A Write your own sentence: kept on the iPad, never marked, worth a little XP. */
   private sentence(a: Extract<Action, { type: 'sentence' }>): void {
     const text = a.text.trim();
     const p = skillProgress(this.save, a.skill);
-    if (!this.content.skill(a.skill).write || !p.taught || !text) return;
-    this.save.sentences.push({ skill: a.skill, text, ticks: a.ticks, day: this.ctx.day });
+    const write = this.content.skill(a.skill).write;
+    if (!write || !p.taught || !text) return;
+    const marks = cleanMarks(a.marks, write.checks.length, text);
+    this.save.sentences.push({ skill: a.skill, text, ticks: marks.map((m) => m.length > 0), marks, day: this.ctx.day });
     this.save.skills[a.skill] = { ...p, xp: p.xp + XP_PER_SENTENCE };
     this.events.push({ type: 'wrote', skill: a.skill });
   }
@@ -177,9 +184,11 @@ class Run {
     return this.content.skillsOf(branch).slice(0, this.content.branch(branch).keeperAfter);
   }
 
+  /** Past the I do into the We do, or past a rusty Skill's refresher into its review item. */
   private advance(): void {
     const a = this.save.activity;
     if (a?.kind === 'teach' && a.step === 0) this.save.activity = { ...a, step: 1, tries: 0 };
+    if (a?.kind === 'review' && a.phase === 'refresher') this.save.activity = { ...a, phase: 'task' };
   }
 
   /** A finished Piece: kept on the iPad, never judged. Finishing one befriends and evolves that prompt's Creature. */
@@ -188,7 +197,16 @@ class Run {
     if (!skill.workshop || !isUnlocked(this.content, this.save, skill.id) || !a.text.trim()) return;
     const before = this.openState(skill.branch);
     const p = skillProgress(this.save, skill.id);
-    this.save.pieces.push({ id: `${skill.id}-${this.save.pieces.length + 1}`, skill: skill.id, title: a.title.trim() || skill.name, text: a.text, ticks: a.ticks, day: this.ctx.day });
+    const marks = cleanMarks(a.marks, skill.workshop.checklist.length, a.text);
+    this.save.pieces.push({
+      id: `${skill.id}-${this.save.pieces.length + 1}`,
+      skill: skill.id,
+      title: a.title.trim() || skill.name,
+      text: a.text,
+      ticks: marks.map((m) => m.length > 0),
+      marks,
+      day: this.ctx.day,
+    });
     if (p.done === 0) this.events.push({ type: 'befriended', skill: skill.id, creature: skill.creature.id, shiny: false });
     const firstFinish = !p.mastered;
     this.save.skills[skill.id] = { ...p, taught: true, done: p.done + 1, xp: p.xp + 30, mastered: true };
@@ -235,7 +253,7 @@ class Run {
 
   private answer(response: Response): void {
     const a = this.save.activity;
-    if (!a || (a.kind === 'teach' && a.step === 0)) return;
+    if (!a || (a.kind === 'teach' && a.step === 0) || (a.kind === 'review' && a.phase === 'refresher')) return;
     const task = currentTask(this.content, a);
     const verdict = check(task.body, response);
     if (verdict.kind === 'continue') {
@@ -306,16 +324,20 @@ class Run {
 
   /**
    * One Daily review answer. It gives XP and notes the attempt so this Skill waits longest for its next review, but
-   * never moves the Band, placement or mastery, and never counts as play on that Island.
+   * never moves the Band, placement or mastery, and never counts as play on that Island. A miss counts towards rusty:
+   * two in a row and the Skill comes back first, after its trap step, until it is right first try again.
    */
   private reviewTurn(a: Extract<Activity, { kind: 'review' }>, outcome: Outcome): void {
     const { content, save, ctx } = this;
     const encounter = content.encounter(encounterOf(a));
     const p = skillProgress(save, encounter.skill);
+    const misses = outcome === 'first' ? 0 : p.reviewMisses + 1;
     save.skills[encounter.skill] = {
       ...p,
       xp: p.xp + XP_PER_ENCOUNTER,
       recent: [...p.recent, { outcome, band: encounter.band, day: ctx.day }].slice(-RECENT_ATTEMPTS),
+      reviewMisses: misses,
+      rusty: misses === 0 ? false : p.rusty || misses >= RUSTY_AFTER,
     };
     const key = poolKey(encounter.skill, encounter.band);
     save.seen[key] = [...(save.seen[key] ?? []), encounter.id];
@@ -324,8 +346,9 @@ class Run {
       save.lastPlayed = ctx.day;
     }
     const firsts = a.firsts + (outcome === 'first' ? 1 : 0);
-    if (a.at + 1 < a.ids.length) {
-      save.activity = { ...a, at: a.at + 1, tries: 0, firsts };
+    const next = a.ids[a.at + 1];
+    if (next) {
+      save.activity = { ...a, at: a.at + 1, tries: 0, firsts, phase: reviewPhase(content, save, next) };
       return;
     }
     delete save.activity;

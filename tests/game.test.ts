@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { befriended } from '../src/core/creatures';
 import { HIT, KEEPER_HP } from '../src/core/game';
+import { PRACTICE_TO_UNLOCK } from '../src/core/route';
 import { newSave, type Save } from '../src/core/save';
 import { content, Player } from './fixture';
 
@@ -307,13 +308,13 @@ describe('Story workshop', () => {
     const bank = buildContent(branches, [prompt('9.1'), prompt('9.2')]);
     const ctx = { day: 100, rand: () => 0.5 };
     let save = new Player().save;
-    const before = step(bank, save, { type: 'piece', skill: '9.2', title: 'Too soon', text: 'x', ticks: [true] }, ctx);
+    const before = step(bank, save, { type: 'piece', skill: '9.2', title: 'Too soon', text: 'x', marks: [[0]] }, ctx);
     expect(before.save.pieces).toEqual([]);
-    const done = step(bank, save, { type: 'piece', skill: '9.1', title: 'My hook', text: 'The door creaked.', ticks: [true] }, ctx);
+    const done = step(bank, save, { type: 'piece', skill: '9.1', title: 'My hook', text: 'The door creaked.', marks: [[0]] }, ctx);
     save = done.save;
     expect(save.pieces).toMatchObject([{ skill: '9.1', title: 'My hook', text: 'The door creaked.' }]);
     expect(done.events.map((e) => e.type)).toEqual(expect.arrayContaining(['befriended', 'evolved', 'unlocked']));
-    const last = step(bank, save, { type: 'piece', skill: '9.2', title: 'End', text: 'The end.', ticks: [true] }, ctx);
+    const last = step(bank, save, { type: 'piece', skill: '9.2', title: 'End', text: 'The end.', marks: [[0]] }, ctx);
     expect(last.events.map((e) => e.type)).toContain('badge');
   });
 });
@@ -324,38 +325,63 @@ describe('Write your own', () => {
     const p = new Player(fresh(100));
     p.learn('sentence');
     const xp = p.save.skills['5.1']!.xp;
-    const events = p.do({ type: 'sentence', skill: '5.1', text: '  When the bell rang, we ran outside.  ', ticks: [true] });
+    const events = p.do({ type: 'sentence', skill: '5.1', text: '  When the bell rang, we ran outside.  ', marks: [[0, 3]] });
     expect(events).toEqual([{ type: 'wrote', skill: '5.1' }]);
-    expect(p.save.sentences).toEqual([{ skill: '5.1', text: 'When the bell rang, we ran outside.', ticks: [true], day: 100 }]);
+    expect(p.save.sentences).toEqual([{ skill: '5.1', text: 'When the bell rang, we ran outside.', ticks: [true], marks: [[0, 3]], day: 100 }]);
     expect(p.save.skills['5.1']!.xp).toBeGreaterThan(xp);
     expect(p.save.skills['5.1']!.mastered).toBe(false);
   });
 
   it('ignores a sentence for a Skill not yet taught, or an empty one', () => {
     const p = new Player();
-    expect(p.do({ type: 'sentence', skill: '5.1', text: 'Too soon for this one.', ticks: [] })).toEqual([]);
+    expect(p.do({ type: 'sentence', skill: '5.1', text: 'Too soon for this one.', marks: [] })).toEqual([]);
     p.learn('sentence');
-    expect(p.do({ type: 'sentence', skill: '5.1', text: '   ', ticks: [] })).toEqual([]);
+    expect(p.do({ type: 'sentence', skill: '5.1', text: '   ', marks: [] })).toEqual([]);
     expect(p.save.sentences).toEqual([]);
   });
 
-  it('is owed once a Skill with a write task is taught, until one is written', async () => {
+  it('is owed only once the move has been used in three Encounters, until one is written', async () => {
     const { owedOn, owesSentence } = await import('../src/core/sentence');
     const p = new Player();
     expect(owesSentence(content, p.save, '5.1')).toBe(false);
     p.learn('sentence');
+    expect(owesSentence(content, p.save, '5.1')).toBe(false);
+    p.encounter('sentence', 'first');
+    p.encounter('sentence', 'shown');
+    expect(owesSentence(content, p.save, '5.1')).toBe(false);
+    expect(owedOn(content, p.save, 'sentence')).toBeUndefined();
+    p.encounter('sentence', 'second');
+    expect(p.save.skills['5.1']!.done).toBe(PRACTICE_TO_UNLOCK);
     expect(owesSentence(content, p.save, '5.1')).toBe(true);
     expect(owedOn(content, p.save, 'sentence')?.id).toBe('5.1');
     expect(owedOn(content, p.save, 'between')).toBeUndefined();
-    p.do({ type: 'sentence', skill: '5.1', text: 'My own sentence goes here.', ticks: [false] });
+    p.do({ type: 'sentence', skill: '5.1', text: 'My own sentence goes here.', marks: [[1]] });
     expect(owesSentence(content, p.save, '5.1')).toBe(false);
     expect(owedOn(content, p.save, 'sentence')).toBeUndefined();
+  });
+
+  it('goes straight from the We do to an Encounter: nothing is owed before play', async () => {
+    const { owedOn } = await import('../src/core/sentence');
+    const p = new Player();
+    p.learn('sentence');
+    expect(owedOn(content, p.save, 'sentence')).toBeUndefined();
+    p.do({ type: 'begin', branch: 'sentence' });
+    expect(p.save.activity?.kind).toBe('encounter');
+  });
+
+  it('keeps only the words tapped for each check, once each, in order, and ticks the checks that have words', () => {
+    const p = new Player();
+    p.learn('sentence');
+    p.do({ type: 'sentence', skill: '5.1', text: 'When it rained we stayed in.', marks: [[4, 0, 0, 99, -1], [2]] });
+    expect(p.save.sentences[0]).toMatchObject({ marks: [[0, 4]], ticks: [true] });
+    p.do({ type: 'sentence', skill: '5.1', text: 'We stayed in all day long.', marks: [] });
+    expect(p.save.sentences[1]).toMatchObject({ marks: [[]], ticks: [false] });
   });
 
   it('is never owed for a Skill without a write task', async () => {
     const { owesSentence } = await import('../src/core/sentence');
     const save = new Player().save;
-    save.skills['5.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false };
+    save.skills['5.1'] = { taught: true, done: 3, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false };
     const { write: _, ...noWrite } = content.skill('5.1');
     const bank = { ...content, skill: () => noWrite };
     expect(owesSentence(bank, save, '5.1')).toBe(false);
@@ -377,5 +403,21 @@ describe('loading an older save', () => {
     const loaded = upgradeSave(old);
     expect(loaded.sentences).toEqual([]);
     expect(loaded.started).toBe(old.started);
+  });
+
+  it('gives older Skills, sentences, Pieces, settings and a review under way their new defaults', async () => {
+    const { upgradeSave } = await import('../src/core/save');
+    const old = structuredClone(new Player().save) as unknown as Record<string, unknown> & { started: number };
+    old.skills = { '5.1': { taught: true, done: 6, xp: 60, recent: [], mastered: true } };
+    old.sentences = [{ skill: '5.1', text: 'Old one.', ticks: [true], day: 90 }];
+    old.pieces = [{ id: '9.1-1', skill: '9.1', title: 'T', text: 'Old piece.', ticks: [false], day: 90 }];
+    old.settings = { textSize: 1, spacing: false, cream: false, sound: true };
+    old.activity = { kind: 'review', ids: ['5.1-b2-0'], at: 0, tries: 0, firsts: 0 };
+    const loaded = upgradeSave(old as unknown as Save);
+    expect(loaded.skills['5.1']).toMatchObject({ mastered: true, reviewMisses: 0, rusty: false });
+    expect(loaded.sentences[0]).toMatchObject({ text: 'Old one.', ticks: [true], marks: [] });
+    expect(loaded.pieces[0]).toMatchObject({ text: 'Old piece.', marks: [] });
+    expect(loaded.settings).toMatchObject({ textSize: 1, sound: true, readAloud: false });
+    expect(loaded.activity).toMatchObject({ kind: 'review', phase: 'task' });
   });
 });

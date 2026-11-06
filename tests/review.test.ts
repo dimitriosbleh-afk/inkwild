@@ -5,7 +5,7 @@ import { poolKey } from '../src/core/pick';
 import { reviewDue, reviewFor } from '../src/core/review';
 import { newSave, type Save } from '../src/core/save';
 import { alertsFor, goalFor } from '../src/world/goal';
-import { content, Player } from './fixture';
+import { content, Player, right } from './fixture';
 
 const TODAY = 100;
 const rand = () => 0.42;
@@ -22,6 +22,8 @@ function mastered(save: Save, id: SkillId, lastDay: number): Save {
     ],
     mastered: true,
     masteredBand: 2,
+    reviewMisses: 0,
+    rusty: false,
   };
   return save;
 }
@@ -157,6 +159,128 @@ describe('playing a Daily review', () => {
     const copy = structuredClone(save);
     step(content, save, { type: 'review' }, { day: TODAY, rand });
     expect(save).toEqual(copy);
+  });
+});
+
+/** Every answer in today's review: right first try, or missed first try. */
+function playReview(p: Player, how: 'first' | 'miss'): SkillId[] {
+  p.do({ type: 'review' });
+  const a = p.save.activity;
+  if (a?.kind !== 'review') throw new Error('no review');
+  for (let i = 0; i < a.ids.length; i++) {
+    if (how === 'first') p.answerRight();
+    else {
+      p.answerWrong();
+      p.answerRight();
+    }
+  }
+  return skillsOf(a.ids) as SkillId[];
+}
+
+describe('Daily review misses and rusty Skills', () => {
+  it('counts a miss, makes a Skill rusty after two in a row, and clears both on a right first try', () => {
+    const p = reviewer();
+    const ids = ['5.1', '5.2', '1.1'] as const;
+    const branches = structuredClone(p.save.branches);
+    expect(new Set(playReview(p, 'miss'))).toEqual(new Set(ids));
+    for (const id of ids) expect(p.save.skills[id]).toMatchObject({ reviewMisses: 1, rusty: false });
+    p.day += 1;
+    playReview(p, 'miss');
+    for (const id of ids) expect(p.save.skills[id]).toMatchObject({ reviewMisses: 2, rusty: true });
+    p.day += 1;
+    playReview(p, 'first');
+    for (const id of ids) expect(p.save.skills[id]).toMatchObject({ reviewMisses: 0, rusty: false });
+    for (const id of ids) expect(p.save.skills[id]).toMatchObject({ mastered: true, masteredBand: 2 });
+    expect(p.save.branches).toEqual(branches);
+  });
+
+  it('a right first try in between starts the count again', () => {
+    const p = reviewer();
+    playReview(p, 'miss');
+    p.day += 1;
+    playReview(p, 'first');
+    p.day += 1;
+    playReview(p, 'miss');
+    for (const id of ['5.1', '5.2', '1.1'] as const) expect(p.save.skills[id]).toMatchObject({ reviewMisses: 1, rusty: false });
+  });
+
+  it('never takes mastery or a Band away from a rusty Skill', () => {
+    const p = reviewer();
+    const branches = structuredClone(p.save.branches);
+    for (let day = 0; day < 4; day++) {
+      playReview(p, 'miss');
+      p.day += 1;
+    }
+    expect(p.save.skills['5.1']).toMatchObject({ rusty: true, mastered: true, masteredBand: 2 });
+    expect(p.save.branches).toEqual(branches);
+  });
+});
+
+describe('choosing a Daily review with misses', () => {
+  const mark = (save: Save, id: SkillId, reviewMisses: number) => {
+    save.skills[id] = { ...save.skills[id]!, reviewMisses, rusty: reviewMisses >= 2 };
+    return save;
+  };
+  const fiveMastered = () => {
+    const save = newSave(TODAY);
+    for (const [id, day] of [['5.1', 95], ['5.2', 50], ['5.3', 70], ['1.1', 90], ['1.2', 60]] as const) mastered(save, id, day);
+    return save;
+  };
+
+  it('puts rusty Skills first, then ones missed last time, then the longest unpractised', () => {
+    const save = mark(mark(fiveMastered(), '5.1', 2), '1.1', 1);
+    expect(skillsOf(reviewFor(content, save, TODAY, rand))).toEqual(['5.1', '1.1', '5.2']);
+  });
+
+  it('takes every rusty Skill before spreading across Islands', () => {
+    const save = mark(mark(fiveMastered(), '5.1', 2), '5.3', 3);
+    const skills = skillsOf(reviewFor(content, save, TODAY, rand));
+    expect(skills.slice(0, 2)).toEqual(['5.3', '5.1']);
+    expect(skills[2]).toBe('1.2');
+  });
+
+  it('still waits for two mastered Skills', () => {
+    expect(reviewFor(content, mark(mastered(newSave(TODAY), '5.1', 90), '5.1', 2), TODAY, rand)).toEqual([]);
+  });
+});
+
+describe('the refresher before a rusty Skill', () => {
+  /** The fixture's one I do step, marked as the trap. */
+  const trapped: typeof content = {
+    ...content,
+    skill: (id) => {
+      const s = content.skill(id);
+      return { ...s, teach: { ...s.teach, iDo: { ...s.teach.iDo, steps: s.teach.iDo.steps.map((st) => ({ ...st, trap: true })) } } };
+    },
+  };
+  const ctx = { day: TODAY, rand };
+  const rustySave = () => {
+    const save = reviewer().save;
+    save.skills['5.1'] = { ...save.skills['5.1']!, reviewMisses: 2, rusty: true };
+    return save;
+  };
+
+  it('opens on the trap step, waits for it, then plays the item', () => {
+    let save = step(trapped, rustySave(), { type: 'review' }, ctx).save;
+    expect(save.activity).toMatchObject({ kind: 'review', at: 0, phase: 'refresher' });
+    expect(skillsOf((save.activity as { ids: string[] }).ids)[0]).toBe('5.1');
+    const id = (save.activity as { ids: string[] }).ids[0]!;
+    const early = step(trapped, save, { type: 'answer', response: right(content.encounter(id).body) }, ctx);
+    expect(early.events).toEqual([]);
+    expect(early.save).toEqual(save);
+    save = step(trapped, save, { type: 'advance' }, ctx).save;
+    expect(save.activity).toMatchObject({ kind: 'review', at: 0, phase: 'task' });
+    const answered = step(trapped, save, { type: 'answer', response: right(content.encounter(id).body) }, ctx);
+    expect(answered.events[0]).toMatchObject({ type: 'resolved', outcome: 'first' });
+    expect(answered.save.activity).toMatchObject({ kind: 'review', at: 1, phase: 'task' });
+    expect(answered.save.skills['5.1']).toMatchObject({ rusty: false, reviewMisses: 0, mastered: true });
+  });
+
+  it('skips the refresher for a Skill that is not rusty, or has no trap step', () => {
+    const fresh = step(trapped, reviewer().save, { type: 'review' }, ctx).save;
+    expect(fresh.activity).toMatchObject({ phase: 'task' });
+    const noTrap = step(content, rustySave(), { type: 'review' }, ctx).save;
+    expect(noTrap.activity).toMatchObject({ phase: 'task' });
   });
 });
 

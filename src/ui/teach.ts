@@ -3,7 +3,7 @@ import { crewCanvas } from '../art/crew';
 import type { Chunk, Show, Skill, Step } from '../content/types';
 import { h } from './dom';
 import { shake } from './fx';
-import { readable } from './speech';
+import { hear, readable, saidBy } from './speech';
 import './teach.css';
 
 const SLOTS = 5;
@@ -56,21 +56,24 @@ export function showChunks(show: Show, colours: Map<string, number>, onTap?: (in
   };
 }
 
-/** One teaching step: the crew member's line, the example, and the one thing to do before NEXT appears. */
-function stepView(skill: Skill, step: Step, colours: Map<string, number>, onWon: () => void): HTMLElement {
+/**
+ * One teaching step: the crew member's line, the example, and the one thing to do before NEXT appears. `intro` is a
+ * line said first, in the same bubble.
+ */
+function stepView(skill: Skill, step: Step, colours: Map<string, number>, onWon: () => void, intro?: string): HTMLElement {
   const fb = h('div', { class: 'step-fb' });
   const person = crew[skill.teach.crew].name.toUpperCase();
   let won = false;
   const nudge = (text: string, el: HTMLElement) => {
     el.classList.add('tried');
     shake(el);
-    fb.replaceChildren(h('div', { class: 'feedback look pop' }, h('b', {}, 'HAVE ANOTHER GO'), readable(text)));
+    fb.replaceChildren(h('div', { class: 'feedback look pop' }, saidBy('HAVE ANOTHER GO', text), readable(text)));
   };
   const win = () => {
     won = true;
     shown?.reveal();
     shown?.lock();
-    fb.replaceChildren(h('div', { class: 'feedback good pop' }, h('b', {}, person), readable(step.win)));
+    fb.replaceChildren(h('div', { class: 'feedback good pop' }, saidBy(person, step.win), readable(step.win)));
     onWon();
   };
   const c = step.check;
@@ -89,17 +92,26 @@ function stepView(skill: Skill, step: Step, colours: Map<string, number>, onWon:
       const b: HTMLButtonElement = h('button', { class: 'chip answer', onclick: () => !won && (i === c.answer ? (b.classList.add('right'), win()) : nudge(o.reason ?? 'Not that one. Have another look.', b)) }, o.text);
       answers.push(b);
     });
-  const ask = h('div', { class: 'prompt step-ask' }, readable(step.ask));
+  // The ask is built after the say so that, read aloud, the lines come in the order they sit on screen.
+  const say = h('div', { class: 'speech task-speech step-say' }, saidBy(person, intro ? `${intro} ${step.say}` : step.say), intro ? h('div', { class: 'reading say-intro' }, readable(intro)) : null, h('div', { class: 'reading' }, readable(step.say)));
+  const ask = h('div', { class: 'prompt step-ask say-line' }, h('div', {}, readable(step.ask)), hear(step.ask));
   const paper = shown ? h('div', { class: 'passage step-show' }, shown.el) : null;
   const choices = answers.length ? h('div', { class: 'chips step-choices' }, answers) : null;
-  return h('div', { class: 'step' }, h('div', { class: 'speech task-speech step-say' }, h('b', {}, person), h('div', { class: 'reading' }, readable(step.say))), paper, ask, choices, fb);
+  return h('div', { class: 'step' }, say, paper, ask, choices, fb);
 }
 
-/** The whole I do: every step must be won before NEXT, and the last one hands over to the student. */
-export function teachPlayer(skill: Skill, done: () => void): HTMLElement {
-  const steps = skill.teach.iDo.steps;
+interface Lesson {
+  frame: string;
+  steps: Step[];
+  /** The label on the last step's button. */
+  last: string;
+  intro?: string;
+}
+
+/** Plays steps one at a time: each must be won before NEXT. */
+function stepPlayer(skill: Skill, lesson: Lesson, done: () => void): HTMLElement {
+  const steps = lesson.steps;
   const colours = tagColours(skill);
-  const person = crew[skill.teach.crew];
   const portrait = crewCanvas(skill.teach.crew, 6);
   portrait.classList.add('bob');
   const body = h('div', { class: 'step-body' });
@@ -109,10 +121,10 @@ export function teachPlayer(skill: Skill, done: () => void): HTMLElement {
   let at = 0;
   const draw = () => {
     next.disabled = true;
-    next.textContent = at < steps.length - 1 ? 'NEXT' : 'MY TURN';
-    counter.textContent = `STEP ${at + 1} OF ${steps.length}`;
-    dots.replaceChildren(...steps.map((_, i) => h('i', { class: i <= at ? 'on' : '' })));
-    body.replaceChildren(stepView(skill, steps[at]!, colours, () => (next.disabled = false)));
+    next.textContent = at < steps.length - 1 ? 'NEXT' : lesson.last;
+    counter.textContent = steps.length > 1 ? `STEP ${at + 1} OF ${steps.length}` : '';
+    dots.replaceChildren(...(steps.length > 1 ? steps.map((_, i) => h('i', { class: i <= at ? 'on' : '' })) : []));
+    body.replaceChildren(stepView(skill, steps[at]!, colours, () => (next.disabled = false), at === 0 ? lesson.intro : undefined));
     scrollTo(0, 0);
   };
   next.addEventListener('click', () => {
@@ -125,11 +137,23 @@ export function teachPlayer(skill: Skill, done: () => void): HTMLElement {
   return h(
     'div',
     { class: 'panel teach' },
-    h('div', { class: 'frame' }, `NEW MOVE · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`),
+    h('div', { class: 'frame' }, lesson.frame),
     h('h2', {}, skill.name.toUpperCase()),
     h('div', { class: 'row teach-row' }, portrait, body),
     h('div', { class: 'bar-actions' }, h('div', { class: 'row' }, counter, dots), next),
   );
+}
+
+/** The whole I do: every step must be won before NEXT, and the last one hands over to the student. */
+export function teachPlayer(skill: Skill, done: () => void): HTMLElement {
+  const person = crew[skill.teach.crew];
+  return stepPlayer(skill, { frame: `NEW MOVE · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`, steps: skill.teach.iDo.steps, last: 'MY TURN' }, done);
+}
+
+/** A rusty Skill's trap step, replayed before its Daily review item, with the same player as the I do. */
+export function refresherPlayer(skill: Skill, trap: Step, done: () => void): HTMLElement {
+  const person = crew[skill.teach.crew];
+  return stepPlayer(skill, { frame: `QUICK REFRESHER · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`, steps: [trap], last: 'BACK TO THE REVIEW', intro: 'Quick refresher first!' }, done);
 }
 
 /** The reminder: what each term means, two labelled examples, and the quick test. */

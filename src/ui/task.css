@@ -120,15 +120,6 @@
 .write-checks { margin: 14px 0 12px; }
 .write-check { display: flex; align-items: center; gap: 14px; margin: 10px 0; }
 .write-check .reading { flex: 1; min-width: 0; }
-.tickbox {
-  position: relative; flex: none; width: 60px; height: 60px; padding: 0;
-  background: var(--paper); box-shadow: 0 5px 0 #a9a394, 0 5px 0 4px var(--line);
-}
-.tickbox.on { background: var(--good); box-shadow: 0 5px 0 #2a8a45, 0 5px 0 4px var(--line); }
-.tickbox.on::after {
-  content: ''; position: absolute; left: 19px; top: 7px; width: 14px; height: 28px;
-  border: solid #fff; border-width: 0 7px 7px 0; transform: rotate(45deg);
-}
 textarea.sentence-in {
   display: block; width: 100%; resize: none;
   height: calc(var(--read-size) * var(--read-line) * 3 + 36px);
@@ -142,3 +133,65 @@ textarea.sentence-in {
 .write-model { font-weight: 600; }
 .review-done { margin: 14px 0 0; }
 .review-done .actions { justify-content: center; }
+
+/* HEAR: reads one crew or Keeper line aloud. It sits at the top of the bubble, beside who is talking. */
+.say-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.speech .say-head b, .feedback .say-head b { margin: 0; }
+button.hear {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 56px; min-width: 56px; padding: 8px 12px; font-size: 11px;
+  background: var(--sky); box-shadow: 0 4px 0 var(--sky-d), 0 4px 0 4px var(--line);
+}
+button.hear.speaking { background: var(--gold); box-shadow: 0 4px 0 var(--gold-d), 0 4px 0 4px var(--line); }
+.say-line { display: flex; align-items: flex-start; gap: 12px; }
+.say-line > div { flex: 1; min-width: 0; }
+.say-intro { font-weight: 700; margin-bottom: 6px; }
+.feedback .miss-card { margin-top: 12px; }
+
+/* Check it: the Student's own words as chips. Tapped words are lit, and they are the tick. */
+.check-flow { margin-top: 6px; }
+.check-list { display: grid; gap: 8px; margin: 4px 0 14px; }
+.check-item { display: flex; align-items: center; gap: 10px; opacity: 0.65; }
+.check-item .reading { font-size: calc(var(--read-size) * 0.85); }
+.check-item.now { opacity: 1; }
+.check-item.now .check-num { background: var(--gold); }
+.check-item.done .check-num { background: var(--good); }
+.check-num {
+  flex: none; width: 34px; height: 34px; display: grid; place-items: center;
+  font-family: var(--pixel); font-size: 11px; color: #111; background: var(--sky); border: 3px solid var(--line);
+}
+.check-line { margin: 6px 0 4px; }
+.word-chips { display: flex; flex-direction: column; gap: 12px; }
+.chip-para { display: flex; flex-wrap: wrap; gap: 6px 4px; }
+button.word-chip {
+  font-family: var(--read); font-size: var(--read-size); font-weight: 600; letter-spacing: var(--read-spacing); text-transform: none;
+  color: var(--paper-ink); background: transparent; border: 2px solid transparent; border-bottom: 3px dashed #b9b2a0; box-shadow: none;
+  min-height: 56px; min-width: 56px; padding: 6px 8px;
+}
+button.word-chip.on { background: #ffd66b; border: 2px solid #a8792a; border-bottom-width: 5px; }
+button.word-chip:active:not(:disabled) { transform: translateY(2px); box-shadow: none; }
+.check-actions { justify-content: space-between; }
+.read-back-title { color: var(--ink); margin: 10px 0 0; }
+
+/* Words the Student tapped for each check, lit in that check's colour (c1 to c5 from teach.css). */
+.marked { color: var(--paper-ink); background: var(--bg); border-bottom: 4px solid var(--bd); border-radius: 3px; padding: 0 3px; }
+.write-mine { font-weight: 600; line-height: 1.7; }
+.mark-key { display: grid; gap: 8px; margin-top: 12px; font-family: var(--read); font-size: calc(var(--read-size) * 0.85); }
+.mark-key-row { display: flex; align-items: center; gap: 10px; }
+.swatch-mark { display: inline-block; flex: none; width: 30px; height: 22px; }
+.teacher-view .mark-key { font-size: 26px; margin: 24px 0; }
+
+/* Write your own: the checks to aim for, and the one the Student said theirs doesn't do yet, in gold. */
+.write-check.fix { padding: 6px 10px; margin: 10px -10px; outline: 4px solid var(--gold); background: rgba(242, 193, 78, 0.16); }
+.write-check.fix .reading { color: var(--gold); font-weight: 700; }
+.write-check.fix .check-num { background: var(--gold); }
+.write-fix { margin: 0 0 10px; padding: 10px 14px; color: #111; background: var(--gold); border: 4px solid var(--line); }
+.write-fix b { display: block; font-family: var(--pixel); font-size: 11px; margin-bottom: 4px; }
+.write-fix .reading { font-weight: 700; }
+
+/* Story workshop and settings buttons are thumb-sized too. */
+.workshop-screen button, button.setting { min-height: 56px; }
+.workshop-checklist { margin-bottom: 14px; }
+
+/* Field Guide: a Creature whose move was missed in two Daily reviews in a row. */
+.tag.refresh-tag { background: #ff9f43; }

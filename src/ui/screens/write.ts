@@ -1,10 +1,12 @@
 import { content } from '../../app/content';
 import type { SkillId } from '../../content/types';
 import { isUnlocked } from '../../core/route';
-import type { Piece, Sentence } from '../../core/save';
+import type { Marks, Piece, Sentence } from '../../core/save';
 import type { App, ScreenView } from '../app';
 import { h } from '../dom';
+import { checkFlow, markedText, markKey } from '../marking';
 import { readable } from '../speech';
+import '../task.css';
 
 const draftKey = (skill: SkillId) => `inkwild.draft.${skill}`;
 
@@ -15,13 +17,25 @@ export function nextPrompt(app: App): SkillId | undefined {
   return (open.find((sk) => !s.skills[sk.id]?.mastered) ?? open.at(-1))?.id;
 }
 
-/** Full-screen, large text, so a proud Student can walk the iPad over to the teacher. */
-export function showMyTeacher(piece: Pick<Piece, 'title' | 'text'>): void {
+/** What showMyTeacher shows: the writing, and the words the Student tapped for each of its `checks`. */
+export interface Shown {
+  title: string;
+  text: string;
+  marks: Marks;
+  checks: string[];
+}
+
+/**
+ * Full-screen, large text, so a proud Student can walk the iPad over to the teacher. The words they tapped for each
+ * check are lit, with a key saying which colour shows which check.
+ */
+export function showMyTeacher(piece: Shown): void {
   const o = h(
     'div',
     { class: 'teacher-view', onclick: () => o.remove() },
     h('h1', {}, piece.title),
-    ...piece.text.split(/\n+/).map((p) => h('p', {}, p)),
+    ...markedText(piece.text, piece.marks),
+    markKey(piece.checks, piece.marks),
     h('div', { class: 'frame' }, 'TAP ANYWHERE TO CLOSE'),
   );
   document.body.append(o);
@@ -40,23 +54,22 @@ export function writeScreen(app: App, { skill }: { skill: SkillId }): ScreenView
   };
   text.addEventListener('input', keepDraft);
   title.addEventListener('input', keepDraft);
-  const ticks = w.checklist.map((item) => {
-    const box = h('input', { type: 'checkbox' });
-    return { box, row: h('label', { class: 'tick reading' }, box, ' ', item) };
-  });
   const toIsland = () => app.go({ name: 'island', branch: 'workshop' });
   const finish = h('button', { class: 'big' }, "I'M FINISHED");
-  const el = h(
-    'div',
-    { class: 'centre' },
-    h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: toIsland }, 'ISLAND'), h('div', { class: 'frame' }, 'STORY WORKSHOP · NEVER MARKED')),
+  const head = h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: toIsland }, 'ISLAND'), h('div', { class: 'frame' }, 'STORY WORKSHOP · NEVER MARKED'));
+  // The checklist sits above the writing box, so I'M FINISHED is right under it when the keyboard is up.
+  const checklist = h('div', { class: 'workshop-checklist' }, h('h3', {}, 'MY CHECKLIST'), w.checklist.map((item, i) => h('div', { class: 'write-check' }, h('span', { class: 'check-num' }, String(i + 1)), h('div', { class: 'reading' }, readable(item)))));
+  const editing = [
+    head,
     h('div', { class: 'panel' }, h('h2', {}, sk.name.toUpperCase()), h('div', { class: 'passage reading' }, readable(w.mentor)), h('div', { class: 'prompt' }, readable(w.ask))),
-    h('div', { class: 'panel' }, title, text, h('h3', { style: 'margin-top:14px' }, 'MY CHECKLIST'), ...ticks.map((t) => t.row), h('div', { class: 'actions' }, finish)),
-  );
-  finish.addEventListener('click', () => {
-    if (!text.value.trim()) return text.focus();
-    app.store.dispatch({ type: 'piece', skill, title: title.value, text: text.value, ticks: ticks.map((t) => t.box.checked) });
-    const done = { title: title.value.trim() || sk.name, text: text.value };
+    h('div', { class: 'panel' }, checklist, title, text, h('div', { class: 'actions' }, finish)),
+  ];
+  const el = h('div', { class: 'centre workshop-screen' }, ...editing);
+  const named = () => title.value.trim() || sk.name;
+
+  const save = (marks: Marks) => {
+    app.store.dispatch({ type: 'piece', skill, title: title.value, text: text.value, marks });
+    const done: Shown = { title: named(), text: text.value, marks, checks: w.checklist };
     localStorage.removeItem(draftKey(skill));
     localStorage.removeItem(`${draftKey(skill)}.title`);
     el.replaceChildren(
@@ -68,16 +81,53 @@ export function writeScreen(app: App, { skill }: { skill: SkillId }): ScreenView
         h('div', { class: 'actions' }, h('button', { class: 'ghost', onclick: toIsland }, 'ISLAND'), h('button', { class: 'big', onclick: () => showMyTeacher(done) }, 'SHOW MY TEACHER')),
       ),
     );
+  };
+
+  /** Read it back: the piece, then each checklist item in turn, with the words that show it tapped. */
+  const readBack = () => {
+    text.blur();
+    if (!w.checklist.length) return save([]);
+    el.replaceChildren(
+      head,
+      h(
+        'div',
+        { class: 'panel read-back pop' },
+        h('h2', {}, 'READ IT BACK'),
+        h('p', { class: 'note' }, 'Read your piece from the top, the way a reader would. Then show where it does each thing on your checklist.'),
+        checkFlow({
+          text: text.value,
+          items: w.checklist,
+          line: 'Tap the words in your piece that show this:',
+          gate: false,
+          above: h('h3', { class: 'read-back-title' }, named()),
+          back: { label: 'CHANGE SOMETHING', go: change },
+          finish: { label: "IT'S READY", go: save },
+        }),
+      ),
+    );
+    scrollTo(0, 0);
+  };
+  const change = () => {
+    el.replaceChildren(...editing);
+    text.focus();
+    text.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  };
+
+  finish.addEventListener('click', () => {
+    if (!text.value.trim()) return text.focus();
+    readBack();
   });
   return { el };
 }
 
 /** Write your own sentences, one group per Skill, newest Skill first. */
-function sentenceGroups(sentences: Sentence[]): { skill: SkillId; texts: string[] }[] {
-  const groups = new Map<SkillId, string[]>();
-  for (const s of [...sentences].reverse()) groups.set(s.skill, [...(groups.get(s.skill) ?? []), s.text]);
-  return [...groups].map(([skill, texts]) => ({ skill, texts }));
+function sentenceGroups(sentences: Sentence[]): { skill: SkillId; sentences: Sentence[] }[] {
+  const groups = new Map<SkillId, Sentence[]>();
+  for (const s of [...sentences].reverse()) groups.set(s.skill, [...(groups.get(s.skill) ?? []), s]);
+  return [...groups].map(([skill, sentences]) => ({ skill, sentences }));
 }
+
+const pieceShown = (p: Piece): Shown => ({ title: p.title, text: p.text, marks: p.marks, checks: content.skill(p.skill).workshop?.checklist ?? [] });
 
 export function piecesScreen(app: App): ScreenView {
   const pieces = [...app.store.save.pieces].reverse();
@@ -93,15 +143,16 @@ export function piecesScreen(app: App): ScreenView {
       pieces.length === 0 && groups.length === 0
         ? h('div', { class: 'panel' }, h('p', { class: 'note' }, 'Nothing yet. Learn a move on any island and write a sentence with it, or sail to Inkwell Bay to write a story.'))
         : null,
-      pieces.length > 0 ? h('div', { class: 'panel route' }, h('h3', {}, 'MY STORIES'), ...pieces.map((p) => row(`${p.title} · ${words(p.text)} words`, () => showMyTeacher(p)))) : null,
+      pieces.length > 0 ? h('div', { class: 'panel route' }, h('h3', {}, 'MY STORIES'), ...pieces.map((p) => row(`${p.title} · ${words(p.text)} words`, () => showMyTeacher(pieceShown(p))))) : null,
       groups.length > 0
         ? h(
             'div',
             { class: 'panel route' },
             h('h3', {}, 'MY SENTENCES'),
             ...groups.flatMap((g) => {
-              const name = content.skill(g.skill).name;
-              return [h('div', { class: 'frame' }, name.toUpperCase()), ...g.texts.map((text) => row(text, () => showMyTeacher({ title: name, text })))];
+              const sk = content.skill(g.skill);
+              const checks = sk.write?.checks ?? [];
+              return [h('div', { class: 'frame' }, sk.name.toUpperCase()), ...g.sentences.map((s) => row(s.text, () => showMyTeacher({ title: sk.name, text: s.text, marks: s.marks, checks })))];
             }),
           )
         : null,

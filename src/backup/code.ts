@@ -128,6 +128,8 @@ export function restore(content: Content, data: Restorable, today: Day): Save {
         recent: [],
         mastered: true,
         masteredBand: band,
+        reviewMisses: 0,
+        rusty: false,
       };
     }
   }

@@ -5,6 +5,7 @@ import { creatureCanvas } from '../../art/creatures';
 import type { BranchId, Response, SkillId, Task } from '../../content/types';
 import { currentTask, encounterOf, KEEPER_HP, type GameEvent } from '../../core/game';
 import type { Activity } from '../../core/save';
+import { trapStep } from '../../core/review';
 import { owedOn, owesSentence } from '../../core/sentence';
 import { activityBranch } from '../../world/goal';
 import type { App, ScreenView } from '../app';
@@ -12,13 +13,16 @@ import { h } from '../dom';
 import { SORT_LOOK } from '../../core/check';
 import { passage, widget } from '../formats';
 import { burst, shake } from '../fx';
-import { readable } from '../speech';
-import { openMoveCard, teachPlayer } from '../teach';
+import { readable, saidBy } from '../speech';
+import { openMoveCard, refresherPlayer, teachPlayer } from '../teach';
 import '../task.css';
 import { sentenceScreen } from './sentence';
 import { nextPrompt, writeScreen } from './write';
 
-/** `wrote` is set when the Student comes straight from a Write your own card, so they play before the next one. */
+/**
+ * `wrote` is set when the Student comes straight from a Write your own card, so they play before the next one. A Skill
+ * that owes a sentence (see owesSentence) shows its card before play starts.
+ */
 export function activityScreen(app: App, { branch, wrote }: { branch: BranchId; wrote?: boolean }): ScreenView {
   const store = app.store;
   if (!store.save.activity) {
@@ -31,11 +35,18 @@ export function activityScreen(app: App, { branch, wrote }: { branch: BranchId; 
     }
     if (events.some((e) => e.type === 'empty') || !store.save.activity) return charting(app, branch);
   }
+  const at = store.save.activity!;
+  // A refresher whose Skill no longer has a trap step goes straight to the review item.
+  if (at.kind === 'review' && at.phase === 'refresher' && !trapStep(content.skill(skillOf(at)))) store.dispatch({ type: 'advance' });
   const a = store.save.activity!;
   const el = h('div', { class: 'centre task-screen' }, header(app, branch, a));
 
   if (a.kind === 'teach' && a.step === 0) {
     el.append(iDo(app, branch, a));
+    return { el };
+  }
+  if (a.kind === 'review' && a.phase === 'refresher') {
+    el.append(refresher(app, a));
     return { el };
   }
   el.append(taskView(app, branch, a));
@@ -44,7 +55,7 @@ export function activityScreen(app: App, { branch, wrote }: { branch: BranchId; 
 
 function header(app: App, branch: BranchId, a: Activity): HTMLElement {
   const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' ? 'RETREAT' : 'ISLAND');
-  const teaching = a.kind === 'teach' && a.step === 0;
+  const teaching = (a.kind === 'teach' && a.step === 0) || (a.kind === 'review' && a.phase === 'refresher');
   const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(content.skill(skillOf(a))) }, 'MOVE CARD');
   const title = a.kind === 'review' ? `DAILY REVIEW · ${a.at + 1} OF ${a.ids.length}` : content.branch(branch).island.toUpperCase();
   return h('div', { class: 'row spread task-head' }, h('div', { class: 'row' }, back, card), h('div', { class: 'frame' }, title));
@@ -79,12 +90,22 @@ function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>
   });
 }
 
+/** A rusty Skill's trap step before its Daily review item. */
+function refresher(app: App, a: Extract<Activity, { kind: 'review' }>): HTMLElement {
+  const skill = content.skill(skillOf(a));
+  return refresherPlayer(skill, trapStep(skill)!, () => {
+    app.store.dispatch({ type: 'advance' });
+    app.go({ name: 'activity', branch: activityBranch(content, a) });
+  });
+}
+
 function said(cls: string, text: string): HTMLElement {
   return h('div', { class: `reading ${cls}` }, readable(text));
 }
 
-function bubble(name: string, lines: (HTMLElement | null)[], cls = ''): HTMLElement {
-  return h('div', { class: `speech task-speech ${cls}` }, h('b', {}, name.toUpperCase()), ...lines);
+/** A crew or Keeper speech bubble. HEAR reads `line`: everything the bubble says. */
+function bubble(name: string, line: (string | undefined)[], lines: (HTMLElement | null)[], cls = ''): HTMLElement {
+  return h('div', { class: `speech task-speech ${cls}` }, saidBy(name.toUpperCase(), line.filter(Boolean).join(' ')), ...lines);
 }
 
 /** Who is talking to the Student: the crew member who taught the move, or the Keeper in a battle. */
@@ -94,6 +115,7 @@ function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extr
 
   if (a.kind === 'keeper') {
     const b = content.branch(a.branch);
+    const shout = task.prompt.replace(/\.$/, '!');
     const skill = content.skill(content.encounter(a.id).skill);
     const el = h(
       'div',
@@ -101,7 +123,7 @@ function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extr
       arena(app, a),
       h('div', { class: 'frame keeper-call' }, `${b.keeper.name.toUpperCase()} USES ${skill.name.toUpperCase()}! BLOCK IT RIGHT FIRST TIME FOR A FULL HIT.`),
       frame,
-      bubble(b.keeper.name, [said('say-prompt', task.prompt.replace(/\.$/, '!'))], 'from-foe'),
+      bubble(b.keeper.name, [shout], [said('say-prompt', shout)], 'from-foe'),
     );
     return { el, sprite: null };
   }
@@ -117,7 +139,7 @@ function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extr
       'div',
       { class: 'stage stage-wild' },
       guide,
-      bubble(crew[skill.teach.crew].name, [frame, prompt]),
+      bubble(crew[skill.teach.crew].name, [task.frame, task.prompt], [frame, prompt]),
       h('div', { class: 'wild-spot' }, wild, h('div', { class: 'wild-pad' })),
     );
     return { el, sprite: wild };
@@ -127,12 +149,13 @@ function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extr
   const person = crew[crewId];
   const sprite = crewCanvas(crewId, 6);
   sprite.classList.add('bob');
-  const hint = 'hint' in task && typeof task.hint === 'string' ? said('say-hint', `Hint: ${task.hint}`) : null;
+  const hintText = 'hint' in task && typeof task.hint === 'string' ? `Hint: ${task.hint}` : undefined;
+  const hint = hintText ? said('say-hint', hintText) : null;
   const el = h(
     'div',
     { class: 'stage stage-crew' },
     h('div', { class: 'frame' }, `WE DO · ${person.name.toUpperCase()} IS HELPING`),
-    h('div', { class: 'stage-row' }, sprite, bubble(person.name, [frame, prompt, hint])),
+    h('div', { class: 'stage-row' }, sprite, bubble(person.name, [task.frame, task.prompt, hintText], [frame, prompt, hint])),
   );
   return { el, sprite };
 }
@@ -181,7 +204,12 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
         const title = e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
         const why = e.outcome === 'shown' && e.reason && e.reason !== SORT_LOOK ? [readable(e.reason), h('br'), h('br')] : [];
         const box = h('div', { class: 'feedback good pop' }, h('b', {}, title), ...why, readable(e.success));
-        const next = nextButtons(app, branch, events);
+        // A review item missed first time: the Move card is the next thing to look at.
+        if (a.kind === 'review' && e.outcome !== 'first') {
+          const skill = content.skill(skillOf(a));
+          box.append(h('div', { class: 'actions miss-card' }, h('button', { class: 'big alt', onclick: () => openMoveCard(skill) }, 'MOVE CARD')));
+        }
+        const next = nextButtons(app, branch, events, a.kind === 'encounter' ? skillOf(a) : undefined);
         feedback.replaceChildren(box, ...(next ? [next] : []));
         const done = events.find((x) => x.type === 'reviewDone');
         if (done) feedback.append(reviewResult(app, done.first, done.of));
@@ -195,7 +223,8 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
   return panel;
 }
 
-function nextButtons(app: App, branch: BranchId, events: GameEvent[]): HTMLElement | null {
+/** `played` is the Skill of an ordinary Encounter just finished: once it owes a sentence, writing one comes next. */
+function nextButtons(app: App, branch: BranchId, events: GameEvent[], played?: SkillId): HTMLElement | null {
   const ended = events.find((e) => e.type === 'badge' || e.type === 'retreated');
   const still = app.store.save.activity;
   const row = h('div', { class: 'actions' });
@@ -206,9 +235,7 @@ function nextButtons(app: App, branch: BranchId, events: GameEvent[]): HTMLEleme
   }
   const taught = events.find((e) => e.type === 'taught');
   if (ended || (!still && taught)) {
-    const write = taught && owesSentence(content, app.store.save, taught.skill) ? taught.skill : undefined;
-    if (!ended && write) row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'sentence', skill: write }) }, 'WRITE YOUR OWN'));
-    else if (!ended) row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch }) }, 'TRY IT FOR REAL'));
+    if (!ended) row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch }) }, 'TRY IT FOR REAL'));
     row.append(h('button', { class: ended ? 'big' : 'ghost', onclick: () => app.go({ name: 'island', branch }) }, 'ISLAND'));
     return row;
   }
@@ -216,9 +243,12 @@ function nextButtons(app: App, branch: BranchId, events: GameEvent[]): HTMLEleme
     row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch }) }, 'NEXT'));
     return row;
   }
+  const write = played && owesSentence(content, app.store.save, played) ? played : undefined;
   row.append(
     h('button', { class: 'ghost', onclick: () => app.go({ name: 'island', branch }) }, 'ISLAND'),
-    h('button', { class: 'big pulse', onclick: () => app.go({ name: 'activity', branch }) }, 'KEEP GOING'),
+    write
+      ? h('button', { class: 'big pulse', onclick: () => app.go({ name: 'sentence', skill: write }) }, 'WRITE YOUR OWN')
+      : h('button', { class: 'big pulse', onclick: () => app.go({ name: 'activity', branch }) }, 'KEEP GOING'),
   );
   return row;
 }

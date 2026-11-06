@@ -17,6 +17,10 @@ export interface SkillProgress {
   recent: Attempt[];
   mastered: boolean;
   masteredBand?: Band;
+  /** Daily review items in a row not right first try. A right first try puts it back to 0. */
+  reviewMisses: number;
+  /** Missed in two Daily reviews in a row: it comes back first, after its trap step. Never changes mastery or Band. */
+  rusty: boolean;
 }
 
 export interface BranchProgress {
@@ -32,6 +36,8 @@ export interface Settings {
   spacing: boolean;
   cream: boolean;
   sound: boolean;
+  /** Each new crew or Keeper line speaks on its own. HEAR always works. */
+  readAloud: boolean;
 }
 
 export interface CaptainLook {
@@ -42,12 +48,20 @@ export interface CaptainLook {
   colour: number;
 }
 
+/**
+ * For each check or checklist item, in order, the words the Student tapped to show it: indexes into `words(text)`
+ * from core/sentence. A check counts as ticked only when it has words.
+ */
+export type Marks = number[][];
+
 export interface Piece {
   id: string;
   skill: SkillId;
   title: string;
   text: string;
+  /** Checklist items with words tapped. Older saves ticked boxes, and have no marks. */
   ticks: boolean[];
+  marks: Marks;
   day: Day;
 }
 
@@ -56,6 +70,7 @@ export interface Sentence {
   skill: SkillId;
   text: string;
   ticks: boolean[];
+  marks: Marks;
   day: Day;
 }
 
@@ -71,8 +86,13 @@ export type Activity =
       foe: number;
       turn: number;
     }
-  /** The Daily review: Encounters from mastered Skills across Islands. `firsts` counts right-first-try answers so far. */
-  | { kind: 'review'; ids: EncounterId[]; at: number; tries: number; firsts: number };
+  /**
+   * The Daily review: Encounters from mastered Skills across Islands. `firsts` counts right-first-try answers so far.
+   * A rusty Skill's item opens on its trap step (`refresher`) before the task.
+   */
+  | { kind: 'review'; ids: EncounterId[]; at: number; tries: number; firsts: number; phase: ReviewPhase };
+
+export type ReviewPhase = 'refresher' | 'task';
 
 export interface Save {
   v: 1;
@@ -108,7 +128,7 @@ export function newSave(today: Day): Save {
     v: 1,
     started: today,
     interests: [],
-    settings: { textSize: 0, spacing: false, cream: false, sound: false },
+    settings: { textSize: 0, spacing: false, cream: false, sound: false, readAloud: false },
     branches,
     skills: {},
     shinies: [],
@@ -127,9 +147,19 @@ export function newSave(today: Day): Save {
  */
 export function upgradeSave(stored: Partial<Save> & Pick<Save, 'started'>): Save {
   const fresh = newSave(stored.started);
-  return { ...fresh, ...stored, settings: { ...fresh.settings, ...stored.settings }, branches: { ...fresh.branches, ...stored.branches } };
+  const save: Save = { ...fresh, ...stored, settings: { ...fresh.settings, ...stored.settings }, branches: { ...fresh.branches, ...stored.branches } };
+  const skills: Save['skills'] = {};
+  for (const [id, p] of Object.entries(save.skills) as [SkillId, SkillProgress | undefined][]) if (p) skills[id] = { ...NO_PROGRESS, ...p };
+  save.skills = skills;
+  save.sentences = save.sentences.map((s) => ({ ...s, marks: s.marks ?? [] }));
+  save.pieces = save.pieces.map((p) => ({ ...p, marks: p.marks ?? [] }));
+  const a = save.activity;
+  if (a?.kind === 'review' && !(a as Partial<typeof a>).phase) save.activity = { ...a, phase: 'task' };
+  return save;
 }
 
+const NO_PROGRESS: SkillProgress = { taught: false, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false };
+
 export function skillProgress(save: Save, id: SkillId): SkillProgress {
-  return save.skills[id] ?? { taught: false, done: 0, xp: 0, recent: [], mastered: false };
+  return save.skills[id] ?? { ...NO_PROGRESS, recent: [] };
 }

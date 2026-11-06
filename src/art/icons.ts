@@ -63,6 +63,21 @@ const ICONS = {
       'yy.......oo',
     ],
   },
+  speaker: {
+    pal: { d: '#6b7391', g: '#c9cfdc', h: '#f4f1e8', w: '#8fd3ff' },
+    rows: [
+      '.....dd.....',
+      '....dhd..w..',
+      '...dhgd...w.',
+      'ddddhgd.w..w',
+      'dhhhhgd..w.w',
+      'dhhhhgd..w.w',
+      'ddddhgd.w..w',
+      '...dhgd...w.',
+      '....dhd..w..',
+      '.....dd.....',
+    ],
+  },
 } satisfies Record<string, SpriteDef>;
 
 export type IconName = keyof typeof ICONS;
