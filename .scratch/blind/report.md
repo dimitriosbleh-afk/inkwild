@@ -1,6 +1,6 @@
 # Blind solve report
 
-2043 Encounters checked, 102 flagged for rewrite.
+2045 Encounters checked, 103 flagged for rewrite.
 
 | Encounter | Flag | Detail |
 |---|---|---|
@@ -58,6 +58,7 @@
 | 5.1-b2-5 | SECOND ANSWER, CONFIDENCE medium | also: Because / its battery ran out, / the robot shut down. is also a correct complex sentence. |
 | 5.1-b4-2 | DISAGREES | solver said "complex: 'since the bridge collapsed during the storm' depends on the main clause" |
 | 5.1-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: When the divers found the wreck, they stayed down for an hour because the water was freezing. is grammatical, but the unpunctuated 'they stayed down for an hour' tile has no full stop and the meaning is odd / Resulting sentence is awkward (two dependent clauses stacked). Punctuation/capital cues in tiles largely decide the answer. |
+| 5.11-b4-5 | SECOND ANSWER, CONFIDENCE medium | also: Swapping the last two tiles (for the gallery's recycling show, then with forty twisted coat hangers) is also a grammatical sentence. / Order of how/why is not fixed by the text; the frame says 'how ... and what it's for'. |
 | 5.12-b3-5 | SECOND ANSWER, CONFIDENCE medium | also: She / painted / the first giant stroke. is equally valid (She refers to Indi). |
 | 5.2-b1-4 | SECOND ANSWER, CONFIDENCE medium | also: Because the power had failed, + the whole class screamed. is equally a complete sentence / two openers both work |
 | 5.2-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: 'the fog rolled in' could literally stand alone as a sentence, but it is the clause inside 'Whenever the fog rolled in', not the main clause. / Prompt wording 'could stand alone as the main clause' is loose; a literal reader could pick the fog option. |

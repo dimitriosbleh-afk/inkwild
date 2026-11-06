@@ -2,7 +2,9 @@
   "skill": {
     "id": "5.11",
     "name": "Adverb groups: how, when, where, why",
-    "codes": ["VC2E6LA06"],
+    "codes": [
+      "VC2E6LA06"
+    ],
     "why": "Adverb groups answer how, when, where and why, so readers aren't left guessing.",
     "how": "Ask which question your reader needs answered. Add a group that answers just that one.",
     "teach": {
@@ -70,7 +72,7 @@
                 "nudge": "That's a time. Which chunk tells you why?"
               },
               {
-                "text": "to cover Maxx's ugly poster.",
+                "text": "for the school fair.",
                 "tag": "WHY"
               }
             ],
@@ -79,32 +81,62 @@
               "kind": "tap",
               "answer": 2
             },
-            "win": "Yes! That's the reason. A why chunk doesn't always start with 'because'."
+            "win": "Yes! For the school fair is the reason. A why chunk doesn't always start with 'because'."
           },
           {
-            "say": "These chunks tell how, when, where or why. This Skill calls them adverb groups.",
+            "say": "Chunks like these are adverb groups. Some books call these adverbials. There are two kinds.",
             "show": [
               {
                 "text": "at midnight",
-                "tag": "WHEN",
-                "nudge": "At midnight is a time. That's when."
+                "tag": "ADVERB GROUP",
+                "nudge": "At midnight starts with a little word, at. Find the one built on a word like slowly."
               },
               {
                 "text": "under the bridge",
-                "tag": "WHERE",
-                "nudge": "Under the bridge is a place. That's where."
+                "tag": "ADVERB GROUP",
+                "nudge": "Under the bridge starts with a little word, under. Find the one built on a word like slowly."
               },
               {
                 "text": "very carefully",
-                "tag": "HOW"
+                "tag": "ADVERB GROUP"
               }
             ],
-            "ask": "Tap the chunk that tells you how.",
+            "ask": "Tap the adverb group built on a word like slowly.",
             "check": {
               "kind": "tap",
               "answer": 2
             },
-            "win": "Yes! Very carefully is the way something is done. That's how."
+            "win": "Yes! Very carefully is built on carefully. The other kind starts with a little word: at midnight, under the bridge."
+          },
+          {
+            "say": "Careful! 'When the bell rang' tells you when too. Check it for a doer and a verb.",
+            "show": [
+              {
+                "text": "When the bell rang,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              " Mo ran outside."
+            ],
+            "ask": "What is 'when the bell rang'?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "an adverb group",
+                  "reason": "It has its own doer, the bell, and verb, rang. Adverb groups don't."
+                },
+                {
+                  "text": "a dependent clause"
+                },
+                {
+                  "text": "a main clause",
+                  "reason": "Say it alone: 'When the bell rang...' Then what? It leaves you waiting."
+                }
+              ]
+            },
+            "win": "Yes! It has its own doer and verb, so it's a dependent clause, not an adverb group.",
+            "trap": true
           },
           {
             "say": "Careful! 'On the top shelf' sounds like a where. But look at the word just before it.",
@@ -170,6 +202,10 @@
         "card": {
           "terms": [
             {
+              "term": "ADVERB GROUP",
+              "means": "Tells how, when, where or why, with no doer or verb: very carefully, at midnight."
+            },
+            {
               "term": "WHEN",
               "means": "A time: on Saturday, after school, at midnight."
             },
@@ -183,7 +219,7 @@
             },
             {
               "term": "WHY",
-              "means": "A reason: to cover the poster, because it rained."
+              "means": "A reason: for the school fair, because of the rain."
             }
           ],
           "examples": [
@@ -209,7 +245,7 @@
                 "tag": "HOW"
               },
               {
-                "text": "to cover Maxx's poster.",
+                "text": "for the school fair.",
                 "tag": "WHY"
               }
             ]
@@ -226,9 +262,17 @@
           "body": {
             "format": "choose",
             "options": [
-              { "text": "under the school bus" },
-              { "text": "after lunch", "reason": "After lunch tells you when she found it, not where." },
-              { "text": "with a torch", "reason": "With a torch tells you how she found it, not where." }
+              {
+                "text": "under the school bus"
+              },
+              {
+                "text": "after lunch",
+                "reason": "After lunch tells you when she found it, not where."
+              },
+              {
+                "text": "with a torch",
+                "reason": "With a torch tells you how she found it, not where."
+              }
             ],
             "answer": 0
           }
@@ -240,11 +284,19 @@
           "body": {
             "format": "tapText",
             "parts": [
-              { "tap": "In the lab", "reason": "In the lab is a place. It tells you where." },
+              {
+                "tap": "In the lab",
+                "reason": "In the lab is a place. It tells you where."
+              },
               ", Gus ",
-              { "tap": "quickly", "reason": "Quickly tells you how he clipped on the peg." },
+              {
+                "tap": "quickly",
+                "reason": "Quickly tells you how he clipped on the peg."
+              },
               " clipped a peg on his nose ",
-              { "tap": "because of the stinky slime" },
+              {
+                "tap": "because of the stinky slime"
+              },
               "."
             ],
             "answer": 2
@@ -260,8 +312,14 @@
     },
     "write": {
       "ask": "Rewrite this sentence. Add adverb groups that tell Mum when and where Mo hid the lollies.",
-      "given": ["Mo hid the lollies."],
-      "checks": ["I added a group that answers when", "I added a group that answers where", "Each group answers a question about the hiding"],
+      "given": [
+        "Mo hid the lollies."
+      ],
+      "checks": [
+        "I added a when group and a where group",
+        "Each group answers a question about the hiding",
+        "Neither group has its own doer and verb"
+      ],
       "model": "After dinner, Mo hid the lollies in the washing basket."
     }
   },
@@ -273,13 +331,21 @@
       "frame": "Tully is writing the footy club newsletter. Parents keep asking when training is.",
       "text": "We have footy training ___.",
       "prompt": "Which group tells the reader when?",
-      "success": "Every Tuesday night is a time, so it tells the reader when.",
+      "success": "On Tuesday nights is a time, so it tells the reader when.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "every Tuesday night" },
-          { "text": "at the big oval", "reason": "At the big oval is a place. It tells you where, not when." },
-          { "text": "with the new balls", "reason": "With the new balls tells you how you train, not when." }
+          {
+            "text": "on Tuesday nights"
+          },
+          {
+            "text": "at the big oval",
+            "reason": "At the big oval is a place. It tells you where, not when."
+          },
+          {
+            "text": "with the new balls",
+            "reason": "With the new balls tells you how you train, not when."
+          }
         ],
         "answer": 0
       }
@@ -294,11 +360,19 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Late at night", "reason": "Late at night tells you when the possum looks, not where." },
+          {
+            "tap": "Late at night",
+            "reason": "Late at night tells you when the possum looks, not where."
+          },
           ", ",
-          { "tap": "the possum", "reason": "The possum is who the sentence is about. It isn't a place." },
+          {
+            "tap": "the possum",
+            "reason": "The possum is who the sentence is about. It isn't a place."
+          },
           " looks for fruit ",
-          { "tap": "in the backyard" },
+          {
+            "tap": "in the backyard"
+          },
           "."
         ],
         "answer": 2
@@ -315,18 +389,34 @@
         "format": "fix",
         "parts": [
           "Mum, I ",
-          { "tap": "hid", "reason": "Hid is what Mo did. Look for the group that should say where." },
+          {
+            "tap": "hid",
+            "reason": "Hid is what Mo did. Look for the group that should say where."
+          },
           " the ",
-          { "tap": "lollies", "reason": "Lollies is what Mo hid. Look for the group that should say where." },
+          {
+            "tap": "lollies",
+            "reason": "Lollies is what Mo hid. Look for the group that should say where."
+          },
           " ",
-          { "tap": "after dinner" },
+          {
+            "tap": "after dinner"
+          },
           "."
         ],
         "spot": 2,
         "options": [
-          { "text": "in the washing basket" },
-          { "text": "very quickly", "reason": "Very quickly tells you how Mo hid them. Mum still doesn't know where." },
-          { "text": "to keep them safe", "reason": "To keep them safe tells you why Mo hid them. Mum still doesn't know where." }
+          {
+            "text": "in the washing basket"
+          },
+          {
+            "text": "very quickly",
+            "reason": "Very quickly tells you how Mo hid them. Mum still doesn't know where."
+          },
+          {
+            "text": "because of my greedy sister",
+            "reason": "Because of my greedy sister tells you why Mo hid them. Mum still doesn't know where."
+          }
         ],
         "answer": 0
       }
@@ -340,15 +430,47 @@
       "success": "Places tell you where, times tell you when, and the way something is done tells you how.",
       "body": {
         "format": "sort",
-        "bins": ["how?", "when?", "where?"],
+        "bins": [
+          "how?",
+          "when?",
+          "where?"
+        ],
         "items": [
-          { "text": "in the castle", "bin": 2, "reason": "In the castle is a place, so it tells you where." },
-          { "text": "at midnight", "bin": 1, "reason": "Midnight is a time, so it tells you when." },
-          { "text": "very carefully", "bin": 0, "reason": "Very carefully is the way you do something, so it tells you how." },
-          { "text": "under the bridge", "bin": 2, "reason": "Under the bridge is a place, so it tells you where." },
-          { "text": "on Saturday", "bin": 1, "reason": "Saturday is a day, so it tells you when." },
-          { "text": "after level three", "bin": 1, "reason": "After level three is a point in the game's time, so it tells you when." },
-          { "text": "with a magic sword", "bin": 0, "reason": "With a magic sword is what you use to do it, so it tells you how." }
+          {
+            "text": "in the castle",
+            "bin": 2,
+            "reason": "In the castle is a place, so it tells you where."
+          },
+          {
+            "text": "at midnight",
+            "bin": 1,
+            "reason": "Midnight is a time, so it tells you when."
+          },
+          {
+            "text": "very carefully",
+            "bin": 0,
+            "reason": "Very carefully is the way you do something, so it tells you how."
+          },
+          {
+            "text": "under the bridge",
+            "bin": 2,
+            "reason": "Under the bridge is a place, so it tells you where."
+          },
+          {
+            "text": "on Saturday",
+            "bin": 1,
+            "reason": "Saturday is a day, so it tells you when."
+          },
+          {
+            "text": "after level three",
+            "bin": 1,
+            "reason": "After level three is a point in the game's time, so it tells you when."
+          },
+          {
+            "text": "with a magic sword",
+            "bin": 0,
+            "reason": "With a magic sword is what you use to do it, so it tells you how."
+          }
         ]
       }
     },
@@ -361,8 +483,15 @@
       "success": "Under the jetty is a place, so the reader knows where the turtle swam.",
       "body": {
         "format": "build",
-        "tiles": ["The turtle", "swam", "under the jetty.", "on Sunday."],
-        "accept": ["The turtle swam under the jetty."],
+        "tiles": [
+          "The turtle",
+          "swam",
+          "under the jetty.",
+          "on Sunday."
+        ],
+        "accept": [
+          "The turtle swam under the jetty."
+        ],
         "reason": "On Sunday tells you when. The Kelpwick wants a place, so use the group that tells you where."
       }
     },
@@ -370,16 +499,24 @@
       "id": "5.11-b1-6",
       "band": 1,
       "topic": "funny",
-      "frame": "Mo is telling his favourite joke, but he forgot the why bit.",
+      "frame": "Mo made up a new chicken joke, but he forgot the why bit.",
       "text": "The chicken crossed the road ___.",
       "prompt": "Which group tells the reader why?",
-      "success": "To get to the other side is the reason, so it tells you why. Mo still thinks it's hilarious.",
+      "success": "For a dare is the reason, so it tells you why. Mo thinks his joke is hilarious.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "to get to the other side" },
-          { "text": "on a sunny morning", "reason": "On a sunny morning tells you when the chicken crossed, not why." },
-          { "text": "very slowly", "reason": "Very slowly tells you how the chicken crossed, not why." }
+          {
+            "text": "for a dare"
+          },
+          {
+            "text": "on a sunny morning",
+            "reason": "On a sunny morning tells you when the chicken crossed, not why."
+          },
+          {
+            "text": "very slowly",
+            "reason": "Very slowly tells you how the chicken crossed, not why."
+          }
         ],
         "answer": 0
       }
@@ -395,9 +532,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "with both hands" },
-          { "text": "after every spacewalk", "reason": "After every spacewalk tells you when to close the door, not how." },
-          { "text": "at the back of the station", "reason": "At the back of the station tells you where the door is, not how to close it." }
+          {
+            "text": "with both hands"
+          },
+          {
+            "text": "after every spacewalk",
+            "reason": "After every spacewalk tells you when to close the door, not how."
+          },
+          {
+            "text": "at the back of the station",
+            "reason": "At the back of the station tells you where the door is, not how to close it."
+          }
         ],
         "answer": 0
       }
@@ -412,11 +557,19 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Last week", "reason": "Last week tells you when Gus kept the sandwich, not why." },
+          {
+            "tap": "On Friday",
+            "reason": "On Friday tells you when Gus kept the sandwich, not why."
+          },
           ", Gus kept a mouldy sandwich ",
-          { "tap": "in his locker", "reason": "In his locker is a place. It tells you where." },
+          {
+            "tap": "in his locker",
+            "reason": "In his locker is a place. It tells you where."
+          },
           " ",
-          { "tap": "for a science experiment" },
+          {
+            "tap": "for a science experiment"
+          },
           "."
         ],
         "answer": 2
@@ -433,7 +586,7 @@
         "format": "fix",
         "parts": [
           {
-            "tap": "Last night"
+            "tap": "On Sunday night"
           },
           ", I ",
           {
@@ -450,15 +603,15 @@
         "spot": 0,
         "options": [
           {
-            "text": "with sticky tape and a shoelace"
+            "text": "With sticky tape and a shoelace"
           },
           {
-            "text": "in my bedroom",
+            "text": "In my bedroom",
             "reason": "In my bedroom tells Indi where he fixed it. She asked how."
           },
           {
-            "text": "because it was broken",
-            "reason": "Because it was broken tells Indi why he fixed it. She asked how."
+            "text": "For the school concert",
+            "reason": "For the school concert tells Indi why he fixed it. She asked how."
           }
         ],
         "answer": 0
@@ -473,14 +626,42 @@
       "success": "When groups give a time, where groups give a place, and why groups give a reason.",
       "body": {
         "format": "sort",
-        "bins": ["when?", "where?", "why?"],
+        "bins": [
+          "when?",
+          "where?",
+          "why?"
+        ],
         "items": [
-          { "text": "before the battery runs out", "bin": 0, "reason": "Before the battery runs out is a point in time, so it tells you when." },
-          { "text": "behind the charging station", "bin": 1, "reason": "Behind the charging station is a place, so it tells you where." },
-          { "text": "to save power", "bin": 2, "reason": "To save power is the reason the robot does something, so it tells you why." },
-          { "text": "as soon as the alarm beeps", "bin": 0, "reason": "As soon as the alarm beeps is a moment in time, so it tells you when." },
-          { "text": "inside the robot's chest", "bin": 1, "reason": "Inside the robot's chest is a place, so it tells you where." },
-          { "text": "because its sensors were dusty", "bin": 2, "reason": "Because its sensors were dusty gives a reason, so it tells you why." }
+          {
+            "text": "before every shutdown",
+            "bin": 0,
+            "reason": "Before every shutdown is a point in time, so it tells you when."
+          },
+          {
+            "text": "behind the charging station",
+            "bin": 1,
+            "reason": "Behind the charging station is a place, so it tells you where."
+          },
+          {
+            "text": "for a quick recharge",
+            "bin": 2,
+            "reason": "For a quick recharge is the reason the robot does something, so it tells you why."
+          },
+          {
+            "text": "at the first beep",
+            "bin": 0,
+            "reason": "At the first beep is a moment in time, so it tells you when."
+          },
+          {
+            "text": "inside the robot's chest",
+            "bin": 1,
+            "reason": "Inside the robot's chest is a place, so it tells you where."
+          },
+          {
+            "text": "because of its dusty sensors",
+            "bin": 2,
+            "reason": "Because of its dusty sensors gives a reason, so it tells you why."
+          }
         ]
       }
     },
@@ -495,9 +676,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "behind the old shed" },
-          { "text": "just after midnight", "reason": "Just after midnight is a time. It tells you when the light flickered, not where." },
-          { "text": "without a sound", "reason": "Without a sound tells you how the light flickered, not where." }
+          {
+            "text": "behind the old shed"
+          },
+          {
+            "text": "just after midnight",
+            "reason": "Just after midnight is a time. It tells you when the light flickered, not where."
+          },
+          {
+            "text": "without a sound",
+            "reason": "Without a sound tells you how the light flickered, not where."
+          }
         ],
         "answer": 0
       }
@@ -511,8 +700,14 @@
       "success": "After school is a time, so the reader knows when Indi painted.",
       "body": {
         "format": "build",
-        "tiles": ["After school,", "With her toes,", "Indi painted the fence."],
-        "accept": ["After school, Indi painted the fence."],
+        "tiles": [
+          "After school,",
+          "With her toes,",
+          "Indi painted the fence."
+        ],
+        "accept": [
+          "After school, Indi painted the fence."
+        ],
         "reason": "With her toes tells you how Indi painted. The teacher wants to know when."
       }
     },
@@ -527,10 +722,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "at full speed" },
-          { "text": "at the start of the game", "reason": "It starts with 'at', but the start of the game is a time. It tells you when, not how." },
-          { "text": "at the far end of the oval", "reason": "The far end of the oval is a place. It tells you where, not how." },
-          { "text": "in front of the crowd", "reason": "In front of the crowd is a place. It tells you where you'll be, not how to run." }
+          {
+            "text": "at full speed"
+          },
+          {
+            "text": "at the start of the game",
+            "reason": "It starts with 'at', but the start of the game is a time. It tells you when, not how."
+          },
+          {
+            "text": "at the far end of the oval",
+            "reason": "The far end of the oval is a place. It tells you where, not how."
+          },
+          {
+            "text": "in front of the crowd",
+            "reason": "In front of the crowd is a place. It tells you where you'll be, not how to run."
+          }
         ],
         "answer": 0
       }
@@ -545,13 +751,24 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Just before dawn", "reason": "Just before dawn is a time. It tells you when Wren found the pelican." },
+          {
+            "tap": "Just before dawn",
+            "reason": "Just before dawn is a time. It tells you when Wren found the pelican."
+          },
           ", Wren found a pelican tangled in fishing line. ",
-          { "tap": "On the wet sand", "reason": "On the wet sand is a place. It tells you where Wren snipped the line." },
+          {
+            "tap": "On the wet sand",
+            "reason": "On the wet sand is a place. It tells you where Wren snipped the line."
+          },
           ", she snipped the line ",
-          { "tap": "with tiny scissors" },
+          {
+            "tap": "with tiny scissors"
+          },
           " ",
-          { "tap": "so that it could fly again", "reason": "So that it could fly again is the reason she did it. It tells you why." },
+          {
+            "tap": "for the pelican's safety",
+            "reason": "For the pelican's safety is the reason she did it. It tells you why."
+          },
           "."
         ],
         "answer": 2
@@ -563,12 +780,12 @@
       "topic": "food",
       "frame": "Tully asked Mo, 'Why did you put chilli in the custard?' Mo's reply misses the point.",
       "prompt": "Tully asked why. Tap the group that answers the wrong question, then choose one that answers his.",
-      "success": "To give it a surprise kick is the reason, so now Tully knows why. He still won't eat it.",
+      "success": "For a spicy surprise is the reason, so now Tully knows why. He still won't eat it.",
       "body": {
         "format": "fix",
         "parts": [
           {
-            "tap": "Last Tuesday"
+            "tap": "Before breakfast"
           },
           ", I ",
           {
@@ -585,18 +802,18 @@
         "spot": 0,
         "options": [
           {
-            "text": "to give it a surprise kick"
+            "text": "For a spicy surprise"
           },
           {
-            "text": "while nobody was looking",
-            "reason": "While nobody was looking tells Tully when Mo did it. He still doesn't know why."
+            "text": "During the ad break",
+            "reason": "During the ad break tells Tully when Mo did it. He still doesn't know why."
           },
           {
-            "text": "with a big wooden spoon",
+            "text": "With a big wooden spoon",
             "reason": "With a big wooden spoon tells Tully how Mo did it, not why."
           },
           {
-            "text": "in Nan's kitchen",
+            "text": "In Nan's kitchen",
             "reason": "In Nan's kitchen is a place. It tells Tully where, not why."
           }
         ],
@@ -612,15 +829,46 @@
       "success": "Right after a noun, a group tells you which one. About the action, it says how, when, where or why.",
       "body": {
         "format": "sort",
-        "bins": ["about the action (how, when, where, why)", "about a noun (which one)"],
+        "bins": [
+          "about the action (how, when, where, why)",
+          "about a noun (which one)"
+        ],
         "items": [
-          { "text": "'under the jetty' in: The crab under the jetty pinched Gus.", "bin": 1, "reason": "It sits right after crab and tells you which crab did the pinching." },
-          { "text": "'under the jetty' in: The crab scuttled under the jetty.", "bin": 0, "reason": "It tells you where the crab scuttled, so it's about the action." },
-          { "text": "'with the torn fin' in: The shark with the torn fin circled us.", "bin": 1, "reason": "It sits right after shark and tells you which shark." },
-          { "text": "'with one flick of its tail' in: The ray vanished with one flick of its tail.", "bin": 0, "reason": "It tells you how the ray vanished, so it's about the action." },
-          { "text": "'on the outer reef' in: The coral on the outer reef is bleaching.", "bin": 1, "reason": "It sits right after coral and tells you which coral." },
-          { "text": "'at low tide' in: At low tide, we explored the rock pools.", "bin": 0, "reason": "It tells you when we explored, so it's about the action." },
-          { "text": "'to escape the shark' in: The fish darted away to escape the shark.", "bin": 0, "reason": "It tells you why the fish darted away, so it's about the action." }
+          {
+            "text": "'under the jetty' in: The crab under the jetty pinched Gus.",
+            "bin": 1,
+            "reason": "It sits right after crab and tells you which crab did the pinching."
+          },
+          {
+            "text": "'under the jetty' in: The crab scuttled under the jetty.",
+            "bin": 0,
+            "reason": "It tells you where the crab scuttled, so it's about the action."
+          },
+          {
+            "text": "'with the torn fin' in: The shark with the torn fin circled us.",
+            "bin": 1,
+            "reason": "It sits right after shark and tells you which shark."
+          },
+          {
+            "text": "'with one flick of its tail' in: The ray vanished with one flick of its tail.",
+            "bin": 0,
+            "reason": "It tells you how the ray vanished, so it's about the action."
+          },
+          {
+            "text": "'on the outer reef' in: The coral on the outer reef is bleaching.",
+            "bin": 1,
+            "reason": "It sits right after coral and tells you which coral."
+          },
+          {
+            "text": "'at low tide' in: At low tide, we explored the rock pools.",
+            "bin": 0,
+            "reason": "It tells you when we explored, so it's about the action."
+          },
+          {
+            "text": "'for safety' in: The fish darted away for safety.",
+            "bin": 0,
+            "reason": "It tells you why the fish darted away, so it's about the action."
+          }
         ]
       }
     },
@@ -630,11 +878,20 @@
       "topic": "gaming",
       "frame": "Zed's viewers asked two things about his speedrun: when did he skip the bonus level, and why?",
       "prompt": "Tap the pieces in order to make a sentence that answers both questions.",
-      "success": "On his third try tells you when, and to save eleven seconds tells you why. Both questions answered.",
+      "success": "On his third try tells you when, and for a new record tells you why. Both questions answered.",
       "body": {
         "format": "build",
-        "tiles": ["In a hurry,", "to save eleven seconds.", "On the castle map,", "Zed skipped the bonus level", "with one clever jump.", "On his third try,"],
-        "accept": ["On his third try, Zed skipped the bonus level to save eleven seconds."],
+        "tiles": [
+          "In a hurry,",
+          "for a new record.",
+          "On the castle map,",
+          "Zed skipped the bonus level",
+          "with one clever jump.",
+          "On his third try,"
+        ],
+        "accept": [
+          "On his third try, Zed skipped the bonus level for a new record."
+        ],
         "reason": "Check each group. Does it answer when, or why? Or does it answer a question nobody asked?"
       }
     },
@@ -645,14 +902,25 @@
       "frame": "Mo's late note for his teacher. She wants to know why he was late.",
       "text": "Mo was late to school ___.",
       "prompt": "Which group tells the reader why?",
-      "success": "Because a magpie stole his shoe gives the reason. Whether the teacher believes it is another story.",
+      "success": "Because of a cheeky magpie gives the reason. Whether the teacher believes it is another story.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "because a magpie stole his shoe" },
-          { "text": "after the bell had already rung", "reason": "After the bell had already rung is a time. It tells you when, not why." },
-          { "text": "on a wobbly scooter", "reason": "On a wobbly scooter tells you how Mo got there, not why he was late." },
-          { "text": "in his pyjamas", "reason": "In his pyjamas tells you how Mo turned up, not why he was late." }
+          {
+            "text": "because of a cheeky magpie"
+          },
+          {
+            "text": "after the second bell",
+            "reason": "After the second bell is a time. It tells you when, not why."
+          },
+          {
+            "text": "on his sister's wobbly scooter",
+            "reason": "On his sister's wobbly scooter tells you how Mo got there, not why he was late."
+          },
+          {
+            "text": "in his pyjamas",
+            "reason": "In his pyjamas tells you how Mo turned up, not why he was late."
+          }
         ],
         "answer": 0
       }
@@ -668,10 +936,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "When did the lamp start turning?", "reason": "At midnight answers when. Check each group for the question it answers." },
-          { "text": "Why did the lamp start turning?" },
-          { "text": "How did the lamp turn?", "reason": "Slowly and silently answers how. Check each group for the question it answers." },
-          { "text": "Where was the lamp turning?", "reason": "High above the jagged rocks answers where. Check each group for the question it answers." }
+          {
+            "text": "When did the lamp start turning?",
+            "reason": "At midnight answers when. Check each group for the question it answers."
+          },
+          {
+            "text": "Why did the lamp start turning?"
+          },
+          {
+            "text": "How did the lamp turn?",
+            "reason": "Slowly and silently answers how. Check each group for the question it answers."
+          },
+          {
+            "text": "Where was the lamp turning?",
+            "reason": "High above the jagged rocks answers where. Check each group for the question it answers."
+          }
         ],
         "answer": 1
       }
@@ -682,17 +961,28 @@
       "topic": "space",
       "frame": "A news broadcast crackles in from the Mars base. The Kelpwick wants the why.",
       "prompt": "Tap the group that tells you why.",
-      "success": "In the hope of finding ancient ice is the reason the rover kept drilling, so it tells you why.",
+      "success": "In search of ancient ice is the reason the rover kept drilling, so it tells you why.",
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Beneath the red dust", "reason": "Beneath the red dust is a place. It tells you where the rover drilled." },
+          {
+            "tap": "Beneath the red dust",
+            "reason": "Beneath the red dust is a place. It tells you where the rover drilled."
+          },
           ", the rover drilled ",
-          { "tap": "slowly and patiently", "reason": "Slowly and patiently is the way it drilled. It tells you how." },
+          {
+            "tap": "slowly and patiently",
+            "reason": "Slowly and patiently is the way it drilled. It tells you how."
+          },
           " ",
-          { "tap": "in the hope of finding ancient ice" },
+          {
+            "tap": "in search of ancient ice"
+          },
           " ",
-          { "tap": "until its drill snapped", "reason": "Until its drill snapped tells you when the drilling stopped. It's about time." },
+          {
+            "tap": "until the next dust storm",
+            "reason": "Until the next dust storm tells you when the drilling stopped. It's about time."
+          },
           "."
         ],
         "answer": 2
@@ -708,10 +998,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The orchestra from the old wool shed will perform on Saturday.", "reason": "'From the old wool shed' sits after orchestra and tells you which orchestra. Where will they play?" },
-          { "text": "The orchestra will perform its new piece about the wool shed on Saturday.", "reason": "'About the wool shed' tells you which piece. It doesn't say where the performing happens." },
-          { "text": "On Saturday, the orchestra will perform in the old wool shed." },
-          { "text": "On Saturday, the orchestra will perform with the wool shed choir.", "reason": "'With the wool shed choir' tells you who they perform with, not where." }
+          {
+            "text": "The orchestra from the old wool shed will perform on Saturday.",
+            "reason": "'From the old wool shed' sits after orchestra and tells you which orchestra. Where will they play?"
+          },
+          {
+            "text": "The orchestra will perform its new piece about the wool shed on Saturday.",
+            "reason": "'About the wool shed' tells you which piece. It doesn't say where the performing happens."
+          },
+          {
+            "text": "On Saturday, the orchestra will perform in the old wool shed."
+          },
+          {
+            "text": "On Saturday, the orchestra will perform with the wool shed choir.",
+            "reason": "'With the wool shed choir' tells you who they perform with, not where."
+          }
         ],
         "answer": 2
       }
@@ -722,25 +1023,47 @@
       "topic": "robots",
       "frame": "The factory boss asked, 'Why does the security robot patrol the roof?' The robot's report answers the wrong question.",
       "prompt": "The boss asked why. Tap the group that answers the wrong question, then choose one that answers it.",
-      "success": "To stop thieves climbing in through the skylight is the reason. A why group doesn't need 'because'.",
+      "success": "For protection from skylight burglars is the reason. A why group doesn't need 'because'.",
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "Whenever the alarm is switched on" },
+          {
+            "tap": "After dark"
+          },
           ", the security ",
-          { "tap": "robot", "reason": "Robot is who the report is about. Look for the group that answers a question." },
+          {
+            "tap": "robot",
+            "reason": "Robot is who the report is about. Look for the group that answers a question."
+          },
           " ",
-          { "tap": "patrols", "reason": "Patrols is what the robot does. Look for the group that answers the wrong question." },
+          {
+            "tap": "patrols",
+            "reason": "Patrols is what the robot does. Look for the group that answers the wrong question."
+          },
           " the ",
-          { "tap": "roof", "reason": "The roof is where it patrols, and the boss already knows that. Look for another group." },
+          {
+            "tap": "roof",
+            "reason": "The roof is what the robot patrols, and the boss already knows that. Look for another group."
+          },
           "."
         ],
         "spot": 0,
         "options": [
-          { "text": "Along the gutters and chimneys", "reason": "This is a place. It tells you where, and the boss asked why." },
-          { "text": "With its torch on full beam", "reason": "This is the way it patrols. It tells you how, and the boss asked why." },
-          { "text": "Straight after the cleaners leave", "reason": "This is a time. It tells you when, just like the group you tapped." },
-          { "text": "To stop thieves climbing in through the skylight" }
+          {
+            "text": "Along the gutters and chimneys",
+            "reason": "This is a place. It tells you where, and the boss asked why."
+          },
+          {
+            "text": "With its torch on full beam",
+            "reason": "This is the way it patrols. It tells you how, and the boss asked why."
+          },
+          {
+            "text": "Straight after closing time",
+            "reason": "This is a time. It tells you when, just like the group you tapped."
+          },
+          {
+            "text": "For protection from skylight burglars"
+          }
         ],
         "answer": 3
       }
@@ -750,12 +1073,20 @@
       "band": 4,
       "topic": "art",
       "frame": "The gallery wants Indi's label to tell visitors how she made her sculpture and what it's for. Nothing else.",
-      "prompt": "Tap the pieces in order to make a label that answers how and why.",
-      "success": "By twisting together forty old coat hangers tells you how. To show how much we throw away tells you why.",
+      "prompt": "Tap the pieces in order to make a label that tells how, then why.",
+      "success": "With forty twisted coat hangers tells you how. For the gallery's recycling show tells you why.",
       "body": {
         "format": "build",
-        "tiles": ["Indi built the sculpture", "during the summer holidays", "to show how much we throw away.", "by twisting together forty old coat hangers", "in the school art room."],
-        "accept": ["Indi built the sculpture by twisting together forty old coat hangers to show how much we throw away."],
+        "tiles": [
+          "Indi built the sculpture",
+          "during the summer holidays",
+          "for the gallery's recycling show.",
+          "with forty twisted coat hangers",
+          "in the school art room."
+        ],
+        "accept": [
+          "Indi built the sculpture with forty twisted coat hangers for the gallery's recycling show."
+        ],
         "reason": "Visitors want two answers: how she made it, and why. Which groups answer when or where instead?"
       }
     },
@@ -770,10 +1101,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "with the shaky hands", "reason": "This sits right after waiter and tells you which waiter. It's about the noun, not the carrying." },
-          { "text": "to our table", "reason": "To our table tells you where he carried it, not how." },
-          { "text": "with painfully slow steps" },
-          { "text": "the towering pavlova", "reason": "That's what he carried. It doesn't tell you how he carried it." }
+          {
+            "text": "with the shaky hands",
+            "reason": "This sits right after waiter and tells you which waiter. It's about the noun, not the carrying."
+          },
+          {
+            "text": "to our table",
+            "reason": "To our table tells you where he carried it, not how."
+          },
+          {
+            "text": "with painfully slow steps"
+          },
+          {
+            "text": "the towering pavlova",
+            "reason": "That's what he carried. It doesn't tell you how he carried it."
+          }
         ],
         "answer": 2
       }
