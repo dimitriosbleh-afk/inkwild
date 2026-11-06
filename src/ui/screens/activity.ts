@@ -4,7 +4,8 @@ import { crewCanvas } from '../../art/crew';
 import { creatureCanvas } from '../../art/creatures';
 import type { BranchId, Response, SkillId, Task } from '../../content/types';
 import { currentTask, encounterOf, KEEPER_HP, type GameEvent } from '../../core/game';
-import type { Activity } from '../../core/save';
+import { TOO_FAST_HOLD_MS } from '../../core/pace';
+import type { Activity, Outcome } from '../../core/save';
 import { trapStep } from '../../core/review';
 import { owedOn, owesSentence } from '../../core/sentence';
 import { activityBranch } from '../../world/goal';
@@ -169,17 +170,27 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
   const sprite = on.sprite;
   panel.append(on.el);
 
-  const text = passage(task);
-  if (text) panel.append(text);
-
-  const w = widget(task.body, (response: Response) => {
-    const events = store.dispatch({ type: 'answer', response });
+  // Too fast is timed from here, when the task appears. No countdown is shown: a timer invites waiting, not reading.
+  const shownAt = performance.now();
+  const w = widget(task, (response: Response) => {
+    const events = store.dispatch({ type: 'answer', response, ms: performance.now() - shownAt });
     react(events);
   });
+  const text = w.passage ?? passage(task);
+  if (text) panel.append(text);
   panel.append(w.el, feedback);
+  // The Creature on stage: wild in an Encounter or review, the Keeper's in a battle.
+  const creature = sprite ?? panel.querySelector('.foe-sprite');
+  const wild = a.kind === 'encounter' || a.kind === 'review';
 
   const react = (events: GameEvent[]) => {
     for (const e of events) {
+      if (e.type === 'tooFast') {
+        app.sfx('look');
+        if (creature) shake(creature);
+        feedback.replaceChildren(h('div', { class: 'feedback look pop too-fast' }, h('b', {}, 'TOO FAST!'), readable('The Creature hid. Read it, then tap.')));
+        hold(w.el, TOO_FAST_HOLD_MS);
+      }
       if (e.type === 'continue') {
         w.proceed?.();
         app.sfx('tap');
@@ -201,7 +212,7 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
             blank.classList.add('filled');
           }
         }
-        const title = e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
+        const title = wild ? CAUGHT[e.outcome] : e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
         const why = e.outcome === 'shown' && e.reason && e.reason !== SORT_LOOK ? [readable(e.reason), h('br'), h('br')] : [];
         const box = h('div', { class: 'feedback good pop' }, h('b', {}, title), ...why, readable(e.success));
         // A review item missed first time: the Move card is the next thing to look at.
@@ -213,7 +224,10 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
         feedback.replaceChildren(box, ...(next ? [next] : []));
         const done = events.find((x) => x.type === 'reviewDone');
         if (done) feedback.append(reviewResult(app, done.first, done.of));
-        if (e.outcome !== 'shown') {
+        if (wild && sprite) {
+          creatureReacts(sprite, e.outcome);
+          if (e.outcome !== 'shown') app.sfx('right');
+        } else if (e.outcome !== 'shown') {
           app.sfx('right');
           burst(sprite ?? box);
         }
@@ -221,6 +235,26 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
     }
   };
   return panel;
+}
+
+/** What became of the wild Creature, by how it was answered. */
+const CAUGHT: Record<Outcome, string> = { first: 'CAUGHT!', second: "GOT IT, BUT IT'S NERVOUS", shown: 'IT SLIPPED AWAY…' };
+
+/** First try: caught, in a burst. Second try: caught but wobbling. Shown: it fades and slides away, and the answer stays. */
+function creatureReacts(sprite: HTMLElement, outcome: Outcome): void {
+  if (outcome === 'first') return burst(sprite);
+  sprite.classList.remove('bob', 'shake');
+  sprite.classList.add(outcome === 'second' ? 'nervous' : 'slip');
+}
+
+/** Greys the answers out and ignores taps on them for a moment. */
+function hold(el: HTMLElement, ms: number): void {
+  el.inert = true;
+  el.classList.add('resting');
+  setTimeout(() => {
+    el.inert = false;
+    el.classList.remove('resting');
+  }, ms);
 }
 
 /** `played` is the Skill of an ordinary Encounter just finished: once it owes a sentence, writing one comes next. */

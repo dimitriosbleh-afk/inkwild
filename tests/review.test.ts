@@ -97,9 +97,10 @@ describe('playing a Daily review', () => {
     const xp = (s: Save) => Object.values(s.skills).reduce((sum, sk) => sum + (sk?.xp ?? 0), 0);
     const before = xp(p.save);
     p.do({ type: 'review' });
+    // Two shown (no XP: the Creature slipped away) and one second try.
     for (let i = 0; i < 3; i++) {
       p.answerWrong();
-      expect(types(p.answerWrong())).not.toContain('evolved');
+      expect(types(i < 2 ? p.answerWrong() : p.answerRight())).not.toContain('evolved');
     }
     expect(p.save.branches).toEqual(branches);
     for (const id of ['5.1', '5.2', '1.1'] as const) expect(p.save.skills[id]).toMatchObject({ mastered: true, masteredBand: 2 });

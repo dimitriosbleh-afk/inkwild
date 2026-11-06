@@ -1,8 +1,9 @@
 import type { Body, Part, Response, Task } from '../content/types';
-import { joinTiles, piecesNeeded, taps, tilesFor } from '../core/check';
+import { joinTiles, needsProof, piecesNeeded, sentencesOf, taps, tilesFor } from '../core/check';
 import type { Outcome } from '../core/save';
 import { h } from './dom';
-import { readable } from './speech';
+import { shake } from './fx';
+import { hear, readable } from './speech';
 
 export interface Widget {
   el: HTMLElement;
@@ -12,8 +13,10 @@ export interface Widget {
   lookNote?(): string;
   /** Show the right answer and lock the widget. */
   reveal(outcome: Outcome): void;
-  /** The fix format's tap was on the right spot: show the replacement options. */
+  /** The fix format's tap was on the right spot, or Prove it's choice was right: open the next stage. */
   proceed?(): void;
+  /** A passage this widget runs itself (Prove it), shown in place of the plain one. */
+  passage?: HTMLElement;
 }
 
 type Submit = (r: Response) => void;
@@ -33,10 +36,11 @@ export function passage(task: Task, filled?: string): HTMLElement | null {
   return out;
 }
 
-export function widget(body: Body, submit: Submit): Widget {
+export function widget(task: Task, submit: Submit): Widget {
+  const body = task.body;
   switch (body.format) {
     case 'choose':
-      return choose(body, submit);
+      return needsProof(task) && task.text && body.proof ? proveIt(body, body.proof, task.text, submit) : choose(body, submit);
     case 'tapText':
       return tapText(body, submit);
     case 'order':
@@ -62,9 +66,17 @@ function chips(options: { text: string }[], onPick: (i: number) => void) {
   return {
     el: h('div', { class: 'chips' }, shuffled(options).map((i) => buttons[i]!)),
     wrong: () => buttons[last]?.classList.add('crossed'),
+    /** Keep the answer, in gold, and close the rest. */
+    lock: (answer: number) => {
+      buttons.forEach((b, i) => {
+        b.disabled = true;
+        b.classList.toggle('locked', i === answer);
+      });
+    },
     reveal: (answer: number) => {
       buttons.forEach((b, i) => {
         b.disabled = true;
+        b.classList.remove('locked');
         b.classList.toggle('right', i === answer);
       });
     },
@@ -74,6 +86,91 @@ function chips(options: { text: string }[], onPick: (i: number) => void) {
 function choose(body: Extract<Body, { format: 'choose' }>, submit: Submit): Widget {
   const c = chips(body.options, (choice) => submit({ format: 'choose', choice }));
   return { el: c.el, wrong: c.wrong, reveal: () => c.reveal(body.answer) };
+}
+
+/**
+ * The passage as one row per sentence (sentencesOf). Each row has the same size whether it is being read or tapped, so
+ * turning the rows into chips never moves the page. Read, every word can be tapped to hear it; as chips, a tap is the proof.
+ */
+function sentenceRows(text: string, onTap: (i: number) => void) {
+  const sentences = sentencesOf(text);
+  const el = h('div', { class: 'reading passage prove' });
+  const marks: ('crossed' | 'proof' | undefined)[] = sentences.map(() => undefined);
+  let tapping = false;
+  let fill: string | undefined;
+  let last = -1;
+  let rows: HTMLElement[] = [];
+  const words = (s: string) => {
+    const parts = s.split('___');
+    return parts.flatMap((p, k) => [tapping ? p : readable(p), k < parts.length - 1 ? h('span', { class: `blank${fill ? ' filled' : ''}` }, fill ?? ' ') : null]);
+  };
+  const draw = () => {
+    rows = sentences.map((s, i) => {
+      const cls = `sent${marks[i] ? ` ${marks[i]}` : ''}`;
+      if (!tapping) return h('div', { class: cls }, words(s));
+      return h('button', { class: cls, type: 'button', disabled: marks[i] === 'crossed', onclick: () => ((last = i), onTap(i)) }, words(s));
+    });
+    el.replaceChildren(...rows);
+  };
+  draw();
+  return {
+    el,
+    /** The answer is in: fill any blank with it and make every sentence a chip. */
+    open: (answer: string) => {
+      tapping = true;
+      fill = answer;
+      draw();
+    },
+    wrong: () => {
+      const row = rows[last];
+      if (!row) return;
+      marks[last] = 'crossed';
+      row.classList.add('crossed');
+      if (row instanceof HTMLButtonElement) row.disabled = true;
+      shake(row);
+    },
+    /** Light up the proof, back as readable text. */
+    reveal: (proof: number[], answer: string) => {
+      if (tapping && last >= 0 && !proof.includes(last)) marks[last] = 'crossed';
+      for (const i of proof) marks[i] = 'proof';
+      tapping = false;
+      fill = answer;
+      draw();
+    },
+  };
+}
+
+/**
+ * Prove it: the right choice locks in gold and the passage turns into sentence chips; the task is won with the sentence
+ * that shows it. The line asking for the proof keeps its space from the start, so it appears without pushing anything.
+ */
+function proveIt(body: Extract<Body, { format: 'choose' }>, proof: number[], text: string, submit: Submit): Widget {
+  const answer = body.options[body.answer]?.text ?? '';
+  const c = chips(body.options, (choice) => submit({ format: 'choose', choice }));
+  const s = sentenceRows(text, (i) => submit({ format: 'choose', choice: body.answer, proof: i }));
+  const call = h('div', { class: 'prove-call', 'aria-live': 'polite' });
+  let proving = false;
+  return {
+    el: h('div', { class: 'prover' }, call, c.el),
+    passage: s.el,
+    wrong: () => (proving ? s.wrong() : c.wrong()),
+    proceed: () => {
+      proving = true;
+      c.lock(body.answer);
+      s.open(answer);
+      const ask = body.proofAsk ?? 'Tap the sentence that shows it.';
+      const line = `PROVE IT! ${ask}`;
+      // Built only now, so "Read crew lines aloud" says it when it appears, not before.
+      call.replaceChildren(h('div', { class: 'reading' }, h('b', {}, 'PROVE IT!'), ' ', readable(ask)), hear(line));
+      call.classList.add('on');
+    },
+    reveal: () => {
+      c.reveal(body.answer);
+      s.reveal(proof, answer);
+      call.classList.add('on');
+      call.replaceChildren(h('div', { class: 'reading' }, h('b', {}, 'PROOF:'), ' ', readable(proof.length > 1 ? 'the lit-up sentences show it.' : 'the lit-up sentence shows it.')));
+    },
+  };
 }
 
 function tappableText(parts: Part[], onTap: (i: number) => void) {

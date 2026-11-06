@@ -41,3 +41,7 @@ button.ch:disabled { cursor: default; opacity: 1; }
 .card-example { margin-bottom: 10px; }
 .card-test { background: var(--panel2); border: 4px solid var(--line); padding: 10px 12px; margin-top: 4px; }
 .card-test b { display: block; font-family: var(--pixel); font-size: 11px; color: var(--gold); margin-bottom: 6px; }
+
+/* Two wrong taps in a row too fast: the choices lock for a moment, and the nudge says to slow down. */
+.step.held .chunks button, .step.held .step-choices button { pointer-events: none; filter: grayscale(1); opacity: 0.45; }
+.slow-line { font-weight: 700; color: #111; background: var(--gold); border: 3px solid var(--line); padding: 4px 10px; margin-bottom: 10px; }

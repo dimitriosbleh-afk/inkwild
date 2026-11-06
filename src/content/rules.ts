@@ -1,6 +1,6 @@
-import { normalise, piecesNeeded, taps, tilesFor } from '../core/check';
+import { normalise, piecesNeeded, sentencesOf, taps, tilesFor } from '../core/check';
 import type { SkillFile } from './bank';
-import { BANDS, CREW, INTERESTS, type Band, type Body, type Chunk, type Show, type Task, type Teach, type WriteTask } from './types';
+import { BANDS, CREW, INTERESTS, type Band, type Body, type Encounter, type Chunk, type Show, type Task, type Teach, type WriteTask } from './types';
 
 export interface Problem {
   where: string;
@@ -227,6 +227,7 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
     if (!e.id.startsWith(`${id}-`)) add(where, `encounter id must start with "${id}-"`);
     if (ids.has(e.id)) add(where, 'duplicate encounter id');
     ids.add(e.id);
+    proofProblems(e, id).forEach((p) => add(where, p));
     if (!BANDS.includes(e.band)) add(where, `band ${e.band} is not 1 to 4`);
     if (!TOPICS.has(e.topic)) add(where, `unknown topic ${e.topic}`);
     out.push(...taskProblems(e, where, e.band));
@@ -467,4 +468,23 @@ export function glossaryProblems(files: SkillFile[], glossary: Record<string, st
             : [],
         ),
   );
+}
+
+/** Islands whose choose tasks hang on a passage, so the student must also tap the sentence that proves the answer. */
+export const PROOF_ISLANDS = ['1', '2', '3', '4'];
+
+/**
+ * Prove it: a guess can't find the line that proves it, a reader can. The proof must be a small part of the passage,
+ * or tapping at random would find it.
+ */
+export function proofProblems(e: Pick<Encounter, 'text' | 'body'>, skillId: string): string[] {
+  const b = e.body;
+  if (b.format !== 'choose' || !e.text) return [];
+  const n = sentencesOf(e.text).length;
+  if (!b.proof) return PROOF_ISLANDS.includes(skillId.split('.')[0]!) && n >= 3 ? ['needs a proof: the passage sentence(s) that prove the answer'] : [];
+  const out: string[] = [];
+  if (b.proofAsk && wordCount(b.proofAsk) > LIMITS.ask) out.push(`proofAsk is ${wordCount(b.proofAsk)} words; keep it to ${LIMITS.ask}`);
+  if (b.proof.length === 0 || b.proof.some((i) => !Number.isInteger(i) || i < 0 || i >= n)) out.push(`proof must name sentences 0 to ${n - 1}`);
+  if (b.proof.length > Math.max(1, Math.floor(n / 2))) out.push(`proof names ${b.proof.length} of ${n} sentences; if more than half prove it, the passage is too easy for Prove it, so rework it`);
+  return out;
 }

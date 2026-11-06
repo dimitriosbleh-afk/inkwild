@@ -30,7 +30,7 @@ Answer shapes by format:
 
 | Format | Answer |
 |---|---|
-| choose | the option text |
+| choose | the option text. If the task has `sentences`, answer `{ "option": the option text, "proof": the number of the one sentence that best proves it }`, and flag if a different sentence proves it just as well |
 | tapText | the bracketed text, without brackets |
 | fix | `{ "spot": bracketed text, "replacement": option text }` |
 | order | an array of the items in order |

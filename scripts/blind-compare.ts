@@ -28,8 +28,11 @@ function tapLabel(parts: Part[], index: number): string {
 function agrees(e: Encounter, answer: unknown): boolean {
   const b = e.body;
   switch (b.format) {
-    case 'choose':
-      return same(answer, b.options[b.answer]!.text);
+    case 'choose': {
+      if (!b.proof) return same(answer, b.options[b.answer]!.text);
+      const a = answer as { option?: string; proof?: number } | null;
+      return !!a && same(a.option, b.options[b.answer]!.text) && b.proof.includes(Number(a.proof));
+    }
     case 'tapText':
       return same(answer, tapLabel(b.parts, b.answer));
     case 'order':

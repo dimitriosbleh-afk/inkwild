@@ -1,6 +1,7 @@
 import type { BranchId, Content, Encounter, EncounterId, Response, Skill, SkillId, Task } from '../content/types';
 import { recordForBand } from './bands';
-import { check } from './check';
+import { check, checkedBody } from './check';
+import { tooFast } from './pace';
 import { interestWeight, poolKey, poolNear, weighted } from './pick';
 import { reviewFor, reviewPhase } from './review';
 import { isUnlocked, keeperOpen, masteredAt, unlockedSkills } from './route';
@@ -17,7 +18,8 @@ export type Action =
   | { type: 'begin'; branch: BranchId }
   | { type: 'keeper'; branch: BranchId }
   | { type: 'advance' }
-  | { type: 'answer'; response: Response }
+  /** `ms`: how long since the task appeared, so a first answer tapped before the passage could be read doesn't count. */
+  | { type: 'answer'; response: Response; ms?: number }
   | { type: 'retreat' }
   /** `marks`: for each checklist item, the words of the Piece the Student tapped to show it. */
   | { type: 'piece'; skill: SkillId; title: string; text: string; marks: Marks }
@@ -28,6 +30,8 @@ export type Action =
 
 export type GameEvent =
   | { type: 'secondLook'; reason: string }
+  /** A first answer too soon to have read the passage: not an attempt, nothing changes. */
+  | { type: 'tooFast' }
   | { type: 'continue' }
   | { type: 'resolved'; outcome: Outcome; success: string; reason?: string }
   | { type: 'taught'; skill: SkillId }
@@ -58,6 +62,11 @@ const TIDE_SHINY_ODDS = 16;
 export const RUSTY_AFTER = 2;
 export const KEEPER_HP = 100;
 export const HIT = { first: 25, second: 15, chip: 10, miss: 25 } as const;
+
+/** XP for one Encounter: the Creature slipped away when the answer had to be shown, so that earns none. */
+export function xpFor(outcome: Outcome): number {
+  return outcome === 'shown' ? 0 : XP_PER_ENCOUNTER;
+}
 
 export function step(content: Content, current: Save, action: Action, ctx: Ctx): Step {
   const save = structuredClone(current);
@@ -107,7 +116,7 @@ class Run {
       case 'advance':
         return this.advance();
       case 'answer':
-        return this.answer(action.response);
+        return this.answer(action.response, action.ms);
       case 'retreat':
         return this.retreat();
       case 'piece':
@@ -251,11 +260,15 @@ class Run {
     this.events.push({ type: 'retreated', branch: a.branch });
   }
 
-  private answer(response: Response): void {
+  private answer(response: Response, ms: number | undefined): void {
     const a = this.save.activity;
     if (!a || (a.kind === 'teach' && a.step === 0) || (a.kind === 'review' && a.phase === 'refresher')) return;
     const task = currentTask(this.content, a);
-    const verdict = check(task.body, response);
+    if (tooFast(task, a, ms)) {
+      this.events.push({ type: 'tooFast' });
+      return;
+    }
+    const verdict = check(checkedBody(task), response);
     if (verdict.kind === 'continue') {
       this.events.push({ type: 'continue' });
       return;
@@ -334,7 +347,7 @@ class Run {
     const misses = outcome === 'first' ? 0 : p.reviewMisses + 1;
     save.skills[encounter.skill] = {
       ...p,
-      xp: p.xp + XP_PER_ENCOUNTER,
+      xp: p.xp + xpFor(outcome),
       recent: [...p.recent, { outcome, band: encounter.band, day: ctx.day }].slice(-RECENT_ATTEMPTS),
       reviewMisses: misses,
       rusty: misses === 0 ? false : p.rusty || misses >= RUSTY_AFTER,
@@ -374,7 +387,7 @@ class Run {
     const updated = {
       ...p,
       done: p.done + 1,
-      xp: p.xp + XP_PER_ENCOUNTER * (tide ? 2 : 1),
+      xp: p.xp + xpFor(outcome) * (tide ? 2 : 1),
       recent: [...p.recent, { outcome, band: encounter.band, day: ctx.day }].slice(-RECENT_ATTEMPTS),
     };
     recordForBand(branch, outcome);

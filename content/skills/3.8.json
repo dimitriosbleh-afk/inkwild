@@ -286,9 +286,9 @@
       "band": 1,
       "topic": "food",
       "frame": "A Pitchling is sniffing an ad on the general store window. Its huge ears are twitching.",
-      "text": "NEW! CRUNCHY CARROT STICKS. Parents, are you looking for a healthy snack? Pack Crunchy Carrot Sticks in your child's lunchbox. They come in small bags that fit in any lunchbox. They have no added sugar. Your kids will eat every last one, and you can stop worrying about what they eat at recess. Only $3 for a pack of five bags at the Bluster Rock general store.",
+      "text": "NEW! CRUNCHY CARROT STICKS. Are you looking for a healthy snack? Pack Crunchy Carrot Sticks in your child's lunchbox. They come in small bags that fit in any lunchbox. They have no added sugar. Your kids will eat every last one, and you can stop worrying about what they eat at recess. Only $3 for a pack of five bags at the Bluster Rock general store.",
       "prompt": "Who is this ad aimed at?",
-      "success": "Parents. The ad says 'Parents' and talks about packing 'your child's lunchbox'.",
+      "success": "Parents. The ad talks to whoever packs 'your child's lunchbox' and worries about what 'your kids' eat.",
       "body": {
         "format": "choose",
         "options": [
@@ -304,7 +304,11 @@
             "text": "parents"
           }
         ],
-        "answer": 2
+        "answer": 2,
+        "proof": [
+          3,
+          6
+        ]
       }
     },
     {
@@ -346,9 +350,9 @@
       "band": 1,
       "topic": "animals",
       "frame": "Wren put up a new sign at Bluster Beach. The Pitchling is guarding it.",
-      "text": "DOG OWNERS, PLEASE READ! Little penguins nest in the sand dunes at this beach. Their nests are hard to see. A dog can scare a penguin off its eggs in seconds. Please keep your dog on a lead at all times on this beach. Dogs can run free at Gum Gully Beach, five minutes up the road. Thank you for helping our penguins. From Wren and the Bluster Rock rangers.",
+      "text": "DOG OWNERS, PLEASE READ! Little penguins nest in the sand dunes at this beach. Their nests are hard to see. A dog can scare a penguin off its eggs in seconds. Please don't let your dog off its lead anywhere on this beach. Dogs can run free at Gum Gully Beach, five minutes up the road. Thank you for helping our penguins. From Wren and the Bluster Rock rangers.",
       "prompt": "What does the sign want dog owners to do?",
-      "success": "Keep their dogs on a lead. The sign says it straight out, and explains why: the penguin nests.",
+      "success": "Keep their dogs on a lead. The sign asks owners not to let them off, because of the penguins.",
       "body": {
         "format": "choose",
         "options": [
@@ -364,7 +368,10 @@
             "reason": "The sign says the nests are hard to see. So what does it want dogs to stay away from?"
           }
         ],
-        "answer": 0
+        "answer": 0,
+        "proof": [
+          4
+        ]
       }
     },
     {
@@ -459,9 +466,9 @@
       "band": 1,
       "topic": "music",
       "frame": "A poster for guitar lessons is on the door of the Bluster Rock hall. The Pitchling's ears are wiggling.",
-      "text": "IT'S NEVER TOO LATE TO PLAY! Guitar lessons for grown-ups. Did you always want to learn guitar? Come along after work. Lessons are on Tuesdays at 7 pm. No music skills needed. You can borrow a guitar if you don't have one. Kids' lessons are on Saturday mornings instead. Mo has signed up for the Tuesday class. He only knows one song. It is about a pie.",
+      "text": "IT'S NEVER TOO LATE TO PLAY! Guitar lessons for beginners. Did you always want to learn guitar? Come along after work. Lessons are on Tuesdays at 7 pm. No music skills needed. You can borrow a guitar if you don't have one. Kids' lessons are on Saturday mornings instead. Mo has signed up for the Tuesday class. He only knows one song. It is about a pie.",
       "prompt": "Who are the Tuesday lessons aimed at?",
-      "success": "Grown-ups. 'For grown-ups', 'after work' and 7 pm all point to adults. Kids have their own day.",
+      "success": "Grown-ups. 'After work' and 7 pm point to adults, and kids have their own day on Saturday.",
       "body": {
         "format": "choose",
         "options": [
@@ -477,7 +484,12 @@
             "reason": "Teachers already play. The poster says no music skills are needed."
           }
         ],
-        "answer": 0
+        "answer": 0,
+        "proof": [
+          0,
+          3,
+          7
+        ]
       }
     },
     {
@@ -519,9 +531,9 @@
       "band": 2,
       "topic": "robots",
       "frame": "Gus wrote a letter for the school robot club. The Pitchling is checking who it's aimed at and what it asks for.",
-      "text": "Dear Bluster Rock business owners, my name is Gus, and I am the engineer in the Bluster Rock School robot club. This year, our club is building a robot for the State Robot Challenge in October. We need about $600 for motors, batteries and wheels. We are asking local businesses to sponsor us. If your business gives money or parts, we will paint your business name on the side of our robot. We will also thank you in the school newsletter, which goes to 300 families. Please reply to this letter by 1 August. Thank you for supporting young engineers. Yours sincerely, Gus.",
+      "text": "Dear Bluster Rock business owners, my name is Gus, and I am the engineer in the Bluster Rock School robot club. This year, our club is building a robot for the State Robot Challenge in October. We need about $600 for motors, batteries and wheels. We are asking local businesses to sponsor us. If your business helps, we will paint its name on the side of our robot. We will also thank you in the school newsletter, which goes to 300 families. Please reply to this letter by 1 August. Thank you for supporting young engineers. Yours sincerely, Gus.",
       "prompt": "What does Gus's letter want the business owners to do?",
-      "success": "Sponsor the club. The letter asks businesses to give money or parts, and offers their name on the robot.",
+      "success": "Sponsor the club. Gus needs $600 for motors, batteries and wheels, and asks businesses to help.",
       "body": {
         "format": "choose",
         "options": [
@@ -537,7 +549,11 @@
             "reason": "Gus offers to thank them in the newsletter. He isn't asking them to pay for an ad."
           }
         ],
-        "answer": 1
+        "answer": 1,
+        "proof": [
+          2,
+          3
+        ]
       }
     },
     {
@@ -645,7 +661,14 @@
             "reason": "The flyer doesn't mention a competition. It's a sale for classrooms."
           }
         ],
-        "answer": 1
+        "answer": 1,
+        "proof": [
+          1,
+          3,
+          5,
+          6,
+          7
+        ]
       }
     },
     {
@@ -709,7 +732,10 @@
             "reason": "The teachers are in the pool. The letter says you watch from the deck."
           }
         ],
-        "answer": 2
+        "answer": 2,
+        "proof": [
+          6
+        ]
       }
     },
     {
@@ -880,7 +906,14 @@
             "reason": "The kit costs $89. Maxx wants kids to borrow a parent's card to pay."
           }
         ],
-        "answer": 1
+        "answer": 1,
+        "proof": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
       }
     },
     {
@@ -944,7 +977,12 @@
             "reason": "'Nowhere to be in the morning' means these readers aren't working."
           }
         ],
-        "answer": 2
+        "answer": 2,
+        "proof": [
+          1,
+          2,
+          4
+        ]
       }
     },
     {
@@ -974,7 +1012,11 @@
             "reason": "The letter asks them to throw small snapper back, not to count them."
           }
         ],
-        "answer": 2
+        "answer": 2,
+        "proof": [
+          0,
+          3
+        ]
       }
     },
     {
@@ -1082,7 +1124,11 @@
             "reason": "Being a kids' club doesn't explain the secret. What would a parent say about the form?"
           }
         ],
-        "answer": 1
+        "answer": 1,
+        "proof": [
+          5,
+          11
+        ]
       }
     },
     {

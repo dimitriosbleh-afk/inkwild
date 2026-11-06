@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { readContentFiles } from '../src/content/files';
-import { piecesNeeded } from '../src/core/check';
+import { piecesNeeded, sentencesOf } from '../src/core/check';
 import type { Body, Encounter, Part } from '../src/content/types';
 
 /** Writes answer-free task sheets for a blind solver. Options are shuffled so authored order can't leak the answer. */
@@ -39,7 +39,9 @@ const joinParts = (parts: Part[]) => {
 function sheet(body: Body): Record<string, unknown> {
   switch (body.format) {
     case 'choose':
-      return { answerWith: 'the text of the one correct option', options: shuffle(body.options.map((o) => o.text)) };
+      return body.proof
+        ? { answerWith: '{ "option": the text of the one correct option, "proof": the number of the sentence in "sentences" that proves it }', ...(body.proofAsk ? { proofAsk: body.proofAsk } : {}), options: shuffle(body.options.map((o) => o.text)) }
+        : { answerWith: 'the text of the one correct option', options: shuffle(body.options.map((o) => o.text)) };
     case 'tapText':
       return { answerWith: 'the bracketed part that answers the prompt', passage: joinParts(body.parts) };
     case 'order':
@@ -65,13 +67,13 @@ for (const f of files.filter((f) => f.skill.id.startsWith(prefix))) {
 if (onlyIds) {
   // We do tasks have no id of their own; a recheck names them 5.3-weDo1.
   for (const f of files) bySkill.get(f.skill.id)?.push(...weDoTasks(f));
-  const tasks = [...bySkill.values()].flat().filter((e) => onlyIds.has(e.id)).map((e) => ({ id: e.id, frame: e.frame, text: e.text, prompt: e.prompt, format: e.body.format, ...sheet(e.body) }));
+  const tasks = [...bySkill.values()].flat().filter((e) => onlyIds.has(e.id)).map((e) => ({ id: e.id, frame: e.frame, text: e.text, ...(e.body.format === 'choose' && e.body.proof && e.text ? { sentences: sentencesOf(e.text).map((t, i) => `${i}: ${t}`) } : {}), prompt: e.prompt, format: e.body.format, ...sheet(e.body) }));
   writeFileSync(new URL('recheck.tasks.json', out), JSON.stringify(tasks, null, 2));
   console.log(`wrote ${tasks.length} tasks to .scratch/blind/recheck.tasks.json`);
   process.exit(0);
 }
 for (const [skill, encounters] of bySkill) {
-  const tasks = encounters.map((e) => ({ id: e.id, frame: e.frame, text: e.text, prompt: e.prompt, format: e.body.format, ...sheet(e.body) }));
+  const tasks = encounters.map((e) => ({ id: e.id, frame: e.frame, text: e.text, ...(e.body.format === 'choose' && e.body.proof && e.text ? { sentences: sentencesOf(e.text).map((t, i) => `${i}: ${t}`) } : {}), prompt: e.prompt, format: e.body.format, ...sheet(e.body) }));
   writeFileSync(new URL(`${skill}.tasks.json`, out), JSON.stringify(tasks, null, 2));
 }
 console.log(`wrote ${bySkill.size} blind sheets to .scratch/blind/`);

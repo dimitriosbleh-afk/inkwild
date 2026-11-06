@@ -52,7 +52,11 @@ export interface Choice {
 export type Part = string | { tap: string; reason?: string };
 
 export type Body =
-  | { format: 'choose'; options: Choice[]; answer: number }
+  /**
+   * `proof` lists the passage sentences (from sentencesOf, counted from 0) any of which proves the answer. `proofAsk`
+   * replaces "Tap the sentence that shows it." when the proof is a particular marker, such as a sound word only Dash uses.
+   */
+  | { format: 'choose'; options: Choice[]; answer: number; proof?: number[]; proofAsk?: string }
   | { format: 'tapText'; parts: Part[]; answer: number }
   | { format: 'order'; items: string[]; reason: string }
   | { format: 'build'; tiles: string[]; accept: string[]; reason: string }
@@ -164,7 +168,7 @@ export interface Content {
 }
 
 export type Response =
-  | { format: 'choose'; choice: number }
+  | { format: 'choose'; choice: number; proof?: number }
   | { format: 'tapText'; tap: number }
   | { format: 'order'; order: number[] }
   | { format: 'build'; tiles: number[] }

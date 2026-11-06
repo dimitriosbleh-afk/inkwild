@@ -88,6 +88,11 @@ export function saidBy(name: string, line: string): HTMLElement {
   return h('div', { class: 'say-head' }, h('b', {}, name), hear(line));
 }
 
+/** Reads a crew line aloud now, whole, as if its HEAR button (inside `from`, if it has one) were tapped. */
+export function sayLine(line: string, from?: Element | null): void {
+  speakLine(line, from?.querySelector('button.hear') ?? null, false);
+}
+
 /** Text whose every word can be tapped to hear it spoken. Never reads whole passages. */
 export function readable(text: string): DocumentFragment {
   const frag = document.createDocumentFragment();

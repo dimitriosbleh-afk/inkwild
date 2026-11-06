@@ -1,4 +1,4 @@
-import type { Body, Part, Response } from '../content/types';
+import type { Body, Part, Response, Task } from '../content/types';
 
 export type Verdict = { kind: 'right' } | { kind: 'wrong'; reason: string } | { kind: 'continue' };
 
@@ -14,6 +14,31 @@ export function joinTiles(tiles: string[]): string {
   return normalise(tiles.join(' '));
 }
 
+const ABBREVIATION = /\b(?:a\.m|p\.m|Dr|Mr|Mrs|Ms|St|P\.S|e\.g|i\.e|vs|etc|(?:Mr|Mrs|Ms|Dr) [A-Z])\.$/;
+const STARTS_SENTENCE = /^[A-Z0-9'‘"“(]/;
+
+/**
+ * A passage split into sentences, the units a student taps to prove an answer. A mark ends a sentence only when the next
+ * word starts a new one, so "'Stop!' he yelled." stays whole, and so do "Dr. Lin", "6 a.m." and "9.02".
+ */
+export function sentencesOf(text: string): string[] {
+  const out: string[] = [];
+  for (const line of text.split(/\n+/)) {
+    let start = 0;
+    for (const m of line.matchAll(/[.!?]+['’"”)]*(?=\s|$)/g)) {
+      const end = m.index + m[0].length;
+      const after = line.slice(end).trimStart();
+      if (after && !STARTS_SENTENCE.test(after)) continue;
+      if (ABBREVIATION.test(line.slice(0, m.index + 1))) continue;
+      out.push(line.slice(start, end).trim());
+      start = end;
+    }
+    const rest = line.slice(start).trim();
+    if (rest) out.push(rest);
+  }
+  return out.filter(Boolean);
+}
+
 export function normalise(s: string): string {
   return s
     .replace(/\s+/g, ' ')
@@ -22,13 +47,32 @@ export function normalise(s: string): string {
 }
 
 const fallback = 'Look again at the text and try once more.';
+export const PROOF_LOOK = "That line doesn't prove it. Find the sentence that shows it.";
+
+/**
+ * Prove it: a choose task that, once answered right, asks for the passage sentence that proves the answer. Only a task
+ * with a passage can ask, since the proof is a sentence of it; a task still waiting for its `proof` plays as before.
+ */
+export function needsProof(task: Pick<Task, 'text' | 'body'>): boolean {
+  return !!task.text && task.body.format === 'choose' && !!task.body.proof?.length;
+}
+
+/** The body as checked for this task: a proof with no passage to find it in is ignored. */
+export function checkedBody(task: Pick<Task, 'text' | 'body'>): Body {
+  if (task.body.format !== 'choose' || needsProof(task) || !task.body.proof) return task.body;
+  const { proof: _, ...rest } = task.body;
+  return rest;
+}
 
 export function check(body: Body, response: Response): Verdict {
   switch (body.format) {
     case 'choose': {
       if (response.format !== 'choose') break;
-      if (response.choice === body.answer) return RIGHT;
-      return wrong(body.options[response.choice]?.reason ?? fallback);
+      if (response.choice !== body.answer) return wrong(body.options[response.choice]?.reason ?? fallback);
+      if (!body.proof?.length) return RIGHT;
+      // Prove it: the right answer alone only opens the passage; the sentence that shows it finishes the task.
+      if (response.proof === undefined) return { kind: 'continue' };
+      return body.proof.includes(response.proof) ? RIGHT : wrong(PROOF_LOOK);
     }
     case 'tapText': {
       if (response.format !== 'tapText') break;

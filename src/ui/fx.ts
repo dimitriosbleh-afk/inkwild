@@ -40,4 +40,11 @@ export function shake(el: Element): void {
   el.classList.remove('shake');
   void (el as HTMLElement).offsetWidth;
   el.classList.add('shake');
+  // Once done, let any idle animation (a bobbing Creature) carry on.
+  const done = (e: Event) => {
+    if (e.target !== el || (e as AnimationEvent).animationName !== 'shake') return;
+    el.classList.remove('shake');
+    el.removeEventListener('animationend', done);
+  };
+  el.addEventListener('animationend', done);
 }

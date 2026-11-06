@@ -1,9 +1,10 @@
 import { crew } from '../app/content';
 import { crewCanvas } from '../art/crew';
 import type { Chunk, Show, Skill, Step } from '../content/types';
+import { RUSH_LOCK_MS, rushed } from '../core/pace';
 import { h } from './dom';
 import { shake } from './fx';
-import { hear, readable, saidBy } from './speech';
+import { hear, readable, saidBy, sayLine } from './speech';
 import './teach.css';
 
 const SLOTS = 5;
@@ -64,10 +65,26 @@ function stepView(skill: Skill, step: Step, colours: Map<string, number>, onWon:
   const fb = h('div', { class: 'step-fb' });
   const person = crew[skill.teach.crew].name.toUpperCase();
   let won = false;
+  let lastWrong: number | undefined;
+  let held = false;
+  /** Two wrong taps within 3 seconds is tapping, not reading: the choices lock for 2 seconds and the nudge is read out. */
   const nudge = (text: string, el: HTMLElement) => {
+    if (held) return;
     el.classList.add('tried');
     shake(el);
-    fb.replaceChildren(h('div', { class: 'feedback look pop' }, saidBy('HAVE ANOTHER GO', text), readable(text)));
+    const now = performance.now();
+    const rush = rushed(lastWrong, now);
+    lastWrong = now;
+    const box = h('div', { class: `feedback look pop${rush ? ' slow-down' : ''}` }, rush ? h('div', { class: 'slow-line' }, readable('Slow down: read it, then tap.')) : null, saidBy('HAVE ANOTHER GO', text), readable(text));
+    fb.replaceChildren(box);
+    if (!rush) return;
+    sayLine(text, box);
+    held = true;
+    view.classList.add('held');
+    setTimeout(() => {
+      held = false;
+      view.classList.remove('held');
+    }, RUSH_LOCK_MS);
   };
   const win = () => {
     won = true;
@@ -79,17 +96,17 @@ function stepView(skill: Skill, step: Step, colours: Map<string, number>, onWon:
   const c = step.check;
   const chunkList = (step.show ?? []).filter((p): p is Chunk => typeof p !== 'string');
   const shown = step.show
-    ? showChunks(step.show, colours, c.kind === 'tap' ? (i, el) => !won && (i === c.answer ? win() : nudge(chunkList[i]?.nudge ?? 'Not that one. Have another look.', el)) : undefined)
+    ? showChunks(step.show, colours, c.kind === 'tap' ? (i, el) => !won && !held && (i === c.answer ? win() : nudge(chunkList[i]?.nudge ?? 'Not that one. Have another look.', el)) : undefined)
     : undefined;
   const answers: HTMLElement[] = [];
   if (c.kind === 'yesno')
     for (const [label, value] of [['YES', true], ['NO', false]] as const) {
-      const b: HTMLButtonElement = h('button', { class: 'alt answer', onclick: () => !won && (value === c.answer ? (b.classList.add('right'), win()) : nudge(c.nudge, b)) }, label);
+      const b: HTMLButtonElement = h('button', { class: 'alt answer', onclick: () => !won && !held && (value === c.answer ? (b.classList.add('right'), win()) : nudge(c.nudge, b)) }, label);
       answers.push(b);
     }
   if (c.kind === 'pick')
     c.options.forEach((o, i) => {
-      const b: HTMLButtonElement = h('button', { class: 'chip answer', onclick: () => !won && (i === c.answer ? (b.classList.add('right'), win()) : nudge(o.reason ?? 'Not that one. Have another look.', b)) }, o.text);
+      const b: HTMLButtonElement = h('button', { class: 'chip answer', onclick: () => !won && !held && (i === c.answer ? (b.classList.add('right'), win()) : nudge(o.reason ?? 'Not that one. Have another look.', b)) }, o.text);
       answers.push(b);
     });
   // The ask is built after the say so that, read aloud, the lines come in the order they sit on screen.
@@ -97,7 +114,8 @@ function stepView(skill: Skill, step: Step, colours: Map<string, number>, onWon:
   const ask = h('div', { class: 'prompt step-ask say-line' }, h('div', {}, readable(step.ask)), hear(step.ask));
   const paper = shown ? h('div', { class: 'passage step-show' }, shown.el) : null;
   const choices = answers.length ? h('div', { class: 'chips step-choices' }, answers) : null;
-  return h('div', { class: 'step' }, say, paper, ask, choices, fb);
+  const view = h('div', { class: 'step' }, say, paper, ask, choices, fb);
+  return view;
 }
 
 interface Lesson {
