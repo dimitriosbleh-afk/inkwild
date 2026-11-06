@@ -300,6 +300,13 @@
       "name": "Quillby",
       "evolved": "Scribidna",
       "blurb": "An echidna whose quills are pen nibs, each one writing a single clause, so it can tell a simple, compound or complex sentence just by counting quills."
+    },
+    "write": {
+      "ask": "Join these two sentences into one complex sentence. Use 'when', 'because' or 'although'.",
+      "given": ["Mo opened the fridge.", "A terrible smell came out."],
+      "starter": "When Mo",
+      "checks": ["One part starts with 'when', 'because' or 'although'", "That part can't stand alone", "The other part could be a sentence by itself"],
+      "model": "When Mo opened the fridge, a terrible smell came out."
     }
   },
   "encounters": [
@@ -366,9 +373,9 @@
       "success": "And joins two clauses that could each be a sentence, so it's compound.",
       "body": {
         "format": "build",
-        "tiles": ["The door creaked open,", "and", "because", "a bat flew out."],
-        "accept": ["The door creaked open, and a bat flew out."],
-        "reason": "Compound needs two clauses that can each stand alone. Could 'because a bat flew out' stand alone?"
+        "tiles": ["The door creaked open,", "because", "a bat flew out.", "and", "A bat flew out,", "the door creaked open."],
+        "accept": ["The door creaked open, and a bat flew out.", "A bat flew out, and the door creaked open."],
+        "reason": "Compound needs two clauses that can each stand alone. Could a part starting with 'because' stand alone?"
       }
     },
     {
@@ -499,8 +506,8 @@
       "success": "'Because its battery ran out' has a doer and a verb, but it can't stand alone. That makes it complex.",
       "body": {
         "format": "build",
-        "tiles": ["The robot shut down", "because of", "because", "its battery ran out.", "a flat battery."],
-        "accept": ["The robot shut down because its battery ran out."],
+        "tiles": ["The robot shut down", "because of", "Because", "because", "its battery ran out.", "a flat battery.", "its battery ran out,", "the robot shut down."],
+        "accept": ["The robot shut down because its battery ran out.", "Because its battery ran out, the robot shut down."],
         "reason": "Complex needs a clause that can't stand alone. Does 'a flat battery' have a doer and a verb?"
       }
     },
@@ -615,14 +622,15 @@
       "id": "5.1-b3-5",
       "band": 3,
       "topic": "food",
-      "frame": "Mo is writing up the bake-off results. Quillby has the pieces.",
-      "prompt": "Tap the pieces in order to make a complex sentence.",
-      "success": "'Even though Mo had baked it for an hour' can't stand alone, so the sentence is complex.",
+      "frame": "Mo is writing up the bake-off results. Quillby has cut his notes into pieces.",
+      "text": "The pie was still frozen. Mo had baked it for an hour.",
+      "prompt": "Join these into one complex sentence that shows the frozen pie was a surprise.",
+      "success": "'Even though Mo had baked it for an hour' can't stand alone, and it sets up the surprise.",
       "body": {
         "format": "build",
-        "tiles": ["The pie", "was still frozen", "even though", "but", "Mo had baked it for an hour."],
-        "accept": ["The pie was still frozen even though Mo had baked it for an hour."],
-        "reason": "Complex needs a clause that can't stand alone. Which tile makes the baking part unable to stand alone?"
+        "tiles": ["Because", "Mo had baked it for an hour,", "The pie was still frozen,", "Even though", "the pie was still frozen.", "Mo had baked it for an hour."],
+        "accept": ["Even though Mo had baked it for an hour, the pie was still frozen."],
+        "reason": "An hour of baking should thaw a pie. Which joining word shows the frozen pie was a surprise?"
       }
     },
     {
@@ -659,18 +667,18 @@
       "id": "5.1-b4-1",
       "band": 4,
       "topic": "sport",
-      "frame": "Tully is still upset about Saturday's match. Quillby is sorting his four versions of what happened.",
-      "prompt": "Which of these is a compound sentence?",
-      "success": "'The Bombers led by thirty points at half-time' and 'they lost by a kick' are equals, joined by but.",
+      "frame": "Tully is still upset about Saturday's match. He wants his report to make the loss the main idea.",
+      "prompt": "Which version makes the loss the main idea, with the lead in the background?",
+      "success": "The loss is the main clause. The lead sits in the although clause, which can't stand alone.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The Bombers led by thirty points at half-time, but they lost by a kick." },
-          { "text": "Although the Bombers led by thirty points at half-time, they lost by a kick.", "reason": "'Although the Bombers led by thirty points' can't stand alone, so this sentence is complex." },
-          { "text": "Despite leading by thirty points at half-time, the Bombers lost by a kick.", "reason": "Despite doesn't join two equal clauses. 'Despite leading by thirty points' can't stand on its own, so this isn't compound." },
-          { "text": "The Bombers' thirty-point lead at half-time had vanished by the final siren.", "reason": "There's only one clause here: the lead had vanished. Everything else is detail." }
+          { "text": "The Bombers led by thirty points at half-time, but they lost by a kick.", "reason": "But joins two equal clauses, so the lead is just as important as the loss." },
+          { "text": "Although they lost by a kick, the Bombers led by thirty points at half-time.", "reason": "Here the lead is the main clause. The loss is the part that can't stand alone." },
+          { "text": "Although the Bombers led by thirty points at half-time, they lost by a kick." },
+          { "text": "The Bombers led by thirty points at half-time. They lost by a kick.", "reason": "Two simple sentences make both facts equally important. Neither one is in the background." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -716,30 +724,30 @@
       "id": "5.1-b4-4",
       "band": 4,
       "topic": "animals",
-      "frame": "Quillby is narrating a nature documentary about its cousin, the platypus.",
-      "prompt": "Tap the only simple sentence.",
-      "success": "The body-weight sentence has just one doer and one action, 'can eat'. That's simple.",
+      "frame": "Maxx Vantablack made a platypus video and labelled every sentence. Quillby says one label is wrong.",
+      "prompt": "Tap the sentence with the wrong label.",
+      "success": "'Even in muddy water' has no verb. It's a phrase, so the sentence is simple, not complex.",
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Although platypuses look harmless, the males carry venomous spurs on their back legs.", "reason": "'Although platypuses look harmless' can't stand alone, so this is complex." },
+          { "tap": "COMPLEX: Although platypuses look harmless, the males carry venomous spurs.", "reason": "This label is right. 'Although platypuses look harmless' has a verb, but it can't stand alone." },
           " ",
-          { "tap": "They hunt with their eyes shut, but they still find plenty of food.", "reason": "Two equal clauses joined by but make this compound." },
+          { "tap": "COMPLEX: Even in muddy water, platypuses find their food with their bills." },
           " ",
-          { "tap": "A single platypus can eat a fifth of its body weight in one night." },
+          { "tap": "COMPOUND: They hunt with their eyes shut, but they still find plenty of food.", "reason": "This label is right. Two clauses that could each stand alone are joined by 'but'." },
           " ",
-          { "tap": "When the first stuffed platypus reached England, scientists thought it was a hoax.", "reason": "'When the first stuffed platypus reached England' can't stand alone, so this is complex." }
+          { "tap": "SIMPLE: A single platypus can eat a fifth of its body weight in one night.", "reason": "This label is right. There is one verb, 'can eat', so there is one clause." }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
       "id": "5.1-b4-5",
       "band": 4,
       "topic": "music",
-      "frame": "A concert review needs this sentence to be complex. Quillby has its nib ready.",
-      "prompt": "Tap the joining word, then choose the replacement that makes one clause depend on the other.",
-      "success": "Even though makes 'her top string had snapped' depend on the part that can stand alone. Now it's complex.",
+      "frame": "A concert reviewer wants the finish to be the main idea, with the snapped string in the background.",
+      "prompt": "Tap the joining word, then choose the one that puts the snapped string in the background.",
+      "success": "Even though makes 'her top string had snapped' a clause that can't stand alone. The finish is the main clause.",
       "body": {
         "format": "fix",
         "parts": [
@@ -756,9 +764,9 @@
         "spot": 1,
         "options": [
           { "text": "even though" },
-          { "text": "yet", "reason": "Yet joins two equal clauses, just like but, so the sentence stays compound." },
+          { "text": "yet", "reason": "Yet joins two equal clauses, just like but. The snapped string is still as important as the finish." },
           { "text": "however", "reason": "However can't join two clauses after a comma. It makes neither part depend on the other." },
-          { "text": "and", "reason": "And joins equals too, so the sentence stays compound. You'd also lose the contrast." }
+          { "text": "and", "reason": "And joins equals too, so nothing goes into the background. You'd also lose the contrast." }
         ],
         "answer": 0
       }
@@ -767,14 +775,15 @@
       "id": "5.1-b4-6",
       "band": 4,
       "topic": "ocean",
-      "frame": "The wreck divers' log is in pieces. Quillby needs a complex sentence from them.",
-      "prompt": "Tap the pieces in order to make a complex sentence.",
-      "success": "Although turns 'the water was barely above freezing' into a part that can't stand alone.",
+      "frame": "The wreck divers' log has three short sentences. Quillby wants them as one.",
+      "text": "The divers found the wreck. The water was freezing. They stayed down for an hour.",
+      "prompt": "Join all three into one complex sentence, with no 'and' or 'but'.",
+      "success": "'When the divers found the wreck' and 'although the water was freezing' both lean on one main clause.",
       "body": {
         "format": "build",
-        "tiles": ["The divers", "kept exploring the wreck", "although", "despite", "the water was barely above freezing."],
-        "accept": ["The divers kept exploring the wreck although the water was barely above freezing."],
-        "reason": "Despite needs a noun after it, like 'despite the cold'. Here a whole clause follows, with its own verb."
+        "tiles": ["The divers found the wreck,", "although the water was freezing.", "they stayed down for an hour", "When the divers found the wreck,", "because the water was freezing.", "but the water was freezing."],
+        "accept": ["When the divers found the wreck, they stayed down for an hour although the water was freezing."],
+        "reason": "You need one part that can stand alone and two that can't. Check each joining word fits the meaning."
       }
     }
   ]

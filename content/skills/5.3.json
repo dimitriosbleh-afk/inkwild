@@ -318,6 +318,12 @@
       "name": "Hingeling",
       "evolved": "Hingemaw",
       "blurb": "A hermit crab that joins two broken shells into one. It only holds if you choose the right hinge."
+    },
+    "write": {
+      "ask": "Join these into one sentence. Pick the joining word that shows how the two ideas connect.",
+      "given": ["It was freezing.", "Gus went for a swim."],
+      "checks": ["I asked: is it a reason, surprise, time or condition?", "My joining word fits that meaning", "Both ideas are still in my sentence"],
+      "model": "Although it was freezing, Gus went for a swim."
     }
   },
   "encounters": [
@@ -408,15 +414,8 @@
       "success": "Because gives the reason. Pelting rain is exactly why you'd wear a raincoat.",
       "body": {
         "format": "build",
-        "tiles": [
-          "Mia wore her raincoat",
-          "because",
-          "although",
-          "the rain was pelting down."
-        ],
-        "accept": [
-          "Mia wore her raincoat because the rain was pelting down."
-        ],
+        "tiles": ["Mia wore her raincoat", "because", "although", "the rain was pelting down.", "Because", "the rain was pelting down,", "Mia wore her raincoat."],
+        "accept": ["Mia wore her raincoat because the rain was pelting down.", "Because the rain was pelting down, Mia wore her raincoat."],
         "reason": "Ask why Mia wore her raincoat. Does the pelting rain explain it, or clash with it?"
       }
     },
@@ -797,21 +796,10 @@
       "body": {
         "format": "choose",
         "options": [
-          {
-            "text": "although"
-          },
-          {
-            "text": "so",
-            "reason": "So would mean breathing air is why dolphins live in water. It's actually the surprising part."
-          },
-          {
-            "text": "unless",
-            "reason": "Unless sets a condition, but this sentence is stating two facts that seem to clash."
-          },
-          {
-            "text": "because",
-            "reason": "Because would make living in water the reason they breathe air. The two facts clash rather than explain each other."
-          }
+          { "text": "although" },
+          { "text": "until", "reason": "Until is about time, up to a moment. Dolphins don't stop breathing air at some point." },
+          { "text": "unless", "reason": "Unless sets a condition, but this sentence is stating two facts that seem to clash." },
+          { "text": "because", "reason": "Because would make living in water the reason they breathe air. The two facts clash rather than explain each other." }
         ],
         "answer": 0
       }
@@ -820,22 +808,15 @@
       "id": "5.3-b3-5",
       "band": 3,
       "topic": "sport",
-      "frame": "Tully's weather report has fallen to bits.",
-      "prompt": "Tap the pieces in order to make a sentence that makes sense.",
+      "frame": "Tully's weather report is two short sentences. The Hingeling wants them joined.",
+      "text": "The forecast had promised storms. The match went ahead as planned.",
+      "prompt": "Tap the pieces in order to join these into one sentence that makes sense.",
       "success": "Although. Promised storms should have stopped the match, so going ahead is a surprise.",
       "body": {
         "format": "build",
-        "tiles": [
-          "The match went ahead",
-          "as planned",
-          "although",
-          "because",
-          "the forecast had promised storms."
-        ],
-        "accept": [
-          "The match went ahead as planned although the forecast had promised storms."
-        ],
-        "reason": "Storms usually stop a match. A match going ahead despite the forecast is a surprise, not a reason."
+        "tiles": ["Because", "the forecast had promised storms,", "The match went ahead as planned", "although", "the match went ahead as planned.", "Although", "until", "the forecast had promised storms."],
+        "accept": ["Although the forecast had promised storms, the match went ahead as planned.", "The match went ahead as planned although the forecast had promised storms."],
+        "reason": "Storms usually stop a match. Is the match going ahead a reason, a time or a surprise?"
       }
     },
     {
@@ -889,60 +870,38 @@
       "id": "5.3-b4-1",
       "band": 4,
       "topic": "general",
-      "frame": "A torn page from an explorer's journal washes up on the reef.",
-      "text": "The expedition pressed on towards the summit ___ two of the climbers had already turned back with frostbite.",
-      "prompt": "Which joining word fits?",
-      "success": "Even though. Losing two climbers to frostbite should stop an expedition, so pressing on is a surprise.",
+      "frame": "A page from an explorer's journal washes up on the reef. The Hingeling wants to know what the writer was thinking.",
+      "text": "The team reached the summit although their guide had never climbed the mountain before.",
+      "prompt": "What does 'although' tell you the writer expected?",
+      "success": "Although marks a surprise. The writer expected a guide on a first climb to struggle, but the team made it.",
       "body": {
         "format": "choose",
         "options": [
-          {
-            "text": "even though"
-          },
-          {
-            "text": "so that",
-            "reason": "So that gives a purpose. The climbers turning back wasn't the goal of pressing on."
-          },
-          {
-            "text": "unless",
-            "reason": "Unless sets a condition, but both things have already happened. The sentence is about a surprising choice."
-          },
-          {
-            "text": "because",
-            "reason": "Because would make the frostbite the reason they pressed on. You'd expect frostbite to make a team turn back."
-          }
+          { "text": "that the guide's first climb was the reason the team reached the top", "reason": "That would need a reason word like 'because'. 'Although' tells you something clashes." },
+          { "text": "that the team waited at the bottom until the guide had climbed it first", "reason": "That is about time, like 'until'. The sentence says nothing about waiting." },
+          { "text": "that a first-time guide would probably not get the team to the top" },
+          { "text": "that the guide was more surprised than anyone when they reached the top", "reason": "The sentence never says how the guide felt. 'Although' shows what the writer expected." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "5.3-b4-2",
       "band": 4,
       "topic": "animals",
-      "frame": "The Hingeling is reading a museum display about new discoveries.",
-      "text": "Scientists cannot name a new species ___ they have compared it with every closely related animal on record.",
-      "prompt": "Which joining word fits?",
-      "success": "Unless. Naming is only allowed once the comparison is done, so it's a condition.",
+      "frame": "Mo wrote a rule about his dog on the back door. The Hingeling wants to check what it really says.",
+      "text": "Mo's dog won't come inside unless it's raining.",
+      "prompt": "Which sentence means the same thing?",
+      "success": "Swap 'unless' for 'if not': if it isn't raining, the dog stays out. Rain is what brings it in.",
       "body": {
         "format": "choose",
         "options": [
-          {
-            "text": "unless"
-          },
-          {
-            "text": "although",
-            "reason": "Although would mean they still can't name it after comparing. The comparison is what allows the name."
-          },
-          {
-            "text": "because",
-            "reason": "Because would make the comparing the reason they can't name it. Comparing is what makes naming possible."
-          },
-          {
-            "text": "whereas",
-            "reason": "Whereas compares two different things side by side. Here, one thing depends on the other."
-          }
+          { "text": "If it's raining, Mo's dog won't come inside.", "reason": "This flips the meaning. 'Unless' means 'if not', so the 'not' goes with the rain." },
+          { "text": "Mo's dog won't come inside because it's raining.", "reason": "Because makes the rain the reason it stays out. In Mo's rule, rain is what brings it in." },
+          { "text": "If it isn't raining, Mo's dog won't come inside." },
+          { "text": "Mo's dog won't come inside, although it's raining.", "reason": "Although makes it a surprise that the dog stays out in the rain. Mo's rule says rain brings it in." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -1009,22 +968,15 @@
       "id": "5.3-b4-5",
       "band": 4,
       "topic": "space",
-      "frame": "Mission control's announcement has been scrambled.",
-      "prompt": "Tap the pieces in order to make a sentence that makes sense.",
-      "success": "Provided that. The launch depends on the weather, which makes it a condition.",
+      "frame": "Mission control is writing the launch announcement. Nobody knows yet if the weather will hold.",
+      "text": "The launch is set for dawn. The weather might change overnight.",
+      "prompt": "Tap the pieces in order to build an announcement that is honest about the weather.",
+      "success": "'Provided that' makes the weather a condition. Because would tell listeners the weather is already fine.",
       "body": {
         "format": "build",
-        "tiles": [
-          "Provided that",
-          "Although",
-          "the weather holds,",
-          "the launch will go ahead",
-          "at dawn."
-        ],
-        "accept": [
-          "Provided that the weather holds, the launch will go ahead at dawn."
-        ],
-        "reason": "Do good weather and a launch clash? Or does the launch depend on the weather?"
+        "tiles": ["Because", "the weather holds,", "Provided that", "the launch will go ahead at dawn.", "Although", "The launch will go ahead at dawn", "because the weather holds."],
+        "accept": ["Provided that the weather holds, the launch will go ahead at dawn."],
+        "reason": "Nobody knows yet if the weather will hold. Which joining word doesn't promise more than mission control knows?"
       }
     },
     {

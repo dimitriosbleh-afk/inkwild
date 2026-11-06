@@ -227,6 +227,18 @@
       "name": "Dappella",
       "evolved": "Dappellatrix",
       "blurb": "A superb fairy-wren that puts on smart blue feathers for important readers and plain brown ones for its mates. It always checks who's listening first."
+    },
+    "write": {
+      "ask": "Rewrite Zed's message for the principal. Keep what he is asking for.",
+      "given": [
+        "Hey Ms Lee, can we have a gaming club in the library? It'd be epic."
+      ],
+      "checks": [
+        "I used polite words, such as could and please",
+        "No slang words are left",
+        "It still asks for a gaming club"
+      ],
+      "model": "Dear Ms Lee, could we please start a gaming club in the library at lunchtime?"
     }
   },
   "encounters": [
@@ -301,7 +313,7 @@
       "topic": "animals",
       "frame": "Wren is writing to the ranger station. The Dappella spotted a word that doesn't fit.",
       "prompt": "Tap the word that's too casual, then choose a better one.",
-      "success": "Many. It's careful and clear, which fits a letter to a ranger you've never met.",
+      "success": "'Heaps' is Aussie slang for lots. 'Many' is careful and clear, which fits a ranger you've never met.",
       "body": {
         "format": "fix",
         "parts": [
@@ -692,7 +704,7 @@
       "topic": "food",
       "frame": "Mo's biscuits arrived in crumbs. The Dappella is eating the crumbs while he writes.",
       "prompt": "Tap the sentence that doesn't fit a complaint to the company.",
-      "success": "'Pretty gutted' and 'fave' are chat for mates. A complaint to strangers needs calm, polite words.",
+      "success": "'I demand' and 'shall never purchase' sound formal, but they're a threat. A complaint should stay calm and polite.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -708,7 +720,7 @@
           },
           " The packet was still sealed, so the damage must have happened before it reached the shop. ",
           {
-            "tap": "To be honest, I was pretty gutted, because they're my fave biscuits."
+            "tap": "I demand a full refund by Friday, or I shall never purchase your products again."
           },
           " ",
           {
@@ -861,7 +873,7 @@
       "topic": "funny",
       "frame": "Mo is giving the Year 6 speech at the end-of-year assembly. The Dappella is in the back row.",
       "prompt": "Tap the sentence that doesn't fit Mo's assembly speech.",
-      "success": "'Hang in there, mate' is how you'd talk to a friend. The mayor and parents need respect.",
+      "success": "Telling the mayor she looks bored isn't respectful. The cooking joke is friendly, so it still fits.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -878,11 +890,11 @@
           " ",
           {
             "tap": "This year we climbed more ladders, wrote more stories and ate more of my cooking than any class before us.",
-            "reason": "A gentle joke is fine in a friendly speech, and it's still respectful."
+            "reason": "It's a joke, but a friendly one about Mo's own cooking. A little funny is allowed."
           },
           " We learnt that a good story needs a beginning, a middle and an end, just like a good speech. ",
           {
-            "tap": "Hang in there, Mayor Ruiz, mate, because we're nearly done."
+            "tap": "Mayor Ruiz, you look a bit bored, but don't worry, we're nearly done."
           },
           " We would like to thank our teachers for their patience. ",
           {
@@ -905,19 +917,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "We're hoping you might help us out and look after Pebble Bay for the fish.",
-            "reason": "'Help us out' is how you'd ask a neighbour. A Minister who doesn't know you needs a formal request."
+            "text": "Our whole class insists that you make Pebble Bay a marine sanctuary.",
+            "reason": "'Insists' bosses the Minister about. Ms Ford asked for a respectful letter."
           },
           {
-            "text": "The undersigned students require that Pebble Bay be made a sanctuary immediately.",
-            "reason": "It sounds formal, but 'require' and 'immediately' make a demand. Ms Ford asked for respectful letters."
+            "text": "We respectfully share our research on the rare fish of Pebble Bay.",
+            "reason": "It's careful and polite, but this first line has to ask for the sanctuary."
           },
           {
             "text": "We respectfully ask that you protect Pebble Bay as a marine sanctuary."
           },
           {
-            "text": "We counted four thousand bits of plastic and eleven rare fish, so please help.",
-            "reason": "The facts come later in the letter. Wren's first line must ask clearly for the sanctuary."
+            "text": "Hi Minister, we would be so grateful if you protected Pebble Bay.",
+            "reason": "'Hi' and 'so grateful' are chatty. A Minister who doesn't know you needs a careful tone."
           }
         ],
         "answer": 2
@@ -928,39 +940,30 @@
       "band": 4,
       "topic": "spooky",
       "frame": "Wren's little cousin is coming to stay in the hut on Crag Tower. The Dappella helped draw the possums.",
-      "prompt": "Tap the sentence that is too formal for a message to Poppy.",
-      "success": "'Inspected' and 'safe to occupy' are words for a notice, not a scared seven-year-old. She needs warm, simple words.",
+      "prompt": "Wren wrote 'I'll be right there with you'. Why is that better for Poppy than 'An adult will supervise you'?",
+      "success": "Warm, personal words help a scared seven-year-old feel safe. 'An adult will supervise' sounds like a notice.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "Wren's cousin Poppy is seven. Next week she is coming to stay at the hut on Crag Tower, and she has heard all the ghost stories from the older kids at school. Last night Poppy sent Wren a wobbly drawing of a ghost with the words 'I'm scared' written underneath in purple crayon. Wren is writing back to cheer her up. Poppy has never stayed away from home before, and her mum says she has been sleeping with the light on. Wren wants Poppy to feel safe and excited, not worried.\n\n",
+        "format": "choose",
+        "options": [
           {
-            "tap": "Hi Poppy!",
-            "reason": "A cheerful hello is just right for a little cousin."
+            "text": "It's warm and personal, so a scared Poppy feels safe with Wren."
           },
-          " Thank you for your drawing. ",
           {
-            "tap": "Don't worry, the hut isn't haunted, it's just full of possums.",
-            "reason": "This is simple and kind, and it tells Poppy the truth in words she knows."
+            "text": "It's more formal, so Poppy can tell that Wren will take care of her.",
+            "reason": "It's less formal, not more. Formal words would sound like a notice to Poppy."
           },
-          " ",
           {
-            "tap": "I can confirm that the building has been inspected and is entirely safe to occupy."
+            "text": "It sounds like a rule, so Poppy will remember to stay close.",
+            "reason": "'An adult will supervise' is the one that sounds like a rule. Wren's line is a promise."
           },
-          " ",
           {
-            "tap": "The scratching noises at night are just the possums having a midnight snack.",
-            "reason": "Friendly and easy to picture. It turns a scary sound into a funny one."
-          },
-          " One of them is called Biscuit, and he loves apple. If you're brave, you can feed him a slice. The hut has a big fireplace and a window where you can see the stars. ",
-          {
-            "tap": "I'll be right there with you, and we'll make hot chocolate with marshmallows.",
-            "reason": "Warm and comforting, which is exactly what a nervous seven-year-old needs."
-          },
-          " Bring your pyjamas with the penguins on them. Mo is cooking pancakes, but don't worry, I'll make sure they're normal ones. See you soon!\nLove, Wren"
+            "text": "It's more polite, so Poppy's mum will trust the whole letter.",
+            "reason": "Neither line is rude, and the letter is written for Poppy, not her mum."
+          }
         ],
-        "answer": 2
-      }
+        "answer": 0
+      },
+      "text": "Wren's cousin Poppy is seven. Next week she is coming to stay at the hut on Crag Tower, and she has heard all the ghost stories from the older kids at school. Last night Poppy sent Wren a wobbly drawing of a ghost with the words 'I'm scared' written underneath in purple crayon. Wren is writing back to cheer her up. Poppy has never stayed away from home before, and her mum says she has been sleeping with the light on. Wren wants Poppy to feel safe and excited, not worried.\n\nHi Poppy! Thank you for your drawing. Don't worry, the hut isn't haunted, it's just full of possums. The scratching noises at night are just the possums having a midnight snack. One of them is called Biscuit, and he loves apple. If you're brave, you can feed him a slice. The hut has a big fireplace and a window where you can see the stars. I'll be right there with you, and we'll make hot chocolate with marshmallows. Bring your pyjamas with the penguins on them. Mo is cooking pancakes, but don't worry, I'll make sure they're normal ones. See you soon!\nLove, Wren"
     },
     {
       "id": "7.12-b4-3",
@@ -968,7 +971,7 @@
       "topic": "animals",
       "frame": "Wren and Ranger Kim are writing up their quoll survey. The Dappella spotted a phrase that doesn't fit.",
       "prompt": "Tap the words that are too casual, then choose a better word.",
-      "success": "Healthy. It's the precise, formal word scientists expect in a journal checked by experts.",
+      "success": "'In good nick' is Aussie slang for healthy. A journal checked by experts needs the exact word.",
       "body": {
         "format": "fix",
         "parts": [
@@ -1040,9 +1043,9 @@
             "reason": "This is a careful fact in formal words, written for any visitor."
           },
           {
-            "text": "They needed a crane to hang it, no joke.",
+            "text": "Honestly, it is the best painting I have ever seen.",
             "bin": 1,
-            "reason": "'No joke' is how you talk to a mate, not how a gallery writes."
+            "reason": "There's no slang, but 'honestly' and 'I' share Indi's own feelings. A label speaks to every visitor."
           },
           {
             "text": "Meet me at the gallery after school?",
@@ -1098,7 +1101,7 @@
       "topic": "sport",
       "frame": "The Snowcats are hosting Pine Gully on Saturday. The Dappella is reading Tully's email before she sends it.",
       "prompt": "Tap the sentence that is too casual for an email to Coach Daniels.",
-      "success": "'Pretty keen to get you back' is a matey dig. An email for the whole club must stay courteous.",
+      "success": "It has no slang, but reminding rivals of last season is a dig. The email must stay courteous.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -1114,7 +1117,7 @@
           },
           " Your bus can park at the bottom station, and our players will help carry your bags up the ladders. ",
           {
-            "tap": "To be honest, we're pretty keen to get you back for last season."
+            "tap": "Our players have certainly not forgotten last season's one-point loss."
           },
           " ",
           {

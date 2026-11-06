@@ -252,6 +252,19 @@
       "name": "Queuepillar",
       "evolved": "Queuemoth",
       "blurb": "Bag-shelter moth caterpillars from the snow gums that march nose to tail in one long line. Each one follows the clue left by the one in front."
+    },
+    "write": {
+      "ask": "Write a middle sentence that hooks onto the first sentence and leads to the last.",
+      "given": [
+        "Zed found a strange egg in the snow.",
+        "When it hatched, a tiny penguin waddled out."
+      ],
+      "checks": [
+        "My sentence uses a pointing-back word, like he or it",
+        "It needs the first sentence before it",
+        "The last sentence makes sense straight after it"
+      ],
+      "model": "He tucked it inside his beanie and kept it warm all night."
     }
   },
   "encounters": [
@@ -297,8 +310,8 @@
       "id": "7.6-b1-3",
       "band": 1,
       "topic": "food",
-      "frame": "Mo's story got shaken up in his bag. A Queuepillar is trying to line it up.",
-      "text": "Mo wrote a story about breakfast, but the sentences got shaken up in his bag. Here they are, all jumbled. It landed on the kitchen ceiling with a splat. Then it fell on Zed's head. Mo made a giant pancake for breakfast. He flipped it far too hard. Zed wore it like a hat for the rest of the day.",
+      "frame": "A Queuepillar is trying to line up Mo's breakfast story.",
+      "text": "Mo wrote a story about breakfast, but the sentences got shaken up in his bag. Here they are, all jumbled.\nIt landed on the kitchen ceiling with a splat.\nThen it fell on Zed's head.\nMo made a giant pancake for breakfast.\nHe flipped it far too hard.\nZed wore it like a hat for the rest of the day.",
       "prompt": "Which sentence should start Mo's story?",
       "success": "It needs nothing before it. It tells us who and what, so 'it' and 'he' make sense later.",
       "body": {
@@ -669,46 +682,48 @@
       "topic": "sport",
       "frame": "Tully's match report got shuffled. The Queuepillars are trying to march through it.",
       "prompt": "Put Tully's match report in order.",
-      "success": "Each sentence grabs something new from the one before: the frozen ball, the umpire, his whistle.",
+      "success": "'By half-time' is a time word, but it points back to a game. 'Last Saturday' sets the game up.",
       "body": {
         "format": "order",
         "items": [
           "Last Saturday, the Peaks Under-12s played their first ever game of snow footy.",
-          "Nobody had warned them that the ball would freeze solid by half-time.",
-          "That frozen ball bounced off Tully's boot like a rock and hit the umpire.",
-          "The umpire, who was wearing three beanies, didn't feel a thing.",
-          "However, he was so cross that he blew the whistle for the end of the game.",
-          "That final whistle sent both teams inside for hot chips, still arguing about the score."
+          "By half-time, the ball had frozen as hard as a rock.",
+          "That frozen ball bounced off Tully's boot and hit the umpire on the nose.",
+          "The umpire was so cross that he blew the whistle to end the game.",
+          "That final whistle sent both teams inside for hot chips, still arguing."
         ],
-        "reason": "Follow the chain: the team, that frozen ball, the umpire, 'However', then that final whistle."
+        "reason": "Two parts start with a time word. Which one needs a game to have started already?"
       }
     },
     {
       "id": "7.6-b3-2",
       "band": 3,
       "topic": "robots",
-      "frame": "Gus wrote an explanation of his new robot. The Queuepillars knocked it over.",
-      "prompt": "Put Gus's explanation in order.",
-      "success": "Each sentence uses something from the one before: the Shovelator, the brushes, the bag, the creek.",
+      "frame": "Gus wrote an explanation of his new robot. The Queuepillars knocked the middle sentence to bits.",
+      "prompt": "Build the middle sentence so it hooks onto the sentences on both sides.",
+      "success": "'Its' points back to the robot, and 'a bag' sets up 'the bag' in the last sentence.",
       "body": {
-        "format": "order",
-        "items": [
-          "Gus has invented a robot that clears snow from the ladders of Scaffold Peaks.",
-          "He calls it the Shovelator, and it is about the size of a wheelie bin.",
-          "On its front, the Shovelator has two spinning brushes made from old toothbrushes.",
-          "These brushes flick the snow off each rung and into a bag on the robot's back.",
-          "When the bag is full, the robot climbs down and empties it into the creek.",
-          "Once, it emptied the whole bag on the Architect instead of into the creek."
+        "format": "build",
+        "tiles": [
+          "Its two spinning brushes",
+          "Two brushes on a broom",
+          "flick the snow",
+          "into a bag on its back.",
+          "into the creek below."
         ],
-        "reason": "'He calls it' needs the robot. Then follow the clues: the Shovelator, these brushes, the bag, the creek."
-      }
+        "accept": [
+          "Its two spinning brushes flick the snow into a bag on its back."
+        ],
+        "reason": "The last sentence says 'the bag'. Which tiles point back to the robot and set up a bag?"
+      },
+      "text": "Gus has invented a robot that clears snow from the ladders of Scaffold Peaks. ___. When the bag is full, the robot climbs down and empties it into the creek."
     },
     {
       "id": "7.6-b3-3",
       "band": 3,
       "topic": "art",
       "frame": "Indi's paragraph about her tower mural got jumbled. The Queuepillars want to know where to start.",
-      "text": "Indi wrote a paragraph about the biggest painting she has ever done, but she dropped the cards on the way to the printer. Now the sentences are jumbled, and only one of them can come first. Indi wants the paragraph to make sense to someone who has never heard of the mural, so the first sentence has to set everything up. Here are the cards, in the order they landed on the floor. It took her eleven days, four ladders and nineteen tins of paint. On the twelfth day, she finally climbed down and saw the whole thing for the first time. Indi had been asked to paint a mural on the side of the Architect's tallest tower. The Architect also wanted a smaller one on the door. The mural showed every Creature on Scaffold Peaks, marching up the tower in a line. When she saw it, she laughed, because she had painted one Queuepillar upside down.",
+      "text": "Indi wrote a paragraph about the biggest painting she has ever done. She wants it to make sense to someone who has never heard of the mural, so the first sentence has to set everything up. Only one of these cards can come first.\nIt took her eleven days, four ladders and nineteen tins of paint.\nOn the twelfth day, she finally climbed down and saw the whole thing for the first time.\nIndi had been asked to paint a mural on the side of the Architect's tallest tower.\nThe Architect also wanted a smaller one on the door.\nThe mural showed every Creature on Scaffold Peaks, marching up the tower in a line.\nWhen she saw it, she laughed, because she had painted one Queuepillar upside down.",
       "prompt": "Which sentence should start Indi's paragraph?",
       "success": "It needs nothing before it. It introduces Indi and the mural, so 'it', 'she' and 'also' make sense later.",
       "body": {
@@ -874,19 +889,17 @@
       "topic": "ocean",
       "frame": "A page from a whale-watching guide floated up to the Soggy Biscuit. The Queuepillars want it in order.",
       "prompt": "Put the guide's explanation in order.",
-      "success": "Each sentence hooks onto the one before: this journey, those calves, freezing, this milk, fat enough, there.",
+      "success": "Each sentence hooks onto the last: this journey, those calves, fattening them up, then 'Only then'.",
       "body": {
         "format": "order",
         "items": [
-          "Every winter, humpback whales leave the icy waters of Antarctica and swim thousands of kilometres north to warmer seas.",
-          "They make this enormous journey for one main reason: to give birth to their calves in calm, sheltered water.",
-          "Those calves are born with very little blubber, so they would freeze in the Antarctic water.",
-          "To stop them freezing, the mothers stay in the warm north until the calves have built up blubber on rich milk.",
-          "This milk is so thick and fatty that it looks a bit like toothpaste, and a calf drinks an enormous amount of it every day.",
-          "Once the calves are fat enough, the whales begin the long swim back south, towards Antarctica.",
-          "There, the hungry mothers finally feast on krill, after months without a proper meal."
+          "Every winter, humpback whales swim thousands of kilometres north from Antarctica to warmer seas.",
+          "They make this enormous journey to give birth to their calves in calm, sheltered water.",
+          "Those calves are born with so little blubber that Antarctic water would freeze them.",
+          "Fattening them up takes months of milk as thick as toothpaste.",
+          "Only then do the whales begin the long swim back south."
         ],
-        "reason": "Start with the sentence that names the whales. Then follow: this journey, those calves, freezing, this milk, fat enough, there."
+        "reason": "'Fattening them up' points back to something thin. 'Only then' needs a job to be finished."
       }
     },
     {
@@ -895,19 +908,17 @@
       "topic": "general",
       "frame": "The story of Scaffold Peaks' ladders is carved on a board, but the boards got stacked in the wrong order.",
       "prompt": "Put the history of the ladders in order.",
-      "success": "Each sentence picks up the one before: instead of ladders, those ropes, the promise, keeping it, the spare.",
+      "success": "Each sentence picks up the one before: instead of ladders, one snapped rope, keeping the promise, the spare.",
       "body": {
         "format": "order",
         "items": [
-          "When the Architect first arrived on Scaffold Peaks, there was not a single ladder on the whole island.",
-          "Instead, climbers had to haul themselves up the rock towers on ropes, which often snapped in the freezing wind.",
-          "After one of those snapped ropes left the Architect dangling over a cliff for an entire afternoon, a promise was made.",
-          "The promise was simple: every tower on the island would have a ladder by the following winter.",
-          "Keeping it meant building four hundred ladders in less than a year, mostly by hand.",
-          "By the first snowfall, there were four hundred and one, because the Architect had built a spare.",
-          "That spare ladder still leans against the ranger station, and nobody has ever worked out what it is for."
+          "When the Architect first arrived, there was not a single ladder on Scaffold Peaks.",
+          "Instead, climbers hauled themselves up the towers on ropes that often snapped.",
+          "After one snapped rope left the Architect dangling over a cliff, a promise was made.",
+          "Keeping it meant building four hundred ladders by hand in less than a year.",
+          "By the first snowfall there were four hundred and one, because the Architect had built a spare."
         ],
-        "reason": "Start where there are no ladders. Then follow: instead, those snapped ropes, the promise, keeping it, the spare."
+        "reason": "'Keeping it' needs something to keep. 'Instead' needs something missing first."
       }
     },
     {

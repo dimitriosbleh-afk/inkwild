@@ -306,6 +306,19 @@
       "name": "Spikkit",
       "evolved": "Spikkadart",
       "blurb": "A sacred kingfisher that only dives when it can see exactly the right fish. Give it a blurry word and it stays on its branch."
+    },
+    "write": {
+      "ask": "Rewrite the first sentence. Swap 'bad' for a precise word that fits every clue.",
+      "given": [
+        "The weather was bad.",
+        "Rain poured down and the wind ripped branches off trees."
+      ],
+      "checks": [
+        "I swapped 'bad' for a word that means one thing",
+        "My word fits every clue in the second sentence",
+        "My word doesn't say anything untrue"
+      ],
+      "model": "The weather was stormy."
     }
   },
   "encounters": [
@@ -761,34 +774,34 @@
       "id": "5.8-b3-3",
       "band": 3,
       "topic": "art",
-      "frame": "The school newsletter is writing about Indi's work.",
-      "prompt": "Tap the vague word that wastes the reader's time.",
-      "success": "Thing. The rest of the sentence shows it's a mural, so 'thing' tells the reader nothing.",
+      "frame": "The school newsletter is writing about Indi's work. Two words are vague, but only one has clues to fix it.",
+      "prompt": "Tap the vague word that the next sentence gives you clues to replace.",
+      "success": "Thing. A giant painting that covers a whole wall is a mural, so the clues name it exactly.",
       "body": {
         "format": "tapText",
         "parts": [
           "Indi made a ",
           {
+            "tap": "nice",
+            "reason": "Nice is vague too, but nothing nearby tells you what Indi's work was like."
+          },
+          " ",
+          {
             "tap": "thing"
           },
-          " for the entrance: a ",
+          " for the entrance. It's a ",
           {
             "tap": "giant",
-            "reason": "Giant is precise. It tells you the painting is very big."
+            "reason": "Giant is already precise. It's one of the clues."
           },
           " painting of a ",
           {
             "tap": "whale",
-            "reason": "Whale is precise. It names exactly what the painting shows."
+            "reason": "Whale is already precise. It names exactly what is in the painting."
           },
-          " that covers the ",
-          {
-            "tap": "whole",
-            "reason": "Whole is precise. It tells you exactly how much of the wall it covers."
-          },
-          " wall."
+          " that covers the whole wall."
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -847,51 +860,40 @@
       "id": "5.8-b3-5",
       "band": 3,
       "topic": "space",
-      "frame": "Zed is sharpening the words in his space project.",
-      "prompt": "Match each precise word to the vague word it could replace.",
-      "success": "Colossal, immense and vast sharpen big. Microscopic and minuscule sharpen small. Dazzling and blinding sharpen bright.",
+      "frame": "Zed swapped some fancy words into his project. The Spikkit says some fit the clues and some say something untrue.",
+      "prompt": "Match each sentence to the right bucket.",
+      "success": "A fancy word is only precise if it's true. Check it against the clue every time.",
       "body": {
         "format": "sort",
         "bins": [
-          "sharpens 'big'",
-          "sharpens 'small'",
-          "sharpens 'bright'"
+          "fits the clue",
+          "sounds clever, but untrue"
         ],
         "items": [
           {
-            "text": "colossal",
+            "text": "The dust speck was microscopic. You needed a microscope to see it.",
             "bin": 0,
-            "reason": "Colossal means enormous, so it sharpens big."
+            "reason": "Microscopic means too small to see without a microscope. That's exactly what the clue says."
           },
           {
-            "text": "immense",
-            "bin": 0,
-            "reason": "Immense means hugely big, so it sharpens big."
-          },
-          {
-            "text": "vast",
-            "bin": 0,
-            "reason": "Vast means huge and spread out, like space itself, so it sharpens big."
-          },
-          {
-            "text": "microscopic",
+            "text": "The puppy was microscopic. It fit in one hand.",
             "bin": 1,
-            "reason": "Microscopic means so small you need a microscope, so it sharpens small."
+            "reason": "You can see a puppy in your hand. Microscopic says something untrue."
           },
           {
-            "text": "minuscule",
+            "text": "The planet was colossal. Earth could fit inside it a thousand times.",
+            "bin": 0,
+            "reason": "A planet a thousand times bigger than Earth really is colossal."
+          },
+          {
+            "text": "The rock was colossal. Gus carried it home in his pocket.",
             "bin": 1,
-            "reason": "Minuscule means extremely small, so it sharpens small."
+            "reason": "A rock in a pocket is small. Colossal says something untrue."
           },
           {
-            "text": "dazzling",
-            "bin": 2,
-            "reason": "Dazzling means so bright it's hard to look at, so it sharpens bright."
-          },
-          {
-            "text": "blinding",
-            "bin": 2,
-            "reason": "Blinding means bright enough to stop you seeing, so it sharpens bright."
+            "text": "The star was blinding. Zed could only just see it through his telescope.",
+            "bin": 1,
+            "reason": "A star you can only just see is faint, not blinding."
           }
         ]
       }
@@ -930,30 +932,34 @@
       "id": "5.8-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "The lighthouse keeper's logbook needs one sharper word.",
-      "text": "The sea was rough that morning. Waves the size of houses smashed against the cliffs and flung spray over the lighthouse.",
-      "prompt": "Which word matches the clues exactly?",
-      "success": "Mountainous. Waves the size of houses are towering, which is exactly what mountainous means.",
+      "frame": "The lighthouse keeper is radioing the coastguard. The coastguard must decide how big a rescue boat to send.",
+      "prompt": "Tap the vague word that hides what the coastguard most needs to know.",
+      "success": "Some. The rescue boat needs a seat for every person, so the coastguard needs the exact number.",
       "body": {
-        "format": "choose",
-        "options": [
+        "format": "tapText",
+        "parts": [
+          "The ",
           {
-            "text": "mountainous"
+            "tap": "old",
+            "reason": "Old describes the keeper. It doesn't change what the rescue boat needs."
           },
+          " lighthouse keeper saw a boat stuck on the ",
           {
-            "text": "placid",
-            "reason": "Placid means calm and still. This sea was smashing against cliffs."
+            "tap": "jagged",
+            "reason": "Jagged is already precise, and the shape of the rocks doesn't change how many seats the boat needs."
           },
+          " rocks. He could see ",
           {
-            "text": "glassy",
-            "reason": "Glassy means smooth and flat, like glass. This sea was smashing against cliffs."
+            "tap": "some"
           },
+          " people waving from the deck, and their ",
           {
-            "text": "rippling",
-            "reason": "Rippling means covered in tiny waves. These waves were huge."
-          }
+            "tap": "stuff",
+            "reason": "Stuff is vague, but things floating away don't need seats on the rescue boat."
+          },
+          " was floating away."
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -1048,74 +1054,69 @@
       "topic": "funny",
       "frame": "Maxx Vantablack is bragging on his channel. Wren checks the numbers.",
       "text": "Maxx claimed that 'heaps' of people watched his live stream. The counter showed exactly twelve viewers, and one of them was his mum.",
-      "prompt": "Which words tell the truth about how many people watched?",
-      "success": "A dozen. A dozen means exactly twelve, which is what the counter showed.",
+      "prompt": "Which words give the exact truth about how many people watched?",
+      "success": "Twelve. The counter showed exactly twelve, so say exactly twelve.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "a dozen"
+            "text": "more than ten",
+            "reason": "More than ten is true, but it doesn't say how many. The counter showed an exact number."
           },
           {
             "text": "dozens of",
-            "reason": "Dozens of means at least twenty-four. The counter showed only twelve."
+            "reason": "Dozens of means at least twenty-four. The counter showed far fewer."
+          },
+          {
+            "text": "twelve"
           },
           {
             "text": "hundreds of",
-            "reason": "Hundreds of is even more of an exaggeration than 'heaps'. The counter showed twelve."
-          },
-          {
-            "text": "a pair of",
-            "reason": "A pair means two. The counter showed twelve viewers."
+            "reason": "Hundreds of is even more of an exaggeration than 'heaps'. Check the counter."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "5.8-b4-5",
       "band": 4,
       "topic": "music",
-      "frame": "Indi is labelling the sounds from Zed's band practice.",
-      "prompt": "Match each precise word to the vague word it could replace.",
-      "success": "Thunderous and blaring sharpen loud. Hushed and muted sharpen quiet. Sluggish and unhurried sharpen slow.",
+      "frame": "Indi is writing about the sounds on band practice night. Every sound was loud, but each one needs a different precise word.",
+      "prompt": "Match each sentence to the precise word that could replace 'loud'.",
+      "success": "One vague word can need different precise words. The clues around it decide which.",
       "body": {
         "format": "sort",
         "bins": [
-          "sharpens 'loud'",
-          "sharpens 'quiet'",
-          "sharpens 'slow'"
+          "shrill",
+          "thunderous",
+          "blaring"
         ],
         "items": [
           {
-            "text": "thunderous",
+            "text": "The kettle's whistle was loud: a thin, high scream.",
             "bin": 0,
-            "reason": "Thunderous means as loud as thunder, so it sharpens loud."
+            "reason": "Thin and high is the clue. Shrill means high and piercing."
           },
           {
-            "text": "blaring",
-            "bin": 0,
-            "reason": "Blaring means harshly loud, like a car horn, so it sharpens loud."
-          },
-          {
-            "text": "hushed",
+            "text": "The applause was loud, like a storm rolling in.",
             "bin": 1,
-            "reason": "Hushed means made quiet on purpose, like a crowd before a solo."
+            "reason": "Like a storm is the clue. Thunderous means as loud and deep as thunder."
           },
           {
-            "text": "muted",
+            "text": "The drums were loud and deep, and they shook the floor.",
             "bin": 1,
-            "reason": "Muted means softened and quiet, so it sharpens quiet."
+            "reason": "Deep enough to shake the floor is the clue. That's thunderous."
           },
           {
-            "text": "sluggish",
+            "text": "The TV in the lounge was loud, and nobody turned it down for hours.",
             "bin": 2,
-            "reason": "Sluggish means slow and lacking energy, so it sharpens slow."
+            "reason": "On for hours with nobody turning it down is the clue. Blaring means loud and going on and on."
           },
           {
-            "text": "unhurried",
+            "text": "The radio next door was loud, and it stayed on all arvo.",
             "bin": 2,
-            "reason": "Unhurried means slow and relaxed, never rushing, so it sharpens slow."
+            "reason": "Staying on all arvo is the clue. That's blaring: loud and going on and on."
           }
         ]
       }
@@ -1124,30 +1125,29 @@
       "id": "5.8-b4-6",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed is writing a review of the hardest game he has ever played.",
-      "text": "Zed's new game is hard. Even the first level takes most players over a hundred tries, and nobody in the world has finished it yet.",
-      "prompt": "Which word matches the clues exactly?",
-      "success": "Brutal. A brutal game is punishingly difficult, which fits a hundred tries and nobody finishing.",
+      "frame": "Zed is reviewing the hardest game he has ever played. His first draft says: 'The final boss is hard.'",
+      "prompt": "Which rewrite tells the reader exactly how hard the boss is?",
+      "success": "214 tries. A real number shows exactly how hard the boss is, so the reader doesn't have to guess.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "brutal"
+            "text": "The final boss is very, very hard to beat.",
+            "reason": "Very makes it stronger, but it's still vague. How hard is very hard?"
           },
           {
-            "text": "forgiving",
-            "reason": "A forgiving game goes easy on your mistakes. A hundred tries on level one is the opposite."
+            "text": "The final boss has 214 different attacks.",
+            "reason": "This is precise, but it's about the attacks. It doesn't say how hard the boss was to beat."
           },
           {
-            "text": "confusing",
-            "reason": "Confusing means hard to understand. The clues say it's hard to beat, not hard to understand."
+            "text": "The final boss took me 214 tries to beat."
           },
           {
-            "text": "glitchy",
-            "reason": "Glitchy means full of bugs. Nothing in the clues says the game is broken."
+            "text": "The final boss is a giant fire-breathing toad.",
+            "reason": "This is precise, but it says what the boss looks like, not how hard it is."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     }
   ]

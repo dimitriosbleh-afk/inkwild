@@ -282,6 +282,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite Gus's line so it shows he is only a little sure. Add an if.",
+      "given": [
+        "Snotbot will definitely win the robot contest."
+      ],
+      "starter": "Snotbot",
+      "checks": [
+        "I swapped definitely for a weak word, like might.",
+        "My sentence is still about Snotbot winning.",
+        "I added an 'if' that shows the doubt."
+      ],
+      "model": "Snotbot might win the robot contest, if its wobbly wheel holds."
+    },
     "creature": {
       "id": "mightoo",
       "name": "Mightoo",
@@ -714,32 +727,28 @@
       "id": "3.9-b3-2",
       "band": 3,
       "topic": "sport",
-      "frame": "Tully is reading the Bluster Rock Bugle out loud. The Mightoo's crest goes up and down with every line.",
-      "prompt": "Tap the sentence where the writer is most certain.",
-      "success": "Will definitely leaves no doubt. The roof means rain can't stop the match.",
+      "frame": "Tully is reading a footy story to the crew. The Mightoo's crest goes up and down with every line.",
+      "text": "The Redback Rovers were down by twelve points at three-quarter time. Rain had turned the oval into thick brown mud, and Jai's boots felt as heavy as bricks. Coach Dee gathered the team into a huddle. Her voice was calm and steady. 'Listen to me. We will win this,' she said. 'They're tired. You can see it in their legs. We will outrun them in the last quarter.' The team nodded. Jai looked across at the Saltbush Swifts. Their ruckman was the tallest player he had ever seen. Jai pulled his socks up and wiped the mud from his eyes. 'We might,' he whispered to Priya. 'If the rain stops. If we get lucky.' Priya grinned at him. 'You should listen to Coach,' she said. Then the siren went, and the Rovers ran back out into the rain.",
+      "prompt": "What do Coach Dee's 'will' and Jai's 'might' show about them?",
+      "success": "Will is strong: Coach is very sure. Jai's might, plus his ifs, shows he is not very sure.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "BLUSTER ROCK BUGLE, SPORT. The Redback Rovers face the Saltbush Swifts in Saturday's netball grand final, and the whole town is buzzing. The final starts at two o'clock at the Bluster Rock Sports Centre. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "The Rovers will probably start as favourites, after winning eight games in a row.",
-            "reason": "Probably means likely, not certain. The writer leaves some doubt."
+            "text": "Coach Dee is giving the team a rule, and Jai is giving some advice.",
+            "reason": "Nobody is making a rule. Will shows how sure Coach is, and might isn't advice."
           },
-          " Their goal shooter, Priya Nand, has scored more than three hundred goals this season, which is a club record. ",
           {
-            "tap": "The Swifts might surprise everyone, because their defence has improved since round one.",
-            "reason": "Might is weak. The writer only thinks a surprise is possible."
+            "text": "Jai is surer than Coach Dee that the Rovers can still win.",
+            "reason": "It's the other way round. Will is a strong word. Might is weak."
           },
-          " Last year, the Swifts lost the final by a single goal, and their captain says they have not forgotten it. ",
           {
-            "tap": "The match will definitely go ahead, even if it rains, because the court has a roof."
+            "text": "Coach Dee is very sure they'll win, but Jai has real doubts."
           },
-          " ",
           {
-            "tap": "Fans should arrive early, since parking near the courts is limited.",
-            "reason": "Should is advice for fans. It's medium, not the most certain."
-          },
-          " Tickets are five dollars at the gate. The Rovers' mascot is a giant foam spider called Reggie, and he has his own cheer squad of Year 3 kids."
+            "text": "Both of them are fairly sure that the rain will stop soon.",
+            "reason": "Nobody says probably. Jai's 'if the rain stops' shows doubt about winning, not a forecast."
+          }
         ],
         "answer": 2
       }
@@ -749,45 +758,45 @@
       "band": 3,
       "topic": "animals",
       "frame": "Wren is writing a guide for new wildlife rescuers on Bluster Rock. The Mightoo is helping, mostly by chewing the corners.",
-      "prompt": "Put each line from Wren's guide in the right box.",
-      "success": "Must and have to make rules. Should and ought to give advice. May and could show possibilities.",
+      "prompt": "Is each line from Wren's guide a rule, advice or a guess? Put it in the right box.",
+      "success": "Must can make a rule or a sure guess. A clue, like the licking, shows Wren is guessing.",
       "body": {
         "format": "sort",
         "bins": [
           "a rule: no choice",
           "advice: a good idea",
-          "a possibility: it might happen"
+          "a guess: how sure Wren is"
         ],
         "items": [
           {
             "text": "You must never pick up a bat with bare hands.",
             "bin": 0,
-            "reason": "Must never is as strong as it gets. It's a rule."
+            "reason": "Must never leaves rescuers no choice. Nobody is guessing here."
           },
           {
-            "text": "Rescuers have to wear gloves when they handle a possum.",
-            "bin": 0,
-            "reason": "Have to means the same as must. There's no choice."
+            "text": "This joey must be hungry. It has been alone all night.",
+            "bin": 2,
+            "reason": "Nobody is giving the joey a rule. Wren is working it out from a clue."
           },
           {
             "text": "You should keep the box somewhere dark and quiet.",
             "bin": 1,
-            "reason": "Should is advice. It's a good idea, not a rule."
-          },
-          {
-            "text": "You ought to call a vet within an hour of the rescue.",
-            "bin": 1,
-            "reason": "Ought to means the same as should. It's advice."
-          },
-          {
-            "text": "A joey that you find alone may be very hungry.",
-            "bin": 2,
-            "reason": "May here means maybe. Wren isn't saying it's certain."
+            "reason": "Should is a good idea for rescuers, but it isn't a must."
           },
           {
             "text": "The bird could have a hurt wing, even if it hops normally.",
             "bin": 2,
-            "reason": "Could is weak. It's only possible that the wing is hurt."
+            "reason": "Could is weak. Wren thinks a hurt wing is only possible."
+          },
+          {
+            "text": "Rescuers have to wear gloves to hold a possum.",
+            "bin": 0,
+            "reason": "Have to works just like must. Rescuers get no choice."
+          },
+          {
+            "text": "The possum must be thirsty. It keeps licking the wet window.",
+            "bin": 2,
+            "reason": "The licking is Wren's clue. She is very sure, but nobody is being told what to do."
           }
         ]
       }
@@ -844,18 +853,18 @@
       "id": "3.9-b3-5",
       "band": 3,
       "topic": "space",
-      "frame": "Four astronomers posted forecasts about tonight's meteor shower over Bluster Rock.",
+      "frame": "Four astronomers posted forecasts about tonight's meteor shower over Bluster Rock. None of them used must or might.",
       "prompt": "Put the forecasts from most likely to least likely, as each writer sees it.",
-      "success": "Certainly, then probably, then might, then very unlikely. Each writer commits a little less.",
+      "success": "No must or might here. 'Likely', 'possible' and 'I doubt' still show how sure each writer is.",
       "body": {
         "format": "order",
         "items": [
-          "Dr Amaro: Meteors will certainly light up the sky tonight, because this shower comes every year.",
-          "Ms Liu: There will probably be about twenty meteors an hour, if the sky stays clear.",
-          "Mr Petrov: We might see one bright fireball, but they are hard to predict.",
-          "Ms Kaur: It is very unlikely that any piece of a meteor will reach the ground."
+          "Dr Amaro: Meteors will light up the sky tonight. This shower comes every single August.",
+          "Ms Liu: We'll likely see meteors tonight, as long as the clouds stay away.",
+          "Mr Petrov: Seeing a meteor tonight is possible, but thick cloud is on the way.",
+          "Ms Kaur: I doubt anyone will see a single meteor tonight, with the moon so bright."
         ],
-        "reason": "Certainly is surest, then probably, then might. Very unlikely means the writer thinks it almost won't happen."
+        "reason": "Will, with a reason, is surest. Likely comes next. Possible is weaker. I doubt means she thinks it won't happen."
       }
     },
     {
@@ -870,7 +879,7 @@
         "format": "choose",
         "options": [
           {
-            "text": "Because Maxx is certain the Gold Pass works for everyone",
+            "text": "Because Maxx is certain the Gold Pass works for any player",
             "reason": "If he were certain, he'd say will in the small print. May is weak."
           },
           {
@@ -911,7 +920,7 @@
             "text": "Letter 1 makes firm predictions, but Letter 2 waits for test results."
           },
           {
-            "text": "Letter 1 is careful, because it only tells residents what they should do.",
+            "text": "Letter 1 is careful, because it mainly tells residents what they should do.",
             "reason": "Should is one line. Letter 1 also says must and will certainly, which are strong."
           }
         ],
@@ -922,37 +931,32 @@
       "id": "3.9-b4-2",
       "band": 4,
       "topic": "robots",
-      "frame": "Gus found a lab report about a rubbish-sorting robot at the Bluster Rock tip. The Mightoo is trying to sort itself into the recycling.",
-      "prompt": "Tap the sentence where the scientists are least certain.",
-      "success": "Might, plus 'not tested at all', shows the weakest commitment. It's only a hope for one day.",
+      "frame": "The Mightoo found a story in the Bluster Bugle's Young Writers page. It's about Gus and his robot.",
+      "prompt": "Gus sounds very sure in front of the crew. Tap the line that shows how sure he really is.",
+      "success": "Alone, Gus says might and adds 'if your wheel holds'. His 'definitely' was for show. He's only a little sure.",
       "body": {
         "format": "tapText",
         "parts": [
-          "REPORT: SORTA-BOT, TRIAL ONE. Over the past six weeks, our team trialled Sorta-Bot, a robot arm that picks items off the rubbish conveyor belt at the Bluster Rock tip and drops them into the right bin. It uses a camera and a set of soft rubber fingers, so it can grip items without crushing them. ",
+          "The robot contest was the next morning. Gus had spent three weeks building Snotbot out of a tissue box, two toy motors and a great deal of sticky tape. That night, the crew gathered in the galley to watch its last test run. ",
           {
-            "tap": "Sorta-Bot will definitely sort plastic bottles correctly, because it did so in all two hundred of our tests.",
-            "reason": "Definitely is certain, and two hundred tests back it up."
+            "tap": "'Snotbot will definitely win tomorrow,' Gus announced, standing on a chair so that everyone could hear him.",
+            "reason": "That's what Gus tells the crew. Is it what he says when nobody is listening?"
           },
-          " Cans were nearly as easy, although a few squashed ones slipped through its fingers. ",
+          " Snotbot rolled forward, spun around twice and bumped into the fridge. Its left wheel wobbled. Mo clapped anyway, because Mo claps for everything. ",
           {
-            "tap": "It should handle glass jars as well, since they are a similar shape to bottles.",
-            "reason": "Should means the scientists expect it to work. That's medium, not weakest."
+            "tap": "'You must all come and cheer,' Gus said. 'Front row, and no excuses.'",
+            "reason": "Must is a rule for the crew here. It doesn't show how sure Gus is about winning."
           },
-          " ",
+          " Tully mentioned that the robot from the mainland school had won three contests in a row. Gus said that didn't matter one bit. ",
           {
-            "tap": "The robot must be switched off before anyone cleans its camera.",
-            "reason": "This is a safety rule. Must is the strongest word there is."
+            "tap": "'You should all go to bed early,' he added, 'because the contest starts at eight.'",
+            "reason": "Should is advice for the crew. It says nothing about Snotbot's chances."
           },
-          " Pizza boxes were a problem, because the robot kept mistaking cheese for cardboard. ",
+          " Later, when everyone else was asleep, Gus sat on the cold galley floor with Snotbot in his lap. He tightened the wobbly wheel with a tiny screwdriver, then checked it again, and then again. ",
           {
-            "tap": "One day, it might even be able to sort food scraps, though we have not tested this at all."
+            "tap": "'You might make it to the end,' he whispered, 'if your wheel holds.'"
           },
-          " ",
-          {
-            "tap": "The team will probably finish the next round of testing by June.",
-            "reason": "Probably is medium. The team thinks it's likely, not just possible."
-          },
-          " Until then, the tip's human sorters will keep working alongside the robot, and they have asked for it to be given a name tag. So far, they have suggested Sorty, Binny and Captain Rubbish, and the vote is very close. Gus voted for Captain Rubbish twice. The robot itself has not been asked."
+          " Snotbot's little light blinked green. Gus wrapped one more piece of tape around the wheel, just in case, and then he tiptoed off to bed."
         ],
         "answer": 3
       }
@@ -961,53 +965,29 @@
       "id": "3.9-b4-3",
       "band": 4,
       "topic": "funny",
-      "frame": "Zed paused Maxx's stream and copied down every promise about the new Vantafam Club.",
-      "prompt": "Put each line in the right box, by how sure Maxx sounds.",
-      "success": "Definitely, absolutely and without a doubt sound certain. Probably and likely sound likely. May and might sound only possible.",
+      "frame": "Zed paused Maxx's stream and copied down four promises about the new Vantafam Club.",
+      "prompt": "Which of Maxx's promises sounds sure but has a way out?",
+      "success": "'Will' sounds sure, but 'while stocks last' means some members might get nothing. That's Maxx's way out.",
       "body": {
-        "format": "sort",
-        "bins": [
-          "very sure",
-          "fairly sure",
-          "not very sure"
-        ],
-        "items": [
+        "format": "choose",
+        "options": [
           {
-            "text": "Every member will definitely get a signed gold photo of yours truly.",
-            "bin": 0,
-            "reason": "Will definitely leaves no room for doubt."
+            "text": "Every member will get a gold badge for their gaming profile page.",
+            "reason": "Will, with nothing after it, is a real promise. There's no way out."
           },
           {
-            "text": "Without a doubt, this is the most exclusive club on the internet.",
-            "bin": 0,
-            "reason": "Without a doubt means Maxx sounds completely sure."
+            "text": "Every member will get a signed gold photo, while stocks last."
           },
           {
-            "text": "I will absolutely read out every single member's name.",
-            "bin": 0,
-            "reason": "Will absolutely leaves no room for doubt."
+            "text": "Members might win a prize in the monthly draw.",
+            "reason": "Might doesn't sound sure in the first place."
           },
           {
-            "text": "You will probably get a shout-out on my stream.",
-            "bin": 1,
-            "reason": "Probably means likely. It isn't a promise."
-          },
-          {
-            "text": "Your membership card will most likely arrive within a week.",
-            "bin": 1,
-            "reason": "Likely means Maxx thinks it will probably happen, but he isn't promising."
-          },
-          {
-            "text": "Members may get to meet me in person at the Vantamart.",
-            "bin": 2,
-            "reason": "May means it's only possible. Maxx isn't saying it will happen."
-          },
-          {
-            "text": "Members might even appear in one of my videos.",
-            "bin": 2,
-            "reason": "Might is a weak word. It's only a possibility."
+            "text": "Members must be over eight years old to join.",
+            "reason": "This must is a rule for joining. It doesn't promise members anything."
           }
-        ]
+        ],
+        "answer": 1
       }
     },
     {
@@ -1016,43 +996,48 @@
       "topic": "music",
       "frame": "Tully wrote a short summary of the festival update for the crew. She got one word badly wrong.",
       "text": "RED ROCK MUSIC FESTIVAL: SATURDAY UPDATE. The weather bureau has issued a severe storm warning for Saturday evening, with strong winds expected from about nine o'clock. Because of this, the outdoor stage must close at eight o'clock sharp. This is a safety direction from the fire brigade, and the festival has no power to change it. We know many of you were looking forward to the late sets, and we're disappointed too. Refunds will not be offered for Saturday tickets, but every ticket holder will receive half-price entry to next year's festival. The kids' craft tent will run as planned until five o'clock. The drumming workshop will move into the school hall, which can hold about three hundred people, so you may need to queue. The Dusty Possums, who were due to play at nine, might perform an acoustic set in the hall instead, but their manager has not confirmed this yet. Food trucks should stay open until seven, although some may leave earlier if the wind picks up. Please check this page again on Saturday morning, because we could post more changes. Thank you for your patience, and please look after one another. Gates still open at noon. The organisers thank the fire brigade and the school for their help.",
-      "prompt": "Tap the word Tully got wrong, then choose the word that matches the update.",
-      "success": "Must. The fire brigade gave a safety direction that can't be changed, so there's no choice.",
+      "prompt": "Tully got one word wrong. Tap it, then choose the word that matches the update.",
+      "success": "The manager hasn't confirmed the set, so it's only possible. Will made it sound certain.",
       "body": {
         "format": "fix",
         "parts": [
           "Because of the storm, the outdoor stage ",
           {
-            "tap": "might"
+            "tap": "must",
+            "reason": "That's right. The fire brigade's direction can't be changed, so there's no choice."
           },
-          " close at eight o'clock. The ",
+          " close at eight. The craft tent ",
           {
-            "tap": "drumming workshop",
-            "reason": "That's right. The update says the drumming workshop moves inside."
+            "tap": "will still",
+            "reason": "That's right. The update says the craft tent runs as planned, so it's certain."
           },
-          " will move into the ",
+          " run until five. The Dusty Possums ",
           {
-            "tap": "school hall",
-            "reason": "That's right. The workshop moves into the school hall."
+            "tap": "will"
           },
-          "."
+          " play an acoustic set in the hall instead. Food trucks ",
+          {
+            "tap": "should",
+            "reason": "That's right. The update expects them to stay open, but some may leave early."
+          },
+          " stay open until seven."
         ],
-        "spot": 0,
+        "spot": 2,
         "options": [
           {
-            "text": "could",
-            "reason": "Could makes the closing only possible. The update says it can't be changed."
+            "text": "should",
+            "reason": "Should means it's expected. The manager hasn't even confirmed it."
           },
           {
-            "text": "should probably",
-            "reason": "Should probably sounds like advice. The fire brigade's direction is not a suggestion."
+            "text": "will probably",
+            "reason": "Probably means likely. The update only says it's possible."
           },
           {
-            "text": "must"
+            "text": "might"
           },
           {
-            "text": "may",
-            "reason": "May leaves room for doubt. The festival says it has no power to change this."
+            "text": "must",
+            "reason": "Must is the strongest word. Nothing about the set is certain."
           }
         ],
         "answer": 2

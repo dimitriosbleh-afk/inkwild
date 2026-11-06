@@ -289,6 +289,12 @@
       "name": "Biffoon",
       "evolved": "Biffadon",
       "blurb": "A mantis shrimp that punches flat, weak verbs off the reef. Feed it the one verb that fits the clues and it hits like a cannon."
+    },
+    "write": {
+      "ask": "Rewrite this sentence. Swap 'went' for one strong verb, and cut the words you no longer need.",
+      "given": ["The dog went into the kitchen slowly and quietly, hoping nobody would see."],
+      "checks": ["I swapped 'went' for a verb that shows how", "My verb fits every clue", "I cut words my verb already says"],
+      "model": "The dog crept into the kitchen, hoping nobody would see."
     }
   },
   "encounters": [
@@ -811,23 +817,14 @@
       "id": "5.10-b3-5",
       "band": 3,
       "topic": "gaming",
-      "frame": "Zed is writing the intro for his racing game. The Biffoon is holding the pieces.",
-      "prompt": "Tap the pieces in order. Use the verb that fits the clues.",
-      "success": "Screeched. You can hear the tyres squealing and feel the speed in one word.",
+      "frame": "Zed is writing the ending for his racing game. The kart has run out of fuel. The Biffoon is holding the pieces.",
+      "prompt": "Tap the pieces in order. Use the verb that fits every clue.",
+      "success": "Rolled. Slowly and out of fuel are the clues. A fancy fast verb would tell the reader something untrue.",
       "body": {
         "format": "build",
-        "tiles": [
-          "The kart",
-          "screeched",
-          "trundled",
-          "crawled",
-          "around the corner,",
-          "tyres smoking."
-        ],
-        "accept": [
-          "The kart screeched around the corner, tyres smoking."
-        ],
-        "reason": "Smoking tyres mean the kart was flat out. Trundling and crawling are slow. Pick the fast, loud verb."
+        "tiles": ["The kart", "screeched", "rolled", "rocketed", "slowly back to the pit lane,", "out of fuel."],
+        "accept": ["The kart rolled slowly back to the pit lane, out of fuel."],
+        "reason": "Check every clue. Can a kart with no fuel move fast? Strong doesn't mean fancy."
       }
     },
     {
@@ -975,46 +972,18 @@
       "id": "5.10-b4-4",
       "band": 4,
       "topic": "sport",
-      "frame": "Tully is writing two scenes for the club newsletter and needs the Biffoon's verbs.",
-      "prompt": "Match each verb to the scene it fits.",
-      "success": "Crept, stalked and slunk are slow, silent and sneaky. Roared, erupted and cheered are loud and sudden.",
+      "frame": "Tully went wild with strong verbs in the club newsletter. The Biffoon checks each one against its clues.",
+      "prompt": "Match each sentence to the right rock.",
+      "success": "A strong verb has to fit every clue. When it's bigger than the clues, it says something untrue.",
       "body": {
         "format": "sort",
-        "bins": [
-          "a cat sneaking up on a bird",
-          "a footy crowd after a goal"
-        ],
+        "bins": ["fits the clues", "too strong for the clues"],
         "items": [
-          {
-            "text": "crept",
-            "bin": 0,
-            "reason": "Creeping is moving slowly and silently, like a cat getting close to a bird."
-          },
-          {
-            "text": "roared",
-            "bin": 1,
-            "reason": "A roar is a huge, loud sound, like thousands of fans after a goal."
-          },
-          {
-            "text": "stalked",
-            "bin": 0,
-            "reason": "Stalking is following prey slowly and secretly."
-          },
-          {
-            "text": "erupted",
-            "bin": 1,
-            "reason": "Erupting is bursting out suddenly, like a volcano. A crowd erupts when a goal goes through."
-          },
-          {
-            "text": "slunk",
-            "bin": 0,
-            "reason": "Slinking is moving low and quietly so nobody notices you."
-          },
-          {
-            "text": "cheered",
-            "bin": 1,
-            "reason": "Cheering is shouting with joy, which is what a crowd does after a goal."
-          }
+          { "text": "Jai sprinted to the corner flag, beating every defender.", "bin": 0, "reason": "Beating every defender means he was fast, so sprinted fits." },
+          { "text": "The coach sprinted to the bench, which took him a whole minute.", "bin": 1, "reason": "A whole minute to reach the bench is slow. Sprinted is too strong." },
+          { "text": "The tired players plodded off the ground after the siren.", "bin": 0, "reason": "Tired players walk slowly and heavily, so plodded fits." },
+          { "text": "The umpire thundered onto the ground, as quiet as a mouse.", "bin": 1, "reason": "Quiet as a mouse is the clue. Thundered is far too loud." },
+          { "text": "The ball trickled over the line, barely moving.", "bin": 0, "reason": "Barely moving is the clue, and trickled means moving slowly." }
         ]
       }
     },
@@ -1022,23 +991,15 @@
       "id": "5.10-b4-5",
       "band": 4,
       "topic": "robots",
-      "frame": "The ancient robot in the reef caves has a scrambled voice box. Rebuild its description.",
-      "prompt": "Tap the pieces in order. Use the verb that fits the clues.",
-      "success": "Lurched. A lurch is a sudden, unsteady jerk, which is all a robot with rusty, grinding joints can manage.",
+      "frame": "The ancient robot in the reef caves has a scrambled voice box. Its first try at a description was flat and wordy.",
+      "text": "The ancient robot moved forward suddenly and unsteadily, its rusty joints grinding.",
+      "prompt": "Rebuild it with one verb that does the work of 'moved suddenly and unsteadily'.",
+      "success": "Lurched. A lurch is sudden and unsteady, so one verb does the work of three words.",
       "body": {
         "format": "build",
-        "tiles": [
-          "The ancient robot",
-          "lurched",
-          "glided",
-          "pranced",
-          "forward,",
-          "its rusty joints grinding with every shaky step."
-        ],
-        "accept": [
-          "The ancient robot lurched forward, its rusty joints grinding with every shaky step."
-        ],
-        "reason": "Rusty joints and shaky steps aren't smooth or light, like gliding or prancing. Pick a sudden, jerky, unsteady verb."
+        "tiles": ["The ancient robot", "moved", "glided", "suddenly and unsteadily", "lurched", "forward,", "its rusty joints grinding."],
+        "accept": ["The ancient robot lurched forward, its rusty joints grinding."],
+        "reason": "Your verb has to be sudden and unsteady all by itself. Does it fit a robot with grinding joints?"
       }
     },
     {

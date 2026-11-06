@@ -274,6 +274,20 @@
         }
       ]
     },
+    "write": {
+      "ask": "Write one sentence that gives Ava a dilemma: two things she wants that pull apart.",
+      "given": [
+        "Ava wants to win the swimming race.",
+        "Her best friend Kim has never won anything."
+      ],
+      "starter": "Ava wants to win, but",
+      "checks": [
+        "My sentence says what Ava wants",
+        "It has a second want that pulls against it",
+        "Ava has to choose one"
+      ],
+      "model": "Ava wants to win the race, but she also wants Kim to win something at last, and they are in the same heat."
+    },
     "creature": {
       "id": "dashling",
       "name": "Dashling",
@@ -812,48 +826,48 @@
       "id": "2.5-b3-4",
       "band": 3,
       "topic": "space",
-      "frame": "Zed found a story about a colony ship. One word in his note is wrong.",
+      "frame": "Zed found a story about a colony ship. One part of his note is wrong.",
       "text": "Pets were strictly banned on the colony ship Wanderer. The rule was printed on every door in big red letters: NO ANIMALS OF ANY KIND. Kit had read the rule many times. She had read it while she was hiding Gloop, her pet moon-slug, in her sock drawer. Gloop was the size of a sausage, pale green and very friendly, and he hummed when he was happy. Kit loved him more than anything on the ship. But Gloop was growing. Every week he was a little bigger, and his humming was a little louder. On Tuesday, the captain stopped outside Kit's cabin and frowned at the door. 'Is something in there humming?' he asked. 'Just me,' said Kit, and she hummed loudly to prove it. The captain frowned some more and walked on. Kit leaned against the door and let out a long breath. There were two weeks until the ship landed, and Gloop had just eaten a pillow.",
-      "prompt": "Tap the word Zed got wrong, then choose a better one.",
-      "success": "Growing. A bigger, louder slug is harder to hide, and that's what stands in Kit's way.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "Gloop gets bigger and louder every week. The frown is not the problem: the captain walks on.",
       "body": {
         "format": "fix",
         "parts": [
-          "Kit wants to keep ",
+          "What makes hiding Gloop harder every week is ",
           {
-            "tap": "Gloop",
-            "reason": "That's right. Gloop is the pet she wants to keep."
+            "tap": "the captain"
           },
-          ", but pets are ",
+          ". The captain's frown ",
           {
-            "tap": "banned",
-            "reason": "That's right. The rule says NO ANIMALS OF ANY KIND."
+            "tap": "doesn't stop Kit",
+            "reason": "That's right. He frowns, but he walks on."
           },
-          " on the ship, and Gloop keeps ",
+          ", and she must hide Gloop for ",
           {
-            "tap": "escaping"
+            "tap": "two more weeks",
+            "reason": "That's right. The ship lands in two weeks."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "shrinking",
-            "reason": "Read what happens to Gloop every week."
+            "text": "the ship landing",
+            "reason": "Landing would end the hiding. What makes it harder each week?"
           },
           {
-            "text": "hiding",
-            "reason": "Kit is the one hiding him. What is Gloop doing that makes hiding harder?"
+            "text": "Kit's loud humming",
+            "reason": "Her humming covers the noise. It helps her hide Gloop."
           },
           {
-            "text": "sleeping",
-            "reason": "Gloop hums and has just eaten a pillow. Sleeping isn't the problem."
+            "text": "Gloop growing"
           },
           {
-            "text": "growing"
+            "text": "the eaten pillow",
+            "reason": "That happened once. What happens to Gloop every week?"
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -892,28 +906,28 @@
       "topic": "music",
       "frame": "Narra the Teller is telling the story of the loudest boy on Twotide Atoll. The Dashling has its flippers over its ears.",
       "text": "When Oscar's great-grandfather died, he left Oscar a set of bagpipes, a tartan cap and a letter. 'Learn to play these,' the letter said, 'and play them at the island's Founders' Day, like I did for fifty years.' Oscar wanted to do exactly that. The trouble was the noise. The first time Oscar practised, the neighbour's dog howled, three car alarms went off, and his mum said it sounded like a goose being sat on. His sister moved into the garden shed. The family made a rule: no bagpipes inside the house, ever. So Oscar practised on the end of the jetty, then in the sand dunes, then in a rowboat in the middle of the lagoon. By March, he could play one whole song. By Founders' Day, he could play three. When he marched onto the stage in the tartan cap, his mum was in the front row, wearing earmuffs and crying.",
-      "prompt": "What does Oscar want most?",
-      "success": "To play on Founders' Day, as the letter asked. He practises for months to do it.",
+      "prompt": "What stands in Oscar's way, and how does he get past it?",
+      "success": "The noise is the problem. He gets past the house rule by practising far away from home.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to annoy his family with loud music",
-            "reason": "He practises far from the house so he won't bother them. Annoying them isn't the point."
+            "text": "The noise upsets everyone, so he practises far away from the house."
           },
           {
-            "text": "to play on Founders' Day, as the letter asked"
+            "text": "His family bans the bagpipes, so he stops until Founders' Day.",
+            "reason": "Does he stop? Look at the jetty, the dunes and the rowboat."
           },
           {
-            "text": "to get his own room out in the garden shed",
-            "reason": "His sister moves into the shed, not Oscar."
+            "text": "He only knows one song, so he plays it three times on stage.",
+            "reason": "Check how many songs he can play by Founders' Day."
           },
           {
-            "text": "to win a bagpipe competition",
-            "reason": "There's no competition. Read what the letter asks Oscar to do."
+            "text": "His sister takes his room, so he practises in the garden shed.",
+            "reason": "Who moves into the shed? Read that part again."
           }
         ],
-        "answer": 1
+        "answer": 0
       }
     },
     {
@@ -1038,48 +1052,48 @@
       "id": "2.5-b4-4",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Gus wrote a note about the smelliest news story of the year. One word is wrong.",
+      "frame": "Gus wrote a note about the smelliest news story of the year. One part is wrong.",
       "text": "TWOTIDE TIMES. A plant known as the corpse flower has become the most talked-about resident of Twotide Atoll, and it hasn't even opened yet. The giant flower, which stands taller than a grown man, blooms only once every seven years, and when it does, it gives off a smell that one gardener described as 'a dead possum wearing old socks'. Botanist Professor Pippa Gale has waited seven years for this bloom. She wants scientists from around the world to study it, because nobody has ever recorded how the smell changes hour by hour. 'This could be the most important week of my career,' she said. Unfortunately, the flower's neighbours do not agree. After complaints from the café next door, which says customers have been fainting into their soup, the island council has voted to dig the plant up and put it through the mulcher on Friday. The flower is expected to bloom on Sunday. Professor Gale has started a petition, chained herself to the greenhouse door, and offered to buy the café owner a peg for his nose. So far, the council has not changed its mind, although one councillor admitted she was 'a little bit curious about the smell'.",
-      "prompt": "Tap the word Gus got wrong, then choose a better one.",
-      "success": "Dig it up. The council's plan to mulch it on Friday stands between Professor Gale and the bloom.",
+      "prompt": "Tap the part Gus got wrong, then choose a better one.",
+      "success": "The council plans to mulch the flower before it blooms. She wants one thing, so it is not a dilemma.",
       "body": {
         "format": "fix",
         "parts": [
-          "Professor Gale wants scientists to ",
+          "Professor Gale wants ",
           {
-            "tap": "study the flower",
-            "reason": "That's right. Nobody has recorded how its smell changes hour by hour."
+            "tap": "the bloom studied",
+            "reason": "That's right. She wants scientists to study it."
           },
-          ", but the ",
+          ". What could stop her before Sunday is ",
           {
-            "tap": "council",
-            "reason": "That's right. The island council voted on the plan."
+            "tap": "the café's soup"
           },
-          " plans to ",
+          ". It is ",
           {
-            "tap": "water it"
+            "tap": "not a dilemma",
+            "reason": "That's right. She isn't torn between two wants. She wants one thing."
           },
-          " on Friday, two days before it blooms."
+          ", because she only has one want."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "sell it",
-            "reason": "Nobody is selling the plant. Read what the council voted to do after the café complained."
+            "text": "the seven-year wait",
+            "reason": "The seven years are nearly over. What could stop her in the next few days?"
           },
           {
-            "text": "move it",
-            "reason": "They aren't moving it somewhere safe. What has to happen before it goes in the mulcher?"
+            "text": "the council's mulching plan"
           },
           {
-            "text": "dig it up"
+            "text": "the terrible smell",
+            "reason": "The smell is what she wants to study. Does it stop her?"
           },
           {
-            "text": "cover it",
-            "reason": "Covering it would stop the smell, but read what the council actually voted for."
+            "text": "the curious councillor",
+            "reason": "She is a little curious. Is she the one stopping anything?"
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {

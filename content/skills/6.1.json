@@ -291,6 +291,18 @@
       "name": "Dotumble",
       "evolved": "Dotumbrix",
       "blurb": "A mountain pygmy possum that curls into a perfect full stop to sleep through winter. It only wakes when a capital letter knocks."
+    },
+    "write": {
+      "ask": "Fix these words into two sentences. Then write one more sentence of your own about the dog.",
+      "given": [
+        "gus dropped the cake on friday it landed on the dog"
+      ],
+      "checks": [
+        "Each sentence starts with a capital",
+        "Each sentence ends with a full stop, not a comma",
+        "Names and days have capitals"
+      ],
+      "model": "Gus dropped the cake on Friday. It landed on the dog. The dog licked the icing off its nose and wagged."
     }
   },
   "encounters": [
@@ -712,24 +724,24 @@
       "topic": "art",
       "frame": "Indi is writing a label for her mural in the lodge dining room.",
       "prompt": "Which version is punctuated right?",
-      "success": "Each whole thought gets its own full stop, and 'It' starts the second sentence with a capital.",
+      "success": "The 'when' part leans on 'everyone clapped', so they stay together. 'It covered the whole wall' is a new sentence.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Indi painted a huge mural of a snow gum. It covered the whole wall."
+            "text": "When Indi finished her mural, everyone clapped. It covered the whole wall."
           },
           {
-            "text": "Indi painted a huge mural of a snow gum, it covered the whole wall.",
-            "reason": "A comma can't end a whole thought. How many whole thoughts are here?"
+            "text": "When Indi finished her mural. Everyone clapped. It covered the whole wall.",
+            "reason": "Say the first part alone. Does the 'when' part make sense, or does it leave you waiting?"
           },
           {
-            "text": "Indi painted a huge mural. Of a snow gum it covered the whole wall.",
-            "reason": "The stop cuts the mural off from what it shows. 'Of a snow gum' belongs with the mural."
+            "text": "When Indi finished her mural, everyone clapped, it covered the whole wall.",
+            "reason": "A comma can't hold two sentences together. Which part makes sense alone after the clapping?"
           },
           {
-            "text": "Indi painted a huge mural of a snow gum it covered the whole wall.",
-            "reason": "There's no full stop, so two whole thoughts crash into each other."
+            "text": "When Indi finished her mural, everyone clapped it covered the whole wall.",
+            "reason": "Two sentences crash here with nothing between them. Where does the clapping part finish?"
           }
         ],
         "answer": 0
@@ -739,43 +751,49 @@
       "id": "6.1-b3-2",
       "band": 3,
       "topic": "space",
-      "frame": "Mission control's spacewalk report has a full stop missing.",
-      "prompt": "Tap where a full stop is missing, then choose the fix.",
-      "success": "'One of them waved at the camera' is a whole thought. A full stop ends it before 'The'.",
+      "frame": "Mission control's spacewalk report has two commas. One of them should be a full stop.",
+      "prompt": "Tap where one sentence should end, then choose the fix.",
+      "success": "'The other stayed inside' makes sense alone, so it's a new sentence. The 'when' comma is fine.",
       "body": {
         "format": "fix",
         "parts": [
-          "The astronauts floated out of the ",
+          "When the ",
           {
-            "tap": "hatch. One",
-            "reason": "There's already a full stop and a capital here. This part is fine."
+            "tap": "hatch opened, one",
+            "reason": "The 'when' part leaves you waiting, so this comma is fine. Which part makes sense alone?"
           },
-          " of them waved at the ",
+          " astronaut ",
           {
-            "tap": "camera the"
+            "tap": "floated out",
+            "reason": "The astronaut is still moving here. Floated out to do what?"
           },
-          " other spun in ",
+          " to fix the ",
           {
-            "tap": "slow circles.",
-            "reason": "This is the end, and the full stop is already there."
-          }
+            "tap": "camera, the"
+          },
+          " ",
+          {
+            "tap": "other stayed",
+            "reason": "'The other' is who stayed. Can a full stop split who from what they did?"
+          },
+          " inside."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
             "text": "camera. The"
           },
           {
-            "text": "camera, the",
-            "reason": "A comma can't end a whole thought. You need a full stop here."
+            "text": "camera, The",
+            "reason": "A capital alone is not enough. What mark must end the first sentence?"
+          },
+          {
+            "text": "camera the",
+            "reason": "Taking the comma out makes the two sentences crash. What ends a sentence?"
           },
           {
             "text": "camera. the",
-            "reason": "The full stop is right. But how must every new sentence begin?"
-          },
-          {
-            "text": "camera The",
-            "reason": "A capital alone isn't enough. The first thought still needs a full stop to end it."
+            "reason": "The full stop is right. How must every new sentence begin?"
           }
         ],
         "answer": 0
@@ -786,24 +804,25 @@
       "band": 3,
       "topic": "food",
       "frame": "Mo's snow ice cream review got scattered across the kitchen.",
-      "prompt": "Tap the pieces in order to make two sentences. Start with what Mo tried.",
-      "success": "Two whole thoughts need two full stops. A comma can't hold them together on its own.",
+      "prompt": "Tap the pieces in order to make two sentences. Start with when Mo tried it. End with how it tasted.",
+      "success": "The 'when' part leans on 'he gagged'. 'It tasted like a frozen sock' makes sense alone, so it's new.",
       "body": {
         "format": "build",
         "tiles": [
-          "Mo tried to make snow ice cream",
-          ".",
+          "When Mo tried snow ice cream",
           ",",
+          ".",
+          "he gagged",
+          "He gagged",
+          ".",
           "It",
           "it",
-          "tasted like",
-          "a frozen sock",
-          "."
+          "tasted like a frozen sock"
         ],
         "accept": [
-          "Mo tried to make snow ice cream. It tasted like a frozen sock."
+          "When Mo tried snow ice cream, he gagged. It tasted like a frozen sock."
         ],
-        "reason": "Each whole thought needs a full stop, not a comma. The second sentence starts with a capital."
+        "reason": "A 'when' part leaves you waiting, so it can't stand alone. Which part makes sense alone after the gagging?"
       }
     },
     {
@@ -898,102 +917,86 @@
       "topic": "funny",
       "frame": "Mo is telling everyone about his breakfast disaster.",
       "prompt": "Which version is punctuated right?",
-      "success": "Two whole thoughts, two full stops. 'Along to his music' belongs with the singing.",
+      "success": "One full stop between the two sentences, and capitals for Monday, Gus and I.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Mo burnt the toast. The smoke alarm sang along to his music."
+            "text": "Mo burnt the toast on monday. Gus and I opened every window.",
+            "reason": "Days of the week are names. Does every name here start with a capital?"
           },
           {
-            "text": "Mo burnt the toast the smoke alarm sang along to his music.",
-            "reason": "There's no full stop, so two whole thoughts crash into each other."
+            "text": "Mo burnt the toast on Monday, Gus and I opened every window.",
+            "reason": "Both parts make sense alone. Can a comma hold two sentences together?"
           },
           {
-            "text": "Mo burnt the toast. The smoke alarm sang. Along to his music.",
-            "reason": "'Along to his music.' isn't a whole thought. It belongs with the singing."
+            "text": "Mo burnt the toast on Monday. Gus and I opened every window."
           },
           {
-            "text": "Mo burnt the toast, the smoke alarm sang along to his music.",
-            "reason": "A comma can't end a whole thought. Which mark can?"
+            "text": "Mo burnt the toast on Monday. Gus and i opened every window.",
+            "reason": "Check every small word. Which one always gets a capital, even in the middle?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "6.1-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "The icebreaker's logbook has one full stop missing.",
-      "prompt": "Tap where a full stop is missing, then choose the fix.",
-      "success": "Spotting the penguins is one whole thought. A full stop ends it, and 'They' starts the next.",
+      "frame": "Wren's logbook lines have no full stops. She thinks every long line holds two sentences. Only one does.",
+      "prompt": "Which line holds two sentences?",
+      "success": "'The ship sat still for three days' makes sense alone. So does 'the sea had frozen solid'. Two sentences.",
       "body": {
-        "format": "fix",
-        "parts": [
-          "The icebreaker crunched through the frozen sea for three ",
-          {
-            "tap": "days. On",
-            "reason": "There's already a full stop and a capital here. This part is fine."
-          },
-          " the fourth morning, the crew spotted a colony of emperor ",
-          {
-            "tap": "penguins they"
-          },
-          " were huddled together against the ",
-          {
-            "tap": "bitter wind.",
-            "reason": "This is the end, and the full stop is already there."
-          }
-        ],
-        "spot": 1,
+        "format": "choose",
         "options": [
           {
-            "text": "penguins. They"
+            "text": "When the icebreaker stopped the penguins waddled over to look",
+            "reason": "The 'when' part can't stand alone. It hangs on to the rest, so this is one sentence."
           },
           {
-            "text": "penguins, they",
-            "reason": "A comma can't end a whole thought. You need a full stop here."
+            "text": "Because the sea had frozen the ship sat still for three days",
+            "reason": "The 'because' part can't stand alone. It needs the rest, so this is one sentence."
           },
           {
-            "text": "penguins. they",
-            "reason": "The full stop is right. But how must every new sentence begin?"
+            "text": "The ship sat still for three days the sea had frozen solid"
           },
           {
-            "text": "penguins They",
-            "reason": "A capital alone isn't enough. The first thought still needs a full stop to end it."
+            "text": "After three long days of waiting the ice began to crack",
+            "reason": "'After three long days of waiting' has no doer. It tells when, so this is one sentence."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "6.1-b4-2",
       "band": 4,
       "topic": "spooky",
-      "frame": "Zed is reading out a ghost story by torchlight. Which page was printed right?",
-      "prompt": "Which version is punctuated right?",
-      "success": "Each whole thought ends with a full stop, and 'Nobody' starts the second sentence with a capital.",
+      "frame": "Zed's ghost story has this line. Zed says the comma is fine.",
+      "text": "Something scratched at the window, nobody dared to look.",
+      "prompt": "What is the best advice for Zed?",
+      "success": "Something scratched. Nobody dared to look. Each makes sense alone, so each gets its own full stop.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Something scratched at the window of the hut long after midnight. Nobody dared to pull back the curtain."
+            "text": "Keep the comma. The second part is short, so it can lean on the first.",
+            "reason": "Short isn't the test. Say 'Nobody dared to look' alone. Does it make sense?"
           },
           {
-            "text": "Something scratched at the window of the hut long after midnight, nobody dared to pull back the curtain.",
-            "reason": "A comma can't end a whole thought. Where does the scratching thought finish?"
+            "text": "Use a full stop. Each part makes sense alone, so each is a sentence."
           },
           {
-            "text": "Something scratched at the window of the hut long after midnight nobody dared to pull back the curtain.",
-            "reason": "There's no full stop, so two whole thoughts crash into each other."
+            "text": "Use a full stop, because a longer pause will make the scratching scarier.",
+            "reason": "Right mark, wrong reason. A pause isn't the test. What is?"
           },
           {
-            "text": "Something scratched at the window. Of the hut long after midnight nobody dared to pull back the curtain.",
-            "reason": "The stop cuts 'of the hut' away from the window it belongs to."
+            "text": "Keep the comma. Both parts are about the same moment, so they belong together.",
+            "reason": "Being about the same moment doesn't join sentences. Does each part make sense alone?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -1001,56 +1004,60 @@
       "band": 4,
       "topic": "robots",
       "frame": "A message from the snow rover arrived in pieces.",
-      "prompt": "Tap the pieces in order to make two sentences. Start with the battery.",
-      "success": "Two whole thoughts need two full stops, and 'Mission control' starts the second with a capital.",
+      "prompt": "Make two sentences that say the rover waited for sunrise. Start the second sentence with When.",
+      "success": "The 'when' part leans on 'it crawled into the light', so no full stop can split them.",
       "body": {
         "format": "build",
         "tiles": [
           "The rover's battery was almost flat",
           ".",
           ",",
-          "Mission control",
-          "mission control",
-          "ordered it to park in the sunlight",
+          "When",
+          "when",
+          "the sun came up",
+          "It",
+          "it",
+          "crawled into the light",
           "."
         ],
         "accept": [
-          "The rover's battery was almost flat. Mission control ordered it to park in the sunlight."
+          "The rover's battery was almost flat. When the sun came up, it crawled into the light."
         ],
-        "reason": "Each whole thought needs a full stop, not a comma. The second sentence starts with a capital."
+        "reason": "A 'when' part leaves you waiting, so it can't end with a full stop. What did the rover do?"
       }
     },
     {
       "id": "6.1-b4-4",
       "band": 4,
       "topic": "art",
-      "frame": "The gallery's newsletter about Indi's ice sculpture needs one more full stop.",
-      "prompt": "Tap the spot where a full stop is missing.",
-      "success": "The first sentence ends after 'sculpture'. 'It took six weeks' is a new whole thought.",
+      "frame": "Indi texted Gus about the weekend but forgot her full stop. She can come any day except Friday.",
+      "prompt": "Tap where the full stop goes so the message says that.",
+      "success": "'I can't come to the beach on Friday' keeps Friday with the beach. Then 'I'm painting the mural' starts fresh.",
       "body": {
         "format": "tapText",
         "parts": [
-          "When the gallery ",
+          "I ",
           {
-            "tap": "opened, crowds",
-            "reason": "This comma closes the 'When' part. The first sentence keeps going after it."
+            "tap": "can't come",
+            "reason": "'I can't' doesn't say what she can't do. Read on: what can't she come to?"
           },
-          " rushed to see Indi's ice ",
+          " to the ",
           {
-            "tap": "sculpture it"
+            "tap": "beach on",
+            "reason": "A stop here says she can never come to the beach. Is that her message?"
           },
-          " took six ",
+          " ",
           {
-            "tap": "weeks to",
-            "reason": "'To carve from one block' explains the six weeks, so it's the same thought."
+            "tap": "Friday I'm"
           },
-          " carve from ",
+          " painting the ",
           {
-            "tap": "one block.",
-            "reason": "This is the end, and the full stop is already there."
-          }
+            "tap": "mural at",
+            "reason": "'At school' says where she's painting. It belongs with the painting."
+          },
+          " school."
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {

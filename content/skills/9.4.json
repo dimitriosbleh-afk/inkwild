@@ -238,60 +238,54 @@
                 "text": "'Look, he's left the cage door open,' whispered Zed."
               },
               {
-                "text": "'Hello, Zed,' said Tully. 'Hello, Tully,' said Zed.",
-                "reason": "They just say hello. Nothing new happens, so the story stands still."
+                "text": "'Maxx's boat is really big and shiny,' whispered Tully.",
+                "reason": "The crew can already see the boat. Nothing new is revealed, so nothing changes."
               },
               {
-                "text": "'It's a nice night,' said Mo.",
-                "reason": "It's chit-chat. It doesn't reveal anything or cause any trouble."
+                "text": "'I wish I'd brought a snack,' whispered Gus.",
+                "reason": "It's just chit-chat. Nobody will do anything differently after Gus says it."
               }
             ],
             "answer": 0
           }
         },
         {
-          "frame": "Tully is cutting lines from her script for the ship's play.",
-          "prompt": "Put each line in the right bin.",
-          "hint": "Ask: does anything change after this line?",
-          "success": "Lines that bring news, start trouble or force a choice move the story. Chit-chat just fills space.",
+          "frame": "Tully's script for the ship's play has one line that just fills space.",
+          "prompt": "Tap the line that fills space. Then choose a line that starts trouble.",
+          "hint": "Ask of each line: does anything change after it?",
+          "success": "Mo's confession starts trouble, and now Gus's question matters. Every line changes something.",
           "body": {
-            "format": "sort",
-            "bins": [
-              "moves it on",
-              "just fills space"
-            ],
-            "items": [
+            "format": "fix",
+            "parts": [
               {
-                "text": "'The bridge is out. We'll have to swim.'",
-                "bin": 0,
-                "reason": "It gives news that changes the plan."
+                "tap": "'The cage is empty,' said Wren.",
+                "reason": "That's news. It changes things, so it stays. Find the line that changes nothing."
               },
+              "\n",
               {
-                "text": "'Um, so, yeah. OK.'",
-                "bin": 1,
-                "reason": "Nothing is really said, so nothing changes."
+                "tap": "'Nice weather tonight,' said Mo."
               },
+              "\n",
               {
-                "text": "'I gave Maxx our map. Sorry.'",
-                "bin": 0,
-                "reason": "A confession like that starts trouble straight away."
-              },
-              {
-                "text": "'Nice weather today, isn't it?'",
-                "bin": 1,
-                "reason": "Weather chat doesn't push the story anywhere."
-              },
-              {
-                "text": "'Pick one: the map or the snacks.'",
-                "bin": 0,
-                "reason": "It forces a choice, and choices drive stories."
-              },
-              {
-                "text": "'Hi, Mo.' 'Hi, Gus.'",
-                "bin": 1,
-                "reason": "Hellos fill space but tell us nothing new."
+                "tap": "'Then where did the Creature go?' asked Gus.",
+                "reason": "Gus's question sends the crew searching. It moves the story on."
               }
-            ]
+            ],
+            "spot": 1,
+            "options": [
+              {
+                "text": "'I left the door open,' said Mo. 'Sorry.'"
+              },
+              {
+                "text": "'Oh no, Wren, that's terrible news,' said Mo.",
+                "reason": "Mo reacts, but nothing new happens. Does anyone have to do anything different after it?"
+              },
+              {
+                "text": "'I'm going to miss that Creature so much,' said Mo.",
+                "reason": "It shows Mo cares, but it doesn't start any trouble. What changes after it?"
+              }
+            ],
+            "answer": 0
           }
         }
       ]
@@ -303,13 +297,13 @@
       "blurb": "A glider that chatters as it leaps from tree to tree. Each squeak carries it further, so it's never stuck on one branch."
     },
     "workshop": {
-      "mentor": "'Don't freak out,' said Mo, 'but the soup is moving.'\nGus leaned over the pot. Something green blinked back. 'That's not soup. That's a Creature.'\n'It was soup when I started,' said Mo.\n'Then where did the soup go?' asked Gus.\nMo went very quiet. Then he burped, and a tiny bubble of light floated out of his mouth.\n'OK,' said Tully, grabbing the first-aid kit. 'Nobody tell Wren. And nobody, under any circumstances, tell Maxx's followers we've got a glowing chef.'\nOutside, a drone buzzed past the porthole, its red light blinking.\n'Too late,' whispered Zed.",
-      "ask": "Write a scene that's mostly talk, where every line changes something. Ideas: the crew finds Maxx's van, a lost footy bet, a ghost on the phone.",
+      "mentor": "'Don't freak out,' said Mo, 'but the soup is moving.'\nGus leaned over the pot. Something green blinked back. 'That's not soup. That's a Creature.'\n'It was soup when I started,' said Mo.\n'Then where did the soup go?' asked Gus.\nMo went very quiet. Then he burped, and a tiny bubble of light floated out of his mouth.\n'OK,' said Tully. 'Nobody tell Maxx's followers we've got a glowing chef.'\nOutside, a drone buzzed past the porthole, its red light blinking.\n'Too late,' whispered Zed.",
+      "ask": "Write six to eight lines of talk. Every line changes something.\nStuck? Start with: 'Don't freak out, but...'\nChallenge: no 'said'. Show who's talking by what they do.",
       "checklist": [
-        "I cut the hellos and chit-chat.",
-        "I made every line change something.",
-        "I started a new line for each new speaker.",
-        "I made it clear who is talking."
+        "Every line brings news, trouble or a choice.",
+        "Each new speaker starts a new line.",
+        "I named the speaker wherever it wasn't obvious.",
+        "I cut every hello and weather chat."
       ]
     }
   },

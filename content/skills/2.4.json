@@ -258,6 +258,20 @@
         }
       ]
     },
+    "write": {
+      "ask": "Combine these into one sentence that shows Tully is generous. Do not use the word generous.",
+      "given": [
+        "Tully had one orange left.",
+        "Gus looked hungry."
+      ],
+      "starter": "Tully looked at",
+      "checks": [
+        "My sentence doesn't use the word generous",
+        "It shows what Tully does or says",
+        "A reader could tell she is generous"
+      ],
+      "model": "Tully looked at her last orange, then at hungry Gus, and tossed it to him with a grin."
+    },
     "creature": {
       "id": "sidlewink",
       "name": "Sidlewink",
@@ -687,8 +701,8 @@
             "text": "selfish, because he only acts caring for the camera"
           },
           {
-            "text": "shy, because he only smiles for the drone",
-            "reason": "Shy people avoid cameras. Maxx grins and talks straight to the drone."
+            "text": "lazy, because he makes a guard fetch his towel for him",
+            "reason": "The guard does fetch it. But what about the hatchling he blocks, and the fake tear?"
           }
         ],
         "answer": 2
@@ -700,7 +714,7 @@
       "topic": "sport",
       "frame": "Tully is replaying a tennis final for the crew. The Sidlewink is the ball kid.",
       "prompt": "Tap what Hamish says that shows he is a good sport.",
-      "success": "Hamish gives away a point he could have kept, because it's fair. That's being a good sport.",
+      "success": "Hamish gives away a point he could have kept. The handshake fits too, but that is what he does.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -723,7 +737,12 @@
             "tap": "Hamish bounced the ball four times before he served.",
             "reason": "This is just a habit before serving. It's not something he says."
           },
-          " Lachie won the next two games and the match. Hamish walked straight to the net and shook his hand. ",
+          " Lachie won the next two games and the match. ",
+          {
+            "tap": "Hamish walked straight to the net and shook his hand.",
+            "reason": "That's a good-sport clue, but it's something he does. Find something he says."
+          },
+          " ",
           {
             "tap": "'Can we get fish and chips?' Hamish asked his dad on the way home.",
             "reason": "Hamish says this, but it's about dinner. It doesn't show how he treats Lachie."
@@ -740,7 +759,7 @@
       "frame": "Narra the Teller is telling a story about a school band. The Sidlewink is keeping the beat.",
       "text": "The Twotide Primary band had never won anything, and the competition started in ten minutes. The drummer had lost one stick, the trumpet player had hiccups, and the bass player was hiding in the toilets. Mei, who played the keyboard, didn't panic. She found a wooden spoon in the canteen and handed it to the drummer. 'Use this. Nobody will see it from the seats,' she said calmly. Then she knocked on the toilet door and talked to the bass player until he came out. 'We don't have to be perfect,' she told the whole band. 'We just have to start together.' The trumpet player gave her a thumbs up between hiccups. When the curtain opened, every single head in the band turned to Mei, waiting for her nod. She counted them in, and they started together. Halfway through the song, the trumpet player hiccupped right in the middle of his solo, so Mei simply played louder until he found his place again. They came fourth out of five, and the drummer kept the wooden spoon as a lucky charm.",
       "prompt": "Match each clue about Mei to the kind of clue it is.",
-      "success": "Her actions, her words and how the band treats her all show the same thing: Mei is a calm leader.",
+      "success": "The thumbs up and the turning heads are the band reacting to Mei. Every clue says calm leader.",
       "body": {
         "format": "sort",
         "bins": [
@@ -752,32 +771,37 @@
           {
             "text": "She found a wooden spoon and handed it to the drummer.",
             "bin": 0,
-            "reason": "Finding and handing over the spoon is something Mei does."
+            "reason": "Who finds the spoon? Is it an action, words, or someone else?"
           },
           {
             "text": "'We just have to start together.'",
             "bin": 1,
-            "reason": "These are Mei's own words to the band."
+            "reason": "Look for speech marks. Whose words are these?"
           },
           {
             "text": "Every head in the band turned to Mei, waiting for her nod.",
             "bin": 2,
-            "reason": "This is what the band does. They look to Mei because they trust her."
+            "reason": "Who is doing the turning here: Mei, or the band?"
           },
           {
-            "text": "She knocked on the toilet door and talked to the bass player.",
+            "text": "She simply played louder until the trumpet player found his place.",
             "bin": 0,
-            "reason": "Knocking and talking him out is an action Mei takes."
+            "reason": "Who plays louder? Is that Mei acting, or someone reacting to her?"
           },
           {
             "text": "'Nobody will see it from the seats.'",
             "bin": 1,
-            "reason": "Mei says this to the drummer. It's her own words."
+            "reason": "Look for speech marks. Who says this to the drummer?"
           },
           {
-            "text": "The trumpet player gave her a thumbs up.",
+            "text": "The trumpet player gave her a thumbs up between hiccups.",
             "bin": 2,
-            "reason": "This is how the trumpet player responds to Mei."
+            "reason": "Who gives the thumbs up? Is that Mei, or someone answering her?"
+          },
+          {
+            "text": "She knocked on the toilet door and talked to the bass player.",
+            "bin": 0,
+            "reason": "Who knocks? Is this something Mei does, or something done to her?"
           }
         ]
       }
@@ -879,8 +903,8 @@
             "text": "a sore loser, because he blames everything except himself"
           },
           {
-            "text": "shy, because he doesn't join Maeve's friends",
-            "reason": "Nobody asks him because of how he plays. Nothing shows he's shy."
+            "text": "competitive, because he plays his hardest to win every game",
+            "reason": "Does he play harder? He quits, blames the controller and hunts for a loophole."
           },
           {
             "text": "fair, because he makes sure nobody wins",
@@ -896,25 +920,25 @@
       "topic": "ocean",
       "frame": "Narra the Teller is telling a story about the jetty. The Sidlewink has heard it a hundred times.",
       "text": "The kids of Twotide Atoll gave Old Bert's jetty a wide berth. He sat at the end of it every morning, a weathered man with a beard like a scrubbing brush, scowling at the water as though it owed him money. If anyone came too close, he grunted, 'Shove off, you'll scare the fish.' He even shouted at the pelicans, though he always seemed to have a tin of fish scraps for them in his bucket. Most of the kids did exactly that, and they told each other he had once thrown a boy into the sea for stepping on his line. Then, one stormy afternoon, eight-year-old Leni's tinny drifted loose from the boat ramp with her inside it. The adults were still running for the rescue boat when Old Bert was already in his dinghy, rowing hard through the chop. He towed her back, wrapped her in his own coat and said nothing at all, except, 'Next time, check your knots.' The following week, Leni found a neatly tied rope on her tinny and a small paper card showing six different knots, drawn in shaky pencil. Nobody saw Bert deliver it. He was back on his jetty, scowling at the fish, and when Leni waved, he grunted. But he didn't tell her to shove off.",
-      "prompt": "Which description of Old Bert fits all the clues?",
-      "success": "Gruff but caring. He grunts and scowls, but he rescues Leni and quietly teaches her knots.",
+      "prompt": "The kids say Bert once threw a boy into the sea. Why should you trust the knot card more?",
+      "success": "The card is something Bert did. The sea story is only a rumour. When clues clash, believe the actions.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "cruel, as the kids say in their stories",
-            "reason": "That's a rumour the kids tell. His actions, like the rescue and the knot card, show otherwise."
+            "text": "The card came a week after the rescue, so it is newer than the story.",
+            "reason": "Newer is not the test. Which clue is something Bert really did?"
           },
           {
-            "text": "gruff on the outside but caring underneath"
+            "text": "The card is something Bert really did. The sea story is only a rumour."
           },
           {
-            "text": "a show-off who wants to be thanked",
-            "reason": "He delivers the knot card in secret. Show-offs want everyone to see."
+            "text": "Leni is the youngest, so she is the only one who sees the real Bert.",
+            "reason": "Her age is not the point. What did Bert actually do for her?"
           },
           {
-            "text": "lazy, because he sits on the jetty all morning",
-            "reason": "He's the first to row out through a storm. Sitting and fishing isn't the clue that matters."
+            "text": "The card is written down, and rumours are never written down anywhere.",
+            "reason": "Being written down is not the test. Who made the card, and who made up the story?"
           }
         ],
         "answer": 1
@@ -965,44 +989,55 @@
       "topic": "art",
       "frame": "Indi went to the Twotide Art Prize and wrote down what two artists said. The Sidlewink has mixed up the quotes.",
       "text": "The Twotide Art Prize is held every year in the old surf club, and this year's two finalists could hardly have been more different. Odette had painted a storm rolling over the lagoon in thick, swirling grey, and the judges had stood in front of it for ages without speaking. Ruben had painted himself, life-sized, in a gold frame he had built himself, with a small sign underneath that read MASTERPIECE (DO NOT TOUCH). When a reporter asked Odette about her painting, she shrugged and pointed at a picture of a kingfisher by a Year 3 student. 'Honestly, I think that one's better,' she said. 'Mine's still not quite finished.' Ruben didn't wait to be asked. He strode over and told the reporter that his painting was 'the best thing in the room, possibly in the country'. Then he turned to the photographer. 'Only shoot my left side, please,' he said. When Odette was announced as the winner, she went pink. 'Thank you to my art teacher, my mum and the lagoon,' she said. Ruben told everyone that the judges clearly didn't understand art. Then he wandered over to the prize table. 'Can I keep the ribbon, just to try it on?' he asked.",
-      "prompt": "Match each quote to what it shows about the artist who said it.",
-      "success": "Odette plays down her own work and praises others. Ruben praises himself every chance he gets.",
+      "prompt": "Match each clue. Careful: some details are true but tell you nothing about what the artist is like.",
+      "success": "The judges staring shows her painting is good, not that she is modest. Check what each clue shows.",
       "body": {
         "format": "sort",
         "bins": [
-          "Odette is modest",
-          "Ruben is vain"
+          "shows Odette is modest",
+          "shows Ruben is vain",
+          "shows neither"
         ],
         "items": [
           {
             "text": "'Honestly, I think that one's better.'",
             "bin": 0,
-            "reason": "Odette says this about a Year 3 painting. She praises someone else's work over her own."
-          },
-          {
-            "text": "'The best thing in the room, possibly in the country.'",
-            "bin": 1,
-            "reason": "Ruben says this about his own self-portrait. He thinks very highly of himself."
+            "reason": "Whose painting is she praising here: her own, or someone else's?"
           },
           {
             "text": "'Mine's still not quite finished.'",
             "bin": 0,
-            "reason": "Odette plays down her painting, even though the judges loved it."
+            "reason": "The judges loved it. How does she talk about it?"
+          },
+          {
+            "text": "When asked about her painting, she pointed at a Year 3 student's kingfisher.",
+            "bin": 0,
+            "reason": "She was asked about her own painting. Whose did she point to?"
           },
           {
             "text": "'Only shoot my left side, please.'",
             "bin": 1,
-            "reason": "Ruben worries about how he looks in the photos. That's vain."
+            "reason": "What is Ruben worried about in the photos?"
           },
           {
-            "text": "'Thank you to my art teacher, my mum and the lagoon.'",
-            "bin": 0,
-            "reason": "When she wins, Odette shares the credit with others."
-          },
-          {
-            "text": "'Can I keep the ribbon, just to try it on?'",
+            "text": "A small sign under his painting read MASTERPIECE (DO NOT TOUCH).",
             "bin": 1,
-            "reason": "Ruben lost, but he still wants to wear the winner's ribbon."
+            "reason": "Who wrote that sign about whose painting?"
+          },
+          {
+            "text": "He told everyone the judges clearly didn't understand art.",
+            "bin": 1,
+            "reason": "He lost. Who does he blame, and why?"
+          },
+          {
+            "text": "The judges stood in front of her storm painting for ages.",
+            "bin": 2,
+            "reason": "This is what the judges do. Does it show what Odette is like?"
+          },
+          {
+            "text": "This year, the prize was held in the old surf club.",
+            "bin": 2,
+            "reason": "Is this about either artist at all?"
           }
         ]
       }
@@ -1041,48 +1076,30 @@
       "id": "2.4-b4-5",
       "band": 4,
       "topic": "funny",
-      "frame": "Mo wrote a note about his Aunty Pam for the crew. One word is wrong.",
+      "frame": "Mo wrote about his Aunty Pam for the crew. The Sidlewink has a question.",
       "text": "Aunty Pam believes everything she sees on a screen. Last month, a video told her that eating twelve bananas a day would let her see in the dark, so she ate twelve bananas a day for a week and walked into the clothesline every night. When an email promised that she had won a castle in Scotland, she packed a suitcase and bought a tartan hat. When a fortune cookie told her she would meet a tall stranger, she spent a whole afternoon waiting at the ferry terminal with a welcome sign. 'Pam, that's not real,' her brother says at least once a week. 'It might be,' she always replies. Now she watches Maxx Vantablack's stream every single evening. 'Maxx rescues three Creatures before breakfast,' she told the family at dinner, her eyes shining. 'He said so himself.' Mo's cousin Lily showed her a photo of a Creature in a tiny gold cage behind Maxx's studio. Aunty Pam studied it for a long time. 'That's probably a rescue cage,' she decided. 'For their safety.' That night, she spent ninety dollars on an official MaxxCam rescue whistle, which came in a gold box and turned out to be a party blower. The family has started a group chat called Before Pam Buys It, where they check things first.",
-      "prompt": "Tap the word Mo got wrong, then choose a better one.",
-      "success": "Gullible. She believes bananas, a free castle and Maxx, even when Lily shows her a photo.",
+      "prompt": "Why is Pam's answer to Lily's photo the strongest clue that she is gullible?",
+      "success": "Gullible means you believe things too easily. Pam sees proof Maxx is lying, and still believes him.",
       "body": {
-        "format": "fix",
-        "parts": [
-          "Aunty Pam ",
-          {
-            "tap": "ate twelve bananas a day",
-            "reason": "That's right. A video told her to, so she did it for a week."
-          },
-          " and ",
-          {
-            "tap": "packed a suitcase",
-            "reason": "That's right. She packed for the castle the email promised."
-          },
-          " for Scotland. Aunty Pam is ",
-          {
-            "tap": "dishonest"
-          },
-          "."
-        ],
-        "spot": 2,
+        "format": "choose",
         "options": [
           {
-            "text": "stingy",
-            "reason": "She spends ninety dollars on a whistle. Stingy people hate spending money."
+            "text": "It cost the most, because the whistle she bought that same night was ninety dollars.",
+            "reason": "The whistle is a different clue. What did she do when she saw the photo?"
           },
           {
-            "text": "gullible"
+            "text": "It is the only time she believes something she saw on a screen.",
+            "reason": "Think about the banana video and the castle email. Were those on screens?"
           },
           {
-            "text": "forgetful",
-            "reason": "She remembers everything Maxx says. Her problem is that she believes it."
+            "text": "She sees proof that Maxx is lying, and still finds a way to believe him."
           },
           {
-            "text": "cautious",
-            "reason": "She buys a ninety-dollar whistle without checking first. That isn't cautious."
+            "text": "It shows she forgets what her brother tells her at least once a week.",
+            "reason": "She remembers fine. She just answers, \"It might be.\""
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {

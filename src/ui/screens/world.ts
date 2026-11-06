@@ -136,6 +136,12 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
     positions.set(branch, { x: scene.player.x, y: scene.player.y });
     app.go({ name: 'activity', branch: branch as BranchId });
   };
+  const review = () => {
+    if (app.store.save.activity?.kind !== 'review') app.store.dispatch({ type: 'review' });
+    const a = app.store.save.activity;
+    if (a?.kind !== 'review') return say(speech, 'DAILY REVIEW', 'No review right now. Come back tomorrow!');
+    app.go({ name: 'activity', branch: activityBranch(content, a) });
+  };
   const battle = () => {
     app.store.dispatch({ type: 'keeper', branch: branch as BranchId });
     play();
@@ -149,6 +155,7 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
       app.go({ name: 'map' });
     },
     grass: () => {
+      if (home && st.review) return review();
       if (home && st.tide) return say(speech, 'TIDE QUEST', `Something is stirring on ${content.branch(st.tide).island}. Sail there to find it.`, [sailTide('GO NOW')]);
       if (home) return say(speech, 'THE LONG GRASS', 'Nothing here today. Sail to an island to find wild creatures.');
       if (st.teachDue && !st.midway) return say(speech, person.name.toUpperCase(), "Hey captain! Come and learn a new move first. I'm by the path.");
@@ -175,9 +182,10 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
   const use = (poi: Poi) => uses[poi.kind]();
   const walkAndUse = (poi: Poi) => scene.walkTo(poi, () => use(poi));
 
+  const grassLabel = (kind: PoiKind) => (kind !== 'grass' ? undefined : home && st.review ? 'REVIEW' : branch === 'workshop' ? 'WRITE' : undefined);
   scene.onNear = (poi) => {
     action.disabled = !poi;
-    action.textContent = poi ? (poi.kind === 'grass' && branch === 'workshop' ? 'WRITE' : ACTION_LABEL[poi.kind]) : '·';
+    action.textContent = poi ? grassLabel(poi.kind) ?? ACTION_LABEL[poi.kind] : '·';
     if (!poi) speech.replaceChildren();
   };
   scene.onStep = (poi) => {

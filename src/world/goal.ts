@@ -1,5 +1,7 @@
 import crewData from '../../content/crew.json';
 import type { Branch, BranchId, Content, CrewId, Skill } from '../content/types';
+import { encounterOf } from '../core/game';
+import { reviewDue } from '../core/review';
 import { keeperOpen, unlockedSkills } from '../core/route';
 import { skillProgress, type Activity, type Day, type Save } from '../core/save';
 import type { PoiKind } from './scene';
@@ -16,13 +18,15 @@ export interface PlaceState {
   keeperReady: boolean;
   tide: BranchId | null;
   done: boolean;
+  /** Home only: a Daily review is waiting, or one is under way. */
+  review: boolean;
 }
 
 const crewNames = crewData as Record<CrewId, { name: string }>;
 
 export function activityBranch(content: Content, a: Activity): BranchId {
   if (a.kind === 'keeper') return a.branch;
-  const skill = a.kind === 'teach' ? a.skill : content.encounter(a.id).skill;
+  const skill = a.kind === 'teach' ? a.skill : content.encounter(encounterOf(a)).skill;
   return content.skill(skill).branch;
 }
 
@@ -44,6 +48,12 @@ export function islandProgress(content: Content, save: Save, branch: BranchId): 
   return skills.filter(counts).length / skills.length;
 }
 
+/** A Daily review can start, or has started, from Home Island. Another activity left midway comes first. */
+export function reviewReady(content: Content, save: Save, today: Day): boolean {
+  if (save.activity) return save.activity.kind === 'review';
+  return reviewDue(content, save, today);
+}
+
 function tideOpen(content: Content, save: Save, today: Day): BranchId | null {
   const t = save.tide;
   return t && !t.done && t.day === today && charted(content, t.branch) ? t.branch : null;
@@ -51,9 +61,9 @@ function tideOpen(content: Content, save: Save, today: Day): BranchId | null {
 
 export function placeState(content: Content, save: Save, place: Place, today: Day): PlaceState {
   const tide = tideOpen(content, save, today);
-  if (place === 'home') return { home: true, open: false, teachDue: false, midway: null, keeperReady: false, tide, done: false };
+  if (place === 'home') return { home: true, open: false, teachDue: false, midway: null, keeperReady: false, tide, done: false, review: reviewReady(content, save, today) };
   const open = charted(content, place);
-  const a = save.activity;
+  const a = save.activity?.kind === 'review' ? undefined : save.activity;
   return {
     home: false,
     open,
@@ -62,6 +72,7 @@ export function placeState(content: Content, save: Save, place: Place, today: Da
     keeperReady: open && keeperOpen(content, save, place) && !save.branches[place].keeper,
     tide,
     done: open && finished(content, save, place),
+    review: false,
   };
 }
 
@@ -71,7 +82,7 @@ export function alertsFor(content: Content, save: Save, place: Place, today: Day
   const goal = goalFor(content, save, place, today);
   const alerts: Record<PoiKind, boolean> = {
     crew: st.teachDue || st.midway === 'teach',
-    grass: st.home ? !!st.tide : st.open && (!st.teachDue || (st.midway !== null && st.midway !== 'teach')),
+    grass: st.home ? !!st.tide || st.review : st.open && (!st.teachDue || (st.midway !== null && st.midway !== 'teach')),
     keeper: st.keeperReady,
     boat: false,
     sign: false,
@@ -91,7 +102,7 @@ export function nextIsland(content: Content, save: Save, today: Day, except?: Br
 }
 
 function lastPlayed(content: Content, save: Save): BranchId | undefined {
-  if (save.activity) return activityBranch(content, save.activity);
+  if (save.activity && save.activity.kind !== 'review') return activityBranch(content, save.activity);
   let best: BranchId | undefined, bestDay = -Infinity;
   for (const b of content.branches) {
     const day = save.branches[b.id].lastDay ?? -Infinity;
@@ -110,7 +121,7 @@ interface Ctx {
   branch: Branch | undefined;
 }
 
-type Rule = { when: (c: Ctx) => boolean; kind: PoiKind; line: (c: Ctx) => string };
+type Rule = { when: (c: Ctx) => boolean; kind: PoiKind; line: (c: Ctx) => string; label?: string };
 
 const crewName = (c: Ctx) => {
   const first = c.branch && c.content.skillsOf(c.branch.id)[0];
@@ -138,6 +149,7 @@ const ISLAND_RULES: Rule[] = [
 
 const HOME_RULES: Rule[] = [
   { when: (c) => !!c.st.tide, kind: 'board', line: (c) => `Today's tide quest is on ${c.content.branch(c.st.tide!).island}. Check the notice board!` },
+  { when: (c) => c.st.review, kind: 'grass', line: () => "Daily review: three quick moves from islands you've done.", label: 'REVIEW' },
   { when: (c) => !!nextIsland(c.content, c.save, c.today), kind: 'boat', line: (c) => `Walk to the dock and ${sailTo(c)}!` },
   { when: () => true, kind: 'boat', line: () => 'Every island is done! Walk to the dock and sail anywhere for a rematch.' },
 ];
@@ -145,5 +157,5 @@ const HOME_RULES: Rule[] = [
 export function goalFor(content: Content, save: Save, place: Place, today: Day): Goal {
   const c: Ctx = { content, save, today, st: placeState(content, save, place, today), branch: place === 'home' ? undefined : content.branch(place) };
   const rule = (place === 'home' ? HOME_RULES : ISLAND_RULES).find((r) => r.when(c))!;
-  return { kind: rule.kind, line: rule.line(c), label: rule.kind === 'crew' ? crewName(c).toUpperCase() : LABELS[rule.kind] };
+  return { kind: rule.kind, line: rule.line(c), label: rule.label ?? (rule.kind === 'crew' ? crewName(c).toUpperCase() : LABELS[rule.kind]) };
 }

@@ -262,6 +262,17 @@
       "name": "Ledgeling",
       "evolved": "Ledgewing",
       "blurb": "A fairy martin that builds a fresh mud nest on a new ledge whenever the time, place, topic or speaker changes. One nest, one paragraph."
+    },
+    "write": {
+      "ask": "Write the first sentence of the next paragraph. Show that the time or place has changed.",
+      "given": [
+        "Mo put his pie in the oven and went outside to build a snowman."
+      ],
+      "checks": [
+        "My first words show a new time or place",
+        "It makes sense straight after Mo's sentence"
+      ],
+      "model": "An hour later, a burning smell drifted out of the hut."
     }
   },
   "encounters": [
@@ -692,7 +703,7 @@
       "topic": "art",
       "frame": "Indi wrote about her first art show. The Ledgeling is nesting on a picture frame.",
       "prompt": "Indi wrote this as one paragraph. Tap the sentence where a new paragraph should start.",
-      "success": "'Three days later' jumps forward in time. A big jump in time is a clear place for a new paragraph.",
+      "success": "'Three days later' is a big jump in time. 'Then' just moves to the next moment of Friday.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -703,8 +714,8 @@
           },
           " Her arms ached, but every painting hung perfectly straight. ",
           {
-            "tap": "She stuck a tiny price tag beside each one, even though she secretly hoped nobody would buy them.",
-            "reason": "This is still Friday at the lodge, getting ready. It belongs in the same paragraph."
+            "tap": "Then she stuck a tiny price tag beside each one, even though she secretly hoped nobody would buy them.",
+            "reason": "'Then' is just the next moment of the same Friday. Is that a big change?"
           },
           " ",
           {
@@ -885,13 +896,13 @@
       "frame": "Wren wrote about her first sea dragon. The Ledgeling has never seen the sea.",
       "text": "Wren had always wanted to see a weedy sea dragon, and today was her chance. She rolled backwards off the dive boat and sank slowly through the cold green water. Below her, the kelp swayed like a forest in the wind. She swam between the long brown fronds, searching every shadow. For twenty minutes, she saw nothing but a grumpy crab. Then, just as her air was running low, something moved. A sea dragon, no longer than a ruler, drifted out from the kelp, its leafy fins fluttering. Wren hovered perfectly still and watched it for as long as she possibly dared, holding her breath. Back on the boat, she peeled off her mask and burst into happy tears. She wiped her eyes on the towel that Tully handed her. Mo asked if sea dragons breathe fire. Wren was too happy to explain.",
       "prompt": "Which sentence should start a new paragraph?",
-      "success": "'Back on the boat' moves from under the water to the boat. A change of place starts a new paragraph.",
+      "success": "'Back on the boat' moves from under the water to the boat. 'Then' only moves to the next moment.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "She swam between the long brown fronds, searching every shadow.",
-            "reason": "Wren is still underwater, searching. Same time, same place."
+            "text": "Then, just as her air was running low, something moved.",
+            "reason": "'Then' is just the next moment. Wren is still underwater in the kelp."
           },
           {
             "text": "Wren hovered perfectly still and watched it for as long as she possibly dared, holding her breath.",
@@ -914,7 +925,7 @@
       "topic": "robots",
       "frame": "Gus wrote about the Robot Ladder Race. A Ledgeling watched from the top of the tower.",
       "prompt": "Gus wrote this as one paragraph. Tap the sentence where a new paragraph should start.",
-      "success": "'At the summit' jumps from the foot of the tower to the top. A new place starts a new paragraph.",
+      "success": "'At the summit' jumps from the foot of the tower to the top. 'Next to him' is the same place.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -923,7 +934,12 @@
             "tap": "Clank's suction-cup feet squeaked against the bottom rung as he waited for the starting horn.",
             "reason": "This is still at the foot of the tower, before the race. Nothing has changed yet."
           },
-          " Next to him, a sleek silver robot called Dazzle flashed its lights at the crowd. ",
+          " ",
+          {
+            "tap": "Next to him, a sleek silver robot called Dazzle flashed its lights at the crowd.",
+            "reason": "'Next to him' is a place word, but Dazzle is right beside Clank at the start. Has the place changed?"
+          },
+          " ",
           {
             "tap": "Its owner, a boy in a gold tracksuit, smirked at Gus and looked away.",
             "reason": "This is still at the start line, at the bottom of the tower. It stays in the same paragraph."
@@ -940,11 +956,11 @@
           " The Architect, waiting beside a finish line scratched into the snow, clicked a stopwatch. ",
           {
             "tap": "Close behind him, Dazzle crawled over the edge with its lights flickering weakly.",
-            "reason": "This is still at the summit, at the finish line. It belongs with Clank arriving."
+            "reason": "'Close behind him' is a place word, but we're still at the summit. Has the place changed?"
           },
           " Its batteries, it turned out, did not like the cold. The Architect handed Gus a trophy shaped like a ladder."
         ],
-        "answer": 3
+        "answer": 4
       }
     },
     {
@@ -953,28 +969,28 @@
       "topic": "sport",
       "frame": "Tully wrote about how she made the Reef Rays junior squad. The Ledgeling has heard it eleven times.",
       "text": "Every evening after school, Tully went down to the frozen oval at the bottom of Scaffold Peaks to practise kicking. Her goal was simple: to make the Reef Rays junior squad, the team she had supported since she was four years old. She set up a row of witches' hats along the boundary and tried to kick the ball between them from fifty metres out. Most of her kicks sailed wide, and one bounced off a seagull, who was not impressed. Her fingers went numb inside her gloves, and her breath came out in clouds. Still, she kept a notebook in her pocket and wrote down every single kick, the good ones and the terrible ones, until the floodlights switched off at seven. Six months later, on the same frozen oval, Tully kicked her hundredth goal in a row without missing once. The Reef Rays coach, who had been watching quietly from the fence, wrote something in a notebook of her own. Then she walked over and handed Tully an envelope with the club's logo on the front.",
-      "prompt": "Tully started a new paragraph at 'Six months later'. Why?",
-      "success": "The time changes: 'Six months later' jumps forward, while the place and the topic stay the same.",
+      "prompt": "Tully started a new paragraph at 'Her fingers went numb inside her gloves'. Is that a good place?",
+      "success": "Nothing changes there: same evening, same oval, same practice. 'Six months later' is the better place.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The place changes.",
-            "reason": "'On the same frozen oval' tells you the place stays the same."
+            "text": "No, because the time, place and topic all stay the same there."
           },
           {
-            "text": "The topic changes.",
-            "reason": "Both paragraphs are about Tully's goal of making the squad. Only the time jumps."
+            "text": "Yes, because the cold is a new topic, separate from the kicking.",
+            "reason": "Numb fingers are part of the same practice. The topic is still Tully's kicking."
           },
           {
-            "text": "The speaker changes.",
-            "reason": "Nobody speaks in this story. The new paragraph starts with 'Six months later'."
+            "text": "Yes, because that's where her practice starts to go badly.",
+            "reason": "Her kicks were already sailing wide before that. It is still the same evening."
           },
           {
-            "text": "The time changes."
+            "text": "No, because the new paragraph should start at 'Still, she kept'.",
+            "reason": "'Still' carries on the same practice. The big jump comes at 'Six months later'."
           }
         ],
-        "answer": 3
+        "answer": 0
       }
     },
     {
@@ -1117,13 +1133,13 @@
       "frame": "A story called 'The List' was pinned up at the Peaks Star Club. A Ledgeling is reading it by starlight.",
       "text": "The night before the launch, eleven-year-old Kip lay on the roof of his house at the foot of Scaffold Peaks and stared at the stars. He had a cheap plastic telescope, a thermos of hot chocolate and a list of every planet he wanted to visit, written in green felt-tip pen. Mars was at the top of the list, underlined three times. Below his house, the launch tower glittered with lights, and he could hear the clang of engineers working late. He promised himself that one day he would ride a rocket like that one, heading somewhere nobody had ever been. He fell asleep on the roof, still holding the telescope, and his mum had to carry him inside. Thirty years later, Commander Kip Ferreira stood at the window of the first ship ever to orbit Mars. The red planet filled the glass, dusty and enormous and silent. He reached into the pocket of his flight suit and pulled out a faded list, written in green felt-tip pen. Then he crossed off the first name on it.",
       "prompt": "Which sentence should start a new paragraph?",
-      "success": "'Thirty years later' makes a huge jump in time, from a boy on a roof to a commander near Mars.",
+      "success": "'Thirty years later' jumps from a boy on a roof to a commander near Mars. The others don't change much.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Mars was at the top of the list, underlined three times.",
-            "reason": "This is still about Kip's list on the roof that night. Nothing has changed yet."
+            "text": "Below his house, the launch tower glittered with lights, and he could hear the clang of engineers working late.",
+            "reason": "'Below his house' sounds like a new place, but Kip is still on the roof, looking down."
           },
           {
             "text": "Thirty years later, Commander Kip Ferreira stood at the window of the first ship ever to orbit Mars."
@@ -1133,8 +1149,8 @@
             "reason": "This is still the night before the launch. It finishes the first part of the story."
           },
           {
-            "text": "He reached into the pocket of his flight suit and pulled out a faded list, written in green felt-tip pen.",
-            "reason": "This is still on the ship near Mars. It belongs with the commander at the window."
+            "text": "Then he crossed off the first name on it.",
+            "reason": "'Then' is just the next moment. He is still at the window near Mars."
           }
         ],
         "answer": 1

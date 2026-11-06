@@ -284,6 +284,13 @@
       "name": "Frillip",
       "evolved": "Frillavant",
       "blurb": "A frill-necked lizard that flares its frill before it makes its move, so you're already on the edge of your seat when the main action lands."
+    },
+    "write": {
+      "ask": "Join these into one sentence that leads with the dependent clause, so the surprise lands last.",
+      "given": ["The lights went out.", "Mo was halfway through his magic trick."],
+      "starter": "Just as Mo",
+      "checks": ["My sentence starts with the dependent clause", "A comma comes before the main clause", "There is no extra 'and', 'but' or 'so'"],
+      "model": "Just as Mo was halfway through his magic trick, the lights went out."
     }
   },
   "encounters": [
@@ -358,15 +365,9 @@
       "success": "Leading with 'While Mo was cooking' sets the scene. Then the smoke alarm lands at the end, like a punchline.",
       "body": {
         "format": "build",
-        "tiles": [
-          "While Mo was cooking,",
-          "the smoke alarm",
-          "went off."
-        ],
-        "accept": [
-          "While Mo was cooking, the smoke alarm went off."
-        ],
-        "reason": "Start with the part that leaves you waiting. Then add the main clause."
+        "tiles": ["The smoke alarm went off", "Mo was cooking,", "while Mo was cooking.", "While Mo was cooking,", "the smoke alarm went off."],
+        "accept": ["While Mo was cooking, the smoke alarm went off."],
+        "reason": "Which part can't stand alone? That's the dependent clause, and it goes first."
       }
     },
     {
@@ -733,21 +734,15 @@
       "id": "5.4-b3-4",
       "band": 3,
       "topic": "gross-science",
-      "frame": "Gus wants the reason first, so the gross bit lands last.",
-      "prompt": "Build Gus's sentence so it leads with the dependent clause.",
+      "frame": "Gus has two sentences for his science diary. He wants the reason first, so the gross bit lands last.",
+      "text": "The fridge had been off for a week. The yoghurt had grown a fur coat.",
+      "prompt": "Tap the pieces in order to join these. Lead with the dependent clause.",
       "success": "The reason comes first and you start to worry. Then the fur coat lands at the end. Gross.",
       "body": {
         "format": "build",
-        "tiles": [
-          "Because the fridge had been off for a week,",
-          "the yoghurt had grown a fur coat.",
-          "The yoghurt had grown a fur coat",
-          "because the fridge had been off for a week."
-        ],
-        "accept": [
-          "Because the fridge had been off for a week, the yoghurt had grown a fur coat."
-        ],
-        "reason": "Put the reason first, so the gross part comes last. Which piece gives the reason and ends in a comma?"
+        "tiles": ["The fridge had been off for a week,", "and the yoghurt had grown a fur coat.", "Although", "the fridge had been off for a week,", "Because", "the yoghurt had grown a fur coat."],
+        "accept": ["Because the fridge had been off for a week, the yoghurt had grown a fur coat."],
+        "reason": "Pick the joining word that gives a reason. After the comma, the main clause starts straight away."
       }
     },
     {
@@ -833,29 +828,19 @@
       "id": "5.4-b4-1",
       "band": 4,
       "topic": "space",
-      "frame": "Mission control wants the crew to read the condition before the order. The Frillip is checking the drafts.",
-      "prompt": "Which sentence opens with the condition?",
-      "success": "The if clause comes first, so the crew knows exactly when the order applies before they read it.",
+      "frame": "Zed is writing about the night the comet appeared. The Frillip is helping him choose his next sentence.",
+      "text": "For six days, thick cloud hid the comet from the observatory.",
+      "prompt": "Which next sentence picks up from the cloud before it shows the comet?",
+      "success": "Leading with 'when the cloud finally cleared' links back to the cloud. Then the comet lands at the end.",
       "body": {
         "format": "choose",
         "options": [
-          {
-            "text": "If oxygen levels fall below twenty per cent, the crew must return to the capsule immediately."
-          },
-          {
-            "text": "The crew must return to the capsule immediately if oxygen levels fall below twenty per cent.",
-            "reason": "This gives the order first and leaves the condition until the end."
-          },
-          {
-            "text": "The crew, if oxygen levels fall below twenty per cent, must return to the capsule immediately.",
-            "reason": "This opens with 'The crew'. The condition is squeezed into the middle."
-          },
-          {
-            "text": "Immediately, the crew must return to the capsule if oxygen levels fall below twenty per cent.",
-            "reason": "This opens with immediately, and the condition is left until the very end."
-          }
+          { "text": "The whole town saw the comet blaze across the sky when the cloud finally cleared.", "reason": "This is correct, but it jumps to the comet first. The cloud only comes back at the end." },
+          { "text": "When the cloud finally cleared, the whole town saw the comet blaze across the sky." },
+          { "text": "Although the cloud finally cleared, the whole town saw the comet blaze across the sky.", "reason": "Although signals a surprise, but a clear sky is exactly when you'd expect to see a comet." },
+          { "text": "When the cloud finally cleared, and the whole town saw the comet blaze across the sky.", "reason": "The extra 'and' leaves no main clause. After the comma, the main clause should start straight away." }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -939,66 +924,44 @@
       "id": "5.4-b4-4",
       "band": 4,
       "topic": "ocean",
-      "frame": "The dive boat skipper is writing the safety rules. The Frillip is helping.",
-      "prompt": "Build the skipper's rule so it leads with the dependent clause.",
-      "success": "The until clause comes first, so nobody misses the condition. After the comma, the main clause starts straight away.",
+      "frame": "The dive boat skipper's log so far says: 'The divers spotted a reef shark near the anchor.' The Frillip is helping with the next line.",
+      "prompt": "Build the next sentence. Its first words must be about the shark, then give the skipper's order.",
+      "success": "Leading with the because clause links back to the shark. After the comma, the main clause starts straight away.",
       "body": {
         "format": "build",
-        "tiles": [
-          "Until every diver is back on board,",
-          "the boat must stay",
-          "and the boat must stay",
-          "at the reef."
-        ],
-        "accept": [
-          "Until every diver is back on board, the boat must stay at the reef."
-        ],
-        "reason": "The until clause already joins the two ideas. After the comma, you need no second joining word."
+        "tiles": ["The skipper called everyone back on board", "Although the shark was so close,", "the skipper called everyone back on board.", "Because the shark was so close,", "because the shark was so close.", "and the skipper called everyone back on board."],
+        "accept": ["Because the shark was so close, the skipper called everyone back on board."],
+        "reason": "Start with the shark, using the joining word that fits. Then the main clause, with no extra joining word."
       }
     },
     {
       "id": "5.4-b4-5",
       "band": 4,
       "topic": "space",
-      "frame": "The observatory's newsletter fronted a dependent clause but kept an extra joining word.",
+      "frame": "The observatory's newsletter tucked a dependent clause into the middle of a sentence, then added an extra joining word.",
       "prompt": "Tap the part with the extra joining word, then choose a fix.",
-      "success": "Since already joins the two ideas, so after the comma the main clause starts straight away.",
+      "success": "Because already joins the ideas. When the dependent clause sits in the middle, the main clause just carries on.",
       "body": {
         "format": "fix",
         "parts": [
-          "Since the comet would not return for another ",
-          {
-            "tap": "seventy-six",
-            "reason": "Seventy-six is fine. Look for an extra joining word after the comma."
-          },
+          "The ",
+          { "tap": "astronomers", "reason": "The astronomers are who the sentence is about. Look for the joining word that has nothing to join." },
+          ", ",
+          { "tap": "because", "reason": "Because is the one joining word this sentence needs. It starts the dependent clause." },
+          " the comet would not return for another ",
+          { "tap": "seventy-six", "reason": "The number is fine. Look for the joining word that has nothing to join." },
           " years, ",
-          {
-            "tap": "so astronomers"
-          },
-          " stayed up all ",
-          {
-            "tap": "night",
-            "reason": "Night is fine. Look for an extra joining word after the comma."
-          },
+          { "tap": "and stayed" },
+          " up all ",
+          { "tap": "night", "reason": "Night is fine. Look for the joining word that has nothing to join." },
           " to watch it."
         ],
-        "spot": 1,
+        "spot": 3,
         "options": [
-          {
-            "text": "astronomers"
-          },
-          {
-            "text": "and astronomers",
-            "reason": "And adds a second joining word. Since has already linked the two ideas."
-          },
-          {
-            "text": "but astronomers",
-            "reason": "But adds a second joining word and signals a surprise that isn't there."
-          },
-          {
-            "text": "or astronomers",
-            "reason": "Or adds a second joining word and offers a choice that makes no sense here."
-          }
+          { "text": "stayed" },
+          { "text": "but stayed", "reason": "But is another joining word. 'Because' already joins the two ideas." },
+          { "text": "yet stayed", "reason": "Yet is another joining word, and it adds a clash that isn't there." },
+          { "text": "or stayed", "reason": "Or is another joining word, and it adds a choice that isn't there." }
         ],
         "answer": 0
       }
@@ -1007,30 +970,19 @@
       "id": "5.4-b4-6",
       "band": 4,
       "topic": "animals",
-      "frame": "The zoo newsletter tells the story of a new keeper's first day.",
-      "prompt": "Tap the sentence that leads with a dependent clause.",
-      "success": "'Because the gate had been left unlatched' comes first, so the emu chase lands at the end as the surprise.",
+      "frame": "The zoo newsletter has four lines about the runaway emu. Maxx Vantablack says they all lead with a dependent clause.",
+      "prompt": "Tap the only line that really leads with a dependent clause.",
+      "success": "'If the emu escapes again' can't stand alone. The question after it is the main clause.",
       "body": {
         "format": "tapText",
         "parts": [
-          {
-            "tap": "The zoo's new keeper was nervous on her first day.",
-            "reason": "This is just one main clause. There's no dependent clause to lead with."
-          },
+          { "tap": "When will the emu finally calm down?", "reason": "Say it out loud. It's a whole question that makes sense alone, so there's no dependent clause." },
           " ",
-          {
-            "tap": "She fed the penguins before she cleaned the seal pool.",
-            "reason": "This has a dependent clause, but it comes last. 'She fed the penguins' leads."
-          },
+          { "tap": "Before breakfast, check the latch on the emu gate.", "reason": "'Before breakfast' has no verb. It's a phrase, not a dependent clause." },
           " ",
-          {
-            "tap": "Because the gate had been left unlatched, she spent the afternoon chasing an emu around the car park."
-          },
+          { "tap": "If the emu escapes again, who will catch it?" },
           " ",
-          {
-            "tap": "The emu, which seemed to be enjoying itself, refused to slow down.",
-            "reason": "The which part is tucked into the middle. The sentence leads with 'The emu', which belongs to the main clause."
-          }
+          { "tap": "Check the emu gate before you go home.", "reason": "This has a dependent clause, but it comes last. The instruction leads." }
         ],
         "answer": 2
       }

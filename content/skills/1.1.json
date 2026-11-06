@@ -293,6 +293,21 @@
       "name": "Squintle",
       "evolved": "Squintalon",
       "blurb": "A tawny frogmouth that sits so still it looks like a broken branch. It won't open its eyes until you point to the exact words that answer the question."
+    },
+    "write": {
+      "ask": "Where and when does the first ghost tour leave? Answer in one sentence, using the exact details from the notice.",
+      "given": [
+        "Ghost tours run every Friday night.",
+        "The first tour leaves from the jetty.",
+        "It leaves at 8 pm sharp."
+      ],
+      "starter": "The first ghost tour leaves",
+      "checks": [
+        "My sentence gives the place from the notice.",
+        "My sentence gives the time from the notice.",
+        "I added nothing the notice doesn't say."
+      ],
+      "model": "The first ghost tour leaves from the jetty at 8 pm sharp."
     }
   },
   "encounters": [
@@ -703,21 +718,21 @@
       "topic": "gross-science",
       "frame": "Gus left his science log on the galley table, right next to the bread.",
       "text": "GUS'S MOULD LOG. On Monday I put four slices of bread in four different places to see which would grow mould first. Slice A went in the fridge. Slice B went on a sunny windowsill. Slice C went in the dark cupboard under the sink. Slice D went in my school bag, which I sometimes forget to empty. I checked them every afternoon. By Wednesday, nothing had changed, except that Slice B had gone hard and crunchy, like a cracker. On Thursday afternoon I saw the first green fuzz, and it was on Slice C. Slice D grew a fuzzy patch too, but not until Friday, and it was purple. Mum found it before I could write it up. She also found a banana in there from last term. Slice A, the fridge slice, still looked perfect after a whole week. My conclusion is that mould likes dark, damp places, and Mum does not like my school bag.",
-      "prompt": "Which slice grew mould first?",
-      "success": "The first green fuzz was on Slice C, on Thursday. The word 'first' is the key.",
+      "prompt": "Which slice grew mould before any of the others?",
+      "success": "Slice C. 'The first green fuzz' is the first mould, and it was on Slice C on Thursday.",
       "body": {
         "format": "choose",
         "options": [
           {
             "text": "Slice D, in the school bag",
-            "reason": "Slice D grew mould too, but not until Friday. Find the word 'first' in the log."
+            "reason": "Slice D grew a fuzzy patch too, but not until Friday. Which slice had fuzz on Thursday?"
           },
           {
             "text": "Slice C, in the cupboard"
           },
           {
             "text": "Slice B, on the windowsill",
-            "reason": "Slice B went hard and crunchy. The log never says it grew mould."
+            "reason": "Slice B changed first, but it went hard and crunchy. The log never says it grew mould."
           },
           {
             "text": "Slice A, in the fridge",
@@ -733,7 +748,7 @@
       "topic": "music",
       "frame": "An email has arrived for the whole school. Zed is reading it over Tully's shoulder.",
       "prompt": "Tap the sentence that tells you the new date of the concert.",
-      "success": "The concert has moved to Friday the 24th of March. The word 'moved' tells you it's the new date.",
+      "success": "The concert moves to the day the cast comes off. The doctor says that's Friday the 24th of March.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -745,30 +760,25 @@
           " ",
           {
             "tap": "Sadly, our drummer, Fizz, has broken her wrist falling off a skateboard.",
-            "reason": "This tells you what went wrong, not the new date."
+            "reason": "This tells you what went wrong, not when the band will play."
           },
-          " She is fine, but she can't drum with a cast on. ",
+          " We tried using our bass player's little brother instead, but he only knows one beat. Fizz can't drum with a cast on, so we have moved the concert to the day her cast comes off. ",
           {
-            "tap": "We tried using our bass player's little brother instead, but he only knows one beat.",
-            "reason": "This is about a drummer they tried, not when the concert is."
+            "tap": "Her doctor says the cast will come off on Friday the 24th of March."
           },
           " ",
           {
-            "tap": "So we have moved the concert to Friday the 24th of March, when Fizz's cast comes off."
+            "tap": "The concert will still start at 2 pm in the school hall.",
+            "reason": "This gives the time and the place. Which day does the cast come off?"
           },
-          " It will still start at 2 pm in the school hall. ",
+          " Please keep your tickets, because they will still work. ",
           {
-            "tap": "Please keep your tickets, because they will still work.",
-            "reason": "This is about tickets. It doesn't give a date."
+            "tap": "If you can't come on the new date, the office will give you your money back.",
+            "reason": "This says 'new date', but it never tells you what the date is."
           },
-          " If you can't come on the new date, the office will give you your money back. ",
-          {
-            "tap": "Fizz says sorry, and she promises to drum twice as loud to make up for it.",
-            "reason": "This is Fizz's apology. There's no date in it."
-          },
-          " Rock on, the Gumleaf Rockets."
+          " Fizz says sorry, and she promises to drum twice as loud to make up for it. Rock on, the Gumleaf Rockets."
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -796,9 +806,9 @@
       "band": 3,
       "topic": "food",
       "frame": "Gus wrote a shopping list from Mo's recipe card. One amount is wrong.",
-      "text": "MO'S FAMOUS (ALMOST) PIKELETS. Makes about twenty pikelets, or twelve if Gus is helping. You will need one cup of self-raising flour, two tablespoons of sugar, one egg and three-quarters of a cup of milk. Wear an apron, because the batter goes everywhere. Mix the flour and sugar in a big bowl. In a jug, whisk the egg and milk together until they are frothy. Pour the jug into the bowl and stir until there are no lumps. Leave the batter to rest for ten minutes, which is a good time to wash your hands again. Heat a frying pan with a little butter. Drop in one tablespoon of batter for each pikelet. When bubbles appear on top, flip it over and cook it for one more minute. Keep the first pikelet for the cook, because it is always the ugly one. Serve with jam and cream. Do not serve with tomato sauce, no matter what Mo tells you.",
+      "text": "MO'S FAMOUS (ALMOST) PIKELETS. Makes about twenty pikelets, or twelve if Gus is helping. You will need one cup of self-raising flour, two tablespoons of sugar, one egg and some milk. Wear an apron, because the batter goes everywhere. Mix the flour and sugar in a big bowl. In a jug, whisk the egg with three-quarters of a cup of milk until it is frothy. Pour the jug into the bowl and stir until there are no lumps. Leave the batter to rest for ten minutes, which is a good time to wash your hands again. Heat a frying pan with a little butter. Drop in one tablespoon of batter for each pikelet. When bubbles appear on top, flip it over and cook it for one more minute. Keep the first pikelet for the cook, because it is always the ugly one. Serve with jam and cream. Do not serve with tomato sauce, no matter what Mo tells you.",
       "prompt": "Tap the amount Gus got wrong, then choose the right one from the recipe.",
-      "success": "The recipe says three-quarters of a cup of milk. 'One cup' belongs to the flour.",
+      "success": "The list just says 'some milk'. The method gives the amount: three-quarters of a cup.",
       "body": {
         "format": "fix",
         "parts": [
@@ -827,7 +837,7 @@
         "options": [
           {
             "text": "one cup of milk",
-            "reason": "One cup is the amount of flour. Find the word 'milk' in the list."
+            "reason": "One cup is the amount of flour. Read on to where the milk goes into the jug."
           },
           {
             "text": "three-quarters of a cup of milk"
@@ -850,25 +860,25 @@
       "topic": "space",
       "frame": "Mission control is broadcasting to the whole archipelago.",
       "text": "Good evening from the Hollowgum Space Centre. Here is the latest news on the Wattle-7 probe. Wattle-7 was launched eleven years ago to study the icy moons of a faraway planet. Last night it sent back its sharpest photo yet. The team cheered so loudly that a security guard came to check. The photo shows a moon called Frost-3, covered in cracks like a smashed windscreen. Scientists think the cracks are only about two hundred years old, which is very young for a moon. Under the ice, there may be an ocean three times deeper than any on Earth. Wattle-7 will fly past Frost-3 again in six weeks. This time it will pass just forty kilometres above the surface, closer than any probe has gone before. After that, its fuel will start to run low. The team plans to crash it gently into the planet in two years, so that it can't spread Earth germs to the moons.",
-      "prompt": "How long until Wattle-7 flies past Frost-3 again?",
-      "success": "The broadcast says it 'will fly past Frost-3 again in six weeks'. The word 'again' matched.",
+      "prompt": "When will Wattle-7 go closer to Frost-3 than any probe has before?",
+      "success": "'This time' means the flyby in six weeks. That's when it passes forty kilometres above the moon.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "two years",
-            "reason": "That's when the team plans to crash the probe into the planet."
+            "text": "in two years",
+            "reason": "That's when the team will crash the probe into the planet, not fly past the moon."
           },
           {
-            "text": "eleven years",
-            "reason": "That's how long ago Wattle-7 was launched."
+            "text": "last night",
+            "reason": "Last night it sent back a photo. The close pass hasn't happened yet."
           },
           {
-            "text": "two hundred years",
-            "reason": "That's how old scientists think the cracks are."
+            "text": "once its fuel starts to run low",
+            "reason": "'After that' its fuel runs low. The close pass comes before the fuel runs low."
           },
           {
-            "text": "six weeks"
+            "text": "in six weeks"
           }
         ],
         "answer": 3
@@ -881,7 +891,7 @@
       "frame": "The Squintle has spotted a story in the Hollowgum Herald.",
       "text": "WOMBAT DIGS INTO TROUBLE. A young wombat caused chaos at Hollowgum Golf Club on Tuesday morning. Groundskeeper Pat Nguyen arrived at six o'clock to find seventeen holes dug across the eighth green. Some of the holes were big enough to lose a golf ball in, which several golfers did. 'I thought a giant mole had moved in,' Pat said. The culprit was found asleep in a bunker near the clubhouse, snoring loudly. Wildlife carer Jo Banks was called at half past seven. She said the wombat was about a year old and had probably lost its mum. She has named him Bogey. 'He's a cheeky one,' Jo said. Bogey is now living at Jo's shelter in Pine Gully, where he has already dug under the fence twice. He will be released into the bush in spring, once he is big enough to look after himself. Golfers have been asked to use the other course for the rest of the week.",
       "prompt": "Match each detail to the question it answers.",
-      "success": "Two 'when' questions and two 'where' questions. You read the words around each detail to tell them apart.",
+      "success": "Each detail sits beside its own key word: arrived, called, asleep or living.",
       "body": {
         "format": "sort",
         "bins": [
@@ -894,22 +904,32 @@
           {
             "text": "at six o'clock",
             "bin": 0,
-            "reason": "The report says Pat 'arrived at six o'clock'."
+            "reason": "Find the word 'arrived'. Which time sits right beside it?"
           },
           {
             "text": "at half past seven",
             "bin": 1,
-            "reason": "The report says Jo 'was called at half past seven'."
+            "reason": "Find the word 'called'. Which time sits right beside it?"
           },
           {
-            "text": "in a bunker near the clubhouse",
+            "text": "in a bunker",
             "bin": 2,
-            "reason": "The wombat 'was found asleep in a bunker near the clubhouse'."
+            "reason": "Find 'found asleep'. Read the words straight after it."
           },
           {
-            "text": "at Jo's shelter in Pine Gully",
+            "text": "at Jo's shelter",
             "bin": 3,
-            "reason": "The report says Bogey 'is now living at Jo's shelter in Pine Gully'."
+            "reason": "Find 'now living'. Read the words straight after it."
+          },
+          {
+            "text": "near the clubhouse",
+            "bin": 2,
+            "reason": "Find 'found asleep'. Read to the end of that sentence."
+          },
+          {
+            "text": "in Pine Gully",
+            "bin": 3,
+            "reason": "Find 'now living'. Read on to the end of that part."
           }
         ]
       }
@@ -920,25 +940,25 @@
       "topic": "ocean",
       "frame": "A waterproof logbook has washed up on Hollowgum's beach. The Squintle won't stop staring at it.",
       "text": "Research ship Southern Petrel, Day 4. At 0600 we lowered the submersible, which the crew calls the Tin Can, into the trench off Cape Brindle. Dr Okafor piloted, and I sat beside her with the cameras, trying not to think about the two kilometres of water waiting below us. The Tin Can is about the size of a family car, and it smells of cold coffee and nervous people. At 800 metres the last trace of sunlight vanished, and the only light came from tiny glowing creatures drifting past like sparks. At 1,400 metres we spotted our first target: a ghost shark, pale and silvery, with eyes like dinner plates. It circled us twice before disappearing into the gloom. The real surprise came at 1,900 metres, where the sea floor was carpeted with thousands of purple sea cucumbers, all slowly vacuuming the mud. Some were as long as my arm. Dr Okafor laughed so hard she fogged up the window. We collected three samples with the robotic arm, although one sea cucumber defended itself by squirting its sticky insides all over the claw. We began our ascent at 1130 and surfaced at 1340, starving and slightly seasick. Tomorrow we dive again, this time hoping to find the giant sea louse that was filmed here in 1998.",
-      "prompt": "At what depth did the crew first see the ghost shark?",
-      "success": "'At 1,400 metres we spotted our first target: a ghost shark.' The number sits right beside it.",
+      "prompt": "How long was the Tin Can underwater, from going in to coming back up?",
+      "success": "Lowered at 0600, surfaced at 1340: that is 7 hours and 40 minutes. 1130 was only when they started up.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "800 metres",
-            "reason": "That's where the last sunlight vanished. The shark came later."
+            "text": "5 hours and 30 minutes",
+            "reason": "That takes you to 1130, when they began going up. When did they reach the surface?"
           },
           {
-            "text": "1,400 metres"
+            "text": "7 hours and 40 minutes"
           },
           {
-            "text": "1,900 metres",
-            "reason": "That's where they found the purple sea cucumbers."
+            "text": "2 hours and 10 minutes",
+            "reason": "That is only the trip back up, from 1130 to 1340. When did the dive start?"
           },
           {
-            "text": "two kilometres",
-            "reason": "That's the depth of water the writer was nervous about before the dive."
+            "text": "11 hours and 30 minutes",
+            "reason": "1130 is a time of day, not a length of time. Count from 0600 to 1340."
           }
         ],
         "answer": 1
@@ -994,7 +1014,7 @@
       "frame": "Zed has posted a game review on the ship's noticeboard. Check what it really says.",
       "text": "REVIEW: LANTERN DRIFT, by Zed. Lantern Drift is a puzzle game in which you guide a paper lantern down a river at night, lighting up hidden paths for a lost fox cub. Each level adds something new, such as whirlpools, sleeping owls or floating ice. There are forty levels, and each one takes about five minutes, although the final level took me nearly an hour and two packets of crackers. The controls are simple: tilt the screen to steer, and tap to make the lantern glow brighter. Glowing brighter uses up oil, so you have to decide when the extra light is worth it. The fox cub follows close behind and gives a tiny yip whenever it finds a star. The music is gentle and plinky, which I liked at first but found slightly annoying by level thirty. The best feature is the photo mode, which lets you pause anywhere and snap the scenery, and I have taken about three hundred shots of the same waterfall. My only real complaint is that you can't replay a level once you have finished it, so if you miss a hidden star, it's gone for good. Overall, Lantern Drift is calm, clever and occasionally frustrating. I give it eight lanterns out of ten.",
       "prompt": "Match each sentence to the right box.",
-      "success": "You checked each one against the exact words. 'Eight out of ten' is a score, not a price.",
+      "success": "You joined clues, like five-minute levels and an hour-long last level. 'Eight out of ten' is a score.",
       "body": {
         "format": "sort",
         "bins": [
@@ -1004,19 +1024,14 @@
         ],
         "items": [
           {
-            "text": "Making the lantern glow brighter uses up oil.",
+            "text": "Using extra light in the game comes at a cost.",
             "bin": 0,
-            "reason": "The review says, 'Glowing brighter uses up oil.'"
+            "reason": "The review says glowing brighter uses up oil. That is the cost."
           },
           {
-            "text": "You can replay a level after you finish it.",
+            "text": "A star you miss can be collected on a second try.",
             "bin": 1,
-            "reason": "The review says you can't replay a level once you've finished it."
-          },
-          {
-            "text": "Zed enjoyed the music all the way through.",
-            "bin": 1,
-            "reason": "Zed says the music got slightly annoying by level thirty."
+            "reason": "You can't replay a finished level, so a missed star is gone for good."
           },
           {
             "text": "The game costs ten dollars.",
@@ -1024,14 +1039,24 @@
             "reason": "The review never gives a price. 'Eight lanterns out of ten' is Zed's score."
           },
           {
+            "text": "Zed spent longer on the final level than on the others.",
+            "bin": 0,
+            "reason": "Each level takes about five minutes. How long did the final level take him?"
+          },
+          {
             "text": "The fox cub finds its family at the end.",
             "bin": 2,
             "reason": "The review never says how the story ends."
           },
           {
-            "text": "You steer by tilting the screen.",
-            "bin": 0,
-            "reason": "The review says, 'tilt the screen to steer'."
+            "text": "Zed liked the music more and more as he played.",
+            "bin": 1,
+            "reason": "He liked it at first, but by level thirty he found it annoying."
+          },
+          {
+            "text": "Zed stopped playing before the final level.",
+            "bin": 1,
+            "reason": "He tells you how long the final level took him. Did he skip it?"
           }
         ]
       }
@@ -1040,63 +1065,63 @@
       "id": "1.1-b4-4",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren is reading a letter from the wildlife park to the class. She's already planning her outfit.",
-      "text": "Dear Year 5/6 at Hollowgum Primary, thank you for raising $340 to adopt Dot, our southern cassowary, for the year. Your money will pay for her fruit, which is a big job, because Dot eats about five kilograms of it a day and is extremely fussy about her figs. You asked lots of questions in your letter, so here are some answers. Dot is twenty-two years old, which makes her the oldest bird in the park. She has a bony helmet on her head called a casque, and nobody is quite sure what it is for. She weighs fifty-eight kilograms, about the same as a grown-up, and she can run at nearly fifty kilometres an hour, which is why her keepers never turn their backs on her. The bright blue skin on her neck goes even brighter when she is cross, which is usually at the leaf blower. Her keepers say she is clever, moody and very good at stealing hats. As her adopters, you are invited to a behind-the-scenes visit on Wednesday the 9th of May. Please arrive at the side gate by 9.30 am, because the main gate does not open until ten. Wear closed shoes, and please do not bring any fruit, or Dot will follow you home. Yours sincerely, Lena Ward, Head Keeper",
-      "prompt": "When and where should the class arrive for the visit?",
-      "success": "The letter says to arrive at the side gate by 9.30 am. Both parts of the answer had to match.",
+      "frame": "Wren is reading a letter from the wildlife park to the class. She has written four plans for the visit.",
+      "text": "Dear Year 5/6 at Hollowgum Primary, thank you for raising $340 to adopt Dot, our southern cassowary, for the year. Your money will pay for her fruit, which is a big job, because Dot eats about five kilograms of it a day and is extremely fussy about her figs. You asked lots of questions in your letter, so here are some answers. Dot turns twenty-two on Monday the 7th of May, and she is already the oldest bird in the park. She has a bony helmet on her head called a casque, and nobody is quite sure what it is for. She weighs fifty-eight kilograms, about the same as a grown-up, and she can run at nearly fifty kilometres an hour, which is why her keepers never turn their backs on her. The bright blue skin on her neck goes even brighter when she is cross, which is usually at the leaf blower. Her keepers say she is clever, moody and very good at stealing hats. As her adopters, you are invited to a behind-the-scenes visit two days after her birthday. The main gate does not open until ten, so please be at the side gate at least half an hour before that. Wear closed shoes, and please do not bring any fruit, or Dot will follow you home. Yours sincerely, Lena Ward, Head Keeper",
+      "prompt": "Which of Wren's plans follows every instruction in the letter?",
+      "success": "Two days after Monday the 7th is Wednesday the 9th. Half an hour before ten is 9.30, so 9.15 works.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "by 9.30 am, at the side gate"
+            "text": "Wednesday 9 May, side gate at 9.15 am, in sandals, no fruit",
+            "reason": "Sandals leave your toes out. The letter asks everyone to wear closed shoes."
           },
           {
-            "text": "at ten, at the main gate",
-            "reason": "Ten is when the main gate opens. Read on: where and by when must the class arrive?"
+            "text": "Tuesday 8 May, side gate at 9.15 am, in sneakers, no fruit",
+            "reason": "Her birthday is Monday the 7th. Count two days on. Which day is that?"
           },
           {
-            "text": "by 9.30 am, at the main gate",
-            "reason": "The time is right. Find the sentence that says which gate to use."
+            "text": "Wednesday 9 May, side gate at 9.15 am, in sneakers, no fruit"
           },
           {
-            "text": "at ten, at the side gate",
-            "reason": "The gate is right. Check what time the class must be there."
+            "text": "Wednesday 9 May, side gate at 9.45 am, in sneakers, no fruit",
+            "reason": "Half an hour before ten is 9.30. Is 9.45 early enough?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "1.1-b4-5",
       "band": 4,
       "topic": "sport",
-      "frame": "Tully summed up the cross-country report for the Reef Rays newsletter. One detail is wrong.",
+      "frame": "Tully retold the cross-country report in her own words for the Reef Rays newsletter. One detail is wrong.",
       "text": "CROSS-COUNTRY CHAOS AT HOLLOWGUM. This year's inter-school cross-country was run in conditions that one teacher described as 'like jogging through warm porridge'. Overnight rain had turned the three-kilometre course into a mud bath, and organisers delayed the start by forty-five minutes while volunteers laid straw over the worst patches. The course wound through the paddocks behind the school and crossed Gum Creek twice. When the Year 6 boys' race finally began at 10.15, the early leader, Kai Ferris, lost a shoe in the first hundred metres and ran the rest of the course in one sock. Despite this, he finished second, just three seconds behind Ollie Brand from Pine Gully Primary. The girls' race was won by Hollowgum's own Tia Mahoney, who led from start to finish and crossed the line in eleven minutes and forty seconds, almost a minute clear of the next runner. Hollowgum finished third overall, behind Pine Gully and Seabreeze, and will host the event again next year. Officials later found more than sixty shoes stuck in the mud near the creek crossing. They are being kept in the school hall, and families have been asked to collect them by the end of the week, preferably while wearing a peg on their nose.",
-      "prompt": "Tap the detail Tully got wrong, then choose the words from the report that fix it.",
-      "success": "The report says Kai finished second, just three seconds behind Ollie Brand from Pine Gully.",
+      "prompt": "Tap the detail Tully got wrong, then choose the words that fix it.",
+      "success": "Kai finished three seconds behind Ollie Brand. Tully's other details match the report, just in new words.",
       "body": {
         "format": "fix",
         "parts": [
-          "The start was delayed by ",
+          "The race began ",
           {
-            "tap": "forty-five minutes",
-            "reason": "That's right. Organisers delayed the start by forty-five minutes."
+            "tap": "three-quarters of an hour",
+            "reason": "That's right. The start was delayed by forty-five minutes, which is three-quarters of an hour."
           },
-          ". Kai Ferris ",
+          " late. Kai Ferris ",
           {
             "tap": "won"
           },
-          " the boys' race in one sock. Tia Mahoney finished in ",
+          " the boys' race in one sock. Tia Mahoney beat the next girl by ",
           {
-            "tap": "eleven minutes and forty seconds",
-            "reason": "That's right. The report gives Tia's time as eleven minutes and forty seconds."
+            "tap": "almost a minute",
+            "reason": "That's right. Tia was almost a minute clear of the next runner."
           },
-          ". Officials found more than ",
+          ". Officials dug more than ",
           {
             "tap": "sixty",
-            "reason": "That's right. More than sixty shoes were found in the mud."
+            "reason": "That's right. More than sixty shoes were found stuck in the mud."
           },
-          " shoes."
+          " shoes out of the mud."
         ],
         "spot": 1,
         "options": [
@@ -1126,17 +1151,18 @@
       "frame": "Mo is telling everyone how he caught a ghost. Check the real order of events.",
       "text": "By the time the police car pulled up outside the old Gully Road post office, the 'ghost' had already been caught, and it was sitting on the front step eating a sausage roll. The whole thing had begun three nights earlier, when Mrs Petrakis, who lives across the road, saw a pale shape drifting past the post office windows at two in the morning. She rang her nephew, who posted about it online, and by the next evening a crowd of ghost hunters had gathered on the footpath with torches and phones. Nothing happened that night, apart from a great deal of shivering. On the second night, someone heard a low moaning sound, and two teenagers ran off so fast that they left a scooter behind. It was Mo, of all people, who solved it. On the third night, while everyone else was staring at the windows, he noticed fresh footprints in the dust leading round the back. He followed them to a broken window and found a skinny backpacker named Felix. Felix had been sleeping inside the empty building, wrapped in a white sheet to keep warm, and moaning because the floorboards were so uncomfortable. He now has a bed at the youth hostel, and Mrs Petrakis brings him lamingtons.",
       "prompt": "Put the events in the order they really happened.",
-      "success": "The story opens at the end. 'Three nights earlier' sent you back to Mrs Petrakis at the window.",
+      "success": "Felix had to be inside before anyone saw his sheet. Then 'three nights earlier' puts the nights in order.",
       "body": {
         "format": "order",
         "items": [
+          "Felix began sleeping in the empty post office.",
           "Mrs Petrakis saw a pale shape in the windows.",
           "Ghost hunters gathered on the footpath.",
           "Two teenagers ran off and left a scooter behind.",
           "Mo followed footprints round the back.",
           "The police car pulled up outside."
         ],
-        "reason": "The story starts at the end. Find 'three nights earlier', then follow the nights in order."
+        "reason": "The story starts at the end. Who was the pale shape, and when must he have moved in?"
       }
     }
   ]

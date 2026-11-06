@@ -150,3 +150,21 @@ export function moveCardBody(skill: Skill): HTMLElement[] {
     h('div', { class: 'card-test' }, h('b', {}, 'THE TEST'), h('div', { class: 'reading' }, readable(card.test))),
   ];
 }
+
+/** The Move card as a pop-up over a task. */
+export function openMoveCard(skill: Skill): void {
+  const close = h('button', { class: 'big', onclick: () => overlay.remove() }, 'CLOSE');
+  const overlay = h(
+    'div',
+    { class: 'overlay move-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': `Move card: ${skill.name}` },
+    h(
+      'div',
+      { class: 'panel pop move-card-panel' },
+      h('div', { class: 'frame' }, 'MOVE CARD'),
+      h('h2', {}, skill.name.toUpperCase()),
+      ...moveCardBody(skill),
+      h('div', { class: 'actions move-card-close' }, close),
+    ),
+  );
+  document.body.append(overlay);
+}

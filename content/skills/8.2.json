@@ -293,6 +293,19 @@
       "name": "Pinchion",
       "evolved": "Pinchionyx",
       "blurb": "A rock scorpion that hides under warm stones on the crater rim. Its pincers snip run-ons apart, and its curled tail hooks broken bits back onto a sentence."
+    },
+    "write": {
+      "ask": "Fix Gus's run-on, then hook his fragment onto a whole thought. Make one sentence or two.",
+      "given": [
+        "The volcano rumbled the crew ran for the boat.",
+        "Because the lava was coming."
+      ],
+      "checks": [
+        "My two whole thoughts aren't held by a comma alone.",
+        "My because part hangs on to a whole thought.",
+        "I read it aloud, and nothing leaves me waiting."
+      ],
+      "model": "The volcano rumbled, and the crew ran for the boat because the lava was coming."
     }
   },
   "encounters": [
@@ -618,14 +631,19 @@
       "id": "8.2-b3-4",
       "band": 3,
       "topic": "food",
-      "frame": "Mo's soup recipe warns: 'If you leave the lid off.' Off what? The Pinchion wants the whole thought.",
-      "prompt": "Tap the pieces in order to make a complete sentence.",
-      "success": "The 'if' part now hangs on to a whole thought, after a comma: the soup will boil over.",
+      "frame": "Mo has fixed the run-ons in his soup diary. The Pinchion says some of his fixes didn't work.",
+      "prompt": "Is each of Mo's lines fixed, or still broken? Sort them.",
+      "success": "Count the whole thoughts, then check what sits between them. A comma alone or however can't hold them.",
       "body": {
-        "format": "build",
-        "tiles": ["If you leave the lid off,", "If you leave the lid off.", "the soup", "the lid", "will boil over."],
-        "accept": ["If you leave the lid off, the soup will boil over."],
-        "reason": "An 'if' part can't stand alone. It needs a comma, then a whole thought that says what happens."
+        "format": "sort",
+        "bins": ["Fixed", "Still broken"],
+        "items": [
+          { "text": "The soup boiled over, Mo yelled.", "bin": 1, "reason": "Two whole thoughts with only a comma between them. It needs and or but too." },
+          { "text": "The soup boiled over, and Mo yelled.", "bin": 0, "reason": "A comma plus and joins the two whole thoughts properly." },
+          { "text": "The pot hissed, however Mo kept stirring.", "bin": 1, "reason": "However can't join two whole thoughts. It needs a full stop before it." },
+          { "text": "The pot hissed. However, Mo kept stirring.", "bin": 0, "reason": "A full stop splits the two whole thoughts, and the comma after however is right." },
+          { "text": "When the lid flew off, Mo ducked.", "bin": 0, "reason": "'When the lid flew off' can't stand alone, so it hangs on to 'Mo ducked'. That works." }
+        ]
       }
     },
     {
@@ -655,55 +673,44 @@
       "id": "8.2-b3-6",
       "band": 3,
       "topic": "music",
-      "frame": "Gus's report on the crater talent show has a sentence with nobody in it. The Pinchion has four fixes.",
-      "prompt": "Tap the part that is not a complete sentence, then choose the fix.",
-      "success": "'He finished the song on just three strings.' Now it says who (he) and what he did.",
+      "frame": "Gus's report on the crater talent show has a fragment in it. Every part says who did what, so the Pinchion is listening hard.",
+      "prompt": "Tap the part that is not a complete sentence.",
+      "success": "It says who did what, but 'because' leaves you waiting. Because he kept playing, what happened?",
       "body": {
-        "format": "fix",
+        "format": "tapText",
         "parts": [
           { "tap": "Mo entered the crater talent show with his ukulele.", "reason": "This is complete. It says who (Mo) and what he did." },
           " ",
-          { "tap": "He had practised for a whole month.", "reason": "This is complete. It says who (he) and what he had done." },
+          { "tap": "When he walked on stage, his knees were shaking.", "reason": "This is complete. The 'when' part hangs on to 'his knees were shaking'." },
           " ",
           { "tap": "Halfway through his song, a string snapped.", "reason": "This is complete. It says what (a string) and what it did." },
           " ",
-          { "tap": "Finished the song on just three strings." },
+          { "tap": "Because he kept playing on just three strings." },
           " ",
-          { "tap": "The judges gave him a prize for bravery.", "reason": "This is complete. It says who (the judges) and what they did." }
+          { "tap": "The judges gave him a prize for bravery.", "reason": "This is complete. It says who (the judges) and what they did." },
+          " ",
+          { "tap": "He has been practising ever since.", "reason": "This is complete. It's short, but it says who (he) and what he has done." }
         ],
-        "spot": 3,
-        "options": [
-          { "text": "Finished the whole song on just three strings.", "reason": "Still a fragment. It still doesn't say who finished the song." },
-          { "text": "He finished the song, he had just three strings.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
-          { "text": "He finished the song on just three strings." },
-          { "text": "On just three strings, the whole song.", "reason": "Still a fragment. Now there's no doer and no action at all." }
-        ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
       "id": "8.2-b4-1",
       "band": 4,
       "topic": "robots",
-      "frame": "A classmate's article about the school's new library robot is on the editing desk. The Pinchion has found the sentence that runs on.",
-      "prompt": "Tap the sentence that runs on.",
-      "success": "'It had sorted every book by colour' and 'the librarian nearly fainted' are jammed together with nothing between.",
+      "frame": "A classmate's article about the library robot has a run-on. Zed and Indi each fixed it a different way, and they're arguing.",
+      "text": "Draft: By lunchtime it had sorted every book by colour the librarian nearly fainted.\n\nZed's fix: By lunchtime it had sorted every book by colour. The librarian nearly fainted.\n\nIndi's fix: By lunchtime it had sorted every book by colour, and the librarian nearly fainted.",
+      "prompt": "Who fixed the run-on correctly?",
+      "success": "Both. A full stop and a comma plus and each hold two whole thoughts properly. The writer can choose.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          { "tap": "The library's new robot, which the Year 6s named Shelf, was meant to make borrowing faster.", "reason": "This is complete. The 'which' part sits inside, and 'the robot was meant to' is the main thought." },
-          " ",
-          { "tap": "On its first morning, Shelf scanned four hundred books before the bell rang.", "reason": "This is complete. It says who (Shelf) and what it did." },
-          " ",
-          { "tap": "Unfortunately, nobody had explained where each book was supposed to go.", "reason": "This is complete. It says who (nobody) and what they hadn't done." },
-          " ",
-          { "tap": "By lunchtime it had sorted every book by colour the librarian nearly fainted." },
-          " ",
-          { "tap": "Although the shelves now look like a rainbow, nobody can find anything.", "reason": "This is complete. The 'although' part hangs on to 'nobody can find anything'." },
-          " ",
-          { "tap": "Next week, the Year 6s are teaching Shelf the alphabet.", "reason": "This is complete. It says who (the Year 6s) and what they're doing." }
+        "format": "choose",
+        "options": [
+          { "text": "Zed, because Indi's comma still leaves two whole thoughts jammed into one sentence.", "reason": "Indi's comma has and after it. A comma plus a joining word holds two whole thoughts." },
+          { "text": "Indi, because a full stop would turn 'The librarian nearly fainted' into a fragment.", "reason": "'The librarian nearly fainted' says who did what. It can stand alone." },
+          { "text": "Both, because each one puts the right thing between the two whole thoughts." },
+          { "text": "Neither, because the joining word should come before the comma, not after it.", "reason": "The comma goes before and, not after. Indi has it in the right spot." }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -738,19 +745,19 @@
       "id": "8.2-b4-3",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Gus's report on blowflies is going in the science page. It has a fragment, and the Pinchion is holding its nose.",
-      "text": "Blowflies can smell a dead animal from kilometres away. Within minutes of finding it, they lay hundreds of eggs. Even though the smell would make most people gag. To a blowfly, rotting meat is the perfect nursery.",
-      "prompt": "The third sentence is a fragment. Which edit fixes it?",
-      "success": "The 'even though' part now hangs on to a whole thought: rotting meat is the perfect nursery.",
+      "frame": "Gus's report on blowflies is going in the science page. Gus thinks long sentences must be run-ons. The Pinchion is holding its nose.",
+      "text": "Blowflies, which can smell a dead animal from kilometres away, often arrive within minutes of it dying. They lay hundreds of eggs in it. The eggs hatch within a day, the maggots start eating at once. Even though the smell makes most people gag, rotting meat is the perfect nursery for a blowfly. To a hungry maggot, the smell means dinner.",
+      "prompt": "Which sentence really runs on?",
+      "success": "Length doesn't matter. 'The eggs hatch within a day' and 'the maggots start eating' have only a comma between.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Even though the smell would make most people gag. Rotting meat is a perfect nursery for blowflies.", "reason": "The 'even though' part is still cut off by a full stop, so it's still a fragment." },
-          { "text": "The smell would make most people gag, rotting meat is the perfect nursery for a blowfly.", "reason": "This is a run-on. Two whole thoughts are held together by just a comma." },
-          { "text": "Even though the smell would make most people gag, but rotting meat is the perfect nursery for a blowfly.", "reason": "'Even though' and 'but' together leave no main thought. Use only one joining word." },
-          { "text": "Even though the smell would make most people gag, rotting meat is the perfect nursery for a blowfly." }
+          { "text": "Blowflies, which can smell a dead animal from kilometres away, often arrive within minutes of it dying.", "reason": "It's long, but the 'which' part sits inside one whole thought: blowflies often arrive." },
+          { "text": "The eggs hatch within a day, the maggots start eating at once." },
+          { "text": "Even though the smell makes most people gag, rotting meat is the perfect nursery for a blowfly.", "reason": "It's long, but the 'even though' part hangs on to one whole thought with a comma." },
+          { "text": "To a hungry maggot, the smell means dinner.", "reason": "It's short, and it's one whole thought: the smell means dinner." }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {

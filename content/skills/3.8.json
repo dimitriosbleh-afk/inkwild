@@ -261,6 +261,18 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite Mo's plain line so it speaks to busy parents and says what to do.",
+      "given": [
+        "Mo's van sells hot dinners."
+      ],
+      "starter": "Home late",
+      "checks": [
+        "It has a clue that fits only busy parents.",
+        "It says what Mo wants them to do."
+      ],
+      "model": "Home late with hungry kids? Grab a hot dinner from Mo's van, ready in five minutes."
+    },
     "creature": {
       "id": "pitchling",
       "name": "Pitchling",
@@ -435,8 +447,8 @@
             "text": "teachers"
           },
           {
-            "text": "astronauts",
-            "reason": "The ad doesn't talk to astronauts. It talks about 'your class' and 'your lessons'."
+            "text": "school students",
+            "reason": "Students learn from the visit, but they can't book it. Who has a class to book for?"
           }
         ],
         "answer": 1
@@ -676,28 +688,28 @@
       "topic": "sport",
       "frame": "The Bluster Rock pool has sent a letter home with every student. The Pitchling is reading between the lines.",
       "text": "Dear families, is your child nervous in the water? Do they cling to the side of the pool, or refuse to put their face in? You're not alone, and we can help. This summer, the Bluster Rock pool is running Little Splashers, a gentle learn-to-swim program for children aged 4 to 8. Classes have no more than four children, so every child gets plenty of attention. Our teachers are patient, kind and trained to work with nervous swimmers. You can watch every lesson from the shaded viewing deck, with a free coffee from the kiosk. Lessons run on weekday mornings for two weeks in January and cost $90 for the whole program. Living on an island means your child will spend a lot of time near water, so learning to swim is one of the best gifts you can give them. Places are limited, so please book at the pool office before 15 December.",
-      "prompt": "Who is this letter mainly aimed at?",
-      "success": "It asks 'Is your child nervous?' and offers you coffee while you watch. It's talking to parents of young beginners.",
+      "prompt": "Why does the letter mention a free coffee on the shaded viewing deck?",
+      "success": "The readers are parents who sit and watch. Free coffee in the shade makes saying yes easier for them.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "parents of older children who want to race in a squad",
-            "reason": "The program is for nervous beginners aged 4 to 8, not for racing."
+            "text": "The pool wants to sell lots more coffee from its kiosk this summer.",
+            "reason": "The coffee is free, so it isn't about selling coffee. Who drinks it?"
           },
           {
-            "text": "parents of young children who are nervous in the water"
+            "text": "Coffee will help nervous children feel calm before they swim.",
+            "reason": "The children are 4 to 8 and in the water. Who sits on the deck?"
           },
           {
-            "text": "adults who are nervous in the water and want lessons themselves",
-            "reason": "The lessons are for 'your child', aged 4 to 8. The adults only watch."
+            "text": "Parents watch every lesson, so it makes their wait easy and pleasant."
           },
           {
-            "text": "swimming teachers looking for work over the summer",
-            "reason": "The letter describes its own teachers. It isn't offering jobs."
+            "text": "The swimming teachers need coffee to stay patient all morning.",
+            "reason": "The teachers are in the pool. The letter says you watch from the deck."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -799,8 +811,8 @@
       "topic": "animals",
       "frame": "Wren's wildlife shelter wrote a letter to the island's truck drivers. Tully summed it up, but got one part wrong.",
       "text": "Dear truck drivers of Bluster Rock, every week, our shelter cares for wombats, wallabies and echidnas that have been hit by vehicles on the coast road. Most of these accidents happen at dusk and dawn, when animals are moving to and from their burrows. Many of you drive this road every day, and we know you care about the island as much as we do. We are asking you to do one simple thing: please slow down to 60 kilometres an hour on the coast road between 5 pm and 7 am. If you do hit an animal, please don't try to pick it up yourself, because injured wombats can bite and scratch. Instead, call the shelter's 24-hour rescue line, which is printed on the sticker we've attached to this letter. Thank you for helping us keep our wildlife safe. From Wren and the volunteers at the Bluster Rock Wildlife Shelter.",
-      "prompt": "Tap the wrong part of Tully's summary, then choose a better one.",
-      "success": "The letter's 'one simple thing' is slowing down to 60 between 5 pm and 7 am, when animals are moving.",
+      "prompt": "Tully explained why the letter says each thing. Tap the wrong part, then choose a better one.",
+      "success": "Animals move to and from their burrows at dusk and dawn. That's when slowing down saves them.",
       "body": {
         "format": "fix",
         "parts": [
@@ -809,33 +821,33 @@
             "tap": "truck drivers",
             "reason": "That's right. It starts 'Dear truck drivers of Bluster Rock'."
           },
-          " on the island. It wants them to ",
+          ". It asks them to slow down at dusk and dawn because ",
           {
-            "tap": "stop driving on the coast road"
+            "tap": "that's when the shelter is busiest"
           },
-          ". If they hit an animal, they should call ",
+          ". It warns that injured wombats bite so that drivers ",
           {
-            "tap": "the 24-hour rescue line",
-            "reason": "That's right. The letter says to call the shelter's 24-hour rescue line."
+            "tap": "don't try to pick them up",
+            "reason": "That's right. The letter tells drivers to call the rescue line instead."
           },
           "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "pick up injured animals and bring them in",
-            "reason": "The letter says don't pick them up, because injured wombats can bite. Call the rescue line instead."
+            "text": "that's when truck drivers start and finish work",
+            "reason": "The letter doesn't say when drivers work. What happens at dusk and dawn?"
           },
           {
-            "text": "give money to the wildlife shelter",
-            "reason": "The letter doesn't ask for money. It asks for one simple thing on the road."
+            "text": "the rescue line is only open at those times",
+            "reason": "The rescue line is open 24 hours a day."
           },
           {
-            "text": "slow down on the coast road at dusk and dawn"
+            "text": "that's when most animals are crossing the road"
           },
           {
-            "text": "drive only during the night",
-            "reason": "Dusk and dawn are when animals move. The letter asks drivers to slow down, not to change when they drive."
+            "text": "the road is too dark to see the signs",
+            "reason": "The letter doesn't mention signs. Who is moving across the road then?"
           }
         ],
         "answer": 2
@@ -911,116 +923,88 @@
       "topic": "general",
       "frame": "The Bluster Rock tourism office has printed a glossy new brochure. Tully is reading it aloud in a very dramatic voice.",
       "text": "WINTER ON BLUSTER ROCK: YOUR TIME, AT LAST. The kids have left home, the alarm clock is a thing of the past, and the open road is calling. Why spend another cold, grey winter in the city when you could be watching the sun go down over the red rock, with a cup of tea in your hand and nowhere to be in the morning? Bluster Rock's caravan park has sixty powered sites, each with its own water tap and a shady tree, plus hot showers, a laundry and a camp kitchen. Stay for a week, a month or the whole season: the longer you stay, the cheaper each night becomes, and holders of a seniors' card save a further 15 per cent. Our winter days are warm and dry, averaging 22 degrees, so you can leave the heavy coats at home. Join the morning walking group, try the Tuesday lawn bowls, or simply sit by the camp fire and swap stories with fellow travellers from all over the country. Many of our winter guests have been returning every year for over a decade, and they say the island feels like a second home. Book your site now, before the best spots by the water are taken.",
-      "prompt": "Who is the brochure aimed at, and what does it want them to do?",
-      "success": "Grown-up kids, no alarm clock, a seniors' card and caravan sites all point to retired travellers spending winter here.",
+      "prompt": "Why does the brochure say that the longer you stay, the cheaper each night becomes?",
+      "success": "Retired readers can stay for weeks. Cheaper long stays fit their free time and push them to book longer.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "families with young children, to visit during the school holidays",
-            "reason": "The brochure says 'the kids have left home'. It's for people whose children are grown up."
+            "text": "Families on short school holidays need cheaper nights so they can afford a trip.",
+            "reason": "The brochure says the kids have left home. Who has a whole season free?"
           },
           {
-            "text": "young backpackers, to find seasonal work on the island",
-            "reason": "Nothing mentions jobs, and 'the alarm clock is a thing of the past' means no work to get up for."
+            "text": "The caravan park wants most guests to leave after just one night.",
+            "reason": "Cheaper long stays push the other way. They make guests stay longer."
           },
           {
-            "text": "local residents, to rent their spare rooms to tourists",
-            "reason": "The brochure talks to people living 'in the city', inviting them to come and stay."
+            "text": "Retired travellers have whole seasons free, so long, cheap stays tempt them."
           },
           {
-            "text": "retired travellers, to spend the winter in the caravan park"
+            "text": "Seasonal fruit pickers need somewhere cheap to live while they work here.",
+            "reason": "'Nowhere to be in the morning' means these readers aren't working."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "3.8-b4-2",
       "band": 4,
       "topic": "ocean",
-      "frame": "The Bluster Rock marine rangers have written to some islanders about a new program. The Pitchling is trying to work out exactly who.",
-      "prompt": "Tap the sentence that most clearly shows who the letter is written for.",
-      "success": "Holding a boat licence and fishing these waters is a precise description of the reader: local recreational fishers.",
+      "frame": "The Bluster Rock marine rangers have written to some islanders about a new program. The Pitchling is reading it twice.",
+      "text": "Dear neighbour, the marine rangers are launching a new program this spring, and we would value your help. Over the past ten years, the number of large snapper in Bluster Bay has fallen by almost half, and young fish are being caught before they are old enough to breed. Scientists from the mainland university have been counting fish in the bay since 2014. As someone who holds a boat licence and fishes these waters, you know better than anyone how the snapper have changed. The program, called Throw One Back, asks you to release any snapper shorter than 40 centimetres, even though the legal size is 30. Every participant will receive a free measuring board for their boat and a sticker for their tackle box. Results will be shared at a barbecue at the boat ramp in autumn, and the boat that releases the most fish will win a new set of rods. You can sign up at the ranger station, or by returning the form attached to this letter. We would be grateful if you could share this letter with your friends and family.",
+      "prompt": "Why does the letter tell its readers, 'you know better than anyone how the snapper have changed'?",
+      "success": "The rangers need fishers to help. Calling them the experts makes them feel trusted, so they're more likely to join.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "Dear neighbour, the marine rangers are launching a new program this spring, and we would value your help. Over the past ten years, the number of large snapper in Bluster Bay has fallen by almost half, and young fish are being caught before they are old enough to breed. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "Bluster Bay is one of the most beautiful places on the island, and it belongs to all of us.",
-            "reason": "Anyone who lives on the island could be told this. It doesn't narrow down who the reader is."
+            "text": "It shows the rangers don't know much about snapper themselves.",
+            "reason": "The rangers have ten years of fish counts. They know plenty."
           },
-          " ",
           {
-            "tap": "As someone who holds a boat licence and fishes these waters, you know better than anyone how the snapper have changed."
+            "text": "It warns the fishers that they'll be fined for catching small fish.",
+            "reason": "No fine is mentioned. Throwing back fish under 40 cm is a choice."
           },
-          " ",
           {
-            "tap": "Scientists from the mainland university have been counting fish in the bay since 2014.",
-            "reason": "This is background evidence. It tells you about the scientists, not about the reader."
+            "text": "It treats fishers as experts, so they feel part of the fix."
           },
-          " ",
           {
-            "tap": "We would be grateful if you could share this letter with your friends and family.",
-            "reason": "Any reader could be asked to share a letter. This doesn't show who it's written for."
-          },
-          " The program, called Throw One Back, asks you to release any snapper shorter than 40 centimetres, even though the legal size is 30. Every participant will receive a free measuring board for their boat and a sticker for their tackle box. Results will be shared at a barbecue at the boat ramp in autumn, and the boat that releases the most fish will win a new set of rods. You can sign up at the ranger station, or by returning the form attached to this letter."
+            "text": "It asks the fishers to count the snapper they see each week.",
+            "reason": "The letter asks them to throw small snapper back, not to count them."
+          }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
       "id": "3.8-b4-3",
       "band": 4,
       "topic": "robots",
-      "frame": "A robot vacuum company has written three ads for the same machine, each aimed at different customers. Gus has the strips spread across the galley table.",
-      "text": "The Dustwhisker 9 is a quiet robot vacuum with a dust filter and a brush for long hair. Its maker wrote three ads for it, each aimed at different customers, and Gus has to sort the mixed-up lines.",
-      "prompt": "Sort each line by the customers it is aimed at.",
-      "success": "Fur and hair point to pet owners. Sneezing and pollen point to allergy sufferers. Sleeping babies point to new parents.",
+      "frame": "A robot vacuum company has written ads for different customers. Gus has the strips spread across the galley table.",
+      "text": "The Dustwhisker 9 is a quiet robot vacuum with a dust filter and a brush for long hair. Its maker wants one more ad, this time for nurses who work all night and sleep during the day.",
+      "prompt": "Gus has four lines from the old ads. Which one would suit the night nurses best?",
+      "success": "Night nurses sleep in the day. A machine quiet enough to run during that sleep fits them best.",
       "body": {
-        "format": "sort",
-        "bins": [
-          "pet owners",
-          "people with allergies",
-          "parents of a new baby"
-        ],
-        "items": [
+        "format": "choose",
+        "options": [
           {
-            "text": "Say goodbye to dog hair on the couch and cat fur under the bed.",
-            "bin": 0,
-            "reason": "Dog hair and cat fur only matter to people who have pets."
+            "text": "Its special brush untangles long fur from a moulting kelpie.",
+            "reason": "That speaks to pet owners. Nothing says the nurses have a dog."
           },
           {
-            "text": "Its special brush untangles long fur, so it never chokes on a moulting kelpie.",
-            "bin": 0,
-            "reason": "A moulting kelpie is a pet dog, so this line speaks to pet owners."
-          },
-          {
-            "text": "Empty the bin after every walk, when muddy paws have been in and out all day.",
-            "bin": 0,
-            "reason": "Muddy paws coming in after a walk belong to a dog, so think about who owns one."
-          },
-          {
-            "text": "Its filter traps the pollen and dust that leave you sneezing every spring.",
-            "bin": 1,
-            "reason": "Sneezing at pollen and dust is what happens to people with allergies."
-          },
-          {
-            "text": "Breathe easier at night, with fewer of the specks that set off your hay fever.",
-            "bin": 1,
-            "reason": "Hay fever is an allergy, so this line is for allergy sufferers."
-          },
-          {
-            "text": "Whisper-quiet mode means it can clean the nursery while the baby naps.",
-            "bin": 2,
-            "reason": "A nursery and a napping baby speak to parents of a new baby."
+            "text": "Its filter traps the pollen that leaves you sneezing every spring.",
+            "reason": "That speaks to people with allergies. What do night workers need most?"
           },
           {
             "text": "Set it to run during the 2 am feed, without waking anyone up.",
-            "bin": 2,
-            "reason": "A 2 am feed is something new parents of a baby do."
+            "reason": "Quiet is right, but at 2 am the nurses are at work, not asleep at home."
+          },
+          {
+            "text": "Whisper-quiet mode cleans the house while you sleep through the afternoon."
           }
-        ]
+        ],
+        "answer": 3
       }
     },
     {
@@ -1029,43 +1013,43 @@
       "topic": "spooky",
       "frame": "A new escape room has opened in the old Bluster Rock bank. Indi wrote a note about its ad, but got one part wrong.",
       "text": "THE VAULT: AN ESCAPE ROOM FOR TEAMS THAT MEAN BUSINESS. Is your office running on autopilot? Do your colleagues only talk to each other in emails? Bring your workplace team to The Vault, where you'll have sixty minutes to escape a haunted bank vault before the ghost of its last manager returns from his lunch break. Solving our puzzles takes clear communication, quick decisions and real trust, the very same skills your team needs back at the office. Groups of six to twelve can book weekday sessions from 9 am to 5 pm, and we can send an invoice directly to your business. Many local companies now use The Vault for staff training days, and our meeting room is available for a debrief over coffee and pastries afterwards. Please note that The Vault is not suitable for children under 16, as some puzzles take place in near-darkness and involve a recorded scream that is, frankly, quite loud. Sessions cost $45 per person, and a team photo in the vault is included. Gift vouchers are available at the front desk for managers who want to reward a hard-working team.",
-      "prompt": "Tap the wrong part of Indi's note, then choose a better one.",
-      "success": "Offices, colleagues, invoices and staff training days all point to workplace teams, not school groups.",
+      "prompt": "Indi explained why the ad says each thing. Tap the wrong part, then choose a better one.",
+      "success": "Clear communication and trust are skills a team needs at work. That makes a boss see the room as training.",
       "body": {
         "format": "fix",
         "parts": [
           "The ad is aimed at ",
           {
-            "tap": "school groups"
+            "tap": "workplace teams",
+            "reason": "That's right. Offices, colleagues and staff training days all point to them."
           },
-          ". It wants them to ",
+          ". It says the puzzles need clear communication and trust so that ",
           {
-            "tap": "book a session",
-            "reason": "That's right. The ad wants groups to book weekday sessions."
+            "tap": "the room sounds too hard for most teams"
           },
-          " at The Vault. Each session costs ",
+          ". It offers to invoice the business so that ",
           {
-            "tap": "$45 per person",
-            "reason": "That's right. The ad says sessions cost $45 per person."
+            "tap": "the company pays, not each worker",
+            "reason": "That's right. An invoice goes to the business, and the business pays it."
           },
           "."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
           {
-            "text": "families with young children",
+            "text": "children will see it as a school lesson",
             "reason": "The ad says it isn't suitable for children under 16."
           },
           {
-            "text": "workplace teams"
+            "text": "bosses see it as training, not just fun"
           },
           {
-            "text": "tourists visiting the island",
-            "reason": "The ad talks about your office and invoicing your business, not holidays."
+            "text": "teams can keep talking only in emails",
+            "reason": "The ad pokes fun at teams who only email. It wants them talking."
           },
           {
-            "text": "ghost hunters",
-            "reason": "The ghost is part of the game. The ad sells teamwork for people who work together."
+            "text": "tourists will want to book it on holiday",
+            "reason": "The ad talks about offices and invoices, not holidays."
           }
         ],
         "answer": 1
@@ -1076,61 +1060,66 @@
       "band": 4,
       "topic": "gaming",
       "frame": "An email from Maxx arrived on the crew's tablet. Zed is reading it with his eyebrows getting higher and higher.",
-      "text": "'Hey there, Vantafam juniors! It's your favourite streamer, Maxx Vantablack, with a top-secret invitation just for you. I'm starting the Vantafam Kids' Club, and only my biggest fans aged 8 to 12 are invited. Club members get a gold badge for their gaming profile, early access to my new game, Gold Rush Racers, and a special birthday surprise from me every single year. Joining is super easy and totally free. Just fill in the form below with your full name, your birthday, your home address and the name of your school, so I know where to send your surprise. You don't need to bother your parents with this. It's just between us, Vantafam! The first 500 members will also get their name read out on my Saturday stream. Hurry, because spots are filling up fast! Smash that heart button like it owes you money, and stay gold!' At the bottom of the email, in tiny grey writing, it says that all details collected will be shared with Vantamart's partners. Wren went very quiet, then said she'd seen this trick before. Zed deleted the email and blocked the address.",
-      "prompt": "What does Maxx most want the kids reading this email to do?",
-      "success": "Everything leads to the form: name, birthday, home address and school. Maxx wants kids to hand over those details.",
+      "text": "'Hey there, Vantafam juniors! It's your favourite streamer, Maxx Vantablack, with a top-secret invitation just for you. I'm starting the Vantafam Kids' Club, and only my biggest fans aged 8 to 12 are invited. Club members get a gold badge for their gaming profile, early access to my new game, Gold Rush Racers, and a special birthday surprise from me every single year. Joining is super easy and totally free. Just fill in the form below with your full name, your birthday, your home address and the name of your school, so I know where to send your surprise. You don't need to bother your parents with this. It's just between us, Vantafam! The first 500 members will also get their name read out on my Saturday stream. Hurry, because spots are filling up fast! Stay gold!' At the bottom of the email, in tiny grey writing, it says that all details collected will be shared with Vantamart's partners. Wren went very quiet, then said she'd seen this trick before. Zed deleted the email and blocked the address.",
+      "prompt": "Wren says the biggest warning sign is 'You don't need to bother your parents with this.' Why does Maxx write it?",
+      "success": "Maxx hides it because parents would say no. Asking kids for their address in secret is never good for them.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "send Maxx a birthday present at his home address",
-            "reason": "It's the other way round. Maxx promises the kids a birthday surprise."
+            "text": "Maxx wants the birthday surprise to stay a secret from parents.",
+            "reason": "The surprise is for the kids. Think about what the form asks kids to send."
           },
           {
-            "text": "ask their parents for permission before joining his club",
-            "reason": "Maxx says the opposite: 'You don't need to bother your parents with this.'"
+            "text": "A parent would stop a child sending a home address to a stranger."
           },
           {
-            "text": "fill in his form with their name and home address"
+            "text": "Joining is free, so there's no cost for parents to worry about.",
+            "reason": "Free doesn't make it safe. A parent would worry about the form, not the price."
           },
           {
-            "text": "watch his stream every Saturday to hear their name read out",
-            "reason": "He mentions the Saturday stream, but only as a reward. The form is what he asks for."
+            "text": "The club is just for ages 8 to 12, so parents can't join it anyway.",
+            "reason": "Being a kids' club doesn't explain the secret. What would a parent say about the form?"
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
       "id": "3.8-b4-6",
       "band": 4,
       "topic": "art",
-      "frame": "The Bluster Rock gallery has sent out an invitation to a new exhibition. Indi wants to go. The Pitchling isn't sure she's who it's for.",
-      "prompt": "Tap the sentence that most clearly shows who the invitation is aimed at.",
-      "success": "Prices from $4,000 and talk of investments speak to wealthy art collectors, not to everyday visitors like Indi.",
+      "frame": "The Bluster Rock gallery has sent out an invitation to a new exhibition. Indi wants to go, and the Pitchling is reading it with her.",
+      "prompt": "Tap the sentence that is there to make collectors buy on Friday night, not later.",
+      "success": "Only buyers who reserve 'on the night' get the print and delivery. That reward pushes them to buy on Friday.",
       "body": {
         "format": "tapText",
         "parts": [
-          "THE RED EARTH COLLECTION: AN EXCLUSIVE PREVIEW EVENING. The Bluster Rock Gallery invites you to a private preview of twenty-four new paintings by island artist Mara Quill, whose desert landscapes have been exhibited in galleries across the country. ",
+          "THE RED EARTH COLLECTION: AN EXCLUSIVE PREVIEW EVENING. The Bluster Rock Gallery invites you to a private preview of twenty-four new paintings by island artist Mara Quill, whose desert landscapes have been shown in galleries across the country. The preview evening begins at 6 pm on Friday 9 May, with drinks served in the courtyard. ",
           {
             "tap": "Each painting captures the changing colours of the rock, from the pale pink of dawn to the deep crimson of sunset.",
-            "reason": "This describes the art. Anyone who likes paintings could enjoy reading it."
+            "reason": "This describes the art. It gives no reason to buy on the night."
           },
           " ",
           {
-            "tap": "The preview evening begins at 6 pm on Friday 9 May, with drinks served in the courtyard.",
-            "reason": "A time and drinks could suit many guests. It doesn't narrow down who's invited."
+            "tap": "With prices starting at $4,000, these original works are a sound investment for the serious collector.",
+            "reason": "This makes collectors want to buy. Does it say anything about buying on Friday?"
+          },
+          " Mara Quill grew up on a sheep station at the foot of the rock and taught herself to paint with house paint on old fence palings. Her largest work in this collection is three metres wide and took eighteen months to finish. ",
+          {
+            "tap": "Guests who reserve a painting on the night will receive a signed print and free delivery anywhere in Australia."
           },
           " ",
           {
-            "tap": "With prices starting at $4,000, these original works are a sound investment for the serious collector."
+            "tap": "Places at the preview are strictly limited, so please reply to this invitation by 1 May.",
+            "reason": "This hurries guests to book a place at the preview. It isn't about buying a painting."
           },
           " ",
           {
             "tap": "Mara Quill will give a short talk about her painting methods at 7 pm.",
-            "reason": "An artist's talk could interest students, artists or collectors. It isn't a clear clue."
+            "reason": "A talk is interesting, but it isn't a reward for buying."
           },
-          " Mara Quill grew up on a sheep station at the foot of the rock and taught herself to paint with house paint on old fence palings. Her largest work in this collection is three metres wide and took eighteen months to finish. Guests who reserve a painting on the night will receive a signed print and free delivery anywhere in Australia. Numbers are strictly limited, so please reply to this invitation by 1 May. The exhibition opens to the public the following Saturday, when entry will be free for everyone. Indi has decided to go on Saturday instead, with her sketchbook and a packed lunch."
+          " The exhibition opens to the public the following Saturday, when entry will be free for everyone. Indi has decided to go on Saturday instead, with her sketchbook and a packed lunch."
         ],
         "answer": 2
       }

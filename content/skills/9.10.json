@@ -227,61 +227,54 @@
                 "text": "Last night at Inkwell Bay, Maxx Vantablack's boat ran aground on a sandbar."
               },
               {
-                "text": "Dear Mayor, I am writing to ask you to ban Maxx's boat.",
-                "reason": "That's the start of a letter. A news report jumps straight into what happened."
+                "text": "Dear Mayor, Maxx Vantablack's boat ran aground last night, so please ban it.",
+                "reason": "This starts like a letter to the Mayor. A news report tells everyone what happened, straight away."
               },
               {
-                "text": "Maxx is the worst person in the world and everyone hates him.",
-                "reason": "That's an opinion, not news. A report sticks to the facts."
+                "text": "The waves crashed and the wind howled as Maxx's boat crept towards the sand.",
+                "reason": "This sounds like the start of a story. A news report says when and where, straight away."
               }
             ],
             "answer": 0
           }
         },
         {
-          "frame": "Wren's desk is covered in scraps from three different writing jobs.",
-          "prompt": "Put each line with the writing job it belongs to.",
-          "hint": "Ask: is it telling, persuading or catching out a lie?",
-          "success": "News reports facts, letters try to persuade, and exposés set a claim beside the proof that it's false.",
+          "frame": "Wren's exposé of Maxx has a hole in it.",
+          "prompt": "Tap the line that is only Wren's opinion. Then choose the proof that catches Maxx out.",
+          "hint": "An exposé puts the claim beside the proof. Which line is only an opinion?",
+          "success": "The receipts show Maxx's claim is false. Claim, then proof: that's how an exposé works.",
           "body": {
-            "format": "sort",
-            "bins": [
-              "news report",
-              "persuasive letter",
-              "exposé"
-            ],
-            "items": [
+            "format": "fix",
+            "parts": [
               {
-                "text": "Three Creatures were found safe on Hollowgum Island on Monday.",
-                "bin": 0,
-                "reason": "It reports what happened, when and where, with no opinion."
+                "tap": "Maxx says his Creatures eat five-star food.",
+                "reason": "That's Maxx's claim, not Wren's opinion. An exposé needs the claim, so it stays."
               },
+              " ",
               {
-                "text": "I urge you to close Maxx's channel before more Creatures disappear.",
-                "bin": 1,
-                "reason": "It's trying to change someone's mind and get them to act."
+                "tap": "I think he is lying."
               },
+              " ",
               {
-                "text": "Maxx told fans the cages were 'rescue homes'. These photos show locks on the outside.",
-                "bin": 2,
-                "reason": "It sets Maxx's claim beside proof that it's a lie."
-              },
-              {
-                "text": "Please let us start a Creature club at lunchtime, because it would help shy kids make friends.",
-                "bin": 1,
-                "reason": "It asks someone to do something and gives a reason, so it's persuading."
-              },
-              {
-                "text": "Maxx claims he feeds his Creatures every day. His own receipts show no food since June.",
-                "bin": 2,
-                "reason": "It catches Maxx out by putting his claim next to the proof."
-              },
-              {
-                "text": "A storm closed the Inkwell Bay ferry at 4pm yesterday.",
-                "bin": 0,
-                "reason": "It's a plain fact about what happened, when and where."
+                "tap": "Please unfollow him today.",
+                "reason": "Asking readers to act is a strong ending. Find the line that is only an opinion."
               }
-            ]
+            ],
+            "spot": 1,
+            "options": [
+              {
+                "text": "His own receipts show one bag of stale chips since June."
+              },
+              {
+                "text": "My friend's cousin says she saw his Creatures eating chips.",
+                "reason": "A story from a friend's cousin is hard to check. An exposé shows proof anyone can see."
+              },
+              {
+                "text": "Lots of people online think he is lying too.",
+                "reason": "What people think isn't proof. An exposé shows evidence."
+              }
+            ],
+            "answer": 0
           }
         }
       ]
@@ -293,13 +286,13 @@
       "blurb": "A little squid that flashes a beam on anything hidden. Maxx hates it, because it always finds his secret cages."
     },
     "workshop": {
-      "mentor": "MAXX'S 'RESCUE CENTRE' IS A CAGE FARM.\nFor months, mega-streamer Maxx Vantablack has told his followers that every Creature he catches goes to a 'five-star rescue centre'. Last Tuesday, our crew went to see it for ourselves. There was no centre. There was a rusty shed behind his mansion, with forty-two cages stacked to the roof and a padlock on every door. The 'organic Creature food' from his streams was a bucket of stale chips. Maxx says our photos are fake. Then he should explain why the same shed is in the background of his own stream from last week. We are asking every follower to watch our video, then unfollow. The Creatures can't speak up. You can.",
-      "ask": "Pick a crew writing job: a news report on a Creature loose at the footy, a letter asking for longer lunch, or an exposé of Maxx's lies.",
+      "mentor": "MAXX'S 'RESCUE CENTRE' IS A CAGE FARM\nMaxx Vantablack tells his followers that every Creature he catches goes to a 'five-star rescue centre'. Last Tuesday, our crew went to see it. There was no centre. There was a rusty shed with forty-two cages stacked to the roof, and a padlock on every door.\nMaxx says our photos are fake. Then why is the same shed in the background of his own stream?\nThe Creatures can't speak up. You can.",
+      "ask": "Write five sentences for one job: a letter asking for longer lunch, a news report, or a Maxx exposé.\nStuck? Start with: 'Dear Principal,'\nChallenge: answer the other side's argument.",
       "checklist": [
-        "I picked one job: inform, persuade or expose.",
-        "I made my opening get straight to the point.",
-        "I backed it up with facts, reasons or proof.",
-        "I ended with a strong last line."
+        "I picked one job: news, letter or exposé.",
+        "My first sentence gives the main fact, ask or claim.",
+        "I can point to two facts, reasons or proofs.",
+        "I swapped one blurry word (good, bad, stuff)."
       ]
     }
   },

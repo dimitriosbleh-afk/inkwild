@@ -294,6 +294,18 @@
       "name": "Chorrawong",
       "evolved": "Chorrawonder",
       "blurb": "A pied currawong that calls the same key word across the valley, again and again, so every tower on the peaks knows what the song is about."
+    },
+    "write": {
+      "ask": "Rewrite the second sentence so it names the robot clearly, not as 'the thing'.",
+      "given": [
+        "Gus built a robot that bakes bread.",
+        "The thing burnt every loaf on its first day."
+      ],
+      "checks": [
+        "I swapped 'the thing' for a clear name",
+        "Readers can tell it's the same robot"
+      ],
+      "model": "The bread robot burnt every loaf on its first day."
     }
   },
   "encounters": [
@@ -742,48 +754,44 @@
       "id": "7.10-b3-3",
       "band": 3,
       "topic": "food",
-      "frame": "Mo wrote a review of the café on the highest tower. One word breaks the chain.",
-      "prompt": "Tap the word that breaks the chain, then choose a better one.",
-      "success": "Dumplings. 'The things' could be anything. Naming the dumplings again keeps the chain.",
+      "frame": "Mo wrote a review of the café on the highest tower. Zed edited it, and the Chorrawong is checking his changes.",
+      "prompt": "Zed heard 'don't repeat words', so he swapped some. Match each swap.",
+      "success": "A clear new name for the same thing keeps the chain. A vague word like 'things' breaks it.",
       "body": {
-        "format": "fix",
-        "parts": [
-          "Halfway up the highest tower, there is a tiny café that serves only one thing: dumplings. The walls are covered in photos of sweaty, happy climbers holding chopsticks. There are no tables, just a long wooden bench by the window and a view that goes all the way to the sea. The cook, Mrs Tran, makes four hundred of them every morning. Each ",
-          {
-            "tap": "dumpling",
-            "reason": "That's right. The café serves only one thing, so that word keeps coming back."
-          },
-          " is folded by hand into a little purse shape and pinched shut at the top. Inside there is pork, ginger and a splash of hot soup, so you have to be careful when you bite. Climbers say the ",
-          {
-            "tap": "things"
-          },
-          " are worth the four-ladder climb. I tried six, burnt my tongue on the first one and didn't care one bit. Mrs Tran's ",
-          {
-            "tap": "dumplings",
-            "reason": "That's right. Mrs Tran has made the same food for thirty years."
-          },
-          " have been on the menu for thirty years, and she has never changed the recipe. She says the secret is patience. I say the secret is the ginger. Either way, I'm climbing back up tomorrow."
+        "format": "sort",
+        "bins": [
+          "keeps the chain",
+          "breaks the chain"
         ],
-        "spot": 1,
-        "options": [
+        "items": [
           {
-            "text": "pancakes",
-            "reason": "The café serves only one thing, and it isn't pancakes."
+            "text": "Mrs Tran → the cook",
+            "bin": 0,
+            "reason": "The review is about Mrs Tran's cooking, so 'the cook' clearly names her again."
           },
           {
-            "text": "ladders",
-            "reason": "The ladders are the hard part. The review is praising what's waiting at the top."
+            "text": "the dumplings → the things",
+            "bin": 1,
+            "reason": "'The things' could be the photos, the bench or anything. It's vague."
           },
           {
-            "text": "dumplings"
+            "text": "She says → They say",
+            "bin": 1,
+            "reason": "'They' sounds like the climbers, so readers lose track of who says it."
           },
           {
-            "text": "chips",
-            "reason": "Chips would be a new food. What is the one thing the café serves?"
+            "text": "a tiny café → a tiny shop",
+            "bin": 0,
+            "reason": "It's still the one café halfway up the tower. Readers know it's the same place."
+          },
+          {
+            "text": "Mrs Tran's dumplings → someone's food",
+            "bin": 1,
+            "reason": "'Someone' could be anyone, so readers lose track of Mrs Tran."
           }
-        ],
-        "answer": 2
-      }
+        ]
+      },
+      "text": "Halfway up the highest tower, there is a tiny café that serves only one thing: dumplings. The walls are covered in photos of sweaty, happy climbers holding chopsticks. There are no tables, just a long wooden bench by the window and a view that goes all the way to the sea. Mrs Tran makes four hundred dumplings every morning. Each dumpling is folded by hand into a little purse shape and pinched shut at the top. Inside there is pork, ginger and a splash of hot soup, so you have to be careful when you bite. Climbers say the dumplings are worth the four-ladder climb. Mrs Tran's dumplings have been on the menu for thirty years, and she has never changed the recipe. She says the secret is patience. I say the secret is the ginger."
     },
     {
       "id": "7.10-b3-4",
@@ -833,20 +841,31 @@
       "id": "7.10-b3-5",
       "band": 3,
       "topic": "animals",
-      "frame": "Wren is writing a poster about bogong moths. The Chorrawong mixed up her sentences.",
-      "prompt": "Put the sentences in order, so each one picks up an idea from the one before.",
-      "success": "Moths, caves, furry walls, possums. Each sentence picks up a word from the last, so the paragraph flows.",
+      "frame": "Wren is writing a poster about bogong moths. The Chorrawong pecked a word out of it.",
+      "prompt": "Which word should go in the gap to keep the chain?",
+      "success": "'Moths' names the same insect again. Bats and possums would be new animals.",
       "body": {
-        "format": "order",
-        "items": [
-          "Each spring, thousands of bogong moths fly hundreds of kilometres to the Australian Alps.",
-          "The moths spend the hot summer months packed into cool, dark caves near the peaks.",
-          "Inside the caves, they cling to the rock so tightly that the walls look furry.",
-          "This furry carpet of moths is a feast for hungry mountain pygmy possums.",
-          "The possums gobble so many that they double their weight before winter."
+        "format": "choose",
+        "options": [
+          {
+            "text": "bats",
+            "reason": "Bats do hang in caves, but this poster is about one insect. A new animal breaks the chain."
+          },
+          {
+            "text": "things",
+            "reason": "'Things' could be anything in the cave. It's vague, so the chain breaks."
+          },
+          {
+            "text": "moths"
+          },
+          {
+            "text": "possums",
+            "reason": "Possums are a new animal. They haven't been named, and they don't cling to cave walls."
+          }
         ],
-        "reason": "Each sentence repeats something from the one before: moths, then caves, then furry walls, then possums."
-      }
+        "answer": 2
+      },
+      "text": "Each spring, thousands of bogong moths fly hundreds of kilometres to the Australian Alps. They spend the summer in cool, dark caves, and the ___ cling to the rock so tightly that the walls look furry."
     },
     {
       "id": "7.10-b3-6",
@@ -1042,20 +1061,31 @@
       "id": "7.10-b4-5",
       "band": 4,
       "topic": "funny",
-      "frame": "Tully wrote up Mo's record attempt for the newsletter. The Chorrawong scrambled her notes.",
-      "prompt": "Put the sentences in order. Follow the words each sentence picks up from the one before.",
-      "success": "Each sentence picks up something from the one before: pancake, pan, dish, batter, then a very stuck Mo.",
+      "frame": "Tully wrote up Mo's record attempt for the newsletter. Her editor has sent back four changes.",
+      "prompt": "Which of the editor's changes would break a chain?",
+      "success": "'The thing' could be anything. The other changes give a clear new name for the same thing.",
       "body": {
-        "format": "order",
-        "items": [
-          "On Saturday, Mo tried to cook the world's biggest pancake on the roof of the highest hut.",
-          "For a frying pan, he borrowed a satellite dish from the observatory.",
-          "The dish was so wide that he had to stand in the middle of it to stir the batter.",
-          "By the time the batter was golden, Mo was stuck to it from the knees down.",
-          "The crew peeled him free with spatulas, and the record-breaking pancake fed forty climbers."
+        "format": "choose",
+        "options": [
+          {
+            "text": "Change 'the dish' to 'the giant pan' in the second sentence.",
+            "reason": "Mo used the dish as his frying pan, so 'the giant pan' clearly names it again."
+          },
+          {
+            "text": "Change 'The batter' to 'The gooey mixture' in the second sentence.",
+            "reason": "Gooey mixture is clearly the pancake batter. It's a new name for the same thing."
+          },
+          {
+            "text": "Change 'the record-breaking pancake' to 'the thing' at the end."
+          },
+          {
+            "text": "Change the second 'Mo' to 'the cook', since he did the cooking.",
+            "reason": "Mo is the one cooking, so 'the cook' clearly names him again."
+          }
         ],
-        "reason": "Pancake, then frying pan, then dish, then batter, then the sticky rescue. Each sentence picks up the last."
-      }
+        "answer": 2
+      },
+      "text": "On Saturday, Mo cooked the world's biggest pancake, using an old satellite dish as his frying pan. The batter stuck Mo to the dish from the knees down, but the record-breaking pancake still fed forty climbers."
     },
     {
       "id": "7.10-b4-6",

@@ -257,6 +257,20 @@
       "name": "Stagglet",
       "evolved": "Stagglewing",
       "blurb": "A silver alpine butterfly that grows in stages: egg, caterpillar, chrysalis, then wings. It can't skip a stage, and neither can a text."
+    },
+    "write": {
+      "ask": "Write the opening for this recount. Tell who, when and where.",
+      "given": [
+        "We waded into the freezing water.",
+        "A crab nipped Gus's toe.",
+        "We ran home squealing."
+      ],
+      "checks": [
+        "My opening tells who was there",
+        "It tells when and where",
+        "It makes sense with nothing before it"
+      ],
+      "model": "Last Sunday, Gus and I went to the rock pools at Gull Bay."
     }
   },
   "encounters": [
@@ -599,56 +613,66 @@
       "id": "7.2-b3-1",
       "band": 3,
       "topic": "food",
-      "frame": "Mo is making damper on the campfire at Base Camp. The Stagglet knocked his recipe into the snow.",
-      "prompt": "Put Mo's damper steps in order.",
-      "success": "Crumbs, then dough, a loaf, the coals, then the hollow tap. Each step changes what the last made.",
+      "frame": "Mo is making damper on the campfire at Base Camp. The Stagglet thinks his recipe card is muddled.",
+      "prompt": "One stage of Mo's recipe is in the wrong place. Which one?",
+      "success": "What you need comes before the steps. By step 1, the cook is already using the flour.",
       "body": {
-        "format": "order",
-        "items": [
-          "Rub the flour, salt and butter together in a bowl until it looks like breadcrumbs.",
-          "Pour in the milk and stir until the crumbs turn into a soft, sticky dough.",
-          "Knead the dough on a floured bench, then shape it into a round loaf.",
-          "Wrap the loaf in foil and bury it in the hot coals at the edge of the campfire.",
-          "After thirty minutes, dig it out and tap the bottom: if it sounds hollow, it's cooked."
+        "format": "choose",
+        "options": [
+          {
+            "text": "the title, 'Campfire Damper'",
+            "reason": "The goal comes first, so the title is already in the right place."
+          },
+          {
+            "text": "the list of what you need"
+          },
+          {
+            "text": "the tip about eating it warm",
+            "reason": "A tip like this can wrap up a procedure, after the steps are done."
+          },
+          {
+            "text": "the warning to ask an adult",
+            "reason": "A safety note belongs near the start, before anyone goes near the coals."
+          }
         ],
-        "reason": "Follow what the mixture becomes. You need crumbs before dough, and dough before a loaf."
-      }
+        "answer": 1
+      },
+      "text": "Campfire Damper. Damper is a simple bush bread that you cook in the coals of a campfire. Ask an adult to help, because the coals are very hot. Step 1: Rub the flour, salt and butter together until it looks like breadcrumbs. Step 2: Pour in the milk and stir until it turns into a soft dough. You will need: two cups of self-raising flour, a pinch of salt, a knob of butter, one cup of milk and a sheet of foil. Step 3: Shape the dough into a round loaf and wrap it in the foil. Step 4: Bury it in the hot coals for thirty minutes, then dig it out. Your damper is cooked if it sounds hollow when you tap the bottom. Eat it warm with golden syrup, and save a piece for the Stagglet."
     },
     {
       "id": "7.2-b3-2",
       "band": 3,
       "topic": "gaming",
-      "frame": "Zed wrote a story about the Peaks Gaming Cup. The Stagglet thinks one part is out of place.",
-      "prompt": "One part of Zed's story has been moved. Tap it.",
-      "success": "The early-jump trick and the win can't happen before the controller is even lost. That part belongs near the end.",
+      "frame": "Zed wrote a story about the Peaks Gaming Cup. The Stagglet is hunting for where the trouble starts.",
+      "prompt": "Tap the sentence where the problem in Zed's story starts.",
+      "success": "The missing controller is the problem. Before it, Zed's lucky wins only set the scene.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Zed had won the Peaks Gaming Cup three years in a row, always with his lucky blue controller. ",
           {
-            "tap": "On the morning of this year's final, he opened his bag and froze, because the controller wasn't there.",
-            "reason": "Finding it missing is the problem. It has to come before the search."
+            "tap": "Zed had won the Peaks Gaming Cup three years in a row, always with his lucky blue controller.",
+            "reason": "This sets the scene: who Zed is and what he's proud of. Nothing has gone wrong yet."
           },
           " ",
           {
-            "tap": "He pressed every jump a moment early, and he flew past the other three players to win."
+            "tap": "On the morning of this year's final, he opened his bag and froze, because the controller wasn't there."
           },
           " ",
           {
             "tap": "He searched the hut, the ladder and the snow outside, but it was nowhere to be found.",
-            "reason": "He searches right after finding it missing. This fits."
+            "reason": "This makes a problem worse. What went wrong just before it?"
           },
           " With ten minutes to go, he had to borrow a sticky old controller from the lost-property box. ",
           {
             "tap": "Every jump came out late, and by the last level he had dropped to fourth place.",
-            "reason": "Late jumps can only happen once he's using the sticky controller. This fits."
+            "reason": "The problem is at its worst here, but it started earlier."
           },
-          " Then he remembered something Gus always said about old controllers: press early, because their buttons are slow. ",
+          " ",
           {
-            "tap": "That night, he found the blue controller in the fridge, right next to Mo's custard.",
-            "reason": "Finding it that night is the twist at the end. It's in the right place."
+            "tap": "Then he remembered something Gus always said about old controllers: press early, because their buttons are slow.",
+            "reason": "This is where the problem starts to be solved."
           },
-          " Mo said he had no idea how it got there, but his custard did taste a bit like plastic."
+          " He pressed every jump a moment early, and he flew past the other three players to win. That night, he found the blue controller in the fridge, right next to Mo's custard."
         ],
         "answer": 1
       }
@@ -688,19 +712,18 @@
       "band": 3,
       "topic": "animals",
       "frame": "Wren's rescue diary got wet, and the Stagglet is trying to put the pages back in order.",
-      "prompt": "Put Wren's rescue recount in order.",
-      "success": "Find, carry, check, care, get strong, fly free. Each part needs the one before it.",
+      "prompt": "Put Wren's recount in order, from the opening to the ending.",
+      "success": "Opening, events, then an ending that looks back. The last part has no time word, but it wraps up.",
       "body": {
         "format": "order",
         "items": [
-          "On Tuesday morning, Wren found a crimson rosella sitting in the snow beside Tower Two, unable to fly.",
-          "She wrapped it gently in her scarf and carried it down the ladder to the crew's hut.",
-          "In the hut, she checked the bird all over and found that one wing was badly bruised.",
-          "For a week, she kept the rosella in a warm box and fed it seeds and slices of apple.",
-          "By the next Tuesday, it was flapping so hard that it knocked the lid off the box.",
-          "Wren carried it back to Tower Two and watched it fly off to join its noisy flock."
+          "On Tuesday morning, Wren found a crimson rosella in the snow beside Tower Two.",
+          "She carried it down to the hut and found that one wing was bruised.",
+          "For a week, she fed it seeds and slices of apple in a warm box.",
+          "On the next Tuesday, she watched it fly off to join its noisy flock.",
+          "Wren still looks up at every rosella, hoping it might be hers."
         ],
-        "reason": "The rosella can't knock the lid off a box it hasn't been put in yet. Check what each part needs."
+        "reason": "Which part looks back on everything that happened? It needs every event before it."
       }
     },
     {
@@ -751,39 +774,49 @@
       "band": 3,
       "topic": "spooky",
       "frame": "Tully is telling a scary story around the campfire. The Stagglet keeps interrupting, so it's jumbled.",
-      "prompt": "Put Tully's story in order.",
-      "success": "They arrive, find the stopped clocks, start them, hear the stairs, open the cellar, then meet the goat.",
+      "prompt": "Put Tully's story in order, from the scene to the end.",
+      "success": "'At last' sounds like an ending, but it's just the crew arriving. Scene, problem, then the goat solves it.",
       "body": {
         "format": "order",
         "items": [
-          "When the crew reached the old weather station, the door was hanging open and the lights were on.",
-          "Inside, every clock on the wall had stopped at exactly three minutes past midnight.",
-          "Gus tapped the biggest clock, and all of the clocks began ticking again at once.",
-          "As the clocks ticked, a slow thump started up the cellar stairs, in time with them.",
-          "The cellar door creaked open, and a very old goat wandered out, chewing a weather report.",
-          "The crew laughed so hard that Mo had to sit down, and the goat ate his hat."
+          "The old weather station on Tower Six had been empty for fifty years.",
+          "At last, after a long climb, the crew reached its door and found it hanging open.",
+          "Inside, every clock had stopped at midnight, and something was thumping in the cellar.",
+          "Gus crept down the cellar stairs and flung the door open.",
+          "A very old goat wandered out, chewing a weather report, and the crew laughed until they cried."
         ],
-        "reason": "The thumping is 'in time with' the ticking, so the clocks must start first. Check what each part needs."
+        "reason": "'At last' tells when they arrived, not that the story is over. What must come before 'Inside'?"
       }
     },
     {
       "id": "7.2-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "The Architect keeps a pearl in a glass case. The Stagglet has jumbled the explanation beside it.",
-      "prompt": "Put the explanation of how a pearl forms in order.",
-      "success": "An intruder gets in, the oyster coats it, layers build up and harden, and more layers make it more valuable.",
+      "frame": "Ari wrote a recount for the class blog. The Stagglet is reading the last line twice.",
+      "prompt": "Why did Ari end with 'That was the day the ocean stopped being scary' instead of one more event?",
+      "success": "It's the recount's ending stage. It looks back on the whole day and tells the reader what it meant.",
       "body": {
-        "format": "order",
-        "items": [
-          "A pearl begins when a tiny intruder, such as a speck of grit, slips inside an oyster's shell.",
-          "Because the intruder irritates the oyster's soft flesh, the oyster coats it in a smooth, shiny substance called nacre.",
-          "Layer after layer of nacre builds up over months and years, until the intruder is completely sealed inside.",
-          "Eventually, these layers harden into a gleaming pearl, and the more layers there are, the more valuable it becomes.",
-          "That is why a pearl that grew inside an oyster for ten years is worth far more than one that grew for one."
+        "format": "choose",
+        "options": [
+          {
+            "text": "It looks back on the day and says what it meant to Ari."
+          },
+          {
+            "text": "It tells the last thing Ari did before she fell asleep.",
+            "reason": "Falling asleep was the last event. Nothing new happens in this line."
+          },
+          {
+            "text": "It shows that Ari's problem has not been solved yet.",
+            "reason": "Her fear is solved. The ocean has stopped being scary."
+          },
+          {
+            "text": "It hints that Ari will write about her next snorkelling trip with Mum soon.",
+            "reason": "Nothing points to another trip. Ari is thinking about this day."
+          }
         ],
-        "reason": "Each stage is caused by the one before. 'That is why' needs the idea about more layers to come first."
-      }
+        "answer": 0
+      },
+      "text": "Last Saturday, Mum took me snorkelling at Gull Bay for the very first time. I had never put my face under the sea before, and my stomach was in knots. First, Mum showed me how to spit in my mask so it wouldn't fog up, which was disgusting but worked. Then we waded in up to our waists, and I practised breathing through the snorkel while standing still. When I finally put my face in, I forgot to breathe at all, because a school of silver fish was flashing past my knees. Mum tapped my shoulder and pointed at a rock covered in purple sea urchins. Near the jetty, a huge blue groper swam right up to my mask and stared at me as if I was the strange one. By the time we came out, my fingers were wrinkly and my lips were salty, and I didn't want to leave. On the drive home, I fell asleep with my mask still on my head. That was the day the ocean stopped being scary and started being mine."
     },
     {
       "id": "7.2-b4-2",
@@ -820,38 +853,37 @@
       "band": 4,
       "topic": "space",
       "frame": "An astronaut's diary has floated down to Scaffold Peaks. The Stagglet thinks a page was put back wrong.",
-      "prompt": "One part of the astronaut's recount has been moved. Tap it.",
-      "success": "'Replacing it' needs the broken panel to come first. That part belongs after she pulls herself towards it.",
+      "prompt": "One stage of the astronaut's recount has been moved. Tap it.",
+      "success": "That sentence tells who, when and where. It's the opening, so it belongs before every event.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Yesterday I made my first spacewalk, six hours outside the space station, and I still can't quite believe it. ",
           {
             "tap": "The preparation began at dawn, when Sasha helped me squeeze into the bulky white suit and checked every seal twice.",
-            "reason": "Suiting up comes first, at dawn, before the airlock. It's in the right place."
-          },
-          " ",
-          {
-            "tap": "Replacing it took almost four hours, because every bolt had to be loosened with thick, clumsy gloves."
+            "reason": "This is the first event. Something should set it up, but the event itself is in order."
           },
           " ",
           {
             "tap": "Next, we spent an hour in the airlock breathing pure oxygen, so that our bodies would be ready for the low pressure outside.",
-            "reason": "This follows suiting up, and the airlock comes before going outside. It fits."
+            "reason": "This event follows getting suited up, so it's in the right place."
+          },
+          " ",
+          {
+            "tap": "My name is Ayana Okoye, and yesterday I made my first spacewalk, six hours outside the space station."
           },
           " ",
           {
             "tap": "When the outer hatch finally swung open, Earth filled the whole doorway, blue and impossibly bright.",
-            "reason": "The hatch opens after the wait in the airlock. It fits."
+            "reason": "The hatch opens after the airlock, so this event is in order."
           },
-          " For a few seconds I forgot to move at all, until Sasha's voice crackled in my helmet to remind me that we had a job to do. I clipped my safety line to the rail and pulled myself, hand over hand, towards the broken solar panel. A speck of space dust, travelling faster than a bullet, had cracked it right across the middle. ",
+          " For a few seconds I forgot to move at all, until Sasha's voice crackled in my helmet. I clipped my safety line to the rail and pulled myself, hand over hand, towards the broken solar panel. A speck of space dust had cracked it right across the middle. Replacing it took almost four hours, because every bolt had to be loosened with thick, clumsy gloves. ",
           {
             "tap": "By the time we floated back into the airlock, my fingers ached and my stomach was rumbling.",
-            "reason": "Coming back in happens once the outside job is done. It fits."
+            "reason": "'By the time' sounds like an ending, but this is still an event, after the repair."
           },
-          " Afterwards, the crew had saved me a pouch of warm spaghetti, which I ate upside down. Now my arms feel like that spaghetti, but I would go out again tomorrow if they asked me."
+          " Afterwards, the crew had saved me a pouch of warm spaghetti, which I ate upside down. Now my arms feel like that spaghetti, but I would go out again tomorrow."
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -859,19 +891,18 @@
       "band": 4,
       "topic": "funny",
       "frame": "Mo is telling the Stagglet about the Bake-Off, but he's too excited to tell it in order.",
-      "prompt": "Put Mo's Bake-Off story in order.",
-      "success": "Recipe, salt mistake, judges' faces, Mo's taste, the rush, the ribbon. Each part sets up the next.",
+      "prompt": "Put Mo's Bake-Off story in order, from the scene to the end.",
+      "success": "Scene, problem, worse, solved, then a look back. 'Finally' is a time word, not the ending stage.",
       "body": {
         "format": "order",
         "items": [
-          "Mo had entered the Scaffold Peaks Bake-Off with one secret weapon: his great-grandmother's recipe for a twelve-layer sponge cake.",
-          "While mixing, he misread the faded card and tipped in two cups of salt instead of two cups of sugar.",
-          "When the judges took their first bite of the salty cake, their faces crumpled, and the head judge spat hers into a napkin.",
-          "Seeing their faces, Mo tasted the cake himself, realised his mistake instantly and raced back to the kitchen with twenty minutes left.",
-          "With seconds to spare, he slid a lopsided, three-layer sponge onto the judges' table, still steaming from the oven.",
-          "It wasn't pretty, but it tasted wonderful, and Mo walked away with a ribbon for 'Best Comeback'."
+          "Mo was the proudest baker on Scaffold Peaks, and the Bake-Off was his big day.",
+          "Halfway through mixing, he tipped in two cups of salt instead of sugar.",
+          "Finally, the judges reached his salty cake, took one bite and spat it out.",
+          "So Mo baked a tiny new sponge in twenty minutes flat, and this time the judges loved it.",
+          "He still keeps his Best Comeback ribbon stuck to the fridge."
         ],
-        "reason": "The judges bite 'the salty cake', so the salt has to go in first. Check what each part needs."
+        "reason": "'Finally' tells when the judges tasted it, not that the story is over. What fixes the problem?"
       }
     },
     {
@@ -881,7 +912,7 @@
       "frame": "Gus made a plan of the stages in the band's recount. The Stagglet thinks he got the ending wrong.",
       "text": "Last Saturday, the Peakside Primary band played its biggest concert yet, at the Snow Gum Hall on top of Tower Five. We arrived at four o'clock, lugging our instruments up the last ladder, and spent an hour on a sound check while Mr Lin fussed over the microphones. The hall filled up quickly, and by seven every seat was taken. Even the Architect had come, sitting in the front row with a notebook open. Our first three songs went perfectly, and the audience clapped along to the fourth. Then, halfway through our fifth song, a storm knocked out the power, and the whole hall went black. For a moment, nobody moved. Somebody's baby started to cry, and somebody's grandad woke up with a snort. Then Tully switched on the torch on her phone, and one by one the audience did the same, until the stage was lit by hundreds of tiny lights. We played the rest of the concert by torchlight, without microphones, and somehow it sounded even better. When we finished our final song, the crowd begged for more, so we played it all again as an encore. The power came back on just as we were packing up, which everyone agreed was perfect timing.",
       "prompt": "Tap the part of Gus's plan that's wrong, then choose a better one.",
-      "success": "The recount's last stage is the power coming back on while they pack up. That's how it ends.",
+      "success": "The encore is the last song, but the recount ends after it: the power comes back on during packing up.",
       "body": {
         "format": "fix",
         "parts": [
@@ -897,7 +928,7 @@
           },
           " and the torchlight songs. It ends with ",
           {
-            "tap": "the sound check before the doors opened"
+            "tap": "the crowd begging for an encore"
           },
           "."
         ],

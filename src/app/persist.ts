@@ -1,11 +1,11 @@
-import type { Save } from '../core/save';
+import { upgradeSave, type Save } from '../core/save';
 
 const KEY = 'inkwild.save';
 
 export function loadSave(): Save | undefined {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as Save) : undefined;
+    return raw ? upgradeSave(JSON.parse(raw) as Save) : undefined;
   } catch {
     return undefined;
   }

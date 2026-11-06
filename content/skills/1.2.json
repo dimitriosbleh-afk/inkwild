@@ -303,6 +303,19 @@
       "name": "Hunchlet",
       "evolved": "Hunchglider",
       "blurb": "A sugar glider that never says how it feels. Watch what it does, add what you know, and you'll have a hunch."
+    },
+    "write": {
+      "ask": "Rewrite this sentence so it shows how Mo feels, without naming the feeling.",
+      "given": [
+        "Mo was nervous before his speech."
+      ],
+      "starter": "Before his speech, Mo",
+      "checks": [
+        "I didn't use nervous, worried or scared.",
+        "Mo does or says something a reader can point to.",
+        "A reader could work out he's nervous."
+      ],
+      "model": "Before his speech, Mo read his first line four times, wiped his sweaty hands on his shorts and whispered, 'What if I forget it?'"
     }
   },
   "encounters": [
@@ -441,9 +454,9 @@
       "band": 1,
       "topic": "spooky",
       "frame": "The crew went on the ghost tour. The Hunchlet watched them all.",
-      "text": "The crew went on the ghost tour at the old lighthouse. It was very dark inside. A door creaked open by itself. Gus jumped and grabbed Mo's arm. Tully hid behind the guide. Zed yawned and checked the time. Indi sat on a step and started counting the bricks in the wall. Then a cold wind blew out the candle.",
+      "text": "The crew went on the ghost tour at the old lighthouse. It was very dark inside. A door creaked open by itself. Gus jumped and grabbed Mo's arm. Mo squeezed his eyes shut. Tully hid behind the guide. Zed yawned and checked the time. Indi sat on a step and started counting the bricks in the wall. Then a cold wind blew out the candle.",
       "prompt": "Match each thing a crew member did to the feeling it shows.",
-      "success": "Grabbing and hiding show fear. Yawning and counting bricks show someone wants it to be over.",
+      "success": "Grabbing, hiding and shutting your eyes show fear. Yawning and counting bricks show someone wants it to be over.",
       "body": {
         "format": "sort",
         "bins": [
@@ -460,6 +473,11 @@
             "text": "Tully hid behind the guide.",
             "bin": 0,
             "reason": "Hiding behind someone is what you do when you're scared."
+          },
+          {
+            "text": "Mo squeezed his eyes shut.",
+            "bin": 0,
+            "reason": "People shut their eyes tight when they don't want to see something frightening."
           },
           {
             "text": "Zed yawned and checked the time.",
@@ -805,8 +823,8 @@
       "topic": "spooky",
       "frame": "Something is glowing on deck at midnight. The Hunchlet is watching three crew members.",
       "text": "Most of the crew were asleep in their hammocks. At midnight, a glowing white shape floated across the deck of the ship. It had a lumpy shape and seemed to be wearing thongs. Gus saw it first. He dived behind a barrel, covered his eyes and whimpered. Zed didn't run. He crept closer, tilting his head, trying to work out what was making the glow. Tully just sighed loudly and rolled her eyes. 'It's obviously Mo in a sheet,' she said. 'Again.' The shape let out a long, wobbly 'Woooo'. Gus grabbed the torch with both shaking hands and pointed it in completely the wrong direction. Zed reached out and lifted the corner of the sheet to peek underneath. Tully folded her arms and tapped her foot. 'Some of us are trying to sleep, Mo.' Under the sheet, Mo was holding a glow stick and a bag of marshmallows. 'Worth it,' he said. He offered everyone a marshmallow. Nobody took one except Zed.",
-      "prompt": "Match each action to the feeling it shows.",
-      "success": "Hiding and shaking show terror. Creeping closer shows curiosity. Eye-rolling and foot-tapping show annoyance.",
+      "prompt": "Match each thing a crew member did to the feeling it shows.",
+      "success": "Shaking hands show terror, even holding a torch. Working out the glow is curiosity. 'Again' shows Tully is fed up.",
       "body": {
         "format": "sort",
         "bins": [
@@ -816,34 +834,39 @@
         ],
         "items": [
           {
-            "text": "Gus dived behind a barrel and covered his eyes.",
+            "text": "Gus grabbed the torch with both shaking hands.",
             "bin": 0,
-            "reason": "Diving for cover and hiding your eyes is what terrified people do."
+            "reason": "Grabbing a torch can look brave. Look at his hands, and where he points it."
           },
           {
-            "text": "Gus grabbed the torch with shaking hands.",
-            "bin": 0,
-            "reason": "Shaking hands show Gus is terrified."
-          },
-          {
-            "text": "Zed crept closer to work out what was glowing.",
+            "text": "Zed tilted his head, trying to work out the glow.",
             "bin": 1,
-            "reason": "Moving closer to work something out shows Zed wants to know more."
+            "reason": "Zed doesn't run or hide. He wants to know what's making the glow."
           },
           {
-            "text": "Zed lifted the sheet to peek underneath.",
-            "bin": 1,
-            "reason": "Peeking underneath shows Zed wants to find out what's there."
-          },
-          {
-            "text": "Tully rolled her eyes and sighed loudly.",
+            "text": "Tully said, 'It's obviously Mo in a sheet. Again.'",
             "bin": 2,
-            "reason": "Eye-rolling and loud sighs show Tully is fed up with Mo's trick."
+            "reason": "'Again' tells you Mo has done this before. How do you feel about the same trick twice?"
+          },
+          {
+            "text": "Gus dived behind a barrel and whimpered.",
+            "bin": 0,
+            "reason": "Diving for cover and whimpering are what people do when they are very frightened."
+          },
+          {
+            "text": "Tully said, 'Some of us are trying to sleep, Mo.'",
+            "bin": 2,
+            "reason": "She wants to be asleep, not watching a trick. Is she enjoying this?"
+          },
+          {
+            "text": "Zed lifted the corner of the sheet to peek.",
+            "bin": 1,
+            "reason": "Peeking underneath means Zed wants to find out what is there."
           },
           {
             "text": "Tully folded her arms and tapped her foot.",
             "bin": 2,
-            "reason": "Folded arms and a tapping foot show Tully wants this to stop."
+            "reason": "Folded arms and a tapping foot show someone waiting for this to stop."
           }
         ]
       }
@@ -855,45 +878,45 @@
       "frame": "Wren wrote a note about the Great Maggot Mystery. One word is wrong.",
       "text": "Gus had been raising a jar of maggots for his science project, and he checked on them every morning before school. They were for an experiment on how fast flies grow. He had named the biggest one Kevin. On Tuesday, he came into the kitchen and found the jar gone from the windowsill. 'Has anyone seen my maggots?' he asked. Mo, who was sitting at the table, suddenly became very busy buttering a piece of toast that was already buttered. He didn't look up. His ears went bright red. 'Maggots? No. What maggots?' he said, much too quickly. Then he offered to wash the dishes, which he had never done before in his life. After that, he offered to clean Gus's room. Later, Gus found a broken jar wrapped in newspaper at the bottom of the bin, and three hundred maggots wriggling happily under the fridge. Mo couldn't look Gus in the eye for the rest of the day.",
       "prompt": "Tap the word Wren got wrong, then choose a better one.",
-      "success": "Much too quickly. Rushing to say no is a clue that Mo feels guilty about the maggots.",
+      "success": "Guilty. He lies, goes red, then suddenly offers to help. He's trying to make up for something.",
       "body": {
         "format": "fix",
         "parts": [
-          "When Gus asked about the maggots, Mo answered ",
+          "Mo offered to wash the dishes because he felt ",
           {
-            "tap": "slowly"
+            "tap": "kind"
           },
-          " and wouldn't ",
+          ". He answered Gus ",
           {
-            "tap": "look up",
-            "reason": "That fits. The story says he didn't look up."
+            "tap": "much too quickly",
+            "reason": "That's right. Mo said 'No. What maggots?' much too quickly."
           },
-          ". Mo felt ",
+          ", and his ears went ",
           {
-            "tap": "guilty",
-            "reason": "That fits Mo hiding what he did. Check each clue in the note against the story."
+            "tap": "bright red",
+            "reason": "That's right. The story says his ears went bright red."
           },
           "."
         ],
         "spot": 0,
         "options": [
           {
-            "text": "in a whisper",
-            "reason": "Nothing says Mo whispered. Find the words that tell you how he answered."
+            "text": "cheerful",
+            "reason": "Cheerful people chat and smile. Mo won't look up, and his ears go red."
           },
           {
-            "text": "with a laugh",
-            "reason": "Mo doesn't laugh. Find the words that tell you how he answered Gus."
+            "text": "guilty"
           },
           {
-            "text": "much too quickly"
+            "text": "helpful",
+            "reason": "He has never washed dishes in his life. Why start right after the maggot question?"
           },
           {
-            "text": "very politely",
-            "reason": "The story tells you how fast Mo answered, not how polite he was."
+            "text": "bored",
+            "reason": "Mo offers to help straight after Gus asks about the maggots. Look at what came just before."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -932,28 +955,28 @@
       "topic": "ocean",
       "frame": "Nia has written up her first dive for the Hollowgum Reef newsletter.",
       "text": "Nia had been dreading this dive for weeks. Her big brother had spent the whole boat ride telling her that whale sharks were the biggest fish in the ocean, as long as a bus, with mouths wide enough to swallow a wheelie bin. By the time the skipper called 'Fins on!', her hands were trembling so badly that he had to do up her mask strap for her. She slipped into the water last, clinging to the ladder. Then the shark arrived. It rose out of the blue haze below her like a spotted island, slow and enormous, its mouth gaping open as it sieved the water for tiny shrimp. Nia let go of the ladder. She forgot to kick. She forgot to check where her brother was. She simply hung there in the water, eyes wide behind her mask, as the shark glided past close enough to count the white spots on its back. When it had gone, she surfaced, spat out her snorkel and stared at the place where it had disappeared. For once, she didn't say a word. Back on the boat, she sat wrapped in a towel, still gazing at the water, and quietly asked the skipper if they could come back tomorrow.",
-      "prompt": "How does Nia feel as the shark glides past?",
-      "success": "Amazed. She lets go of the ladder, forgets everything else and stares. Then she wants to come back.",
+      "prompt": "The writer says Nia 'forgot to kick' and 'forgot to check where her brother was'. What do these lines show about how Nia feels?",
+      "success": "Forgetting everything else shows she is too amazed to think of anything but the shark. Her fear has gone.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "terrified",
-            "reason": "She was terrified before. When the shark appears, she lets go of the ladder, and later asks to come back."
+            "text": "She is still too frightened to move a muscle.",
+            "reason": "Frozen with fear would mean clinging on. She lets go of the ladder, then asks to come back."
           },
           {
-            "text": "disappointed",
-            "reason": "She asks to come back tomorrow. People don't do that after a disappointing dive."
+            "text": "She is so amazed that nothing else matters."
           },
           {
-            "text": "amazed"
+            "text": "She is cross that her brother made her come along.",
+            "reason": "Nothing shows she is cross. She stares wide-eyed, stays silent, then asks to come back."
           },
           {
-            "text": "impatient",
-            "reason": "Impatient people want things to hurry up. Nia hangs still and watches until it's gone."
+            "text": "She is worn out after the long boat ride.",
+            "reason": "Nothing says she is tired. She hangs there wide-eyed, then wants to come back tomorrow."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -1056,25 +1079,25 @@
       "topic": "spooky",
       "frame": "The Hunchlet found Nell's story tucked inside the old lighthouse door.",
       "text": "Nell had only meant to look around the old lighthouse, not take anything. It had been empty for forty years, and the door creaked like an old ship. But when she found the tarnished brass key hanging on a nail beside the keeper's empty bed, she slipped it into her pocket before she could think. That night, back home, she put it in her sock drawer. Then she took it out and put it under her mattress. Then she moved it to a shoebox at the back of the wardrobe, as far from her bed as it could possibly go. She couldn't stop picturing the empty nail. Every time the wind rattled the window, she glanced at the wardrobe. At dinner, when Dad mentioned that the lighthouse was being turned into a museum, Nell knocked over her glass of water. 'Have you been up there?' he asked. 'No,' she said, and immediately felt her face go hot. She lay awake until two in the morning, staring at the wardrobe door. The next afternoon, she rode her bike all the way back to the lighthouse, hung the key back on its nail, and left a note underneath that said, in very small writing, 'Sorry. I won't do it again.' On the ride home, she sang the whole way.",
-      "prompt": "How does Nell feel while the key is in her room?",
-      "success": "Guilty. She keeps hiding the key, lies to Dad, goes red and can't sleep until she puts it back.",
+      "prompt": "Nell tells Dad 'No', then her face goes hot. Why does the writer show both?",
+      "success": "Her words hide the guilt, but her body gives it away. Trust what people do, not just what they say.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "guilty"
+            "text": "Her words hide her guilt, but her hot face gives it away."
           },
           {
-            "text": "proud",
-            "reason": "Proud people show off what they have. Nell keeps hiding the key further away."
+            "text": "Nell is angry with Dad for asking her such a nosy question.",
+            "reason": "Nell never snaps at Dad. Her face goes hot the moment she lies, not when he asks."
           },
           {
-            "text": "relieved",
-            "reason": "She only feels better once the key is back. While it's in her room, she can't sleep."
+            "text": "Nell is embarrassed because she knocked over her glass of water.",
+            "reason": "The water spilt before Dad asked. Her face goes hot straight after she says no."
           },
           {
-            "text": "curious",
-            "reason": "A curious person would study the key. Nell wants it as far from her as possible."
+            "text": "Nell has really never been up to the old lighthouse at all.",
+            "reason": "She has been. The key hidden in her wardrobe came from the lighthouse."
           }
         ],
         "answer": 0
@@ -1087,27 +1110,32 @@
       "frame": "Zed wrote a note about Ms Rao's farewell for the school newsletter. One word is wrong.",
       "text": "Ms Rao had taught art at Hollowgum Primary for thirty-one years, and Friday was her last day. She had once let the whole class paint the staffroom ceiling with stars. Indi had spent three weeks secretly painting her portrait, working in the library at lunchtime so that Ms Rao wouldn't see. In the painting, Ms Rao was wearing her famous paint-splattered apron, with a pencil tucked behind each ear, surrounded by tiny drawings of every mural the school had painted with her. At the farewell assembly, Indi carried it up onto the stage, so nervous she nearly dropped it on the stairs, and pulled off the sheet. The hall went quiet. For a moment, Ms Rao didn't say anything at all. She put a hand over her heart. Her chin wobbled, and she blinked hard several times. Then she took off her glasses and wiped her eyes with the corner of her sleeve. 'Nobody has ever painted me before,' she said, in a voice that came out much smaller than usual. She hugged Indi for so long that the principal started the next item without them. The portrait now hangs in Ms Rao's hallway at home, and she sends Indi a photo of it every year on the last day of term.",
       "prompt": "Tap the word Zed got wrong, then choose a better one.",
-      "success": "Deeply touched. A hand on her heart, teary eyes and a long hug show the gift meant a lot.",
+      "success": "Deeply touched means so moved by kindness you might cry. Hand on heart, tears, then a long hug.",
       "body": {
         "format": "fix",
         "parts": [
-          "When she saw the portrait, Ms Rao ",
+          "At first, Ms Rao was ",
           {
-            "tap": "put a hand over her heart",
-            "reason": "That's right. The story says she put a hand over her heart."
+            "tap": "lost for words",
+            "reason": "That's right. For a moment she didn't say anything at all."
           },
-          " and ",
+          ". Her wobbling chin and wet eyes showed she felt ",
           {
-            "tap": "wiped her eyes",
-            "reason": "That's right. She wiped her eyes with her sleeve."
+            "tap": "worried"
           },
-          ". She felt ",
+          ", and her long hug showed she was ",
           {
-            "tap": "annoyed"
+            "tap": "grateful",
+            "reason": "That's right. A long hug and a photo every year show she's thankful."
+          },
+          ". The portrait now hangs ",
+          {
+            "tap": "in her hallway",
+            "reason": "That's right. It hangs in her hallway at home."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
             "text": "disappointed",
@@ -1117,12 +1145,12 @@
             "text": "deeply touched"
           },
           {
-            "text": "confused",
-            "reason": "She knows exactly what it is and why: 'Nobody has ever painted me before.'"
+            "text": "nervous",
+            "reason": "Indi was the nervous one, nearly dropping it on the stairs. Look at Ms Rao once the sheet comes off."
           },
           {
-            "text": "jealous",
-            "reason": "There's nobody for her to be jealous of. The painting is a gift for her."
+            "text": "confused",
+            "reason": "She knows exactly what it is and why: 'Nobody has ever painted me before.'"
           }
         ],
         "answer": 1
@@ -1134,25 +1162,25 @@
       "topic": "funny",
       "frame": "Someone has eaten half of Tully's cake. The Hunchlet is watching Tully investigate.",
       "text": "When Tully came home from footy training, the chocolate cake on the kitchen bench had a large, cake-shaped gap in it. It was her birthday cake, and she had been saving the biggest piece for after training. Mo was on the couch, reading a cookbook upside down. There was a smear of chocolate on its cover, and another on his chin. 'Big day?' Tully asked. 'Very quiet,' said Mo. 'I've been reading.' Tully narrowed her eyes. She walked slowly around the bench, counting the slices that were left. Then she lifted the lid of the bin and peered inside, where a single chocolate-smeared fork was lying on top. She looked at the fork. She looked at Mo. She leaned in close and sniffed. 'Why does your breath smell like chocolate?' 'Toothpaste,' said Mo. 'Chocolate toothpaste. It's new.' Tully raised one eyebrow and said nothing for a very long time. Then she checked the couch cushions, where she found a trail of crumbs leading straight to Mo's left pocket. 'That's where I keep my emergency crumbs,' Mo explained. Tully took a photo of the crumbs, a photo of the fork and a photo of Mo's face, and sent all three to the crew chat with the caption 'EVIDENCE'. Outside, a magpie watched through the window as if it knew something.",
-      "prompt": "How does Tully feel about Mo's story?",
-      "success": "Suspicious. Narrowed eyes, sniffing his breath and collecting 'evidence' show she doesn't believe a word.",
+      "prompt": "The writer wants to show Tully doesn't believe Mo, without naming her feeling. Which sentence does that best?",
+      "success": "A raised eyebrow and a long silence show doubt without naming it. The reader works it out.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "convinced",
-            "reason": "If she believed him, she wouldn't sniff his breath or photograph the crumbs."
+            "text": "Tully was very suspicious of Mo and his silly story.",
+            "reason": "This names the feeling. The writer wants you to work it out from what Tully does."
           },
           {
-            "text": "frightened",
-            "reason": "Nothing here scares Tully. She calmly collects evidence."
+            "text": "Tully went red and shouted at Mo across the kitchen.",
+            "reason": "Shouting shows anger, not doubt. And Tully stays calm while she collects evidence."
           },
           {
-            "text": "grateful",
-            "reason": "Mo hasn't done anything for Tully to thank him for. It looks like he ate her cake."
+            "text": "Tully nodded and cut herself a slice of what was left.",
+            "reason": "Nodding along and eating shows she accepts his story. She is meant to doubt it."
           },
           {
-            "text": "suspicious"
+            "text": "Tully raised one eyebrow and said nothing for a long time."
           }
         ],
         "answer": 3

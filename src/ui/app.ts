@@ -15,7 +15,8 @@ export type Screen =
   | { name: 'home' }
   | { name: 'map' }
   | { name: 'island'; branch: BranchId }
-  | { name: 'activity'; branch: BranchId }
+  | { name: 'activity'; branch: BranchId; wrote?: boolean }
+  | { name: 'sentence'; skill: SkillId }
   | { name: 'guide' }
   | { name: 'settings' }
   | { name: 'backup' }

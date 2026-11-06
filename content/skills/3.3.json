@@ -257,6 +257,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Back up the claim with an expert. Say who they are, why they know, and what they say.",
+      "given": [
+        "Our school needs more shade."
+      ],
+      "starter": "Our school needs more shade, because",
+      "checks": [
+        "I named a person who knows a lot about it.",
+        "I said how they know so much.",
+        "I said what they say about shade."
+      ],
+      "model": "Our school needs more shade, because Ms Ruiz, our school nurse for twenty years, says she treats sunburnt kids every week in summer."
+    },
     "creature": {
       "id": "kindalah",
       "name": "Kindalah",
@@ -656,29 +669,29 @@
       "band": 3,
       "topic": "sport",
       "frame": "Coach Dev Marsh has written to the Bugle about the oval. The Kindalah is checking every sentence.",
-      "text": "Dear Editor, I coach the Bluster Rock Roos, our town's junior footy team, and I am writing to ask the council to put lights on the oval at Red Dune Park. In winter, the sun sets before 5:30 pm, and by the time our players get to training, there is barely an hour of daylight left. Our club has more than sixty players, aged from eight to twelve, and our three teams train on Tuesday and Thursday afternoons. Parents have offered to run a sausage sizzle at every home game to help pay for the lights. I have backed up my claim in several ways. I asked Ms Ruby Tan, a sports scientist who trains young athletes, what she thought. I looked through the club's records for the last five years. I also spoke to some of our players' families. Not every sentence I wrote is backing, though. One of them only says my claim again. I hope the council will listen. Yours sincerely, Dev Marsh",
+      "text": "Dear Editor, I coach the Bluster Rock Roos, our town's junior footy team, and I am writing to ask the council to put lights on the oval at Red Dune Park. In winter, the sun sets before 5:30 pm, and by the time our players get to training, there is barely an hour of daylight left. Our club has more than sixty players, aged from eight to twelve, and our three teams train on Tuesday and Thursday afternoons. Parents have offered to run a sausage sizzle at every home game to help pay for the lights. I have backed up my claim in several ways. I spoke to Ruby Tan, who has trained young athletes for twenty years. I looked through the club's records and the league's injury lists. I also asked our players what happened at training in June. I hope the council will listen. Yours sincerely, Dev Marsh",
       "prompt": "Which sentence from Dev's letter is an example?",
-      "success": "Jack's sprained ankle is one real case, one night. That makes it an example.",
+      "success": "Three players tripping on one night is one real case. A number doesn't turn one night into records.",
       "body": {
         "format": "choose",
+        "answer": 2,
         "options": [
           {
             "text": "Club records show that four games were called off last season because it was too dark.",
-            "reason": "Records with a number are evidence. They count games across a whole season."
+            "reason": "Records that count games across a whole season are evidence, not one case."
           },
           {
-            "text": "Ms Tan, a sports scientist, says children are more likely to get hurt when training in poor light.",
-            "reason": "Ms Tan knows a lot about sport and safety. She's an expert, not an example."
+            "text": "Ruby Tan, who has trained young athletes for twenty years, says kids get hurt more in poor light.",
+            "reason": "There's no title, but twenty years of training athletes means she knows a lot. She's an expert."
           },
           {
-            "text": "In June, one of our players, Jack, sprained his ankle when he tripped over a cone in the dark."
+            "text": "On one dark night in June, three of our players tripped over the same cone at training."
           },
           {
-            "text": "The oval needs lights, and the sooner the council puts them up, the better.",
-            "reason": "This only says the claim again. It isn't any kind of backing."
+            "text": "Every club in the league that trains under lights has fewer injuries than we do.",
+            "reason": "There's no digit, but this compares every club's injury lists. Records like that are evidence."
           }
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -686,9 +699,9 @@
       "band": 3,
       "topic": "food",
       "frame": "Year 6 is debating sugary drinks at the canteen. The Kindalah is sorting their backing.",
-      "text": "On Thursday, Year 6 held a debate in the library about whether the Bluster Rock Primary canteen should stop selling sugary drinks. The team arguing for a ban came prepared. They had numbers from the canteen, quotes from people who know about health and teeth, and stories from real students. The healthy-food team wore green T-shirts and had practised their speeches all week. Their captain, Priya, opened by holding up a can of soft drink and asking the audience to guess how many teaspoons of sugar were inside. Most people guessed three. The answer was nine, and several Year 5s gasped. Mo was the timekeeper, although he kept stopping the clock to ask whether jelly counts as a drink. The other team argued that students should be free to choose, but they ran out of time after their mascot, a giant cardboard can, fell on the judges. Here are six pieces of backing the ban team used. Principal Okafor has promised to read the best arguments at assembly.",
+      "text": "On Thursday, Year 6 debated whether the canteen should stop selling sugary drinks. Here is the backing the ban team used.",
       "prompt": "Match each piece of backing to its kind.",
-      "success": "Counts and surveys are evidence. A dentist and a coach are experts. Single stories are examples.",
+      "success": "Records are evidence, even without digits. People who know are experts. One case is an example, even with a number.",
       "body": {
         "format": "sort",
         "bins": [
@@ -700,22 +713,22 @@
           {
             "text": "The canteen's sales records show it sold 2,000 sugary drinks last term.",
             "bin": 0,
-            "reason": "Sales records give a number you could check. That's evidence."
+            "reason": "Sales records give a count you could check. That's evidence."
           },
           {
-            "text": "Dr Amir Haddad, a dentist, says sugary drinks are the main cause of holes in children's teeth.",
+            "text": "Rosa, who has cleaned children's teeth at the clinic for thirty years, says sugary drinks cause most holes.",
             "bin": 1,
-            "reason": "A dentist knows a lot about teeth. That makes him an expert."
+            "reason": "There's no title, but thirty years of cleaning teeth means she knows a lot. She's an expert."
           },
           {
             "text": "Last month, Ruby had three fillings after drinking a can of soft drink every day.",
             "bin": 2,
-            "reason": "This is the story of one student. One real case is an example."
+            "reason": "Three fillings is a number, but it's one student's story. One real case is an example."
           },
           {
-            "text": "In a survey of 120 students, 70 said they feel tired after sugary drinks.",
+            "text": "Every class that swapped to water this year had fewer visits to the sick bay.",
             "bin": 0,
-            "reason": "A survey gives numbers from many students. That's evidence."
+            "reason": "There's no digit, but this counts sick bay visits for every class. That's records, so it's evidence."
           },
           {
             "text": "Coach Dunn, who has trained athletes for twenty years, says water is the best drink for sport.",
@@ -723,9 +736,14 @@
             "reason": "Coach Dunn has lots of experience training athletes. She's an expert."
           },
           {
-            "text": "After Year 4 swapped soft drinks for water at camp, one boy, Leo, stopped getting headaches.",
+            "text": "At camp, one boy, Leo, stopped getting headaches after he swapped soft drinks for water.",
             "bin": 2,
             "reason": "This tells about one boy. A single story is an example, even if it's convincing."
+          },
+          {
+            "text": "In a survey of 120 students, 70 said they feel tired after sugary drinks.",
+            "bin": 0,
+            "reason": "A survey gives numbers from many students. That's evidence."
           }
         ]
       }
@@ -736,27 +754,32 @@
       "topic": "general",
       "frame": "Wren has written to the council about the library. The Kindalah has its expert feather up.",
       "prompt": "Wren claims the library needs a giant beanbag. Tap the expert.",
-      "success": "Dr Nair has studied how children learn to read for twenty years. That makes her an expert.",
+      "success": "Mrs Pham has run the children's corner for twenty-five years, so she knows. An expert doesn't need a 'Dr'.",
       "body": {
         "format": "tapText",
+        "answer": 2,
         "parts": [
-          "Dear Councillors, I help out at the Bluster Rock library every Saturday, and I am writing to ask the council to buy a giant beanbag for the children's corner. Right now, the corner has four hard plastic chairs, and most kids give up and read standing by the door. A giant beanbag would hold six readers at once. ",
+          "Dear Councillors, I help out at the Bluster Rock library every Saturday, and I am writing to ask the council to buy a giant beanbag for the children's corner. Right now, the corner has four hard plastic chairs, and most kids give up and read standing by the door. ",
           {
-            "tap": "The library's records show that kids borrowed 140 books in the month we trialled a beanbag, up from 60 the month before.",
+            "tap": "The library's records show that kids borrowed 140 books in the month we trialled a beanbag, up from 60.",
             "reason": "These are records with numbers you could check. That's evidence."
           },
           " ",
           {
-            "tap": "Last Saturday, my little brother sank into the trial beanbag and read a whole chapter book without looking up once.",
-            "reason": "This is about one kid on one day. A single case is an example."
+            "tap": "Dr Lee's twins started reading every night after their family bought a beanbag.",
+            "reason": "There's a 'Dr' in it, but this is one family's story. That's an example."
           },
           " ",
           {
-            "tap": "Dr Priya Nair, who has studied how children learn to read for twenty years, says comfy seats help kids read for longer."
+            "tap": "Mrs Pham, who has run the children's corner for twenty-five years, says comfy seats keep kids reading for longer."
+          },
+          " ",
+          {
+            "tap": "Last Saturday, my little brother sank into the trial beanbag and read a whole chapter book.",
+            "reason": "This is about one kid on one day. A single case is an example."
           },
           " A beanbag costs less than a new bookshelf, and its cover can go in the washing machine. Please discuss this at your next meeting. Yours sincerely, Wren, the Soggy Biscuit"
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -764,47 +787,47 @@
       "band": 3,
       "topic": "gaming",
       "frame": "Zed is writing a speech about screen time. Tully labelled his backing, and one label is wrong.",
-      "text": "Zed has been asked to give a speech at assembly about whether kids should be allowed more screen time on weekends. He has decided to argue that video games can be good for you, as long as you take breaks. He has found three pieces of backing. First, he read about a study in which 300 students who played puzzle games for a month improved their problem-solving scores. Second, he found a quote from Dr Ken Ito, a scientist who studies how games affect the brain. Third, he remembered his cousin Mae, who learned to read maps by playing a sailing game and now wins every orienteering race. Zed is a little nervous, because the last time he spoke at assembly, his microphone stopped working halfway through and he had to shout. This time, he has practised in front of the mirror, the crew and the Kindalah, which fell asleep. He has also promised Tully that he won't mention speedruns more than twice. Tully has labelled each piece of backing for him.",
+      "text": "Zed has been asked to give a speech at assembly about whether kids should be allowed more screen time on weekends. He has decided to argue that video games can be good for you, as long as you take breaks. He has found three pieces of backing. First, he read about a study in which 300 students who played puzzle games for a month improved their problem-solving scores. Second, he found a quote from Ken Ito, who has studied how games affect the brain for fifteen years. Third, he remembered his cousin Mae, who learned to read maps by playing a sailing game and has now won three orienteering races in a row. Zed is a little nervous, because the last time he spoke at assembly, his microphone stopped working halfway through. This time, he has practised in front of the mirror, the crew and the Kindalah, which fell asleep.",
       "prompt": "Tap Tully's wrong label. Then choose the right one.",
-      "success": "The study tested 300 students and measured their scores. Numbers from a study are evidence.",
+      "success": "Mae is one person. Three wins is still her one story, so it's an example, not records from many people.",
       "body": {
         "format": "fix",
+        "spot": 0,
+        "answer": 1,
         "parts": [
-          "The study of 300 students is ",
+          "Cousin Mae and her three race wins: ",
           {
-            "tap": "an example"
+            "tap": "evidence"
           },
-          ". Dr Ken Ito is ",
+          ". The study of 300 students: ",
+          {
+            "tap": "evidence",
+            "reason": "That's right. The study measured 300 students' scores, a count you could check."
+          },
+          ". Ken Ito: ",
           {
             "tap": "an expert",
-            "reason": "That's right. A scientist who studies games and the brain knows a lot."
-          },
-          ". Cousin Mae's story is ",
-          {
-            "tap": "an example",
-            "reason": "That's right. Mae is one person, so her story is one real case."
+            "reason": "That's right. Fifteen years of studying games and the brain means he knows a lot."
           },
           "."
         ],
-        "spot": 0,
         "options": [
           {
             "text": "an expert",
-            "reason": "The study isn't a person telling you what they know. It's results from 300 students."
+            "reason": "Mae plays games, but she isn't someone who studies them. Think about whose story it is."
+          },
+          {
+            "text": "an example"
           },
           {
             "text": "a bare claim",
-            "reason": "The study does back up Zed's claim, with results you could check."
-          },
-          {
-            "text": "evidence"
+            "reason": "Mae's story does back up Zed's claim. It just shows one case."
           },
           {
             "text": "an opinion",
-            "reason": "A study's scores aren't what someone thinks. They are measured results."
+            "reason": "Mae's wins really happened. They aren't what someone thinks."
           }
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -814,27 +837,27 @@
       "frame": "Maxx is backing up his claim about the Moon trip. The Kindalah is suspicious, but it's still sorting.",
       "text": "Maxx it out, Vantafam! Some of you haters are still saying my trip to the Moon is impossible. Well, I've got backing, and lots of it. My team has collected numbers, quotes from experts and real stories, so get ready to be proven wrong. I've put my four best sentences below. Read them, and then tell all your friends that Maxx Vantablack was right all along. The Gold Rocket is thirty metres tall, it has four seats, and yes, the waterslide is real. I've been training for months, mostly by spinning round and round in my office chair until I feel sick. My hair stylist is coming too, because zero gravity is very bad for volume. The launch will be streamed in gold-tinted high definition. Two Xs, because one X is for losers! Remember, the launch is on 3 March, and tickets to watch it from the beach are still on sale at the Vantamart for just $50. Smash that heart button like it owes you money! Stay gold!",
       "prompt": "Which of Maxx's sentences uses evidence?",
-      "success": "Twelve flights out of twelve comes from flight records you could check. That's evidence.",
+      "success": "'Every test flight' counts many flights, even with no digits. Darren's trip is one case, even with a number.",
       "body": {
         "format": "choose",
+        "answer": 2,
         "options": [
           {
-            "text": "Dr Nova Starr, who has built rockets for thirty years, says my rocket is ready for space.",
-            "reason": "Dr Starr knows a lot about rockets, so she's an expert. You can't check her words like a record."
+            "text": "Nova Starr, who has built rockets for thirty years, says my rocket is ready for space.",
+            "reason": "There's no title, but thirty years of building rockets means she knows a lot. She's an expert."
           },
           {
-            "text": "My cousin Darren rode in the Gold Rocket last month, and he came back without a scratch.",
-            "reason": "Darren is one person, one trip. That makes it an example."
+            "text": "Last month, my cousin Darren and two mates rode the Gold Rocket and came back without a scratch.",
+            "reason": "There's a number, but it's one trip, one time. That makes it an example."
           },
           {
-            "text": "Flight records show the Gold Rocket has landed safely on all twelve of its test flights."
+            "text": "The Gold Rocket has landed safely on every one of its test flights so far."
           },
           {
             "text": "Everyone knows the trip is possible, because I am Maxx Vantablack and I always win.",
             "reason": "This isn't backing at all. It just asks you to trust Maxx because he's Maxx."
           }
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -843,9 +866,10 @@
       "topic": "general",
       "frame": "A newspaper story about a new crossing near the school. The Kindalah is waiting at the kerb.",
       "prompt": "The article claims the school needs a crossing. Tap the example.",
-      "success": "Ella nearly being hit is one real case, on one morning. That makes it an example.",
+      "success": "Ella's near miss is one real case, on one morning. The 'one metre' doesn't make it a count.",
       "body": {
         "format": "tapText",
+        "answer": 2,
         "parts": [
           "PARENTS CALL FOR SCHOOL CROSSING. Parents at Bluster Rock Primary are asking the council to build a pedestrian crossing on Dune Street, outside the school's main gate. The street is busy in the mornings, with utes, road trains and tourist buses all passing through. ",
           {
@@ -854,16 +878,20 @@
           },
           " ",
           {
-            "tap": "Sergeant Lee Moana, a road safety officer, says a crossing would make the street much safer for children.",
-            "reason": "A road safety officer knows a lot about traffic. That makes her an expert."
+            "tap": "Lee Moana, who has run road safety talks in schools for twenty years, says a crossing would make the street much safer.",
+            "reason": "There's no title, but twenty years of road safety work means she knows a lot. She's an expert."
           },
           " ",
           {
-            "tap": "On Monday, Year 3 student Ella Vance was nearly hit by a ute as she ran across to catch her mum."
+            "tap": "On Monday, a ute missed Year 3 student Ella Vance by less than one metre."
           },
-          " Several parents have offered to help paint the crossing lines if the council agrees. The council says it will look at the request at its next meeting. In the meantime, Principal Okafor has asked parents to drop their children at the back gate, where the road is quieter. A teacher will be on duty there every morning from 8:15 am."
-        ],
-        "answer": 2
+          " ",
+          {
+            "tap": "Every school on the highway that got a crossing has had fewer near misses since.",
+            "reason": "There's no digit, but this compares every school on the highway. Records like that are evidence."
+          },
+          " Several parents have offered to help paint the crossing lines if the council agrees. The council says it will look at the request at its next meeting. In the meantime, Principal Okafor has asked parents to drop their children at the back gate, where the road is quieter."
+        ]
       }
     },
     {
@@ -871,29 +899,29 @@
       "band": 4,
       "topic": "ocean",
       "frame": "Ada Pennick's letter about jet skis is going to the council. The Kindalah has all three feathers up.",
-      "text": "Dear Councillors, I am writing on behalf of the Bluster Bay Turtle Volunteers to ask you to cancel the licence that allows jet ski hire in the bay. For decades, the northern end of the bay has been a nesting beach for green turtles, and every summer, our volunteers count the nests, fence them off and watch the hatchlings scramble down to the water. Each nest holds around a hundred eggs, and the hatchlings come out at night, guided by the moonlight on the water. Since the hire shop opened in October, our work has changed. The hire shop has twelve jet skis, and on a busy Saturday, all twelve are out on the water at once, often within metres of the shore. I know that the hire shop brings visitors to our town, and I do not want anyone to lose their job. I have gathered backing of every kind for my claim that jet skis are hurting the turtles: the rangers' figures, the views of people who study turtles for a living, and the stories of individual animals we have tried to save. I have listed four sentences below, but my nephew has warned me that one of them isn't really backing at all. I would be grateful if you could read them before the vote on 12 December. Yours faithfully, Ada Pennick, turtle volunteer",
-      "prompt": "Which of Ada's sentences uses an expert?",
-      "success": "Dr Ferris has spent her career studying sea turtles, so she knows the topic deeply. She's an expert.",
+      "text": "Dear Councillors, I am writing on behalf of the Bluster Bay Turtle Volunteers to ask you to cancel the licence that allows jet ski hire in the bay. For decades, the northern end of the bay has been a nesting beach for green turtles. Since the hire shop opened in October, our work has changed. I have gathered four pieces of backing for my claim that jet skis are hurting the turtles. First, the rangers' figures show that fourteen injured turtles were found this summer, compared with two last summer. Second, Dr Iris Ferris, a marine biologist who has studied sea turtles for twenty years, warns that engine noise drives nesting females away. Third, one turtle, which we named Shelly, had a propeller cut so deep that she needed six weeks of care. Fourth, a man called TurtleGuy, who says online that he is a turtle expert, posted on a fishing forum that jet skis scare turtles. My nephew says one of these is much weaker than the others. I would be grateful if you could read them before the vote on 12 December. Yours faithfully, Ada Pennick, turtle volunteer",
+      "prompt": "Ada's nephew says one piece of backing is much weaker than the others. Which one, and why?",
+      "success": "Backing you can't check is weak. You can look up Dr Ferris and the rangers, but not a forum name.",
       "body": {
         "format": "choose",
+        "answer": 0,
         "options": [
           {
-            "text": "The rangers' figures show that fourteen injured turtles were found this summer, compared with two last summer.",
-            "reason": "Rangers' figures compare numbers across two summers. That's evidence."
+            "text": "TurtleGuy: nobody can check who he is or what he really knows."
           },
           {
-            "text": "One turtle, which we named Shelly, had a propeller cut so deep that she needed six weeks of care.",
-            "reason": "Shelly is one turtle. Her story is a single real case, so it's an example."
+            "text": "Shelly: one turtle could be a fluke, so her story is the weakest piece.",
+            "reason": "One case is weaker than a count, but Shelly's cut is real, and the rangers could confirm it."
           },
           {
-            "text": "Dr Iris Ferris, a marine biologist who has studied sea turtles for twenty years, warns that noise drives nesting females away."
+            "text": "The rangers' figures: a single summer of numbers could easily be a fluke.",
+            "reason": "Fourteen against two is a big jump, and you could check the rangers' records."
           },
           {
-            "text": "Anyone who has watched a hatchling reach the water knows how precious these animals are.",
-            "reason": "This is about feelings, not backing. Nobody's knowledge, no numbers and no single case are given."
+            "text": "Dr Ferris: she studies turtles, not jet skis, so it's outside her field.",
+            "reason": "Her warning is about what engine noise does to turtles. That's her field, and you could look her up."
           }
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -902,8 +930,8 @@
       "topic": "music",
       "frame": "The Bugle has printed an opinion piece about the music festival. The Kindalah is sorting it, feather by feather.",
       "text": "BRING BACK THE FESTIVAL: an opinion piece by Jojo Reyes of Red Dust Static. The Bluster Rock Music Festival has not been held since 2019, and I believe the council should bring it back next autumn. Some people say a festival is too noisy, too expensive and too much trouble for a small town. I understand those worries, and I don't want to pretend they aren't real. Like many people my age, I first heard live music at that festival, sitting on my dad's shoulders in the dust and watching a bush band play until midnight. Our band still has a faded festival T-shirt from that year, and our drummer wears it to every gig for luck. But I have spent the last month gathering backing for my claim that a festival would be good for Bluster Rock, and I think the case is strong. I spoke to shopkeepers, read the council's own reports, interviewed people who study tourism and music, and listened to locals who remember the old festivals. Below are six pieces of the backing I found. I hope that readers will judge each one on its merits. If the council agrees, three local bands have already offered to play for free, and the old flatbed truck behind the footy club could serve as a stage.",
-      "prompt": "Match each piece of backing to its kind.",
-      "success": "Takings, reports and surveys are evidence. Professors and planners are experts. Single stories, however moving, are examples.",
+      "prompt": "Match each piece of Jojo's backing to its kind. Some are tricky.",
+      "success": "Records count, even in words. Experts know a field. One case is an example, however big its numbers.",
       "body": {
         "format": "sort",
         "bins": [
@@ -918,29 +946,34 @@
             "reason": "A council report with visitor numbers is evidence you could check."
           },
           {
-            "text": "Professor Lena Watts, who researches tourism in country towns, says festivals are one of the best ways to bring visitors back.",
+            "text": "Every shop on the main street took more money that weekend than on any other weekend of 2019.",
+            "bin": 0,
+            "reason": "There's no digit, but this compares every shop's takings. Records like that are evidence."
+          },
+          {
+            "text": "Rosa Ferri, who has led the town's shopkeepers' group for thirty years, says festivals bring more customers to every shop.",
+            "bin": 1,
+            "reason": "There's no title, but thirty years leading the shopkeepers means she knows shops well. She's an expert."
+          },
+          {
+            "text": "Professor Lena Watts, who researches tourism in country towns, says festivals bring visitors back.",
             "bin": 1,
             "reason": "A professor who researches tourism knows the topic well. She's an expert."
           },
           {
-            "text": "After playing at the 2019 festival, a local singer, Tash Moore, was offered her first recording contract.",
+            "text": "In 2019, a local singer, Tash Moore, played to 6,000 people and was offered her first recording contract.",
             "bin": 2,
-            "reason": "This is what happened to one singer. A single story is an example."
+            "reason": "Big numbers, but it's what happened to one singer. A single story is an example."
           },
           {
-            "text": "A survey of 300 residents found that two-thirds would like the festival to return.",
+            "text": "One family drove 900 kilometres to the 2019 festival and stayed at the caravan park for a week.",
+            "bin": 2,
+            "reason": "900 kilometres is a number, but it's one family's trip. That's an example."
+          },
+          {
+            "text": "A survey of residents found that two in every three would like the festival to return.",
             "bin": 0,
-            "reason": "A survey gives numbers from 300 people. That's evidence."
-          },
-          {
-            "text": "Mr Victor Lam, who has organised outback festivals for fifteen years, says noise can be managed with careful planning.",
-            "bin": 1,
-            "reason": "Years of organising festivals make Mr Lam an expert on running them."
-          },
-          {
-            "text": "The bakery's owner, Rosa, remembers selling out of pies by ten o'clock on the festival's first morning.",
-            "bin": 2,
-            "reason": "This is one shop on one morning. A single real case is an example."
+            "reason": "A survey counts many people's answers. That's evidence, even written in words."
           }
         ]
       }
@@ -950,111 +983,111 @@
       "band": 4,
       "topic": "art",
       "frame": "A report in the Bugle asks whether Maxx's auction money reached the Rescue Fund. The Kindalah is reading it very closely.",
-      "prompt": "The report claims the Rescue Fund money may not be reaching rescued animals. Tap the example.",
-      "success": "One koala's broken promise is a single real case. That makes it an example, however telling.",
+      "prompt": "The editor wants to cut the weakest piece of backing for the report's claim. Tap it.",
+      "success": "Nobody knows who wrote the comment, so nobody can check it. The other three could all be checked.",
       "body": {
         "format": "tapText",
+        "answer": 3,
         "parts": [
-          "WHERE DID THE MONEY GO? Last month, Maxx Vantablack auctioned his painting 'Gold on Gold' for $40,000 and promised that every cent would go to the Maxx Vantablack Rescue Fund. The Bugle has been trying to find out what the fund actually spends its money on, and so far, the answers have raised more questions than they have settled. ",
+          "WHERE DID THE MONEY GO? Last month, Maxx Vantablack auctioned his painting 'Gold on Gold' and promised that every cent would go to the Maxx Vantablack Rescue Fund. The Bugle has been trying to find out what the fund actually spends its money on. So far, the answers have raised more questions than they have settled. ",
           {
             "tap": "The fund's own published accounts show that only $3,000 of the $90,000 it raised last year was spent on animal care.",
-            "reason": "Published accounts with figures are evidence you could check."
+            "reason": "Published accounts with figures are evidence you could check. That's strong."
           },
           " ",
           {
-            "tap": "Ms Harriet Cole, an accountant who checks the books of charities, says that a fund spending so little on its main purpose should be investigated.",
-            "reason": "An accountant who checks charities knows how they should spend money. She's an expert."
+            "tap": "Harriet Cole, an outside money checker (an accountant) who checks charities' books, says a fund spending so little should be investigated.",
+            "reason": "You could look up her job and her work. A checkable expert is strong."
           },
           " ",
           {
-            "tap": "Last year, the fund promised to pay for an injured koala's operation at the Red Dust Wildlife Rescue, but the money never arrived, and volunteers paid for it themselves."
+            "tap": "Last year, the fund promised to pay for an injured koala's operation, but the money never arrived, and volunteers paid instead.",
+            "reason": "It's one case, but the rescue's volunteers could confirm it. That's checkable backing."
           },
           " ",
           {
-            "tap": "A spokesperson for Maxx said the fund was 'doing amazing things' and that 'the haters just don't understand'.",
-            "reason": "This isn't backing for the report's claim. It's Maxx's side, and it gives no proof."
+            "tap": "Someone who won't give their name commented online that the fund's office has a gold-plated spa."
           },
-          " The Bugle has asked to see the fund's receipts for the past three years. We will report what we find. Readers who have donated to the fund are encouraged to ask for receipts too."
-        ],
-        "answer": 2
+          " The Bugle has asked to see the fund's receipts for the past three years. We will report what we find. Readers who have donated to the fund are encouraged to ask for receipts too. A spokesperson for Maxx said the fund was 'doing amazing things'."
+        ]
       }
     },
     {
       "id": "3.3-b4-4",
       "band": 4,
       "topic": "robots",
-      "frame": "Gus's robotics club proposal has a labelling problem. The Kindalah found it straight away.",
-      "text": "Gus has finally been given five minutes at the school council meeting to argue for a robotics club at Bluster Rock Primary. He has prepared three pieces of backing, one of each kind, and Indi has helped him label them on a poster so that the council can see exactly how strong his case is. First, he has a quote from Professor Dana Liu, who designs robots for hospitals and believes that every primary school should teach children to build simple machines. Second, he has the results of a national study, which found that schools with robotics clubs had a 20 per cent rise in the number of students choosing science subjects in high school. Third, he has the story of Saltbush Creek Primary's robotics club, whose team of Year 6 students built a robot that waters the school garden and won a state prize. Unfortunately, Indi was drawing a robot in the margin while she labelled, and one label went on the wrong piece of backing. Gus has rehearsed his speech eleven times, mostly in front of Mo, who now says the words along with him. He is also bringing his own robot, Sorty, which sorts recycling with two claws made from salad tongs, to show the council what students can build.",
-      "prompt": "Tap the wrong label on Gus's poster. Then choose the right one.",
-      "success": "A study measuring a 20 per cent rise across many schools gives figures you could check. That's evidence.",
+      "frame": "Gus's robotics club proposal has a judging problem. The Kindalah found it straight away.",
+      "text": "Gus has five minutes at the school council meeting to argue for a robotics club at Bluster Rock Primary. He has three pieces of backing, one of each kind. First, he has a quote from Professor Dana Liu, who designs robots for hospitals and believes every primary school should teach children to build simple machines. Second, he has a national study, which found that schools with robotics clubs had a 20 per cent rise in students choosing science in high school. Third, he has the story of Saltbush Creek Primary, whose Year 6 robotics team built a robot that waters the school garden and won a state prize. Indi wrote a note on the poster beside each piece, saying how strong it is. She was drawing a robot in the margin at the time, and one note is wrong. Gus has rehearsed his speech eleven times, mostly in front of Mo, who now says the words along with him. He is also bringing his own robot, Sorty, to show the council what students can build.",
+      "prompt": "Tap Indi's wrong note. Then choose a better one.",
+      "success": "One school's prize is real, but it can't show every school would do as well. It might be a fluke.",
       "body": {
         "format": "fix",
+        "spot": 0,
+        "answer": 1,
         "parts": [
-          "Professor Dana Liu's view: ",
+          "The Saltbush Creek story: ",
           {
-            "tap": "expert",
-            "reason": "That's right. A professor who designs robots knows the topic well."
+            "tap": "strong, because it proves every school would win prizes"
           },
-          ". The national study's results: ",
+          ". The national study: ",
           {
-            "tap": "example"
+            "tap": "strong, because it measured many schools",
+            "reason": "That's right. Results from many schools are hard to fluke."
           },
-          ". The Saltbush Creek story: ",
+          ". Professor Liu's view: ",
           {
-            "tap": "example",
-            "reason": "That's right. One school's club is a single real case."
+            "tap": "strong, because you can look up her job",
+            "reason": "That's right. You can check who she is and what she does."
           },
           "."
         ],
-        "spot": 1,
         "options": [
           {
-            "text": "expert",
-            "reason": "A study isn't one person who knows a lot. It reports measured results from many schools."
+            "text": "strong, because a state prize is in it",
+            "reason": "A prize makes a good story, but it's still one school. One case can't show what every school would do."
           },
           {
-            "text": "evidence"
+            "text": "weaker, because one school's success might be a fluke"
           },
           {
-            "text": "opinion",
-            "reason": "A 20 per cent rise is a measured result, not what someone thinks."
+            "text": "weak, because examples are never really true",
+            "reason": "The story is true. Examples are real cases. One case just can't prove what always happens."
           },
           {
-            "text": "bare claim",
-            "reason": "The study does back up Gus's claim. It gives results you could check."
+            "text": "weak, because nobody can check Saltbush Creek",
+            "reason": "You could ring Saltbush Creek and check. The problem is that it's only one school."
           }
-        ],
-        "answer": 1
+        ]
       }
     },
     {
       "id": "3.3-b4-5",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Four companies have sent backing to the Vantamart buyers. The Kindalah is sorting their pitches, nose held.",
-      "text": "Every month, the Vantamart's buyers listen to pitches from companies that want their products on its shelves, and this month's theme is 'Gross but Good'. This time, the buyers have asked each company to send one piece of backing for its main claim, and they have been very clear about what they want. They are tired of companies that simply shout that their product is the best. Instead, they want to know what kind of backing each company is offering, so that they can decide how much to trust it. Some buyers prefer numbers from careful tests, some prefer the word of people who really know the field, and some are most moved by a single real story. Last month's winner, a burping water bottle, sold out in three days and was advertised on Maxx's stream for a whole month. This month, the winning product will be stocked in every Vantamart on the island and sold in a special gold box. The four companies have each sent in a single sentence, and the buyers have printed them below. Maxx will make the final decision himself, after he has tried every product live on his stream. Gus has asked for free samples of all four, and Mo has asked whether any of them are edible.",
-      "prompt": "Which company's backing is an example?",
-      "success": "One family's dog going without a bath is a single real case. That makes it an example.",
+      "frame": "The collar company has sent the Vantamart buyers a second pitch. The Kindalah is comparing them, nose held.",
+      "text": "The collar company first sent the buyers one story: 'The Patel family's dog, Rufus, wore our stink-proof collar for a month and never once needed a bath.' Now it has sent a second pitch: 'Twenty dogs wore our collar for a month, and not one of them needed a bath.'",
+      "prompt": "What kind of backing is the second pitch, and how does it compare with Rufus's story?",
+      "success": "Twenty dogs is a count you could check. One dog might be a fluke, but twenty is far harder.",
       "body": {
         "format": "choose",
+        "answer": 0,
         "options": [
           {
-            "text": "Our seashell toothpaste removed 30 per cent more plaque than ordinary toothpaste in a test of 200 people.",
-            "reason": "A test of 200 people with a percentage is evidence you could check."
+            "text": "Evidence: it counts twenty dogs, so it's less likely to be a fluke."
           },
           {
-            "text": "Dr Felix Ward, a germ scientist at the national university, says our sock spray kills the bacteria that cause foot odour.",
-            "reason": "Dr Ward knows a lot about germs. He's an expert, not an example."
+            "text": "Example: twenty dogs in one test is still just one story, like Rufus.",
+            "reason": "One story is about one dog. Counting twenty dogs' results is a check anyone could repeat."
           },
           {
-            "text": "The Patel family's dog, Rufus, wore our stink-proof collar for a whole month and never once needed a bath."
+            "text": "Expert: the company tested twenty dogs, so it knows its collar best.",
+            "reason": "Nobody who knows a lot is speaking here. It's a count of dogs."
           },
           {
-            "text": "Our glow-in-the-dark slime is simply the greatest, slimiest and most glorious slime that has ever existed.",
-            "reason": "This is just a claim shouted loudly. It doesn't give any kind of backing."
+            "text": "Evidence: but it's weaker, because more dogs means more chances to go wrong.",
+            "reason": "More dogs makes a fluke less likely, not more. Twenty results beat one."
           }
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -1062,10 +1095,11 @@
       "band": 4,
       "topic": "spooky",
       "frame": "The Bugle has a follow-up story on the mystery lights. The Kindalah is reading it under the doona.",
-      "prompt": "The report claims the lights are probably not ghosts. Tap the expert.",
-      "success": "Dr Okafor studies glowing fungi, so she knows exactly what natural glows look like. She's an expert.",
+      "prompt": "The report claims the lights are probably not ghosts. Tap the expert on this topic.",
+      "success": "Esther Okafor has studied glowing fungi for thirty years. Dr Mehta knows teeth, and his is one sighting.",
       "body": {
         "format": "tapText",
+        "answer": 2,
         "parts": [
           "MYSTERY LIGHTS: NOT GHOSTS AFTER ALL? For two weeks now, strange green lights have been appearing above the old mine at the back of Bluster Rock, and ghost tour guide Slick Vinnie has been telling visitors that they are the spirits of long-gone miners. Ticket sales for his midnight tour have tripled. But the Bugle has found growing reasons to think that the lights have a far more ordinary explanation. ",
           {
@@ -1074,21 +1108,20 @@
           },
           " ",
           {
-            "tap": "Dr Esther Okafor, a scientist who has studied glowing fungi for thirty years, says the colour matches a fungus that grows on old mine timbers."
+            "tap": "Dr Raj Mehta, a dentist, says he watched the lights glow and fade from his kitchen window on Friday.",
+            "reason": "He has a 'Dr', but he knows teeth, not lights. His sighting is one real case: an example."
           },
           " ",
           {
-            "tap": "Last Thursday, a local teenager, Kade, crept into the mine's entrance with a camera and photographed a glowing patch on a wooden beam.",
+            "tap": "Esther Okafor, who has studied glowing fungi for thirty years, says the colour matches a fungus that grows on old mine timbers."
+          },
+          " ",
+          {
+            "tap": "Last Thursday, a local teenager, Kade, crept into the mine's entrance and photographed a glowing patch on a wooden beam.",
             "reason": "Kade's photo is one real case, from one night. That makes it an example."
           },
-          " ",
-          {
-            "tap": "Most sensible people already know that ghosts don't exist, so the answer was obvious from the start.",
-            "reason": "This isn't backing. It just tells you the answer is obvious without showing why."
-          },
-          " Slick Vinnie has not commented, although a box of green glow sticks was seen in the back of his ute on Tuesday. The Soggy Biscuit crew has offered to help the council investigate, and their engineer, Gus, has asked for permission to take a small sample of the fungus home for testing. Mo has asked whether it can be eaten."
-        ],
-        "answer": 1
+          " Slick Vinnie has not commented, although a box of green glow sticks was seen in the back of his ute on Tuesday. The Soggy Biscuit crew has offered to help the council investigate, and their engineer, Gus, has asked to take a small sample of the fungus home for testing. Mo has asked whether it can be eaten."
+        ]
       }
     }
   ]

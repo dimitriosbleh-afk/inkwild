@@ -291,6 +291,18 @@
       "name": "Whyrella",
       "evolved": "Whyrellion",
       "blurb": "A crimson rosella that cracks open every text like a seed to find out what it's for. A story, a recipe or a sales pitch: it can taste the difference."
+    },
+    "write": {
+      "ask": "Rewrite this fact so it tries to persuade the reader. Keep the fact in.",
+      "given": [
+        "Snow gums can grow back after a bushfire."
+      ],
+      "checks": [
+        "My sentence pushes the reader to agree or act",
+        "I kept the fact about growing back",
+        "I used a push word, such as should or must"
+      ],
+      "model": "Snow gums can grow back after a bushfire, so we should protect every single one."
     }
   },
   "encounters": [
@@ -712,59 +724,59 @@
       "band": 3,
       "topic": "animals",
       "frame": "The Architect keeps a shelf of nature books in the Tower One hut. The Whyrella has opened one.",
-      "text": "Snow Gums and Fire. Snow gums grow high in the mountains, where summer bushfires can sweep through the trees. A strong fire can kill every leaf and branch on a snow gum, but the tree is not finished. Hidden at the base of its trunk is a woody lump called a lignotuber. This lump stores food, and it is covered in sleeping buds. Because the lump is partly underground, the soil protects it from the heat of the flames. After the fire has passed, the burnt tree can no longer make food in its leaves. This change wakes the sleeping buds. They use the food stored in the lump to send up new green shoots. Within a few years, the shoots grow into a ring of new stems around the old, dead trunk. That is why many snow gums have several thin trunks instead of one thick one.",
+      "text": "Snow Gums. Snow gums grow high in the mountains, where summer bushfires can sweep through the trees. A strong fire can kill every leaf and branch on a snow gum, but the tree is not finished. Hidden at the base of its trunk is a woody lump called a lignotuber. This lump stores food, and it is covered in sleeping buds. Because the lump is partly underground, the soil protects it from the heat of the flames. After the fire has passed, the burnt tree can no longer make food in its leaves. This change wakes the sleeping buds. They use the food stored in the lump to send up new green shoots. Within a few years, the shoots grow into a ring of new stems around the old, dead trunk. That is why many snow gums have several thin trunks instead of one thick one.",
       "prompt": "What is this text mainly for?",
-      "success": "It explains. It follows a chain: fire kills the leaves, the buds wake, and new shoots grow.",
+      "success": "It explains. It follows a chain of causes: fire kills the leaves, buds wake, and new trunks grow.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to explain how a snow gum grows back after a fire"
+            "text": "to give facts about what snow gums look like",
+            "reason": "It ends with how they look, but it gets there through causes: fire, buds, shoots."
           },
           {
-            "text": "to describe what snow gums look like and where they grow",
-            "reason": "It mentions where they grow, but it follows the steps of how a tree regrows after fire."
+            "text": "to explain how a burnt snow gum can grow new trunks"
           },
           {
-            "text": "to convince readers to protect snow gums from bushfires",
-            "reason": "It never says what anyone should do. It explains what happens inside the tree."
+            "text": "to tell readers what to do when a fire reaches a snow gum",
+            "reason": "It never tells the reader to do anything. It follows what happens inside the tree."
           },
           {
             "text": "to retell what happened to one snow gum in one fire",
             "reason": "It's about snow gums in general, in present tense, not one tree on one day."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
       "id": "7.1-b3-2",
       "band": 3,
       "topic": "food",
-      "frame": "A letter is pinned to the canteen door at Peakside Primary. The Whyrella has a crumb in its beak.",
-      "text": "Dear Principal Haddad, We are writing about the school canteen, which closes every winter because the hut has no heater. We think this needs to change. In winter, the walk to the general store takes twenty minutes through the snow. Last term, fourteen students missed lunch on blizzard days, and that is not fair. A small heater would cost about three hundred dollars, which our class can raise with a cake stall. A warm canteen could also sell hot soup, which would earn money for the school. Hungry students find it hard to concentrate, so a winter canteen would help everyone learn. Please put a heater in the canteen before the snow comes back. Our class has already asked the parents' club, and they have offered to help with the cake stall. We would be happy to help set the heater up, and we promise to keep the canteen tidy. Yours sincerely, Year 6, Room 3",
-      "prompt": "What is this letter mainly for?",
-      "success": "It persuades. It gives reasons and facts, then makes a request: 'Please put a heater in the canteen.'",
+      "frame": "This is pinned to the noticeboard before the school council meeting. The Whyrella has a crumb in its beak.",
+      "text": "Last Tuesday, the blizzard came early. At twelve o'clock, Room 3 lined up at the canteen hut, but the door was locked, because the hut has no heater and closes all winter. We walked twenty minutes through the snow to the general store. By the time we got there, Mo's fingers were so cold that he couldn't open his money tin. Tully's boots filled up with snow. Then we found out the store had sold out of pies, so we walked all the way back with nothing. In the afternoon, nobody in Room 3 could think about fractions, because all we could think about was food. Fourteen students missed lunch on blizzard days last term. A small heater costs about three hundred dollars. So at Friday's council meeting, please vote to put a heater in the canteen.",
+      "prompt": "What is this text mainly for?",
+      "success": "It persuades. The day is retold as a reason, and the ending asks the council to vote.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to give facts about the school canteen and its menu",
-            "reason": "The facts are there to back up a request. The letter is asking for a heater."
+            "text": "to retell what happened to Room 3 on the blizzard day",
+            "reason": "Most of it does retell one day. But read to the end: what does it ask for?"
           },
           {
-            "text": "to retell what happened on last term's blizzard days",
-            "reason": "Those days are mentioned once, as a reason. The letter is asking for a change."
+            "text": "to give facts about the canteen hut and its heater",
+            "reason": "The cost of a heater is there to back up a request, not just to inform."
           },
           {
-            "text": "to explain how a heater would warm up the canteen",
-            "reason": "It never explains how heaters work. It argues for getting one."
+            "text": "to get the council to vote for a heater in the canteen"
           },
           {
-            "text": "to persuade the principal to put a heater in the canteen"
+            "text": "to entertain readers with a funny story about Mo and his cold fingers",
+            "reason": "Mo's fingers are one detail, and the day really happened. The ending asks for a vote."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -825,36 +837,36 @@
       "band": 3,
       "topic": "robots",
       "frame": "The Architect's robot crane has a sign explaining how it works. Someone has added a line.",
-      "prompt": "This sign explains how the crane works. Tap the sentence that does a different job.",
-      "success": "That sentence gives an opinion and says what cities should do. The rest explain how the crane works.",
+      "prompt": "Tap the sentence that does a different job from the rest of the sign.",
+      "success": "'Pull the brake lever' tells the reader what to do. The rest explain how the crane works, even 'Next'.",
       "body": {
         "format": "tapText",
         "parts": [
           "How the Tower Crane Lifts a Girder. ",
           {
             "tap": "When the driver presses the lift button, a motor at the top of the crane starts to turn a drum.",
-            "reason": "This explains the first step: the button starts the motor."
+            "reason": "This says what the machine does when the button is pressed. It explains."
           },
           " ",
           {
             "tap": "As the drum turns, it winds in a steel cable, which pulls the hook upwards.",
-            "reason": "This explains what the turning drum causes."
+            "reason": "This links a cause to an effect: the drum turns, so the hook rises."
           },
           " The girder hangs from the hook on two short chains, so it rises with it. While it climbs, a sensor in the hook measures how heavy the load is. If the load is too heavy, an alarm sounds and the motor stops. ",
           {
             "tap": "A heavy girder could tip the crane over, so concrete blocks hang off the back arm to balance it.",
-            "reason": "This explains why the crane doesn't tip over."
+            "reason": "This says why the blocks are there. It explains part of the crane."
           },
           " ",
           {
-            "tap": "Honestly, it is the most beautiful machine ever built, and every city should have ten."
+            "tap": "When the girder reaches the right height, pull the brake lever hard so the cable can't unwind."
           },
           " ",
           {
-            "tap": "When the girder reaches the right height, a brake locks the drum so the cable can't unwind.",
-            "reason": "This explains how the girder stays up."
+            "tap": "Next, the long arm swings around until the girder is above the right spot.",
+            "reason": "'Next' sounds like a step, but the arm does the moving. Nobody is told what to do."
           },
-          " Next, the driver swings the long arm around until the girder is above the right spot. Finally, the drum turns the other way, and the cable lowers the girder gently into place."
+          " Finally, the drum turns the other way, and the cable lowers the girder gently into place."
         ],
         "answer": 3
       }
@@ -911,27 +923,27 @@
       "id": "7.1-b3-6",
       "band": 3,
       "topic": "spooky",
-      "frame": "Indi found a story scratched into the wall of the old lift hut.",
-      "text": "The chairlift at Scaffold Peaks had been closed for twenty years, so Kit was surprised when it started to hum. One by one, the empty chairs swung past her, creaking in the wind. Then a chair stopped right in front of her, as if it was waiting. Its seat was dusted with fresh snow, but there were no footprints anywhere. Kit should have gone home. Instead, she climbed on. The chair rose through the fog, higher than the rock towers and higher than the clouds. At the very top was a tiny hut with a light in the window. Inside, a man made entirely of snow was pouring two cups of tea. 'You took your time,' he said. 'I've been sending that chair down every night since the year you were born.' Kit's mouth went dry. 'Why?' she whispered. The snowman smiled and pushed a cup towards her. 'Because,' he said, 'you're the only one who ever looked up.'",
-      "prompt": "What is this text for?",
-      "success": "It narrates. A snowman who talks and a mystery that builds show it's made up to entertain.",
+      "frame": "Indi found a diary page tucked under the seat of the old chairlift.",
+      "text": "Saturday, 14 July. The old chairlift at Scaffold Peaks has been closed for twenty years, so I was surprised when it started to hum tonight. One by one, the empty chairs swung past me, creaking in the wind. Then a chair stopped right in front of me, as if it was waiting. Its seat was dusted with fresh snow, but there were no footprints anywhere. I should have gone home. Instead, I climbed on. The chair rose through the fog, higher than the rock towers and higher than the clouds. At the top was a tiny hut with a light in the window. Inside, a man made entirely of snow was pouring two cups of tea. 'You took your time,' he said. 'I've sent that chair down every night since the year you were born.' My mouth went dry. 'Why?' I whispered. He smiled and pushed a cup towards me. 'Because you're the only one who ever looked up.'",
+      "prompt": "It looks like a diary. What is this text really for?",
+      "success": "It narrates. The date and 'I' look like a recount, but a snowman pouring tea is made up.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to retell what really happened on a chairlift ride",
-            "reason": "A man made of snow pours tea and talks. That can't be a real event."
+            "text": "to retell what really happened to the writer last Saturday",
+            "reason": "It has a date, 'I' and past tense, like a recount. But can a snowman pour tea?"
           },
           {
             "text": "to give facts about the old chairlift at Scaffold Peaks",
-            "reason": "It gives only one fact about the lift. The rest is a mystery that unfolds."
+            "reason": "It gives one fact about the lift. The rest is a mystery that unfolds."
           },
           {
-            "text": "to entertain readers with a mysterious, made-up story"
+            "text": "to entertain readers with a mystery written like a diary"
           },
           {
-            "text": "to persuade readers to reopen the old chairlift",
-            "reason": "Nobody argues for anything. Things just happen to Kit, to keep you reading."
+            "text": "to persuade readers to ride the old chairlift at night",
+            "reason": "Nobody argues for anything. Things just happen, to keep you reading."
           }
         ],
         "answer": 2
@@ -973,28 +985,28 @@
       "topic": "space",
       "frame": "Tully is reading up before the Architect's space camp. The Whyrella is reading over her shoulder.",
       "text": "Bones in Space. On Earth, your skeleton works hard every second of the day, even when you are just standing in line at the canteen. Gravity pulls your body towards the ground, so your bones must hold up your weight with every step. This constant load sends a signal to special cells inside your bones, telling them to keep building fresh, strong bone. On a space station, however, astronauts float, so their legs, hips and spine have almost no weight to carry. Without that load, the bone-building cells receive no signal and slow down, while other cells keep breaking old bone down at the usual rate. As a result, an astronaut can lose around one per cent of the bone in their hips and legs every month. The lost minerals travel into the blood, which is also why some astronauts develop painful kidney stones. Exercise machines that make astronauts push against heavy springs can slow this loss, because they create some of the load that gravity normally provides. Astronauts also eat foods rich in calcium and vitamin D, which their bodies need to build new bone. Even so, after returning to Earth, it can take years for their bones to fully recover.",
-      "prompt": "What is this text mainly for?",
-      "success": "It explains. It links causes and effects: no weight, no signal, less bone built, weaker bones.",
+      "prompt": "Tully says this text informs, because it's full of facts. Is she right?",
+      "success": "It explains. Each fact causes the next: no weight, no signal, less bone built.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to give facts about daily life aboard a space station",
-            "reason": "Life on the station only comes up as part of the chain: no weight, no signal, weaker bones."
+            "text": "Yes, because every sentence gives a fact about astronauts.",
+            "reason": "Facts alone don't settle it. Do these facts describe, or link causes to effects?"
           },
           {
-            "text": "to instruct astronauts on how to use the exercise machines",
-            "reason": "The machines are mentioned, not taught. Nothing tells the reader what to do."
+            "text": "No, because its facts link a cause to an effect, step by step."
           },
           {
-            "text": "to persuade governments to stop sending people into space",
-            "reason": "It never says space travel is bad or that anything should stop."
+            "text": "No, because it is trying to stop people from ever going into space.",
+            "reason": "It never argues against space travel. Nothing says anything should stop."
           },
           {
-            "text": "to explain why bones lose strength without gravity"
+            "text": "Yes, because it uses present tense, like an information report.",
+            "reason": "Explanations use present tense too. Ask what the facts are doing."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
@@ -1097,7 +1109,7 @@
       "frame": "Gus wrote a label for a poster in the Architect's workshop. The Whyrella has its doubts.",
       "text": "The Compass. Deep inside the Earth, a core of hot, liquid iron is constantly churning, and this movement turns the whole planet into a gigantic, weak magnet. Like any magnet, the Earth has two magnetic poles, one near the North Pole and one near the South Pole, and invisible lines of magnetic force loop between them. Scientists call the space around a magnet, where its pull can be felt, a magnetic field. A compass needle is a thin sliver of magnetised metal, balanced on a pin so that it can spin with almost no friction. Because the needle is a tiny magnet itself, its ends are pulled by the Earth's magnetic field, and the needle swings until it lines up with those invisible lines. The end marked in red is attracted towards the magnetic pole in the north, which is why it always settles pointing that way. However, the magnetic pole is not in exactly the same place as the North Pole on a map, and it slowly wanders over the years. Near the far north of Canada, the gap between the two can be so large that a compass is almost useless. That is why a compass and a map can disagree by a few degrees.",
       "prompt": "Tap the part Gus got wrong, then choose a better one.",
-      "success": "It explains. It links causes: a churning core makes a magnet, which pulls the needle round to point north.",
+      "success": "It explains. Its facts link causes: a churning core makes a magnet, which pulls the needle north.",
       "body": {
         "format": "fix",
         "parts": [
@@ -1108,7 +1120,7 @@
           },
           ". Job: ",
           {
-            "tap": "to teach hikers how to use a compass on a walk"
+            "tap": "to give facts about compasses and the Earth"
           },
           ". Key idea: ",
           {
@@ -1120,16 +1132,16 @@
         "spot": 1,
         "options": [
           {
-            "text": "to give facts about different kinds of compasses",
-            "reason": "Only one kind of compass is described. The text follows why its needle points north."
+            "text": "to describe the parts of a compass",
+            "reason": "Only the needle is described, and only to show why it swings north."
+          },
+          {
+            "text": "to tell hikers how to use a compass on a walk",
+            "reason": "It never tells the reader to do anything. There are no steps."
           },
           {
             "text": "to convince walkers to always carry a compass",
             "reason": "It never says anyone should carry one. It explains how the needle works."
-          },
-          {
-            "text": "to retell how the first compass was invented",
-            "reason": "No inventor or event appears. It's about how every compass works today."
           },
           {
             "text": "to explain how a compass needle comes to point north"
@@ -1144,28 +1156,28 @@
       "topic": "art",
       "frame": "The Peakside Primary newsletter is out, and the Whyrella is on the front page.",
       "text": "Tower Four Gets a Makeover. Last Thursday, after three months of planning, Room 6 finally painted a mural on the bare concrete wall at the foot of Tower Four. The day began badly: at eight o'clock the wall was still coated in frost, so Ms Petrakis sent everyone back inside for hot chocolate while the sun did its work. By ten, the wall was dry enough for the first coat of sky blue, which went on with rollers tied to broom handles. After recess, small groups took turns on the scaffolding to paint the snow gums, the ladders and, at Indi's insistence, a crimson rosella the size of a car. Just before lunch, a gust of wind knocked over a tin of red paint, and for a few panicked minutes it looked as if the rosella had sprung a leak. Zed rescued the moment by turning the spill into a row of fallen leaves. In the afternoon, the class added the outlines and signed their names in the bottom corner. Parents arrived at three for the unveiling, and the principal declared it the brightest thing on the island. Room 6 would like to thank the hardware store for donating the paint.",
-      "prompt": "What is this newsletter article for?",
-      "success": "It recounts. It follows one real day in time order, from the frosty morning to the unveiling at three.",
+      "prompt": "Which change would turn this recount into a text that persuades?",
+      "success": "Persuading asks the reader to agree or act. A request at the end gives the whole recount a new job.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to recount how Room 6 painted the Tower Four mural"
+            "text": "Add more times to the day, such as 'At half past one'.",
+            "reason": "More times make it a clearer recount. They don't ask the reader for anything."
           },
           {
-            "text": "to entertain readers with a made-up tale about a paint spill",
-            "reason": "It's a school newsletter naming a real class, day and times. It retells events, not a made-up plot."
+            "text": "End it with: 'Please let Room 6 paint the other three towers too.'"
           },
           {
-            "text": "to instruct readers on how to paint a mural on concrete",
-            "reason": "It says what Room 6 did, in past tense. It never tells the reader what to do."
+            "text": "Tell the whole day in present tense, as if it's happening now.",
+            "reason": "That changes the tense, not the job. It would still retell the day."
           },
           {
-            "text": "to persuade the principal to let Room 6 paint more walls",
-            "reason": "Nobody asks for anything. The principal already loves it, and the class just says thanks."
+            "text": "Add the steps Room 6 used, such as 'Tie each roller to a broom handle'.",
+            "reason": "Steps would add instructions. Nobody would be asked to agree or act."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     }
   ]

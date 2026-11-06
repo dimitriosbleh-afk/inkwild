@@ -105,6 +105,31 @@ describe('content rule checks', () => {
     ).toMatch(/longest option/);
   });
 
+  it('reject Band 3 and 4 judging tasks whose answer is usually the longest option', () => {
+    expect(
+      problemsAfter((f) => {
+        for (const e of f.encounters) {
+          const b = e.body;
+          if (e.band < 3 || b.format !== 'choose') continue;
+          b.options[b.answer]!.text += ' because that is exactly what the text shows the reader at this point';
+        }
+      }).join(),
+    ).toMatch(/at Bands 3 and 4 the answer is the longest/);
+  });
+
+  it('reject a Skill whose wrong options keep saying always or never', () => {
+    expect(
+      problemsAfter((f) => {
+        for (const e of f.encounters) {
+          const b = e.body;
+          if (b.format !== 'choose') continue;
+          const wrong = b.options.findIndex((_, i) => i !== b.answer);
+          b.options[wrong]!.text = `It always works, ${b.options[wrong]!.text}`;
+        }
+      }).join(),
+    ).toMatch(/always, never or only/);
+  });
+
   it('reject a wrong-answer reason that quotes the right answer', () => {
     expect(
       problemsAfter((f) => {

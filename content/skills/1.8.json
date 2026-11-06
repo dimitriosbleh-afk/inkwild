@@ -261,6 +261,20 @@
       "name": "Glowerbill",
       "evolved": "Glowerroost",
       "blurb": "A frogmouth that sits as still as a branch, half asleep. When a sentence doesn't add up, its eyes snap wide open."
+    },
+    "write": {
+      "ask": "Rewrite the last sentence so it no longer clashes with the facts about Pip.",
+      "given": [
+        "Pip the puppy is scared of water.",
+        "She hides under the bed at bath time.",
+        "At the beach, Pip raced straight into the waves."
+      ],
+      "starter": "At the beach, Pip",
+      "checks": [
+        "My sentence fits the fact that Pip fears water.",
+        "It still says what Pip did at the beach."
+      ],
+      "model": "At the beach, Pip sat far up on the dry sand and barked at every wave."
     }
   },
   "encounters": [
@@ -455,22 +469,27 @@
           {
             "text": "Mo ordered a pizza with no mushrooms.",
             "bin": 0,
-            "reason": "This makes sense. Mo would leave mushrooms off."
+            "reason": "How does Mo feel about mushrooms? Would he leave them off?"
           },
           {
             "text": "Mo's favourite food is mushroom soup.",
             "bin": 1,
-            "reason": "This clashes. Mo hates mushrooms, so they can't be in his favourite food."
+            "reason": "Could Mo hate mushrooms and love mushroom soup? Check the first sentence."
           },
           {
             "text": "Mo gave the mushrooms from his salad to Gus.",
             "bin": 0,
-            "reason": "This makes sense. The story says Mo always gives his mushrooms to Gus."
+            "reason": "What does the story say Mo does with his mushrooms?"
           },
           {
             "text": "Mo asked for extra mushrooms on his burger.",
             "bin": 1,
-            "reason": "This clashes. Mo picks mushrooms out, so he wouldn't ask for more."
+            "reason": "Mo picks mushrooms out of meals. Would he ask for more?"
+          },
+          {
+            "text": "Mo picked every tiny bit of mushroom out of his fried rice.",
+            "bin": 0,
+            "reason": "What does Mo do with mushrooms in his meals? Check the story."
           }
         ]
       }
@@ -774,6 +793,11 @@
             "reason": "This clashes. The mural has no land, and red isn't blue or green."
           },
           {
+            "text": "She will paint a blue kangaroo hopping along a beach.",
+            "bin": 1,
+            "reason": "Blue is one of her colours. But where is the kangaroo? Does the plan allow any land?"
+          },
+          {
             "text": "She will paint a blue whale diving into deep water.",
             "bin": 0,
             "reason": "This fits. It's a blue animal in the deep ocean."
@@ -889,64 +913,45 @@
       "band": 3,
       "topic": "animals",
       "frame": "Wren wrote a guide to the flying foxes in Hollowgum Park. The Glowerbill is wide awake.",
-      "prompt": "Tap the sentence that contradicts the rest.",
-      "success": "Flying foxes rest all day and leave at sunset, so they wouldn't be heading out at midday.",
+      "prompt": "Tap the sentence that contradicts the rest. You may need to put two facts together.",
+      "success": "They leave at sunset, and winter sunset is about half past five. So they can't leave at eight.",
       "body": {
         "format": "tapText",
         "parts": [
           {
             "tap": "About five thousand flying foxes live in the giant fig trees at the edge of Hollowgum Park.",
-            "reason": "This fits. It tells you where the colony lives."
-          },
-          " ",
-          {
-            "tap": "They are among the biggest bats in the world, with wings almost as wide as a grown-up's outstretched arms.",
-            "reason": "This fits. It describes the bats, and it doesn't clash with anything."
+            "reason": "This sets the scene. Now find the facts about when the colony rests and leaves."
           },
           " ",
           {
             "tap": "During the day, they hang upside down from the branches, wrapped in their wings like little umbrellas.",
-            "reason": "This is the fact the rest of the guide agrees with."
+            "reason": "This is a fact to hold on to: the day is for resting. Test the rest against it."
+          },
+          " They spend those hours resting, grooming their fur and squabbling with their neighbours. ",
+          {
+            "tap": "In winter, the sun sets here at about half past five.",
+            "reason": "This is a fact to hold on to. Put it together with when the colony leaves."
           },
           " ",
           {
-            "tap": "They spend those hours resting, grooming their fur and squabbling with their neighbours.",
-            "reason": "This fits. It's what they do while they rest in the trees."
+            "tap": "Every evening, the whole colony takes off together just as the sun goes down.",
+            "reason": "This is another fact. Leaving at sunset fits resting all day."
           },
           " ",
           {
-            "tap": "If you visit at lunchtime, you'll hear them chattering, but you'll rarely see one fly.",
-            "reason": "This fits. They stay in the trees in the daytime."
+            "tap": "One young bat once woke at noon, flapped around the fig tree, then went straight back to sleep.",
+            "reason": "A surprise, but both can be true. One bat flapped, then went back to sleep."
           },
-          " ",
+          " They fly up to fifty kilometres a night, looking for flowers and fruit. ",
           {
-            "tap": "At midday, the sky above the park fills with flying foxes heading out to feed."
-          },
-          " ",
-          {
-            "tap": "The real show starts at sunset, when the whole colony takes off at once.",
-            "reason": "This fits. It says when they leave to feed."
-          },
-          " ",
-          {
-            "tap": "They fly up to fifty kilometres a night, looking for flowers and fruit.",
-            "reason": "This fits. They feed at night, after the sunset take-off."
+            "tap": "In winter, the colony takes off at about eight o'clock in the evening."
           },
           " ",
           {
             "tap": "By dawn, they are back in the fig trees, ready to sleep.",
-            "reason": "This fits. They return to rest for the day."
+            "reason": "This fits. Back by dawn matches resting all day."
           },
-          " ",
-          {
-            "tap": "Please never touch a flying fox, even a baby, because only trained carers should handle them.",
-            "reason": "This fits. It's a safety rule, and it doesn't clash with anything."
-          },
-          " ",
-          {
-            "tap": "If you find one on the ground, call the Hollowgum wildlife rescue line straight away.",
-            "reason": "This fits. It's another safety tip."
-          }
+          " Please never touch a flying fox, even a baby, because only trained carers should handle them."
         ],
         "answer": 5
       }
@@ -956,26 +961,26 @@
       "band": 3,
       "topic": "space",
       "frame": "A space station diary drifted onto Hollowgum Island. The Glowerbill has found a problem.",
-      "text": "Day 112 on the space station. Our station circles the whole Earth about every ninety minutes, so we see a sunrise around sixteen times a day. At first, the constant sunrises made it hard to sleep, so we wear eye masks and keep our windows covered at bedtime. Today I did my two hours of exercise on the treadmill, strapped down with bungee cords so I wouldn't float away. My crewmate Raj has grown two centimetres since we arrived, because his spine stretches when gravity isn't pulling it down. He's very proud of this. Then I fixed a leaking water pipe, which was tricky because the water drifted around in wobbly bubbles. In the afternoon, I spoke to a school class back on Earth. One student asked what I miss most, and I said rain. I've only seen one sunrise since I arrived, so I miss mornings too. Tonight we're having space tacos, which means wraps, because bread makes crumbs that float into the equipment.",
+      "text": "Day 112 on the space station. Our station circles the whole Earth about every ninety minutes, so we see a sunrise around sixteen times a day. At first, the constant sunrises made it hard to sleep, so we wear eye masks and keep our windows covered at bedtime. Today I did my two hours of exercise on the treadmill, strapped down with bungee cords so I wouldn't float away. My crewmate Raj has grown two centimetres since we arrived, because his spine stretches when gravity isn't pulling it down. He's very proud of this. Then I fixed a leaking water pipe, which was tricky because the water drifted around in wobbly bubbles. In the afternoon, I spoke to a school class back on Earth. One student asked what I miss most, and I said rain. I've only seen one sunrise in all my time up here, so I really miss mornings too. Tonight we're having space tacos, which means wraps, because bread makes crumbs that float into the equipment.",
       "prompt": "Which sentence contradicts the rest of the diary?",
-      "success": "The station sees about sixteen sunrises a day, so after 112 days she's seen far more than one.",
+      "success": "Sixteen sunrises a day for 112 days is far more than one. Raj's growth is a surprise, not a clash.",
       "body": {
         "format": "choose",
         "options": [
           {
             "text": "At first, the constant sunrises made it hard to sleep, so we wear eye masks and keep our windows covered at bedtime.",
-            "reason": "This fits. Constant sunrises match seeing sixteen a day."
+            "reason": "This fits. Constant sunrises match seeing about sixteen a day."
           },
           {
-            "text": "I've only seen one sunrise since I arrived, so I miss mornings too."
+            "text": "I've only seen one sunrise in all my time up here, so I really miss mornings too."
           },
           {
             "text": "Then I fixed a leaking water pipe, which was tricky because the water drifted around in wobbly bubbles.",
             "reason": "This fits. Things float on the station, so water would drift too."
           },
           {
-            "text": "Tonight we're having space tacos, which means wraps, because bread makes crumbs that float into the equipment.",
-            "reason": "This fits. Floating crumbs match everything else floating on the station."
+            "text": "My crewmate Raj has grown two centimetres since we arrived, because his spine stretches when gravity isn't pulling it down.",
+            "reason": "Surprising, but it doesn't clash. The diary explains why: no gravity pulling on his spine."
           }
         ],
         "answer": 1
@@ -987,79 +992,55 @@
       "topic": "spooky",
       "frame": "Zed picked up a ghost tour leaflet. The Glowerbill hooted at one line.",
       "prompt": "Tap the sentence that contradicts the rest, then choose one that fits.",
-      "success": "The gaol has never had electricity, so the tour can only use candles, not screens.",
+      "success": "Children under eight can't come, so six-year-olds can't be there. Kids aged nine and up fit both facts.",
       "body": {
         "format": "fix",
         "parts": [
-          {
-            "tap": "Welcome to the Hollowgum Old Gaol Ghost Tour, the spookiest night out on the island.",
-            "reason": "This fits. It's how the leaflet starts."
-          },
-          " ",
+          "Welcome to the Hollowgum Old Gaol Ghost Tour, the spookiest night out on the island. ",
           {
             "tap": "The gaol was built in 1860 and has never had electricity, so every tour is by candlelight.",
-            "reason": "This is the fact the rest of the leaflet agrees with."
+            "reason": "This is a fact to hold on to. Test each later sentence against it."
           },
-          " ",
+          " Your guide will lead you through the cells, where prisoners once scratched their names into the walls. ",
           {
-            "tap": "Your guide will lead you through the cells, where prisoners once scratched their names into the walls.",
-            "reason": "This fits. It doesn't need any power."
-          },
-          " ",
-          {
-            "tap": "Your guide will carry the only candle lantern, so please stay close and don't wander off.",
-            "reason": "This fits. A candle lantern is candlelight."
-          },
-          " ",
-          {
-            "tap": "Many visitors say they've felt a cold hand on their shoulder in Cell 9.",
-            "reason": "This fits. It's spooky, but it doesn't clash with anything."
-          },
-          " ",
-          {
-            "tap": "Halfway through, you'll climb the narrow tower stairs to the room where the last warden kept watch.",
-            "reason": "This fits. Climbing stairs needs no electricity."
-          },
-          " ",
-          {
-            "tap": "Next, guests will watch a short film about the gaol on our big screen."
-          },
-          " ",
-          {
-            "tap": "The tour ends in the old kitchen, where your guide will tell the tale of the cook who vanished.",
-            "reason": "This fits. A story needs no electricity."
-          },
-          " ",
-          {
-            "tap": "Please wear closed shoes, because the stone floors are uneven and slippery.",
-            "reason": "This fits. It's a safety rule."
-          },
-          " ",
-          {
-            "tap": "Bring a jumper, because the thick stone walls keep the gaol cold even in summer.",
-            "reason": "This fits. It's practical advice."
+            "tap": "Many visitors say the candle flames turn blue in Cell 9.",
+            "reason": "Spooky, but it doesn't clash. Candles fit the candlelight fact."
           },
           " ",
           {
             "tap": "Tours run every night at nine o'clock, and children under eight are not allowed.",
-            "reason": "This fits. It doesn't clash with anything."
+            "reason": "This is another fact to hold on to. Who can come on the tour?"
+          },
+          " Halfway through, you'll climb the narrow tower stairs to the room where the last warden kept watch. ",
+          {
+            "tap": "Families often bring their six-year-olds, who love hearing the tale of the cook who vanished."
+          },
+          " ",
+          {
+            "tap": "Please wear closed shoes, because the stone floors are uneven and slippery.",
+            "reason": "This fits. It's a safety rule. Check it against both facts."
+          },
+          " ",
+          {
+            "tap": "Bring a jumper, because the thick stone walls keep the gaol cold even in summer.",
+            "reason": "This fits. Cold stone walls don't clash with either fact."
           }
         ],
-        "spot": 6,
+        "spot": 3,
         "options": [
           {
-            "text": "Next, guests will see old photos of the gaol on our projector.",
-            "reason": "A projector needs electricity, and the gaol has none."
+            "text": "Families often bring their seven-year-olds, who love the tale of the vanished cook.",
+            "reason": "Seven is close, but check who is allowed. How old must children be?"
           },
           {
-            "text": "Next, guests will switch on the lights in the warden's office.",
-            "reason": "There are no lights to switch on. The gaol has never had electricity."
+            "text": "Kids aged nine and up often say the tale of the vanished cook is the best part."
           },
           {
-            "text": "Next, guests will hear the guide read a prisoner's diary by candlelight."
+            "text": "Kids aged ten and up love hearing the cook's tale under the tower's electric lights.",
+            "reason": "The ages fit, but check the first fact. Are there any electric lights?"
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -1069,7 +1050,7 @@
       "frame": "Mo is planning food for a camping trip. The Glowerbill is checking his plan.",
       "text": "The crew is going camping for three days at Stringybark Flat. There's no electricity at the campsite, and there's a total fire ban, so nobody can light a campfire or use any kind of stove. Mo has been put in charge of food, which worries everyone. To be fair, he has thought hard about it this time. He has planned meals that don't need cooking: wraps, fruit, nuts, cheese and his famous cold pasta salad. Everything has to fit into two eskies, because the campsite is a long walk from the car park. The walk in takes about forty minutes. Mo has also packed a huge bag of ice to keep the cheese and milk cold. Gus has asked whether he can bring his pet cockroach, and the answer was a firm no. Tully has made a list of jobs, and Zed has already swapped all of his with somebody else. Wren is bringing a first-aid kit and enough sunscreen for an army.",
       "prompt": "Could each sentence fit in the camping story? Match each one to the right shelf.",
-      "success": "There's no power, no fire and no stove, so anything that needs them clashes with the story.",
+      "success": "No fire, no stove, no power and a long walk in. Boiling, toasting and driving in all clash.",
       "body": {
         "format": "sort",
         "bins": [
@@ -1078,29 +1059,29 @@
         ],
         "items": [
           {
-            "text": "On the first night, Mo made wraps for everyone before dark.",
+            "text": "Mo's cold pasta salad was a hit after the long walk in.",
             "bin": 0,
-            "reason": "This fits. Wraps need no cooking, so there's no stove or fire."
+            "reason": "Does cold pasta need a stove, a fire or power? Check the camp rules."
           },
           {
-            "text": "Mo toasted marshmallows over a crackling campfire.",
+            "text": "Mo boiled the billy and made everyone a cup of tea.",
             "bin": 1,
-            "reason": "This clashes. There's a total fire ban, so nobody can light a campfire."
+            "reason": "What does boiling water need? Check what the campsite doesn't allow."
           },
           {
-            "text": "Mo plugged in his blender to make banana smoothies.",
+            "text": "Mo drove the ute right up to the tents to unload the eskies.",
             "bin": 1,
-            "reason": "This clashes. There's no electricity at the campsite to plug into."
+            "reason": "How far is the campsite from the car park? How do they get there?"
           },
           {
-            "text": "Mo kept the milk cold in an esky full of ice.",
+            "text": "Mo forgot the fruit, so the crew ate nuts and cheese instead.",
             "bin": 0,
-            "reason": "This fits. The story says he packed ice for the eskies."
+            "reason": "A surprise, but does it break a camp rule? Nuts and cheese need no cooking."
           },
           {
-            "text": "Mo fried eggs on a little gas stove for breakfast.",
+            "text": "Mo toasted marshmallows over the campfire on the first night.",
             "bin": 1,
-            "reason": "This clashes. The fire ban means no stove of any kind."
+            "reason": "Check the camp rules. Is anyone allowed to light a campfire?"
           }
         ]
       }
@@ -1110,71 +1091,47 @@
       "band": 3,
       "topic": "general",
       "frame": "A letter home from school has landed in the Glowerbill's tree.",
-      "prompt": "Tap the sentence that contradicts the rest.",
-      "success": "The class spends the whole day at the museum and eats lunch there, so they can't be back by 11.",
+      "prompt": "Tap the sentence that contradicts the rest. You may need to put two facts together.",
+      "success": "They leave at nine and ride for two hours, so they can't start a show at ten.",
       "body": {
         "format": "tapText",
         "parts": [
           {
             "tap": "Dear families, Years 5 and 6 will visit the Hollowgum Science Museum next Friday.",
-            "reason": "This fits. It tells you what the letter is about."
+            "reason": "This sets the scene. Now find the facts about times."
           },
           " ",
           {
             "tap": "The bus will leave school at nine o'clock sharp, so please make sure your child isn't late.",
-            "reason": "This fits. The trip starts in the morning."
+            "reason": "This is a fact to hold on to: when the bus leaves."
           },
           " ",
           {
-            "tap": "We will spend the whole day at the museum and eat lunch in its picnic garden.",
-            "reason": "This is the fact the rest of the letter agrees with."
+            "tap": "The museum is on the far side of the island, a two-hour bus ride away.",
+            "reason": "This is another fact. Put it together with when the bus leaves."
+          },
+          " We will spend the whole day there and eat lunch in its picnic garden. ",
+          {
+            "tap": "Our first activity is the robot show, which starts at ten o'clock."
           },
           " ",
           {
-            "tap": "Please pack a lunch, a drink bottle and a hat.",
-            "reason": "This fits. They need lunch because they eat at the museum."
+            "tap": "After lunch, students will visit the dinosaur skeleton and the famous slime lab.",
+            "reason": "This fits. There is plenty of time after lunch."
           },
-          " ",
+          " Please pack a lunch, a drink bottle and a hat. ",
           {
-            "tap": "Students will see a robot show, a dinosaur skeleton and the famous slime lab.",
-            "reason": "This fits. That's a lot to see in a whole day."
+            "tap": "The bus will bring everyone back to school by half past five.",
+            "reason": "This fits. A whole day there and two hours back gets them home late."
           },
-          " ",
+          " Please return the signed permission slip by Wednesday. ",
           {
-            "tap": "Museum staff will guide each group, and every student will get a notebook to sketch in as they explore.",
-            "reason": "This fits. It doesn't clash with anything."
+            "tap": "Phones must stay at home, but students may bring a camera.",
+            "reason": "This fits. It's an excursion rule, and no times are involved."
           },
-          " ",
-          {
-            "tap": "The bus will bring everyone back to school by eleven o'clock in the morning."
-          },
-          " ",
-          {
-            "tap": "The cost is ten dollars, which covers the bus and entry to the museum.",
-            "reason": "This fits. It doesn't clash with anything."
-          },
-          " ",
-          {
-            "tap": "Please return the signed permission slip by Wednesday.",
-            "reason": "This fits. It's a normal part of an excursion letter."
-          },
-          " ",
-          {
-            "tap": "Students who have their own camera may bring it, but phones must stay at home.",
-            "reason": "This fits. It's a normal excursion rule."
-          },
-          " ",
-          {
-            "tap": "If your child has any allergies, please let their teacher know before the day.",
-            "reason": "This fits. It's about lunch and safety."
-          },
-          " ",
-          {
-            "tap": "We can't wait to see what everyone discovers!",
-            "reason": "This fits. It's a friendly ending."
-          }
+          " We can't wait to see what everyone discovers!"
         ],
-        "answer": 6
+        "answer": 3
       }
     },
     {
@@ -1183,70 +1140,41 @@
       "topic": "ocean",
       "frame": "A research boat's logbook has been pinned up at the Hollowgum marina. The Glowerbill refuses to look away.",
       "prompt": "Tap the sentence that contradicts the rest.",
-      "success": "Patch always migrates alone, and no one has ever seen her with another whale, so she has no usual group.",
+      "success": "Patch has come for eleven winters running, so her first visit can't have been three winters ago.",
       "body": {
         "format": "tapText",
         "parts": [
           {
             "tap": "For eleven winters running, a humpback whale we call Patch has travelled up this coast, and today she appeared again, right on schedule.",
-            "reason": "This fits. It introduces Patch and her yearly journey."
+            "reason": "This is a fact to hold on to: eleven winters. Test later sentences against it."
           },
-          " ",
+          " She is easy to recognise, because the underside of her tail is jet black except for a white splodge shaped like a lightning bolt. ",
           {
-            "tap": "She is easy to recognise, because the underside of her tail is jet black except for a white splodge shaped like a lightning bolt.",
-            "reason": "This fits. It explains how the crew knows it's her."
+            "tap": "What makes Patch remarkable is that she always migrates alone, and nobody on board has ever seen her travelling with another whale.",
+            "reason": "This is another fact to hold on to. Does any sentence put her with other whales?"
           },
-          " ",
-          {
-            "tap": "What makes Patch remarkable is that she always migrates alone, and in eleven years nobody on board has seen her travelling with another whale.",
-            "reason": "This is the fact the rest of the log agrees with."
-          },
-          " ",
-          {
-            "tap": "Most humpbacks move in small, loose groups, so a solitary traveller is unusual enough to keep the scientists guessing.",
-            "reason": "This fits. It explains why travelling alone is surprising."
-          },
-          " ",
+          " Most humpbacks move in small, loose groups, so a solitary traveller keeps the scientists guessing. ",
           {
             "tap": "This morning she breached three times beside the boat, close enough that the spray drenched our cameraman.",
-            "reason": "This fits. It's what she did today, and it doesn't clash with anything."
+            "reason": "Exciting, but it doesn't clash. She can come close and still travel alone."
           },
           " ",
           {
-            "tap": "It was the closest she has come to any boat in all our years of watching.",
-            "reason": "This fits. It's about her coming near the boat, not about other whales."
+            "tap": "Our cameraman has filmed every visit Patch has made, starting with her very first one, just three winters ago."
           },
-          " ",
-          {
-            "tap": "She then swam north at a steady pace, surrounded as always by the small group of companions she travels with every year."
-          },
-          " ",
-          {
-            "tap": "We followed at a respectful distance for about four hours, recording her song through an underwater microphone.",
-            "reason": "This fits. It follows on from her swimming north."
-          },
-          " ",
+          " We followed her north at a respectful distance for about four hours, recording her song through an underwater microphone. ",
           {
             "tap": "Her song this year contains a new phrase, a rising whoop we have never heard from her before.",
-            "reason": "This fits. It's a new discovery, not a clash."
+            "reason": "A surprise isn't always a clash. A new phrase can be true. Read on."
           },
           " ",
           {
-            "tap": "One theory is that she picked it up from whales at the breeding grounds, even though she never travels with them.",
-            "reason": "This fits. It agrees that she travels alone."
+            "tap": "One theory is that she heard it from other humpbacks far away, because whale song can carry a long way underwater.",
+            "reason": "This fits. She can hear far-off whales without travelling with them."
           },
-          " ",
-          {
-            "tap": "The captain has promised that whoever names the new phrase gets the last chocolate biscuit on board.",
-            "reason": "This fits. It's a joke, and it doesn't clash with anything."
-          },
-          " ",
-          {
-            "tap": "Back on shore, we'll compare the recordings with every humpback song in our library.",
-            "reason": "This fits. It's the crew's next step."
-          }
+          " The captain has promised that whoever names the new phrase gets the last chocolate biscuit on board. Back on shore, we'll compare the recordings with every humpback song in our library."
         ],
-        "answer": 6
+        "answer": 3
       }
     },
     {
@@ -1255,75 +1183,46 @@
       "topic": "gaming",
       "frame": "Zed wrote a recap of the island gaming tournament. The Glowerbill's feathers are bristling.",
       "prompt": "Tap the sentence that contradicts the rest.",
-      "success": "The internet was down and nobody outside the hall could watch, so there were no viewers online.",
+      "success": "Darwin is outside the hall, and nobody outside could watch. So her cousin couldn't watch it live.",
       "body": {
         "format": "tapText",
         "parts": [
           {
             "tap": "The Hollowgum Gaming Cup almost didn't happen this year, because a storm knocked out the island's internet the night before.",
-            "reason": "This fits. It sets up the problem."
+            "reason": "This is a fact to hold on to: no internet. Test each later sentence against it."
           },
-          " ",
-          {
-            "tap": "Twenty-four players had signed up from every school on the island.",
-            "reason": "This fits. It doesn't clash with anything."
-          },
-          " ",
+          " Twenty-four players had signed up from every school on the island. ",
           {
             "tap": "Instead of cancelling, the organisers linked twenty consoles together with cables in the school hall, so every match could be played offline.",
-            "reason": "This is the fact the rest of the recap agrees with."
+            "reason": "This fits the fact. Cables let them play without the internet."
           },
           " ",
           {
             "tap": "It meant there was no live stream, and nobody outside the hall could watch a single match.",
-            "reason": "This fits. With no internet, the matches couldn't be shown online."
+            "reason": "This is another fact to hold on to. Who could see the matches?"
           },
           " ",
           {
             "tap": "Parents filmed the best moments on their phones so they could upload them once the internet returned.",
-            "reason": "This fits. They had to wait to upload because the internet was down."
+            "reason": "This fits. They filmed inside the hall and waited to upload."
+          },
+          " Between matches, Mo ran a snack stall selling lava popcorn, which most players politely avoided. In the final, a Year 5 player called Ash faced last year's champion, who had not lost a match in two years. ",
+          {
+            "tap": "Ash's cousin in Darwin watched the final as it happened and texted her during round three."
           },
           " ",
           {
-            "tap": "The semi-finals were tense, with two matches decided in the final ten seconds.",
-            "reason": "This fits. It doesn't clash with anything."
+            "tap": "The final went to five rounds, and Ash won with a move nobody in the hall had seen before.",
+            "reason": "This fits. It happened in the hall, where people could watch."
           },
           " ",
           {
-            "tap": "Between matches, Mo ran a snack stall selling something he called lava popcorn, which most players politely avoided.",
-            "reason": "This fits. It doesn't clash with anything."
+            "tap": "Two days later, once the internet was back, Ash's mum sent the video to the whole family.",
+            "reason": "This fits. Sending it later, once the internet was back, matches both facts."
           },
-          " ",
-          {
-            "tap": "In the final, a Year 5 player called Ash faced last year's champion, who had not lost a match in two years.",
-            "reason": "This fits. It sets up the final."
-          },
-          " ",
-          {
-            "tap": "The final was played as the best of five rounds, and it went all the way to the fifth.",
-            "reason": "This fits. It describes the final."
-          },
-          " ",
-          {
-            "tap": "Thousands of viewers watched the final live online and flooded the chat with messages for Ash."
-          },
-          " ",
-          {
-            "tap": "Ash won with a move nobody in the hall had seen before, and the crowd of about sixty people went wild.",
-            "reason": "This fits. The crowd was in the hall, not online."
-          },
-          " ",
-          {
-            "tap": "The champion shook her hand and asked her to explain the trick, which Ash politely refused to do.",
-            "reason": "This fits. It's what happened after the win."
-          },
-          " ",
-          {
-            "tap": "The organisers say the cables worked so well that next year's cup might be offline on purpose.",
-            "reason": "This fits. It agrees that the cup was played offline."
-          }
+          " The organisers say the cables worked so well that next year's cup might be offline on purpose."
         ],
-        "answer": 9
+        "answer": 4
       }
     },
     {
@@ -1332,28 +1231,28 @@
       "topic": "gross-science",
       "frame": "Gus is reading a council report about something disgusting under the island. The Glowerbill can smell trouble.",
       "text": "Council workers have finally begun removing the giant fatberg discovered in the sewer beneath Hollowgum's main street last month. A fatberg forms when cooking fat, oil and grease are poured down sinks, where they cool, harden and mix with wet wipes that should never have been flushed. Over time, the mass grows larger and harder, until it can block a pipe completely. This one stretches for forty metres and weighs roughly as much as three elephants. Engineers say it has set as hard as concrete. Crews in full protective suits are breaking it apart with shovels and high-pressure water jets, working in short shifts because the stench of rotting fat is almost unbearable. One worker said it was like wading through the inside of a giant, cold meat pie. Within an hour, the crew had simply rinsed the whole fatberg away with an ordinary garden hose. The council expects the job to take about three weeks and to cost more than two hundred thousand dollars. A small chunk will be preserved in a glass case at the town museum as a warning to residents. Some people living nearby have complained about the smell drifting up through drains in the street. The council is asking everyone to scrape fat into the bin instead of the sink, and to flush only toilet paper.",
-      "prompt": "Which sentence contradicts the rest of the report?",
-      "success": "A concrete-hard fatberg needs shovels, water jets and three weeks. A garden hose couldn't clear it in an hour.",
+      "prompt": "Gus thinks one sentence breaks the report. Which sentence clashes, and with what?",
+      "success": "Concrete-hard needs shovels, water jets and three weeks. A hose in an hour can't also be true.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Engineers say it has set as hard as concrete.",
-            "reason": "This fits. The rest of the report agrees the fatberg is very hard to remove."
+            "text": "The museum sentence, because a chunk of fatberg would rot in a glass case.",
+            "reason": "The report never says it would rot. Test sentences against facts the report gives."
           },
           {
-            "text": "The council expects the job to take about three weeks and to cost more than two hundred thousand dollars.",
-            "reason": "This fits. A long, costly job matches a huge, hard fatberg."
+            "text": "The garden hose sentence, because the fatberg has set as hard as concrete."
           },
           {
-            "text": "Within an hour, the crew had simply rinsed the whole fatberg away with an ordinary garden hose."
+            "text": "The garden hose sentence, because a hose would waste too much water.",
+            "reason": "Right sentence, wrong reason. The report never mentions wasted water. Which fact does it break?"
           },
           {
-            "text": "A small chunk will be preserved in a glass case at the town museum as a warning to residents.",
-            "reason": "This fits. It doesn't clash with anything else in the report."
+            "text": "The smell sentence, because the crews are wearing full protective suits.",
+            "reason": "Suits protect the crews, not people in the street. Both can be true."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -1362,89 +1261,61 @@
       "topic": "music",
       "frame": "Tully is reading a concert review aloud. The Glowerbill stopped her at one line.",
       "prompt": "Tap the sentence that contradicts the rest, then choose one that fits.",
-      "success": "The blindfold stayed on for the whole hour, so she must have felt her way rather than looked.",
+      "success": "A wave makes no sound, so she'd have to see it. A loud gasp she could hear.",
       "body": {
         "format": "fix",
         "parts": [
+          "Last night, the pianist Elena Vasquez gave the strangest recital the Hollowgum Town Hall has ever hosted. ",
           {
-            "tap": "Last night, the pianist Elena Vasquez gave the strangest and most thrilling recital the Hollowgum Town Hall has ever hosted.",
-            "reason": "This fits. It introduces the review."
+            "tap": "Before she began, she tied a thick black blindfold over her eyes and said she would play without seeing a single key.",
+            "reason": "This is a fact to hold on to. Test each sentence against it."
           },
           " ",
           {
-            "tap": "The town hall's old piano had been tuned specially for the occasion.",
-            "reason": "This fits. It doesn't clash with anything."
+            "tap": "A volunteer checked the blindfold and confirmed that she could see nothing at all.",
+            "reason": "This fits. It backs up the blindfold fact."
           },
-          " ",
-          {
-            "tap": "Before she began, she tied a thick black blindfold over her eyes and announced that she would play the entire programme without seeing a single key.",
-            "reason": "This is the fact the rest of the review agrees with."
-          },
-          " ",
-          {
-            "tap": "The audience fell silent, unsure whether to be impressed or worried.",
-            "reason": "This fits. It's how people reacted to the blindfold."
-          },
-          " ",
-          {
-            "tap": "A volunteer from the audience checked the blindfold and confirmed that she could see nothing at all.",
-            "reason": "This fits. It backs up that she couldn't see."
-          },
-          " ",
-          {
-            "tap": "She opened with a gentle lullaby, then launched into a piece so fast that her hands became a blur.",
-            "reason": "This fits. It describes how she played."
-          },
-          " ",
-          {
-            "tap": "During the trickiest passage, she glanced down at her hands to check their position."
-          },
-          " ",
+          " She opened with a gentle lullaby, then launched into a piece so fast that her hands became a blur. ",
           {
             "tap": "She played for a full hour without a single wrong note that anyone could hear.",
-            "reason": "This fits. It's about how well she played, not about seeing."
+            "reason": "Amazing, but a surprise isn't a clash. Playing well doesn't need eyes."
+          },
+          " ",
+          {
+            "tap": "Halfway through, she smiled at a child waving in the front row and waved back."
           },
           " ",
           {
             "tap": "Her final piece was a thunderous march that made the chandeliers rattle.",
-            "reason": "This fits. It describes the music."
+            "reason": "This fits. Rattling chandeliers have nothing to do with seeing."
           },
           " ",
           {
             "tap": "The blindfold stayed in place for the entire performance, and she only removed it to take her bow.",
-            "reason": "This fits. It agrees that she never saw the keys."
+            "reason": "This is the second fact. It agrees she never saw a thing."
           },
-          " ",
-          {
-            "tap": "Several people in the front row admitted they had checked for a hidden mirror, but found nothing.",
-            "reason": "This fits. It shows how amazed people were."
-          },
-          " ",
+          " Several people in the front row admitted they had checked for a hidden mirror, but found nothing. ",
           {
             "tap": "Asked afterwards how she did it, she said she had practised in the dark every night for a year.",
             "reason": "This fits. Practising in the dark matches playing without seeing."
           },
-          " ",
-          {
-            "tap": "Tickets for her next recital sold out within ten minutes.",
-            "reason": "This fits. It doesn't clash with anything."
-          }
+          " Tickets for her next recital sold out within ten minutes."
         ],
-        "spot": 6,
+        "spot": 3,
         "options": [
           {
-            "text": "During the trickiest passage, she slowed a little and felt carefully for the keys."
+            "text": "Halfway through, she winked at a child waving in the front row.",
+            "reason": "Winking back at a wave means seeing it. What did the blindfold stop?"
           },
           {
-            "text": "During the trickiest passage, she peeked under the blindfold for just a moment.",
-            "reason": "Peeking still means seeing, and the blindfold stayed in place the whole time."
+            "text": "Halfway through, a child in the front row gasped so loudly that she smiled."
           },
           {
-            "text": "During the trickiest passage, she read the notes from a music stand beside her.",
-            "reason": "Reading notes means seeing, but she played without seeing anything."
+            "text": "Halfway through, she noticed a child in the front row copying her hands.",
+            "reason": "You have to see hands to notice them copying. Could she see anything?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -1454,7 +1325,7 @@
       "frame": "Indi brought home a gallery guide. The Glowerbill is checking which artworks could really be in the show.",
       "text": "The sculptor Mira Okoye has one strict rule: she never buys a single material. Every piece in her new exhibition, Tideline, was made from rubbish she collected on the beaches of Hollowgum Island over two years. She walks the high-tide mark every morning with a sack, picking up bottle caps, thongs, rope, broken toys and tangled fishing line. Okoye also refuses to use glue, nails or screws, so each sculpture is held together with knots of washed-up fishing line, some of them so tiny that she ties them with tweezers. Nor will she paint anything. Every colour in the exhibition is exactly as the sea left it, which is why so many of her animals are faded blues, sun-bleached pinks and the dull green of old nets. Some pieces are enormous, like a whale skeleton three metres long built from washed-up white plastic pipes. Others are tiny, like a family of ants made from scraps of coloured net. Okoye says her rules are the point of the work, because they force visitors to notice how much plastic washes up on a single island. The exhibition runs until the end of March, and entry is free. Visitors are asked not to touch, because the knots can loosen. Children can join a beach clean-up with the artist every Saturday morning.",
       "prompt": "Could each artwork be in Tideline? Match each one to the right shelf.",
-      "success": "Okoye uses only found beach rubbish, knotted with fishing line, in the sea's colours. Anything else breaks her rules.",
+      "success": "Found rubbish, fishing-line knots, sea colours. Even a bright colour fits if the sea left it that way.",
       "body": {
         "format": "sort",
         "bins": [
@@ -1463,29 +1334,29 @@
         ],
         "items": [
           {
-            "text": "A seahorse woven from faded blue bottle caps and knotted fishing line.",
+            "text": "A crab made of red bottle caps, still as bright as the day they washed up, knotted with fishing line.",
             "bin": 0,
-            "reason": "This fits. Bottle caps and fishing line are both things she collects."
+            "reason": "Bright, but were the caps bought or painted? A surprise isn't always a clash."
           },
           {
-            "text": "A shiny copper eagle made from sheets she ordered from a hardware shop.",
+            "text": "A parrot made from thongs, its feathers coloured in with felt-tip pens.",
             "bin": 1,
-            "reason": "This clashes. She never buys a single material."
+            "reason": "Check her rule about colour. Is every colour as the sea left it?"
           },
           {
-            "text": "A jellyfish of plastic bags, held together with hot glue.",
+            "text": "A turtle made from beach toys, screwed together so it won't fall apart.",
             "bin": 1,
-            "reason": "This clashes. She refuses to use glue."
+            "reason": "Check how she holds her pieces together. What does she refuse to use?"
           },
           {
-            "text": "A turtle made from a sun-bleached thong and an old toy, knotted together with fishing line.",
+            "text": "A family of tiny fish made from scraps of net, tied with tweezers.",
             "bin": 0,
-            "reason": "This fits. Thongs and toys come from the beach, and fishing line holds them."
+            "reason": "Check the material, the joins and the colour against her rules."
           },
           {
-            "text": "A crab she painted bright red so it would stand out.",
+            "text": "A pelican made from shiny new rope that she picked out at a hardware shop.",
             "bin": 1,
-            "reason": "This clashes. She never paints anything."
+            "reason": "Where does every material come from? Check her one strict rule."
           }
         ]
       }
@@ -1495,81 +1366,47 @@
       "band": 4,
       "topic": "robots",
       "frame": "Zed wrote about the robot challenge. The Glowerbill thinks one sentence doesn't add up.",
-      "prompt": "Tap the sentence that contradicts the rest.",
-      "success": "The robots had to drive themselves, and the team could only watch, so Gus couldn't have steered with a remote.",
+      "prompt": "Tap the sentence that contradicts the rest. Check the times carefully.",
+      "success": "Trundle's whole run took eighty-eight seconds, so four cones can't have taken two minutes.",
       "body": {
         "format": "tapText",
         "parts": [
           {
             "tap": "Our team spent six weeks building Trundle, a robot about the size of a shoebox, for the Hollowgum Robot Challenge.",
-            "reason": "This fits. It introduces Trundle."
+            "reason": "This sets the scene. Now find the rules and the times."
           },
           " ",
           {
-            "tap": "Gus did the wiring, Indi designed the body, and I wrote most of the code.",
-            "reason": "This fits. It says who did what."
+            "tap": "The rules are strict: every robot must drive itself, and each one gets exactly ninety seconds to finish the course.",
+            "reason": "This is a fact to hold on to: ninety seconds. Test the times against it."
           },
-          " ",
+          " That meant we had to program every turn in advance, using sensors that let Trundle spot the cones. The course was a twisting loop of ten orange cones laid out on a long table. ",
           {
-            "tap": "The rules of the challenge are strict: once the timer starts, every robot must drive itself, and no human may touch it or control it.",
-            "reason": "This is the fact the rest of the story agrees with."
-          },
-          " ",
-          {
-            "tap": "Any team that breaks this rule is out of the challenge straight away.",
-            "reason": "This fits. It backs up how strict the rules are."
-          },
-          " ",
-          {
-            "tap": "That meant we had to program every turn in advance, using sensors that let Trundle spot the cones on the course.",
-            "reason": "This fits. A robot that drives itself needs programming and sensors."
-          },
-          " ",
-          {
-            "tap": "The course was a twisting loop of ten orange cones laid out on a long table.",
-            "reason": "This fits. It describes the course."
-          },
-          " ",
-          {
-            "tap": "When the buzzer sounded, Trundle rolled forward perfectly and swerved around the first four cones.",
-            "reason": "This fits. It's Trundle driving by itself."
+            "tap": "When the buzzer sounded, Trundle rolled forward and took two whole minutes to swerve around the first four cones."
           },
           " ",
           {
             "tap": "Then a sensor got covered in dust, and Trundle started spinning in slow circles.",
-            "reason": "This fits. A dusty sensor could confuse a robot."
+            "reason": "Bad luck, but it doesn't clash. Spinning can still fit inside ninety seconds."
           },
-          " ",
-          {
-            "tap": "We could only watch from behind the line, groaning, as the clock ticked down.",
-            "reason": "This fits. The rules said nobody could touch the robot."
-          },
-          " ",
-          {
-            "tap": "With seconds left, Gus grabbed the remote control and steered Trundle around the final cone."
-          },
-          " ",
+          " We could only watch from behind the line, groaning, as the clock ticked down. ",
           {
             "tap": "Somehow, the dust shifted, and Trundle finished the course with just two seconds to spare.",
-            "reason": "This fits. It explains how Trundle finished without help."
+            "reason": "This agrees with the ninety-second rule. Which time breaks it?"
           },
           " ",
           {
-            "tap": "We came third out of fourteen teams, and the judges gave us a special prize for the most dramatic finish.",
-            "reason": "This fits. It's the result."
+            "tap": "The scoreboard showed Trundle's time: eighty-eight seconds.",
+            "reason": "This agrees with finishing two seconds early. Find the time that can't fit."
           },
           " ",
           {
             "tap": "Other robots had problems too: one drove straight off the table, and another tried to climb a judge's leg.",
-            "reason": "This fits. It's about other robots, and it doesn't clash with anything."
+            "reason": "Funny, but it's about other robots. Nothing here clashes."
           },
-          " ",
-          {
-            "tap": "Next year, we're building Trundle a tiny windscreen wiper.",
-            "reason": "This fits. A wiper would keep the dust off the sensor."
-          }
+          " Next year, we're building Trundle a tiny windscreen wiper."
         ],
-        "answer": 9
+        "answer": 2
       }
     }
   ]

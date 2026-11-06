@@ -315,6 +315,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite Mo's sentence so a reader can picture the smell. Don't just use a bigger word.",
+      "given": [
+        "Mo's sock smelt bad."
+      ],
+      "starter": "Mo's sock smelt like",
+      "checks": [
+        "I swapped out the blurry word bad",
+        "A reader could picture or smell it",
+        "I didn't just add very or a fancy word"
+      ],
+      "model": "Mo's sock smelt like a tuna sandwich left in a school bag all weekend."
+    },
     "creature": {
       "id": "whetwing",
       "name": "Whetwing",
@@ -436,7 +449,7 @@
       "band": 1,
       "topic": "space",
       "frame": "Zed's space report is full of sentences. The Whetwing only likes the sharp ones.",
-      "prompt": "Match each sentence to the right bin.",
+      "prompt": "Is each sentence blurry or sharp? Sort them.",
       "success": "Blurry sentences use words like okay, lots and things. Sharp sentences show exactly what happened.",
       "body": {
         "format": "sort",
@@ -744,7 +757,7 @@
       "topic": "sport",
       "frame": "Tully's match report has one blurry verb. The Whetwing is watching it from the grandstand.",
       "prompt": "Tap the blurry word, then choose a sharper one.",
-      "success": "Limped. Leaning on the coach with a swollen knee means Tully walked unevenly, favouring one leg.",
+      "success": "Limped. The win might tempt you to pick a happy word, but a swollen knee means a limp.",
       "body": {
         "format": "fix",
         "parts": [
@@ -757,34 +770,34 @@
             "tap": "field",
             "reason": "Field is sharp enough. It tells you exactly where Tully was."
           },
-          " after the final siren. Her ",
+          " after the final siren. She had kicked the winning ",
+          {
+            "tap": "goal",
+            "reason": "Goal is sharp, and it's a clue. It tells you she won, but not how she moved."
+          },
+          ", but her ",
           {
             "tap": "knee",
             "reason": "Knee is sharp. It tells you exactly where she was hurt."
           },
-          " was ",
-          {
-            "tap": "swollen",
-            "reason": "Swollen is sharp, and it's a clue. It tells you how badly her knee was hurt."
-          },
-          ", so she leaned on the coach and could hardly put any weight on her sore leg."
+          " was swollen, so she leaned on the coach with every step."
         ],
         "spot": 0,
         "options": [
           {
-            "text": "marched",
-            "reason": "Marched means walking with strong, steady steps. Tully could hardly use one leg."
+            "text": "strutted",
+            "reason": "She did win, so she might feel proud. But strutting takes two strong legs, and her knee was swollen."
           },
           {
-            "text": "strolled",
-            "reason": "Strolled means walking slowly and happily, as if nothing hurt."
+            "text": "skipped",
+            "reason": "Skipping fits the win, but not the swollen knee or leaning on the coach."
           },
           {
             "text": "limped"
           },
           {
-            "text": "jogged",
-            "reason": "Jogged means running slowly. Tully could hardly put weight on her leg."
+            "text": "sprinted",
+            "reason": "Sprinting is fast and needs strong legs. She leaned on the coach with every step."
           }
         ],
         "answer": 2
@@ -796,7 +809,7 @@
       "topic": "art",
       "frame": "Indi's gallery label is almost ready. The Whetwing found one word that's still blurry.",
       "prompt": "Tap the word that is still blurry in Indi's label.",
-      "success": "Great. Every other word paints a clear picture, but great doesn't say what the lyrebird looks like.",
+      "success": "Magnificent. It sounds grand, but it doesn't show what the lyrebird looks like. Sharp means clear, not fancy.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -807,7 +820,7 @@
           },
           " drawing shows a ",
           {
-            "tap": "great"
+            "tap": "magnificent"
           },
           " ",
           {
@@ -864,8 +877,8 @@
       "band": 3,
       "topic": "food",
       "frame": "Mo wrote a menu for the Redpen Volcano canteen. The Whetwing is checking every line.",
-      "prompt": "Match each line of Mo's menu to the right bin.",
-      "success": "Blurry lines hide behind words like really good, things and okay. Sharp lines tell diners exactly what they'll get.",
+      "prompt": "Is each line of Mo's menu blurry or sharp? Sort them.",
+      "success": "Blurry lines hide behind grand words like magnificent and empty ones like things. Sharp lines say exactly what diners get.",
       "body": {
         "format": "sort",
         "bins": [
@@ -874,9 +887,9 @@
         ],
         "items": [
           {
-            "text": "Our seaweed spag bol comes with a really good sauce.",
+            "text": "Our seaweed spag bol comes with a truly magnificent sauce.",
             "bin": 0,
-            "reason": "Really good doesn't say what the sauce is like. Is it creamy? Spicy?"
+            "reason": "Magnificent sounds grand, but it doesn't say what the sauce is like. Is it creamy? Spicy?"
           },
           {
             "text": "The prawn icy poles are dipped in lime juice and rolled in salt.",
@@ -894,9 +907,9 @@
             "reason": "Things could be anything. Diners need to know what's floating in there."
           },
           {
-            "text": "The sardine trifle tastes okay if you like fish.",
+            "text": "The sardine trifle has an extremely unusual flavour.",
             "bin": 0,
-            "reason": "Okay doesn't say what the trifle tastes like. Is it salty? Sweet?"
+            "reason": "Extremely unusual sounds strong, but what does it taste of? Fishy? Sweet?"
           },
           {
             "text": "Each gum-leaf pancake is drizzled with honey.",
@@ -916,17 +929,17 @@
       "band": 3,
       "topic": "gross-science",
       "frame": "Gus's science report has a blurry verb. The Whetwing wants it as sharp as its claws.",
-      "text": "Gus's volcano went all over the kitchen. Pink foam shot up out of the top and sprayed the ceiling.",
-      "prompt": "Build the first sentence again, swapping 'went' for the verb that fits the clues.",
-      "success": "Gus's volcano erupted all over the kitchen. Foam shooting up to the ceiling is an eruption.",
+      "text": "Gus's volcano went all over the kitchen. He thought it would just fizz, like a can of soft drink. Instead, pink foam blasted out of the top with a bang and sprayed the ceiling.",
+      "prompt": "Build the first sentence again, swapping 'went' for the verb that fits every clue.",
+      "success": "Erupted. Gus expected a fizz, but foam that blasts out with a bang and hits the ceiling is an eruption.",
       "body": {
         "format": "build",
         "tiles": [
           "Gus's volcano",
+          "fizzed",
           "erupted",
-          "dribbled",
           "oozed",
-          "fizzled",
+          "spilled",
           "went",
           "all over the kitchen",
           "."
@@ -934,7 +947,7 @@
         "accept": [
           "Gus's volcano erupted all over the kitchen."
         ],
-        "reason": "The foam shot up and sprayed the ceiling. Dribbling and oozing are slow, and fizzling means it failed."
+        "reason": "Fizzed is what Gus expected, not what happened. Oozed and spilled are far too gentle for a bang."
       }
     },
     {
@@ -943,7 +956,7 @@
       "topic": "funny",
       "frame": "Indi wrote up Mo's latest joke for the funny page. The Whetwing wants one verb sharper.",
       "prompt": "Tap the blurry word, then choose a sharper one.",
-      "success": "Whispered. Tully had to lean in and still only caught the end, so Mo spoke very softly.",
+      "success": "Whispered. Hiding it from Mrs Pike and making Tully lean in means Mo spoke very softly.",
       "body": {
         "format": "fix",
         "parts": [
@@ -956,12 +969,12 @@
             "tap": "joke",
             "reason": "Joke is sharp. It tells you exactly what Mo told."
           },
-          " so quietly that Tully had to ",
+          " behind his hand so Mrs Pike wouldn't hear. Tully had to ",
           {
             "tap": "lean",
             "reason": "Lean is sharp, and it's a clue. It shows how hard the joke was to hear."
           },
-          " in. Even then, she only caught the ",
+          " in, and even then she only caught the ",
           {
             "tap": "punchline",
             "reason": "Punchline is sharp. It names exactly which part she heard."
@@ -979,11 +992,11 @@
           },
           {
             "text": "announced",
-            "reason": "Announced means said loudly so everyone hears. Tully could hardly hear it."
+            "reason": "Announced means said loudly so everyone hears. Mo didn't want Mrs Pike to hear."
           },
           {
             "text": "chanted",
-            "reason": "Chanted means said over and over in a rhythm. Mo told it once, quietly."
+            "reason": "Chanted means said over and over in a rhythm. That's hard to hide from a teacher."
           }
         ],
         "answer": 1
@@ -993,79 +1006,79 @@
       "id": "8.5-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "The lighthouse keeper sent a weather report to the Redpen Rumble. The Whetwing is frowning at one word.",
-      "text": "The sea was strange that morning. There was no wind at all, and the water lay so flat and still that it reflected every cloud like a mirror.",
-      "prompt": "Which word says exactly what the sea was like?",
-      "success": "Glassy. Flat, still water that reflects the clouds like a mirror looks just like glass.",
+      "frame": "The lighthouse keeper sent a weather report to the Redpen Rumble. Two editors fixed one blurry word in different ways.",
+      "text": "The keeper's draft: 'The sea was strange that morning.' Edit A: 'The sea was eerie that morning.' Edit B: 'The sea lay so flat that morning that every cloud was mirrored in it.'",
+      "prompt": "Which edit is sharper, and why?",
+      "success": "Edit B. Eerie is a stronger word, but only B lets the reader see the sea.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "sparkling",
-            "reason": "Sparkling means glinting with light, like little waves catching the sun. This water was a perfect mirror."
+            "text": "Edit A, because eerie is a much stronger and more unusual word than strange.",
+            "reason": "Stronger, but still blurry. Eerie gives a feeling, not what the sea looked like."
           },
           {
-            "text": "murky",
-            "reason": "Murky means dark and cloudy. This water was clear enough to reflect the sky."
+            "text": "Edit B, because we can picture the flat water and the clouds in it."
           },
           {
-            "text": "shallow",
-            "reason": "Shallow tells you how deep the water was. The clues are about how it looked."
+            "text": "Edit A, because it keeps the keeper's sentence and changes just one word.",
+            "reason": "Changing one word is neat, but eerie is still blurry. It doesn't show what the sea looked like."
           },
           {
-            "text": "glassy"
+            "text": "Edit B, because 'mirrored' is a fancier, more grown-up word than 'eerie'.",
+            "reason": "Fancy words don't make it sharp. B wins because we can picture the flat sea."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
       "id": "8.5-b4-2",
       "band": 4,
       "topic": "robots",
-      "frame": "Gus's robot kept the whole crew awake. His complaint letter has a blurry word.",
-      "prompt": "Tap the blurry word, then choose a sharper one.",
-      "success": "Droning. A drone is a low, steady hum that goes on and on without changing.",
+      "frame": "Gus's robot went on a midnight adventure. His lab notes have one blurry part.",
+      "prompt": "Tap the blurry part, then choose a sharper one.",
+      "success": "Three hours. Midnight to 3 am is three hours, so the reader knows exactly how long it was gone.",
       "body": {
         "format": "fix",
         "parts": [
-          "At midnight, Gus's robot started making a ",
+          "At midnight, Gus's robot ",
           {
-            "tap": "funny"
+            "tap": "rolled",
+            "reason": "Rolled is sharp. It tells you exactly how the robot moved."
           },
-          " noise. It was a ",
+          " out of the lab. It was gone for ",
           {
-            "tap": "low",
-            "reason": "Low is sharp, and it's a clue. It tells you how deep the sound was."
+            "tap": "a while"
           },
-          ", steady hum that went on for hours without ",
+          ". At 3 am, it trundled back in, covered in ",
           {
-            "tap": "changing",
-            "reason": "Changing is a clue. It tells you the sound stayed the same."
+            "tap": "mud",
+            "reason": "Mud is sharp. It names exactly what was on the robot."
           },
-          " once, like a ",
+          " and holding one ",
           {
-            "tap": "fridge",
-            "reason": "Fridge is sharp. It gives the reader a sound they already know."
+            "tap": "sock",
+            "reason": "Sock is sharp. It names exactly what the robot brought back."
           },
-          " that couldn't sleep."
+          "."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
           {
-            "text": "growling",
-            "reason": "Growling is low, but rough and angry. This hum was smooth and never changed."
+            "text": "ages",
+            "reason": "Ages sounds longer, but it still doesn't say how long. Sharp doesn't mean bigger."
           },
           {
-            "text": "rattling",
-            "reason": "Rattling means quick knocking sounds, like loose parts. This was a smooth, steady hum."
+            "text": "two hours",
+            "reason": "Count again, from midnight to 3 am."
           },
           {
-            "text": "droning"
+            "text": "three hours"
           },
           {
-            "text": "stuttering",
-            "reason": "Stuttering means stopping and starting. This hum never changed once."
+            "text": "all night",
+            "reason": "It came back at 3 am, so it wasn't gone all night."
           }
         ],
         "answer": 2
@@ -1075,37 +1088,28 @@
       "id": "8.5-b4-3",
       "band": 4,
       "topic": "spooky",
-      "frame": "Zed's ghost story is nearly sharp enough for the Halloween edition. The Whetwing found one last blurry word.",
-      "prompt": "Tap the word that is still blurry in Zed's story.",
-      "success": "Went. Every other word is sharp, but went doesn't show how Zed moved towards the attic.",
+      "frame": "Zed's ghost story is nearly ready for the Halloween edition. The Whetwing approved one last edit.",
+      "text": "Zed's draft: 'The floorboards groaned under Zed's boots as he went towards the attic, where claws were scratching behind the locked door.' His edit swaps went for tiptoed.",
+      "prompt": "What does tiptoed do for the reader?",
+      "success": "Tiptoed shows Zed moving slowly and quietly, and that tells us he's scared of what's scratching.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "The ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "floorboards",
-            "reason": "Floorboards is sharp. It names exactly what was under Zed's feet."
+            "text": "It shows Zed rushing up to the attic, so the reader feels the story speed up.",
+            "reason": "Tiptoeing is slow and careful, not rushing."
           },
-          " ",
           {
-            "tap": "groaned",
-            "reason": "Groaned is sharp. It tells you exactly what sound they made."
+            "text": "It tells the reader exactly where in the house Zed is going.",
+            "reason": "Towards the attic already said where. Tiptoed only changes how he moved."
           },
-          " under Zed's boots as he ",
           {
-            "tap": "went"
+            "text": "It shows Zed creeping quietly, so we feel how scared he is of the scratching."
           },
-          " towards the attic, where claws were ",
           {
-            "tap": "scratching",
-            "reason": "Scratching is sharp. It tells you exactly what the sound was."
-          },
-          " behind the ",
-          {
-            "tap": "locked",
-            "reason": "Locked is sharp. It tells you exactly why Zed can't just open the door."
-          },
-          " door."
+            "text": "It swaps a short word for a longer one, so the story sounds more grown-up.",
+            "reason": "Sharp doesn't mean fancy. Tiptoed helps because we can picture how he moved."
+          }
         ],
         "answer": 2
       }
@@ -1114,46 +1118,52 @@
       "id": "8.5-b4-4",
       "band": 4,
       "topic": "art",
-      "frame": "Indi's draft review says: 'The gallery was big. The paintings were bright. The building was old.' The Whetwing wants all three sharper.",
-      "prompt": "Match each sharp word to the blurry word it could replace.",
-      "success": "Cavernous, towering and sprawling sharpen big. Dazzling and vivid sharpen bright. Ancient sharpens old.",
+      "frame": "Indi tried seven edits of one blurry line in her gallery review. The Whetwing only wants the ones it can picture.",
+      "text": "Indi's draft: 'The gallery was big.'",
+      "prompt": "What did each edit do to Indi's line? Sort them.",
+      "success": "More very, or a grander word, still leaves us guessing. Comparing with something we know lets us see it.",
       "body": {
         "format": "sort",
         "bins": [
-          "sharpens 'big'",
-          "sharpens 'bright'",
-          "sharpens 'old'"
+          "only bigger: very, really",
+          "a grander word, still no picture",
+          "a picture you can see"
         ],
         "items": [
           {
-            "text": "cavernous",
+            "text": "The gallery was really, really big.",
             "bin": 0,
-            "reason": "Cavernous means huge and hollow inside, like a cave."
+            "reason": "Really, really makes it bigger, but we still can't picture it."
           },
           {
-            "text": "dazzling",
+            "text": "The gallery was colossal.",
             "bin": 1,
-            "reason": "Dazzling means so bright it's hard to look at."
+            "reason": "Colossal is a grander word for big. But how big? We still can't see it."
           },
           {
-            "text": "ancient",
+            "text": "A footy oval could fit inside the gallery.",
             "bin": 2,
-            "reason": "Ancient means extremely old, from long, long ago."
+            "reason": "We know how big an oval is, so we can picture the gallery."
           },
           {
-            "text": "towering",
-            "bin": 0,
-            "reason": "Towering means very tall, so it sharpens big."
-          },
-          {
-            "text": "vivid",
+            "text": "The gallery was vast and magnificent.",
             "bin": 1,
-            "reason": "Vivid means strong and bright, like fresh paint."
+            "reason": "Two grand words, and still no picture of the size."
           },
           {
-            "text": "sprawling",
+            "text": "The gallery was very big indeed.",
             "bin": 0,
-            "reason": "Sprawling means spread out over a huge area, so it sharpens big."
+            "reason": "Very and indeed pile on size, not a picture."
+          },
+          {
+            "text": "It took Indi ten minutes to walk from one end to the other.",
+            "bin": 2,
+            "reason": "Ten minutes of walking gives a size you can almost feel."
+          },
+          {
+            "text": "The gallery was immense.",
+            "bin": 1,
+            "reason": "Immense sounds sharper, but it's just a grander way to say big."
           }
         ]
       }
@@ -1163,15 +1173,15 @@
       "band": 4,
       "topic": "sport",
       "frame": "Tully's report on the Reef Rays' final needs one sharper verb at the big moment.",
-      "text": "With seconds left, Tully got the ball high in the air. She leapt higher than anyone, held it tight in both hands and kept hold as two defenders crashed into her.",
-      "prompt": "Build the first sentence again, swapping 'got' for the verb that fits the clues.",
-      "success": "Caught. Holding it tight in both hands as defenders crash in means she caught it cleanly.",
+      "text": "With seconds left, Tully got the ball high in the air. She leapt higher than anyone, held it tight in both hands and kept hold as two defenders crashed into her. In footy, a clean catch like that is called a mark.",
+      "prompt": "Build the first sentence again, swapping 'got' for the footy word that says exactly what she did.",
+      "success": "Marked. She held it cleanly as defenders crashed in, and in footy that clean catch is a mark.",
       "body": {
         "format": "build",
         "tiles": [
           "With seconds left,",
           "Tully",
-          "caught",
+          "marked",
           "fumbled",
           "punched",
           "got",
@@ -1179,9 +1189,9 @@
           "."
         ],
         "accept": [
-          "With seconds left, Tully caught the ball high in the air."
+          "With seconds left, Tully marked the ball high in the air."
         ],
-        "reason": "She held it tight and kept hold. Fumbling means dropping it, and punching means hitting it away."
+        "reason": "She caught it cleanly, which the draft calls a mark. Fumbling drops it. Punching hits it away."
       }
     },
     {

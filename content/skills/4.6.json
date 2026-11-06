@@ -299,6 +299,19 @@
       "name": "Whiskrel",
       "evolved": "Whiskrellion",
       "blurb": "A rakali water rat that sniffs, listens and feels its way through the mangrove mud. Ask it which sense a line wakes up."
+    },
+    "write": {
+      "ask": "Rewrite this sentence so the reader can feel the cold, without using the word cold.",
+      "given": [
+        "The water at the beach was very cold."
+      ],
+      "starter": "When the first wave hit my legs,",
+      "checks": [
+        "I didn't use the word cold.",
+        "A reader could feel it on their skin.",
+        "It happens at the beach."
+      ],
+      "model": "When the first wave hit my legs, my knees went numb and I gasped so hard that a seagull flew off."
     }
   },
   "encounters": [
@@ -695,29 +708,29 @@
       "band": 3,
       "topic": "sport",
       "frame": "Tully wrote about the wettest footy game of the season for the island newsletter.",
-      "text": "It had been raining since breakfast, and by the time the Reef Rays ran out for the second half, the oval was more like a swamp. Puddles lay across the centre square, and every pack of players ended in a heap of mud. Our coach told us to keep the ball low and use our feet. Early in the third quarter, Jada marked the ball in the pocket and lined up for goal. She had kicked that shot a hundred times at training. This time, though, the leather ball was slick with rain and slipped through her fingers as she dropped it onto her boot. It skidded off the side of her foot and rolled out of bounds. The crowd groaned. Jada stood with her hands on her knees for a moment, then jogged back into position. Ten minutes later, she kicked the goal that won us the game, and she says she has never been so happy to be soaking wet.",
-      "prompt": "Read this line: 'The leather ball was slick with rain and slipped through her fingers.' Which sense does it wake up most?",
-      "success": "Touch. A slippery ball sliding through her fingers is something Jada feels with her hands.",
+      "text": "It had been raining since breakfast, and by the time the Reef Rays ran out for the second half, the oval was more like a swamp. Puddles of muddy brown water lay right across the centre square, and every pack of players ended in a heap. Every step squelched, and cold mud soaked through our socks. Our coach told us to keep the ball low and use our feet. Early in the third quarter, Jada marked the ball in the pocket and lined up for goal. She had kicked that shot a hundred times at training. This time, though, the leather ball was slick with rain and slipped through her fingers as she dropped it onto her boot. It skidded off the side of her foot and rolled out of bounds. The crowd in the stand groaned all at once. Jada stood with her hands on her knees for a moment, then jogged back into position. Ten minutes later, she kicked the goal that won us the game, and she says she has never been so happy to be soaking wet.",
+      "prompt": "Which line from Tully's report wakes up two senses at once?",
+      "success": "You hear the squelch and feel the cold mud in your socks. Two senses in one line.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "sight",
-            "reason": "You might picture the rain, but the line is about how the wet ball feels in her hands."
+            "text": "Puddles of muddy brown water lay right across the centre square.",
+            "reason": "You see puddles lying there. That's one sense: sight."
           },
           {
-            "text": "hearing",
-            "reason": "The line has no sounds in it. It's about a slippery ball in her fingers."
+            "text": "The wet leather ball slipped through her fingers.",
+            "reason": "You feel the slippery ball. Picturing it doesn't add a second sense. That's one: touch."
           },
           {
-            "text": "smell",
-            "reason": "Nothing in the line is sniffed. Jada feels the slippery ball slide away."
+            "text": "Every step squelched, and cold mud soaked through our socks."
           },
           {
-            "text": "touch"
+            "text": "The crowd in the stand groaned all at once.",
+            "reason": "A groan is a sound. That's one sense: hearing."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -725,8 +738,8 @@
       "band": 3,
       "topic": "art",
       "frame": "Indi described the old art room at Mirage Mangroves school. The Whiskrel's nose is twitching.",
-      "prompt": "Tap the line that wakes up your sense of smell.",
-      "success": "An oily stink in the air is something you breathe in through your nose. That's smell.",
+      "prompt": "Indi never writes smell, hear or feel. Tap the line that wakes up your nose.",
+      "success": "Every breath brings the turps and clay in through your nose. That wakes up smell, without the word.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -740,18 +753,18 @@
             "tap": "The old radio in the corner crackles between songs.",
             "reason": "A crackle is a noise, so this line wakes up your hearing."
           },
+          " When I sweep up after class, ",
+          {
+            "tap": "the paint dust tickles my nose.",
+            "reason": "Your nose is in it, but a tickle is a feeling on your skin. That is touch."
+          },
           " ",
           {
-            "tap": "The air is thick with the oily stink of turps."
+            "tap": "Every breath brings in oily turps and wet clay."
           },
-          " Ms Ferreira says we're not allowed to touch the big pottery wheel, but on Fridays she lets us use the clay. ",
-          {
-            "tap": "The clay is cool and heavy in my hands.",
-            "reason": "Cool, heavy clay in your hands is something you feel. That's touch."
-          },
-          " Last week I made a mudskipper with googly eyes. It cracked in the kiln, but Ms Ferreira said the crack gave it character."
+          " Ms Ferreira says we're not allowed to touch the big pottery wheel, but on Fridays she lets us use the clay. Last week I made a mudskipper with googly eyes. It cracked in the kiln, but Ms Ferreira said the crack gave it character."
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
@@ -759,9 +772,9 @@
       "band": 3,
       "topic": "space",
       "frame": "A space station diary has been pinned to the Mirage Mangroves school library wall.",
-      "text": "Day 40 on the station. I'm writing this while floating upside down, which is the only way I can reach my notebook. Out of the big round window, Earth hangs below us, a swirl of blue and white. Everything on board is strapped down, even the pens. The station hums day and night, a low drone that I don't even notice any more. This morning, three alarms beeped in a row, and my heart nearly stopped, but it was only the reminder for our exercise session. For lunch I had freeze-dried curry, which tasted like salty cardboard. I squeezed it out of a pouch and chased the floating blobs around with a spoon. Before bed I hold the metal handrail to pull myself into my sleeping bag, and it's icy against my palm. I miss rain. I miss toast. Most of all, I miss being able to put something down without it floating away.",
-      "prompt": "Match each line from the diary to the sense it wakes up.",
-      "success": "Earth is seen, the hum and beeps are heard, the curry is tasted and the icy rail is felt.",
+      "text": "Day 40 on the station. I'm writing this while floating upside down, which is the only way I can reach my notebook. Out of the big round window, Earth hangs below us, a swirl of blue and white. Everything on board is strapped down, even the pens. The station hums day and night, a low drone that I don't even notice any more. This morning, three alarms beeped in a row, and my heart nearly stopped, but it was only the reminder for our exercise session. For lunch I had freeze-dried curry. It was like chewing salty cardboard. I squeezed it out of a pouch, and one warm blob stuck to my cheek and wouldn't budge. Before bed I hold the metal handrail to pull myself into my sleeping bag, and it's icy against my palm. I miss rain. I miss toast. Most of all, I miss being able to put something down without it floating away.",
+      "prompt": "None of these lines says see, hear, taste or feel. Match each one to the sense it wakes up.",
+      "success": "Earth is seen, the hum and beeps heard, the curry tasted. The sticky blob and icy rail are felt.",
       "body": {
         "format": "sort",
         "bins": [
@@ -774,27 +787,32 @@
           {
             "text": "Earth hangs below us, a swirl of blue and white.",
             "bin": 0,
-            "reason": "Blue and white swirls are colours seen through the window."
+            "reason": "Which part of you notices colours and swirls through a window?"
           },
           {
             "text": "The station hums day and night.",
             "bin": 1,
-            "reason": "A hum is a low sound you hear."
+            "reason": "A hum is a low noise. Which part of you notices it?"
+          },
+          {
+            "text": "One warm blob stuck to my cheek and wouldn't budge.",
+            "bin": 3,
+            "reason": "Nobody can see their own cheek. What does your skin notice when a warm blob sticks?"
           },
           {
             "text": "Three alarms beeped in a row.",
             "bin": 1,
-            "reason": "Beeps are sounds. You hear an alarm."
+            "reason": "Beeps are noises. Which part of you notices an alarm?"
           },
           {
-            "text": "The freeze-dried curry tasted like salty cardboard.",
+            "text": "It was like chewing salty cardboard.",
             "bin": 2,
-            "reason": "The writer is eating the curry, so the salty, cardboard flavour is taste."
+            "reason": "The writer is eating lunch. Which part of you notices salty?"
           },
           {
             "text": "The metal handrail is icy against my palm.",
             "bin": 3,
-            "reason": "An icy rail against your palm is something your skin feels."
+            "reason": "Which part of you notices icy metal against your hand?"
           }
         ]
       }
@@ -833,48 +851,48 @@
       "id": "4.6-b3-5",
       "band": 3,
       "topic": "animals",
-      "frame": "Wren wrote notes on the flying fox camp. Zed summed them up, but got one word wrong.",
+      "frame": "Wren wrote notes on the flying fox camp. Zed wrote what picture each line makes, but got one part wrong.",
       "text": "Field notes, Tuesday. Today the ranger took me to the flying fox camp in the tall mangroves near the creek. You can find the camp long before you see it, because of the sour, musty stink that hangs over the whole creek. Hundreds of flying foxes hang upside down from the branches, wrapped in their wings like little umbrellas. As we walked closer, the camp woke up, and their wings rustled like paper. The ranger was caring for a young one that had hurt its wing on a fence. She let me hold it in a towel. When I touched its wing with one fingertip, it was warm and leathery, like a soft old glove. It looked up at me with big brown eyes and licked the juice off my finger. We gave it some mashed pear and put it back in its cage to rest. The ranger thinks it will be ready to fly again in about three weeks.",
-      "prompt": "Tap the word Zed got wrong, then choose a better one.",
-      "success": "Touch. Wren touched the wing with her fingertip, and warm, leathery skin is something you feel.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "Stirring awake. The camp woke up as they came closer, and rustling paper is small movement, not flight.",
       "body": {
         "format": "fix",
         "parts": [
-          "In Wren's notes, 'a sour, musty stink' helps you ",
+          "'Wrapped in their wings like little umbrellas' makes you picture the bats ",
           {
-            "tap": "smell",
-            "reason": "That's right. A stink hanging over the creek is a smell."
+            "tap": "folded up tight",
+            "reason": "Umbrellas fold shut, and the bats are wrapped in their wings. That picture fits."
           },
-          " the camp, and 'their wings rustled like paper' helps you ",
+          ". 'Their wings rustled like paper' makes you picture the camp ",
           {
-            "tap": "hear",
-            "reason": "That's right. A rustle is a soft sound you hear."
+            "tap": "flying away"
           },
-          " it. 'When I touched its wing with one fingertip, it was warm and leathery' helps you ",
+          ". 'Warm and leathery, like a soft old glove' makes the young one seem ",
           {
-            "tap": "see"
+            "tap": "gentle and harmless",
+            "reason": "A soft old glove is gentle. It licks juice off her finger. That picture fits."
           },
-          " the flying fox."
+          "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "hear",
-            "reason": "There's no sound in that line. It's about how the wing feels on her fingertip."
+            "text": "fast asleep",
+            "reason": "Rustling wings are moving. The notes say the camp woke up as they walked closer."
           },
           {
-            "text": "taste",
-            "reason": "Wren doesn't taste anything. She touches the wing with her fingertip."
+            "text": "stirring awake"
           },
           {
-            "text": "smell",
-            "reason": "The stink was earlier. This line is about warmth and texture under her finger."
+            "text": "under attack",
+            "reason": "Nothing attacks the camp. Wren and the ranger are just walking closer."
           },
           {
-            "text": "feel"
+            "text": "far in the distance",
+            "reason": "They walked closer, and Wren can hear the soft rustle. The camp is near."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
@@ -883,20 +901,20 @@
       "topic": "gaming",
       "frame": "Zed is writing the opening scene for his own game, Mangrove Dungeon. The Whiskrel is the hero.",
       "text": "Zed had been designing his game for weeks. The hero was a brave little Whiskrel, and the first level was a dungeon under the roots of an ancient mangrove. He had drawn the map, named every room and chosen the music. Now he was writing the words that would pop up on screen at the very start. The trouble was that the first room was pitch black. The player wouldn't be able to see a thing until they found a torch. Zed wanted the player to know where they were anyway, just from what they could hear. He wanted them to listen hard and feel a bit nervous before they took their first step. His first try said, 'You are in a dungeon. It is dark.' Tully read it over his shoulder and said it was about as scary as a sock drawer. He crossed out his first try, chewed his pen and started again.",
-      "prompt": "Build an opening line that helps the player hear the dark dungeon.",
-      "success": "Dripping, echoing water is a sound, so the player can hear the dungeon even in pitch black.",
+      "prompt": "Build Zed's new opening line. Use the clues about what the player can and can't notice.",
+      "success": "The room is pitch black, and Zed wants the player to hear where they are. Dripping, echoing water does that.",
       "body": {
         "format": "build",
         "tiles": [
           "Somewhere in the dark,",
           "water dripped and echoed",
-          "green slime glowed",
+          "cobwebs hung in rows",
           "off the stone walls."
         ],
         "accept": [
           "Somewhere in the dark, water dripped and echoed off the stone walls."
         ],
-        "reason": "Glowing slime is something you see, and the room is pitch black. Choose the words for a sound."
+        "reason": "The room is pitch black, so the player can't see cobwebs. Zed wants them to know the room by sound."
       }
     },
     {
@@ -905,28 +923,28 @@
       "topic": "ocean",
       "frame": "Wren wrote about her first night aboard the Soggy Biscuit. The Whiskrel slept through all of it.",
       "text": "My first night aboard the Soggy Biscuit was not what I had imagined. I had pictured myself drifting off to sleep under the stars, rocked gently by the tide, dreaming about the Creatures we would rescue. Instead, Tully pointed me to a narrow bunk below deck, squeezed between a cupboard full of tins and a pile of Gus's experiments, and switched off the only light.\n\nI lay there in the pitch dark with my eyes shut, trying not to think about what might be in the experiments. That was when the boat began to talk. The groan of the old hull timbers and the slap of loose rope against the mast kept me awake for hours. Somewhere near my feet, water gurgled through a pipe. Above me, footsteps creaked across the deck as someone on watch walked from one end to the other and back again. Every few minutes, Mo, in the next bunk, let out a snore like a small motorbike starting up.\n\nAt some point I must have fallen asleep, because the next thing I knew, sunlight was pouring through the porthole and Mo was offering me a fried egg on a slice of toast that was, somehow, also wet. I said yes. By the third night, I could sleep through anything.",
-      "prompt": "Read this line: 'The groan of the old hull timbers and the slap of loose rope against the mast kept me awake for hours.' Which sense does it wake up?",
-      "success": "Hearing. Wren is lying in the dark with her eyes shut, and a groan and a slap are sounds.",
+      "prompt": "Wren writes, 'That was when the boat began to talk.' What do that line and the sounds after it do for the reader?",
+      "success": "Groans, slaps, gurgles, creaks and snores come from all sides in the dark. The old boat feels alive.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "touch",
-            "reason": "The rope slaps the mast, not Wren. She's lying in her bunk, nowhere near it."
+            "text": "They make the old boat feel alive and noisy all around her in the dark."
           },
           {
-            "text": "sight",
-            "reason": "Her eyes are shut in the pitch dark, so she can't see the timbers or the rope."
+            "text": "They show that someone on deck was talking to Wren for hours.",
+            "reason": "Nobody speaks to Wren. The 'talk' is timbers, rope, a pipe, footsteps and a snore."
           },
           {
-            "text": "hearing"
+            "text": "They warn the reader that the boat is sinking in a storm.",
+            "reason": "There's no storm or leak. Wren had pictured a gentle tide, and she's fine by morning."
           },
           {
-            "text": "smell",
-            "reason": "Nothing in the line has a smell. Think about what a groan and a slap are."
+            "text": "They help the reader see the boat clearly from the outside.",
+            "reason": "Wren's eyes are shut in the dark. Every detail is a sound she hears from her bunk."
           }
         ],
-        "answer": 2
+        "answer": 0
       }
     },
     {
@@ -934,33 +952,29 @@
       "band": 4,
       "topic": "animals",
       "frame": "Indi wrote a description of the mangroves at dawn for Poet Pip. The Whiskrel appears in it, of course.",
-      "prompt": "Tap the line that wakes up your sense of touch.",
-      "success": "Cold, sucking mud oozing between your toes is something your skin feels. That's touch.",
+      "text": "Dawn comes slowly to Mirage Mangroves. For the first hour, the whole island is wrapped in a mist so thick that the trees look like grey ghosts standing in the water, and the boardwalk seems to disappear a few steps in front of you. I like to walk out to the end of it before anyone else on the boat is awake. Somewhere in the mist, a kingfisher lets out a sharp, rattling call. At the end of the boardwalk, there's a ladder down to the mud. I climb down in bare feet, which Wren says is a terrible idea. The cold mud sucks at my feet and oozes up between my toes. The air carries a sharp whiff of salt and rotting leaves. As the sun climbs, the mist starts to thin, and the light changes. The water turns from grey to gold, and every leaf glitters. Then a Whiskrel pops its head out of a hole in the bank, twitches its whiskers at me, and dives back under. By the time I climb back up the ladder, the crew is awake, and Mo is shouting that breakfast is ready. I can smell from here that he has burnt it.",
+      "prompt": "Indi's first draft said, 'The mud was cold and wet.' Her final line is 'The cold mud sucks at my feet and oozes up between my toes.' Why is the final line stronger?",
+      "success": "Sucking and oozing show the mud moving against her skin, so you feel it. 'Cold and wet' only names it.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "Dawn comes slowly to Mirage Mangroves. For the first hour, the whole island is wrapped in a mist so thick that the trees look like grey ghosts standing in the water, and the boardwalk seems to disappear a few steps in front of you. I like to walk out to the end of it before anyone else on the boat is awake. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "Somewhere in the mist, a kingfisher lets out a sharp, rattling call.",
-            "reason": "A rattling call is a sound. This line wakes up your hearing."
+            "text": "It shows how the mud moves against her skin, so you feel it too."
           },
-          " At the end of the boardwalk, there's a ladder down to the mud. I climb down in bare feet, which Wren says is a terrible idea. ",
           {
-            "tap": "The cold mud sucks at my feet and oozes up between my toes."
+            "text": "It uses the word cold, which the first draft leaves out.",
+            "reason": "Read the first draft again. Both drafts say cold. The difference is what the mud does."
           },
-          " ",
           {
-            "tap": "The air carries a sharp whiff of salt and rotting leaves.",
-            "reason": "A whiff in the air is something you breathe in. That's smell."
+            "text": "It adds smell, a sense that the first draft leaves out.",
+            "reason": "Neither draft has a smell in it. Both are about how the mud feels."
           },
-          " As the sun climbs, the mist starts to thin, and the light changes. ",
           {
-            "tap": "The water turns from grey to gold, and every leaf glitters.",
-            "reason": "Colour changes and glittering leaves are things you see. That's sight."
-          },
-          " Then a Whiskrel pops its head out of a hole in the bank, twitches its whiskers at me, and dives back under. By the time I climb back up the ladder, the crew is awake, and Mo is shouting that breakfast is ready. I can smell from here that he has burnt it."
+            "text": "It tells you the colour of the mud, so you can see it.",
+            "reason": "Neither draft gives a colour. The final line is about her feet and toes."
+          }
         ],
-        "answer": 1
+        "answer": 0
       }
     },
     {
@@ -969,61 +983,44 @@
       "topic": "robots",
       "frame": "Wren sneaked into Maxx's Green Screen Swamp and wrote down everything she noticed.",
       "text": "Notes from inside Green Screen Swamp, 11.40 pm. The door was unlocked, which is typical of Maxx. Inside, it isn't a swamp at all. It's a huge shed, and almost every surface is painted the same flat, glowing green so that Maxx can add fake backgrounds later. Gold spotlights blaze down on a plastic waterfall that pours the same water round and round in a loop. As I creep past it, I can feel cold spray on the back of my neck. Fans whirr everywhere, and a generator in the corner thuds like a giant heartbeat. Somewhere above me, a robot camera gives a little buzz every few seconds. The air reeks of hot plastic and hairspray, which I think is mostly Maxx. A sour whiff of old fish food drifts out from behind the waterfall. Behind the waterfall, I found what we came for: rows of tiny cages stacked against the back wall. When I pressed my palms against the bars of the nearest one, they were cold and greasy, as if nobody had cleaned them in months. A Creature inside blinked at me. I took photos of everything, then crept out before the spotlights could swing my way.",
-      "prompt": "Match each line from Wren's notes to the sense it wakes up.",
-      "success": "Lights and paint are seen, whirrs, thuds and buzzes heard, plastic and fish food smelled, spray and bars felt.",
+      "prompt": "Some of Wren's details make the swamp seem fake. Some make the Creatures seem neglected (not cared for). Sort them.",
+      "success": "Plastic, spotlights, one flat green and looping water show a fake set. Old food and greasy bars show neglect.",
       "body": {
         "format": "sort",
         "bins": [
-          "sight",
-          "hearing",
-          "smell",
-          "touch"
+          "makes the swamp seem fake",
+          "makes the Creatures seem neglected"
         ],
         "items": [
           {
             "text": "Gold spotlights blaze down on a plastic waterfall.",
             "bin": 0,
-            "reason": "Blazing gold light is something Wren sees."
+            "reason": "A real swamp has no spotlights or plastic. What does this show about the place?"
+          },
+          {
+            "text": "A sour whiff of old fish food drifts out from behind the waterfall.",
+            "bin": 1,
+            "reason": "It comes from where the cages are. What does old food say about who looks after them?"
           },
           {
             "text": "Almost every surface is painted the same flat, glowing green.",
             "bin": 0,
-            "reason": "A flat, glowing green is a colour. Wren sees it everywhere she looks."
-          },
-          {
-            "text": "Fans whirr everywhere.",
-            "bin": 1,
-            "reason": "Whirring is a sound. This line wakes up your hearing."
-          },
-          {
-            "text": "A generator in the corner thuds like a giant heartbeat.",
-            "bin": 1,
-            "reason": "A thud is a deep, heavy sound. Wren hears the generator."
-          },
-          {
-            "text": "Somewhere above me, a robot camera gives a little buzz every few seconds.",
-            "bin": 1,
-            "reason": "A buzz is a noise. Wren hears it but doesn't say she sees the camera."
+            "reason": "Real swamps have many colours. One flat green is there so Maxx can add a background."
           },
           {
             "text": "The air reeks of hot plastic and hairspray.",
-            "bin": 2,
-            "reason": "Reeking air is a strong smell. Wren breathes it in."
-          },
-          {
-            "text": "A sour whiff of old fish food drifts out from behind the waterfall.",
-            "bin": 2,
-            "reason": "A sour whiff is a smell. Wren breathes it in near the cages."
-          },
-          {
-            "text": "I can feel cold spray on the back of my neck.",
-            "bin": 3,
-            "reason": "Wren can't see the back of her own neck. She feels the cold drops."
+            "bin": 0,
+            "reason": "A swamp should smell of mud and leaves. Plastic and hairspray smell like a film set."
           },
           {
             "text": "When I pressed my palms against the bars, they were cold and greasy.",
-            "bin": 3,
-            "reason": "Her palms are on the bars, so cold and greasy is how they feel."
+            "bin": 1,
+            "reason": "Greasy bars nobody has cleaned in months. What does that say about how the Creatures are kept?"
+          },
+          {
+            "text": "The waterfall pours the same water round and round in a loop.",
+            "bin": 0,
+            "reason": "A real waterfall comes from a river. The same water in a loop is a machine."
           }
         ]
       }
@@ -1032,48 +1029,48 @@
       "id": "4.6-b4-4",
       "band": 4,
       "topic": "food",
-      "frame": "Tully wrote up a famous food critic's review of Mo's Mangrove Cafe. One word in her summary is wrong.",
+      "frame": "Tully wrote what picture each line of a food critic's review makes. One part of her summary is wrong.",
       "text": "MO'S MANGROVE CAFE: A REVIEW. I have eaten at restaurants on every island in the archipelago, but none of them prepared me for Mo's Mangrove Cafe, a wobbly wooden hut perched on the end of the jetty. I arrived just after sunset. Strings of fairy lights hung over the tables, and the menu was written in chalk on an old surfboard.\n\nI ordered the house special, a mud crab curry. While I waited, I could hear it before I could see it: the curry spat and bubbled in a huge pot behind the counter, and every few seconds something went pop. When it arrived, the first spoonful tasted rich and nutty, then salty, then, strangely, a little bit sweet, as if somebody had stirred in a spoonful of jam. I asked Mo about this. He said it was 'a family secret', and then admitted that it was jam.\n\nFor dessert, I tried the sticky date pudding. The bowl was so hot that it warmed my hands right through, which was welcome, because the wind off the water was cold. I would not call the meal perfect, but I would call it unforgettable, and I am already planning to return, although perhaps not for the curry.",
-      "prompt": "Tap the word Tully got wrong, then choose a better one.",
-      "success": "Taste. Nutty, then salty, then sweet is the critic's tongue noticing one flavour after another.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "Full of surprises. Nutty, then salty, then sweet: each spoonful changes, and the sweetness turns out to be jam.",
       "body": {
         "format": "fix",
         "parts": [
-          "The critic hears the curry before seeing it, so 'spat and bubbled' wakes up ",
+          "'The curry spat and bubbled, and every few seconds something went pop' makes the kitchen seem ",
           {
-            "tap": "hearing",
-            "reason": "That's right. The critic hears the spitting and bubbling before seeing the pot."
+            "tap": "busy and bubbling",
+            "reason": "Spitting, bubbling and popping are lively sounds. A busy kitchen fits."
           },
-          ". 'The first spoonful tasted rich and nutty, then salty, then a little bit sweet' wakes up ",
+          ". 'Rich and nutty, then salty, then a little bit sweet' makes the curry seem ",
           {
-            "tap": "smell"
+            "tap": "plain and simple"
           },
-          ". 'The bowl was so hot that it warmed my hands' wakes up ",
+          ". 'The bowl was so hot that it warmed my hands' makes the pudding seem ",
           {
-            "tap": "touch",
-            "reason": "That's right. Warmth through the hands is something you feel."
+            "tap": "welcome on a cold night",
+            "reason": "The wind off the water was cold, so the warm bowl was welcome. That fits."
           },
           "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "sight",
-            "reason": "The line doesn't describe how the curry looks. It's about the spoonful in the critic's mouth."
+            "text": "too salty to enjoy",
+            "reason": "Salty is only one of the flavours, and it soon changes to sweet."
           },
           {
-            "text": "taste"
+            "text": "sweet, like a dessert",
+            "reason": "It is only a little bit sweet, and only after nutty and salty."
           },
           {
-            "text": "hearing",
-            "reason": "There are no sounds in that line. The pop and bubble came before the curry arrived."
+            "text": "full of surprises"
           },
           {
-            "text": "touch",
-            "reason": "Nothing in that line is felt on the skin. Where do you notice nutty, salty and sweet?"
+            "text": "burnt and bitter",
+            "reason": "The critic tastes rich, nutty, salty and sweet. Nothing burnt or bitter."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -1111,29 +1108,29 @@
       "band": 4,
       "topic": "music",
       "frame": "Indi wrote a review of the outdoor concert at the mangrove amphitheatre.",
-      "text": "The Mangrove Moonlight Concert has been running for twelve years, and this year it was the biggest yet, with more than a thousand people squeezed onto the grassy slope of the amphitheatre. The headline act was a five-piece band from the mainland called The Fiddler Crabs, and by the time they walked on stage, the crowd had been waiting for over an hour in the steamy evening heat.\n\nThe moment they started, purple and blue lights swept across the crowd, catching the raised arms and the bubbles drifting up from the front row. The drummer's sticks cracked against the snare like a whip, and the singer's voice soared over the top of it all. Halfway through the second song, a light rain began to fall, but nobody moved. Sweat ran down the back of my neck in the sticky heat. People stood on the hill singing every word. The smell of popcorn and wet grass drifted up from the stalls behind us.\n\nThe band played for nearly two hours and finished with an encore that had the whole hill jumping. Walking back to the ferry afterwards, my ears still buzzing and my shirt soaked through, I decided it was the best concert I have ever been to.",
-      "prompt": "Which line from Indi's review appeals only to touch?",
-      "success": "Sweat running down your neck is something your skin feels. The other lines are seen, heard or smelled.",
+      "text": "The Mangrove Moonlight Concert has been running for twelve years, and this year it was the biggest yet, with more than a thousand people squeezed onto the grassy slope of the amphitheatre. The headline act was a five-piece band from the mainland called The Fiddler Crabs, and by the time they walked on stage, the crowd had been waiting on the hill for over an hour.\n\nThe moment they started, purple and blue lights swept across the crowd, catching the raised arms and the bubbles drifting up from the front row. The drummer's sticks cracked against the snare like a whip, and the singer's voice soared over the top of it all. Halfway through the second song, a light rain began to fall, but nobody moved. Sweat ran down the back of my neck and soaked my shirt. People stood on the hill singing every word. The smell of popcorn and wet grass drifted up from the stalls behind us.\n\nThe band played for nearly two hours and finished with an encore that had the whole hill jumping. Walking back to the ferry afterwards, my ears still buzzing, I decided it was the best concert I have ever been to.",
+      "prompt": "Indi never writes that the night was hot. Which line makes you feel the heat most?",
+      "success": "Sweat running down your neck is how your skin feels heat. The rain is felt too, but it is cool.",
       "body": {
         "format": "choose",
         "options": [
           {
             "text": "Purple and blue lights swept across the crowd.",
-            "reason": "Coloured lights sweeping across the crowd are something you see."
+            "reason": "Coloured lights are something you see. They tell you nothing about how hot it is."
           },
           {
-            "text": "The drummer's sticks cracked against the snare like a whip.",
-            "reason": "A crack like a whip is a sound. This line is about hearing."
+            "text": "Sweat ran down the back of my neck and soaked my shirt."
           },
           {
-            "text": "Sweat ran down the back of my neck in the sticky heat."
+            "text": "Halfway through the second song, a light rain began to fall.",
+            "reason": "You feel rain on your skin, but rain is cool. It does not make you feel heat."
           },
           {
             "text": "The smell of popcorn and wet grass drifted up from the stalls.",
-            "reason": "This line names a smell drifting through the air. That's smell, not touch."
+            "reason": "This line wakes up smell. It tells you nothing about how hot the night was."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     }
   ]

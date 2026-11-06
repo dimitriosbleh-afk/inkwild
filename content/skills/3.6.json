@@ -238,6 +238,21 @@
         }
       ]
     },
+    "write": {
+      "ask": "Join these into one fair sentence. Keep the part Maxx would leave out.",
+      "given": [
+        "Maxx crossed the finish line first.",
+        "He cut across the fishing zone.",
+        "Officials are checking whether his win counts."
+      ],
+      "starter": "Maxx crossed the finish line first, but",
+      "checks": [
+        "My sentence says Maxx crossed the line first.",
+        "It includes the fishing zone or the officials checking.",
+        "I used no tilted words, like 'smashed' or 'cheated'."
+      ],
+      "model": "Maxx crossed the finish line first, but officials are checking whether his win counts because he cut across the fishing zone."
+    },
     "creature": {
       "id": "flipscale",
       "name": "Flipscale",
@@ -654,28 +669,28 @@
       "topic": "animals",
       "frame": "Maxx posted a caption about a quoll he 'rescued'. Wren found the ranger's report from the same morning.",
       "text": "MAXX'S CAPTION: 'Found this little quoll shivering on a rock at dawn, poor thing. I took her straight to my Rescue Ranch, wrapped her in a warm blanket and gave her a gold bowl of mince. She's safe now, thanks to me. Maxx it out, Vantafam!' RANGER'S REPORT, 6 MAY: At about 6 am, a spotted-tailed quoll was taken from Red Gully by a man in a gold tracksuit. The quoll appeared healthy. Quolls often rest on cold rocks at dawn before returning to their dens. A den about ten metres away held three young quolls, too small to hunt for themselves. Rangers have been feeding them by hand since the mother was taken. Removing wildlife without a permit is against island rules. No permit was issued for Red Gully this year. The young quolls are now being cared for at the island's wildlife shelter, and rangers hope to return them to Red Gully in spring. Anyone who sees a quoll in trouble should call the ranger station.",
-      "prompt": "Which detail does Maxx's caption leave out?",
-      "success": "Maxx never mentions the three babies left behind. That fact turns his 'rescue' into taking a mother away.",
+      "prompt": "Maxx says the quoll was 'shivering on a rock at dawn, poor thing'. What does the ranger's report hint about that?",
+      "success": "The ranger never says Maxx lied. But healthy quolls rest on rocks at dawn, so his 'rescue' wasn't needed.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "that the quoll was sitting on a rock at dawn",
-            "reason": "Maxx includes this. He says he found her 'shivering on a rock at dawn'."
+            "text": "Quolls often rest on cold rocks at dawn, so she probably wasn't in trouble."
           },
           {
-            "text": "that the quoll was sick",
-            "reason": "Neither text says this. The ranger says the quoll appeared healthy."
+            "text": "The quoll wasn't on a rock, so Maxx made that part of the story up.",
+            "reason": "The report doesn't say where she sat. It says resting on rocks is normal for quolls."
           },
           {
-            "text": "that her three young were left alone in the den"
+            "text": "The quoll was sick and shivering with cold, so Maxx was right to take her away.",
+            "reason": "The ranger says the quoll appeared healthy. Nothing in the report says she was sick."
           },
           {
-            "text": "that he took her to his Rescue Ranch",
-            "reason": "Maxx includes this. It's the part he most wants you to know."
+            "text": "Quolls stay away from rocks, so the ranger thinks Maxx is telling lies.",
+            "reason": "The report says quolls often rest on cold rocks. That is the opposite."
           }
         ],
-        "answer": 2
+        "answer": 0
       }
     },
     {
@@ -683,15 +698,15 @@
       "band": 3,
       "topic": "sport",
       "frame": "Tully has two newsletters about the same last-minute free kick. The Flipscale is checking both ends.",
-      "prompt": "Tap the detail in the Reef Rays' newsletter that the Sand Crabs' newsletter left out.",
-      "success": "The Crabs' newsletter skipped the push. Without it, the free kick looks unfair and the Crabs look robbed.",
+      "prompt": "The Crabs' newsletter leaves out several things. Tap the one that most changes how the free kick looks.",
+      "success": "Every text leaves things out. The push matters: without it, the free kick looks unfair and the Crabs look robbed.",
       "body": {
         "format": "tapText",
         "parts": [
           "SAND CRABS NEWSLETTER: With ten seconds left, the Crabs were leading by one point. Then the umpire gave a free kick to Rays captain Jaz, right in front of goal. She kicked it, and the Rays won by five. Our coach said, 'I've never seen anything like it.' Our players were devastated. Many fans booed as they left the ground. REEF RAYS NEWSLETTER: With ten seconds left, the Rays were one point behind. ",
           {
-            "tap": "Jaz was right in front of goal.",
-            "reason": "The Crabs' newsletter also says it happened in front of goal."
+            "tap": "Jaz wore her lucky orange boots.",
+            "reason": "The Crabs left this out, but boots don't change whether the free kick was fair."
           },
           " ",
           {
@@ -699,13 +714,13 @@
           },
           " ",
           {
-            "tap": "The umpire gave Jaz a free kick.",
-            "reason": "The Crabs' newsletter tells you about the free kick too."
+            "tap": "The crowd of 3,000 was the biggest of the season.",
+            "reason": "Left out too, but the size of the crowd says nothing about the umpire's call."
           },
           " ",
           {
             "tap": "She kicked the goal, and the Rays won by five points.",
-            "reason": "The Crabs' newsletter gives the same result: the Rays won by five."
+            "reason": "The Crabs' newsletter says this too. Look for something it skipped."
           },
           " Our coach said the umpire made a brave call in a tight moment. Replays on the club's website show the push clearly from two angles. The Crabs and the Rays play again in the final in three weeks. Both coaches say their teams are ready, and tickets have already sold out."
         ],
@@ -795,47 +810,29 @@
       "band": 3,
       "topic": "art",
       "frame": "Indi painted a mural on the old water tower. Two people wrote letters about it to the Bluster Bugle.",
-      "text": "LETTER 1: Last week, a 12-metre mural appeared on the old water tower. It was painted by a local artist named Indi, using $400 worth of paint that she paid for herself. It is a bold splash of colour that brightens up the whole town. I think it is a gift to all of us, and I stop to look at it every morning. LETTER 2: Last week, a 12-metre mural appeared on the old water tower. It was painted by a local artist named Indi, using $400 worth of paint. To me, it is nothing but graffiti. It is a messy scribble and an eyesore that spoils our lovely view of the rock. I hope the council paints over it before the tourists see it. Both letters were printed on page 4. The council says it will discuss the mural at its meeting next Tuesday, which is open to the public. The water tower has not held water since 1990. The editor received eleven other letters about the mural this week.",
-      "prompt": "Both letters give the same facts. Sort the words by which way they tilt.",
-      "success": "The facts match: 12 metres, Indi, $400. The tilted words make the same mural sound wonderful or awful.",
+      "text": "LETTER 1: Last week, a 12-metre mural appeared on the old water tower. It was painted by a local artist named Indi, using $400 worth of paint that she paid for herself. It is a bold splash of colour that brightens up the whole town. I think it is a gift to all of us, and I stop to look at it every morning. LETTER 2: Last week, a 12-metre mural appeared on the old water tower. It was painted by a local artist named Indi, using $400 worth of paint. What a waste of money. To me, it is nothing but graffiti. It is a messy scribble and an eyesore that spoils our lovely view of the rock. I hope the council paints over it before the tourists see it. Both letters were printed on page 4. The council says it will discuss the mural at its meeting next Tuesday, which is open to the public. The water tower has not held water since 1990. The editor received eleven other letters about the mural this week.",
+      "prompt": "Letter 2 leaves out one fact that Letter 1 gives. What does leaving it out do?",
+      "success": "Letter 1 says Indi paid for the paint. Letter 2 drops that and calls it 'a waste of money'.",
       "body": {
-        "format": "sort",
-        "bins": [
-          "tilts for the mural",
-          "tilts against the mural"
-        ],
-        "items": [
+        "format": "choose",
+        "options": [
           {
-            "text": "a bold splash of colour",
-            "bin": 0,
-            "reason": "'Bold' and 'splash of colour' make the mural sound exciting."
+            "text": "Readers might think the town paid for the paint, when Indi paid for it herself."
           },
           {
-            "text": "brightens up the whole town",
-            "bin": 0,
-            "reason": "This makes the mural sound like it improves the town."
+            "text": "Readers can't tell how big the mural is, because Letter 2 leaves out its size.",
+            "reason": "Letter 2 gives the size too: 12 metres. Look for a fact only Letter 1 has."
           },
           {
-            "text": "a gift to all of us",
-            "bin": 0,
-            "reason": "Calling it a gift makes the mural sound generous and welcome."
+            "text": "Readers don't learn who painted the mural, so Indi escapes any blame for it.",
+            "reason": "Letter 2 names Indi as the painter. Look for a fact only Letter 1 has."
           },
           {
-            "text": "nothing but graffiti",
-            "bin": 1,
-            "reason": "'Graffiti' makes the mural sound like vandalism, not art."
-          },
-          {
-            "text": "a messy scribble",
-            "bin": 1,
-            "reason": "'Scribble' makes careful painting sound careless."
-          },
-          {
-            "text": "an eyesore",
-            "bin": 1,
-            "reason": "An eyesore is something ugly. This tilts the reader against the mural."
+            "text": "Readers never hear the writer's own view, so the letter seems fair and calm.",
+            "reason": "Letter 2 says 'To me, it is nothing but graffiti'. That's a strong view."
           }
-        ]
+        ],
+        "answer": 0
       }
     },
     {
@@ -843,34 +840,30 @@
       "band": 3,
       "topic": "ocean",
       "frame": "Maxx posted a video called 'I Cleaned Bluster Beach!'. The volunteers who organised the clean-up sent their own report to the Bugle.",
-      "prompt": "Tap the fact from the volunteers' report that Maxx's video left out.",
-      "success": "Maxx's video makes it look like his clean-up. It leaves out the sixty people who did almost all the work.",
+      "prompt": "Maxx's video is called 'I Cleaned Bluster Beach!'. How does it make him look like the hero?",
+      "success": "Maxx's facts about the rubbish are right. The trick is what he hides: sixty people did almost all the work.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "MAXX'S VIDEO: 'Vantafam, today I cleaned Bluster Beach! Look at all this rubbish. Bottles, nets, a whole thong! I picked up this plastic bottle with my own two hands. The beach is sparkling now. That's what heroes do. Stay gold!' VOLUNTEERS' REPORT: On Saturday, Bluster Beach was cleaned from end to end. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "Sixty volunteers worked for six hours and filled 85 bags."
+            "text": "It shows him picking up one bottle and leaves out the sixty volunteers."
           },
-          " ",
           {
-            "tap": "The rubbish included bottles, old fishing nets and a single thong.",
-            "reason": "Maxx's video shows this. He mentions bottles, nets and a thong."
+            "text": "It lies about the rubbish, which was not bottles, nets and a thong.",
+            "reason": "The volunteers list bottles, old nets and a single thong too. Maxx got that part right."
           },
-          " ",
           {
-            "tap": "Maxx Vantablack picked up one plastic bottle on camera.",
-            "reason": "Maxx's video shows this. It's the moment he wants you to remember."
+            "text": "It says the beach is clean, but the report says it was still dirty.",
+            "reason": "The report says the beach was clean by the end of the day."
           },
-          " ",
           {
-            "tap": "By the end of the day, the beach was clean.",
-            "reason": "Maxx's video says this too. He says the beach is sparkling."
-          },
-          " Maxx stayed for about ten minutes, then left on his jet ski. The volunteers say they will be back next month, with or without cameras. The bags were collected by the council truck on Monday morning. The volunteers found the most rubbish near the boat ramp, where the wind blows it into the rocks. Next month's clean-up starts at 8 am at the surf club, and gloves will be provided. Everyone is welcome."
+            "text": "It leaves out that the council truck took the bags away on Monday.",
+            "reason": "Maxx did leave that out, but it doesn't change who did the work."
+          }
         ],
         "answer": 0
-      }
+      },
+      "text": "MAXX'S VIDEO: 'Vantafam, today I cleaned Bluster Beach! Look at all this rubbish. Bottles, nets, a whole thong! I picked up this plastic bottle with my own two hands. The beach is sparkling now. That's what heroes do. Stay gold!' VOLUNTEERS' REPORT: On Saturday, Bluster Beach was cleaned from end to end. Sixty volunteers worked for six hours and filled 85 bags. The rubbish included bottles, old fishing nets and a single thong. Maxx Vantablack picked up one plastic bottle on camera. By the end of the day, the beach was clean. Maxx stayed for about ten minutes, then left on his jet ski. The volunteers say they will be back next month, with or without cameras. The bags were collected by the council truck on Monday morning. The volunteers found the most rubbish near the boat ramp, where the wind blows it into the rocks. Next month's clean-up starts at 8 am at the surf club, and gloves will be provided. Everyone is welcome."
     },
     {
       "id": "3.6-b4-1",
@@ -884,11 +877,11 @@
         "format": "choose",
         "options": [
           {
-            "text": "It quotes only opponents, although most speakers supported the park."
+            "text": "It quotes only people against the park, although most speakers supported it."
           },
           {
-            "text": "It reports the wrong result of the council vote.",
-            "reason": "Both reports give the same result: 5 to 2 in favour. The vote isn't where the bias is."
+            "text": "Its only problem is the tilted headline 'pushed through'. Nothing important is missing.",
+            "reason": "That headline does tilt it, but the Bugle also hides the 26 speakers for the park."
           },
           {
             "text": "It leaves out the vote count, so readers can't tell who won.",
@@ -907,34 +900,30 @@
       "band": 4,
       "topic": "animals",
       "frame": "Wren found a leaflet from the Scales and Tails pet shop. She put it next to the ranger station's care guide for the same lizard.",
-      "prompt": "Tap the sentence in the ranger's guide that the pet shop's leaflet left out.",
-      "success": "A fifty-year commitment would make many buyers think twice, which is exactly why a shop selling lizards might skip it.",
+      "prompt": "Wren wants to add one sentence to the leaflet to make it fair. Which should she add?",
+      "success": "A fair version adds what the shop hid, fifty years and a licence, without pushing the other way.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "PET SHOP LEAFLET: Shinglebacks make the perfect family pet! These gentle, slow-moving lizards are calm enough to sit on your lap, and they rarely bite. They eat a simple diet of fruit, snails and a little tinned dog food, so feeding them is easy and cheap. Their stumpy tails and bright blue tongues make them a favourite with kids. Pick up a Shingleback Starter Kit, including a glass tank, a heat lamp and a water bowl, for just $199 at Scales and Tails. RANGER STATION CARE GUIDE: Shinglebacks are native lizards found across southern and western Australia, including the dry country around Bluster Rock. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "Most shinglebacks are calm, and they will usually sit quietly if they are handled gently.",
-            "reason": "The leaflet covers this. It says they are calm, gentle and rarely bite."
+            "text": "Shinglebacks can live for over fifty years, and keepers need a licence."
           },
-          " ",
           {
-            "tap": "They eat snails and fruit, and in captivity they can also be given a little meat, such as dog food.",
-            "reason": "The leaflet covers their diet: fruit, snails and a little dog food, which is meat."
+            "text": "Shinglebacks have stumpy tails and bright blue tongues that kids love.",
+            "reason": "The leaflet already says this. Adding it again leaves the hard parts hidden."
           },
-          " ",
           {
-            "tap": "Shinglebacks can live for more than fifty years, so a pet bought for a child may outlive its owner's childhood by decades."
+            "text": "Shinglebacks are found across southern and western Australia.",
+            "reason": "The leaflet leaves this out, but it wouldn't change a family's mind."
           },
-          " ",
           {
-            "tap": "They need a warm tank with a heat lamp and a bowl of fresh water.",
-            "reason": "The leaflet's starter kit includes a tank, a heat lamp and a water bowl."
-          },
-          " Anyone keeping a shingleback on the island must hold a reptile keeper's licence from the ranger station. Pairs of wild shinglebacks often stay together for many years, and a lizard taken from the wild may wander for weeks looking for its partner."
+            "text": "Shinglebacks are terrible pets, and no family should ever buy one from a shop.",
+            "reason": "That tilts the other way. A fair leaflet adds the hard facts, not a new push."
+          }
         ],
-        "answer": 2
-      }
+        "answer": 0
+      },
+      "text": "PET SHOP LEAFLET: Shinglebacks make the perfect family pet! These gentle, slow-moving lizards are calm enough to sit on your lap, and they rarely bite. They eat a simple diet of fruit, snails and a little tinned dog food, so feeding them is easy and cheap. Their stumpy tails and bright blue tongues make them a favourite with kids. Pick up a Shingleback Starter Kit, including a glass tank, a heat lamp and a water bowl, for just $199 at Scales and Tails. RANGER STATION CARE GUIDE: Shinglebacks are native lizards found across southern and western Australia, including the dry country around Bluster Rock. Most shinglebacks are calm, and they will usually sit quietly if they are handled gently. They eat snails and fruit, and in captivity they can also be given a little meat, such as dog food. Shinglebacks can live for more than fifty years, so a pet bought for a child may outlive its owner's childhood by decades. They need a warm tank with a heat lamp and a bowl of fresh water. Anyone keeping a shingleback on the island must hold a reptile keeper's licence from the ranger station."
     },
     {
       "id": "3.6-b4-3",
@@ -989,14 +978,15 @@
       "band": 4,
       "topic": "music",
       "frame": "Indi read a glowing review of the Red Rock Music Festival. Then she found the letters page in the same week's Bugle.",
-      "text": "FESTIVAL REVIEW: The Red Rock Music Festival returned to Bluster Rock last weekend, and what a weekend it was. Over three days, 22 bands played on two stages beneath the glowing face of the rock. The crowd of about 4,000 danced well past midnight on both Friday and Saturday. Headliners The Salt Pans closed the festival with a ninety-minute set that had the whole crowd singing along. 'Best weekend of my life,' said one fan, wearing a hat made of glow sticks. The food trucks sold out of dumplings by Saturday afternoon. LETTERS TO THE EDITOR, SAME WEEK: 'The music could be heard twelve kilometres away until 2 am on both nights. My baby didn't sleep at all,' wrote Lena Baxter of Gum Flat. 'The car park overflowed, and festival-goers parked across my driveway,' wrote Ray Kidd. 'On Monday morning, I counted more than 300 cans and bottles along the creek near the camping ground,' wrote Ranger Dot. 'The headliners were fantastic, and the volunteers who picked up rubbish on Sunday deserve a medal,' wrote Mia Tran, who lives beside the oval. The festival organisers say they are planning to hold the event again next year, and will meet with residents in February.",
-      "prompt": "Sort each detail. Was it in the festival review, or left out of it?",
-      "success": "The review kept the fun and dropped the noise, parking and rubbish. Choosing only the fun makes it one-sided.",
+      "text": "FESTIVAL REVIEW: The Red Rock Music Festival returned to Bluster Rock last weekend, and what a weekend it was. Over three days, 22 bands played on two stages beneath the glowing face of the rock. The crowd of about 4,000 danced well past midnight on both Friday and Saturday. Headliners The Salt Pans closed the festival with a ninety-minute set that had the whole crowd singing along. 'Best weekend of my life,' said one fan, wearing a hat made of glow sticks. The food trucks sold out of dumplings by Saturday afternoon. LETTERS TO THE EDITOR, SAME WEEK: 'The music could be heard twelve kilometres away until 2 am on both nights. My baby didn't sleep at all,' wrote Lena Baxter of Gum Flat. 'The car park overflowed, and festival-goers parked across my driveway,' wrote Ray Kidd. 'On Monday morning, I counted more than 300 cans and bottles along the creek near the camping ground,' wrote Ranger Dot. 'The festival raised $8,000 for the new school library,' wrote Mia Tran, who lives beside the oval. The festival organisers say they are planning to hold the event again next year, and will meet with residents in February.",
+      "prompt": "Sort each detail: in the review, or left out? If it was left out, was it bad news or good news?",
+      "success": "The review even missed some good news. What makes it one-sided is that it hid all the bad news.",
       "body": {
         "format": "sort",
         "bins": [
           "in the review",
-          "left out of the review"
+          "left out: bad news",
+          "left out: good news"
         ],
         "items": [
           {
@@ -1010,24 +1000,24 @@
             "reason": "The review says The Salt Pans had the whole crowd singing along."
           },
           {
-            "text": "The food trucks ran out of dumplings.",
-            "bin": 0,
-            "reason": "The review mentions this: they sold out by Saturday afternoon."
-          },
-          {
             "text": "The music could be heard twelve kilometres away.",
             "bin": 1,
-            "reason": "Only Lena Baxter's letter mentions this. The review leaves the noise out."
+            "reason": "Only Lena Baxter's letter mentions this. It's a problem the review skipped."
           },
           {
             "text": "Cars were parked across people's driveways.",
             "bin": 1,
-            "reason": "Only Ray Kidd's letter mentions this. It's missing from the review."
+            "reason": "Only Ray Kidd's letter mentions this. It's a problem the review skipped."
           },
           {
             "text": "Hundreds of cans and bottles were left by the creek.",
             "bin": 1,
-            "reason": "Only Ranger Dot's letter mentions the rubbish. The review skips it."
+            "reason": "Ranger Dot counted them. The review doesn't mention any rubbish."
+          },
+          {
+            "text": "The festival raised $8,000 for the school library.",
+            "bin": 2,
+            "reason": "Only Mia Tran's letter mentions the money. It's good news the review left out."
           }
         ]
       }
@@ -1078,14 +1068,14 @@
             "reason": "The ad gives its gold colour and its height, 50 centimetres. Buyers can picture it."
           },
           {
-            "text": "It leaves out how many MaxxBots were sold, so buyers think nobody wants one.",
+            "text": "It leaves out how many MaxxBots were sold, so buyers think hardly anyone wants one.",
             "reason": "The ad says over 10,000 were sold this month. That part isn't missing."
           },
           {
             "text": "It uses true facts but leaves out the complaints and the safety problem."
           },
           {
-            "text": "It is biased only because Maxx calls MaxxBot 'awesome'.",
+            "text": "It is biased just because Maxx calls MaxxBot 'awesome'.",
             "reason": "'Awesome' is an opinion, but the bigger bias is what's hidden: the battery, paint and finger reports."
           }
         ],

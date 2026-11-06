@@ -5,8 +5,8 @@
     "codes": [
       "VC2E5LE03"
     ],
-    "why": "The teller decides how a character looks to you. Different teller, different character.",
-    "how": "Read both tellings. Compare what each teller notices, leaves out, and says about the character.",
+    "why": "The narrator decides how a character looks to you. Different narrator, different character.",
+    "how": "Read both tellings. Compare what each narrator notices, leaves out, and says about the character.",
     "teach": {
       "crew": "artist",
       "iDo": {
@@ -253,6 +253,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Retell Gus's catch as Tully would. Keep the same catch, but change what she notices.",
+      "given": [
+        "Gus: I caught the ball with one hand. Everyone clapped."
+      ],
+      "starter": "Gus caught the ball",
+      "checks": [
+        "The same catch still happens",
+        "I put in or left out a detail",
+        "Gus seems different in my telling"
+      ],
+      "model": "Gus caught the ball with one hand, then tripped over the esky and landed in the potato salad."
+    },
     "creature": {
       "id": "duettle",
       "name": "Duettle",
@@ -294,7 +307,7 @@
       "frame": "Tully and Mo both told the crew about the footy. The Duettles took notes.",
       "text": "Tully's telling: I kicked the winning goal. The ball flew fifty metres. The crowd chanted my name. Coach gave me a medal. I am a footy legend. It was the best day ever.\n\nMo's telling: Tully's kick went sideways. It hit a seagull, then the post. Then it bounced through for a goal. Tully bowed to the seagull. Coach laughed so hard he cried. The seagull was fine, just grumpy.",
       "prompt": "Which telling has each detail? Match them.",
-      "success": "Tully keeps the legend bits. Mo keeps the seagull. Each teller picks details that suit them.",
+      "success": "Tully keeps the legend bits. Mo keeps the seagull. Each narrator (the one telling it) picks details.",
       "body": {
         "format": "sort",
         "bins": [
@@ -687,25 +700,25 @@
       "topic": "spooky",
       "frame": "The Duettles found an ad and a review for the same ghost tour.",
       "text": "Captain Mortimer's ad: Dare you take the Twotide Ghost Walk? Your guide, the fearsome Captain Mortimer, has faced the Drowned Sailor three times and lived to tell the tale. Grown adults have fainted at his stories. Children have fled screaming into the night. Bring a torch, if you dare. Not for the faint-hearted! Tickets $15.\n\nPriya's review: Two stars. Captain Mortimer turned up twenty minutes late, because he had lost his eye patch. When he found it, he wore it on the wrong eye. He then walked into a lamppost. His 'terrifying' story about the Drowned Sailor was mostly about his own boat, which he is trying to sell. Halfway through the walk, a fruit bat flew past and he hid behind my nine-year-old son. My son had to hold his hand for the rest of the tour. The only scary thing all night was the price. The scones at the end were excellent.",
-      "prompt": "How does Captain Mortimer seem in each telling?",
-      "success": "His ad makes him fearsome. Priya's review shows the lost eye patch and the hiding, so he seems silly.",
+      "prompt": "Which best describes how Captain Mortimer seems in each telling?",
+      "success": "His ad makes him fearsome. Put the review clues together: late, clumsy and hiding from a bat. He seems silly.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Terrifying in both the ad and the review.",
-            "reason": "In the review, he hides behind a nine-year-old from a fruit bat."
+            "text": "Terrifying in his ad, and a pushy boat seller in the review.",
+            "reason": "He does talk about his boat. But what about the eye patch, the lamppost and the bat?"
           },
           {
-            "text": "Silly in his ad, but terrifying in the review.",
-            "reason": "That's backwards. The ad is where he's 'fearsome'."
+            "text": "Terrifying in his ad, and fearsome but late in the review.",
+            "reason": "He is late. But would a fearsome guide hide behind a nine-year-old?"
           },
           {
             "text": "Terrifying in his ad, but more silly than scary in the review."
           },
           {
-            "text": "Kind and gentle in both tellings.",
-            "reason": "Neither telling shows him being kind. The ad says he makes adults faint."
+            "text": "Terrifying in his ad, and a kind, gentle guide in the review.",
+            "reason": "Who holds whose hand in the review? Look at what the son does."
           }
         ],
         "answer": 2
@@ -766,25 +779,25 @@
       "topic": "animals",
       "frame": "It's swooping season. The Duettles heard from a bike rider and a magpie.",
       "text": "Sam's telling: I was riding my bike to school along the creek path, minding my own business, when I was attacked from above. A huge black-and-white monster dive-bombed my helmet seven times. Its beak clacked right next to my ear. I nearly fell off. I pedalled so fast that I won the race to school by a mile, and I wasn't even in a race. That bird is a menace and should be banned from the path. I've drawn a picture of it for the police.\n\nThe magpie's telling: My three chicks hatched last week in the nest above the creek path. This morning, a strange creature came racing towards them on a squeaking metal machine, wearing a shiny red shell on its head. I warned it seven times to stay away from my babies. It finally left at great speed. My chicks are safe. They have eaten four worms each. I am exhausted.",
-      "prompt": "Why is the magpie a menace in one telling and a hero in the other?",
-      "success": "Sam never mentions the chicks. Once the magpie explains them, the swooping looks like a parent protecting babies.",
+      "prompt": "Mo says the magpie's telling is the whole truth. Which detail does the magpie leave out?",
+      "success": "The magpie never says how close Sam came to falling. Neither narrator tells it all.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Sam is making up the swooping.",
-            "reason": "The magpie agrees it swooped seven times. It just says why."
+            "text": "that it swooped at Sam seven times",
+            "reason": "The magpie says it warned the creature seven times. Same swoops, different words."
           },
           {
-            "text": "The magpie explains it was guarding its chicks, which Sam never mentions."
+            "text": "that Sam nearly fell off his bike"
           },
           {
-            "text": "The magpie swooped a different rider.",
-            "reason": "Both tellings have the same creek path, the same helmet and the same seven swoops."
+            "text": "that Sam was wearing a red helmet",
+            "reason": "Look for the shiny red shell. What is that, in the magpie's words?"
           },
           {
-            "text": "Sam was trying to climb up and take the chicks out of the nest.",
-            "reason": "Neither telling says Sam touched the nest. He was riding to school."
+            "text": "that its chicks were in a nest above the path",
+            "reason": "The magpie puts its chicks in. Sam is the one who leaves them out."
           }
         ],
         "answer": 1
@@ -844,28 +857,28 @@
       "topic": "music",
       "frame": "The school disco went dark. Two band members told the Duettles what happened.",
       "text": "Ruby's telling: Our band, The Soggy Socks, played at the school disco on Friday. I'm the lead singer, so I had to hold everything together. The drummer kept losing his sticks, and the keyboard player forgot the chords. When the power went out halfway through our big song, I kept singing in the dark so the crowd wouldn't panic. Everyone said it was the best part of the night. I was a total professional.\n\nArlo's telling: Ruby sang so loudly at the disco that she blew the fuse on the speakers. She'd turned her microphone up to full volume when nobody was looking. When the power cut out, she kept singing anyway, in the pitch dark, for about ten minutes. She also did three costume changes by torchlight. Nobody panicked. Most people went to get a drink. Mr Fong had to find the fuse box with his phone torch. Mr Fong said it was certainly the loudest part of the night.",
-      "prompt": "Arlo's telling has a detail that Ruby leaves out. Which one?",
-      "success": "Ruby leaves out that she caused the blackout. Without it, she seems like a hero, not the problem.",
+      "prompt": "Arlo's telling isn't the whole truth either. Which detail does Ruby put in that Arlo leaves out?",
+      "success": "Arlo never mentions the drummer. Each narrator picks what to notice, so neither tells it all.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "She turned her own microphone up and blew the fuse."
-          },
-          {
             "text": "She kept singing when the power went out.",
-            "reason": "Both tellings say she kept singing. Ruby includes that part."
+            "reason": "Both tellings say she kept singing in the dark."
           },
           {
-            "text": "She is the lead singer of the band.",
-            "reason": "Ruby's telling includes this. She says she's the lead singer."
+            "text": "The drummer kept losing his sticks."
           },
           {
-            "text": "Most of the crowd panicked in the dark.",
-            "reason": "This isn't in Arlo's telling. He says nobody panicked."
+            "text": "Mr Fong found the fuse box with a torch.",
+            "reason": "Only Arlo tells this part. Ruby leaves it out."
+          },
+          {
+            "text": "The power went out halfway through.",
+            "reason": "Both tellings have the power going out. Arlo says it cut out."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -922,25 +935,25 @@
       "topic": "ocean",
       "frame": "The crew broke into Maxx's Echo Studio and found two tellings of the same rescue.",
       "text": "Maxx's voice-over: Deep in the sea caves of Twotide Atoll, a tiny Duettle hatchling was trapped and terrified, until I arrived. The tide was rising fast, and every second counted. Ignoring the danger, I squeezed between the jagged rocks and gently cradled the little guy in my hands. It was the most dangerous rescue of my career. I'll never forget its tiny face. Hear that happy chirping? That's the sound of a Creature that knows it's finally safe. Rescue complete! Smash that heart button, Vantafam!\n\nThe raw tape, written down by Zed: Waves crashing. Maxx is sitting on a dry rock, checking his teeth in a phone screen. A Goldie says, 'It's wedged behind that rock, boss.' Maxx says, 'Then get it out. I'm not getting my hair wet.' The Goldie wades in and scoops the hatchling into a gold net. His tracksuit is soaked to the knees. For forty seconds, it squeaks sharply, the way frightened turtles do. Maxx covers his ears and says, 'Ugh. We'll put happy chirps over that in the studio.' Then he takes the net, holds it up to the drone and flashes his teeth. The hatchling is still squeaking. 'Are we rolling? Okay. Deep in the sea caves...'",
-      "prompt": "How does Maxx seem in each telling?",
-      "success": "The voice-over makes Maxx a hero. The raw tape shows a Goldie doing the work while Maxx fakes it.",
+      "prompt": "The voice-over leaves out many things. Which one matters most for judging what Maxx is like?",
+      "success": "A Goldie did the rescue while Maxx kept his hair dry. That changes him from hero to faker.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Brave and caring in both tellings.",
-            "reason": "On the raw tape, a Goldie does the rescue while Maxx protects his hair."
+            "text": "that Maxx checked his teeth in a phone screen",
+            "reason": "True, and it is left out. But does it show who really did the rescue?"
           },
           {
-            "text": "Lazy in the voice-over, but brave on the raw tape.",
-            "reason": "That's backwards. The voice-over is where Maxx squeezes through the rocks."
+            "text": "that the tide was rising fast in the caves",
+            "reason": "The voice-over puts that in. It is the raw tape that leaves it out."
           },
           {
-            "text": "Brave and caring in the voice-over, but lazy and fake on the raw tape."
+            "text": "that a Goldie did the rescue while Maxx stayed dry"
           },
           {
-            "text": "Frightened in the voice-over, but caring on the raw tape.",
-            "reason": "Maxx covers his ears at the squeaks. Nothing on the tape shows him caring."
+            "text": "that the hatchling was stuck behind a rock",
+            "reason": "The voice-over says the hatchling was trapped. Same detail, different words."
           }
         ],
         "answer": 2
@@ -952,44 +965,50 @@
       "topic": "sport",
       "frame": "Tully wrote in her diary about the semi-final. Her coach wrote about it in the club newsletter.",
       "text": "Tully's diary, Saturday: Worst. Coach. Ever. Coach Dunn benched me for the whole second half of the semi-final, for no reason at all, while the Reef Rays were losing. I sat on that freezing bench for forty minutes, watching Jess miss a goal I could have kicked with my eyes shut. She missed by a mile. The Reef Rays lost by four points, and the orange slices at half-time were the only good part. Then, after the siren, Coach made me pack up every single cone by myself. I am seriously thinking about switching clubs. Mum says I'm overreacting. Mum is wrong.\n\nReef Rays Under-12s newsletter, Coach Dunn's Corner: A tough loss in the semi-final, but I'm proud of every player. We lost by four points, but we never stopped trying. Special mention to Tully, who played a blinder in the first half before rolling her ankle in a tackle. We rested her for the second half to protect that ankle for next season, although she argued about it for most of the third quarter. Tully also kindly stayed back to help pack up the cones, even though she was limping. Thanks, Tully, and well done to Jess on her first semi-final. Training is on Tuesday at five. Bring a warm jumper.",
-      "prompt": "Each telling describes the same moments differently. Match each description to its telling.",
-      "success": "The diary leaves out the ankle, so the coach seems unfair. The newsletter gives the reason, so she seems caring.",
+      "prompt": "Which telling has each detail? Match them. Watch for the same moment told in different words.",
+      "success": "Neither narrator tells it all. The diary hides the ankle, and the newsletter skips Jess's miss.",
       "body": {
         "format": "sort",
         "bins": [
-          "Tully's diary",
-          "the newsletter"
+          "only Tully's diary",
+          "only the newsletter",
+          "in both tellings"
         ],
         "items": [
           {
-            "text": "Coach Dunn benched Tully for no reason at all.",
-            "bin": 0,
-            "reason": "Only the diary says 'no reason'. It never mentions the ankle."
+            "text": "Tully sat out the whole second half.",
+            "bin": 2,
+            "reason": "The diary says benched. What word does the newsletter use?"
           },
           {
-            "text": "Coach Dunn rested Tully to protect her ankle.",
+            "text": "Tully packed up the cones after the game.",
+            "bin": 2,
+            "reason": "Was she made to, or did she kindly help? Check both tellings."
+          },
+          {
+            "text": "Tully hurt her ankle in a tackle.",
             "bin": 1,
-            "reason": "The newsletter gives the ankle as the reason."
+            "reason": "Search the diary for the ankle. Is it there?"
           },
           {
-            "text": "Tully was made to pack up every cone by herself.",
-            "bin": 0,
-            "reason": "The diary says Coach made her do it alone."
-          },
-          {
-            "text": "Tully kindly stayed back to help with the cones.",
+            "text": "Tully argued about sitting out.",
             "bin": 1,
-            "reason": "The newsletter thanks Tully for helping."
+            "reason": "Does the diary ever say Tully argued? Check the third quarter."
           },
           {
-            "text": "Tully could have kicked Jess's goal with her eyes shut.",
+            "text": "Jess missed a goal by a mile.",
             "bin": 0,
-            "reason": "Only Tully's diary says this about Jess's missed goal."
+            "reason": "What does the newsletter say about Jess? Is the miss in it?"
           },
           {
-            "text": "Tully played a blinder in the first half.",
-            "bin": 1,
-            "reason": "The coach praises Tully's first half in the newsletter."
+            "text": "Tully is thinking of switching clubs.",
+            "bin": 0,
+            "reason": "Check the end of each telling. Who says this?"
+          },
+          {
+            "text": "The Reef Rays lost by four points.",
+            "bin": 2,
+            "reason": "Look for the score in each telling. Is it in one, or both?"
           }
         ]
       }
@@ -1031,42 +1050,42 @@
       "frame": "Gus wrote up his latest experiment. Tully posted about it in the crew chat. Wren wrote a note, but one part is wrong.",
       "text": "Gus's lab notebook, Experiment 47: Today I tested whether a sealed jar of milk, left in the sun for three weeks, would produce a new form of life. Results: strongly promising. The milk had turned yellow, then green, then a colour I have no name for. When I opened the lid in the galley to collect a sample, a powerful gas was released, proving the experiment was a success. The smell was intense but scientifically important. Mo's reaction was emotional, which I have also recorded. I am the first person on this boat to achieve such a result. Next, I will try cheese. That's not gross. That's science.\n\nTully's message to the crew chat: Gus opened his three-week-old milk jar in the galley. With the hatches shut. The smell made Mo cry, and he was up on deck. Wren had to carry the fruit bowl outside with a peg on her nose. Zed climbed the mast and refused to come down. Gus refused to put the lid back on, because he said the gas was 'evidence'. Statistically, there is a 94 per cent chance the galley never smells normal again. I have hidden the jar. Do not ask me where.",
       "prompt": "Tap the part Wren got wrong, then choose a better one.",
-      "success": "Gus refuses to close the jar, and his smell drives everyone out. In his own notes, it's important science.",
+      "success": "Only Gus describes the milk going yellow, then green. Each telling leaves something out.",
       "body": {
         "format": "fix",
         "parts": [
-          "In his own notes, Gus seems ",
+          "Both tellings say Gus opened the jar ",
           {
-            "tap": "like a serious scientist",
-            "reason": "That's right. Gus writes about results, samples and science."
+            "tap": "in the galley",
+            "reason": "That's right. Gus says the galley, and so does Tully."
           },
-          ". In Tully's message, he seems ",
+          ". But Tully leaves out ",
           {
-            "tap": "brilliant and careful"
+            "tap": "how Mo reacted"
           },
-          ". Tully says Zed climbed ",
+          ", so neither telling is ",
           {
-            "tap": "the mast",
-            "reason": "That's right. Tully says Zed climbed the mast and refused to come down."
+            "tap": "the whole truth",
+            "reason": "That's right. Each narrator picks what to put in."
           },
           "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "stubborn, and sneaky about hiding the jar",
-            "reason": "Tully hid the jar, not Gus. Gus wanted the lid left off."
+            "text": "that Gus refused to put the lid back",
+            "reason": "Tully puts this in. Is it in Gus's notes?"
           },
           {
-            "text": "stubborn, and a bit of a menace"
+            "text": "how the milk changed colour"
           },
           {
-            "text": "careless, but sorry about the smell",
-            "reason": "Gus refuses to put the lid back on. He isn't sorry at all."
+            "text": "how long the milk was left",
+            "reason": "Tully calls it a three-week-old jar. That puts it in."
           },
           {
-            "text": "curious, and kind to the rest of the crew",
-            "reason": "He drives the crew out of the galley and keeps the lid off. That isn't kind."
+            "text": "where the fruit bowl went",
+            "reason": "Tully is the one who tells about Wren and the fruit bowl."
           }
         ],
         "answer": 1
@@ -1078,28 +1097,28 @@
       "topic": "robots",
       "frame": "A delivery robot and a customer both wrote about the same cake delivery.",
       "text": "DELIVERY BOT K-7, LOG: 14:02. Arrived at 12 Gull Street with one birthday cake. 14:03. Rang doorbell. No answer. 14:04. Checked address. Address correct. 14:05. Rang again. Detected large dog. Dog detected me. 14:06. Dog removed my front wheel. 14:07. Human opened door, shouting. Human did not say thank you. Human took cake and closed door. 14:09. Hopped home on one wheel. Journey took two hours. Customer rating: one star. Would not deliver again.\n\nMrs Brennan's letter to the delivery company: I am writing about the robot that delivered my daughter's birthday cake on Saturday. I was upstairs in the shower when it rang the bell, and I came down as fast as I could, wrapped in a towel. I had shampoo in my hair and one eye shut. By then, our dog, Biscuit, had already chewed off one of its wheels. I shouted at Biscuit to drop it, grabbed the cake and shut the door before he could do any more damage. I felt terrible. I am so embarrassed. Please tell the robot I'm sorry, and send me the bill for the wheel. The cake was perfect. My daughter says it was the best birthday ever, and Biscuit has been banned from the front yard.",
-      "prompt": "How does Mrs Brennan seem in each telling?",
-      "success": "The robot thinks she shouted at it. Her letter shows she shouted at the dog, and felt terrible.",
+      "prompt": "K-7's log says nothing false. So why does Mrs Brennan seem rude in it?",
+      "success": "The robot only knows what it sensed. It never knew about the shower, or who she was shouting at.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Rude in the robot's log, but sorry and polite in her own letter."
+            "text": "K-7 left out that she said thank you as she grabbed the cake.",
+            "reason": "Check her own letter. Does she ever say thank you at the door?"
           },
           {
-            "text": "Rude in both tellings.",
-            "reason": "In her letter, she says sorry and offers to pay for the wheel."
+            "text": "K-7 did not log that Biscuit had chewed off its front wheel before she came down.",
+            "reason": "Check 14:06 in the log. The dog and the wheel are both there."
           },
           {
-            "text": "Polite in the robot's log, but rude and bossy in her own letter to the company.",
-            "reason": "That's backwards. The log says she shouted and didn't say thank you."
+            "text": "K-7 could not know she was in the shower, or that she shouted at Biscuit."
           },
           {
-            "text": "Scared of the dog in both tellings.",
-            "reason": "Neither telling says she was scared. She shouted at Biscuit to drop the wheel."
+            "text": "K-7 left out that she offered to pay for the wheel at the door.",
+            "reason": "She offers to pay later, in her letter. Did she say it at the door?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -1127,6 +1146,11 @@
             "text": "The audience stood and cheered at the end.",
             "bin": 2,
             "reason": "Both tellings have the audience standing at the end."
+          },
+          {
+            "text": "The mast fell during Jasper's solo.",
+            "bin": 2,
+            "reason": "Find the mast in each telling. When did it come down?"
           },
           {
             "text": "Jasper knocked down the mast himself.",

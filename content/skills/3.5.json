@@ -257,6 +257,18 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite this line so it is objective. Keep every fact anyone could check.",
+      "given": [
+        "Sadly, the canteen's tasty new pie costs a ridiculous $6."
+      ],
+      "checks": [
+        "I took out every feeling or judgement word.",
+        "I kept the pie and its $6 price.",
+        "Anyone could check every word I wrote."
+      ],
+      "model": "The canteen's new pie costs $6."
+    },
     "creature": {
       "id": "thornkit",
       "name": "Thornkit",
@@ -757,51 +769,51 @@
       "id": "3.5-b3-3",
       "band": 3,
       "topic": "animals",
-      "frame": "Ranger Dot gave a talk about dingoes. Wren took notes, but some of them are opinions.",
+      "frame": "Ranger Dot gave a talk about dingoes. Wren took notes, but she slipped some of her own feelings in.",
       "text": "Ranger Dot stood on the back of her ute to talk to the crowd. 'Dingoes have lived on Bluster Rock for thousands of years,' she said. 'They can run at up to 60 kilometres an hour, and a pup stays with its family for about a year. They howl to call to their pack, especially at dawn and dusk.' A man in the crowd called out, 'They're far too dangerous to live near towns!' A girl near the front said, 'No way. They're wonderfully clever hunters, and they deserve their space.' Ranger Dot held up a hand. 'There are about 40 dingoes on the island,' she said. 'Their dawn howl is the most beautiful sound in the whole bush. Few visitors ever hear it, because dingoes keep away from people.' Then she handed out a map showing where the dingo dens are, and asked everyone to keep their dogs on a lead.",
       "prompt": "Sort Wren's notes. Objective or subjective?",
-      "success": "Speeds, numbers and habits can be checked. Judgements like 'too dangerous', 'wonderfully clever' and 'most beautiful' are subjective.",
+      "success": "One word like 'Sadly' can tip a sentence. A judgement like 'deserve' is subjective, even with no fancy describing word.",
       "body": {
         "format": "sort",
         "bins": [
-          "objective",
-          "subjective"
+          "objective: anyone could check",
+          "subjective: a feeling or judgement"
         ],
         "items": [
           {
             "text": "Dingoes can run at up to 60 kilometres an hour.",
             "bin": 0,
-            "reason": "Speed can be measured. That's objective."
+            "reason": "A speed can be measured. Anyone would get the same answer."
           },
           {
-            "text": "A dingo pup stays with its family for about a year.",
+            "text": "Few visitors ever hear the dingoes' dawn howl.",
             "bin": 0,
-            "reason": "Scientists can watch and check this. That's objective."
+            "reason": "Rangers could check who hears it. No feeling word is added."
           },
           {
-            "text": "Dingoes howl to call to their pack.",
-            "bin": 0,
-            "reason": "This describes what dingoes do, with no judgement word. That's objective."
+            "text": "Sadly, few visitors ever hear the dingoes' dawn howl.",
+            "bin": 1,
+            "reason": "The facts are checkable, but one word at the start adds Wren's feeling."
+          },
+          {
+            "text": "Dingoes deserve their space.",
+            "bin": 1,
+            "reason": "What dingoes deserve is a judgement. People argue about it, and no test can settle it."
           },
           {
             "text": "There are about 40 dingoes on the island.",
             "bin": 0,
-            "reason": "Rangers can count the dingoes. That's objective."
+            "reason": "Rangers can count the dingoes. That is objective."
           },
           {
             "text": "Dingoes are far too dangerous to live near towns.",
             "bin": 1,
-            "reason": "'Far too dangerous' is the man's judgement. The girl disagrees with him."
+            "reason": "'Far too dangerous' is the man's judgement. The girl in the crowd disagrees."
           },
           {
-            "text": "Dingoes are wonderfully clever hunters.",
-            "bin": 1,
-            "reason": "'Wonderfully' shows the girl's feelings. That makes it subjective."
-          },
-          {
-            "text": "A dingo's dawn howl is the most beautiful sound in the whole bush.",
-            "bin": 1,
-            "reason": "'Most beautiful' is Ranger Dot's feeling. Someone else might find the howl scary."
+            "text": "Dingoes howl to call to their pack.",
+            "bin": 0,
+            "reason": "This says what dingoes do, with no judgement word. That is objective."
           }
         ]
       }
@@ -813,7 +825,7 @@
       "frame": "Zed is writing the official guide to Lava Leap, Level 4. Official guides are meant to be objective.",
       "text": "LAVA LEAP GUIDE: LEVEL 4. Level 4 is called the Boiling Basin. It has three lava pits, two moving platforms and one hidden coin behind the waterfall. Most players take about ten minutes to finish it. At the end, you meet the boss, a giant rock crab with 500 health points. The crab attacks by snapping its claws, then waits for two seconds before it attacks again. That pause is your chance to jump on its shell. Before the boss, there is a checkpoint flag, so if you lose, you start again just outside the crab's cave. The crab's weak spot is a crack on the top of its shell, which glows orange when it is ready to be hit. You need to land on it five times to win. On the forum, one player wrote, 'This boss is unfair. Only cheaters can beat it.' Another wrote, 'Annoying, but beatable if you're patient.' Zed beat it on his fourteenth try, and he would like everyone to know that.",
       "prompt": "Zed's guide has one subjective phrase. Tap it, then choose an objective replacement.",
-      "success": "The crab's health points are a number in the game that anyone can check. No judgement is left.",
+      "success": "'About ten minutes' is the guide's own timing. 'Frustrating' was Zed's feeling, even though it sat next to a number.",
       "body": {
         "format": "fix",
         "parts": [
@@ -824,31 +836,31 @@
           },
           " and takes most players ",
           {
-            "tap": "about ten minutes",
-            "reason": "Players' times can be measured. That's objective."
+            "tap": "a frustrating ten minutes"
           },
           ". The boss at the end is ",
           {
-            "tap": "unfairly hard"
+            "tap": "a rock crab with 500 health points",
+            "reason": "Anyone playing can check the crab and its health points. That is objective."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "the toughest boss in the whole game",
-            "reason": "'Toughest' is still a judgement. Players could argue about which boss is hardest."
+            "text": "a long ten minutes",
+            "reason": "There's still a number, but 'long' is Zed's judgement. A number doesn't make it objective."
           },
           {
-            "text": "a giant rock crab with 500 health points"
+            "text": "about ten minutes"
           },
           {
-            "text": "annoying, but beatable",
-            "reason": "'Annoying' is a feeling. One forum player said exactly that, but it's still an opinion."
+            "text": "under a minute",
+            "reason": "Anyone could time that, but check the guide. Most players take far longer."
           },
           {
-            "text": "a crab that only cheaters can beat",
-            "reason": "That's one forum player's angry opinion. Zed beat it without cheating."
+            "text": "far too long",
+            "reason": "'Far too long' is a judgement. Some players would happily spend longer."
           }
         ],
         "answer": 1
@@ -860,28 +872,28 @@
       "topic": "sport",
       "frame": "Tully wrote a match report after a bad loss. The Thornkit has turned very pink.",
       "text": "REEF RAYS GO DOWN TO PINE GULLY. The Reef Rays lost to Pine Gully on Sunday, 15 goals to 6. It was the Rays' third loss in a row. The match was played at Bluster Oval in front of about 1,100 people. Pine Gully led at every break. The Rays' pathetic defence let in a shocking 14 goals in the first three quarters alone. Captain Jaz kicked three of the Rays' six goals and took eleven marks. The Rays' only bright moment came in the last quarter, when Jaz kicked two goals in three minutes. Pine Gully's coach said her team had trained hard all season for this match. The crowd stayed until the final siren, even though it had started to rain. Coach Ferris said after the game that the team would train an extra night this week. The Rays play the Sand Crabs next Saturday at 2 pm. Tully has already bought new lucky socks. Tickets for next week's match go on sale on Wednesday.",
-      "prompt": "Tully needs to rewrite this sentence objectively: 'The Rays' pathetic defence let in a shocking 14 goals.' Which rewrite works?",
-      "success": "It keeps the fact, 14 goals, and drops every judgement word. Anyone could check it on the scoreboard.",
+      "prompt": "Tully needs to rewrite this sentence objectively: 'The Rays' pathetic defence let in a shocking 14 goals in the first three quarters alone.' Which rewrite works?",
+      "success": "It keeps the true fact, 14 goals in three quarters, and drops every judgement. Anyone could check the scoreboard.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The Rays' weak defence let in 14 goals.",
-            "reason": "'Weak' is gentler than 'pathetic', but it's still a judgement."
+            "text": "The Rays' poor defence let in 14 goals in the first three quarters.",
+            "reason": "'Poor' is gentler than 'pathetic', but it's still a judgement."
           },
           {
-            "text": "The Rays' defence let in a disappointing 14 goals.",
-            "reason": "'Disappointing' is a feeling. Pine Gully fans weren't disappointed at all."
+            "text": "The Rays' defence let in 15 goals in the first three quarters.",
+            "reason": "No feeling words, but check the report. Pine Gully kicked 15 in the whole game."
           },
           {
-            "text": "The Rays' defence let in 14 goals, which is embarrassing.",
-            "reason": "The extra words 'which is embarrassing' add Tully's feeling back in."
+            "text": "The Rays' defence let in 14 goals in the first three quarters."
           },
           {
-            "text": "The Rays' defence let in 14 goals."
+            "text": "The Rays' defence let in only 14 goals in three quarters.",
+            "reason": "'Only' makes 14 sound small, which tips it the other way. It's still a judgement."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -889,26 +901,26 @@
       "band": 3,
       "topic": "robots",
       "frame": "Maxx is live from Vantamart, showing off his new rescue drone. He says he's just giving the facts.",
-      "text": "'Maxx it out, Vantafam! Look at this beauty. This is the MaxxCam Rescue Drone, and it is the smartest drone ever built. It has four propellers and a camera on the bottom that films in the dark. It can fly for 25 minutes on one battery. Honestly, it's a total game-changer for rescues, and it's way better than anything my rivals have. I've flown it over Bluster Rock six times this week, looking for Creatures in trouble. You can buy your own at Vantamart for $299. Trust me, it's worth every cent. I'm not trying to sell you anything. I'm just giving you the facts! It's gold, of course, because one colour is for losers. It weighs just under two kilograms, so you can carry it in a backpack. The box comes with a free MaxxCam sticker and a signed photo of me. Last week, my drone spotted a lizard on a rock, and I filmed it for an hour. That lizard looked so grateful. That's Maxx-imum content!'",
-      "prompt": "Maxx says it's 'just the facts'. Which part of his pitch is actually objective?",
-      "success": "You could count the propellers. Everything else in these options is Maxx's judgement dressed up as fact.",
+      "text": "'Maxx it out, Vantafam! Look at this beauty. This is the MaxxCam Rescue Drone, and it is the smartest drone ever built. It has four propellers and a camera on the bottom that films in the dark. It can fly for 25 minutes on one battery. Honestly, it's a total game-changer for rescues, and it's way better than anything my rivals have. I've flown it over Bluster Rock six times this week. I was looking for Creatures in trouble. It's an absolute bargain at just $299 from Vantamart. I'm not trying to sell you anything. I'm just giving you the facts! It's gold, of course, because one colour is for losers. It weighs a handy two kilograms, so it fits in a backpack. The box comes with a free MaxxCam sticker and a signed photo of me. Last week, my drone spotted a lizard on a rock, and I filmed it for an hour. That lizard looked so grateful. That's Maxx-imum content!'",
+      "prompt": "Maxx says it's 'just the facts'. Which line from his pitch is fully objective?",
+      "success": "'I' doesn't make it subjective: you could check his flights. The others hide 'smartest', 'bargain' or 'handy'.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "it is the smartest drone ever built",
+            "text": "This is the MaxxCam Rescue Drone, and it is the smartest drone ever built.",
             "reason": "'Smartest ever' is a judgement. Other drone makers would argue."
           },
           {
-            "text": "it's a total game-changer for rescues",
-            "reason": "'Game-changer' is Maxx's opinion of how good it is. It can't be measured."
+            "text": "It's an absolute bargain at just $299 from Vantamart.",
+            "reason": "The price is checkable, but 'bargain' is Maxx's judgement. A number doesn't make it objective."
           },
           {
-            "text": "It has four propellers"
+            "text": "I've flown it over Bluster Rock six times this week."
           },
           {
-            "text": "it's worth every cent",
-            "reason": "Whether something is worth the money is an opinion. People value things differently."
+            "text": "It weighs a handy two kilograms, so it fits in a backpack.",
+            "reason": "The kilograms are checkable, but 'handy' is Maxx's judgement of them."
           }
         ],
         "answer": 2
@@ -918,30 +930,30 @@
       "id": "3.5-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "Wren is reading the Bluster Bugle's report on the stranded whale. The Thornkit flushed pink at exactly one sentence.",
+      "frame": "Wren is reading the Bluster Bugle's report on the stranded whale. The Thornkit flushed pink at exactly one word.",
       "text": "WHALE RETURNED TO SEA AFTER NINETEEN-HOUR RESCUE. A young humpback whale that became stranded on Red Sand Beach early on Saturday morning was returned to the sea late that night. A fisher spotted the whale at about 5 am and called the island's marine rescue team. It was the first whale stranding on Red Sand Beach since 2015. Volunteers worked in shifts for nineteen hours, keeping the whale's skin wet with buckets and damp sheets while they waited for the tide to rise. Marine scientists estimate that the whale was about eight metres long. Remarkably, the whale was refloated at high tide just before midnight and swam out past the reef. Rescue leader Sione Taufa said the team would watch the bay from a boat for the next two days to make sure the whale did not return to the shallows. The beach was closed to the public until Sunday afternoon. Mr Taufa thanked the 64 volunteers who helped, and asked anyone who sees a stranded animal to call the rescue line rather than trying to move it themselves.",
-      "prompt": "The report is objective except for one sentence. Which sentence is subjective?",
-      "success": "'Remarkably' is the reporter's own reaction to the rescue. Remove it, and the sentence becomes objective.",
+      "prompt": "The reporter wrote 'Remarkably, the whale was refloated at high tide.' What does 'Remarkably' do to the report?",
+      "success": "'Remarkably' is the reporter's own reaction. It tips one sentence into subjective, so readers get a feeling with the facts.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Volunteers worked in shifts for nineteen hours.",
-            "reason": "The hours can be checked from the rescue team's records. No judgement word appears."
+            "text": "It adds the reporter's own surprise, so the report stops being fully objective."
           },
           {
-            "text": "Marine scientists estimate that the whale was about eight metres long.",
-            "reason": "An estimate is still a measurement made by experts, not a feeling. That's objective."
+            "text": "It tells readers exactly when the whale was refloated, so they can check the time.",
+            "reason": "'At high tide' tells you when. This word adds a feeling instead."
           },
           {
-            "text": "Remarkably, the whale was refloated at high tide."
+            "text": "It shows readers that the scientists measured how hard the rescue really was.",
+            "reason": "Nobody can measure 'remarkable'. It's the reporter's reaction, not a measurement."
           },
           {
-            "text": "The beach was closed to the public until Sunday afternoon.",
-            "reason": "Anyone could check when the beach reopened. That's objective."
+            "text": "It makes no difference, because one word can't change a whole sentence.",
+            "reason": "One feeling word can tip a whole sentence. Take it out, and it's objective again."
           }
         ],
-        "answer": 2
+        "answer": 0
       }
     },
     {
@@ -988,45 +1000,50 @@
       "band": 4,
       "topic": "spooky",
       "frame": "Two texts describe the old Crowley homestead. One is a museum plaque; the other is a ghost tour flyer.",
-      "text": "MUSEUM PLAQUE: The Crowley homestead was built from local sandstone in 1884 by Elsie and Tom Crowley, who ran sheep on the surrounding land for thirty years. The house has six rooms, a cellar and a stone water tank that still holds rain. After the family moved to the coast in 1914, the homestead stood empty until the island council restored it in 1998. Elsie kept a diary for every year she lived there, and eleven of those diaries are now displayed in the front room. Visitors can also see the original iron stove, the shearers' bunks and a rocking chair Tom made from a fallen river red gum. The homestead is open from 10 am to 4 pm on weekends. TOUR FLYER: Dare you enter the Crowley homestead? This eerie ruin has been abandoned for over a century, and its gloomy halls are said to echo with footsteps after dark. Brave visitors report a chilling cold in the cellar, even on the hottest summer nights. Our expert guides will share the most terrifying tales ever told on Bluster Rock. Some say the ghost of a shearer still searches the house for his lost boots. Tickets are $25, and the tour lasts two hours. Tours depart at 9 pm from the homestead gate. Not suitable for the faint-hearted!",
-      "prompt": "Sort these phrases from the two texts. Objective or subjective?",
-      "success": "Dates, materials and rooms can be checked. 'Eerie', 'gloomy' and 'most terrifying' show how the flyer wants you to feel.",
+      "text": "MUSEUM PLAQUE: The Crowley homestead was built from local sandstone in 1884 by Elsie and Tom Crowley, who ran sheep on the surrounding land for thirty years. The house has six rooms, a cellar and a stone water tank that still holds rain. After the family moved to the coast in 1914, the homestead stood empty until the island council lovingly restored it in 1998. Elsie kept a diary for every year she lived there, and eleven of those charming diaries are now displayed in the front room. Visitors can also see the original iron stove, the shearers' bunks and a rocking chair Tom made from a fallen river red gum. The homestead is open from 10 am to 4 pm on weekends. TOUR FLYER: Dare you enter the Crowley homestead? This eerie ruin has been abandoned for over a century, and its gloomy halls are said to echo with footsteps after dark. The cellar stays below 15 degrees, even on the hottest summer nights. Our expert guides will share the most terrifying tales ever told on Bluster Rock. Some say the ghost of a shearer still searches the house for his lost boots. Tickets are $25, and the tour lasts two hours. Tours depart at 9 pm from the homestead gate. Not suitable for the faint-hearted!",
+      "prompt": "Sort these phrases from both texts. Test every word: objective or subjective?",
+      "success": "Even the plaque slips in judgements, and the flyer has facts. Judge each phrase, not where it came from.",
       "body": {
         "format": "sort",
         "bins": [
-          "objective",
-          "subjective"
+          "objective: anyone could check",
+          "subjective: a feeling or judgement"
         ],
         "items": [
           {
             "text": "built from local sandstone in 1884",
             "bin": 0,
-            "reason": "Records and the stone itself could confirm this. That's objective."
+            "reason": "Records and the stone itself could confirm this. That is objective."
           },
           {
-            "text": "six rooms, a cellar and a stone water tank",
+            "text": "stays below 15 degrees, even on summer nights",
             "bin": 0,
-            "reason": "Anyone walking through could count the rooms. That's objective."
+            "reason": "It's from the spooky flyer, but a thermometer could check it. That is objective."
           },
           {
-            "text": "restored by the island council in 1998",
+            "text": "Tours depart at 9 pm",
             "bin": 0,
-            "reason": "Council records would show this. It's a checkable fact."
+            "reason": "Anyone could check the time. Even a spooky flyer has objective facts."
+          },
+          {
+            "text": "lovingly restored by the island council in 1998",
+            "bin": 1,
+            "reason": "The date is checkable, but 'lovingly' is a judgement. Even the plaque slips one in."
+          },
+          {
+            "text": "eleven of those charming diaries",
+            "bin": 1,
+            "reason": "Eleven is checkable, but 'charming' is the plaque writer's feeling."
           },
           {
             "text": "this eerie ruin",
             "bin": 1,
-            "reason": "'Eerie' is how the flyer wants you to feel. The plaque just says it was restored."
+            "reason": "'Eerie' is how the flyer wants you to feel. That is subjective."
           },
           {
-            "text": "its gloomy halls",
+            "text": "the most terrifying tales ever told",
             "bin": 1,
-            "reason": "'Gloomy' is a judgement of mood. Another visitor might call the halls cosy."
-          },
-          {
-            "text": "the most terrifying tales ever told on Bluster Rock",
-            "bin": 1,
-            "reason": "'Most terrifying' is the flyer's claim about feelings. No one can measure terror."
+            "reason": "Nobody can measure terror. 'Most terrifying' is the flyer's judgement."
           }
         ]
       }

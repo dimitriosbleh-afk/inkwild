@@ -2,22 +2,28 @@ import { content, crew } from '../../app/content';
 import { captainCanvas } from '../../art/captain';
 import { crewCanvas } from '../../art/crew';
 import { creatureCanvas } from '../../art/creatures';
-import type { BranchId, Response, Skill, SkillId, Task } from '../../content/types';
-import { currentTask, KEEPER_HP, type GameEvent } from '../../core/game';
+import type { BranchId, Response, SkillId, Task } from '../../content/types';
+import { currentTask, encounterOf, KEEPER_HP, type GameEvent } from '../../core/game';
 import type { Activity } from '../../core/save';
+import { owedOn, owesSentence } from '../../core/sentence';
+import { activityBranch } from '../../world/goal';
 import type { App, ScreenView } from '../app';
 import { h } from '../dom';
 import { SORT_LOOK } from '../../core/check';
 import { passage, widget } from '../formats';
 import { burst, shake } from '../fx';
 import { readable } from '../speech';
-import { moveCardBody, teachPlayer } from '../teach';
+import { openMoveCard, teachPlayer } from '../teach';
 import '../task.css';
+import { sentenceScreen } from './sentence';
 import { nextPrompt, writeScreen } from './write';
 
-export function activityScreen(app: App, { branch }: { branch: BranchId }): ScreenView {
+/** `wrote` is set when the Student comes straight from a Write your own card, so they play before the next one. */
+export function activityScreen(app: App, { branch, wrote }: { branch: BranchId; wrote?: boolean }): ScreenView {
   const store = app.store;
   if (!store.save.activity) {
+    const owed = wrote ? undefined : owedOn(content, store.save, branch);
+    if (owed) return sentenceScreen(app, { skill: owed.id });
     const events = store.dispatch({ type: 'begin', branch });
     if (!content.branch(branch).marked && !store.save.activity) {
       const skill = nextPrompt(app);
@@ -40,15 +46,19 @@ function header(app: App, branch: BranchId, a: Activity): HTMLElement {
   const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' ? 'RETREAT' : 'ISLAND');
   const teaching = a.kind === 'teach' && a.step === 0;
   const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(content.skill(skillOf(a))) }, 'MOVE CARD');
-  return h('div', { class: 'row spread task-head' }, h('div', { class: 'row' }, back, card), h('div', { class: 'frame' }, content.branch(branch).island.toUpperCase()));
+  const title = a.kind === 'review' ? `DAILY REVIEW · ${a.at + 1} OF ${a.ids.length}` : content.branch(branch).island.toUpperCase();
+  return h('div', { class: 'row spread task-head' }, h('div', { class: 'row' }, back, card), h('div', { class: 'frame' }, title));
 }
 
 function skillOf(a: Activity): SkillId {
-  return a.kind === 'teach' ? a.skill : content.encounter(a.id).skill;
+  return a.kind === 'teach' ? a.skill : content.encounter(encounterOf(a)).skill;
 }
 
+/** A Keeper battle or a Daily review ends when the Student leaves; anything else waits for them. A review goes back Home, where it began. */
 function leave(app: App, branch: BranchId): void {
-  if (app.store.save.activity?.kind === 'keeper') app.store.dispatch({ type: 'retreat' });
+  const kind = app.store.save.activity?.kind;
+  if (kind === 'keeper' || kind === 'review') app.store.dispatch({ type: 'retreat' });
+  if (kind === 'review') return app.go({ name: 'home' });
   app.go({ name: 'island', branch });
 }
 
@@ -60,23 +70,6 @@ function charting(app: App, branch: BranchId): ScreenView {
       h('div', { class: 'panel' }, h('h2', {}, 'STILL BEING CHARTED'), h('p', { class: 'note' }, 'The crew is still mapping this island. Try another one for now.'), h('div', { class: 'actions' }, h('button', { onclick: () => app.go({ name: 'map' }) }, 'MAP'))),
     ),
   };
-}
-
-export function openMoveCard(skill: Skill): void {
-  const close = h('button', { class: 'big', onclick: () => overlay.remove() }, 'CLOSE');
-  const overlay = h(
-    'div',
-    { class: 'overlay move-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': `Move card: ${skill.name}` },
-    h(
-      'div',
-      { class: 'panel pop move-card-panel' },
-      h('div', { class: 'frame' }, 'MOVE CARD'),
-      h('h2', {}, skill.name.toUpperCase()),
-      ...moveCardBody(skill),
-      h('div', { class: 'actions move-card-close' }, close),
-    ),
-  );
-  document.body.append(overlay);
 }
 
 function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>): HTMLElement {
@@ -113,8 +106,8 @@ function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extr
     return { el, sprite: null };
   }
 
-  if (a.kind === 'encounter') {
-    const skill = content.skill(content.encounter(a.id).skill);
+  if (a.kind === 'encounter' || a.kind === 'review') {
+    const skill = content.skill(content.encounter(encounterOf(a)).skill);
     const p = app.store.save.skills[skill.id];
     const wild = creatureCanvas(skill.creature.id, { scale: 5, evolved: !!p?.mastered, shiny: app.store.save.shinies.includes(skill.creature.id) });
     wild.classList.add('bob');
@@ -188,7 +181,10 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
         const title = e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
         const why = e.outcome === 'shown' && e.reason && e.reason !== SORT_LOOK ? [readable(e.reason), h('br'), h('br')] : [];
         const box = h('div', { class: 'feedback good pop' }, h('b', {}, title), ...why, readable(e.success));
-        feedback.replaceChildren(box, nextButtons(app, branch, events));
+        const next = nextButtons(app, branch, events);
+        feedback.replaceChildren(box, ...(next ? [next] : []));
+        const done = events.find((x) => x.type === 'reviewDone');
+        if (done) feedback.append(reviewResult(app, done.first, done.of));
         if (e.outcome !== 'shown') {
           app.sfx('right');
           burst(sprite ?? box);
@@ -199,12 +195,20 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
   return panel;
 }
 
-function nextButtons(app: App, branch: BranchId, events: GameEvent[]): HTMLElement {
+function nextButtons(app: App, branch: BranchId, events: GameEvent[]): HTMLElement | null {
   const ended = events.find((e) => e.type === 'badge' || e.type === 'retreated');
   const still = app.store.save.activity;
   const row = h('div', { class: 'actions' });
-  if (ended || (!still && events.some((e) => e.type === 'taught'))) {
-    if (!ended) row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch }) }, 'TRY IT FOR REAL'));
+  if (events.some((e) => e.type === 'reviewDone')) return null;
+  if (still?.kind === 'review') {
+    row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch: activityBranch(content, still) }) }, 'NEXT'));
+    return row;
+  }
+  const taught = events.find((e) => e.type === 'taught');
+  if (ended || (!still && taught)) {
+    const write = taught && owesSentence(content, app.store.save, taught.skill) ? taught.skill : undefined;
+    if (!ended && write) row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'sentence', skill: write }) }, 'WRITE YOUR OWN'));
+    else if (!ended) row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch }) }, 'TRY IT FOR REAL'));
     row.append(h('button', { class: ended ? 'big' : 'ghost', onclick: () => app.go({ name: 'island', branch }) }, 'ISLAND'));
     return row;
   }
@@ -217,6 +221,17 @@ function nextButtons(app: App, branch: BranchId, events: GameEvent[]): HTMLEleme
     h('button', { class: 'big pulse', onclick: () => app.go({ name: 'activity', branch }) }, 'KEEP GOING'),
   );
   return row;
+}
+
+/** The end of a Daily review: how many came back first try, then home. */
+function reviewResult(app: App, first: number, of: number): HTMLElement {
+  return h(
+    'div',
+    { class: 'panel pop review-done' },
+    h('h2', {}, 'DAILY REVIEW DONE'),
+    h('p', { class: 'note' }, readable(`${first} of ${of} right first try. Old moves stay sharp when you use them.`)),
+    h('div', { class: 'actions' }, h('button', { class: 'big', onclick: () => app.go({ name: 'home' }) }, 'HOME')),
+  );
 }
 
 function arena(app: App, a: Extract<Activity, { kind: 'keeper' }>): HTMLElement {

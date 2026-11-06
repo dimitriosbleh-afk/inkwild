@@ -260,6 +260,20 @@
       "name": "Heddrake",
       "evolved": "Heddragor",
       "blurb": "A mountain dragon lizard that suns itself on the top rock of every tower. Wherever its head points, its whole long tail follows, like a paragraph behind its topic sentence."
+    },
+    "write": {
+      "ask": "Write a topic sentence that covers all three details about Zed's hamster.",
+      "given": [
+        "Zed's hamster opens its cage door with its teeth.",
+        "It once rode the robot vacuum to the kitchen.",
+        "Last week, Mum found it inside the fridge."
+      ],
+      "checks": [
+        "My sentence covers all three details, not just one",
+        "It says what the whole paragraph is about",
+        "It isn't so broad it fits any pet"
+      ],
+      "model": "Zed's hamster is the best escape artist on Scaffold Peaks."
     }
   },
   "encounters": [
@@ -419,7 +433,7 @@
         "format": "build",
         "tiles": [
           "Zed's little brother",
-          "is very easy to win.",
+          "is very good at games.",
           "Zed's new game",
           "is very hard to beat."
         ],
@@ -675,8 +689,8 @@
             "reason": "That's one detail. The paragraph also shows what the clownfish does for the anemone."
           },
           {
-            "text": "Sea anemones are animals, even though they look like plants.",
-            "reason": "That's only mentioned once. The paragraph is about how the two animals help each other."
+            "text": "Many different sea creatures live side by side on the reef.",
+            "reason": "Too broad. It could cover any reef animals, but this paragraph is about just these two."
           },
           {
             "text": "Clownfish need sea anemones, but anemones get nothing back in return.",
@@ -695,7 +709,7 @@
       "topic": "sport",
       "frame": "Tully wrote a paragraph about netball for the Peakside newsletter. The Heddrake spotted a stray sentence.",
       "prompt": "Tap the sentence that doesn't back up the topic sentence.",
-      "success": "Seven players in lettered bibs is true, but it isn't about passing. It doesn't back up the topic sentence.",
+      "success": "It uses 'passed', but it's about old balls, not passing in a game. It's off topic.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -711,7 +725,7 @@
           },
           " ",
           {
-            "tap": "Netball teams have seven players, and each one wears a bib with letters on it."
+            "tap": "Old netballs are often passed down to the junior teams once they get too worn for matches."
           },
           " ",
           {
@@ -861,39 +875,37 @@
       "id": "7.4-b3-6",
       "band": 3,
       "topic": "space",
-      "frame": "Tully wrote a paragraph about life on a space station. The Heddrake spotted a sentence that floated off topic.",
-      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
-      "success": "Orbiting sixteen times a day is a true fact, but it isn't about simple jobs being hard. It doesn't fit.",
+      "frame": "Tully wrote a paragraph about life on a space station. The Heddrake can't find which sentence holds it all together.",
+      "prompt": "Tap the topic sentence of Tully's paragraph.",
+      "success": "It covers every detail, from drinking to getting dressed. It comes last, like a big finish.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Living on a space station turns simple jobs into hard work. ",
           {
             "tap": "Drinking water floats out of a cup, so astronauts have to suck it from sealed pouches through a straw.",
-            "reason": "A drink becomes a tricky job. This backs up the topic sentence."
+            "reason": "This comes first, but it's one detail: drinking. Does it cover sleeping and washing too?"
           },
           " ",
           {
             "tap": "To sleep, they zip themselves into sleeping bags strapped to the wall, so they don't drift around.",
-            "reason": "Even sleeping takes extra work. This fits."
+            "reason": "This is one detail, about sleeping. Look for the sentence that covers them all."
           },
-          " ",
+          " Washing their hair means rubbing in a special shampoo that doesn't need rinsing, then towelling it dry. ",
           {
-            "tap": "The space station travels all the way around Earth about sixteen times every day."
+            "tap": "Even the toilet has to use a fan that sucks waste away, because nothing falls down in space.",
+            "reason": "This is one more detail, about the toilet. It doesn't cover the others."
           },
-          " ",
+          " Cutting fingernails is done next to an air vent, so the clippings don't float into someone's eye. Getting dressed can take ages, because socks and shirts keep drifting off. ",
           {
-            "tap": "Washing their hair means rubbing in a special shampoo that doesn't need rinsing, then towelling it dry.",
-            "reason": "Washing hair turns into a big job. This backs up the topic sentence."
+            "tap": "Astronauts say that eating is the trickiest job of all.",
+            "reason": "This is about eating only. Does it cover sleeping, washing and the toilet?"
           },
-          " ",
+          " Even dropping a crumb can be a problem, because it may float into a machine. ",
           {
-            "tap": "The toilet uses a fan that sucks waste away, because nothing falls down in space.",
-            "reason": "Going to the toilet becomes hard work. This fits."
-          },
-          " Cutting fingernails is done next to an air vent, so the clippings get sucked away instead of floating into someone's eye. Getting dressed can take ages, because socks and shirts keep drifting off. Even dropping a crumb can be a problem, because it may float into a machine. Astronauts say it takes weeks to get used to it all."
+            "tap": "On a space station, the simplest everyday jobs turn into hard work."
+          }
         ],
-        "answer": 2
+        "answer": 4
       }
     },
     {
@@ -901,9 +913,9 @@
       "band": 4,
       "topic": "robots",
       "frame": "Gus is writing a report on rescue robots. The Heddrake has made off with his topic sentence.",
-      "text": "___ After an earthquake, rescuers must find survivors inside collapsed buildings that could crumble further at any moment. Instead of sending people in first, many teams now send snake-like robots that can wriggle through gaps narrower than a person's arm, carrying cameras, microphones and lights. During bushfires, drones fly through thick smoke that would blind a pilot, using heat cameras to spot people and animals that are trapped. After an accident at a nuclear power station in Japan, robots were sent into areas where the radiation was strong enough to make a person seriously ill within minutes. Police use tough, tank-like robots to inspect suspicious packages, so that no officer has to stand beside one. In flooded mines, swimming robots search the black, freezing water long before it would be safe for divers. Underwater robots check bridges and ships for damage after storms, so divers don't have to search in dangerous currents. Some robots can even carry water bottles and radios to trapped survivors while human teams dig towards them. In every case, a person still steers the robot, watches its cameras and decides what to do next, but that person can stay at a safe distance. Each robot that goes in first means one fewer human life put at risk.",
+      "text": "___ After an earthquake, rescuers must find survivors inside collapsed buildings that could crumble further at any moment. Instead of sending people in first, many teams now send snake-like robots that can wriggle through gaps narrower than a person's arm, carrying cameras, microphones and lights. During bushfires, drones fly through thick smoke that would blind a pilot, using heat cameras to spot people and animals that are trapped. After an accident at a nuclear power station in Japan, robots were sent into areas where the radiation was strong enough to make a person seriously ill within minutes. In flooded mines, swimming robots search the black, freezing water long before it would be safe for divers. Some robots can even carry water bottles and radios to trapped survivors while human teams dig towards them. In every case, a person still steers the robot, watches its cameras and decides what to do next, but that person can stay at a safe distance. Each robot that goes in first means one fewer human life put at risk.",
       "prompt": "Which topic sentence fits this paragraph best?",
-      "success": "Collapsed buildings, smoke, radiation, packages and floods are all dangerous jobs that robots now do first.",
+      "success": "Collapsed buildings, smoke, radiation and flooded mines are all dangerous jobs that robots now do first.",
       "body": {
         "format": "choose",
         "options": [
@@ -912,8 +924,8 @@
             "reason": "That's one detail. The paragraph covers many kinds of dangerous jobs."
           },
           {
-            "text": "Robots are becoming cheaper and easier to build every year.",
-            "reason": "Cost isn't mentioned anywhere. The paragraph is about dangerous jobs."
+            "text": "Robots are useful machines that can do many kinds of work.",
+            "reason": "Too broad. It would fit factory robots or toy robots too. This paragraph is about danger."
           },
           {
             "text": "Robots are taking on the most dangerous jobs in disaster zones."
@@ -930,39 +942,37 @@
       "id": "7.4-b4-2",
       "band": 4,
       "topic": "music",
-      "frame": "Indi wrote a paragraph about music lessons for the newsletter. The Heddrake thinks one sentence has drifted.",
-      "prompt": "Tap the sentence that doesn't back up the topic sentence.",
-      "success": "That sentence is about why the violin is hard, not about how learning changes the brain. It drifts off topic.",
+      "frame": "Indi wrote a paragraph about music lessons for the newsletter. The Heddrake can't tell which sentence the rest back up.",
+      "prompt": "Tap the topic sentence of Indi's paragraph.",
+      "success": "It covers every detail, from thicker brain parts to sharper minds. It comes last, like a big finish.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Scientists have found that learning a musical instrument changes the way the brain works. ",
           {
-            "tap": "Brain scans show that the area linking the left and right sides of the brain grows thicker in people who have played since childhood.",
-            "reason": "A thicker link inside the brain is a change. It backs up the topic sentence."
+            "tap": "Brain scans show that the bridge between the left and right sides of the brain grows thicker in people who have played since childhood.",
+            "reason": "This comes first, but it's one detail from brain scans. Does it cover memory and hearing too?"
           },
           " ",
           {
             "tap": "Musicians also tend to be better at picking out one voice in a noisy room, because their brains have practised separating sounds.",
-            "reason": "This is a change in how the brain handles sound. It fits."
+            "reason": "This is one detail, about hearing. Look for the sentence that covers them all."
+          },
+          " Reading music while moving your hands trains the brain to juggle several jobs at once, and some scientists think this might help with other tasks too. Some studies have found that children who practise an instrument remember lists of words more easily. ",
+          {
+            "tap": "So the biggest change that music makes is to your memory.",
+            "reason": "It sounds like a summing up, but memory is only one detail. What about hearing?"
+          },
+          " Learning to play also seems to strengthen the parts of the brain that control small, careful finger movements. In older adults, playing an instrument has been linked to keeping the mind sharper for longer. Musicians even seem to react faster when they hear a sound. ",
+          {
+            "tap": "These changes seem to appear whether a student plays the drums, the piano or the recorder.",
+            "reason": "This tells which instruments, but it doesn't say what the paragraph is about."
           },
           " ",
           {
-            "tap": "The violin is one of the hardest instruments to learn, because it has no frets to show where your fingers go."
-          },
-          " ",
-          {
-            "tap": "Reading music while moving your hands trains the brain to handle several jobs at once, which can help with other tasks too.",
-            "reason": "This shows the brain learning to juggle jobs. It backs up the topic sentence."
-          },
-          " ",
-          {
-            "tap": "Some studies have found that children who practise an instrument remember lists of words more easily.",
-            "reason": "Better memory is another change in the brain. It fits."
-          },
-          " Learning to play also seems to strengthen the parts of the brain that control small, careful finger movements. In older adults, playing an instrument has been linked to keeping the mind sharper for longer. Musicians even seem to react faster when they hear a sound, because their brains process it more quickly. These changes seem to appear whether a student plays the drums, the piano or the recorder, as long as they practise regularly. Researchers have even found differences after just a year of weekly lessons, which suggests the brain starts adapting quickly."
+            "tap": "It seems that learning a musical instrument changes the way the whole brain works."
+          }
         ],
-        "answer": 2
+        "answer": 4
       }
     },
     {
@@ -1069,15 +1079,15 @@
       "band": 4,
       "topic": "spooky",
       "frame": "The Architect wrote a paragraph for the Tower Six hut, where everyone says there's a ghost. The Heddrake has the topic sentence.",
-      "text": "___ Some buildings produce very low sounds, from wind rushing past or old pipes rumbling, that are too deep for our ears to hear. Experiments have shown that these sounds can still make people feel uneasy, shivery or as if someone is watching them. Old timber floors creak and pop as they cool down at night, which can sound remarkably like slow footsteps in an empty room. Draughts sneaking through cracks in walls can create sudden cold spots and make doors swing open on their own. Certain moulds that grow in damp, closed-up houses have been linked to headaches and confusion, which can make people doubt what they are seeing. Our brains are also wired to find faces everywhere, so a stain on a wall or a curtain in the moonlight can look alarmingly like a figure. Tiredness plays a part as well, because a sleepy brain is far more likely to mistake a shadow for a person. Even suggestion matters: people who are told a house is haunted report many more strange experiences inside it. Bad air from old heaters can also cause dizziness and strange visions, which is why investigators often check for it first. None of this proves that ghosts don't exist, but it does mean that a creaky, chilly house is not good evidence that they do.",
+      "text": "___ Some buildings produce very low sounds, from wind rushing past or old pipes rumbling, that are too deep for our ears to hear. Experiments have shown that these sounds can still make people feel uneasy, shivery or as if someone is watching them. Old timber floors creak and pop as they cool down at night, which can sound remarkably like slow footsteps in an empty room. Draughts sneaking through cracks in walls can create sudden cold spots and make doors swing open on their own. Certain moulds that grow in damp, closed-up houses have been linked to headaches and confusion, which can make people doubt what they are seeing. Our brains are also wired to find faces everywhere, so a stain on a wall or a curtain in the moonlight can look alarmingly like a figure. Even suggestion matters: people who are told a house is haunted report many more strange experiences inside it. None of this proves that ghosts don't exist, but it does mean that a creaky, chilly house is not good evidence that they do.",
       "prompt": "Which topic sentence fits this paragraph best?",
       "success": "Low sounds, cooling floors, draughts, mould and face-spotting are all ordinary causes of 'ghostly' feelings.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Ghost stories have been told around campfires for thousands of years.",
-            "reason": "The paragraph never mentions the history of ghost stories. It explains spooky feelings."
+            "text": "Lots of different things can make people feel scared at night.",
+            "reason": "Too broad. Storms and bad dreams scare people too. This paragraph explains ghostly feelings in old houses."
           },
           {
             "text": "Many so-called hauntings have simple scientific explanations."

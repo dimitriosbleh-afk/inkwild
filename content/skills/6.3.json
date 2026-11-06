@@ -251,6 +251,19 @@
       "name": "Baskadawn",
       "evolved": "Baskalumen",
       "blurb": "An alpine skink that waits on a sunny rock at the start of a sentence. Give it a comma to bask on, and the main part can begin."
+    },
+    "write": {
+      "ask": "Join these into one sentence that starts with the when part. Put the comma in.",
+      "given": [
+        "The penguins slid down the icy hill.",
+        "It was after lunch."
+      ],
+      "checks": [
+        "My sentence starts with a when phrase",
+        "The comma comes after the whole phrase",
+        "The main part makes sense on its own"
+      ],
+      "model": "After lunch, the penguins slid down the icy hill on their tummies."
     }
   },
   "encounters": [
@@ -683,17 +696,18 @@
           "With a tiny ",
           {
             "tap": "brush and",
-            "reason": "'A tiny brush and a steady hand' belong together in the opening phrase. No comma here."
+            "reason": "'A tiny brush and a steady hand' belong together in the opening phrase. Is the 'how' part over yet?"
           },
           " a steady ",
           {
             "tap": "hand Indi"
           },
-          " painted snowflakes on ",
+          " painted ",
           {
-            "tap": "the window.",
-            "reason": "This is the end of the sentence, and the full stop is right."
-          }
+            "tap": "snowflakes on",
+            "reason": "Snowflakes is what Indi painted. A comma here would split the main part. Where did the opener end?"
+          },
+          " the window."
         ],
         "spot": 1,
         "options": [
@@ -721,23 +735,23 @@
       "band": 3,
       "topic": "ocean",
       "frame": "A page from the Baskadawn's ocean book has been cut into strips.",
-      "prompt": "Tap the pieces in order. Start with where the krill are.",
-      "success": "Start with where, 'Beneath the floating ice', then a comma before the main part.",
+      "prompt": "Make the sentence say the seals were the ones eating. Use one comma.",
+      "success": "The comma after 'After feeding' ends the opener, so the seals are the ones who fed, then rested.",
       "body": {
         "format": "build",
         "tiles": [
-          "Beneath the floating ice",
-          "beneath the floating ice",
+          "After",
+          "feeding",
+          "the seals",
           ",",
-          "Tiny krill",
-          "tiny krill",
-          "glow in the dark",
+          ",",
+          "rested on the ice",
           "."
         ],
         "accept": [
-          "Beneath the floating ice, tiny krill glow in the dark."
+          "After feeding, the seals rested on the ice."
         ],
-        "reason": "Lead with where the krill are, put a comma after that phrase, then the main part."
+        "reason": "Where the comma sits decides who ate. Read your sentence aloud: who is feeding, and who is fed?"
       }
     },
     {
@@ -831,101 +845,102 @@
       "id": "6.3-b3-6",
       "band": 3,
       "topic": "space",
-      "frame": "The polar station's stargazing blog has four drafts of one sentence.",
-      "prompt": "Which version is punctuated right?",
-      "success": "'During the long polar night' is the whole opening phrase. The comma goes straight after it.",
+      "frame": "The polar station's stargazing blog is about the southern lights. It has four drafts of one sentence.",
+      "prompt": "Which version says the southern lights danced in the sky above the station?",
+      "success": "'Above the station' is the whole opener. The comma after it stops you reading 'station lights'.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "During the long polar night, the scientists watched the stars."
+            "text": "Above, the station lights danced across the sky.",
+            "reason": "Now the lights belong to the station. Where does the whole 'where' part end?"
           },
           {
-            "text": "During the long, polar night the scientists watched the stars.",
-            "reason": "The comma splits the opening phrase in half. Read on: where does the whole 'when' part finish?"
+            "text": "Above the station. Lights danced across the sky.",
+            "reason": "The opener has no doer, so it can't stand alone. Which mark joins it to the main part?"
           },
           {
-            "text": "During the long polar night the scientists, watched the stars.",
-            "reason": "The comma splits the scientists from what they did. Where does the whole opening phrase end?"
+            "text": "Above the station, lights danced across the sky."
           },
           {
-            "text": "During, the long polar night the scientists watched the stars.",
-            "reason": "The comma cuts 'During' off from the rest of the phrase. Where does the whole opening phrase end?"
+            "text": "Above the station lights, danced across the sky.",
+            "reason": "The comma splits the doer from what it did. Where does the opening phrase end?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "6.3-b4-1",
       "band": 4,
       "topic": "spooky",
-      "frame": "Zed found an old miner's diary in the abandoned hut.",
-      "prompt": "Which version says the lights were inside a mine shaft?",
-      "success": "'Deep in the old mine shaft' is the opening phrase. The comma after it puts the lights in the shaft.",
+      "frame": "Zed's ghost story has four openers with no commas yet. Indi says only one is truly confusing without a comma.",
+      "prompt": "Which sentence must have a comma, or readers will get it wrong?",
+      "success": "Without a comma you read 'house ghosts'. The others read clearly, but a comma after the opener still helps.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Deep in the old mine shaft, lights flickered and went out."
+            "text": "At midnight the lights went out.",
+            "reason": "Read it straight through with no comma. Does any part join up wrongly?"
           },
           {
-            "text": "Deep in the old mine, shaft lights flickered and went out.",
-            "reason": "Now 'shaft lights' flicker somewhere in the mine. It no longer says they were in a shaft."
+            "text": "In the hallway a door creaked open.",
+            "reason": "Read it straight through. Do 'hallway' and 'a door' join up into one thing?"
           },
           {
-            "text": "Deep in the old, mine shaft lights flickered and went out.",
-            "reason": "The comma splits the opening phrase, leaving 'mine shaft lights' as the doer."
+            "text": "Inside the house ghosts were dancing."
           },
           {
-            "text": "Deep in the old mine shaft lights, flickered and went out.",
-            "reason": "The comma splits the lights from what they did, and nothing marks where the opening phrase ends."
+            "text": "Before dawn the ghosts went home.",
+            "reason": "Read it with no comma. Does anything join up into something odd?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "6.3-b4-2",
       "band": 4,
       "topic": "general",
-      "frame": "A museum panel about an old Antarctic expedition needs one comma.",
-      "prompt": "Tap where a comma is missing, then choose the fix.",
-      "success": "The opening phrase runs all the way to '1902'. The comma goes there, before 'the explorers'.",
+      "frame": "A museum panel about an old Antarctic expedition has a comma that stopped too soon.",
+      "prompt": "Tap the part with the comma in the wrong place, then choose the fix.",
+      "success": "'Of 1902' tells you which winter, so it belongs to the opener. The comma goes after the year.",
       "body": {
         "format": "fix",
         "parts": [
-          "Throughout the long ",
+          "Throughout the ",
           {
-            "tap": "and bitter",
-            "reason": "'Long and bitter' both describe the winter, inside the opening phrase. No comma here."
+            "tap": "long and bitter",
+            "reason": "'Long and bitter' both describe the winter, inside the opener. Is the opener finished here?"
           },
-          " winter of ",
+          " ",
           {
-            "tap": "1902 the explorers"
+            "tap": "winter, of 1902 the"
           },
-          " huddled in a hut no bigger than ",
+          " explorers ",
           {
-            "tap": "a classroom.",
-            "reason": "This is the end of the sentence, and the full stop is right."
-          }
+            "tap": "huddled in",
+            "reason": "The explorers are huddling here, in the main part. Is anything wrong with it?"
+          },
+          " a hut no bigger than a classroom."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "1902, the explorers"
+            "text": "winter of 1902, the"
           },
           {
-            "text": "1902. The explorers",
-            "reason": "The opening phrase can't stand on its own. It needs a comma, not a full stop."
+            "text": "winter, of 1902, the",
+            "reason": "The first comma still cuts the opener in half. Which winter was it?"
           },
           {
-            "text": "1902 the explorers,",
-            "reason": "The comma splits the explorers from what they did. Where does the whole opening phrase end?"
+            "text": "winter of, 1902 the",
+            "reason": "The comma is still inside the opener. Does the year belong to the winter?"
           },
           {
-            "text": "1902, the explorers,",
-            "reason": "A comma after 'explorers' splits the doers from the action. How many commas does this sentence need?"
+            "text": "winter. Of 1902 the",
+            "reason": "The opener has no doer, so it cannot stand alone as a sentence."
           }
         ],
         "answer": 0
@@ -935,57 +950,61 @@
       "id": "6.3-b4-3",
       "band": 4,
       "topic": "robots",
-      "frame": "The snow rover's error report arrived in pieces.",
-      "prompt": "Tap the pieces in order. Start with the opening phrase.",
-      "success": "'Without a single word of warning' is the whole opening phrase. One comma follows it.",
+      "frame": "A lab sign for the snow robots reads: Inside the lab, robots were dancing.",
+      "prompt": "What does the comma after 'lab' do for the reader?",
+      "success": "The comma marks where the opener ends. Without it, you might read 'lab robots' and lose the place.",
       "body": {
-        "format": "build",
-        "tiles": [
-          "Without a single",
-          "word",
-          "of warning",
-          ",",
-          "the robot",
-          "The robot",
-          "switched itself off",
-          "."
+        "format": "choose",
+        "options": [
+          {
+            "text": "It ends the 'when' part, so readers know when the robots danced.",
+            "reason": "'Inside the lab' doesn't tell you when. What does it tell you?"
+          },
+          {
+            "text": "It stops readers from thinking the lab itself was dancing.",
+            "reason": "Nothing makes the lab dance. Without the comma, which two words run together?"
+          },
+          {
+            "text": "It ends a sentence that makes sense alone, so a capital could follow.",
+            "reason": "Say 'Inside the lab' alone. Who did what? Does it make sense?"
+          },
+          {
+            "text": "It ends the 'where' part, so readers don't see 'lab robots'."
+          }
         ],
-        "accept": [
-          "Without a single word of warning, the robot switched itself off."
-        ],
-        "reason": "Keep the opening phrase whole. Then one comma marks where the main part begins."
+        "answer": 3
       }
     },
     {
       "id": "6.3-b4-4",
       "band": 4,
       "topic": "food",
-      "frame": "Mo's lodge newsletter has a sentence that runs straight on.",
-      "prompt": "Tap where the comma should go.",
-      "success": "The opening phrase says where, and it ends at 'pantry'. The comma goes there, before Mo.",
+      "frame": "Mo's lodge newsletter has two sentences. Only one has an opening phrase.",
+      "prompt": "Tap the spot that needs a comma.",
+      "success": "'On the top pantry shelf' is the opener. The freezer sentence has no opener, so no comma.",
       "body": {
         "format": "tapText",
         "parts": [
-          "On the very ",
+          "The back shelf of the ",
           {
-            "tap": "top shelf",
-            "reason": "The opening phrase isn't finished. The top shelf of what? Keep reading."
+            "tap": "freezer was",
+            "reason": "'The back shelf of the freezer' is what the sentence is about, not an opener. Does it need a comma?"
           },
-          " of the ",
+          " empty. On the ",
           {
-            "tap": "lodge's freezing",
-            "reason": "'Freezing' describes a place still to come. Keep reading to the end of the 'where' part."
+            "tap": "top pantry",
+            "reason": "The 'where' part isn't over yet. The top pantry what? Keep reading."
           },
           " ",
           {
-            "tap": "pantry Mo"
+            "tap": "shelf jars"
           },
-          " discovered ",
+          " of honey had ",
           {
-            "tap": "a forgotten",
-            "reason": "'A forgotten jar of honey' is what Mo found. A comma here would split it off."
+            "tap": "frozen solid",
+            "reason": "This is the main part. Would a comma here split what the jars did?"
           },
-          " jar of honey."
+          "."
         ],
         "answer": 2
       }
@@ -994,45 +1013,40 @@
       "id": "6.3-b4-5",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed's game review has some commas in odd places. The Baskadawn is checking.",
+      "frame": "Zed's game review has openers with no commas. The Baskadawn is checking which ones trip readers up.",
       "prompt": "Match each sentence to the right rock.",
-      "success": "The comma goes after the whole opening phrase. A comma inside it, or after the doer, breaks the sentence.",
+      "success": "When the last word of the opener can join the next word, the comma is a must. Otherwise it helps.",
       "body": {
         "format": "sort",
         "bins": [
-          "punctuated right",
-          "needs a fix"
+          "misread without a comma",
+          "clear, but a comma helps"
         ],
         "items": [
           {
-            "text": "Somewhere in the frozen kingdom, a dragon guarded the last save point.",
+            "text": "Inside the castle gates creaked open.",
             "bin": 0,
-            "reason": "The opening phrase ends at 'kingdom', and the comma comes right after it."
+            "reason": "Without a comma, you first read 'castle gates'. Readers trip."
           },
           {
-            "text": "Inside the ice castle gates creaked open for the final battle.",
+            "text": "On level ten the boss appeared.",
             "bin": 1,
-            "reason": "With no comma, you first read 'castle gates'. A comma shows where the opening phrase ends."
+            "reason": "Nothing joins up wrongly, so it reads clearly. A comma after the opener still helps."
           },
           {
-            "text": "After hours of grinding through the ice caves, Zed reached level fifty.",
+            "text": "After the battle cries filled the hall.",
             "bin": 0,
-            "reason": "The opening phrase ends at 'caves', and the comma comes right after it."
+            "reason": "Without a comma, you first read 'battle cries'. Readers trip."
           },
           {
-            "text": "After hours of grinding through the ice caves Zed, reached level fifty.",
+            "text": "Before the final battle Zed saved his game.",
             "bin": 1,
-            "reason": "The comma splits Zed from what he did. It belongs after 'caves'."
+            "reason": "Nothing joins up wrongly, so it reads clearly. A comma after the opener still helps."
           },
           {
-            "text": "Before the final boss battle, Zed checked his health potions.",
+            "text": "Under the bridge trolls were waiting.",
             "bin": 0,
-            "reason": "The opening phrase ends at 'battle', and the comma comes right after it."
-          },
-          {
-            "text": "Before the final boss, battle Zed checked his health potions.",
-            "bin": 1,
-            "reason": "The comma splits 'boss battle'. It belongs after 'battle'."
+            "reason": "Without a comma, you first read 'bridge trolls'. Readers trip."
           }
         ]
       }
@@ -1041,29 +1055,30 @@
       "id": "6.3-b4-6",
       "band": 4,
       "topic": "art",
-      "frame": "The village newsletter is reporting on Indi's latest ice sculpture.",
-      "prompt": "Which version is punctuated right?",
-      "success": "'In the centre of the snowy village square' is the whole opening phrase. The comma follows it.",
+      "frame": "The village newsletter has two correct versions of one sentence. The editor wants readers to see the place before the person.",
+      "text": "A: In the centre of the village square, Indi carved a giant ice possum. B: Indi carved a giant ice possum in the centre of the village square.",
+      "prompt": "Which version should the editor pick, and why?",
+      "success": "Both are correct. A opens with where, so readers see the square before they meet Indi.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "In the centre of the snowy village square, Indi carved a giant ice possum."
+            "text": "B, because every sentence must start with the person who did the action.",
+            "reason": "Openers can come first. Which version shows the place before the person?"
           },
           {
-            "text": "In the centre of the snowy village, square Indi carved a giant ice possum.",
-            "reason": "The comma splits 'village square'. Read on: where does the whole 'where' part finish?"
+            "text": "A, because the opener puts the place first, then the comma leads to Indi."
           },
           {
-            "text": "In the centre of the snowy village square Indi, carved a giant ice possum.",
-            "reason": "The comma splits Indi from what she did. Where does the whole opening phrase end?"
+            "text": "A, because a sentence with a comma in it is always the more correct one.",
+            "reason": "Both are correct. The choice is about what the reader meets first."
           },
           {
-            "text": "In the centre, of the snowy village square Indi carved a giant ice possum.",
-            "reason": "The comma splits the opening phrase in half. Read on: where does the whole 'where' part finish?"
+            "text": "B, because the 'where' part comes last, so readers remember it best.",
+            "reason": "The editor wants the place first. Where does B put it?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     }
   ]

@@ -278,6 +278,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite Mo's plain line as a rhetorical question, with the answer built in.",
+      "given": [
+        "Mo's pies are better than soggy sandwiches."
+      ],
+      "starter": "Why would anyone",
+      "checks": [
+        "My sentence is a question.",
+        "The answer I want is built in.",
+        "It still pushes people towards Mo's pies."
+      ],
+      "model": "Why would anyone eat a soggy sandwich when Mo's hot pies are right here?"
+    },
     "creature": {
       "id": "squawkle",
       "name": "Squawkle",
@@ -697,45 +710,50 @@
       "band": 3,
       "topic": "gaming",
       "frame": "Zed got an email from the company that makes Rocket Rally. The Squawkle is squawking at the last line.",
-      "text": "Dear Rocket Rally player, the new season of the Rocket Rally league starts on Monday, and we would love you to join us. This season has six new tracks, including the Crater Canyon, where the gravity changes every lap. League matches run every weekend, and the top ten players each month win a gold trophy for their profile. Joining the league is free, but you will need to be at least ten years old and have a parent's permission. You can sign up from the main menu, under the button marked 'League'. Matches last about eight minutes each, and you can play up to five matches a day. The league has its own chat, which parents can switch off in the settings. The email ends with this line: 'Three million players have already joined the league this season. Make sure you're not the one who misses out.' Zed has already joined. He says it had nothing to do with the email, and everything to do with Crater Canyon.",
-      "prompt": "Read the last line of the email. Which trick does it use?",
-      "success": "Everyone's doing it. The line points at a huge crowd of players and warns that you'll miss out.",
+      "text": "Dear Rocket Rally player, the new season of the Rocket Rally league starts on Monday. In the league, you race against strangers from all over the world, and every match is timed. The top ten players each month win a gold trophy for their profile. Joining is free, but you need to be at least ten and have a parent's permission. Matches last about eight minutes, and you can play up to five a day. The email ends with this line: 'Three million players have already joined the league this season. Make sure you're not the one who misses out.' Zed loves Rocket Rally, but only the building part. He spends hours designing his own tracks and driving them alone. Last week he tried one timed race against a stranger, and his hands shook the whole time. 'I hate the clock,' he told Tully. 'I just like making tracks.'",
+      "prompt": "Zed asks Tully, 'Three million players! Should I join?' Which answer is best?",
+      "success": "A crowd can't tell you what suits you. Zed hates timed races, so the league isn't for him.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "exaggeration",
-            "reason": "Three million might be a real number. The trick is pushing you to follow the crowd."
+            "text": "Yes. Three million players can't be wrong about a game.",
+            "reason": "That's the crowd trick working. Does the crowd know what Zed likes?"
           },
           {
-            "text": "no trick, just information",
-            "reason": "'Make sure you're not the one who misses out' isn't information. It pressures you to join the crowd."
+            "text": "No. A big crowd never tells you what suits you. You hate the clock."
           },
           {
-            "text": "everyone's doing it"
+            "text": "Yes. The number is real, so the league is sure to be good for you.",
+            "reason": "Even if the number is true, it's about other players. Think about Zed."
           },
           {
-            "text": "rhetorical question",
-            "reason": "There's no question here. Both sentences are statements about other players and you."
+            "text": "No. Three million is exaggeration, so everything in the email is a lie.",
+            "reason": "Three million could be true. The trick is the push to join, not the number."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
       "id": "3.7-b3-2",
       "band": 3,
       "topic": "food",
-      "frame": "Mo bought a box of Crunch Rocks cereal. Tully is reading the back of the box over breakfast.",
-      "prompt": "Tap the sentence on the cereal box that uses exaggeration.",
-      "success": "Nothing stays crunchy for ever in milk. Tully's five-minute test shows the box blew that claim up.",
+      "frame": "Mo bought a box of Crunch Rocks cereal. Tully is checking every claim on the back of the box.",
+      "prompt": "Tully checked every claim on the box. Tap the one that uses exaggeration.",
+      "success": "Tully's test shows they go soft in five minutes. 'For ever' blows the crunch way up.",
       "body": {
         "format": "tapText",
         "parts": [
           "CRUNCH ROCKS: THE BREAKFAST OF CHAMPIONS. Crunch Rocks are made from oats, honey and puffed rice, baked into little rock shapes. ",
           {
+            "tap": "The family box is so tall that it might not fit in your cupboard.",
+            "reason": "Big, but true. Mo's box was too tall for the cupboard, so it sits on the fridge."
+          },
+          " ",
+          {
             "tap": "Each bowl has as much fibre as two slices of wholemeal bread.",
-            "reason": "This is a claim you could check on the nutrition panel. It isn't blown up."
+            "reason": "Tully checked the nutrition panel. This claim is true, not blown up."
           },
           " ",
           {
@@ -743,17 +761,12 @@
           },
           " ",
           {
-            "tap": "More than 5,000 families on the island now start their day with Crunch Rocks.",
-            "reason": "This is 'everyone's doing it'. It tells you lots of families eat them, so you should too."
-          },
-          " ",
-          {
             "tap": "Why start your day with soggy toast?",
             "reason": "This is a rhetorical question. The answer, 'you shouldn't', is built in."
           },
-          " Crunch Rocks contain no artificial colours. Serve them with cold milk or yoghurt, and keep the box closed so the cereal stays fresh. The back of the box also has a maze shaped like Bluster Rock. Zed finished it in eleven seconds. A 500-gram box costs $6 at the general store. Tully tested the crunch with a stopwatch. After five minutes in milk, her Crunch Rocks were as soft as porridge. Mo ate them anyway and said they were 'basically soup'. Gus kept one dry Crunch Rock in a jar for his rock collection."
+          " Serve them with cold milk or yoghurt. A family box costs $9 at the general store. Mo bought one, but it was too tall for the galley cupboard, so now it lives on top of the fridge. Tully measured both, and the box really was taller than the cupboard. Tully read the nutrition panel and nodded, because the fibre number was right. Then she tested the crunch with a stopwatch. After five minutes in milk, her Crunch Rocks were as soft as porridge. Mo ate them anyway and said they were 'basically soup'. Gus kept one dry Crunch Rock in a jar for his rock collection."
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -761,9 +774,9 @@
       "band": 3,
       "topic": "sport",
       "frame": "The Bluster Rock footy club wants a new scoreboard. The club president wrote a letter to every family.",
-      "text": "Dear families, our footy club needs a new scoreboard, and we are asking for your help. The old scoreboard was built in 1972 and has to be changed by hand, one number at a time. Last season, it fell over twice in strong wind. A new electronic scoreboard costs $8,000, and the club has saved $5,000 so far. The new board would show the score, the time left and the quarter, and it could be read from the far side of the oval. Our old scoreboard is so slow that the game is over before the score goes up! Most other clubs in the league already have an electronic board, so don't let our club be left behind. Shouldn't our kids have one too? We are holding a sausage sizzle on Saturday 12 May at the oval, from 11 am until 2 pm. Volunteers are also needed to cook and to sell drinks. All the money raised will go to the scoreboard fund. Thank you for supporting the club. Tully has offered to keep score in her head until then, and she says she has never been wrong.",
+      "text": "Dear families, our footy club needs a new scoreboard, and we are asking for your help. The old scoreboard was built in 1972 and has to be changed by hand, one number at a time. Last season, it fell over twice in strong wind. A new electronic board costs $8,000, and the club has saved $5,000 so far. Our old scoreboard is so slow that the game is over before the score goes up! Most other clubs already have an electronic board, so don't let our club be left behind. Shouldn't our kids have one too? We are holding a sausage sizzle at the oval on Saturday 12 May, from 11 am until 2 pm. Two hundred people came to last year's sizzle. Can you help cook on the day? Please tell the canteen by Friday. All the money raised will go to the scoreboard fund. Thank you for supporting the club. Tully has offered to keep score in her head until then, and she says she has never been wrong.",
       "prompt": "Match each line from the letter to its trick, or to 'no trick'.",
-      "success": "The slow board is blown up, other clubs are the crowd, the question answers itself, and costs are plain information.",
+      "success": "The board is blown up, other clubs are the crowd, and the cooking question needs a real answer.",
       "body": {
         "format": "sort",
         "bins": [
@@ -779,7 +792,7 @@
             "reason": "A game can't end before one score goes up. That's blown way up."
           },
           {
-            "text": "Most other clubs in the league already have an electronic board, so don't let our club be left behind.",
+            "text": "Most other clubs already have an electronic board, so don't let our club be left behind.",
             "bin": 1,
             "reason": "This points to what other clubs have and warns us not to be left behind."
           },
@@ -789,14 +802,14 @@
             "reason": "The president doesn't want an answer. The answer, 'yes', is built in."
           },
           {
-            "text": "A new electronic scoreboard costs $8,000.",
+            "text": "Can you help cook on the day? Please tell the canteen by Friday.",
             "bin": 3,
-            "reason": "This is plain information about the price. No trick is used."
+            "reason": "This question needs a real answer. The club has to know who can cook."
           },
           {
-            "text": "The club has saved $5,000 so far.",
+            "text": "Two hundred people came to last year's sizzle.",
             "bin": 3,
-            "reason": "This is a plain fact that could be checked. No trick is used."
+            "reason": "That's a crowd, but nobody is pushed to join it. It's plain information."
           }
         ]
       }
@@ -854,29 +867,29 @@
       "band": 3,
       "topic": "music",
       "frame": "Maxx has released a song called 'Gold Is My Colour'. He is promoting it on his stream, and the Squawkle is squawking along off-key.",
-      "text": "'Maxx it out, Vantafam! Today is the day. My first ever song, Gold Is My Colour, is out now in the Vantamart music store. I wrote it myself on the deck of the Vantadome, while a Goldie played a gold tambourine. It has a catchy chorus, a guitar solo and a part where I whisper my own name eleven times. The song is three minutes and forty seconds long, and it costs $2. Who here has a gold tambourine at home? Tell me in the comments! The music video was filmed on my gold jet ski, the Gold Rush, and it took nine days to make. Now ask yourself this, Vantafam: why would you wait another minute to get it? Smash that heart button like it owes you money! Stay gold!' Wren listened to the song once, then put her headphones in the freezer. Indi has drawn a moustache on the cover art. Tully counted how many times Maxx sings the word 'gold'. It was forty-three. Mo has hummed it all day and has asked everyone to stop him.",
+      "text": "'Hey, Vantafam! Today is the day. My first ever song, Gold Is My Colour, is out now in the Vantamart music store. I wrote it myself on the deck of the Vantadome, while a Goldie played a gold tambourine. It has a catchy chorus, a guitar solo and a part where I whisper my own name eleven times. The song is three minutes and forty seconds long, and it costs $2. What should my next song be about? Type your ideas in the comments! My chorus is so catchy that seagulls on the jetty have started singing it. Who here has a gold tambourine at home? Tell me below! Now ask yourself this: why would you wait another minute to get it? Stay gold!' Wren listened to the song once, then put her headphones in a drawer. Tully counted how many times Maxx sings the word 'gold'. It was forty-three. Mo has hummed it all day and has asked everyone to stop him.",
       "prompt": "Which line from Maxx's stream is a rhetorical question?",
-      "success": "Maxx doesn't want an answer to 'Why wait?' He's built one in: no reason, so buy it now.",
+      "success": "Maxx doesn't want an answer to 'Why wait?' The answer is built in: no reason, so buy it now.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Why would you wait another minute to get it?"
+            "text": "What should my next song be about? Type your ideas in the comments!",
+            "reason": "Maxx really wants ideas for this one. He asks you to type them."
           },
           {
-            "text": "Who here has a gold tambourine at home? Tell me in the comments!",
-            "reason": "Maxx really wants answers to this one. He asks you to type them in the comments."
+            "text": "Now ask yourself this: why would you wait another minute to get it?"
           },
           {
-            "text": "It has a catchy chorus, a guitar solo and a part where I whisper my own name.",
-            "reason": "This tells you what's in the song. It doesn't ask you anything."
+            "text": "Who here has a gold tambourine at home? Tell me below!",
+            "reason": "Maxx wants real replies here. He asks you to tell him below."
           },
           {
-            "text": "Smash that heart button like it owes you money!",
-            "reason": "This tells you to do something. It doesn't ask you anything."
+            "text": "My chorus is so catchy that seagulls on the jetty have started singing it.",
+            "reason": "That's blown up, not a question. Seagulls don't learn songs."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -901,53 +914,49 @@
           },
           " Each robot will have two minutes to finish an obstacle course on the stage. ",
           {
-            "tap": "Last year's winning robot was so clever it now teaches maths at the university."
+            "tap": "Last year's contest was so popular that it had to move to a bigger room.",
+            "reason": "Big, but true. So many people came that it moved from the library to the hall."
+          },
+          " ",
+          {
+            "tap": "Last year's winning robot was so clever that it now teaches maths at the university."
           },
           " ",
           {
             "tap": "The judges will give points for speed, design and teamwork.",
             "reason": "This is plain information about how robots are scored."
           },
-          " Entries close on 30 June, and the contest will be held in the school hall on 14 July. ",
-          {
-            "tap": "There is no entry fee.",
-            "reason": "This is a plain fact about the cost. No trick is used."
-          },
-          " Gus has already started building. His robot is called Snotbot, and it is mostly made from a tissue box. Every robot that finishes the course will get a certificate. Parents and friends are welcome to watch from the back of the hall, and the Year 6 class will run a cake stall."
+          " Entries close on 30 June. Last year, the library was so packed that people stood in the doorway, so this year the contest will be held in the school hall, which seats 400. Gus has already started building. His robot is called Snotbot, and it is mostly made from a tissue box. Every robot that finishes the course will get a certificate. Parents and friends are welcome to watch, and the Year 6 class will run a cake stall."
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
       "id": "3.7-b4-1",
       "band": 4,
       "topic": "general",
-      "frame": "Year 6 student Priya is campaigning for a longer lunch break at Bluster Rock School. She gave this speech at assembly, and the Squawkle squawked at one line in particular.",
-      "prompt": "Tap the sentence in Priya's speech that uses 'everyone's doing it'.",
-      "success": "Priya points to a crowd of schools that have 'made the switch' and warns that we're being left behind.",
+      "frame": "Year 6 student Priya is campaigning for a longer lunch break at Bluster Rock School. She gave this speech at assembly.",
+      "text": "Good morning, everyone. My name is Priya, and I am here to ask the school council to make our lunch break longer. At the moment, we have twenty-five minutes to eat our lunch, go to the toilet, fill our drink bottles and play. By the time most of us reach the oval, the bell is already ringing. Last Tuesday, I timed the canteen queue. It took me nine minutes just to buy a sausage roll. Dr Kim Nguyen, a researcher who studies children's health, says that kids who play outside at lunch concentrate better in the afternoon. I have spoken to the canteen staff, and they say that a longer lunch would also mean shorter queues. The school day would finish fifteen minutes later, but most parents I asked said they would not mind. So I have one question for the council. Is twenty-five minutes really enough time to eat, play and get ready to learn again? Please vote yes at the council meeting on Thursday. Thank you for listening, and please put your apple cores in the bin, not on the oval.",
+      "prompt": "Priya could have said, 'Twenty-five minutes is not enough.' Why did she ask it as a question instead?",
+      "success": "A rhetorical question lets listeners answer it themselves. Agreeing in your own head feels like your idea, not Priya's.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "Good morning, everyone. My name is Priya, and I am here to ask the school council to make our lunch break longer. At the moment, we have twenty-five minutes to eat our lunch, go to the toilet, fill our drink bottles and play. By the time most of us reach the oval, the bell is already ringing. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "Our lunch break is so short that blinking uses up half of it.",
-            "reason": "This is exaggeration. Blinking doesn't take twelve minutes, so the claim is blown up."
+            "text": "She wants the council to tell her how many minutes would be enough.",
+            "reason": "Nobody is asked for a number. The answer, 'no', is already built in."
           },
-          " ",
           {
-            "tap": "Dr Kim Nguyen, a researcher who studies children's health, says that kids who play outside at lunch concentrate better in the afternoon.",
-            "reason": "This backs up the claim with an expert. It isn't one of the three tricks."
+            "text": "She isn't sure, so she's asking the council for advice.",
+            "reason": "Priya gives a whole speech of reasons. She is sure of her answer."
           },
-          " ",
           {
-            "tap": "Nearly every school on the mainland has already made the switch to a forty-minute lunch, and we are being left behind."
+            "text": "Listeners think 'no' for themselves, so it feels like their own idea."
           },
-          " ",
           {
-            "tap": "Is twenty-five minutes really enough time to eat, play and get ready to learn again?",
-            "reason": "This is a rhetorical question. Priya has built the answer, 'no', into it."
-          },
-          " I have spoken to the canteen staff, and they say that a longer lunch would also mean shorter queues. The school day would finish fifteen minutes later, but most parents I asked said they would not mind. Please vote yes at the council meeting on Thursday. Thank you for listening, and please don't throw your apple cores at the seagulls."
+            "text": "A question blows the problem up, so it sounds far worse than it is.",
+            "reason": "Blowing up is exaggeration. Nothing in that question is bigger than it really is."
+          }
         ],
         "answer": 2
       }
@@ -956,30 +965,30 @@
       "id": "3.7-b4-2",
       "band": 4,
       "topic": "ocean",
-      "frame": "A ferry company has mailed a glossy brochure to every house on Bluster Rock. Tully is comparing it with the bus timetable.",
-      "text": "INTRODUCING THE BLUSTER EXPRESS. From the first of March, our brand-new passenger ferry will run between Bluster Rock and the mainland six times a day, seven days a week. The ferry seats 120 passengers on two decks, with a cafe on the lower deck and an open-air viewing platform at the top, where dolphins are often spotted in the channel. The crossing takes forty minutes in calm weather, and bicycles can travel free of charge. Adult tickets are $18 each way, and children under twelve travel for half price. At the moment, the only other way to reach the mainland is the coast road, a three-hour drive around the bay. Why would anyone endure three hours behind the wheel when they could be sipping a hot chocolate on the water? Tickets can be bought online or at the kiosk on the jetty. Tully checked the bus timetable and found that the coast road really does take three hours. She also worked out that the ferry would save her family about 120 hours of driving a year, which she has written on the fridge.",
-      "prompt": "Which trick does the brochure use in the sentence about hot chocolate?",
-      "success": "A rhetorical question. The brochure isn't asking you. It builds in the answer: nobody would, so take the ferry.",
+      "frame": "A ferry company has mailed a glossy brochure to every house on Bluster Rock. Tully is reading it with a pencil.",
+      "text": "INTRODUCING THE BLUSTER EXPRESS. From the first of March, our brand-new passenger ferry will run between Bluster Rock and the mainland six times a day, seven days a week. The ferry seats 120 passengers on two decks, with a cafe on the lower deck and an open-air viewing platform at the top, where dolphins are often spotted in the channel. The crossing takes forty minutes, and bicycles travel free of charge. The ferry carries people and bicycles only. Cars and trailers must still take the coast road, which is a three-hour drive around the bay. Adult tickets are $18 each way, and children under twelve travel for half price. Why would anyone endure three hours behind the wheel when they could be sipping a hot chocolate on the water? Tickets can be bought online or at the kiosk on the jetty. The cafe sells hot chocolate, toasted sandwiches and lamingtons. On very rough days the ferry may not run, and ticket holders will get a text message. Tully underlined the hot chocolate question and wrote 'Is that actually true?' beside it.",
+      "prompt": "The hot chocolate question has its answer built in: nobody would drive. Which line shows that some people still have to?",
+      "success": "Anyone with a car or trailer still has to drive. Asking 'Is it actually true?' takes the trick's power away.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "exaggeration",
-            "reason": "Tully checked: the drive really takes three hours. Nothing is blown up."
+            "text": "Bicycles travel free of charge.",
+            "reason": "That's a reason to take the ferry. It gives nobody a reason to drive."
           },
           {
-            "text": "everyone's doing it",
-            "reason": "The sentence doesn't point to a crowd of people already using the ferry."
+            "text": "The coast road is a three-hour drive around the bay.",
+            "reason": "This says how long the drive takes. It doesn't show that anyone has to make it."
           },
           {
-            "text": "no trick, just information",
-            "reason": "The sentence tells you nothing new. What answer does it want you to think of?"
+            "text": "Cars and trailers must still take the coast road."
           },
           {
-            "text": "rhetorical question"
+            "text": "Children under twelve travel for half price.",
+            "reason": "Cheaper tickets push people onto the ferry, not into a car."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -987,9 +996,9 @@
       "band": 4,
       "topic": "animals",
       "frame": "The new Red Rock Wildlife Park has printed a brochure. Wren read it with a pencil in her hand, marking every trick.",
-      "text": "WELCOME TO THE RED ROCK WILDLIFE PARK. Nestled at the foot of Bluster Rock, our park is home to more than forty species of native animals, from tiny dunnarts to towering emus. Our keepers care for injured and orphaned animals and, where possible, return them to the wild. The park covers twelve hectares and is open from 9 am to 5 pm every day except Christmas Day. Our walk-through aviary is so enormous that birds have been known to get lost on their way to lunch. Thousands of families have already made the park their favourite day out, so don't be the one still sitting at home. Who could resist the chance to meet a bilby up close? Keeper talks are held every hour on the hour, and visitors can help feed the kangaroos at 2 pm. Entry costs $22 for adults and $11 for children, and all money goes towards the animals' care. The park cafe sells sandwiches, ice creams and hot drinks, and picnic tables are set out under the coolabah trees beside the waterhole. Wheelchairs and prams can travel on every path, and a night tour runs on Friday evenings in summer. Wren underlined the aviary line twice and wrote 'Really?' in the margin.",
+      "text": "WELCOME TO THE RED ROCK WILDLIFE PARK. Nestled at the foot of Bluster Rock, our park is home to more than forty kinds of native animals, from tiny dunnarts to towering emus. Our keepers care for injured and orphaned animals and, where possible, return them to the wild. You'll meet every animal in Australia in one afternoon. The park is big enough to need its own little train, which stops at the aviary, the waterhole and the koala walk. Last year, 60,000 people visited the park. Every family on your street has been. Yours is the only one left. Who could resist meeting a bilby up close? Keeper talks are held every hour on the hour, and visitors can help feed the kangaroos at 2 pm. Entry costs $22 for adults and $11 for children. Is your child under four? Then entry is free. The park cafe sells sandwiches, ice creams and hot drinks, and picnic tables sit under the coolabah trees beside the waterhole. Wheelchairs and prams can travel on every path, and a night tour runs on Friday evenings in summer.",
       "prompt": "Match each line from the brochure to its trick, or to 'no trick'.",
-      "success": "The aviary is blown up, families are the crowd, the bilby question answers itself, and opening hours are plain information.",
+      "success": "Every animal is blown up and your street is the crowd. The real question and true facts are no trick.",
       "body": {
         "format": "sort",
         "bins": [
@@ -1000,29 +1009,34 @@
         ],
         "items": [
           {
-            "text": "Our walk-through aviary is so enormous that birds have been known to get lost on their way to lunch.",
+            "text": "You'll meet every animal in Australia in one afternoon.",
             "bin": 0,
-            "reason": "Birds don't get lost in an aviary on their way to lunch. That's blown way up."
+            "reason": "The park has about forty kinds of animal. That's nowhere near every animal in Australia."
           },
           {
-            "text": "Thousands of families have already made the park their favourite day out, so don't be the one still sitting at home.",
+            "text": "Every family on your street has been. Yours is the only one left.",
             "bin": 1,
-            "reason": "This points to a crowd of families and warns you not to be left out."
+            "reason": "This says everyone near you has been, so your family had better join them."
           },
           {
-            "text": "Who could resist the chance to meet a bilby up close?",
+            "text": "Who could resist meeting a bilby up close?",
             "bin": 2,
-            "reason": "The brochure isn't asking for an answer. It builds in 'nobody could'."
+            "reason": "The brochure isn't asking. It builds in the answer: nobody could."
           },
           {
-            "text": "The park covers twelve hectares and is open from 9 am to 5 pm.",
+            "text": "Is your child under four? Then entry is free.",
             "bin": 3,
-            "reason": "This is plain information that could be checked. No trick is used."
+            "reason": "This question needs a real answer. Your answer tells you what you'll pay."
           },
           {
-            "text": "Visitors can help feed the kangaroos at 2 pm.",
+            "text": "The park is big enough to need its own little train.",
             "bin": 3,
-            "reason": "This simply tells you what you can do and when. No trick is used."
+            "reason": "A big claim, but true. The train really runs, so nothing is blown up."
+          },
+          {
+            "text": "Last year, 60,000 people visited the park.",
+            "bin": 3,
+            "reason": "That's a crowd, but nobody is pushed to join it. It's plain information."
           }
         ]
       }
@@ -1031,48 +1045,44 @@
       "id": "3.7-b4-4",
       "band": 4,
       "topic": "spooky",
-      "frame": "Wren wrote a short analysis of a ghost tour brochure for the crew. Indi checked it and found one mistake.",
-      "text": "THE MIDNIGHT HOMESTEAD TOUR. Step back in time at the old Crowley homestead, built of sandstone in 1884 and empty since 1914. Guided by lantern light, you will explore the cellar, the shearers' quarters and the bedroom where, according to local legend, a rocking chair still rocks on windless nights. Line 1: 'Why settle for another dull evening in front of the television?' Line 2: 'Our guides tell stories so chilling that visitors' hair has turned white on the spot.' Line 3: 'The cellar is so cold that your breath will freeze into tiny ghosts and float away.' Tours leave from the homestead gate at 9 pm every Friday and Saturday, and last about ninety minutes. The track is uneven, so sturdy shoes and a torch are recommended. Tickets are $25, or $15 for children over ten, and the tour is not recommended for younger children. Bookings close at noon on the day of each tour, and groups are limited to fifteen people so that everyone fits inside the cellar. Indi has already designed a ghost disguise for Mo. Hot chocolate is served in the kitchen at the end of every tour, beside the old iron stove that Elsie Crowley once cooked on.",
+      "frame": "Wren wrote notes on a ghost tour brochure for the crew. Indi checked them and found one mistake.",
+      "text": "THE MIDNIGHT HOMESTEAD TOUR. Step back in time at the old Crowley homestead, built of sandstone in 1884 and empty since 1914. The island's first car did not arrive until 1911, so the Crowleys travelled by horse and cart. Guided by lantern light, you will explore the cellar, the shearers' quarters and the bedroom where, according to local legend, a rocking chair still rocks on windless nights. Line 1: 'Why settle for another dull evening in front of the television?' Line 2: 'The homestead is so old that it was built before the first car came to the island.' Line 3: 'Our guides tell stories so chilling that visitors' hair has turned white on the spot.' Tours leave from the homestead gate at 9 pm every Friday and Saturday, and last about ninety minutes. The track is uneven, so sturdy shoes and a torch are recommended. Tickets are $25, or $15 for children over ten. Hot chocolate is served in the kitchen at the end of every tour, beside the old iron stove that Elsie Crowley once cooked on.",
       "prompt": "Wren mislabelled one line. Tap the wrong label, then choose the right one.",
-      "success": "Line 1 asks a question with its answer built in: don't settle for a dull evening, so book the tour.",
+      "success": "The homestead was built in 1884, and the first car came in 1911. 'So old' is big, but true.",
       "body": {
         "format": "fix",
         "parts": [
           "Line 1 uses ",
           {
-            "tap": "everyone's doing it"
+            "tap": "a rhetorical question",
+            "reason": "That's right. Nobody is meant to answer. 'Don't settle for a dull evening' is built in."
           },
           ". Line 2 uses ",
           {
-            "tap": "exaggeration",
-            "reason": "That's right. Nobody's hair turns white on the spot from a story."
+            "tap": "exaggeration"
           },
           ". Line 3 uses ",
           {
             "tap": "exaggeration",
-            "reason": "That's right. Breath can't freeze into ghosts. The brochure is blowing up how cold it is."
+            "reason": "That's right. Nobody's hair turns white on the spot from a story."
           },
           "."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
           {
-            "text": "exaggeration",
-            "reason": "Line 1 doesn't blow anything up. Does the brochure really want your answer?"
+            "text": "everyone's doing it",
+            "reason": "Line 2 doesn't mention a crowd or tell you to join anyone."
           },
           {
-            "text": "a rhetorical question"
+            "text": "a rhetorical question",
+            "reason": "Line 2 isn't a question. It's a statement about the homestead's age."
           },
           {
-            "text": "no trick, just information",
-            "reason": "Line 1 gives no information about the tour. It's there to push you."
-          },
-          {
-            "text": "a real question for the reader to answer",
-            "reason": "The brochure doesn't want your answer. It has already decided it for you."
+            "text": "no trick, just information"
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -1080,26 +1090,26 @@
       "band": 4,
       "topic": "funny",
       "frame": "Mo has started an online campaign to raise money for a floating restaurant. The crew is worried. So is the Squawkle.",
-      "text": "MO'S FLOATING FEAST: HELP ME BUILD IT! Hello, friends of Bluster Rock. For years, I have dreamed of opening a restaurant on a raft in the middle of Bluster Bay, where diners can enjoy my cooking while watching the sunset over the rock. I have found a second-hand pontoon that can hold eight tables, and a local builder has agreed to fit a kitchen and a roof. The whole project will cost $14,000. If you give $20, you will get a free bowl of my famous seaweed spag bol. If you give $100, I will name a dish after you. Since the campaign began, more than four hundred islanders have pledged their support, so don't be the last to jump aboard. The menu will include fish-finger custard, gum-leaf pancakes and sardine trifle, all cooked fresh on board. The harbour master has asked me to add life jackets for every diner, which I think is a bit much. Gus has offered to design a slime-powered motor, and Tully has calculated a 64 per cent chance that the raft will float.",
-      "prompt": "Which trick does Mo use in the sentence about four hundred islanders?",
-      "success": "Everyone's doing it. Mo points to four hundred supporters and tells you not to be the last to join.",
+      "text": "MO'S FLOATING FEAST: HELP ME BUILD IT! Hello, friends of Bluster Rock. For years, I have dreamed of opening a restaurant on a raft in the middle of Bluster Bay, where diners can enjoy my cooking while watching the sunset over the rock. I have found a second-hand pontoon that can hold eight tables, and a local builder has agreed to fit a kitchen and a roof. The whole project will cost $14,000. If you give $20, you will get a free bowl of my famous seaweed spag bol. If you give $100, I will name a dish after you. Since the campaign began, more than four hundred islanders have pledged their support, so don't be the last to join. The menu will include fish-finger custard, gum-leaf pancakes and sardine trifle, all cooked fresh on board. The harbour master has asked me to add life jackets for every diner, which I think is a bit much. Gus has offered to design a slime-powered motor, and Tully has worked out that there is a 64 per cent chance the raft will float.",
+      "prompt": "Tully wants to answer back to the line about four hundred islanders. Which reply takes away the trick's power?",
+      "success": "Ask: is it actually true? Pledges are about the crowd, not the raft. Tully says it might not float.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "no trick, just information",
-            "reason": "The number might be true, but 'don't be the last to jump aboard' pushes you to follow the crowd."
+            "text": "Four hundred is too small to count as a real crowd.",
+            "reason": "Size isn't the problem. Even a huge crowd wouldn't prove the raft floats."
           },
           {
-            "text": "everyone's doing it"
+            "text": "A crowd of pledges doesn't prove the raft will float."
           },
           {
-            "text": "exaggeration",
-            "reason": "Four hundred islanders is a realistic number. The trick is the crowd you're urged to join."
+            "text": "Mo probably made that number up, so just ignore it.",
+            "reason": "The number might be true. Ask whether the crowd proves anything."
           },
           {
-            "text": "rhetorical question",
-            "reason": "The sentence is a statement, not a question. It points to a crowd instead."
+            "text": "Then I'd better give $20 too, before it's too late.",
+            "reason": "That's doing just what the trick wants. It doesn't answer back."
           }
         ],
         "answer": 1
@@ -1110,31 +1120,27 @@
       "band": 4,
       "topic": "art",
       "frame": "Maxx is auctioning a painting on his stream to raise money for his 'Rescue Fund'. Indi is watching, with her moustache pen ready.",
-      "prompt": "Tap the sentence in Maxx's pitch that uses exaggeration.",
-      "success": "No painting has ever made art experts faint. Maxx blows up its effect to make it sound priceless.",
+      "text": "'Hey, Vantafam! Tonight, I'm auctioning something truly special to raise money for my Rescue Fund. This is a painting of me, by me, called Gold Is Forever. I painted it on the deck of the Vantadome using real gold-coloured paint, and it's signed in the bottom corner. It measures one metre by two metres, and the frame is solid wood. Bidding starts at $500, and the winner will receive a certificate signed by me. The auction closes at midnight. Over twenty thousand of you are already bidding, so bid now before it's too late. Don't those poor Creatures deserve a hero like me? Every cent goes to the Rescue Fund. Stay gold!' Indi copied the bidding line into her notebook. Then she crossed out the second half, so it said only: 'Over twenty thousand of you are already bidding.' Wren muttered that she'd love to know where the money really goes. Indi's moustache pen hovered over the screen, but she decided to take notes instead. Gus asked whether gold-coloured paint is the same as gold. It is not. Mo asked whether the painting came with a pie.",
+      "prompt": "Indi crossed out 'so bid now before it's too late'. What did that part add to the line?",
+      "success": "On its own, the number is information. 'Bid now before it's too late' turns it into everyone's doing it.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "'Maxx it out, Vantafam! Tonight, I'm auctioning something truly special to raise money for my Rescue Fund. This is a painting of me, by me, called Gold Is Forever. I painted it on the deck of the Vantadome using real gold-coloured paint, and it's signed in the bottom corner. It measures one metre by two metres, and the frame is solid wood. Bidding starts at $500, and the winner will receive a certificate signed by me and a photo of me holding the painting. One of my Goldies will deliver it, wrapped in gold paper. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "When I showed it to a group of art experts, three of them fainted on the spot."
+            "text": "It turns a plain number into a push to join."
           },
-          " ",
           {
-            "tap": "The auction closes at midnight, and the highest bidder takes it home.",
-            "reason": "This is plain information about how the auction works. No trick is used."
+            "text": "It makes the number of bidders sound bigger than it is.",
+            "reason": "The number stays the same with or without it. Nothing is blown up."
           },
-          " ",
           {
-            "tap": "Over twenty thousand of you are already bidding, so jump in before it's too late.",
-            "reason": "This is 'everyone's doing it'. It points to a crowd of bidders and urges you to join."
+            "text": "It asks a question with the answer built in.",
+            "reason": "There's no question in that part. It tells you to do something."
           },
-          " ",
           {
-            "tap": "Don't those poor Creatures deserve a hero like me?",
-            "reason": "This is a rhetorical question. The answer Maxx wants, 'yes', is built in."
-          },
-          " Every cent goes to the Rescue Fund. Smash that heart button like it owes you money! Stay gold!' Wren muttered that she'd love to know where that money really goes. Indi drew a moustache on the painting on her screen, and Zed screenshotted it for the evidence folder. Gus asked whether gold-coloured paint is the same as gold. It is not."
+            "text": "It tells you exactly when the auction closes.",
+            "reason": "'Too late' gives no time. The midnight close is in a different line."
+          }
         ],
         "answer": 0
       }

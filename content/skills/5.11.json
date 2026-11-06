@@ -257,6 +257,12 @@
       "name": "Kelpwick",
       "evolved": "Kelpwyvern",
       "blurb": "A leafy seadragon with a frond for how, when, where and why. Hang the right words on the right frond and it glides."
+    },
+    "write": {
+      "ask": "Rewrite this sentence. Add adverb groups that tell Mum when and where Mo hid the lollies.",
+      "given": ["Mo hid the lollies."],
+      "checks": ["I added a group that answers when", "I added a group that answers where", "Both groups are about the hiding, not a noun"],
+      "model": "After dinner, Mo hid the lollies in the washing basket."
     }
   },
   "encounters": [
@@ -601,20 +607,20 @@
       "id": "5.11-b3-4",
       "band": 3,
       "topic": "ocean",
-      "frame": "The Kelpwick's fronds are tangled with groups from a reef report. Sort them out.",
-      "prompt": "Match each group to the question it answers.",
-      "success": "How groups show the way something is done, when groups give a time, and why groups give a reason.",
+      "frame": "The Kelpwick's fronds are tangled with groups from a reef report. Some look alike but do different jobs.",
+      "prompt": "Match each group to the right pile.",
+      "success": "Right after a noun, a group tells you which one. About the action, it says how, when, where or why.",
       "body": {
         "format": "sort",
-        "bins": ["how?", "when?", "why?"],
+        "bins": ["about the action (how, when, where, why)", "about a noun (which one)"],
         "items": [
-          { "text": "with one flick of its tail", "bin": 0, "reason": "With one flick of its tail is the way the fish moved, so it tells you how." },
-          { "text": "at low tide", "bin": 1, "reason": "It starts with 'at', but low tide is a time of day. It tells you when." },
-          { "text": "to escape the shark", "bin": 2, "reason": "To escape the shark is the reason for moving, so it tells you why." },
-          { "text": "once the sun went down", "bin": 1, "reason": "Once the sun went down is a moment in time, so it tells you when." },
-          { "text": "in a zigzag", "bin": 0, "reason": "In a zigzag is the way the fish swam, so it tells you how." },
-          { "text": "without making a ripple", "bin": 0, "reason": "Without making a ripple is the way it moved, so it tells you how." },
-          { "text": "because the water was too warm", "bin": 2, "reason": "Because the water was too warm gives a reason, so it tells you why." }
+          { "text": "'under the jetty' in: The crab under the jetty pinched Gus.", "bin": 1, "reason": "It sits right after crab and tells you which crab did the pinching." },
+          { "text": "'under the jetty' in: The crab scuttled under the jetty.", "bin": 0, "reason": "It tells you where the crab scuttled, so it's about the action." },
+          { "text": "'with the torn fin' in: The shark with the torn fin circled us.", "bin": 1, "reason": "It sits right after shark and tells you which shark." },
+          { "text": "'with one flick of its tail' in: The ray vanished with one flick of its tail.", "bin": 0, "reason": "It tells you how the ray vanished, so it's about the action." },
+          { "text": "'on the outer reef' in: The coral on the outer reef is bleaching.", "bin": 1, "reason": "It sits right after coral and tells you which coral." },
+          { "text": "'at low tide' in: At low tide, we explored the rock pools.", "bin": 0, "reason": "It tells you when we explored, so it's about the action." },
+          { "text": "'to escape the shark' in: The fish darted away to escape the shark.", "bin": 0, "reason": "It tells you why the fish darted away, so it's about the action." }
         ]
       }
     },
@@ -622,14 +628,14 @@
       "id": "5.11-b3-5",
       "band": 3,
       "topic": "gaming",
-      "frame": "Zed's speedrun notes need to say why he skipped the bonus level.",
-      "prompt": "Tap the pieces in order to make a sentence that tells the reader why.",
-      "success": "To save eleven seconds is the reason, so the reader knows why Zed skipped it.",
+      "frame": "Zed's viewers asked two things about his speedrun: when did he skip the bonus level, and why?",
+      "prompt": "Tap the pieces in order to make a sentence that answers both questions.",
+      "success": "On his third try tells you when, and to save eleven seconds tells you why. Both questions answered.",
       "body": {
         "format": "build",
-        "tiles": ["Zed skipped the bonus level", "to save eleven seconds.", "with one clever jump.", "on his third try."],
-        "accept": ["Zed skipped the bonus level to save eleven seconds."],
-        "reason": "With one clever jump tells you how. On his third try tells you when. Neither gives the reason."
+        "tiles": ["In a hurry,", "to save eleven seconds.", "On the castle map,", "Zed skipped the bonus level", "with one clever jump.", "On his third try,"],
+        "accept": ["On his third try, Zed skipped the bonus level to save eleven seconds."],
+        "reason": "Check each group. Does it answer when, or why? Or does it answer a question nobody asked?"
       }
     },
     {
@@ -655,19 +661,19 @@
       "id": "5.11-b4-1",
       "band": 4,
       "topic": "spooky",
-      "frame": "Zed's ghost story needs one more detail. The Kelpwick says the reader must know when.",
-      "text": "___, the lighthouse lamp began to turn again, though nobody had touched it for fifty years.",
-      "prompt": "Which group tells the reader when?",
-      "success": "Just as the last light faded from the sky is a moment in time, so it tells the reader when.",
+      "frame": "Zed's ghost story has a sentence packed with adverb groups. The Kelpwick says the reader still has one question.",
+      "text": "At midnight, the lighthouse lamp began to turn again, slowly and silently, high above the jagged rocks.",
+      "prompt": "Which question about the lamp does the sentence leave unanswered?",
+      "success": "Why. The sentence tells you when, how and where, but never the reason. That's what keeps the reader spooked.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Just as the last light faded from the sky" },
-          { "text": "Without a single creak or groan", "reason": "Without a single creak or groan is the way the lamp turned. It tells you how, not when." },
-          { "text": "High above the jagged rocks", "reason": "High above the jagged rocks is a place. It tells you where, not when." },
-          { "text": "For reasons nobody could explain", "reason": "For reasons nobody could explain is about the reason, even if it's a mystery. It tells you why, not when." }
+          { "text": "When did the lamp start turning?", "reason": "At midnight answers when. Check each group for the question it answers." },
+          { "text": "Why did the lamp start turning?" },
+          { "text": "How did the lamp turn?", "reason": "Slowly and silently answers how. Check each group for the question it answers." },
+          { "text": "Where was the lamp turning?", "reason": "High above the jagged rocks answers where. Check each group for the question it answers." }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -724,53 +730,62 @@
       "id": "5.11-b4-4",
       "band": 4,
       "topic": "robots",
-      "frame": "The security robot's program is full of adverb groups. Sort them for the Kelpwick.",
-      "prompt": "Match each group to the question it answers.",
-      "success": "Where gives a place, when gives a time, and why gives a reason or purpose, even as whole clauses.",
+      "frame": "The factory boss asked, 'Why does the security robot patrol the roof?' The robot's report answers the wrong question.",
+      "prompt": "The boss asked why. Tap the group that answers the wrong question, then choose one that answers it.",
+      "success": "To stop thieves climbing in through the skylight is the reason. A why group doesn't need 'because'.",
       "body": {
-        "format": "sort",
-        "bins": ["where?", "when?", "why?"],
-        "items": [
-          { "text": "wherever the signal is strongest", "bin": 0, "reason": "Wherever the signal is strongest points to a place, so it tells you where." },
-          { "text": "after the last cleaner goes home", "bin": 1, "reason": "After the last cleaner goes home tells you the time the patrol starts, so it tells you when." },
-          { "text": "so that no intruder slips past", "bin": 2, "reason": "So that no intruder slips past is the purpose, so it tells you why." },
-          { "text": "before the factory doors open", "bin": 1, "reason": "Before the factory doors open is a point in time, so it tells you when." },
-          { "text": "along the edge of the roof", "bin": 0, "reason": "Along the edge of the roof is a place, so it tells you where." },
-          { "text": "because the night guard is on holiday", "bin": 2, "reason": "Because the night guard is on holiday gives the reason for the patrol, so it tells you why." }
-        ]
+        "format": "fix",
+        "parts": [
+          { "tap": "Whenever the alarm is switched on" },
+          ", the security ",
+          { "tap": "robot", "reason": "Robot is who the report is about. Look for the group that answers a question." },
+          " ",
+          { "tap": "patrols", "reason": "Patrols is what the robot does. Look for the group that answers the wrong question." },
+          " the ",
+          { "tap": "roof", "reason": "The roof is where it patrols, and the boss already knows that. Look for another group." },
+          "."
+        ],
+        "spot": 0,
+        "options": [
+          { "text": "Along the gutters and chimneys", "reason": "This is a place. It tells you where, and the boss asked why." },
+          { "text": "With its torch on full beam", "reason": "This is the way it patrols. It tells you how, and the boss asked why." },
+          { "text": "Straight after the cleaners leave", "reason": "This is a time. It tells you when, just like the group you tapped." },
+          { "text": "To stop thieves climbing in through the skylight" }
+        ],
+        "answer": 3
       }
     },
     {
       "id": "5.11-b4-5",
       "band": 4,
       "topic": "art",
-      "frame": "Indi's gallery label needs to say how she made her sculpture.",
-      "prompt": "Tap the pieces in order to make a sentence that tells the reader how.",
-      "success": "By twisting together forty old coat hangers is the method, so the reader knows how she built it.",
+      "frame": "The gallery wants Indi's label to tell visitors how she made her sculpture and what it's for. Nothing else.",
+      "prompt": "Tap the pieces in order to make a label that answers how and why.",
+      "success": "By twisting together forty old coat hangers tells you how. To show how much we throw away tells you why.",
       "body": {
         "format": "build",
-        "tiles": ["Indi built the sculpture", "by twisting together forty old coat hangers.", "during the summer holidays.", "for the school fete."],
-        "accept": ["Indi built the sculpture by twisting together forty old coat hangers."],
-        "reason": "During the summer holidays tells you when. For the school fete tells you why. The label needs how."
+        "tiles": ["Indi built the sculpture", "during the summer holidays", "to show how much we throw away.", "by twisting together forty old coat hangers", "in the school art room."],
+        "accept": ["Indi built the sculpture by twisting together forty old coat hangers to show how much we throw away."],
+        "reason": "Visitors want two answers: how she made it, and why. Which groups answer when or where instead?"
       }
     },
     {
       "id": "5.11-b4-6",
       "band": 4,
       "topic": "food",
-      "frame": "Mo's restaurant review has one detail missing. The Kelpwick wants the how.",
-      "text": "The waiter carried the towering pavlova to our table ___, as though one wrong step might bring the whole thing down.",
-      "prompt": "Which group tells the reader how?",
-      "success": "With painfully slow, careful steps is the way he carried it, so it tells you how.",
+      "frame": "Mo's restaurant review has two groups that start with 'with'. The Kelpwick wants the one that tells you how.",
+      "text": "The waiter with the shaky hands carried the towering pavlova to our table with painfully slow steps.",
+      "prompt": "Which group tells you how the waiter carried the pavlova?",
+      "success": "With painfully slow steps is the way he carried it. 'With the shaky hands' just tells you which waiter.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "with painfully slow, careful steps" },
-          { "text": "the moment the lights dimmed", "reason": "The moment the lights dimmed is a time. It tells you when he carried it, not how." },
-          { "text": "past the crowded kitchen doors", "reason": "Past the crowded kitchen doors is a place on his route. It tells you where, not how." },
-          { "text": "to celebrate Nan's eightieth birthday", "reason": "To celebrate Nan's eightieth birthday is the reason for the pavlova. It tells you why, not how." }
+          { "text": "with the shaky hands", "reason": "This sits right after waiter and tells you which waiter. It's about the noun, not the carrying." },
+          { "text": "to our table", "reason": "To our table tells you where he carried it, not how." },
+          { "text": "with painfully slow steps" },
+          { "text": "the towering pavlova", "reason": "That's what he carried. It doesn't tell you how he carried it." }
         ],
-        "answer": 0
+        "answer": 2
       }
     }
   ]

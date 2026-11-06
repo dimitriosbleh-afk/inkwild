@@ -259,6 +259,19 @@
       "name": "Humbret",
       "evolved": "Humbregal",
       "blurb": "An egret that's sure the whole mangrove forest is alive. It chats with the tide, argues with the wind and says sorry to the mud."
+    },
+    "write": {
+      "ask": "Rewrite this sentence so the wind does something only people do. Make the wind seem angry.",
+      "given": [
+        "The wind blew the door shut."
+      ],
+      "starter": "The wind",
+      "checks": [
+        "The wind does something only people do",
+        "My doing word makes the wind seem angry",
+        "The door still gets shut"
+      ],
+      "model": "The wind kicked the door shut and stomped off down the jetty."
     }
   },
   "encounters": [
@@ -531,42 +544,42 @@
       "topic": "food",
       "frame": "Gus wrote a note about Wren's picnic story. One word is wrong.",
       "text": "It was the hottest day of the year, and we had our picnic on the beach anyway. By lunchtime, the sun glared down at us from a cloudless sky. There was no shade anywhere. The birthday cake gave up and slumped sideways, and its pink icing slid onto the rug. The lemonade went warm. A line of ants crawled across the sand towards the food. Mum put up a beach umbrella, but the wind blew it into the water. In the end, we ate warm, squashed cake in the car with the air-conditioning on full blast. It was still the best birthday ever.",
-      "prompt": "Tap the word Gus got wrong, then choose a better one.",
-      "success": "Glared. An angry person glares, so the sun seems fierce and cruel on this hot day.",
+      "prompt": "Tap the part Gus got wrong, then choose a better one.",
+      "success": "Cruel. Glaring is an angry stare, not a curious one, so the sun seems fierce on this scorching day.",
       "body": {
         "format": "fix",
         "parts": [
-          "In Wren's story, the sun ",
+          "In Wren's story, the ",
           {
-            "tap": "peeked"
+            "tap": "sun",
+            "reason": "That's right. In Wren's story, the sun glared down from a cloudless sky."
           },
-          " down at the picnic. The cake ",
+          " glares down at the picnic. That makes it seem ",
           {
-            "tap": "gave up",
-            "reason": "That's right. The cake 'gave up and slumped sideways'."
+            "tap": "curious"
           },
-          ". The ants ",
+          ". The ",
           {
-            "tap": "crawled",
-            "reason": "That's right. A line of ants crawled across the sand."
+            "tap": "cake",
+            "reason": "That's right. The cake 'gave up and slumped sideways' in the heat."
           },
-          " towards the food."
+          " gives up and slumps, so it seems worn out."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
           {
-            "text": "smiled",
-            "reason": "Smiling is friendly. This sun is so hot the cake slumps. Check the word the story uses."
+            "text": "cruel"
           },
           {
-            "text": "glared"
+            "text": "sleepy",
+            "reason": "Sleepy people doze. This sun glares so hard there's no shade anywhere."
           },
           {
-            "text": "blinked",
-            "reason": "Blinking is quick, on and off. This sun blazed down from a cloudless sky all day."
+            "text": "shy",
+            "reason": "Shy people look away. This sun stares down all day from a cloudless sky."
           }
         ],
-        "answer": 1
+        "answer": 0
       }
     },
     {
@@ -678,111 +691,111 @@
       "band": 3,
       "topic": "ocean",
       "frame": "Tully read this from an old fisherman's logbook. The Humbret is clinging to the mast.",
-      "text": "We left the harbour at dawn, when the water was flat and grey, and for the first two hours nothing happened at all. Then the wind swung around to the south, and the sea woke up in a foul temper. It shoved the boat from one side, then slapped it from the other. Grey waves climbed over the front rail and spat cold water into our faces. Every time we turned for home, the sea seemed to block our way on purpose. My brother, who has fished these waters for thirty years, went very quiet and gripped the wheel with both hands. Nobody made jokes. Nobody even tried to eat the sandwiches. It took us six hours to get back to the harbour, a trip that usually takes two. When we finally tied up at the jetty, I sat down on a crate and didn't move for a long time. We didn't catch a single fish, and I have never been so glad to see dry land.",
-      "prompt": "How does the personification make the sea seem?",
-      "success": "Angry and dangerous. Shoving, slapping and spitting are what a furious person does, and the crew were scared.",
+      "text": "We left the harbour at dawn, and for two hours the water was flat and grey. Then the wind swung around to the south. The sea complained under the boat for the rest of the trip, and it never once let up. Grey waves rose and fell beside us, higher each hour. A flock of gulls fought over a fish head on the back deck. My brother complained about the weather, then went very quiet and gripped the wheel with both hands. Nobody made jokes. Nobody even tried to eat the sandwiches. It took us six hours to get back, a trip that usually takes two. When we finally tied up at the jetty, I sat down on a crate and didn't move for a long time. We didn't catch a single fish, and I have never been so glad to see dry land.",
+      "prompt": "Which line from the log is personification?",
+      "success": "Only people complain. The brother is a person, so his complaint is plain. The sea complaining is personification.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "playful and cheeky, like a friend mucking about",
-            "reason": "Nobody made jokes, and his brother went quiet. Look at what the sea does to the boat."
+            "text": "A flock of gulls fought over a fish head on the back deck.",
+            "reason": "Gulls really fight over scraps. That's a bird thing, not a people thing."
           },
           {
-            "text": "angry and dangerous, like someone attacking them"
+            "text": "Grey waves rose and fell beside us, higher each hour.",
+            "reason": "Waves really rise and fall. Nothing here acts like a person."
           },
           {
-            "text": "tired and sleepy, like someone just waking up",
-            "reason": "It does wake up, but in a foul temper. Then it shoves and slaps the boat."
+            "text": "My brother complained about the weather.",
+            "reason": "The brother is a person. Complaining is just what people do."
           },
           {
-            "text": "sad and lonely, like someone who wants company",
-            "reason": "Nothing in the log is sad. Look at the doing words: shoves, slaps and spits."
+            "text": "The sea complained under the boat for the rest of the trip."
           }
         ],
-        "answer": 1
+        "answer": 3
       }
     },
     {
       "id": "4.3-b3-2",
       "band": 3,
       "topic": "sport",
-      "frame": "Tully is writing up the Reef Rays' worst game of the year. The Humbret couldn't bear to watch.",
-      "prompt": "Tap the personification.",
-      "success": "A scoreboard can't refuse. Refusing is something people do, so the scoreboard seems stubborn and against them.",
+      "frame": "Tully is writing up the Reef Rays' unluckiest game of the year. The Humbret couldn't bear to watch.",
+      "prompt": "Tully wants you to feel the Rays had terrible luck. Tap the personification that does that.",
+      "success": "Posts can't jump on purpose. They seem to be blocking the Rays, so the team's luck feels terrible.",
       "body": {
         "format": "tapText",
         "parts": [
-          "The Reef Rays started the grand final brilliantly, kicking three goals in the first ten minutes. Then everything went wrong. ",
+          "The Reef Rays needed one win to make the finals, and the whole town came to watch. ",
           {
-            "tap": "Our captain was a brick wall in defence, but even she couldn't stop them.",
-            "reason": "This says the captain IS a brick wall. That's a metaphor, not personification."
+            "tap": "The sun smiled down on the packed stands.",
+            "reason": "A smiling sun makes the day feel cheerful. It says nothing about the Rays' luck."
           },
-          " The Pinchers kicked goal after goal. ",
+          " We kicked two early goals, and the crowd went wild. Then the Pinchers hit back, goal after goal. In the last quarter, we finally had our chances. ",
           {
-            "tap": "Their full-forward leapt like a kangaroo over every pack.",
-            "reason": "This compares the leap to a kangaroo using like. That's a simile."
+            "tap": "The posts seemed to jump in front of every kick we took."
           },
-          " In the third quarter, we finally hit back with two goals of our own. ",
+          " Shot after shot bounced off the wood. ",
           {
-            "tap": "Then the scoreboard refused to change for the whole last quarter."
+            "tap": "The old grandstand groaned as two thousand people stood up.",
+            "reason": "This shows how big and heavy the crowd was. It isn't about luck."
           },
-          " We had shot after shot, and every single one hit the post. ",
+          " We lost by four points. We sat on the bench afterwards, and nobody said a word. ",
           {
-            "tap": "Coach Ellis shouted until she lost her voice.",
-            "reason": "Coach Ellis is a person, so shouting is just what she did."
+            "tap": "Then the rain politely waited until we had packed the kit bags.",
+            "reason": "Waiting politely is kind. The rain seems to help the team, not spoil things."
           },
-          " When the final siren went, we had lost by four points. We sat on the bench in the rain, and nobody said a word. Then Mo arrived with a tray of his sardine trifle, and somehow that made it worse. Next week we play the Pinchers again, and Coach says we'll be ready. She has already bought a new whistle."
+          " It poured the moment the last bag was in the bus. Next week we play the Pinchers again, and Coach says we'll be ready. She has already bought a new whistle."
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
       "id": "4.3-b3-3",
       "band": 3,
       "topic": "spooky",
-      "frame": "Zed wrote a note about a ghost story from the Mirage Mangroves library. One word is wrong.",
+      "frame": "Zed wrote notes about a ghost story from the Mirage Mangroves library. One word is wrong.",
       "text": "Ava had walked the mangrove track a hundred times in the daytime, but never after dark. Tonight she had no choice: the last ferry had gone, and the only way home was through the trees. At first, it wasn't too bad. Then the track narrowed, and the mangroves crowded in on both sides. Their branches reached for her hair and snagged her sleeves. The roots crept across the track to trip her up. Behind her, the leaves whispered to one another, and she was sure they were whispering about her. Ava walked faster. She was shaking now, and she kept her eyes fixed on the little patch of torchlight in front of her. Twice, the trees seemed to close the path completely, and she had to push through. When she finally saw the lights of her street, she ran the last hundred metres. She didn't stop until the front door was locked behind her.",
       "prompt": "Tap the word Zed got wrong, then choose a better one.",
-      "success": "Threatening. Trees that grab, trip and whisper about you seem out to get you, and Ava is terrified.",
+      "success": "Gossipy. People who whisper about someone are gossiping, so the leaves seem to be talking about Ava.",
       "body": {
         "format": "fix",
         "parts": [
-          "The writer makes the ",
+          "The leaves whispering about Ava make them seem ",
           {
-            "tap": "mangroves",
-            "reason": "That's right. The mangroves crowd in, reach and whisper."
+            "tap": "cheerful"
           },
-          " act like people. Their branches ",
+          ". The branches that reach for her hair seem ",
           {
-            "tap": "reached",
-            "reason": "That's right. Their branches reached for her hair."
+            "tap": "grabby",
+            "reason": "Grabby fits. Branches that reach for her hair and snag her sleeves seem to grab at her."
           },
-          " for Ava's hair. This makes the forest seem ",
+          ". The roots that creep across the track seem ",
           {
-            "tap": "sad"
+            "tap": "sneaky",
+            "reason": "Sneaky fits. The roots creep across the track to trip her up."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "playful",
-            "reason": "Playful people don't trip you up. Ava is shaking and runs the last hundred metres."
+            "text": "shy",
+            "reason": "Shy people whisper because they're nervous. These leaves whisper about Ava, and it frightens her."
           },
           {
-            "text": "lonely",
-            "reason": "The trees whisper to one another, so they're not alone. They seem to be against Ava."
-          },
-          {
-            "text": "threatening"
+            "text": "gossipy"
           },
           {
             "text": "sleepy",
-            "reason": "Sleepy things don't grab and trip. These trees seem wide awake and out to get her."
+            "reason": "Sleepy things are quiet, but these leaves are busy whispering about Ava behind her back."
+          },
+          {
+            "text": "kind",
+            "reason": "Kind people don't whisper about you behind your back. Ava walks faster to get away."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -790,45 +803,50 @@
       "band": 3,
       "topic": "art",
       "frame": "Indi has labelled her sketches of the Mirage Mangroves. The Humbret is checking her work.",
-      "prompt": "Put each caption with the device it uses.",
-      "success": "Like or as means simile. 'Is' something else means metaphor. Doing what people do means personification.",
+      "prompt": "Put each caption where it belongs.",
+      "success": "Things doing people things is personification. Animals doing animal things isn't, even when the word sounds human.",
       "body": {
         "format": "sort",
         "bins": [
           "personification",
-          "simile",
-          "metaphor"
+          "simile or metaphor",
+          "no picture: it really happens"
         ],
         "items": [
           {
-            "text": "The old jetty groaned about its sore knees whenever the tide came in.",
+            "text": "The old jetty grumbled about the cold every winter.",
             "bin": 0,
-            "reason": "A jetty can't complain about sore knees. It's acting like a person."
+            "reason": "A jetty can't grumble about the weather. Only people do that."
           },
           {
-            "text": "The clouds hurried across the sky, late for an important meeting.",
+            "text": "Two pelicans squabbled over a fish head on the jetty.",
+            "bin": 2,
+            "reason": "Pelicans really fight over food. That's a bird thing, not personification."
+          },
+          {
+            "text": "The mudflats gleamed like a pair of polished school shoes.",
+            "bin": 1,
+            "reason": "This compares the mud to shoes using like. It's a simile."
+          },
+          {
+            "text": "The clouds hurried across the sky, late for a meeting.",
             "bin": 0,
             "reason": "Clouds can't be late for meetings. They're acting like busy people."
           },
           {
-            "text": "The mudflats gleamed like a freshly polished pair of school shoes.",
-            "bin": 1,
-            "reason": "It compares the mudflats to school shoes using like, so it's a simile."
-          },
-          {
-            "text": "The sunset was as pink as the inside of a watermelon.",
-            "bin": 1,
-            "reason": "It compares the sunset to a watermelon using as, so it's a simile."
-          },
-          {
-            "text": "The channel was a silver ribbon winding through the trees.",
+            "text": "A crab raised one claw as a gull came close.",
             "bin": 2,
-            "reason": "It says the channel IS a ribbon, with no like or as. That's a metaphor."
+            "reason": "Crabs really raise their claws to scare birds off. That's a crab thing."
           },
           {
             "text": "The mangrove roots were a tangle of grey spaghetti.",
-            "bin": 2,
-            "reason": "It says the roots ARE spaghetti, with no like or as. That's a metaphor."
+            "bin": 1,
+            "reason": "This says the roots ARE spaghetti, with no like or as. That's a metaphor."
+          },
+          {
+            "text": "The mangroves held hands all along the riverbank.",
+            "bin": 0,
+            "reason": "Trees can't hold hands. Only people do that."
           }
         ]
       }
@@ -837,29 +855,29 @@
       "id": "4.3-b3-5",
       "band": 3,
       "topic": "robots",
-      "frame": "Gus is testing his new robot vacuum. The Humbret wants to know which sentence uses personification.",
-      "prompt": "Which sentence uses personification?",
-      "success": "Sulking is something people do when they're upset. The vacuum is acting like a person.",
+      "frame": "Gus is testing his new robot vacuum. The Humbret is watching from the bench.",
+      "prompt": "Which sentence makes the robot vacuum seem nervous?",
+      "success": "Nervous. A nervous person peeks at something scary, then hides. The vacuum does both.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The robot vacuum hummed quietly as it cleaned the rug.",
-            "reason": "Vacuums really hum when they run. That's not a person thing."
+            "text": "The vacuum marched across the rug, bossing the crumbs about.",
+            "reason": "Marching and bossing make it seem bossy and sure of itself, not nervous."
           },
           {
-            "text": "The robot vacuum was a tiny tank crossing the rug.",
-            "reason": "This says the vacuum IS a tank, with no like or as. That's a metaphor."
+            "text": "The vacuum sulked after Gus kicked it.",
+            "reason": "Sulking shows it's cross with Gus, not scared of anything."
           },
           {
-            "text": "The robot vacuum moved like a slow, round turtle.",
-            "reason": "This compares the vacuum to a turtle using like. That's a simile."
+            "text": "The vacuum peeked at the dog, then hid again."
           },
           {
-            "text": "The robot vacuum sulked under the couch after Gus kicked it."
+            "text": "The vacuum gobbled the crumbs, then burped with pride.",
+            "reason": "Gobbling and burping with pride make it seem greedy and pleased with itself."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -898,28 +916,28 @@
       "topic": "space",
       "frame": "The Soggy Biscuit's radio picked up this blog from a space scientist. The Humbret is listening carefully.",
       "text": "For six years, my team has driven a little rover called Pebble across the surface of Mars, sending it instructions from a control room on the other side of the solar system. Pebble was only built to last ninety days. Nobody told Pebble. When its left wheel jammed in year two, it taught itself to drive backwards, dragging the broken wheel behind it. When a dust storm blotted out the sun for a month, Pebble switched off everything except its heater and waited patiently in the dark, all on its own, until the sky cleared. Every evening, at the end of its work, it sent us a photo of the Martian sunset, as if it were saying goodnight to the people who built it. Last week, the dust finally won. Pebble's solar panels were too dirty to charge, and its last message reached us on Tuesday morning: a picture of a small grey rock, and the words BATTERY LOW. Half the control room cried. The other half pretended they had dust in their eyes. We still send Pebble a message every evening, just in case it wakes up. Its little wheel tracks are still there in the red dust, and they will be for a very long time.",
-      "prompt": "What does the personification make Pebble seem like?",
-      "success": "A brave little explorer. Pebble keeps going, waits patiently 'all on its own' and says goodnight.",
+      "prompt": "Why does the scientist write about Pebble as if it were a person?",
+      "success": "To make you care. Pebble taught itself, waited patiently and said goodnight, so losing it feels like losing a friend.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "A dangerous machine that might hurt someone.",
-            "reason": "Pebble only takes photos and says goodnight. Nothing about it seems dangerous."
+            "text": "So readers learn how a rover's solar panels and wheels work.",
+            "reason": "The blog mentions panels, but 'taught itself' and 'saying goodnight' aren't about how parts work."
           },
           {
-            "text": "A lazy machine that kept giving up.",
-            "reason": "Pebble taught itself to drive backwards and waited patiently. It never gives up."
+            "text": "So readers care about Pebble, like a friend they have lost."
           },
           {
-            "text": "A clumsy machine that was fun to laugh at.",
-            "reason": "Half the control room cries when it stops. Nobody is laughing at Pebble."
+            "text": "So readers believe Pebble really could think and feel lonely.",
+            "reason": "That's taking it literally. The scientist knows Pebble is a machine."
           },
           {
-            "text": "A brave, patient explorer, all on its own."
+            "text": "So readers see that Pebble was badly built and broke too soon.",
+            "reason": "Pebble was built for ninety days and lasted six years. It did far better than planned."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
@@ -927,31 +945,31 @@
       "band": 4,
       "topic": "food",
       "frame": "Mo entered a cooking competition. The Humbret is the only one brave enough to taste his dish.",
-      "prompt": "Tap the personification.",
-      "success": "A tray of scones can't argue about who goes first. Only people argue, so the scones are acting human.",
+      "prompt": "Tap the personification where the story turns from hopeful to embarrassing.",
+      "success": "Scones that slink out ashamed seem embarrassed. Before that, the oven and spoon made everything sound hopeful.",
       "body": {
         "format": "tapText",
         "parts": [
-          "The Mirage Mangroves Bake-Off was held in the community hall, and Mo had entered his famous gum-leaf scones, despite the crew's very polite requests that he didn't. The hall was packed with bakers, judges and families, and the smell of butter hung in the air. ",
+          "The Mirage Mangroves Bake-Off was held in the community hall, and Mo had entered his famous gum-leaf scones. The crew had asked him, very politely, not to. ",
           {
-            "tap": "The hall was an oven by eleven o'clock, with forty bakers and only one ceiling fan.",
-            "reason": "This says the hall IS an oven, with no like or as. That's a metaphor."
+            "tap": "The big oven hummed a happy tune as it warmed up.",
+            "reason": "A happy tune makes things sound hopeful. Nothing has gone wrong yet."
           },
           " Mo measured everything twice and still got it wrong. ",
           {
-            "tap": "His dough was as grey and lumpy as wet cement.",
-            "reason": "This compares the dough to cement using as. That's a simile."
+            "tap": "His wooden spoon cheered him on with every stir.",
+            "reason": "A spoon cheering Mo on makes him seem ready to win. It's still hopeful here."
           },
-          " He shaped twelve scones anyway, put them on a tray and slid them into the oven. ",
+          " He shaped twelve scones, slid the tray into the oven and waited. ",
           {
-            "tap": "Twenty minutes later, the scones were jostling and arguing about which one would be eaten first."
+            "tap": "Twenty minutes later, the scones slunk out of the oven, grey and ashamed."
           },
-          " ",
+          " The other bakers looked at the tray and then looked away. The head judge, Mrs Okafor, tapped one scone with her spoon. It made a sound like a door knocker. She tried a crumb and chewed for a very long time. ",
           {
-            "tap": "The head judge, Mrs Okafor, tapped one with her spoon and frowned.",
-            "reason": "Mrs Okafor is a person, so frowning is just what she does. It isn't personification."
+            "tap": "Her pen hurried across the clipboard while she reached for a glass of water.",
+            "reason": "The pen is busy because the judge is writing. The scones let Mo down before this."
           },
-          " She tried a crumb, chewed for a very long time and wrote something on her clipboard. Then she asked for a glass of water, and then another. Mo came last, but he got a special certificate for Most Unusual Flavour, which he has framed and hung above the stove. Mrs Okafor has asked him to bring something different next year. She suggested shop-bought biscuits. Mo has already started planning a gum-leaf pavlova, and nobody has been brave enough to stop him."
+          " Then she asked for another glass. Mo came last, but he got a special certificate for Most Unusual Flavour. He has framed it and hung it above the stove. Mrs Okafor has asked him to bring something different next year. Mo is already planning a gum-leaf pavlova, and nobody is brave enough to stop him."
         ],
         "answer": 2
       }
@@ -963,45 +981,45 @@
       "frame": "Gus wrote a note about Poet Pip's piano story. One word is wrong.",
       "text": "The piano had stood in the corner of the Mangrove Point hall for nearly eighty years, and for most of that time nobody had played it. Its lid was scratched, two of its keys were missing, and a family of spiders had moved into the space behind the pedals. Children ran past it on their way to the toilets. Every Christmas, someone would hang tinsel on it and then forget it was there until February. The piano watched them all go by and waited. Then, one rainy Saturday, a new girl called Mira wandered in while her mum set up for the craft market. She lifted the lid, brushed off a cobweb and pressed one key, then another. The piano cleared its throat with a dusty, wheezing note. Mira kept going. By the third song, people at the market had stopped to listen, and by the fourth, a small crowd had gathered round. The old piano sang for her, as if it had been saving every song for eighty years. When Mira finally closed the lid, everyone clapped. The hall committee had the piano tuned the following week. Mira plays it every Saturday now, and the spiders have moved out. Most of them.",
       "prompt": "Tap the word Gus got wrong, then choose a better one.",
-      "success": "Patient. The piano 'watched them all go by and waited' for years, like a patient person.",
+      "success": "Joyful. It sings 'as if it had been saving every song for eighty years', like someone thrilled to perform.",
       "body": {
         "format": "fix",
         "parts": [
-          "The piano ",
+          "Singing for Mira makes the piano seem ",
           {
-            "tap": "watched",
-            "reason": "That's right. It 'watched them all go by and waited'."
+            "tap": "annoyed"
           },
-          " everyone go by for eighty years, which makes it seem ",
+          ". Watching and waiting for eighty years makes it seem ",
           {
-            "tap": "grumpy"
+            "tap": "patient",
+            "reason": "Patient fits. It watched and waited for years without anyone playing it."
           },
-          ". When Mira played it, it ",
+          ". Clearing its throat with a dusty note makes it seem ",
           {
-            "tap": "sang",
-            "reason": "That's right. The story says the old piano sang for her."
+            "tap": "old and croaky",
+            "reason": "Old and croaky fits. Its first note is dusty and wheezing, like an old person's voice."
           },
           "."
         ],
-        "spot": 1,
+        "spot": 0,
         "options": [
           {
-            "text": "patient"
+            "text": "shy",
+            "reason": "Shy people hold back. This piano sings so well that a crowd gathers."
+          },
+          {
+            "text": "sleepy",
+            "reason": "It was quiet for years, but now it sings song after song. That's wide awake."
+          },
+          {
+            "text": "joyful"
           },
           {
             "text": "nervous",
-            "reason": "Nervous people fidget. The piano calmly watches and waits for years."
-          },
-          {
-            "text": "bossy",
-            "reason": "Bossy people give orders. The piano just watches and waits until someone comes."
-          },
-          {
-            "text": "sneaky",
-            "reason": "Sneaky people hide what they're doing. The piano sits in plain sight, waiting."
+            "reason": "Its first note wheezes, but then it sings freely, song after song. That's not nervous."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -1009,46 +1027,45 @@
       "band": 4,
       "topic": "gaming",
       "frame": "Zed wrote a review of his new game, Tide Runner. The Humbret is sorting the best lines.",
-      "prompt": "Put each line from Zed's review with the device it uses.",
-      "success": "Personification gives things human actions. Similes use like or as. Metaphors say one thing is another. Plain lines just describe.",
+      "prompt": "Put each line from Zed's review where it belongs.",
+      "success": "Look at the people action. Helpers cheer and point the way. Enemies grab, sigh and slam doors.",
       "body": {
         "format": "sort",
         "bins": [
-          "personification",
-          "simile",
-          "metaphor",
-          "none of these"
+          "makes the game seem on your side",
+          "makes the game seem against you",
+          "not personification"
         ],
         "items": [
           {
-            "text": "On level four, the tide sneaks up behind you and taps you on the shoulder.",
-            "bin": 0,
-            "reason": "A tide can't tap your shoulder. It's acting like a person."
-          },
-          {
-            "text": "The loading screen sighs loudly and makes you wait.",
-            "bin": 0,
-            "reason": "A screen can't sigh. It's acting like a bored person."
-          },
-          {
-            "text": "The jump button is as sticky as a toffee left in a hot car.",
+            "text": "On level four, the tide sneaks up and grabs your ankles.",
             "bin": 1,
-            "reason": "It compares the button to toffee using as, so it's a simile."
+            "reason": "Sneaking up and grabbing is what an enemy does. The tide is out to get you."
           },
           {
-            "text": "The final level takes about two hours to finish.",
-            "bin": 3,
-            "reason": "This just tells you how long the level takes. Nothing is compared or brought to life."
+            "text": "The map politely points the way home when you get lost.",
+            "bin": 0,
+            "reason": "Being polite and showing the way is what a helpful friend does."
           },
           {
-            "text": "The soundtrack is a warm bath for your ears.",
+            "text": "The loading screen sighs and makes you wait for ages.",
+            "bin": 1,
+            "reason": "Sighing and making you wait is what an unhelpful, bored person does."
+          },
+          {
+            "text": "Your diver can swim, climb and glide.",
             "bin": 2,
-            "reason": "The soundtrack isn't really a bath. Saying it IS one is a metaphor."
+            "reason": "The diver is a person in the game. Swimming and climbing are just people things."
           },
           {
-            "text": "Your character can swim, climb and glide.",
-            "bin": 3,
-            "reason": "This just lists what the character can do in the game."
+            "text": "The music cheers you on through the hardest levels.",
+            "bin": 0,
+            "reason": "Cheering you on is what a friend does. The music seems on your side."
+          },
+          {
+            "text": "The doors wait until you're close, then slam in your face.",
+            "bin": 1,
+            "reason": "Doors can't wait on purpose. Slamming in your face is what a mean person does."
           }
         ]
       }
@@ -1057,27 +1074,27 @@
       "id": "4.3-b4-5",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren wrote this for the Mirage Mangroves rescue centre newsletter. The Humbret came along to watch.",
+      "frame": "Wren wrote this for the Mirage Mangroves rescue centre newsletter. Her first draft was much plainer.",
       "text": "After four months at the rescue centre, Crumpet the green turtle was finally ready to go home. She had come to us in winter, tangled in fishing line and far too thin, and it had taken weeks of care and a great many squid before she was strong enough to swim properly again. On release day, six of us carried her down to the beach in a padded crate, while a small crowd gathered on the sand. The morning was calm and bright. As we set the crate down at the edge of the water, the sea opened its arms to her. Gentle waves rolled up the sand, curled around her flippers and coaxed her forward, as if the whole sea had been waiting for her to come home. Crumpet paused for a moment and lifted her head. Then she pushed off into the shallows, and the water folded itself softly around her shell. A few seconds later, she surfaced once, took a breath and was gone. Nobody on the beach said anything for a while. Then the youngest volunteer, who had fed Crumpet every morning, burst into happy tears. We will miss her, but she is exactly where she belongs.",
-      "prompt": "What does the personification of the sea suggest?",
-      "success": "That the sea is Crumpet's home and welcomes her back, like family opening their arms.",
+      "prompt": "Wren's first draft said only 'Gentle waves rolled up the sand.' Why did she add 'the sea opened its arms to her'?",
+      "success": "Open arms are how families greet someone coming home. The sea seems glad to have Crumpet back.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "That the sea is dangerous and might swallow her up.",
-            "reason": "The water is gentle and calm, and it 'folded itself softly' around her. Nothing feels dangerous."
+            "text": "It makes the sea feel like a strong giant, dragging Crumpet into the deep.",
+            "reason": "Open arms are gentle, not strong. The morning is calm, and the waves coax her forward."
           },
           {
-            "text": "That the sea is her home and is welcoming her back."
+            "text": "It makes the sea feel like family, hugging Crumpet as she comes home."
           },
           {
-            "text": "That the sea is too rough for a turtle to swim in.",
-            "reason": "The waves are gentle, and the morning is calm. Crumpet swims off easily."
+            "text": "It shows Crumpet swam with her flippers spread wide like arms.",
+            "reason": "It's the sea that opens its arms, not Crumpet. It tells you how the sea seems."
           },
           {
-            "text": "That the sea is sad to see her go away.",
-            "reason": "The sea is welcoming her, not saying goodbye. It's the volunteers who will miss her."
+            "text": "It makes the sea feel like a sad friend, reaching out to say goodbye.",
+            "reason": "Open arms are a welcome, not a goodbye. It's the volunteers who will miss her."
           }
         ],
         "answer": 1

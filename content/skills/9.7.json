@@ -216,7 +216,7 @@
                 "text": "I knocked politely on all three doors, but somehow I'm the villain."
               },
               {
-                "text": "The wolf huffed and puffed and blew the house down.",
+                "text": "The wolf huffed and puffed and blew the first two houses down.",
                 "reason": "This is told from the outside, about the wolf. Nobody says I."
               },
               {
@@ -225,46 +225,29 @@
               }
             ],
             "answer": 0
-          }
+          },
+          "text": "The Three Little Pigs: a wolf blows down two pigs' houses. The third pig's brick house stands."
         },
         {
-          "frame": "Zed is retelling Jack and the Beanstalk, but his pages got mixed up.",
-          "prompt": "Put each line with the character whose eyes we're seeing through.",
-          "hint": "Ask: whose house is it, and whose hen?",
-          "success": "Clues like 'my hen' and 'tiny thief' belong to the giant. Climbing and tiptoeing belong to Jack.",
+          "frame": "Zed is retelling Jack and the Beanstalk from the giant's side.",
+          "text": "Jack and the Beanstalk: Jack climbs a beanstalk to a giant's castle. He takes the giant's hen and runs home.",
+          "prompt": "Build a line told through the giant's eyes, with how he sees it.",
+          "hint": "Who says I? What does the giant think of Jack?",
+          "success": "The giant says I and tells his side: a tiny thief, and he gets the blame.",
           "body": {
-            "format": "sort",
-            "bins": [
-              "Jack's eyes",
-              "the giant's eyes"
+            "format": "build",
+            "tiles": [
+              "and now everyone calls me the villain.",
+              "I was cooking my dinner",
+              "chased Jack down the beanstalk.",
+              "when a tiny boy",
+              "The giant",
+              "ran off with my hen,"
             ],
-            "items": [
-              {
-                "text": "I've never climbed this high. My legs won't stop shaking.",
-                "bin": 0,
-                "reason": "Jack is the one who climbs the beanstalk, so these are his shaking legs."
-              },
-              {
-                "text": "A tiny thief has run off with my hen!",
-                "bin": 1,
-                "reason": "The hen belongs to the giant, so 'my hen' is his voice."
-              },
-              {
-                "text": "Someone has left muddy little footprints on my kitchen table.",
-                "bin": 1,
-                "reason": "It's the giant's kitchen, and Jack's footprints look little to him."
-              },
-              {
-                "text": "Mum is going to be so proud of me.",
-                "bin": 0,
-                "reason": "Jack's mum is waiting at home at the bottom of the beanstalk."
-              },
-              {
-                "text": "The giant's snores shake the castle as I tiptoe past.",
-                "bin": 0,
-                "reason": "The person tiptoeing past the giant is the visitor: Jack."
-              }
-            ]
+            "accept": [
+              "I was cooking my dinner when a tiny boy ran off with my hen, and now everyone calls me the villain."
+            ],
+            "reason": "Start with I, so the giant is telling it. Then give his side of the story."
           }
         }
       ]
@@ -276,13 +259,13 @@
       "blurb": "A moth with a big eyespot on each wing. Each eye sees the same night differently, and it loves hearing both sides."
     },
     "workshop": {
-      "mentor": "Let me tell you about my bridge. I built it myself, stone by stone, and I keep it spotless. I sweep it every morning. I even planted daisies along the edge. Then one day: trip, trap, trip, trap. A goat. A small goat, chewing my daisies with his mouth open. I asked him, very politely, to stop. He said his big brother would deal with me. Then the next brother came, and ate the rest of my daisies. And then the biggest one turned up, and nobody, NOBODY, ever asks what happened to me after that. I'll tell you what happened. I've been living in a drain ever since, and the goats got a bridge for free.",
-      "ask": "Retell a story through another character's eyes. Ideas: the giant from Jack and the Beanstalk, Maxx during a heist, the losing hare, the footy in a grand final.",
+      "mentor": "Let me tell you about my bridge. I built it myself, stone by stone, and I sweep it every morning. I even planted daisies along the edge. Then one day: trip, trap, trip, trap. A goat. A small goat, chewing my daisies with his mouth open. I asked him, very politely, to stop. He said his big brother would deal with me. Then the next brother came and ate the rest of my daisies. And then the biggest one turned up, and nobody, NOBODY, ever asks what happened to me after that. I'll tell you. I've been living in a drain ever since, and the goats got a bridge for free.",
+      "ask": "Retell a story in five sentences, as 'I', through another character's eyes.\nStuck? Start with: 'Let me tell you my side.'\nChallenge: make readers feel sorry for the villain.",
       "checklist": [
         "I wrote as 'I', from one character's eyes.",
         "I kept the main events of the story.",
-        "I showed what my character thinks and feels.",
-        "I only told what my character could know."
+        "I can point to one line of my character's thoughts.",
+        "I only told what my character could see or know."
       ]
     }
   },

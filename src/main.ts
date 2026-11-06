@@ -7,6 +7,7 @@ import { homeScreen, islandScreen, mapScreen } from './ui/screens/world';
 import { storyScreen } from './ui/screens/story';
 import { piecesScreen, writeScreen } from './ui/screens/write';
 import { swapScreen } from './ui/screens/swap';
+import { sentenceScreen } from './ui/screens/sentence';
 
 const app = new App(document.getElementById('app')!, {
   firstRun: firstRunScreen,
@@ -22,6 +23,7 @@ const app = new App(document.getElementById('app')!, {
   story: storyScreen,
   write: writeScreen,
   pieces: piecesScreen,
+  sentence: sentenceScreen,
   swap: swapScreen,
 });
 app.start();

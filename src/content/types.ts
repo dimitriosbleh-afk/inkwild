@@ -126,6 +126,18 @@ export interface CreatureDef {
   blurb: string;
 }
 
+/**
+ * Your turn to write: one sentence of the student's own that uses the move. Never marked; the student ticks their own
+ * checks, then sees a model. `given` holds short sentences to combine or rewrite, which works for weak writers too.
+ */
+export interface WriteTask {
+  ask: string;
+  given?: string[];
+  starter?: string;
+  checks: string[];
+  model: string;
+}
+
 export interface Skill {
   id: SkillId;
   branch: BranchId;
@@ -138,6 +150,8 @@ export interface Skill {
   creature: CreatureDef;
   /** Story workshop Skills only: a short mentor text, the writing prompt, and the Student's own checklist. Never marked. */
   workshop?: { mentor: string; ask: string; checklist: string[] };
+  /** Every marked Skill has one; the Story workshop is writing already. */
+  write?: WriteTask;
 }
 
 export interface Content {

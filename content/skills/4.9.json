@@ -271,6 +271,20 @@
       "name": "Zingfiddle",
       "evolved": "Zingmaestro",
       "blurb": "A mangrove fiddler crab with one giant claw. It waves it for a word so sharp it stings, and snaps it shut on dull ones."
+    },
+    "write": {
+      "ask": "Combine these into one sentence. Swap 'ate' for a vivid word that fits the clue.",
+      "given": [
+        "Gus hadn't eaten all day.",
+        "He ate the pie."
+      ],
+      "starter": "Gus hadn't eaten all day, so he",
+      "checks": [
+        "I swapped 'ate' for a stronger word.",
+        "My word fits someone very hungry.",
+        "Both ideas are in one sentence."
+      ],
+      "model": "Gus hadn't eaten all day, so he wolfed down the pie in four huge bites."
     }
   },
   "encounters": [
@@ -688,18 +702,18 @@
       "topic": "sport",
       "frame": "Mo wrote up the Year 6 cross-country for the newsletter. The Zingfiddle is holding its claw over the gap.",
       "text": "The Year 6 cross-country was the longest race of the year: four kilometres of hills, mud and one very angry goose. Tully had led for most of it, but the last hill had nearly finished her off. When she came around the final bend, her face was bright red and her legs were wobbling like wet noodles. Twice, she had to grab the fence to stay upright. The crowd was on its feet, shouting her name. Mo had painted her a banner with glitter that was still wet. Tully didn't wave or smile. She didn't even look up. She just kept going, one wobbly step after another, and ___ over the finish line before collapsing onto the grass. Mo ran over with a bottle of water. 'You came first!' he shouted. Tully lay on her back and stared at the sky. 'Never again,' she croaked. She signed up for next year's race the very next day.",
-      "prompt": "Which word fits best in the gap?",
-      "success": "Staggered. Staggering is walking unsteadily, nearly falling, just like Tully's wobbling legs and grabbing the fence.",
+      "prompt": "Mo needs one word that shows exactly how Tully crossed the line. Pick it.",
+      "success": "Staggered. Wobbling legs, grabbing the fence and collapsing all show walking unsteadily, nearly falling.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "strutted",
-            "reason": "Strutting is proud and showy. Tully doesn't wave, smile or even look up."
+            "text": "sprinted",
+            "reason": "Sprinting is a strong word, but her legs are wobbling. Check the clues, not just the strength."
           },
           {
-            "text": "crept",
-            "reason": "Creeping is sneaking so nobody notices. The whole crowd is shouting her name."
+            "text": "crawled",
+            "reason": "Crawling is on hands and knees. Tully took steps, wobbly ones, and stayed upright."
           },
           {
             "text": "staggered"
@@ -718,32 +732,32 @@
       "topic": "food",
       "frame": "Gus has invented a new drink. The Zingfiddle refused to try it, so Mo is the test subject.",
       "prompt": "Tap the vivid word that shows Mo is disgusted by the taste.",
-      "success": "Grimaced. A grimace is a twisted face you pull when something tastes or smells horrible.",
+      "success": "Grimaced. He pulls that twisted face right after the sip. Eyeing and sniffing come before he tastes it.",
       "body": {
         "format": "tapText",
         "parts": [
           "Gus had invented a new drink, and he wanted Mo to be the first to try it. It was called the Swamp Smoothie, and it was the colour of a pond that had given up. Mo ",
           {
             "tap": "eyed",
-            "reason": "Eyed shows Mo is suspicious before he tastes it. Look for his reaction to the taste."
+            "reason": "Eyeing shows Mo is suspicious, but he hasn't tasted it yet. Look for his reaction after the sip."
           },
-          " the glass for a long moment. Something small was floating on top. 'Is that a leaf?' he asked. 'Mostly,' said Gus. Mo took a tiny sip. Then he ",
+          " the glass for a long moment. Something small was floating on top. 'Is that a leaf?' he asked. 'Mostly,' said Gus. Mo ",
+          {
+            "tap": "sniffed",
+            "reason": "Sniffing is about the smell, and it comes before the sip. The question asks about the taste."
+          },
+          " it, and his nose wrinkled. Then he took a tiny sip. He ",
           {
             "tap": "grimaced"
           },
-          " so hard that his eyebrows nearly touched his chin. Gus ",
+          " so hard that his eyebrows nearly touched his chin. 'Good, right?' said Gus. 'It's got seaweed, sardines and a secret ingredient.' Mo ",
           {
-            "tap": "beamed",
-            "reason": "Beamed is about Gus. It shows he's proud, not disgusted."
+            "tap": "placed",
+            "reason": "Placed is a plain word. It tells you what he did with the glass, not how it tasted."
           },
-          " at him. 'Good, right? It's got seaweed, sardines and a secret ingredient.' Behind them, Tully ",
-          {
-            "tap": "smirked",
-            "reason": "Smirked shows Tully finds this funny. It isn't about the taste."
-          },
-          " and wrote something in her notebook. 'Ninety-four per cent chance of Mo being sick,' she announced. Mo put the glass down very gently, as if it might bite him, and asked what the secret ingredient was. Gus said he would rather not say. Tully bet him a week of dishes that it was mud. The Zingfiddle hid behind the fruit bowl."
+          " the glass down very gently, as if it might bite him, and asked what the secret ingredient was. Gus said he would rather not say. Tully bet him a week of dishes that it was mud. The Zingfiddle hid behind the fruit bowl."
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -798,8 +812,8 @@
       "band": 3,
       "topic": "music",
       "frame": "Indi reviewed the Mangrove Music Festival for the island paper. The Zingfiddle is sorting her lines.",
-      "prompt": "Match each line from the review: did Indi like it or dislike it?",
-      "success": "Soared, sang and adored are words of praise. Screeched, droned and mangled are words that complain.",
+      "prompt": "Match each line from the review: did Indi like it or dislike it? Some lines describe the same thing.",
+      "success": "Soared, sang sweetly and rang out praise. Droned, mangled, blared and thudded on complain, even about the same trumpet.",
       "body": {
         "format": "sort",
         "bins": [
@@ -810,32 +824,37 @@
           {
             "text": "The choir's voices soared over the hall.",
             "bin": 0,
-            "reason": "Soaring is flying high and free. Indi is praising the choir."
+            "reason": "Soaring is flying high and free. What does that say about the choir?"
           },
           {
-            "text": "The violin sang sweetly through the final song.",
-            "bin": 0,
-            "reason": "Singing sweetly is a lovely sound. Indi liked it."
-          },
-          {
-            "text": "I adored the encore and wished it would never end.",
-            "bin": 0,
-            "reason": "Adoring is loving something. Indi wanted it to go on forever."
-          },
-          {
-            "text": "The trumpet screeched like a stepped-on cat.",
+            "text": "The trumpet blared all through the quiet song.",
             "bin": 1,
-            "reason": "Screeching is a harsh, painful noise. Indi didn't enjoy it."
+            "reason": "Blaring is too loud, and this was a quiet song. Is that praise?"
           },
           {
             "text": "The singer droned through every single verse.",
             "bin": 1,
-            "reason": "Droning is a dull, flat sound that goes on and on. That's a complaint."
+            "reason": "Droning is a dull, flat sound that goes on and on. Is that praise?"
+          },
+          {
+            "text": "At the big finish, the trumpet rang out over the crowd.",
+            "bin": 0,
+            "reason": "Ringing out at the big finish is loud at the right moment. Is that a complaint?"
           },
           {
             "text": "The guitarist mangled the solo.",
             "bin": 1,
-            "reason": "Mangling something is wrecking it. Indi thinks the solo was a mess."
+            "reason": "Mangling something is wrecking it. What does Indi think of the solo?"
+          },
+          {
+            "text": "The violin sang sweetly through the final song.",
+            "bin": 0,
+            "reason": "Singing sweetly is a lovely sound. What does that say about the violin?"
+          },
+          {
+            "text": "The drums thudded on and on, long after the song should have ended.",
+            "bin": 1,
+            "reason": "'Long after it should have ended' tells you Indi wanted it to stop."
           }
         ]
       }
@@ -876,14 +895,14 @@
       "topic": "spooky",
       "frame": "Zed told the crew what he heard on the Soggy Biscuit last night. The Zingfiddle hid in a teacup.",
       "prompt": "Tap the vivid word that shows something big and heavy is moving slowly.",
-      "success": "Lumbered. Lumbering is moving slowly and heavily, like one heavy thud with a long pause after it.",
+      "success": "Lumbered. It moves slowly and heavily, one thud at a time. Crept is slow too, but light.",
       "body": {
         "format": "tapText",
         "parts": [
           "The power went out on the Soggy Biscuit just after midnight. Zed was the only one awake. The ship creaked as it rocked at anchor, and everyone else was snoring in the other cabins, or so he thought. It was so dark he couldn't see his own hand. He lay in his hammock, listening, and told himself it was just the wind. Rain pattered softly on the deck above. Then, from the far end of the corridor, came a new sound. Something big ",
           {
-            "tap": "moved",
-            "reason": "Moved is a plain word. It doesn't show how big or slow the thing is."
+            "tap": "crept",
+            "reason": "Creeping is slow, but it's light and careful. This thing makes a heavy thud with every step."
           },
           " towards his cabin. It ",
           {
@@ -891,15 +910,15 @@
           },
           " closer, one heavy thud at a time, with a long pause between each step. The ship's cat darted under the bunk. Zed froze, his torch clutched to his chest. The footsteps ",
           {
-            "tap": "stopped",
-            "reason": "Stopped tells you the thing isn't moving any more."
+            "tap": "paused",
+            "reason": "Paused is plain. It tells you the steps stopped, not how they moved."
           },
-          " right outside his door. Slowly, the handle ",
+          " right outside his door. Something ",
           {
-            "tap": "turned",
-            "reason": "Turned is about the door handle, and it's a plain word."
+            "tap": "thumped",
+            "reason": "Thumping shows it's heavy, but it's a knock on the door, not moving along."
           },
-          ". 'Has anyone seen the custard?' whispered Mo. He was wearing four blankets and both of Gus's flippers. Zed didn't sleep again until sunrise. The custard, it turned out, was in Gus's boot."
+          " on the door, once. Slowly, the handle turned. 'Has anyone seen the custard?' whispered Mo. He was wearing four blankets and both of Gus's flippers. Zed didn't sleep again until sunrise. The custard, it turned out, was in Gus's boot."
         ],
         "answer": 1
       }
@@ -910,22 +929,22 @@
       "topic": "sport",
       "frame": "Tully pinned this report from the Hollowgum Herald to the galley wall. The Zingfiddle's claw is clicking furiously.",
       "text": "Uproar at the Grand Final. The crowd of nearly twenty thousand had been chanting the Rays' song all afternoon. With only thirty seconds left on the clock, the Reef Rays were trailing the Pine Gully Possums by a single point when Rays captain Jax Moana marked the ball directly in front of goal. It should have been the easiest kick of his career. Instead, the umpire's whistle shrieked, and he awarded a free kick to Pine Gully for a push that nobody else in the ground seemed to have seen. The replay on the big screen showed Jax with both hands firmly at his sides. Within seconds, thousands of Reef Rays fans were on their feet, shaking their fists, stamping on the stands and hurling insults across the fence. The crowd ___ the umpire all the way to the change rooms, and the noise was so loud that the Possums' coach covered his ears. Tully, who was there with the crew, later described it as 'the loudest ninety seconds in the history of football, statistically speaking'. The umpire has since admitted that he may have been looking at a seagull. The Possums took the free kick, scored, and won by seven points. Fans say they will remember it for years.",
-      "prompt": "Which word fits best in the gap?",
-      "success": "Jeered. Jeering is shouting rude, mocking things at someone, which fits shaken fists and hurled insults.",
+      "prompt": "The crowd is angry, and it is loud. Which word fits both clues?",
+      "success": "Jeered. Jeering is loud, rude shouting at someone. It fits shaken fists and a noise that covered ears.",
       "body": {
         "format": "choose",
         "options": [
           {
+            "text": "glared at",
+            "reason": "Glaring is angry, but it is silent. The noise was so loud the coach covered his ears."
+          },
+          {
+            "text": "grumbled at",
+            "reason": "Grumbling is cross but low and quiet. These fans are hurling insults across the fence."
+          },
+          {
             "text": "applauded",
-            "reason": "Applause is clapping to praise someone. These fans are shaking their fists and hurling insults."
-          },
-          {
-            "text": "murmured at",
-            "reason": "Murmuring is quiet. The noise was so loud that the Possums' coach covered his ears."
-          },
-          {
-            "text": "pitied",
-            "reason": "Pity is feeling sorry for someone. These fans are furious with the umpire, not sorry for him."
+            "reason": "Applause is loud, but it is praise. These fans are shaking their fists."
           },
           {
             "text": "jeered"
@@ -938,44 +957,45 @@
       "id": "4.9-b4-2",
       "band": 4,
       "topic": "ocean",
-      "frame": "Gus wrote up the whale rescue for the Field Guide. One word doesn't fit. The Zingfiddle has spotted it.",
-      "prompt": "Tap the word that doesn't fit, then choose a better one.",
-      "success": "Surged. Surging is a sudden, powerful rush forward, like a mighty tail flick that sends a wave crashing.",
+      "frame": "Gus wrote up the whale rescue for the Field Guide. Tully wrote what three of his words do, but got one wrong.",
+      "text": "At dawn on Thursday, a young humpback whale was found stranded on the sandbar at the mouth of Mirage Creek. It was the first stranding there in twenty years. By the time the crew arrived, more than forty volunteers were already there, in a line from the water's edge to the whale. Some of them had driven through the night to help. They splashed buckets of seawater over its skin, hour after hour, to stop it drying out in the sun. By midday, the volunteers' arms ached, and the sand was too hot to stand on barefoot. The whale barely moved. Every so often, it let out a long, low breath that sent a fine mist into the air. Wren knelt by its eye and talked to it quietly, the way she talks to every frightened animal. At two o'clock, the tide finally began to rise. The water crept up around the whale's belly, then its flippers. The volunteers held their breath. Suddenly, with a mighty flick of its tail, the whale surged forward into the deep channel, sending a wave crashing over everyone's boots. A huge cheer erupted along the beach. Gus says he will never wash those boots again. The whale was last seen heading north, towards the open sea.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "Rushes out with sudden power. A mighty flick and a crashing wave show the whale is strong again.",
       "body": {
         "format": "fix",
         "parts": [
-          "At dawn on Thursday, a young humpback whale was found stranded on the sandbar at the mouth of Mirage Creek. It was the first stranding there in twenty years. By the time the crew arrived, more than forty volunteers were already there, in a line from the water's edge to the whale. Some of them had driven through the night to help. They ",
+          "'Splashed' shows the volunteers ",
           {
-            "tap": "splashed",
-            "reason": "That one fits. Volunteers throw seawater over a stranded whale to keep its skin wet."
+            "tap": "working hard to keep the whale wet",
+            "reason": "Hour after hour, they throw seawater over it. Splashed fits that work."
           },
-          " buckets of seawater over its skin, hour after hour, to stop it drying out in the sun. By midday, the volunteers' arms ached, and the sand was too hot to stand on barefoot. The whale barely moved. Every so often, it let out a long, low breath that sent a fine mist into the air. Wren knelt by its eye and talked to it quietly, the way she talks to every frightened animal. At two o'clock, the tide finally began to rise. The water crept up around the whale's belly, then its flippers. The volunteers held their breath. Suddenly, with a mighty flick of its tail, the whale ",
+          ". 'Surged' shows the whale ",
           {
-            "tap": "dawdled"
+            "tap": "struggling weakly into the channel"
           },
-          " forward into the deep channel, sending a wave crashing over everyone's boots. A huge cheer ",
+          ". 'Erupted' shows the cheer ",
           {
-            "tap": "erupted",
-            "reason": "That one fits. A cheer that erupts bursts out suddenly and loudly, like a volcano."
+            "tap": "bursting out all at once",
+            "reason": "A cheer that erupts bursts out suddenly and loudly, like a volcano. That fits."
           },
-          " along the beach. Gus says he will never wash those boots again. The whale was last seen heading north, towards the open sea."
+          "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "drifted",
-            "reason": "Drifting is slow and gentle. A mighty flick of its tail sends a wave crashing over everyone."
+            "text": "drifting off slowly into the channel",
+            "reason": "Drifting is slow and gentle. A mighty flick of its tail sends a wave crashing."
           },
           {
-            "text": "slunk",
-            "reason": "Slinking is creeping away as if ashamed. This whale bursts forward with a mighty flick of its tail."
+            "text": "slinking away as if ashamed",
+            "reason": "Slinking is creeping away quietly. This whale bursts forward with a crashing wave."
           },
           {
-            "text": "surged"
+            "text": "rushing out with sudden power"
           },
           {
-            "text": "pounced",
-            "reason": "Pouncing is leaping on something to catch it. The whale isn't catching anything; it's escaping."
+            "text": "charging at the volunteers",
+            "reason": "The whale moves into the deep channel, away from the volunteers, not at them."
           }
         ],
         "answer": 2
@@ -1068,31 +1088,31 @@
       "band": 4,
       "topic": "general",
       "frame": "Indi filmed Maxx Vantablack's 'rescue' from the mangroves. The Zingfiddle watched too.",
-      "prompt": "Tap the vivid word that shows how Maxx treats the Creature once the camera is off.",
-      "success": "Flung. Flinging is throwing something roughly and carelessly. Off camera, Maxx doesn't care if the Creature gets hurt.",
+      "prompt": "Off camera, Maxx shows how he really feels about the Creature. Tap the word that shows it.",
+      "success": "Flung. Throwing it roughly, without looking, shows he doesn't care if the Creature gets hurt. The cradling was a show.",
       "body": {
         "format": "tapText",
         "parts": [
           "'Vantafam, this is the most emotional moment of my entire career.' Maxx Vantablack knelt in the mud of Green Screen Swamp, with the MaxxCam drone hovering just above his perfect silver hair. Behind him, a row of fake palm trees wobbled on their stands. Maxx had checked his hair in the drone's lens before every take. In his arms was a tiny, shivering Creature with enormous eyes. He ",
           {
             "tap": "cradled",
-            "reason": "Cradled is how Maxx holds it while the camera is on. Look for what he does after."
+            "reason": "Cradling is gentle, but the drone is still filming. He's putting on a show."
           },
           " it against his gold jacket as if it were made of glass. 'I rescued this little guy myself,' he sobbed, wiping away a tear that wasn't there. 'Smash that heart button like it owes you money!' Then the drone's red light blinked off. Maxx's smile vanished as quickly as it had appeared. He stood up, ",
           {
-            "tap": "held",
-            "reason": "Held is a plain word. Look for the word that shows how roughly he moves it."
+            "tap": "carried",
+            "reason": "Carried is plain. It tells you what he did, not how he feels."
           },
-          " the Creature out at arm's length by the scruff of its neck, and ",
+          " the Creature over to his jet ski, and ",
           {
             "tap": "flung"
           },
-          " it into a wire crate on the back of his jet ski without even looking. Three more crates were already stacked there, each one rattling. 'Next,' he snapped. A Goldie in a gold tracksuit ",
+          " it into a wire crate on the back without even looking. Three more crates were already stacked there, each one rattling. 'Next,' he ",
           {
-            "tap": "scurried",
-            "reason": "Scurried is about the Goldie hurrying away, not about the Creature."
+            "tap": "snapped",
+            "reason": "Snapped shows he's impatient, but he says it to the Goldie, once the Creature is gone."
           },
-          " off with the crate. Hidden in the mangroves, Indi had filmed every second, and the Zingfiddle's claw was shaking with fury. 'That,' she whispered, 'is going on the evidence board.'"
+          ". A Goldie in a gold tracksuit hurried off with the crate. Hidden in the mangroves, Indi had filmed every second, and the Zingfiddle's claw was shaking with fury. 'That,' she whispered, 'is going on the evidence board.'"
         ],
         "answer": 2
       }

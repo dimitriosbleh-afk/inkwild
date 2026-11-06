@@ -249,6 +249,20 @@
         }
       ]
     },
+    "write": {
+      "ask": "Combine these into one sentence that shows night, long ago. Use clues, not a date.",
+      "given": [
+        "Nell read her book.",
+        "It was night, long ago."
+      ],
+      "starter": "Nell read her book",
+      "checks": [
+        "There is no date and no words long ago",
+        "An object shows it is long ago",
+        "A clue shows it is night"
+      ],
+      "model": "Nell read her book by candlelight, while the horses stamped in the stable and an owl hooted outside."
+    },
     "creature": {
       "id": "wherrow",
       "name": "Wherrow",
@@ -670,26 +684,26 @@
       "band": 3,
       "topic": "ocean",
       "frame": "The second tide washed up a lighthouse log. The Wherrow says it knows that rock.",
-      "text": "Gannet Rock Lighthouse. Log kept by Edith Moore, aged twelve. 17 July 1894. The winter storms have not stopped for nine days, and the waves are breaking right over the rock. Father and I climbed the hundred and twelve steps to the lamp room at dusk, as we do every night. I trimmed the wicks while he wound the great clockwork that turns the light. Without it, ships would never see the rocks in the dark. The supply boat should have come from the mainland a week ago, but no boat could land in this weather. We are down to our last sack of potatoes and one tin of jam. The mainland is only a thin grey line across the water, and on stormy days we cannot see it at all. Mother says the boat will come when the sea is calm. Until then, I am teaching our goat, Captain, to shake hands. He is not a fast learner.",
-      "prompt": "When and where is Edith's log set?",
-      "success": "The date says 1894, the storms say winter, and the lamp room and the rock say lighthouse island.",
+      "text": "Gannet Rock Lighthouse. Log kept by Edith Moore, aged twelve. The winter storms have not stopped for nine days, and the waves are breaking right over the rock. Father and I climbed the hundred and twelve steps to the lamp room at dusk, as we do every night. I trimmed the wicks while he wound the great clockwork that turns the light. Without it, ships would never see the rocks in the dark. The supply boat should have come from the mainland a week ago, but no boat could land in this weather. We are down to our last sack of potatoes and one tin of jam. The mainland is only a thin grey line across the water, and on stormy days we cannot see it at all. Mother says the boat will come when the sea is calm. Until then, I am teaching our goat, Captain, to shake hands. He is not a fast learner.",
+      "prompt": "There is no date. When and where is Edith's log set? Add up all the clues.",
+      "success": "Winter storms, a rock in the sea, wicks to trim and clockwork to wind: a lighthouse island, long ago.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "in a busy town on the mainland, in 1894",
-            "reason": "The mainland is just a thin grey line across the water. Edith is out on a rock."
+            "text": "on a lighthouse island, long ago, in summer",
+            "reason": "Which storms have not stopped for nine days?"
           },
           {
-            "text": "on a lighthouse island, in summer 1994",
-            "reason": "The log is dated 1894, and she writes about winter storms."
+            "text": "on a lighthouse island today, in winter",
+            "reason": "Would a lighthouse today need wicks trimmed and clockwork wound by hand?"
           },
           {
-            "text": "on a ship at sea, in winter 1894",
-            "reason": "She climbs a lighthouse tower and waits for a supply boat. She's on land."
+            "text": "in a town on the mainland coast, long ago, in winter",
+            "reason": "The mainland is a thin grey line across the water. Where is Edith?"
           },
           {
-            "text": "on a small lighthouse island, in winter 1894"
+            "text": "on a lighthouse island, long ago, in winter"
           }
         ],
         "answer": 3
@@ -700,8 +714,8 @@
       "band": 3,
       "topic": "space",
       "frame": "Zed picked up a crackly message from a colony far away. The Wherrow is very quiet.",
-      "prompt": "Tap the clue that shows Juniper does not live on Earth.",
-      "success": "Her grandparents 'still live on Earth', the place she left from. So Juniper must live somewhere else.",
+      "prompt": "Tap the clue that proves Juniper does not live on Earth.",
+      "success": "The blue planet is the one they left. So Juniper lives somewhere else. Red soil alone could be the outback.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -717,14 +731,19 @@
           },
           " ",
           {
-            "tap": "For lunch, the kitchen machine printed us each a cheese sandwich.",
-            "reason": "Printed food is a clue to the future, not to which planet you're on."
+            "tap": "Mum works in the greenhouse, growing beans in red soil that has to be washed three times.",
+            "reason": "Red soil is found on Earth too, like in the outback. Is it proof?"
           },
-          " Mum works in the greenhouse, growing beans in red soil that has to be washed three times before anything will grow. After lunch, we did a project about our families. ",
+          " After lunch, we did a project about our families. ",
           {
-            "tap": "My grandparents still live on Earth, where we left from on the colony ship nine years ago."
+            "tap": "My grandparents still live on the blue planet we left nine years ago, on the colony ship."
           },
-          " Grandpa sends me a video message every month, but it takes eleven minutes to arrive. He says the sky at home is blue. Ours is a dusty orange, and on clear nights you can see a tiny blue dot. I waved at it tonight, just in case."
+          " Grandpa sends me a video message every month, but it takes eleven minutes to arrive. ",
+          {
+            "tap": "For lunch, the kitchen machine printed us each a cheese sandwich.",
+            "reason": "Printed food is a clue to the future, not to which planet you are on."
+          },
+          " Our sky is a dusty orange, and on clear nights you can see a tiny blue dot. I waved at it tonight, just in case."
         ],
         "answer": 3
       }
@@ -787,48 +806,48 @@
       "id": "2.6-b3-4",
       "band": 3,
       "topic": "food",
-      "frame": "Mo found a cook's diary in a bottle and wrote a note about it. One word is wrong.",
-      "text": "Diary of Mrs Bridget Doyle, cook. 5 October 1852. Seventy days now since we left home, and still no land in sight. The deck tipped so steeply this morning that my porridge pot slid right across the galley and out the door. Three hundred passengers to feed, and half of them too seasick to eat. Today it was salted pork from the barrels again, with hard biscuits that must be soaked before anyone can bite them. The captain says we may reach Port Juniper within a fortnight, if the winds stay kind. The cabin boy says he saw a whale this afternoon, but he says that every afternoon. The children are tired of pork, and so am I. Little Michael asked if there would be oranges when we arrive, and I said yes, though I have never seen one myself. Tonight I will sleep in my hammock below deck, as I have every night since we sailed, and I will dream about fresh bread.",
-      "prompt": "Tap the word Mo got wrong, then choose a better one.",
-      "success": "Ship. A tipping deck, a galley, seasick passengers and no land for seventy days all point to it.",
+      "frame": "Mo found a cook's diary in a bottle and wrote a note about it. One part is wrong.",
+      "text": "Diary of Mrs Bridget Doyle, cook. Seventy days now since we left home, and still no land in sight. The deck tipped so steeply this morning that my porridge pot slid right across the galley and out the door. Three hundred passengers to feed, and half of them too seasick to eat. Today it was salted pork from the barrels again, with hard biscuits that must be soaked before anyone can bite them. The captain says we may reach Port Juniper within a fortnight, if the winds stay kind. The cabin boy says he saw a whale this afternoon, but he says that every afternoon. The children are tired of pork, and so am I. Little Michael asked if there would be oranges when we arrive, and I said yes, though I have never seen one myself. Tonight I will sleep in my hammock below deck, as I have every night since we sailed, and I will dream about fresh bread.",
+      "prompt": "Tap the part Mo got wrong, then choose a better one.",
+      "success": "Barrels of salted pork, hard biscuits and seventy days without land: a sailing voyage long ago.",
       "body": {
         "format": "fix",
         "parts": [
-          "In 1852, Mrs Doyle cooks for three hundred passengers on a ",
+          "Mrs Doyle's diary is set ",
           {
-            "tap": "train"
+            "tap": "today, on a cruise ship"
           },
-          ". She sleeps in a ",
+          ". She cooks for ",
+          {
+            "tap": "three hundred passengers",
+            "reason": "That's right. She has three hundred passengers to feed."
+          },
+          " and sleeps in a ",
           {
             "tap": "hammock",
-            "reason": "That's right. She sleeps in a hammock every night."
-          },
-          " below ",
-          {
-            "tap": "deck",
-            "reason": "That's right. Her hammock is below deck."
+            "reason": "That's right. She sleeps in a hammock below deck every night."
           },
           "."
         ],
         "spot": 0,
         "options": [
           {
-            "text": "farm",
-            "reason": "Farms don't have decks, galleys or seasick passengers."
+            "text": "in the future, on a starship",
+            "reason": "Starships do not tip in waves or make people seasick."
           },
           {
-            "text": "hotel",
-            "reason": "Hotels don't tip from side to side or go seventy days without land."
+            "text": "long ago, on a sailing ship"
           },
           {
-            "text": "ship"
+            "text": "last summer, on a ferry",
+            "reason": "Would a ferry go seventy days without land, living on salted pork?"
           },
           {
-            "text": "island",
-            "reason": "She hasn't seen land for seventy days. She's at sea."
+            "text": "long ago, in a hotel",
+            "reason": "Hotels do not have decks, or go seventy days without land."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -836,9 +855,9 @@
       "band": 3,
       "topic": "animals",
       "frame": "Narra the Teller is telling the story of a very strange night. The Wherrow is trying not to laugh.",
-      "text": "Gerald had been the night guard at the city museum for thirty years, and nothing ever happened. Every evening, after the last visitors had gone home and the big front doors were locked, he did his rounds with a torch. He said goodnight to the stuffed lion in its glass case. He checked the labels on the giant moth collection. He tapped the toe of the dinosaur skeleton for luck. Then, at ten past two in the morning, he heard something crunching in the Hall of Birds. Gerald crept closer, his torch shaking. The crunching grew louder. A glass case stood open, and its little brass label lay on the floor: BRUSH-TURKEY. Gerald gulped. Then he shone his torch under a bench and found a very much alive brush-turkey, which had wandered in through a broken window. It was eating the wax fruit from the display. 'You're not even stuffed,' Gerald whispered. The turkey looked at him and kept crunching.",
-      "prompt": "When and where is this story set?",
-      "success": "A museum at night. Stuffed animals, a dinosaur skeleton and ten past two in the morning show it.",
+      "text": "Gerald had been the night guard at the grand stone building on Hill Street for thirty years, and nothing ever happened. Every evening, after the last visitors had gone home and the big front doors were locked, he did his rounds with a torch. He said goodnight to the stuffed lion in its glass case. He checked the labels on the giant moth collection. He tapped the toe of the dinosaur skeleton for luck. Then, at ten past two in the morning, he heard something crunching in the Hall of Birds. Gerald crept closer, his torch shaking. The crunching grew louder. A glass case stood open, and its little brass label lay on the floor: BRUSH-TURKEY. Gerald gulped. Then he shone his torch under a bench and found a very much alive brush-turkey, which had wandered in through a broken window. It was eating the wax fruit from the display. 'You're not even stuffed,' Gerald whispered. The turkey looked at him and kept crunching.",
+      "prompt": "The building is never named. When and where is this story set?",
+      "success": "A museum at night. A stuffed lion, labelled cases, a dinosaur skeleton and two in the morning add up.",
       "body": {
         "format": "choose",
         "options": [
@@ -866,7 +885,7 @@
       "band": 3,
       "topic": "gross-science",
       "frame": "Gus found a soggy journal on the beach. It smells terrible. The Wherrow won't go near it.",
-      "text": "From the journal of Second Mate Amos Pike. Day 3. I am writing this by the light of a lantern I managed to keep dry, and I must tell you plainly where I am. On Tuesday, something enormous and grey rose beneath our rowboat, with a mouth as wide as a barn door, and the world went dark. The walls around me are pink, squishy and warm, and they gurgle like a giant tummy. Every few minutes, a rush of seawater pours in, bringing fresh fish, crabs and seaweed. The smell is beyond describing, though I will try: imagine a hundred old prawns left in the sun, then add socks. I have made a small camp on a slippery ledge and built a table out of a crate that was swallowed before me. Yesterday, a startled octopus joined me, and we have agreed to share the lantern. Tomorrow I plan to tickle the walls, in the hope that the whale will sneeze me out.",
+      "text": "From the journal of Second Mate Amos Pike. Day 3. I am writing this by the light of a lantern I managed to keep dry, and I must tell you plainly where I am. On Tuesday, something enormous and grey rose beneath our rowboat, with a mouth as wide as a barn door, and the world went dark. The walls around me are pink, squishy and warm, and they gurgle like a giant tummy. Every few minutes, a rush of seawater pours in, bringing fresh fish, crabs and seaweed. The smell is beyond describing, though I will try: imagine a hundred old prawns left in the sun, then add socks. I have made a small camp on a slippery ledge and built a table out of a crate that was swallowed before me. Yesterday, a startled octopus joined me, and we have agreed to share the lantern. Tomorrow I plan to tickle the walls, in the hope that it will sneeze me out.",
       "prompt": "Where is Amos when he writes this?",
       "success": "Inside a whale. Pink, squishy, gurgling walls and rushes of seawater only fit one place.",
       "body": {
@@ -885,7 +904,7 @@
           },
           {
             "text": "in a fish market on the docks",
-            "reason": "The fish arrive in rushes of seawater, and the walls gurgle like a tummy."
+            "reason": "Fish markets do not have walls that gurgle like a tummy, or a mouth as wide as a barn door."
           }
         ],
         "answer": 2
@@ -897,25 +916,25 @@
       "topic": "music",
       "frame": "The second tide washed up a letter tied with circus ribbon. The Wherrow is trying to juggle.",
       "text": "Aboard Hartley's Circus Train, somewhere on the great treeless plain. Tuesday, 9 April 1929. Dearest Gran, I am writing this with my notebook balanced on a crate of juggling clubs, so please forgive the wobbly letters. We have been rolling across the plain for two whole days now, and there has not been a single town or tree in all that time, only red earth and saltbush as far as I can see. The elephants ride in the last carriage, and every time the train goes over a bump, Duchess trumpets so loudly that the lions start roaring back. I practise my cornet for the circus band in the dining car each afternoon, though the drummer says I sound like a goose with a cold. Father sends you a telegram from every siding where the train stops to take on water, so you will probably know all our news before this letter arrives. Mother has sewn me a new costume with silver stars on it, ready for the next show. Our last show was in a big seaside city, and the crowds were enormous. The next one is still four days away, at the end of the line, and I shall post this when we get there. Your loving granddaughter, Clara.",
-      "prompt": "When and where is Clara as she writes this letter?",
-      "success": "On the train, in 1929, crossing the plain. There's been no town or tree for two days.",
+      "prompt": "Clara says she is 'somewhere on the great treeless plain'. Why doesn't she name the place?",
+      "success": "The setting is empty land. With no town or tree for two days, there is no place name to give.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "in the circus tent during a show, in 1929",
-            "reason": "She mentions shows, but read the first line. Where is her notebook balanced as she writes?"
+            "text": "She wants to keep the circus route a secret, even from Gran.",
+            "reason": "Nothing says the route is secret. What has she seen for two days?"
           },
           {
-            "text": "on a circus train crossing a treeless plain, in 1929"
+            "text": "There has been no town for two days, so there's no name to give."
           },
           {
-            "text": "at home with Gran, remembering her circus days",
-            "reason": "She is writing to Gran, not sitting with her. Read the first line of the letter."
+            "text": "She has forgotten which city the circus left from.",
+            "reason": "She remembers the seaside city. Where is the train now?"
           },
           {
-            "text": "on a circus train in 1929, arriving in a seaside city",
-            "reason": "The seaside city was the last show. She says there's been no town for two days."
+            "text": "The train is going too fast for her to read the signs.",
+            "reason": "Signs need towns or sidings. What does she see out the window?"
           }
         ],
         "answer": 1
@@ -961,50 +980,44 @@
       "topic": "art",
       "frame": "Indi found a story about a mural painted far in the future. The Wherrow loves the whale.",
       "text": "Sol had been planning the mural for months. In the winter of 2140, the council of Neo Harbour finally gave her permission to paint the blank wall of the sky-tram station, forty storeys above the sea. Neo Harbour floats; it has floated ever since the old coastline disappeared under the water, and on windy days the whole city rocks gently, like a ship at anchor. Sol started work just before dawn, when the sky-trams were still parked and the platforms were empty. She clipped her harness to the railing, switched on her hover-palette and began spraying the outline of an enormous whale. Purple was her favourite colour, so the whale was purple. Below her, a fishing drone buzzed past with a crate of mussels. By midday, a small crowd had gathered on the platform below, pointing and taking photos. A little boy asked if the whale was real. Sol told him that once, long ago, whales like that had swum right past the place where they were standing. She hummed while she worked, the same tune her grandmother used to hum. By evening, the whale was finished, its tail curling around the station clock, and the first night trams were sliding past it, their windows full of faces.",
-      "prompt": "Match each detail to the kind of setting clue it gives.",
-      "success": "Years, seasons and times of day show when. The station and the floating city show where. Sol's humming shows neither.",
+      "prompt": "The story is set in 2140. Which clues prove the future, and which could happen today?",
+      "success": "Only some clues prove the future. Harnesses, photos and humming could all happen today.",
       "body": {
         "format": "sort",
         "bins": [
-          "a clue to when",
-          "a clue to where",
-          "not a setting clue"
+          "only possible in the future",
+          "could happen today too"
         ],
         "items": [
           {
-            "text": "In the winter of 2140.",
+            "text": "She switched on her hover-palette.",
             "bin": 0,
-            "reason": "A season and a year both tell you when."
+            "reason": "Have you ever seen paint that floats in the air?"
           },
           {
-            "text": "The wall of the sky-tram station, forty storeys above the sea.",
+            "text": "Neo Harbour floats, because the old coastline is under the water.",
+            "bin": 0,
+            "reason": "Is there a floating city on the coast today?"
+          },
+          {
+            "text": "She clipped her harness to the railing.",
             "bin": 1,
-            "reason": "This is the exact place Sol is painting. It tells you where."
+            "reason": "Do painters on tall walls use harnesses now?"
           },
           {
-            "text": "Just before dawn.",
-            "bin": 0,
-            "reason": "Dawn is a time of day, so it tells you when."
-          },
-          {
-            "text": "Purple was her favourite colour.",
-            "bin": 2,
-            "reason": "Anyone, anywhere, at any time could love purple. It's not a setting clue."
-          },
-          {
-            "text": "Neo Harbour, a city that floats.",
+            "text": "A small crowd gathered, taking photos.",
             "bin": 1,
-            "reason": "This names the city and tells you it floats. That's where."
+            "reason": "Could this happen at a mural near you this weekend?"
           },
           {
-            "text": "By evening, the whale was finished.",
-            "bin": 0,
-            "reason": "Evening is a time of day, so it tells you when."
+            "text": "She hummed the same tune her grandmother used to hum.",
+            "bin": 1,
+            "reason": "Could someone hum a family tune while painting today?"
           },
           {
-            "text": "She hummed while she worked.",
-            "bin": 2,
-            "reason": "People hum in every time and place. It's not a setting clue."
+            "text": "A little boy asked if the whale was real.",
+            "bin": 1,
+            "reason": "Could a kid ask that at any mural, any time?"
           }
         ]
       }
@@ -1093,28 +1106,28 @@
       "topic": "spooky",
       "frame": "The second tide brought in a letter sealed with black wax. The Wherrow is hiding behind Wren.",
       "text": "Blackwater Hall, 31 October 1893. Nearly midnight. My dear sister Lucy, I am writing by the light of a single candle in the nursery, with the door locked and a chair wedged under the handle, so you must forgive my shaking hand. The children are asleep at last, and Cook went to bed hours ago, so I am quite alone. The Hall is so large that the wind gets lost in its chimneys, and tonight a storm is rattling every window. Earlier this evening, as I walked through the long gallery with a tray of cocoa, I saw it: a tall white figure drifting between the portraits, moaning softly. I dropped the tray, cocoa and all, and ran back up the stairs without stopping. Now I can hear footsteps in the corridor outside, slow and shuffling, and a faint rustling, like paper. Wait. The footsteps have stopped outside my door. Someone is whispering. It sounds very much like Mr Grimsby, the butler, and he is asking whether anyone has seen the biscuit tin. Lucy, I believe our ghost may be a butler in a bedsheet with a weakness for shortbread. I shall find out in the morning. Your ever-loving sister, Agnes Penhallow.",
-      "prompt": "Where and when is Agnes as she writes this letter?",
-      "success": "In the nursery, near midnight. She ran there from the gallery and locked herself in to write.",
+      "prompt": "Which setting detail does the most to make the letter feel spooky?",
+      "success": "Nearly midnight, a huge dark house and a storm at every window: the setting builds the fear.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "in the long gallery, where she saw the figure",
-            "reason": "She saw the figure there earlier, then ran back up the stairs. Where is her candle now?"
+            "text": "Cook went to bed hours ago, so Agnes is up on her own.",
+            "reason": "That leaves her alone, but it is about Cook. Which detail is about the time and place?"
           },
           {
-            "text": "in the kitchen with Cook, sharing cocoa",
-            "reason": "Cook went to bed hours ago, and Agnes dropped the cocoa in the gallery."
+            "text": "It is nearly midnight, and a storm rattles every window of the huge Hall."
           },
           {
-            "text": "in the nursery at Blackwater Hall, near midnight"
+            "text": "Mr Grimsby, the butler, is out looking for the biscuit tin.",
+            "reason": "The biscuit tin makes it funny, not spooky. It undoes the fear."
           },
           {
-            "text": "at Lucy's house, the morning after",
-            "reason": "Read the top of the letter. Where and when does Agnes say she is?"
+            "text": "The children in the nursery are asleep at last.",
+            "reason": "Sleeping children make it quiet. Which detail sets a dark, stormy scene?"
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     }
   ]

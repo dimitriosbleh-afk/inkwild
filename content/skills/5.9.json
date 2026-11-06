@@ -248,6 +248,12 @@
       "name": "Termolin",
       "evolved": "Termolith",
       "blurb": "A platypus whose bill buzzes when it senses a specialist word. It can tell a footy mark from a mark on your homework."
+    },
+    "write": {
+      "ask": "Rewrite this sentence for a science report. Swap the everyday words for one specialist word.",
+      "given": ["On the hot day, the water in the puddle turned into a gas."],
+      "checks": ["I used the word a science expert would use", "My sentence still means the same thing", "My word fits every clue"],
+      "model": "On the hot day, the water in the puddle evaporated."
     }
   },
   "encounters": [
@@ -609,21 +615,30 @@
       "id": "5.9-b3-4",
       "band": 3,
       "topic": "music",
-      "frame": "The word 'scale' means different things in different places. Help the Termolin sort them.",
-      "prompt": "Match each sentence to the meaning 'scale' has in it.",
-      "success": "The clues tell you which 'scale' it is: notes, a weighing machine, or a plate on an animal's skin.",
+      "frame": "Indi is writing up the school concert for the newsletter. The Termolin spots one music word used wrongly.",
+      "prompt": "Tap the music word that's wrong, then choose the right one.",
+      "success": "Tempo. The drummer sets the speed of the music. Change the speed and nobody can dance in time.",
       "body": {
-        "format": "sort",
-        "bins": ["a set of notes going up or down", "a machine for weighing", "a small plate on an animal's skin"],
-        "items": [
-          { "text": "Indi practised a scale on the piano.", "bin": 0, "reason": "Practising on a piano tells you it's a set of notes." },
-          { "text": "The singer warmed up with a scale before the show.", "bin": 0, "reason": "Singers warm up by singing notes up and down." },
-          { "text": "Gus weighed his slime on the kitchen scale.", "bin": 1, "reason": "Weighed tells you this scale is a weighing machine." },
-          { "text": "The vet put the puppy on the scale.", "bin": 1, "reason": "Vets weigh animals on a scale to check they're healthy." },
-          { "text": "The baker poured flour onto the scale until it showed 500 grams.", "bin": 1, "reason": "Grams measure weight, so this scale is a weighing machine." },
-          { "text": "The fish lost a scale when it scraped the rock.", "bin": 2, "reason": "A fish's skin is covered in small, hard plates called scales." },
-          { "text": "Each scale on the python's back overlaps the next one.", "bin": 2, "reason": "Snakes are covered in overlapping scales on their skin." }
-        ]
+        "format": "fix",
+        "parts": [
+          "The choir sang the ",
+          { "tap": "chorus", "reason": "The chorus is the part of a song that repeats. Choirs do sing it." },
+          " in perfect ",
+          { "tap": "harmony", "reason": "Harmony means different notes that sound good together. That fits a choir." },
+          ". But the drummer kept changing the ",
+          { "tap": "lyrics" },
+          ", and nobody could ",
+          { "tap": "dance", "reason": "Dance is fine. It's a clue to which word is wrong." },
+          " in time."
+        ],
+        "spot": 2,
+        "options": [
+          { "text": "key", "reason": "Changing key changes which notes the tune uses, not its speed. The clue is about keeping time." },
+          { "text": "melody", "reason": "The melody is the tune, and drums don't play the tune. The clue is about keeping time." },
+          { "text": "tempo" },
+          { "text": "chorus", "reason": "The choir sings the chorus, not the drummer. The clue is about keeping time." }
+        ],
+        "answer": 2
       }
     },
     {
@@ -678,19 +693,19 @@
       "id": "5.9-b4-1",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Gus's volcano experiment report has a gap.",
-      "text": "When Gus mixed vinegar and bicarb soda, foam gushed out of the bottle. A chemical ___ had turned the two substances into something completely new.",
-      "prompt": "Which science word fits?",
-      "success": "Reaction. In a chemical reaction, substances change into a new substance, like the gas that made the foam.",
+      "frame": "Gus is writing up his volcano experiment. He has four drafts of the key sentence.",
+      "text": "Gus mixed vinegar and bicarb soda. Foam gushed out of the bottle, and a new gas was made.",
+      "prompt": "Which sentence would a scientist write in the report?",
+      "success": "A chemical reaction makes something new, like this gas. The specialist word tells the reader exactly what happened.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "reaction" },
-          { "text": "solution", "reason": "A solution is one substance dissolved evenly in another, like salt in water. Nothing new is made." },
-          { "text": "mixture", "reason": "A mixture is things stirred together that could be separated again. Here something completely new was made." },
-          { "text": "formula", "reason": "A formula is the written code for a substance, like H2O for water. A formula can't turn anything into anything." }
+          { "text": "The vinegar and bicarb soda made a mixture that went totally crazy.", "reason": "A mixture makes nothing new, but a new gas was made. And 'went crazy' is vague." },
+          { "text": "The vinegar and bicarb soda formed a solution that fizzed a lot.", "reason": "A solution is one thing dissolved in another. Nothing new is made in a solution." },
+          { "text": "The vinegar and bicarb soda did a cool science thing that made foam.", "reason": "A cool science thing is vague. A scientist names exactly what happened." },
+          { "text": "The vinegar and bicarb soda had a chemical reaction that made a new gas." }
         ],
-        "answer": 0
+        "answer": 3
       }
     },
     {

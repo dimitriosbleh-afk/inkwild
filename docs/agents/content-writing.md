@@ -33,12 +33,32 @@ Each file has:
     - `examples`: 2 example sentences made of tagged chunks.
     - `test`: the one-line test, at most 20 words.
 
+- `write`: every marked Skill (islands 1 to 8) has one "your turn" writing task. The type is `WriteTask` in `src/content/types.ts`. The student writes one sentence of their own that uses the move. Nobody marks it: they tick their own checks, then see a model answer.
+  - `ask` (at most 20 words) says exactly what to write.
+  - `given` (optional, up to 3 short sentences) gives sentences to combine or rewrite. Sentence combining helps weak writers most, so use `given` wherever the move allows it.
+  - `starter` (optional) is a sentence opener for students who freeze.
+  - `checks` are 2 or 3 items, each at most 10 kid words, that a student can tick honestly, such as "My sentence starts with a when clause". Don't use "My sentence is good."
+  - `model` (at most 30 words) is one strong answer, shown after the student finishes.
+  - Reading Skills write too. 1.2 might be "Write one sentence that shows a feeling without naming it." 2.1 might be "Rewrite this line as if Mo is telling it."
 - `creature`: an original Creature for this Skill. Base it loosely on Australian wildlife or landscape, never on First Nations cultural beings. Give it a two- or three-syllable invented name and an evolved name, both new words not used by any existing game or brand, and a blurb of one or two sentences that ties it to the Skill.
 - `encounters`: exactly 6 per Band, Bands 1 to 4, 24 in all. Ids are `<skill>-b<band>-<n>`.
 
 ## Bands
 
-Bands change the text, never the Skill.
+Every Band uses the same Skill, but each Band asks for harder thinking with it. A longer text is not a harder Band. The thinking must step up:
+
+1. **Band 1: one clear clue.** It sits next to the answer. The wrong options are ruled out by that clue.
+2. **Band 2: the clue is a sentence or two away.** One wrong option is a near miss that the clue still rules out.
+3. **Band 3: put two clues together, or read a clue the text only hints at.** The near misses look right at a glance. Include the trap the lesson named in at least one task.
+4. **Band 4: judge or explain.** For example:
+   - pick the best of two acceptable answers for a reason
+   - say what a choice does for the reader
+   - compare two versions or texts
+   - use the move on an unusual case
+
+   The near misses are as close as they can be while still having one defensible answer. A strong reader should have to stop and think.
+
+Text length and vocabulary still rise with the Band, as in the table below, but they are not what makes a Band harder.
 
 | Band | Level | Average sentence length | Options | Distractors |
 |---|---|---|---|---|

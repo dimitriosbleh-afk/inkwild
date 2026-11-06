@@ -2,7 +2,9 @@
   "skill": {
     "id": "6.7",
     "name": "Apostrophes for one owner",
-    "codes": ["VC2E5LA09"],
+    "codes": [
+      "VC2E5LA09"
+    ],
     "why": "The apostrophe tells readers who owns what. Without it, owners go missing.",
     "how": "Find the owner. Add 's straight after it. No owner means no apostrophe.",
     "teach": {
@@ -188,9 +190,17 @@
           "body": {
             "format": "choose",
             "options": [
-              { "text": "koala's" },
-              { "text": "koalas", "reason": "Koalas just means more than one koala. It doesn't show the ears belong to it." },
-              { "text": "koalas'", "reason": "That apostrophe means many koalas share the ears. How many koalas are in the snow?" }
+              {
+                "text": "koala's"
+              },
+              {
+                "text": "koalas",
+                "reason": "Koalas just means more than one koala. It doesn't show the ears belong to it."
+              },
+              {
+                "text": "koalas'",
+                "reason": "That apostrophe means many koalas share the ears. How many koalas are in the snow?"
+              }
             ],
             "answer": 0
           }
@@ -203,9 +213,17 @@
           "body": {
             "format": "choose",
             "options": [
-              { "text": "penguins" },
-              { "text": "penguin's", "reason": "That apostrophe shows one owner. Is anything owned in this sentence?" },
-              { "text": "penguins'", "reason": "That apostrophe shows many owners. Does anything belong to them here?" }
+              {
+                "text": "penguins"
+              },
+              {
+                "text": "penguin's",
+                "reason": "That apostrophe shows one owner. Is anything owned in this sentence?"
+              },
+              {
+                "text": "penguins'",
+                "reason": "That apostrophe shows many owners. Does anything belong to them here?"
+              }
             ],
             "answer": 0
           }
@@ -217,6 +235,19 @@
       "name": "Mineling",
       "evolved": "Minewarden",
       "blurb": "A mountain pygmy possum that guards one stash of seeds under the snow. It hangs an apostrophe tag on it so everyone knows it's the Mineling's."
+    },
+    "write": {
+      "ask": "Rewrite both with 's. Then use them together in one sentence of your own.",
+      "given": [
+        "the tail of the possum",
+        "the beanie of Indi"
+      ],
+      "checks": [
+        "Each owner has 's straight after it",
+        "Words that just mean more than one have no apostrophe",
+        "Both owners are in my sentence"
+      ],
+      "model": "The possum's tail flicked three snowballs onto Indi's beanie."
     }
   },
   "encounters": [
@@ -231,9 +262,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "wombat's" },
-          { "text": "wombats", "reason": "Wombats just means more than one wombat. It doesn't show the nose belongs to it." },
-          { "text": "wombats'", "reason": "An apostrophe after the s means many wombats own it. There's only one." }
+          {
+            "text": "wombat's"
+          },
+          {
+            "text": "wombats",
+            "reason": "Wombats just means more than one wombat. It doesn't show the nose belongs to it."
+          },
+          {
+            "text": "wombats'",
+            "reason": "An apostrophe after the s means many wombats own it. There's only one."
+          }
         ],
         "answer": 0
       }
@@ -249,9 +288,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Tully's" },
-          { "text": "Tullys", "reason": "Without an apostrophe, nothing shows the kick belongs to Tully." },
-          { "text": "Tullys'", "reason": "An apostrophe after the s means many owners. There's only one Tully." }
+          {
+            "text": "Tully's"
+          },
+          {
+            "text": "Tullys",
+            "reason": "Without an apostrophe, nothing shows the kick belongs to Tully."
+          },
+          {
+            "text": "Tullys'",
+            "reason": "An apostrophe after the s means many owners. There's only one Tully."
+          }
         ],
         "answer": 0
       }
@@ -265,12 +312,31 @@
       "success": "The 's shows an owner. A plain s just means more than one.",
       "body": {
         "format": "sort",
-        "bins": ["shows an owner", "just more than one"],
+        "bins": [
+          "shows an owner",
+          "just more than one"
+        ],
         "items": [
-          { "text": "Mo's pie", "bin": 0, "reason": "The pie belongs to Mo, so Mo gets 's." },
-          { "text": "the pies", "bin": 1, "reason": "Pies just means more than one pie. Nothing is owned." },
-          { "text": "the chef's hat", "bin": 0, "reason": "The hat belongs to the chef, so chef gets 's." },
-          { "text": "the chefs", "bin": 1, "reason": "Chefs just means more than one chef. Nothing is owned." }
+          {
+            "text": "Mo's pie",
+            "bin": 0,
+            "reason": "The pie belongs to Mo, so Mo gets 's."
+          },
+          {
+            "text": "the pies",
+            "bin": 1,
+            "reason": "Pies just means more than one pie. Nothing is owned."
+          },
+          {
+            "text": "the chef's hat",
+            "bin": 0,
+            "reason": "The hat belongs to the chef, so chef gets 's."
+          },
+          {
+            "text": "the chefs",
+            "bin": 1,
+            "reason": "Chefs just means more than one chef. Nothing is owned."
+          }
         ]
       }
     },
@@ -283,8 +349,15 @@
       "success": "The penguin's beanie. The beanie belongs to one penguin, so it gets 's.",
       "body": {
         "format": "build",
-        "tiles": ["The penguin's", "The penguins", "beanie", "fell off."],
-        "accept": ["The penguin's beanie fell off."],
+        "tiles": [
+          "The penguin's",
+          "The penguins",
+          "beanie",
+          "fell off."
+        ],
+        "accept": [
+          "The penguin's beanie fell off."
+        ],
         "reason": "The beanie belongs to the penguin. The owner needs 's."
       }
     },
@@ -298,18 +371,34 @@
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "Zeds" },
+          {
+            "tap": "Zeds"
+          },
           " ",
-          { "tap": "controller", "reason": "Controller is the thing being owned. It doesn't need an apostrophe." },
+          {
+            "tap": "controller",
+            "reason": "Controller is the thing being owned. It doesn't need an apostrophe."
+          },
           " ran out of ",
-          { "tap": "battery", "reason": "Battery doesn't own anything here. Look for the owner." },
+          {
+            "tap": "battery",
+            "reason": "Battery doesn't own anything here. Look for the owner."
+          },
           "."
         ],
         "spot": 0,
         "options": [
-          { "text": "Zed's" },
-          { "text": "Zeds'", "reason": "An apostrophe after the s means many owners. There's only one Zed." },
-          { "text": "Zed", "reason": "Without 's, nothing shows the controller belongs to Zed." }
+          {
+            "text": "Zed's"
+          },
+          {
+            "text": "Zeds'",
+            "reason": "An apostrophe after the s means many owners. There's only one Zed."
+          },
+          {
+            "text": "Zed",
+            "reason": "Without 's, nothing shows the controller belongs to Zed."
+          }
         ],
         "answer": 0
       }
@@ -325,11 +414,19 @@
         "format": "tapText",
         "parts": [
           "Three ",
-          { "tap": "stars", "reason": "Stars just means more than one star. Nothing belongs to them." },
+          {
+            "tap": "stars",
+            "reason": "Stars just means more than one star. Nothing belongs to them."
+          },
           " and two ",
-          { "tap": "planets", "reason": "Planets just means more than one planet. Nothing belongs to them." },
+          {
+            "tap": "planets",
+            "reason": "Planets just means more than one planet. Nothing belongs to them."
+          },
           " glowed on the ",
-          { "tap": "astronauts" },
+          {
+            "tap": "astronauts"
+          },
           " helmet."
         ],
         "answer": 2
@@ -346,9 +443,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "mural's" },
-          { "text": "murals", "reason": "Murals just means more than one mural. It doesn't show the colours belong to it." },
-          { "text": "murals'", "reason": "That apostrophe means many murals share the colours. Indi painted one." }
+          {
+            "text": "mural's"
+          },
+          {
+            "text": "murals",
+            "reason": "Murals just means more than one mural. It doesn't show the colours belong to it."
+          },
+          {
+            "text": "murals'",
+            "reason": "That apostrophe means many murals share the colours. Indi painted one."
+          }
         ],
         "answer": 0
       }
@@ -363,9 +468,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The yeti's sock smelled like old cheese." },
-          { "text": "The yetis sock smelled like old cheese.", "reason": "Without an apostrophe, nothing shows the sock belongs to the yeti." },
-          { "text": "The yeti sock's smelled like old cheese.", "reason": "The apostrophe goes on the owner. Does the sock own anything, or is it owned?" }
+          {
+            "text": "The yeti's sock smelled like old cheese."
+          },
+          {
+            "text": "The yetis sock smelled like old cheese.",
+            "reason": "Without an apostrophe, nothing shows the sock belongs to the yeti."
+          },
+          {
+            "text": "The yeti sock's smelled like old cheese.",
+            "reason": "The apostrophe goes on the owner. Does the sock own anything, or is it owned?"
+          }
         ],
         "answer": 0
       }
@@ -379,13 +492,36 @@
       "success": "Use 's when something belongs to one owner. Use a plain s when there's just more than one.",
       "body": {
         "format": "sort",
-        "bins": ["one owner", "no owner, just more than one"],
+        "bins": [
+          "one owner",
+          "no owner, just more than one"
+        ],
         "items": [
-          { "text": "The koala's ears were frosty.", "bin": 0, "reason": "The ears belong to the koala, so koala gets 's." },
-          { "text": "The koalas huddled together.", "bin": 1, "reason": "Koalas just means more than one koala. Nothing is owned." },
-          { "text": "We heard a lyrebird's song.", "bin": 0, "reason": "The song belongs to the lyrebird, so lyrebird gets 's." },
-          { "text": "The lyrebirds danced in the snow.", "bin": 1, "reason": "Lyrebirds just means more than one lyrebird. Nothing is owned." },
-          { "text": "The dingo's paw prints led uphill.", "bin": 0, "reason": "The paw prints belong to the dingo, so dingo gets 's." }
+          {
+            "text": "The koala's ears were frosty.",
+            "bin": 0,
+            "reason": "The ears belong to the koala, so koala gets 's."
+          },
+          {
+            "text": "The koalas huddled together.",
+            "bin": 1,
+            "reason": "Koalas just means more than one koala. Nothing is owned."
+          },
+          {
+            "text": "We heard a lyrebird's song.",
+            "bin": 0,
+            "reason": "The song belongs to the lyrebird, so lyrebird gets 's."
+          },
+          {
+            "text": "The lyrebirds danced in the snow.",
+            "bin": 1,
+            "reason": "Lyrebirds just means more than one lyrebird. Nothing is owned."
+          },
+          {
+            "text": "The dingo's paw prints led uphill.",
+            "bin": 0,
+            "reason": "The paw prints belong to the dingo, so dingo gets 's."
+          }
         ]
       }
     },
@@ -398,8 +534,15 @@
       "success": "The drummer's sticks. Both sticks belong to one drummer, so drummer gets 's.",
       "body": {
         "format": "build",
-        "tiles": ["The drummer's", "The drummers", "sticks", "flew into the crowd."],
-        "accept": ["The drummer's sticks flew into the crowd."],
+        "tiles": [
+          "The drummer's",
+          "The drummers",
+          "sticks",
+          "flew into the crowd."
+        ],
+        "accept": [
+          "The drummer's sticks flew into the crowd."
+        ],
         "reason": "The sticks belong to the drummer. The owner needs 's."
       }
     },
@@ -414,18 +557,34 @@
         "format": "fix",
         "parts": [
           "My ",
-          { "tap": "sisters" },
+          {
+            "tap": "sisters"
+          },
           " ",
-          { "tap": "ute", "reason": "The ute is the thing being owned. It doesn't need an apostrophe." },
+          {
+            "tap": "ute",
+            "reason": "The ute is the thing being owned. It doesn't need an apostrophe."
+          },
           " got stuck in a ",
-          { "tap": "snowdrift", "reason": "Snowdrift doesn't own anything. Look for the owner." },
+          {
+            "tap": "snowdrift",
+            "reason": "Snowdrift doesn't own anything. Look for the owner."
+          },
           " again."
         ],
         "spot": 0,
         "options": [
-          { "text": "sister's" },
-          { "text": "sisters'", "reason": "That means more than one sister owns the ute. Mo has one." },
-          { "text": "sister is", "reason": "'My sister is ute' doesn't make sense. Show that the ute belongs to her." }
+          {
+            "text": "sister's"
+          },
+          {
+            "text": "sisters'",
+            "reason": "That means more than one sister owns the ute. Mo has one."
+          },
+          {
+            "text": "sister is",
+            "reason": "'My sister is ute' doesn't make sense. Show that the ute belongs to her."
+          }
         ],
         "answer": 0
       }
@@ -441,11 +600,19 @@
         "format": "tapText",
         "parts": [
           "The ",
-          { "tap": "seals", "reason": "Seals just means more than one seal, and they don't own anything here." },
+          {
+            "tap": "seals",
+            "reason": "Seals just means more than one seal, and they don't own anything here."
+          },
           " watched the ",
-          { "tap": "ships" },
+          {
+            "tap": "ships"
+          },
           " captain throw ",
-          { "tap": "fish", "reason": "Fish are just being thrown. They don't own anything." },
+          {
+            "tap": "fish",
+            "reason": "Fish are just being thrown. They don't own anything."
+          },
           " into the icy water."
         ],
         "answer": 1
@@ -461,10 +628,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The ghost's chains rattled down the frozen hallway." },
-          { "text": "The ghosts chains rattled down the frozen hallway.", "reason": "Without an apostrophe, nothing shows the chains belong to the ghost." },
-          { "text": "The ghosts' chains rattled down the frozen hallway.", "reason": "An apostrophe after the s means many ghosts. Only one haunts the lodge." },
-          { "text": "The ghost's chain's rattled down the frozen hallway.", "reason": "Chains just means more than one chain. It doesn't own anything, so no apostrophe." }
+          {
+            "text": "The ghost's chains rattled down the frozen hallway."
+          },
+          {
+            "text": "The ghosts chains rattled down the frozen hallway.",
+            "reason": "Without an apostrophe, nothing shows the chains belong to the ghost."
+          },
+          {
+            "text": "The ghosts' chains rattled down the frozen hallway.",
+            "reason": "An apostrophe after the s means many ghosts. Only one haunts the lodge."
+          },
+          {
+            "text": "The ghost's chain's rattled down the frozen hallway.",
+            "reason": "Chains just means more than one chain. It doesn't own anything, so no apostrophe."
+          }
         ],
         "answer": 0
       }
@@ -478,13 +656,36 @@
       "success": "An apostrophe only goes on an owner. Words that just mean more than one get a plain s.",
       "body": {
         "format": "sort",
-        "bins": ["apostrophe used correctly", "apostrophe used wrongly"],
+        "bins": [
+          "apostrophe used correctly",
+          "apostrophe used wrongly"
+        ],
         "items": [
-          { "text": "The goalie's gloves were frozen stiff.", "bin": 0, "reason": "The gloves belong to the goalie, so goalie's is right." },
-          { "text": "Our team's coach yelled from the bench.", "bin": 0, "reason": "The coach belongs to one team, so team's is right." },
-          { "text": "The player's ran onto the icy oval.", "bin": 1, "reason": "The players don't own anything here. It just means more than one, so no apostrophe." },
-          { "text": "Two umpire's blew their whistles.", "bin": 1, "reason": "Two umpires just means more than one umpire, so no apostrophe." },
-          { "text": "Tully's boots were full of snow.", "bin": 0, "reason": "The boots belong to Tully, so Tully's is right." }
+          {
+            "text": "The goalie's gloves were frozen stiff.",
+            "bin": 0,
+            "reason": "The gloves belong to the goalie, so goalie's is right."
+          },
+          {
+            "text": "Our team's coach yelled from the bench.",
+            "bin": 0,
+            "reason": "The coach belongs to one team, so team's is right."
+          },
+          {
+            "text": "The player's ran onto the icy oval.",
+            "bin": 1,
+            "reason": "The players don't own anything here. It just means more than one, so no apostrophe."
+          },
+          {
+            "text": "Two umpire's blew their whistles.",
+            "bin": 1,
+            "reason": "Two umpires just means more than one umpire, so no apostrophe."
+          },
+          {
+            "text": "Tully's boots were full of snow.",
+            "bin": 0,
+            "reason": "The boots belong to Tully, so Tully's is right."
+          }
         ]
       }
     },
@@ -497,8 +698,17 @@
       "success": "Mo's brother's pancakes. The brother belongs to Mo, and the pancakes belong to the brother. Two owners, two 's.",
       "body": {
         "format": "build",
-        "tiles": ["Mo's", "Mos", "brother's", "brothers", "pancakes", "stuck to the ceiling."],
-        "accept": ["Mo's brother's pancakes stuck to the ceiling."],
+        "tiles": [
+          "Mo's",
+          "Mos",
+          "brother's",
+          "brothers",
+          "pancakes",
+          "stuck to the ceiling."
+        ],
+        "accept": [
+          "Mo's brother's pancakes stuck to the ceiling."
+        ],
         "reason": "The brother is Mo's, and the pancakes are the brother's. Each owner needs 's."
       }
     },
@@ -512,19 +722,40 @@
       "body": {
         "format": "fix",
         "parts": [
-          "The ",
-          { "tap": "robots" },
+          "Two ",
+          {
+            "tap": "skiers",
+            "reason": "Skiers just means more than one skier. Do they own anything here?"
+          },
+          " laughed when the ",
+          {
+            "tap": "robots"
+          },
+          " battery died and it slid back down to ",
+          {
+            "tap": "Indi's",
+            "reason": "Whose feet? This apostrophe already answers that. Is anything wrong with it?"
+          },
           " ",
-          { "tap": "battery", "reason": "The battery is the thing being owned. Look for the owner." },
-          " went flat halfway up the ",
-          { "tap": "slope", "reason": "Slope doesn't own anything here. Look for the owner." },
-          ", so it slid all the way back down."
+          {
+            "tap": "feet",
+            "reason": "Feet is the thing being owned. Is it an owner?"
+          },
+          "."
         ],
-        "spot": 0,
+        "spot": 1,
         "options": [
-          { "text": "robot's" },
-          { "text": "robots'", "reason": "That means many robots share the battery. Gus built just one." },
-          { "text": "robot is", "reason": "'The robot is battery' doesn't make sense. The battery belongs to the robot." }
+          {
+            "text": "robot's"
+          },
+          {
+            "text": "robots'",
+            "reason": "That means many robots share the battery. Gus built just one."
+          },
+          {
+            "text": "robot is",
+            "reason": "'The robot is battery' doesn't make sense. The battery belongs to the robot."
+          }
         ],
         "answer": 0
       }
@@ -539,10 +770,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Indi's best brush froze in the jar of water." },
-          { "text": "Indis best brush froze in the jar of water.", "reason": "Without an apostrophe, nothing shows the brush belongs to Indi." },
-          { "text": "Indi's best brush's froze in the jar of water.", "reason": "The brush doesn't own anything here, so it needs no apostrophe." },
-          { "text": "Indis' best brush froze in the jar of water.", "reason": "Her name is Indi, not Indis. Write the owner's name exactly first. Then where does the mark go?" }
+          {
+            "text": "Indi's best brush froze in the jar of water."
+          },
+          {
+            "text": "Indis best brush froze in the jar of water.",
+            "reason": "Without an apostrophe, nothing shows the brush belongs to Indi."
+          },
+          {
+            "text": "Indi's best brush's froze in the jar of water.",
+            "reason": "The brush doesn't own anything here, so it needs no apostrophe."
+          },
+          {
+            "text": "Indis' best brush froze in the jar of water.",
+            "reason": "Her name is Indi, not Indis. Write the owner's name exactly first. Then where does the mark go?"
+          }
         ],
         "answer": 0
       }
@@ -558,13 +800,24 @@
         "format": "tapText",
         "parts": [
           "Three ",
-          { "tap": "players", "reason": "Players just means more than one player. They don't own anything here." },
+          {
+            "tap": "players",
+            "reason": "Players just means more than one player. They don't own anything here."
+          },
           " crept past the sleeping ",
-          { "tap": "guards", "reason": "Guards just means more than one guard. They don't own anything here." },
+          {
+            "tap": "guards",
+            "reason": "Guards just means more than one guard. They don't own anything here."
+          },
           " and stole the ",
-          { "tap": "dragons" },
+          {
+            "tap": "dragons"
+          },
           " golden ",
-          { "tap": "eggs", "reason": "The eggs are the things being owned. They don't own anything." },
+          {
+            "tap": "eggs",
+            "reason": "The eggs are the things being owned. They don't own anything."
+          },
           "."
         ],
         "answer": 2
@@ -574,18 +827,29 @@
       "id": "6.7-b4-1",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren's field notes say that only one echidna lives on the snowy plateau.",
-      "prompt": "Which sentence is punctuated correctly?",
-      "success": "The echidna's spines. One echidna owns them, so it gets 's. The spines own nothing.",
+      "frame": "Gus is checking Wren's notes. He says 'the wombat's mum' is wrong, because a wombat can't own its mum.",
+      "prompt": "What should Wren tell him?",
+      "success": "The 's doesn't only mean owning. If a word answers 'whose?', it gets 's: the wombat's mum.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The echidna's spines bristled as the blizzard swept across the plateau." },
-          { "text": "The echidnas' spines bristled as the blizzard swept across the plateau.", "reason": "That apostrophe means several echidnas. Only one lives on the plateau." },
-          { "text": "The echidna's spine's bristled as the blizzard swept across the plateau.", "reason": "The spines don't own anything, so they just need s." },
-          { "text": "The echidnas spines bristled as the blizzard swept across the plateau.", "reason": "With no apostrophe, nothing shows the spines belong to the echidna." }
+          {
+            "text": "He's right. A mum isn't owned, so 'the wombats mum' needs no mark.",
+            "reason": "Try the whose test. Whose mum is it? Does that word need 's?"
+          },
+          {
+            "text": "Ask 'whose mum?' The wombat answers it, so 'the wombat's mum' is right."
+          },
+          {
+            "text": "The mark is fine, but it goes after the s: 'the wombats' mum'.",
+            "reason": "There is one wombat. Write the owner exactly first. Then where does the mark go?"
+          },
+          {
+            "text": "He's right that 's is for things you hold. Write 'the mum of the wombat'.",
+            "reason": "'s works for family and links too. What does the whose test say?"
+          }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -594,16 +858,49 @@
       "topic": "general",
       "frame": "The Mineling is checking the safety signs at the Comma Cay ski fields.",
       "prompt": "Match each sign to the right group.",
-      "success": "An apostrophe shows one owner. Words that just mean more than one never take an apostrophe.",
+      "success": "Ask 'whose?'. The word that answers gets 's, even for links and time. Plain more-than-one gets s only.",
       "body": {
         "format": "sort",
-        "bins": ["apostrophe used correctly", "apostrophe used wrongly"],
+        "bins": [
+          "apostrophe used correctly",
+          "apostrophe wrong or missing"
+        ],
         "items": [
-          { "text": "The ranger's hut is buried under two metres of snow.", "bin": 0, "reason": "The hut belongs to the ranger, so ranger's is right." },
-          { "text": "Each skier's ticket must be shown at the chairlift.", "bin": 0, "reason": "Each skier owns one ticket, so skier's is right." },
-          { "text": "The snowboarder's raced each other to the bottom.", "bin": 1, "reason": "The snowboarders don't own anything here. It just means more than one." },
-          { "text": "The ski lift's motor groaned, then stopped completely.", "bin": 0, "reason": "The motor belongs to the ski lift, so lift's is right." },
-          { "text": "Avalanche's are most likely after heavy snowfall.", "bin": 1, "reason": "Avalanches just means more than one avalanche. Nothing is owned, so no apostrophe." }
+          {
+            "text": "The ranger's hut is buried under snow.",
+            "bin": 0,
+            "reason": "Whose hut? The ranger's. The owner has its 's."
+          },
+          {
+            "text": "The snowboarder's raced each other to the bottom.",
+            "bin": 1,
+            "reason": "Nobody owns anything here. It just means more than one, so no apostrophe."
+          },
+          {
+            "text": "The lodge's manager rings the bell at six.",
+            "bin": 0,
+            "reason": "Whose manager? The lodge's. A link, not owning, but the whose test still works."
+          },
+          {
+            "text": "Avalanche's are most likely after heavy snow.",
+            "bin": 1,
+            "reason": "Nothing is owned. It just means more than one avalanche."
+          },
+          {
+            "text": "Tomorrow's forecast says more snow is coming.",
+            "bin": 0,
+            "reason": "Whose forecast? Tomorrow's. The whose test works for time too."
+          },
+          {
+            "text": "The lifts motor groaned, then stopped.",
+            "bin": 1,
+            "reason": "Whose motor? The lift's. The owner is missing its 's."
+          },
+          {
+            "text": "Each skier's ticket must be shown at the gate.",
+            "bin": 0,
+            "reason": "Whose ticket? Each skier's. One skier, one 's."
+          }
         ]
       }
     },
@@ -611,39 +908,68 @@
       "id": "6.7-b4-3",
       "band": 4,
       "topic": "space",
-      "frame": "One commander has one daughter, and the daughter has her own spaceship.",
-      "prompt": "Tap the pieces in order to say whose spaceship landed.",
-      "success": "The commander's daughter's spaceship. The daughter belongs to the commander, and the spaceship belongs to the daughter.",
+      "frame": "The space commander has two daughters. Each has her own spaceship.",
+      "prompt": "Tap the pieces in order to say who landed the spaceships.",
+      "success": "Whose daughters? The commander's. The daughters don't own anything here, so they just get s.",
       "body": {
         "format": "build",
-        "tiles": ["The commander's", "The commanders", "daughter's", "daughters", "spaceship", "landed on the frozen moon."],
-        "accept": ["The commander's daughter's spaceship landed on the frozen moon."],
-        "reason": "There are two owners in a row: the commander, then the daughter. Each one needs 's."
+        "tiles": [
+          "The commander's",
+          "The commanders",
+          "daughters",
+          "daughter's",
+          "landed two spaceships on the moon."
+        ],
+        "accept": [
+          "The commander's daughters landed two spaceships on the moon."
+        ],
+        "reason": "Ask 'whose daughters?' for the first word. Then ask: do the daughters own anything, or are there just two?"
       }
     },
     {
       "id": "6.7-b4-4",
       "band": 4,
       "topic": "music",
-      "frame": "The Winter Orchestra has only one conductor, and tonight was a disaster.",
-      "prompt": "Tap the word that needs an apostrophe, then choose the fix.",
-      "success": "Conductor's. The baton belongs to the one conductor, so conductor gets 's.",
+      "frame": "The Winter Orchestra had a disaster tonight. One apostrophe is wrong.",
+      "prompt": "Tap the word with the wrong apostrophe, then choose the fix.",
+      "success": "Giggle is what the violinists do. They don't own anything, and there's more than one, so just add s.",
       "body": {
         "format": "fix",
         "parts": [
-          "Halfway through the ",
-          { "tap": "concert", "reason": "Concert doesn't own anything here. Look for the owner of the baton." },
-          ", the ",
-          { "tap": "conductors" },
-          " baton snapped and the ",
-          { "tap": "violinists", "reason": "Violinists just means more than one violinist. They don't own anything here." },
-          " burst out laughing."
+          "Halfway through ",
+          {
+            "tap": "tonight's",
+            "reason": "Whose concert? Tonight's. The whose test works for time, so this one is right."
+          },
+          " concert, the ",
+          {
+            "tap": "conductor's",
+            "reason": "Whose baton? The conductor's. This one is right."
+          },
+          " baton snapped. Now the ",
+          {
+            "tap": "violinist's"
+          },
+          " giggle whenever the ",
+          {
+            "tap": "drummer's",
+            "reason": "Whose sticks? The drummer's. One drummer owns them, so this one is right."
+          },
+          " sticks click."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
-          { "text": "conductor's" },
-          { "text": "conductors'", "reason": "That means many conductors share the baton. The orchestra has only one." },
-          { "text": "conductor is", "reason": "'The conductor is baton snapped' doesn't make sense. The baton belongs to the conductor." }
+          {
+            "text": "violinists"
+          },
+          {
+            "text": "violinists'",
+            "reason": "That mark means they own something. Is giggle a thing they own here?"
+          },
+          {
+            "text": "violinist",
+            "reason": "With one violinist, it would say 'giggles'. How many are giggling?"
+          }
         ],
         "answer": 0
       }
@@ -652,23 +978,34 @@
       "id": "6.7-b4-5",
       "band": 4,
       "topic": "ocean",
-      "frame": "Tully is reporting from the deck of the one icebreaker in the bay.",
+      "frame": "Tully is reporting from the deck of the icebreaker.",
       "prompt": "Tap the word that needs an apostrophe.",
-      "success": "Icebreakers. The captain belongs to the ship, so the icebreaker is the owner.",
+      "success": "Whose storm? Yesterday's. The whose test works for time. The other s words just mean more than one.",
       "body": {
         "format": "tapText",
         "parts": [
           "The ",
-          { "tap": "icebreakers" },
-          " ",
-          { "tap": "captain", "reason": "The captain is what belongs to the ship. The owner needs the apostrophe." },
-          " steered between towering ",
-          { "tap": "icebergs", "reason": "Icebergs just means more than one iceberg. They don't own anything." },
-          " while curious ",
-          { "tap": "penguins", "reason": "Penguins just means more than one penguin. They don't own anything." },
-          " watched from the floating ice."
+          {
+            "tap": "captains",
+            "reason": "Here, report is what the captains do. Is anything owned?"
+          },
+          " report that ",
+          {
+            "tap": "yesterdays"
+          },
+          " storm was the worst in ",
+          {
+            "tap": "years",
+            "reason": "Years just means more than one year. Is anything owned?"
+          },
+          ". Now the ",
+          {
+            "tap": "gulls",
+            "reason": "Circle is what the gulls do here. Is anything owned?"
+          },
+          " circle the mast."
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -681,10 +1018,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Mo's neighbour's dog chewed the snowman's carrot nose." },
-          { "text": "Mo's neighbours dog chewed the snowman's carrot nose.", "reason": "Check every owner in the sentence. Who owns the dog?" },
-          { "text": "Mos neighbour's dog chewed the snowman's carrot nose.", "reason": "Check every owner in the sentence. Whose neighbour is it?" },
-          { "text": "Mo's neighbour's dog chewed the snowmans carrot nose.", "reason": "Check every owner, right to the end. Whose carrot nose is it?" }
+          {
+            "text": "Mo's neighbour's dog chewed the snowman's carrot nose."
+          },
+          {
+            "text": "Mo's neighbours dog chewed the snowman's carrot nose.",
+            "reason": "Check every owner in the sentence. Who owns the dog?"
+          },
+          {
+            "text": "Mos neighbour's dog chewed the snowman's carrot nose.",
+            "reason": "Check every owner in the sentence. Whose neighbour is it?"
+          },
+          {
+            "text": "Mo's neighbour's dog chewed the snowmans carrot nose.",
+            "reason": "Check every owner, right to the end. Whose carrot nose is it?"
+          }
         ],
         "answer": 0
       }

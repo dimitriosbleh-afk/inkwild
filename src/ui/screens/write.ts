@@ -1,7 +1,7 @@
 import { content } from '../../app/content';
 import type { SkillId } from '../../content/types';
 import { isUnlocked } from '../../core/route';
-import type { Piece } from '../../core/save';
+import type { Piece, Sentence } from '../../core/save';
 import type { App, ScreenView } from '../app';
 import { h } from '../dom';
 import { readable } from '../speech';
@@ -72,23 +72,39 @@ export function writeScreen(app: App, { skill }: { skill: SkillId }): ScreenView
   return { el };
 }
 
+/** Write your own sentences, one group per Skill, newest Skill first. */
+function sentenceGroups(sentences: Sentence[]): { skill: SkillId; texts: string[] }[] {
+  const groups = new Map<SkillId, string[]>();
+  for (const s of [...sentences].reverse()) groups.set(s.skill, [...(groups.get(s.skill) ?? []), s.text]);
+  return [...groups].map(([skill, texts]) => ({ skill, texts }));
+}
+
 export function piecesScreen(app: App): ScreenView {
   const pieces = [...app.store.save.pieces].reverse();
+  const groups = sentenceGroups(app.store.save.sentences);
   const words = (t: string) => t.split(/\s+/).filter(Boolean).length;
+  const row = (label: string, open: () => void) =>
+    h('button', { class: 'node open', style: 'width:100%;text-align:left', onclick: open }, h('div', { class: 'dot' }), h('div', { class: 'name', style: 'color:var(--ink)' }, label));
   return {
     el: h(
       'div',
       { class: 'centre' },
       h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: () => app.go({ name: 'settings' }) }, 'BACK'), h('h2', { style: 'margin:0' }, 'MY WRITING')),
-      pieces.length === 0
-        ? h('div', { class: 'panel' }, h('p', { class: 'note' }, 'Nothing yet. Sail to Inkwell Bay to write your first piece.'))
-        : h(
+      pieces.length === 0 && groups.length === 0
+        ? h('div', { class: 'panel' }, h('p', { class: 'note' }, 'Nothing yet. Learn a move on any island and write a sentence with it, or sail to Inkwell Bay to write a story.'))
+        : null,
+      pieces.length > 0 ? h('div', { class: 'panel route' }, h('h3', {}, 'MY STORIES'), ...pieces.map((p) => row(`${p.title} · ${words(p.text)} words`, () => showMyTeacher(p)))) : null,
+      groups.length > 0
+        ? h(
             'div',
             { class: 'panel route' },
-            ...pieces.map((p) =>
-              h('button', { class: 'node open', style: 'width:100%;text-align:left', onclick: () => showMyTeacher(p) }, h('div', { class: 'dot' }), h('div', { class: 'name', style: 'color:var(--ink)' }, `${p.title} · ${words(p.text)} words`)),
-            ),
-          ),
+            h('h3', {}, 'MY SENTENCES'),
+            ...groups.flatMap((g) => {
+              const name = content.skill(g.skill).name;
+              return [h('div', { class: 'frame' }, name.toUpperCase()), ...g.texts.map((text) => row(text, () => showMyTeacher({ title: name, text })))];
+            }),
+          )
+        : null,
     ),
   };
 }

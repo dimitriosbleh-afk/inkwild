@@ -243,6 +243,18 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite this as a kid in 1950 might write it. Show one thing that is different now.",
+      "given": [
+        "I rang Nan on my phone after school."
+      ],
+      "starter": "After school, I",
+      "checks": [
+        "One thing in my sentence is different now",
+        "I wrote it as if it's normal, without explaining"
+      ],
+      "model": "After school, I ran to the phone box on the corner and put two pennies in to ring Nan."
+    },
     "creature": {
       "id": "thennit",
       "name": "Thennit",
@@ -652,7 +664,7 @@
             "text": "Families had no way to contact the boats at sea."
           },
           {
-            "text": "Fishing trips only lasted an hour or two.",
+            "text": "Fishing trips lasted an hour or two, so families waited at the jetty.",
             "reason": "The boats leave on Tuesday and come back on Friday night."
           }
         ],
@@ -665,25 +677,25 @@
       "topic": "general",
       "frame": "The Thennit is living in an old television knob. It brought a newspaper with it.",
       "text": "TWOTIDE TIMES, 9 August 1958. TELEVISION COMES TO THE ISLAND. Twotide Atoll has its first television sets. Only three houses on the island have one so far, and Mr Hooper's electrical shop has a fourth set in its front window. Every afternoon, crowds of children press their noses against the glass to watch cartoons, even though they cannot hear a sound. Mr Hooper says the pictures travel all the way from the mainland through the air, though nobody on the island quite understands how. Not everyone is pleased. Dr Fenwick warned parents this week that children who sit closer than two metres to the screen may damage their eyes. 'Some children are watching for an hour a day,' he said. 'That cannot be good for them.' The Reverend Platt worried that families would stop talking to each other at dinner. Mrs Hooper, however, said television was 'a marvel', and that her husband had sold eleven aerials in a week. The island council will meet on Tuesday to decide whether television should be allowed on Sundays.",
-      "prompt": "What does this article show about the time it was written?",
-      "success": "Brand-new sets and worried adults. In 1958, people weren't sure television was safe for kids.",
+      "prompt": "Every option says television was new. Which one fits everything the article says?",
+      "success": "New sets and worried adults. Nothing was banned or proved yet, and Mr Hooper sold aerials, not sets.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Every family had owned a television for years.",
-            "reason": "Only three houses have one, and the headline says it has just arrived."
+            "text": "Television was new, and doctors had proved it damaged children's eyes.",
+            "reason": "Dr Fenwick says it may damage eyes. Is that the same as proved?"
           },
           {
-            "text": "Doctors told parents that sitting close to the screen was good for children's eyes.",
-            "reason": "Dr Fenwick warns that sitting too close may damage their eyes."
+            "text": "Television was new, and the council had banned it on Sundays.",
+            "reason": "The council will meet on Tuesday to decide. Has it banned anything yet?"
           },
           {
             "text": "Television was new, and some adults worried about its effect on children."
           },
           {
-            "text": "Children weren't interested in watching television.",
-            "reason": "They press their noses against the shop window, even without any sound."
+            "text": "Television was new, and Mr Hooper had sold eleven sets in one week.",
+            "reason": "Check what Mr Hooper sold. Was it sets, or aerials?"
           }
         ],
         "answer": 2
@@ -713,7 +725,12 @@
           {
             "tap": "Several gentlemen in the crowd declared that football was far too rough for young ladies."
           },
-          " The players wore long skirts and white blouses, and one lost her hat in the second quarter. Officials said they had never seen so large a crowd at the oval for any match. ",
+          " ",
+          {
+            "tap": "The players wore long skirts and white blouses, and one lost her hat in the second quarter.",
+            "reason": "Long skirts show what they wore then. Find what someone thought about girls playing."
+          },
+          " Officials said they had never seen so large a crowd at the oval for any match. ",
           {
             "tap": "The match began at two o'clock, after a short shower of rain.",
             "reason": "This tells you when the match started. It isn't anyone's opinion about girls playing."
@@ -836,18 +853,18 @@
         "format": "choose",
         "options": [
           {
-            "text": "People thought birds' nests should never be touched.",
-            "reason": "Albert takes forty-one eggs, and his teacher gives him a prize for it."
+            "text": "People thought taking eggs was cruel, so Albert kept his collection secret.",
+            "reason": "Albert writes to his uncle about it, and Father wants visitors to admire it."
           },
           {
             "text": "Taking eggs from wild birds' nests was seen as a normal hobby."
           },
           {
-            "text": "Children weren't allowed to go into the bush.",
-            "reason": "Albert collects his eggs in the bush behind the school."
+            "text": "Teachers liked egg collecting, but parents thought it was cruel to birds.",
+            "reason": "Father promises a cabinet. Mother worries about tall trees and trousers, not birds."
           },
           {
-            "text": "Collecting eggs was against the law.",
+            "text": "Collecting eggs was against the law, but children did it anyway.",
             "reason": "Nothing says it broke a law. His teacher praises it and gives him a prize."
           }
         ],
@@ -861,24 +878,24 @@
       "frame": "The Thennit is living in an old record sleeve. A very cross letter fell out.",
       "text": "LETTERS TO THE EDITOR, Twotide Times, 3 October 1956. Sir, I must complain about this new 'rock and roll' music that young people have been playing on the radio all year. It is nothing but shouting and banging, and the singers cannot even be bothered to say their words properly. On Saturday night, at the surf club dance, I saw young people throwing each other about the floor in the most dangerous way. One young man spun his partner so fast that she lost a shoe. The noise could be heard as far as the lighthouse, and my cat has not come out from under the bed since. My grandson tells me this music is 'all the rage'. I told him the rage is mine. In my day, we danced the waltz, politely, at arm's length. Several of my neighbours agree with me that this music will never last, and that it is ruining the young people of this island. I ask the surf club to ban it at once. Yours faithfully, Mr E. Grumble, aged 64.",
       "prompt": "What does this letter show about the time it was written?",
-      "success": "Mr Grumble calls it 'this new music' and wants it banned. Some older people disliked it in 1956.",
+      "success": "Mr Grumble calls rock and roll new and wants it banned. It upset older people in 1956.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Rock and roll had been popular on the island for a hundred years.",
-            "reason": "Mr Grumble calls it 'this new music', played on the radio this year."
+            "text": "Rock and roll had been popular on the island for many years by 1956.",
+            "reason": "He complains about this new music. Is new the same as many years?"
           },
           {
-            "text": "Everybody in 1956 loved rock and roll.",
-            "reason": "Mr Grumble hates it, and he says several neighbours agree with him."
+            "text": "Older islanders enjoyed the music, but they disliked the wild dancing.",
+            "reason": "He calls the music 'shouting and banging'. He dislikes the music itself."
           },
           {
-            "text": "Young people weren't allowed to listen to the radio.",
-            "reason": "He complains that young people play it on the radio all year."
+            "text": "Young people at the surf club still danced the waltz at arm's length.",
+            "reason": "The waltz was 'in my day'. Now young people throw each other about."
           },
           {
-            "text": "Rock and roll was new, and some older people disapproved of it."
+            "text": "Rock and roll was new in 1956, and it upset older people like Mr Grumble."
           }
         ],
         "answer": 3
@@ -890,28 +907,28 @@
       "topic": "general",
       "frame": "The Thennit is living in an old glass light bulb. A letter was rolled up inside.",
       "text": "14 Wattle Street, 18 March 1901. Dear Cousin Bea, The most extraordinary thing happened this week: we have electric light! Two men from the company came on Monday and ran a wire all the way from the pole in the street, through the front window and across the ceiling of the parlour. Now, instead of lighting the lamps, Father simply turns a little brass switch on the wall, and the whole room glows. The first night, we sat up until ten o'clock just looking at it. Half the street came over to see, and Mrs Pomeroy from next door fainted, though Mother says she faints at everything. Grandma refuses to go near the switch. She is convinced that the electricity will leak out of the wire if it is left on, and she makes Father turn it off whenever she is in the room. Mother has kept her box of candles in the kitchen drawer, 'just in case the whole thing is a passing fad'. Only one other family on Wattle Street has electric light so far, and their boy Percy has been boasting about it for weeks. Now we can boast too. Father says that next year we may even have a second light, in the kitchen. Your affectionate cousin, Winifred.",
-      "prompt": "What does Winifred's letter show about the time it was written?",
-      "success": "Brand new, rare and astonishing. The letter shows electric light was only just arriving in homes in 1901.",
+      "prompt": "Which line shows that some people in 1901 thought electricity was dangerous?",
+      "success": "Grandma thinks electricity will leak out of the wire. Mother's candles show doubt, not danger.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Everyone on Wattle Street had had electric light for years.",
-            "reason": "It arrived 'this week', and only one other family on the street has it."
+            "text": "Mother kept her candles in case the light was just a passing fad.",
+            "reason": "Mother doubts it will last. Does she say it is dangerous?"
           },
           {
-            "text": "Electric light was new and exciting, and only a few homes had it."
+            "text": "Mrs Pomeroy from next door fainted when she saw the light.",
+            "reason": "Mother says Mrs Pomeroy faints at everything. Is the light the reason?"
           },
           {
-            "text": "People were so afraid of electricity that nobody would use it.",
-            "reason": "Grandma is nervous, but Father uses the switch and half the street comes to look."
+            "text": "Grandma makes Father switch it off, sure it will leak out of the wire."
           },
           {
-            "text": "Candles had stopped being sold anywhere.",
-            "reason": "Mother has kept her candles in the drawer. Nothing says they'd stopped being sold."
+            "text": "Percy from down the street had been boasting about his family's light for weeks.",
+            "reason": "Boasting shows it was rare and exciting, not dangerous."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -959,49 +976,50 @@
       "topic": "art",
       "frame": "Indi found an old advertisement inside a picture frame. The Thennit has moved into the frame.",
       "text": "PEMBERTON'S PHOTOGRAPHIC STUDIO, 12 Harbour Street. Established 1884. Have your portrait taken by the finest photographer on the coast! Our studio has a large glass roof, so that we may use the bright light of day, and we are therefore open only when the sun is shining. Sitters must keep perfectly still for one whole minute while the picture is taken. A metal stand will be placed behind your head to help you, and it is quite comfortable once you are used to it. Our assistant, Mr Finch, will dust your face with powder so that it does not shine, and he will hold up a white sheet to bounce the light onto your cheeks. Please do not smile. A serious face looks far more dignified than a grin, and a smile is very difficult to hold for a whole minute. Wear your best clothes for your portrait. Children may hold a favourite toy, provided it does not wriggle. You will not see your picture until it has been printed, two weeks later, on card fit to hang in any parlour. We are very busy on Saturdays, so please book ahead. Mr Pemberton regrets that he can no longer photograph dogs, after the unfortunate incident with the Mayor's poodle.",
-      "prompt": "Is each part of this 1884 advertisement different now, or still the same?",
-      "success": "Booking ahead and dressing up haven't changed. Holding still for a minute, no smiles and two-week waits show 1884.",
+      "prompt": "Sort each part of this 1884 advertisement. Some show a different way of doing things, and some show a different idea.",
+      "success": "Only one line is about what people believed: that a serious face looks better. The rest are tools or habits.",
       "body": {
         "format": "sort",
         "bins": [
-          "different now",
+          "a different way of doing things",
+          "a different idea about what looks right",
           "still the same now"
         ],
         "items": [
           {
             "text": "Sitters must keep perfectly still for a whole minute.",
             "bin": 0,
-            "reason": "Today, a photo takes a split second, so nobody has to hold still for a minute."
-          },
-          {
-            "text": "Wear your best clothes for your portrait.",
-            "bin": 1,
-            "reason": "People still dress up for portraits, like school photos."
-          },
-          {
-            "text": "Please do not smile, because a serious face looks more dignified.",
-            "bin": 0,
-            "reason": "Today, photographers usually ask you to smile."
-          },
-          {
-            "text": "You won't see your picture until it's printed, two weeks later.",
-            "bin": 0,
-            "reason": "Today, you can see a photo on a screen the moment it's taken."
-          },
-          {
-            "text": "Children may hold a favourite toy.",
-            "bin": 1,
-            "reason": "Children still hold favourite toys in photos today."
-          },
-          {
-            "text": "We are busy on Saturdays, so please book ahead.",
-            "bin": 1,
-            "reason": "Busy shops still ask you to book ahead for Saturdays."
+            "reason": "Is this about a belief, or about how cameras worked then?"
           },
           {
             "text": "The studio is open only when the sun is shining.",
             "bin": 0,
-            "reason": "Today's studios use electric lights, so they can open whatever the weather."
+            "reason": "Why did they need the sun? Is that a belief, or a tool?"
+          },
+          {
+            "text": "You won't see your picture until it's printed, two weeks later.",
+            "bin": 0,
+            "reason": "How long do you wait for a photo now? Why was it different?"
+          },
+          {
+            "text": "A serious face looks far more dignified than a grin.",
+            "bin": 1,
+            "reason": "Is this about how cameras worked, or what people thought looked best?"
+          },
+          {
+            "text": "Wear your best clothes for your portrait.",
+            "bin": 2,
+            "reason": "Think of school photo day. Is this different now?"
+          },
+          {
+            "text": "Children may hold a favourite toy.",
+            "bin": 2,
+            "reason": "Could a child do this in a photo today?"
+          },
+          {
+            "text": "We are busy on Saturdays, so please book ahead.",
+            "bin": 2,
+            "reason": "Do busy shops still ask you to book?"
           }
         ]
       }
@@ -1012,73 +1030,73 @@
       "topic": "gaming",
       "frame": "Zed found an old computer magazine in a box of cables. The Thennit is living in a cassette tape.",
       "text": "HOME COMPUTING MONTHLY, June 1984. IS THIS THE FUTURE IN YOUR LOUNGE ROOM? This month, we test the brand-new Zephyr 64, one of the first computers small enough and cheap enough for an ordinary family home. Out of the box, it looks rather like a typewriter with no paper, and it plugs into the back of your television set. For readers who have never used one, the keyboard is the part with the letters on it. The Zephyr has a whopping 64 kilobytes of memory, which the makers say is 'more than any family could ever need'. The Zephyr costs about as much as a second-hand car, so most families will need to save for a while. Games are loaded from a cassette tape, and our favourite, Space Moth, took only twelve minutes to load, which is very fast indeed. While you wait, the screen flashes in rainbow stripes and the speaker makes a noise like an angry kettle. Our tester's children played Space Moth for six hours straight, and we are told that one of them has started dreaming in rainbow stripes. Some parents have written to us worrying that home computers will turn children's brains to porridge. We think that is unlikely, but we will report back next month.",
-      "prompt": "What does this magazine article show about the time it was written?",
-      "success": "One of the first home computers, and twelve minutes counted as fast! Computers were new in 1984.",
+      "prompt": "Most of this 1984 article seems old now. Which part is still the same today?",
+      "success": "Parents still worry about what screens do to children. Not everything in an old text has changed.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Most families had owned computers for many years.",
-            "reason": "It's 'one of the first' family computers, and the magazine explains what a keyboard is."
+            "text": "Twelve minutes to load a game counts as very fast.",
+            "reason": "How long does a game take to start now?"
           },
           {
-            "text": "Games were downloaded from the internet in seconds, so nobody had to wait.",
-            "reason": "Games load from a cassette tape, and twelve minutes counts as 'very fast'."
+            "text": "Readers have to be told which part is the keyboard.",
+            "reason": "Does anyone today need the keyboard explained?"
           },
           {
-            "text": "Parents were sure computers were good for children's brains.",
-            "reason": "Some parents wrote in worried that computers would turn brains to porridge."
+            "text": "Some parents worry that computers are bad for children."
           },
           {
-            "text": "Home computers were new, and loading a game took a long time."
+            "text": "A family computer plugs into the back of the television.",
+            "reason": "Is that how a family computer works now?"
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "2.7-b4-5",
       "band": 4,
       "topic": "funny",
-      "frame": "The Thennit found an old newspaper wrapped around a tape measure. Mo wrote a note about it, but one word is wrong.",
+      "frame": "The Thennit found an old newspaper wrapped around a tape measure. Mo wrote a note about it, but one part is wrong.",
       "text": "THE COASTAL HERALD, 8 January 1923. INSPECTOR ON PATROL. Beach Inspector Mr Horace Pruitt had a busy weekend at Twotide Beach, where he walked up and down the sand from dawn until dusk with his tape measure. Under the new council rules, every bathing costume must reach from the neck to the knee, and Mr Pruitt measured more than two hundred of them. One elderly gentleman, who had swum at Twotide every morning for forty years, was measured six times on Saturday and complained that his knees were getting cold. Eleven young ladies were sent home because their costumes stopped a full two inches above the knee. A young man was ordered to cover up after he was seen strolling along the water's edge without a top, and he was told that bathing costumes were 'for the water, not for parading about'. When one swimmer pointed out that the rules were old-fashioned, Mr Pruitt replied that he was simply protecting the good name of the beach. 'Decent folk do not want to see knees,' he told our reporter. Several families have written to the council to complain, saying they would rather swim in comfort. The council will discuss the rules again in March. Mr Pruitt has bought a second tape measure, in case the first one wears out.",
-      "prompt": "Tap the word Mo got wrong, then choose a better one.",
-      "success": "Costumes. Measuring them from neck to knee shows how strict people were about beach clothing in 1923.",
+      "prompt": "Tap the part Mo got wrong, then choose a better one.",
+      "success": "The council treated covered knees as normal and decent. Today, most people would call that old-fashioned.",
       "body": {
         "format": "fix",
         "parts": [
-          "In ",
+          "Today, most people would call these 1923 rules ",
           {
-            "tap": "1923",
-            "reason": "That's right. The report is from 1923."
+            "tap": "too relaxed"
           },
-          ", a beach ",
+          ". Back then, the council thought ",
           {
-            "tap": "inspector",
-            "reason": "That's right. Mr Pruitt is the beach inspector."
+            "tap": "showing your knees",
+            "reason": "That's right. Costumes had to reach the knee to be decent."
           },
-          " checked people's ",
+          " was not decent, so Mr Pruitt ",
           {
-            "tap": "lunches"
+            "tap": "measured costumes",
+            "reason": "That's right. He measured more than two hundred of them."
           },
-          " to make sure they followed the council rules."
+          "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "tickets",
-            "reason": "Nobody checks tickets. What does Mr Pruitt carry up and down the sand?"
+            "text": "fair and sensible",
+            "reason": "That was how Mr Pruitt saw them in 1923. Is it how most people see them now?"
           },
           {
-            "text": "costumes"
+            "text": "old-fashioned"
           },
           {
-            "text": "sunscreen",
-            "reason": "Sunscreen is never mentioned. Read what the new council rules say must reach the knee."
+            "text": "too expensive",
+            "reason": "Nothing in the rules costs money. What were they about?"
           },
           {
-            "text": "dogs",
-            "reason": "Mr Pruitt checks swimmers, not dogs. What does he measure with his tape?"
+            "text": "brand new",
+            "reason": "They were new in 1923. Are they new now?"
           }
         ],
         "answer": 1
@@ -1096,8 +1114,8 @@
         "format": "choose",
         "options": [
           {
-            "text": "All passengers were free to go anywhere on the ship.",
-            "reason": "Third class isn't allowed above E deck, and there are locked gates to stop them."
+            "text": "Third-class passengers chose to stay below, near the engines.",
+            "reason": "Look at the locked gates. Did they choose to stay below?"
           },
           {
             "text": "Rich and poor passengers ate together in the grand saloon.",
@@ -1107,8 +1125,8 @@
             "text": "Passengers were kept apart by how much money they had."
           },
           {
-            "text": "Ships were too small to carry many passengers.",
-            "reason": "This ship carries more than two thousand people, like a floating city."
+            "text": "Passengers were kept apart at meals, but mixed freely on deck in the evenings.",
+            "reason": "Third class may not go above E deck at all. Rosie can only wave to the girl."
           }
         ],
         "answer": 2

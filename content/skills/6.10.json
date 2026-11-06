@@ -2,7 +2,9 @@
   "skill": {
     "id": "6.10",
     "name": "Punctuating speech: marks, commas, new speaker new line",
-    "codes": ["L4"],
+    "codes": [
+      "L4"
+    ],
     "why": "Speech marks show readers exactly who said what, and when.",
     "how": "Put marks around the spoken words. Punctuation goes inside. New speaker, new line.",
     "teach": {
@@ -220,9 +222,17 @@
           "body": {
             "format": "choose",
             "options": [
-              { "text": "“Hello,” said Indi." },
-              { "text": "“Hello, said Indi.”", "reason": "Indi didn't say 'said Indi'. Which words did she really say?" },
-              { "text": "“Hello” said Indi.", "reason": "Her words stop, but the sentence carries on. What mark sits inside the speech marks to show that?" }
+              {
+                "text": "“Hello,” said Indi."
+              },
+              {
+                "text": "“Hello, said Indi.”",
+                "reason": "Indi didn't say 'said Indi'. Which words did she really say?"
+              },
+              {
+                "text": "“Hello” said Indi.",
+                "reason": "Her words stop, but the sentence carries on. What mark sits inside the speech marks to show that?"
+              }
             ],
             "answer": 0
           }
@@ -234,9 +244,17 @@
           "body": {
             "format": "choose",
             "options": [
-              { "text": "“Can I paint you?” asked Indi." },
-              { "text": "“Can I paint you,” asked Indi.", "reason": "Is Indi telling or asking? Does a comma show that?" },
-              { "text": "“Can I paint you”? asked Indi.", "reason": "The question belongs to Indi's words. Which side of the speech marks should its mark sit?" }
+              {
+                "text": "“Can I paint you?” asked Indi."
+              },
+              {
+                "text": "“Can I paint you,” asked Indi.",
+                "reason": "Is Indi telling or asking? Does a comma show that?"
+              },
+              {
+                "text": "“Can I paint you”? asked Indi.",
+                "reason": "The question belongs to Indi's words. Which side of the speech marks should its mark sit?"
+              }
             ],
             "answer": 0
           }
@@ -248,6 +266,18 @@
       "name": "Quotoo",
       "evolved": "Quotarian",
       "blurb": "A gang-gang cockatoo from the snow gums that repeats exactly what you say, but only between its two curly wings. Its red crest flares when someone new starts talking."
+    },
+    "write": {
+      "ask": "Rewrite this as Mo's exact words. Split them with said Mo in the middle.",
+      "given": [
+        "Mo said that he was freezing and that somebody had hidden his beanie."
+      ],
+      "checks": [
+        "Speech marks hug only Mo's exact words",
+        "The comma sits inside the speech marks",
+        "The second half starts with a small letter"
+      ],
+      "model": "“I'm freezing,” said Mo, “and somebody has hidden my beanie!”"
     }
   },
   "encounters": [
@@ -261,9 +291,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "“I love snow!” shouted Mo." },
-          { "text": "“I love snow! shouted Mo.”", "reason": "Mo didn't say 'shouted Mo'. Where do his own words finish?" },
-          { "text": "I love snow! “shouted Mo.”", "reason": "The marks go around what Mo says, not around 'shouted Mo'." }
+          {
+            "text": "“I love snow!” shouted Mo."
+          },
+          {
+            "text": "“I love snow! shouted Mo.”",
+            "reason": "Mo didn't say 'shouted Mo'. Where do his own words finish?"
+          },
+          {
+            "text": "I love snow! “shouted Mo.”",
+            "reason": "The marks go around what Mo says, not around 'shouted Mo'."
+          }
         ],
         "answer": 0
       }
@@ -278,11 +316,19 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Look at that wombat," },
+          {
+            "tap": "Look at that wombat,"
+          },
           " ",
-          { "tap": "whispered Wren", "reason": "These words tell you who spoke. Wren didn't say them out loud." },
+          {
+            "tap": "whispered Wren",
+            "reason": "These words tell you who spoke. Wren didn't say them out loud."
+          },
           " ",
-          { "tap": "to Tully.", "reason": "This tells you who Wren spoke to. It isn't what she said." }
+          {
+            "tap": "to Tully.",
+            "reason": "This tells you who Wren spoke to. It isn't what she said."
+          }
         ],
         "answer": 0
       }
@@ -296,12 +342,31 @@
       "success": "Marks go around the spoken words only. The comma, ! or ? goes inside them.",
       "body": {
         "format": "sort",
-        "bins": ["punctuated correctly", "needs fixing"],
+        "bins": [
+          "punctuated correctly",
+          "needs fixing"
+        ],
         "items": [
-          { "text": "“Brr!” said Tully.", "bin": 0, "reason": "The marks hug Tully's words, and the ! is inside. That's right." },
-          { "text": "“Pass the gloves,” said Zed.", "bin": 0, "reason": "The marks hug Zed's words, and the comma is inside. That's right." },
-          { "text": "“Where's my hat? asked Mo.”", "bin": 1, "reason": "Mo didn't say 'asked Mo'. The marks should close after the question mark." },
-          { "text": "“I'm freezing”, said Wren.", "bin": 1, "reason": "The comma should be inside the marks, tucked up against Wren's words." }
+          {
+            "text": "“Brr!” said Tully.",
+            "bin": 0,
+            "reason": "The marks hug Tully's words, and the ! is inside. That's right."
+          },
+          {
+            "text": "“Pass the gloves,” said Zed.",
+            "bin": 0,
+            "reason": "The marks hug Zed's words, and the comma is inside. That's right."
+          },
+          {
+            "text": "“Where's my hat? asked Mo.”",
+            "bin": 1,
+            "reason": "Mo didn't say 'asked Mo'. The marks should close after the question mark."
+          },
+          {
+            "text": "“I'm freezing”, said Wren.",
+            "bin": 1,
+            "reason": "The comma should be inside the marks, tucked up against Wren's words."
+          }
         ]
       }
     },
@@ -314,8 +379,14 @@
       "success": "The ! goes inside the marks. No comma is needed after it.",
       "body": {
         "format": "build",
-        "tiles": ["“Kick it!”", "“Kick it!”,", "yelled Tully."],
-        "accept": ["“Kick it!” yelled Tully."],
+        "tiles": [
+          "“Kick it!”",
+          "“Kick it!”,",
+          "yelled Tully."
+        ],
+        "accept": [
+          "“Kick it!” yelled Tully."
+        ],
         "reason": "The ! already sits inside the marks. Don't add a comma after it."
       }
     },
@@ -329,17 +400,33 @@
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "“Who", "reason": "The opening speech mark is in the right place." },
+          {
+            "tap": "“Who",
+            "reason": "The opening speech mark is in the right place."
+          },
           " ate my ",
-          { "tap": "pie,”" },
+          {
+            "tap": "pie,”"
+          },
           " asked ",
-          { "tap": "Mo.", "reason": "A full stop after Mo is right. It ends the whole sentence." }
+          {
+            "tap": "Mo.",
+            "reason": "A full stop after Mo is right. It ends the whole sentence."
+          }
         ],
         "spot": 1,
         "options": [
-          { "text": "pie?”" },
-          { "text": "pie”,", "reason": "Is Mo telling or asking? Which mark shows that, and which side of the speech marks?" },
-          { "text": "pie.”", "reason": "A full stop ends the sentence too soon. Is Mo telling or asking?" }
+          {
+            "text": "pie?”"
+          },
+          {
+            "text": "pie”,",
+            "reason": "Is Mo telling or asking? Which mark shows that, and which side of the speech marks?"
+          },
+          {
+            "text": "pie.”",
+            "reason": "A full stop ends the sentence too soon. Is Mo telling or asking?"
+          }
         ],
         "answer": 0
       }
@@ -355,9 +442,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "on a new line" },
-          { "text": "on the same line as Zed", "reason": "When a new person speaks, start a new line so readers can follow." },
-          { "text": "inside Zed's speech marks", "reason": "Zed didn't say those words, so they can't go inside his marks." }
+          {
+            "text": "on a new line"
+          },
+          {
+            "text": "on the same line as Zed",
+            "reason": "When a new person speaks, start a new line so readers can follow."
+          },
+          {
+            "text": "inside Zed's speech marks",
+            "reason": "Zed didn't say those words, so they can't go inside his marks."
+          }
         ],
         "answer": 0
       }
@@ -372,9 +467,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Zed said, “This level is impossible.”" },
-          { "text": "Zed said “this level is impossible.”", "reason": "Two things are missing. What comes after the speaker, and how do spoken words start?" },
-          { "text": "Zed said, “This level is impossible”.", "reason": "Whose sentence does the full stop finish? Which side of the speech marks should it sit?" }
+          {
+            "text": "Zed said, “This level is impossible.”"
+          },
+          {
+            "text": "Zed said “this level is impossible.”",
+            "reason": "Two things are missing. What comes after the speaker, and how do spoken words start?"
+          },
+          {
+            "text": "Zed said, “This level is impossible”.",
+            "reason": "Whose sentence does the full stop finish? Which side of the speech marks should it sit?"
+          }
         ],
         "answer": 0
       }
@@ -388,7 +491,11 @@
       "success": "Wren's words come first, then who spoke, then the rest of her words. The small 'the' shows she's still going.",
       "body": {
         "format": "order",
-        "items": ["“Quick,”", "whispered Wren,", "“the platypus is coming up!”"],
+        "items": [
+          "“Quick,”",
+          "whispered Wren,",
+          "“the platypus is coming up!”"
+        ],
         "reason": "Start with Wren's first words. The lowercase 'the' shows the last part finishes her sentence."
       }
     },
@@ -401,12 +508,31 @@
       "success": "A question needs a question mark. Words that tell something, followed by said, take a comma.",
       "body": {
         "format": "sort",
-        "bins": ["comma", "question mark"],
+        "bins": [
+          "comma",
+          "question mark"
+        ],
         "items": [
-          { "text": "“Can you play the drums___” asked Indi.", "bin": 1, "reason": "Indi is asking something, so it needs a question mark." },
-          { "text": "“I can play the triangle___” said Mo.", "bin": 0, "reason": "Mo is telling, not asking, and 'said Mo' follows, so use a comma." },
-          { "text": "“Is that a cello___” asked Tully.", "bin": 1, "reason": "Tully is asking something, so it needs a question mark." },
-          { "text": "“The tuba is frozen___” said Zed.", "bin": 0, "reason": "Zed is telling, not asking, and 'said Zed' follows, so use a comma." }
+          {
+            "text": "“Can you play the drums___” asked Indi.",
+            "bin": 1,
+            "reason": "Indi is asking something, so it needs a question mark."
+          },
+          {
+            "text": "“I can play the triangle___” said Mo.",
+            "bin": 0,
+            "reason": "Mo is telling, not asking, and 'said Mo' follows, so use a comma."
+          },
+          {
+            "text": "“Is that a cello___” asked Tully.",
+            "bin": 1,
+            "reason": "Tully is asking something, so it needs a question mark."
+          },
+          {
+            "text": "“The tuba is frozen___” said Zed.",
+            "bin": 0,
+            "reason": "Zed is telling, not asking, and 'said Zed' follows, so use a comma."
+          }
         ]
       }
     },
@@ -419,8 +545,15 @@
       "success": "The question mark goes inside the marks. Then comes who spoke, with a small letter.",
       "body": {
         "format": "build",
-        "tiles": ["“Did you hear that?”", "“Did you hear that?”,", "whispered Zed.", "Whispered Zed."],
-        "accept": ["“Did you hear that?” whispered Zed."],
+        "tiles": [
+          "“Did you hear that?”",
+          "“Did you hear that?”,",
+          "whispered Zed.",
+          "Whispered Zed."
+        ],
+        "accept": [
+          "“Did you hear that?” whispered Zed."
+        ],
         "reason": "The question mark sits inside the marks with no comma after. 'whispered Zed' carries on the sentence, so no capital."
       }
     },
@@ -434,17 +567,33 @@
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "“Please", "reason": "The opening speech mark is in the right place." },
+          {
+            "tap": "“Please",
+            "reason": "The opening speech mark is in the right place."
+          },
           " ",
-          { "tap": "charge me”" },
+          {
+            "tap": "charge me”"
+          },
           " beeped ",
-          { "tap": "the robot.", "reason": "A full stop after robot is right. It ends the whole sentence." }
+          {
+            "tap": "the robot.",
+            "reason": "A full stop after robot is right. It ends the whole sentence."
+          }
         ],
         "spot": 1,
         "options": [
-          { "text": "charge me,”" },
-          { "text": "charge me”,", "reason": "Should the comma sit with the robot's words, or outside the speech marks?" },
-          { "text": "charge me.”", "reason": "A full stop would end the sentence before 'beeped the robot'. Which mark lets it carry on?" }
+          {
+            "text": "charge me,”"
+          },
+          {
+            "text": "charge me”,",
+            "reason": "Should the comma sit with the robot's words, or outside the speech marks?"
+          },
+          {
+            "text": "charge me.”",
+            "reason": "A full stop would end the sentence before 'beeped the robot'. Which mark lets it carry on?"
+          }
         ],
         "answer": 0
       }
@@ -460,9 +609,17 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "three" },
-          { "text": "two", "reason": "Tully speaks twice, but Mo is in between. Tully gets a fresh line each time." },
-          { "text": "one", "reason": "Each time the speaker changes, start a new line." }
+          {
+            "text": "three"
+          },
+          {
+            "text": "two",
+            "reason": "Tully speaks twice, but Mo is in between. Tully gets a fresh line each time."
+          },
+          {
+            "text": "one",
+            "reason": "Each time the speaker changes, start a new line."
+          }
         ],
         "answer": 0
       }
@@ -477,10 +634,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "“We need one more goal,” said the coach, “or we're out of the finals.”" },
-          { "text": "“We need one more goal,” said the coach. “or we're out of the finals.”", "reason": "The coach's sentence isn't finished. Which mark lets it carry on after 'said the coach'?" },
-          { "text": "“We need one more goal” said the coach, “or we're out of the finals.”", "reason": "'Said the coach' follows the first words. What mark must sit inside the speech marks first?" },
-          { "text": "“We need one more goal, said the coach, or we're out of the finals.”", "reason": "'Said the coach' isn't spoken. Which words did the coach really say?" }
+          {
+            "text": "“We need one more goal,” said the coach, “or we're out of the finals.”"
+          },
+          {
+            "text": "“We need one more goal,” said the coach. “or we're out of the finals.”",
+            "reason": "The coach's sentence isn't finished. Which mark lets it carry on after 'said the coach'?"
+          },
+          {
+            "text": "“We need one more goal” said the coach, “or we're out of the finals.”",
+            "reason": "'Said the coach' follows the first words. What mark must sit inside the speech marks first?"
+          },
+          {
+            "text": "“We need one more goal, said the coach, or we're out of the finals.”",
+            "reason": "'Said the coach' isn't spoken. Which words did the coach really say?"
+          }
         ],
         "answer": 0
       }
@@ -494,13 +662,36 @@
       "success": "Check: the mark goes inside, a comma follows said, and spoken words start with a capital.",
       "body": {
         "format": "sort",
-        "bins": ["punctuated correctly", "needs fixing"],
+        "bins": [
+          "punctuated correctly",
+          "needs fixing"
+        ],
         "items": [
-          { "text": "Mo asked, “Who wants a snow pie?”", "bin": 0, "reason": "Comma after asked, capital to start, question mark inside. That's right." },
-          { "text": "“Not me!” shouted everyone at once.", "bin": 0, "reason": "The ! is inside the marks, and nothing else is needed. That's right." },
-          { "text": "“It tastes like feet” said Gus.", "bin": 1, "reason": "A comma is missing inside the marks after 'feet'." },
-          { "text": "Tully said, “maybe just a small slice.”", "bin": 1, "reason": "This is the start of what Tully says, not a split, so 'maybe' needs a capital M." },
-          { "text": "“Is it supposed to be blue?,” asked Wren.", "bin": 1, "reason": "The question mark does the job. Don't add a comma after it." }
+          {
+            "text": "Mo asked, “Who wants a snow pie?”",
+            "bin": 0,
+            "reason": "Comma after asked, capital to start, question mark inside. That's right."
+          },
+          {
+            "text": "“Not me!” shouted everyone at once.",
+            "bin": 0,
+            "reason": "The ! is inside the marks, and nothing else is needed. That's right."
+          },
+          {
+            "text": "“It tastes like feet” said Gus.",
+            "bin": 1,
+            "reason": "A comma is missing inside the marks after 'feet'."
+          },
+          {
+            "text": "Tully said, “maybe just a small slice.”",
+            "bin": 1,
+            "reason": "This is the start of what Tully says, not a split, so 'maybe' needs a capital M."
+          },
+          {
+            "text": "“Is it supposed to be blue?,” asked Wren.",
+            "bin": 1,
+            "reason": "The question mark does the job. Don't add a comma after it."
+          }
         ]
       }
     },
@@ -513,8 +704,16 @@
       "success": "The comma sits inside the first marks. A comma after Zed shows the sentence carries on in lowercase.",
       "body": {
         "format": "build",
-        "tiles": ["“If you hear scratching,”", "“If you hear scratching”,", "whispered Zed,", "whispered Zed.", "“don't open the door.”"],
-        "accept": ["“If you hear scratching,” whispered Zed, “don't open the door.”"],
+        "tiles": [
+          "“If you hear scratching,”",
+          "“If you hear scratching”,",
+          "whispered Zed,",
+          "whispered Zed.",
+          "“don't open the door.”"
+        ],
+        "accept": [
+          "“If you hear scratching,” whispered Zed, “don't open the door.”"
+        ],
         "reason": "Commas go inside the marks. Zed's sentence isn't finished, so use a comma after his name, not a full stop."
       }
     },
@@ -522,26 +721,44 @@
       "id": "6.10-b3-4",
       "band": 3,
       "topic": "art",
-      "frame": "Indi has made an ice sculpture. Tully isn't sure what it is.",
-      "prompt": "Tap the part with the missing mark, then choose the fix.",
-      "success": "Tully is asking a question, so the question mark goes inside the speech marks with her words.",
+      "frame": "Indi has made an ice sculpture. She is explaining it to Tully.",
+      "prompt": "Tap the part with the mistake, then choose the fix.",
+      "success": "The full stop after Indi ends that sentence. Her next words start a new one, so It needs a capital.",
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "“Is this", "reason": "The opening speech mark and capital are right." },
-          " a penguin or a ",
-          { "tap": "fridge”" },
-          " asked ",
-          { "tap": "Tully,", "reason": "The comma after Tully is right. More of the sentence follows." },
-          " staring at the ",
-          { "tap": "sculpture.", "reason": "The full stop is right. It ends the whole sentence." }
+          {
+            "tap": "“It's a penguin,”",
+            "reason": "The comma sits inside the marks, before said Indi. This part is right."
+          },
+          " said ",
+          {
+            "tap": "Indi.",
+            "reason": "Look at the full stop after Indi. What does that tell you about what comes next?"
+          },
+          " ",
+          {
+            "tap": "“it"
+          },
+          " took me six hours to ",
+          {
+            "tap": "carve.”",
+            "reason": "The full stop sits inside the marks at the end. This part is right."
+          }
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
-          { "text": "fridge?”" },
-          { "text": "fridge”?", "reason": "Whose question is it? Which side of the speech marks should its mark sit?" },
-          { "text": "fridge,”", "reason": "Tully is asking a question, so a comma isn't enough." },
-          { "text": "fridge.”", "reason": "A full stop would end the sentence before 'asked Tully'." }
+          {
+            "text": "“It"
+          },
+          {
+            "text": "it",
+            "reason": "The speech marks have to open again before her words. And what follows a full stop?"
+          },
+          {
+            "text": "“it,",
+            "reason": "A comma does not help here. What must a new sentence start with?"
+          }
         ],
         "answer": 0
       }
@@ -557,13 +774,24 @@
         "format": "tapText",
         "parts": [
           "“Is that a pygmy possum?” ",
-          { "tap": "asked Mo.", "reason": "This still belongs to Mo's line. It tells you he asked." },
+          {
+            "tap": "asked Mo.",
+            "reason": "This still belongs to Mo's line. It tells you he asked."
+          },
           " ",
-          { "tap": "“Yes," },
+          {
+            "tap": "“Yes,"
+          },
           " it's hibernating,” ",
-          { "tap": "said Wren.", "reason": "Wren's line has to start before her words, not after them." },
+          {
+            "tap": "said Wren.",
+            "reason": "Wren's line has to start before her words, not after them."
+          },
           " ",
-          { "tap": "“Shh!”", "reason": "That's where Tully's new line starts. Wren's starts earlier." },
+          {
+            "tap": "“Shh!”",
+            "reason": "That's where Tully's new line starts. Wren's starts earlier."
+          },
           " added Tully."
         ],
         "answer": 1
@@ -575,16 +803,27 @@
       "topic": "space",
       "frame": "An astronaut on the ice moon has lost her lunch. Literally.",
       "prompt": "Which sentence is punctuated correctly?",
-      "success": "Comma after asked, a capital to start the spoken words, and the question mark inside the marks.",
+      "success": "These aren't her exact words, so no speech marks. Speech marks only hug the exact words someone says.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The astronaut asked, “Has anyone seen my space sandwich?”" },
-          { "text": "The astronaut asked, “Has anyone seen my space sandwich.”", "reason": "Is the astronaut telling or asking? Does the end mark match?" },
-          { "text": "The astronaut asked “Has anyone seen my space sandwich”?", "reason": "Two things are wrong. What comes after the speaker, and which side does the question mark sit?" },
-          { "text": "The astronaut asked, “Has anyone seen my space sandwich”?", "reason": "The question mark belongs to the spoken question. Which side of the speech marks is that?" }
+          {
+            "text": "The astronaut asked if “anyone had seen her space sandwich.”",
+            "reason": "These aren't her exact words. Would she say 'her space sandwich' about herself?"
+          },
+          {
+            "text": "The astronaut asked, “Has anyone seen my space sandwich”?",
+            "reason": "The question mark belongs to the spoken question. Which side of the marks is that?"
+          },
+          {
+            "text": "The astronaut asked if anyone had seen her space sandwich."
+          },
+          {
+            "text": "The astronaut asked, “has anyone seen my space sandwich?”",
+            "reason": "Her spoken words start a new sentence. How must they begin?"
+          }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -597,10 +836,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "“That isn't slime,” said Gus. “It's the yeti's breakfast.”" },
-          { "text": "“That isn't slime,” said Gus, “it's the yeti's breakfast.”", "reason": "Gus says two separate sentences. How should the first one end, and the second begin?" },
-          { "text": "“That isn't slime.” said Gus. “It's the yeti's breakfast.”", "reason": "When 'said Gus' follows, the spoken part can't end the sentence. Which mark lets it carry on?" },
-          { "text": "“That isn't slime”, said Gus. “It's the yeti's breakfast.”", "reason": "Should the comma sit with Gus's words, or outside the speech marks?" }
+          {
+            "text": "“That isn't slime,” said Gus. “It's the yeti's breakfast.”"
+          },
+          {
+            "text": "“That isn't slime,” said Gus, “it's the yeti's breakfast.”",
+            "reason": "Gus says two separate sentences. How should the first one end, and the second begin?"
+          },
+          {
+            "text": "“That isn't slime.” said Gus. “It's the yeti's breakfast.”",
+            "reason": "When 'said Gus' follows, the spoken part can't end the sentence. Which mark lets it carry on?"
+          },
+          {
+            "text": "“That isn't slime”, said Gus. “It's the yeti's breakfast.”",
+            "reason": "Should the comma sit with Gus's words, or outside the speech marks?"
+          }
         ],
         "answer": 0
       }
@@ -614,14 +864,42 @@
       "success": "Speech starts with a capital, except a split's second half. A comma goes after the speaker or inside the marks.",
       "body": {
         "format": "sort",
-        "bins": ["correct already", "needs a capital letter", "needs a comma"],
+        "bins": [
+          "correct already",
+          "needs a capital letter",
+          "needs a comma"
+        ],
         "items": [
-          { "text": "“We're two points down,” muttered Tully, “but the wind is behind us.”", "bin": 0, "reason": "Commas are inside the marks, and 'but' is small because her sentence carries on." },
-          { "text": "The umpire announced, “the final quarter starts now.”", "bin": 1, "reason": "The spoken words start a new sentence, so 'the' needs a capital T." },
-          { "text": "Tully muttered “We need a miracle.”", "bin": 2, "reason": "When the speaker comes first, put a comma after muttered." },
-          { "text": "“That was a goal,” said the umpire. “now play on.”", "bin": 1, "reason": "The umpire starts a new spoken sentence, so 'now' needs a capital N." },
-          { "text": "The captain shouted, “Everyone back!”", "bin": 0, "reason": "Comma after shouted, a capital to start, and the ! inside. That's right." },
-          { "text": "“Keep your eyes on the ball” said the coach.", "bin": 2, "reason": "A comma belongs inside the marks after 'ball', before 'said the coach'." }
+          {
+            "text": "“We're two points down,” muttered Tully, “but the wind is behind us.”",
+            "bin": 0,
+            "reason": "Commas are inside the marks, and 'but' is small because her sentence carries on."
+          },
+          {
+            "text": "The umpire announced, “the final quarter starts now.”",
+            "bin": 1,
+            "reason": "The spoken words start a new sentence, so 'the' needs a capital T."
+          },
+          {
+            "text": "Tully muttered “We need a miracle.”",
+            "bin": 2,
+            "reason": "When the speaker comes first, put a comma after muttered."
+          },
+          {
+            "text": "“That was a goal,” said the umpire. “now play on.”",
+            "bin": 1,
+            "reason": "The umpire starts a new spoken sentence, so 'now' needs a capital N."
+          },
+          {
+            "text": "The captain shouted, “Everyone back!”",
+            "bin": 0,
+            "reason": "Comma after shouted, a capital to start, and the ! inside. That's right."
+          },
+          {
+            "text": "“Keep your eyes on the ball” said the coach.",
+            "bin": 2,
+            "reason": "A comma belongs inside the marks after 'ball', before 'said the coach'."
+          }
         ]
       }
     },
@@ -630,12 +908,29 @@
       "band": 4,
       "topic": "general",
       "frame": "Tully has found an old map frozen inside a block of ice.",
-      "prompt": "Put the pieces in order to make Tully's sentence.",
-      "success": "Tully's first words end with a comma inside the marks. The small 'the' shows her sentence carries on.",
+      "text": "“According to this map,” announced Tully, “the treasure is under the glacier.”",
+      "prompt": "Why does 'the' start with a small letter?",
+      "success": "Read only Tully's words: one sentence. 'Announced Tully' splits it, so the second half carries on in small letters.",
       "body": {
-        "format": "order",
-        "items": ["“According to this ancient map,”", "announced Tully, squinting at the snow,", "“the treasure is buried beneath the glacier.”"],
-        "reason": "Start with the capital A. The lowercase 'the' shows the last part finishes Tully's sentence."
+        "format": "choose",
+        "options": [
+          {
+            "text": "Words after speech marks always start with a small letter.",
+            "reason": "Not always. When do spoken words start with a capital?"
+          },
+          {
+            "text": "Tully's sentence was split by 'announced Tully', and the second half carries on."
+          },
+          {
+            "text": "The word 'the' is far too small to ever need a capital letter.",
+            "reason": "Small words get capitals when they start a sentence. Does a new sentence start here?"
+          },
+          {
+            "text": "It is a mistake. Every new set of speech marks needs a capital.",
+            "reason": "Read Tully's words without 'announced Tully'. Is it one sentence or two?"
+          }
+        ],
+        "answer": 1
       }
     },
     {
@@ -648,18 +943,34 @@
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "“Which of you,”", "reason": "That's right: a comma inside the marks, because the question carries on." },
+          {
+            "tap": "“Which of you,”",
+            "reason": "That's right: a comma inside the marks, because the question carries on."
+          },
           " demanded the ",
-          { "tap": "conductor,", "reason": "The comma after conductor is right. The speech is about to start again." },
+          {
+            "tap": "conductor,",
+            "reason": "The comma after conductor is right. The speech is about to start again."
+          },
           " ",
-          { "tap": "“Has" },
+          {
+            "tap": "“Has"
+          },
           " hidden my baton in the ",
-          { "tap": "snow?”", "reason": "The question mark inside the marks is right." }
+          {
+            "tap": "snow?”",
+            "reason": "The question mark inside the marks is right."
+          }
         ],
         "spot": 2,
         "options": [
-          { "text": "“has" },
-          { "text": "has", "reason": "The conductor is still speaking, so the speech marks have to open again." }
+          {
+            "text": "“has"
+          },
+          {
+            "text": "has",
+            "reason": "The conductor is still speaking, so the speech marks have to open again."
+          }
         ],
         "answer": 0
       }
@@ -675,13 +986,24 @@
         "format": "tapText",
         "parts": [
           "“Starting snow-clearing mode,” ",
-          { "tap": "droned the robot.", "reason": "This still belongs to the robot's line. It tells you who spoke." },
+          {
+            "tap": "droned the robot.",
+            "reason": "This still belongs to the robot's line. It tells you who spoke."
+          },
           " ",
-          { "tap": "“Please don't,”" },
+          {
+            "tap": "“Please don't,”"
+          },
           " ",
-          { "tap": "pleaded Zed,", "reason": "Zed's line has to start before his first words, not after them." },
+          {
+            "tap": "pleaded Zed,",
+            "reason": "Zed's line has to start before his first words, not after them."
+          },
           " ",
-          { "tap": "“that's my snow fort.”", "reason": "This is still Zed talking, so it stays on his line." }
+          {
+            "tap": "“that's my snow fort.”",
+            "reason": "This is still Zed talking, so it stays on his line."
+          }
         ],
         "answer": 1
       }
@@ -690,18 +1012,29 @@
       "id": "6.10-b4-6",
       "band": 4,
       "topic": "funny",
-      "frame": "Mo has taken his frozen pie out of the freezer. It has gone very hard.",
-      "prompt": "Which sentence is punctuated correctly?",
-      "success": "Comma after asked, a capital for Mo's first word, and the question mark inside. It already ends the sentence.",
+      "frame": "Mo's frozen pie has gone very hard. Gus wants to know if Mo meant it to bounce.",
+      "prompt": "Which version shows that?",
+      "success": "'Asked Gus' shows who spoke. The comma before Mo shows Gus is talking to him.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "Mo tapped the frozen pie and asked, “Is it meant to bounce?”" },
-          { "text": "Mo tapped the frozen pie and asked, “Is it meant to bounce”?", "reason": "The question mark belongs to Mo's words. Which side of the speech marks is that?" },
-          { "text": "Mo tapped the frozen pie and asked “is it meant to bounce?”", "reason": "Two things are missing. What follows the speaker, and how do spoken words begin?" },
-          { "text": "Mo tapped the frozen pie and asked, “Is it meant to bounce?”.", "reason": "The question mark already ends the sentence. Don't add a full stop." }
+          {
+            "text": "“Is it meant to bounce?” asked Mo.",
+            "reason": "Here Mo is the one asking. Who should be asking?"
+          },
+          {
+            "text": "Mo asked, “Is it meant to bounce, Gus?”",
+            "reason": "Here Mo asks Gus. The question should go the other way. Who is speaking?"
+          },
+          {
+            "text": "“Is it meant to bounce, Mo?” asked Gus."
+          },
+          {
+            "text": "“Is it meant to bounce?” Mo asked Gus.",
+            "reason": "The words after the marks say who asked. Who is the speaker here?"
+          }
         ],
-        "answer": 0
+        "answer": 2
       }
     }
   ]

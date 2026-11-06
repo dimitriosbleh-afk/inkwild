@@ -282,6 +282,20 @@
       "name": "Metapince",
       "evolved": "Metapinchor",
       "blurb": "A mangrove crab that never says something is like anything. It says it IS something, then waits for you to work out what it means."
+    },
+    "write": {
+      "ask": "Combine these into one sentence with a metaphor. Say the bus IS something else, with no like or as.",
+      "given": [
+        "The school bus was very crowded.",
+        "Everyone was squashed together."
+      ],
+      "starter": "The school bus was",
+      "checks": [
+        "I said the bus IS something else.",
+        "I used no like or as.",
+        "My picture shows how squashed everyone was."
+      ],
+      "model": "The school bus was a sock drawer that wouldn't shut, with all of us squashed inside."
     }
   },
   "encounters": [
@@ -816,7 +830,7 @@
       "topic": "sport",
       "frame": "Tully is commentating the Reef Rays game on the radio. The Metapince has three tickets.",
       "prompt": "Put each line of Tully's commentary with the device it uses.",
-      "success": "Metaphors say something IS something else. Similes use like or as. Plain facts aren't comparisons at all.",
+      "success": "A metaphor can hide in a doing word, such as pinballed. And 'is' with a true fact is a fact.",
       "body": {
         "format": "sort",
         "bins": [
@@ -826,14 +840,14 @@
         ],
         "items": [
           {
-            "text": "The Reef Rays' captain is a bulldozer through the middle of the ground.",
+            "text": "The Reef Rays' captain is a bulldozer through the middle.",
             "bin": 0,
             "reason": "She isn't really a bulldozer. Saying she IS one shows how she pushes through."
           },
           {
-            "text": "The Reef Rays' ruck is a giraffe in the centre square.",
+            "text": "Their little rover pinballed around the packs all day.",
             "bin": 0,
-            "reason": "The ruck isn't really a giraffe. Saying he IS one shows how tall he is."
+            "reason": "He isn't a pinball. 'Pinballed' is a doing-word metaphor: he bounced from pack to pack."
           },
           {
             "text": "Their full-forward leaps like a dolphin out of the pack.",
@@ -846,14 +860,14 @@
             "reason": "It compares the ground to a mopped floor using as, so it's a simile."
           },
           {
-            "text": "Their rover darts around the packs like a mosquito at a barbecue.",
-            "bin": 1,
-            "reason": "It compares the rover to a mosquito using like, so it's a simile."
-          },
-          {
-            "text": "The Reef Rays' captain pushes hard through the middle of the ground.",
+            "text": "The Reef Rays' captain pushes hard through the middle.",
             "bin": 2,
             "reason": "This says plainly what she does. Nothing is compared to anything."
+          },
+          {
+            "text": "Their ruck is the tallest player on the ground.",
+            "bin": 2,
+            "reason": "This is really true. The word 'is' doesn't make it a metaphor."
           },
           {
             "text": "Players like Jess and Ana have kicked three goals each.",
@@ -899,28 +913,28 @@
       "topic": "food",
       "frame": "Mo got a job helping in the school canteen. The Metapince is hiding in the bain-marie.",
       "text": "On my first day helping in the Crab Creek Primary canteen, Mrs Patel handed me an apron and said, 'Good luck.' I thought she was joking. Then the lunch bell rang. The canteen was a beehive. Three hundred kids squeezed through the door at once, all talking, all waving coins, all trying to get to the front. Mrs Patel buzzed from the oven to the till to the fridge without stopping. Two Year 6 helpers took orders, wrapped sausage rolls and poured drinks so fast I could hardly see their hands. The whole room smelled of hot chips and tomato sauce. Everyone was perfectly friendly. Nobody pushed, and a Prep kid even said thank you three times. But by the end of lunch, I had sold two hundred meat pies and dropped one on my foot. Mrs Patel says I can come back next week. I think I need a lie down.",
-      "prompt": "What does Mo mean when he says the canteen was a beehive?",
-      "success": "A beehive is crowded and busy, with bees rushing everywhere. So was the canteen at lunch.",
+      "prompt": "In his first draft, Mo wrote 'The canteen was a zoo.' Why is 'a beehive' the better metaphor for this canteen?",
+      "success": "A zoo sounds wild. A beehive is packed and busy, but the bees work calmly, like the friendly crowd.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "It was crowded and busy, with everyone rushing about."
+            "text": "A beehive is even louder than a zoo at feeding time.",
+            "reason": "Both are noisy places. What does Mo say about how the kids behaved?"
           },
           {
-            "text": "It was full of angry people, ready to sting.",
-            "reason": "Bees can sting, but Mo says everyone was perfectly friendly. Nobody even pushed."
+            "text": "Bees make sweet honey, and the canteen sold treats.",
+            "reason": "Mo says the room smelled of hot chips and sauce. Think about the crowd instead."
           },
           {
-            "text": "It smelled sweet, like honey and sugary treats.",
-            "reason": "Mo says it smelled of hot chips and tomato sauce. The beehive is about the busy crowd."
+            "text": "Bees are busy but work together, and everyone was friendly."
           },
           {
-            "text": "It was painted yellow, with black stripes on the walls.",
-            "reason": "Mo never describes the walls. The beehive is about the crowd and the rush."
+            "text": "Bees sting, and the kids were cranky and pushy.",
+            "reason": "Mo says nobody pushed, and a Prep kid said thank you three times."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -929,28 +943,28 @@
       "topic": "ocean",
       "frame": "This sign stands at the start of the Mirage Mangroves boardwalk. The Metapince lives under it.",
       "text": "WELCOME TO THE MIRAGE MANGROVES BOARDWALK. Please stay on the boardwalk and keep dogs on a lead. Look down between the planks and you will see a tangle of roots poking out of the mud, some thin and some thick. It may look like a muddy, smelly swamp, but this forest is the nursery of the sea. When the tide comes in, thousands of baby fish, prawns and crabs swim in among the roots. The roots are too tight and twisted for big hungry fish to follow, so the babies can feed and grow in safety. Some will spend months here. When they are big enough, they swim out through the channel to the open water and the reef beyond, and many of the fish caught off the end of the jetty started their lives right under your feet. Nobody plants these trees or sells them; they have grown here on their own for hundreds of years. Scientists have counted more than fifty kinds of fish living in this one small forest. Please do not pull up seedlings, dig for crabs or throw rubbish into the water. Without these trees, there would be far fewer fish in the sea, so please help us protect them. Thank you for visiting.",
-      "prompt": "What does the sign mean when it calls the mangrove forest 'the nursery of the sea'?",
-      "success": "A nursery is where babies are kept safe while they grow. Baby sea creatures grow up safely among the roots.",
+      "prompt": "Why does the sign call the forest 'the nursery of the sea' instead of just 'a forest'?",
+      "success": "A nursery keeps babies safe. Picturing baby fish safe in the roots makes visitors want to protect the trees.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "It is a place where people grow young trees to sell.",
-            "reason": "That's a plant nursery. The sign says nobody plants or sells these trees. It's about baby sea creatures."
+            "text": "It tells visitors that young trees are grown here, so they can buy one.",
+            "reason": "That's a plant nursery. The sign says nobody plants or sells these trees."
           },
           {
-            "text": "It is the youngest and newest part of the ocean.",
-            "reason": "The sign says the forest has grown there for hundreds of years. It's about the babies it shelters."
+            "text": "It makes visitors see the trees keeping babies safe, so they'll protect them."
           },
           {
-            "text": "It is a safe place where baby sea creatures grow up."
+            "text": "It makes visitors picture the swamp as noisy and messy, so they'll walk quietly.",
+            "reason": "The sign never says the forest is noisy. Read what it asks visitors to do at the end."
           },
           {
-            "text": "It is a noisy, messy place full of little creatures.",
-            "reason": "The sign never says the forest is noisy. The point is that the babies are safe there."
+            "text": "It shows visitors this forest is newer than the reef and the open sea.",
+            "reason": "The sign says the trees have grown here for hundreds of years. The babies are the fish."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -958,31 +972,31 @@
       "band": 4,
       "topic": "sport",
       "frame": "Tully's radio commentary of the grand final is being played over the ship's speakers. The Metapince has its claws over its ears.",
-      "prompt": "Tap the metaphor that shows how loud the crowd was.",
-      "success": "A jet engine roars so loudly you can't hear yourself think. That metaphor is about the crowd's noise.",
+      "prompt": "Tully calls Priya a lighthouse for her team. Tap the sentence that shows what this metaphor really means.",
+      "success": "A lighthouse guides ships home. Priya calls every move, and her young team follows, right up to the winning kick.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Welcome back to the grand final, where the Reef Rays and the Crab Creek Pinchers are level with two minutes to go. It has rained all afternoon, and the players are covered in mud from head to toe. ",
+          "Welcome back to the grand final, where the Reef Rays and the Crab Creek Pinchers are level with two minutes to go. It has rained all afternoon, and the mud is up to the players' ankles. The Rays are the youngest team in the league, and plenty of people said they would fall apart today. They haven't, and the reason is their captain, Priya. She is a lighthouse for this young team, guiding them through every storm. ",
           {
-            "tap": "The ball is a bar of wet soap out there, shooting out of every pair of hands.",
-            "reason": "This metaphor is about how slippery the ball is, not the crowd."
+            "tap": "Priya is the tallest player on the ground, a head above everyone else.",
+            "reason": "Lighthouses are tall, but Tully's metaphor is about guiding. Being tall doesn't steer anyone."
           },
-          " The Rays' captain, Priya, has been calling instructions all day, and her teammates have followed her every word. ",
+          " ",
           {
-            "tap": "She is a lighthouse for this young team, guiding them through every storm.",
-            "reason": "This metaphor is about how Priya guides her team, not how loud anything is."
+            "tap": "Her bright yellow boots glow through the mud and the rain.",
+            "reason": "A lighthouse shines, but glowing boots don't help anyone through a storm. What does Tully say Priya does?"
           },
-          " Now Jess has the ball, fifty metres out, and she runs. She bounces once, twice, and every single person in the stadium is standing. ",
+          " ",
           {
-            "tap": "The crowd is a jet engine, and I can't hear my own voice in this box!"
+            "tap": "She has called out every move today, and her teammates have followed each one."
           },
-          " Jess steadies and kicks. It's high, it's long, it's straight through the middle! The siren goes, and the Reef Rays have won by a single point. ",
+          " ",
           {
-            "tap": "My co-commentator, Bruce, is a melted puddle in the corner of the box.",
-            "reason": "This metaphor is about Bruce flopping over, worn out by the excitement. It isn't about the noise."
+            "tap": "She has stood in the same spot at centre half-back all game.",
+            "reason": "A lighthouse stands still, but staying in one spot doesn't guide a team. What do her teammates do?"
           },
-          " I need to sit down. Actually, I need to stand up. Folks, I don't know what I need, but that was the greatest finish I have ever seen. Somebody get Bruce a glass of water. And somebody get me one too."
+          " Now Jess has the ball, fifty metres out, and Priya points to the left. Jess runs left, steadies and kicks. It's high, it's long, it's straight through the middle! The siren goes, and the Reef Rays have won by a single point. My co-commentator, Bruce, has fallen off his chair. Folks, that was the greatest finish I have ever seen. Somebody get Bruce a glass of water."
         ],
         "answer": 2
       }
@@ -994,45 +1008,45 @@
       "frame": "Gus wrote a note about Ruby's ghost story. One word is wrong.",
       "text": "Ruby had promised her cousins that she would walk through the old Mangrove Point cemetery at midnight, and she was not the kind of girl who broke a promise, even a stupid one. The night was dry and warm, and a light breeze carried the smell of salt up from the water. At the cemetery gate, she switched off her torch, because that was the rule. The path through the cemetery was a tunnel. The branches of the huge fig trees on either side met high above her head, so thick that not one scrap of moonlight got through. She could still feel the breeze on her arms, and she could hear everything: the owls calling, the crabs clicking in the mud, her own heart thudding in her ears. She walked with one hand out in front of her, counting her steps. At step one hundred and twelve, something cold and wet touched her fingers. Ruby screamed so loudly that every owl in the trees took off at once. Then she heard a familiar voice. 'Sorry,' said her cousin Archie, holding out a melting icy pole. 'I brought you a snack.' It was lime. Ruby ate it anyway, and her cousins have never let her forget it.",
       "prompt": "Tap the word Gus got wrong, then choose a better one.",
-      "success": "Moonlight. Like a tunnel roof, the branches met overhead, and 'not one scrap of moonlight got through'.",
+      "success": "Closed-in. A tunnel wraps around you, and the fig branches shut out the sky above Ruby.",
       "body": {
         "format": "fix",
         "parts": [
-          "Ruby calls the path a tunnel because the branches met overhead and shut out the ",
+          "Gus's note: The tunnel metaphor makes the path feel dark and ",
           {
-            "tap": "owls"
+            "tap": "open"
           },
-          ". At step one hundred and ",
+          ". It tells you the fig branches met ",
           {
-            "tap": "twelve",
-            "reason": "That's right. Something touched her at step one hundred and twelve."
+            "tap": "overhead",
+            "reason": "That fits. The branches met high above Ruby's head, like the roof of a tunnel."
           },
-          ", her cousin gave her an ",
+          ". It makes the reader feel ",
           {
-            "tap": "icy pole",
-            "reason": "That's right. Archie held out a melting icy pole."
+            "tap": "uneasy",
+            "reason": "That fits. On a dark, shut-in path, you can't see what's coming."
           },
-          "."
+          " along with Ruby."
         ],
         "spot": 0,
         "options": [
           {
-            "text": "breeze",
-            "reason": "Ruby could still feel the breeze on her arms. What couldn't get through the branches?"
+            "text": "cold",
+            "reason": "The night was dry and warm. Think about how a tunnel wraps around you."
           },
           {
-            "text": "noise",
-            "reason": "Ruby could hear everything, from owls to crabs. What couldn't get through the branches?"
+            "text": "safe",
+            "reason": "Ruby walks with one hand out, counting steps, and then screams. The path doesn't feel safe."
           },
           {
-            "text": "rain",
-            "reason": "The night was dry and warm. What did the branches shut out?"
+            "text": "closed-in"
           },
           {
-            "text": "moonlight"
+            "text": "wet",
+            "reason": "The night was dry. A tunnel here is about what surrounds Ruby on every side."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -1041,7 +1055,7 @@
       "topic": "gross-science",
       "frame": "Wren is writing a safety report on Gus's lab. The Metapince refuses to go in.",
       "prompt": "Match each metaphor to what it tells you about Gus's lab.",
-      "success": "Ask what the second thing is best known for: junk, stink, noise or heat. That's what the metaphor means.",
+      "success": "No clue words this time. Ask what each picture is known for, even when it hides in a doing word.",
       "body": {
         "format": "sort",
         "bins": [
@@ -1052,39 +1066,39 @@
         ],
         "items": [
           {
-            "text": "Gus's lab bench was a junkyard of wires, jars and half-eaten sandwiches.",
+            "text": "Gus's bench was a junkyard.",
             "bin": 0,
-            "reason": "A junkyard is full of piled-up rubbish. The bench is messy."
+            "reason": "A junkyard is piles of broken, mixed-up things. So is the bench."
           },
           {
-            "text": "His side of the cabin was a jumble sale, with clothes and books piled everywhere.",
-            "bin": 0,
-            "reason": "A jumble sale is piles of stuff everywhere. His cabin is messy."
-          },
-          {
-            "text": "The fish-guts experiment was a stink bomb that filled the whole ship.",
+            "text": "His leftover lunch was a stink bomb.",
             "bin": 1,
-            "reason": "A stink bomb is made to smell foul. The experiment is smelly."
+            "reason": "A stink bomb is made to smell foul. So is that lunch."
           },
           {
-            "text": "Gus's old sneakers were a pair of rotting fish under the bunk.",
-            "bin": 1,
-            "reason": "Rotting fish are known for their stench. The sneakers are smelly."
-          },
-          {
-            "text": "The explosion was a thunderclap that rattled every window on the ship.",
+            "text": "His burp was a foghorn.",
             "bin": 2,
-            "reason": "A thunderclap is a huge bang. The explosion was loud."
+            "reason": "A foghorn can be heard right across a bay. So could the burp."
           },
           {
-            "text": "His burp was a foghorn echoing round the galley.",
-            "bin": 2,
-            "reason": "A foghorn is very loud. So was the burp."
-          },
-          {
-            "text": "With every burner on, the lab was a sauna, and sweat dripped off our noses.",
+            "text": "The lab was a pizza oven.",
             "bin": 3,
-            "reason": "A sauna is a very hot room. So was the lab."
+            "reason": "A pizza oven is fiercely hot inside. So was the lab."
+          },
+          {
+            "text": "His side of the cabin was a jumble sale.",
+            "bin": 0,
+            "reason": "A jumble sale has stuff heaped everywhere. So does his side of the cabin."
+          },
+          {
+            "text": "Gus trumpeted his results down the corridor.",
+            "bin": 2,
+            "reason": "Gus isn't a trumpet. 'Trumpeted' is a doing-word metaphor for very loud."
+          },
+          {
+            "text": "By lunch, the lab had cooked us alive.",
+            "bin": 3,
+            "reason": "Nobody was really cooked. 'Cooked' is a doing-word metaphor for unbearably hot."
           }
         ]
       }
@@ -1095,28 +1109,28 @@
       "topic": "funny",
       "frame": "Maxx Vantablack is live from Green Screen Swamp. Zed is recording it for evidence.",
       "text": "Vantafam! Maxx here, live from deep in the Mirage Mangroves, on my most dangerous rescue mission EVER. And I'm going to be honest with you, guys, because honesty is my brand: this swamp is a sauna. It's forty degrees, the air is thick and wet, and steam is literally rising off the mud. My makeup artist has redone my face four times, and I've sweated through three gold tracksuits since breakfast. Even my hairspray has given up. I haven't had one second to sit down and relax, because I've been rescuing Creatures nonstop, and before you ask, no, there's nowhere to wash out here either. I'm covered in mud from my sneakers to my eyebrows. My assistant has been fanning me with a palm leaf, but it's just pushing the hot air around. Honestly, I don't know how the Creatures survive in this. Which is why I'm rescuing them, obviously, and taking them somewhere with air-conditioning, like my yacht. Tomorrow I'm doing a special stream on my new cooling fan, the Maxx-Breeze, only ninety-nine dollars in the Vantamart. Anyway, smash that heart button so I know you care, and remember, two Xs, because one X is for losers. Stay gold!",
-      "prompt": "What does Maxx mean when he says 'this swamp is a sauna'?",
-      "success": "A sauna is a hot, steamy room. Maxx means the swamp is boiling hot, wet and steamy.",
+      "prompt": "Maxx ends by selling his Maxx-Breeze fan. Why does he call the swamp a sauna first?",
+      "success": "A sauna is hot and steamy. Once fans picture that heat, Maxx's fan sounds like just what they need.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The swamp is a relaxing place to sit back and unwind.",
-            "reason": "Some people relax in saunas, but Maxx says he hasn't had one second to sit down and relax."
+            "text": "So the swamp sounds like a good spot to sit back and relax.",
+            "reason": "Maxx says he hasn't sat down once. He wants the swamp to sound awful."
           },
           {
-            "text": "The swamp is a good place to wash and get clean.",
-            "reason": "Maxx says there's nowhere to wash, and he's covered in mud. The sauna is about the heat."
+            "text": "So fans know he can wash the mud off before the stream ends.",
+            "reason": "Maxx says there's nowhere to wash, and he's muddy to his eyebrows."
           },
           {
-            "text": "The swamp is boiling hot, wet and steamy."
-          },
-          {
-            "text": "The swamp has wooden benches and a heater.",
+            "text": "So fans think the swamp has wooden benches and a heater.",
             "reason": "That's taking it literally. Maxx is describing the heat and steam, not furniture."
+          },
+          {
+            "text": "So the heat sounds unbearable, and a cooling fan sounds worth buying."
           }
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
@@ -1125,25 +1139,25 @@
       "topic": "gaming",
       "frame": "Zed wrote this for the school newsletter. The Metapince is pressing all the buttons.",
       "text": "In the corner of the fish and chip shop on the jetty, there is an arcade machine called Pelican Panic. It is older than my parents. The paint on the side has faded, the joystick wobbles, and you need an actual coin to play, which my little sister thinks is hilarious. But it works perfectly, and every time I play it, I am five years old again. When I was little, my grandpa used to bring me to the jetty every Friday after school. He would buy us a bucket of chips, lift me onto an upturned milk crate, and let me play Pelican Panic while he read the paper. He always cheered when I beat level three, even though I'm fairly sure he never once looked up. Grandpa moved to Queensland last year, and I miss him a lot. So now, whenever I'm at the jetty, I put one coin in, and for those few minutes I can almost smell his newspaper and feel the milk crate wobbling under my feet. For me, that old arcade machine is a time machine. Some kids say it's a waste of a coin. They're wrong. I still have never beaten level four, but my little sister has, which she mentions often.",
-      "prompt": "What does Zed mean when he says the arcade machine is a time machine?",
-      "success": "A time machine takes you back to the past. Playing the game brings back Zed's memories of Fridays with Grandpa.",
+      "prompt": "In his first draft, Zed called the arcade machine 'a photo album'. Why is 'a time machine' the stronger metaphor?",
+      "success": "An album only shows old pictures. Zed can almost smell Grandpa's newspaper and feel the milk crate. He's back there.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "It is broken, and its clock shows the wrong date.",
-            "reason": "Zed says the machine works perfectly. The metaphor is about the memories it brings back."
+            "text": "An album is quiet. A time machine sounds exciting, like an arcade game.",
+            "reason": "Exciting isn't the point. Zed can almost smell the newspaper. Playing takes him back."
           },
           {
-            "text": "It brings back his memories of Fridays with his grandpa."
+            "text": "He doesn't just look at the past. He feels he's back there, aged five."
           },
           {
-            "text": "It is the fastest, most exciting game he has played.",
-            "reason": "Zed never says it's fast. It's special because it takes him back to being five."
+            "text": "A time machine goes both ways, so Zed can dream about beating level four one day.",
+            "reason": "Zed only goes back, to Fridays with Grandpa. Nothing in his piece is about the future."
           },
           {
-            "text": "It has games in it that come from the future.",
-            "reason": "The machine is older than Zed's parents. It takes him back, not forward."
+            "text": "A time machine sounds old and battered, just like the faded paint and wobbly joystick.",
+            "reason": "The machine's looks aren't the point. Zed says playing it makes him five again."
           }
         ],
         "answer": 1

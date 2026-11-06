@@ -272,6 +272,18 @@
       "name": "Fittlet",
       "evolved": "Fittlewarden",
       "blurb": "A dusky antechinus that keeps the right tool for every job in its nest: command verbs for recipes, past tense for diaries, headings for reports. Hand it the wrong tool and it squeaks."
+    },
+    "write": {
+      "ask": "Turn this fact into a step for a procedure. Tell the reader what to do.",
+      "given": [
+        "The slime jar needs its lid put back on after every use."
+      ],
+      "checks": [
+        "My step has a command verb, such as Put",
+        "It tells the reader what to do",
+        "It still says when: after every use"
+      ],
+      "model": "After every use, put the lid back on the slime jar."
     }
   },
   "encounters": [
@@ -701,27 +713,27 @@
       "frame": "The Fittlet is helping Wren finish her report on blue whales for the Scaffold Peaks library.",
       "text": "Blue Whales. Blue whales live in every ocean in the world, from the icy waters near Antarctica to warm seas near the equator. An adult blue whale can grow to about thirty metres long, which is longer than two buses parked end to end. Its heart is about the size of a small car, and it beats only a few times a minute when the whale dives. Despite their huge size, blue whales eat some of the smallest animals in the sea. They gulp enormous mouthfuls of water, then push it out through bristly plates called baleen, which trap tiny shrimp called krill. A single blue whale can eat around four tonnes of krill in one day. Their skin is blue-grey with pale spots, but it looks bright blue underwater. Blue whales make deep, rumbling calls that can travel hundreds of kilometres underwater. Scientists think they use these calls to find each other across the empty ocean. Blue whales can live for eighty or ninety years.",
       "prompt": "Which sentence fits this information report?",
-      "success": "Reports give facts that are true for the whole group, in present tense. Only this sentence does that.",
+      "success": "Present tense alone isn't enough. A report fact is true of all blue whales and can be checked.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Last summer, our class spotted a blue whale from the ferry.",
-            "reason": "That's a recount: past tense, for one trip. A report gives facts about all blue whales."
+            "text": "Our whale, Bluey, swims past the ferry wharf every summer.",
+            "reason": "It's present tense, but it's about one whale the writer knows. A report covers all blue whales."
           },
           {
-            "text": "Everyone should see a blue whale at least once in their life.",
-            "reason": "'Should' gives the writer's opinion. Reports stick to facts."
+            "text": "Blue whales usually swim alone or in small groups of two or three."
           },
           {
-            "text": "Blue whales are the largest animals that have ever lived on Earth."
+            "text": "Blue whales are easily the most amazing animals in the whole sea.",
+            "reason": "It's present tense, but 'most amazing' is an opinion. Reports stick to facts you can check."
           },
           {
-            "text": "Listen carefully for the whale's low song when you dive.",
-            "reason": "That's a command, like a step in a procedure. A report doesn't tell the reader what to do."
+            "text": "Look out for the tall spout of spray when a blue whale breathes.",
+            "reason": "'Look out' tells the reader what to do. That's a step, not a report fact."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -729,8 +741,8 @@
       "band": 3,
       "topic": "gaming",
       "frame": "Zed wrote a report on his new console for the Scaffold Peaks newsletter. The Fittlet thinks a heading is wrong.",
-      "prompt": "Tap the heading that doesn't fit its section, then choose a better one.",
-      "success": "That section is about charging and how long a charge lasts. 'Battery' tells readers where to find that.",
+      "prompt": "Tap the heading that doesn't fit its whole section, then choose a better one.",
+      "success": "The solar panel is only one way to charge. 'Battery' covers the whole section: charging and how long it lasts.",
       "body": {
         "format": "fix",
         "parts": [
@@ -746,7 +758,7 @@
           },
           ": It has two joysticks, four coloured buttons and a big round jump button. The buttons are extra large, so you can press them while you're wearing gloves. ",
           {
-            "tap": "Price"
+            "tap": "Solar Panel"
           },
           ": The Pocket Peak charges in two hours, using a cable or the small solar panel on its back. A full charge lasts about nine hours of play, and a light flashes red when it's running low. In very cold weather, a charge runs out faster, so keep the console in a warm pocket. ",
           {
@@ -766,8 +778,8 @@
             "reason": "Nothing in this section is about sound. It's about charging and how long a charge lasts."
           },
           {
-            "text": "Size",
-            "reason": "Nothing here says how big the console is. It's about charging and power."
+            "text": "Cold Weather",
+            "reason": "Only one sentence is about the cold. The whole section is about charging and power."
           },
           {
             "text": "Battery"
@@ -783,7 +795,7 @@
       "frame": "Mo is writing a ghost-hunting guide for Tower Six. The Fittlet is hiding behind his pencil case.",
       "text": "How to Hunt for Ghosts on Tower Six. The hut at the top of Tower Six is said to be haunted by a ghost who loves porridge. You will need a torch, a notebook, a spoon and a bowl of warm porridge. Wear soft shoes, because ghosts hate loud footsteps. Never bring Gus, because he always screams. Go on a still night, when the wind won't drown out any spooky noises. Step 1: Climb the ladder slowly, so that you don't scare the ghost away. Step 2: ___ Step 3: Place the porridge in the middle of the floor and switch off your torch. Step 4: Sit in the corner and count to one hundred, very quietly. Step 5: Switch your torch back on and check the bowl. If the porridge is gone, write down the time in your notebook. If it is still there, the ghost was not hungry tonight, so try again next week.",
       "prompt": "Build step 2 of Mo's ghost-hunting guide.",
-      "success": "'Knock' is the command verb, even though it isn't first. 'Once the door opens' tells you when to do it.",
+      "success": "'Knock' is the command verb, even though it isn't first. 'Before you open the door' tells you when.",
       "body": {
         "format": "build",
         "tiles": [
@@ -804,7 +816,7 @@
       "topic": "art",
       "frame": "Indi wrote a report on mosaics for the art hut wall. The Fittlet thinks one sentence doesn't belong.",
       "prompt": "Tap the sentence that doesn't fit an information report.",
-      "success": "'Honestly the most beautiful' is the writer's opinion. Reports stick to facts that a reader could check.",
+      "success": "'More interesting than paintings' is the writer's opinion. Present tense alone doesn't make a sentence a report fact.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -820,7 +832,7 @@
           },
           " ",
           {
-            "tap": "Mosaics are honestly the most beautiful kind of art in the whole world."
+            "tap": "Mosaics are far more interesting to look at than paintings."
           },
           " ",
           {
@@ -921,29 +933,29 @@
       "band": 4,
       "topic": "animals",
       "frame": "Wren is finishing her report on wedge-tailed eagles. The Fittlet is perched on her pencil.",
-      "text": "Wedge-tailed Eagles. Wedge-tailed eagles are the largest birds of prey in Australia, with wings that can stretch more than two metres from tip to tip. They are found all over the mainland and in Tasmania, from deserts and farmland to the high, snowy country around Scaffold Peaks. Adults are mostly dark brown, almost black, while young birds are a lighter, golden brown that darkens as they age. The eagle gets its name from its long tail, which is shaped like a wedge and helps it steer as it soars on warm, rising air. Like other birds of prey, they have hooked beaks for tearing meat and strong, curved claws called talons for gripping. Wedge-tailed eagles hunt rabbits, lizards and other small animals, and they also feed on animals that are already dead. Their eyesight is so sharp that they can spot a rabbit moving from more than a kilometre away. They can soar higher than almost any other Australian bird, sometimes more than a kilometre above the ground. Pairs often stay together for many years and return to the same nesting area each spring. A pair usually raises one or two chicks a year, and both parents take turns bringing food to the nest.",
-      "prompt": "Which sentence fits this information report best?",
-      "success": "Reports give facts about the whole species, in present tense. This one describes how all wedge-tailed eagles nest.",
+      "text": "Wedge-tailed Eagles. Wedge-tailed eagles are the largest birds of prey in Australia, with wings that can stretch more than two metres from tip to tip. They are found all over the mainland and in Tasmania, from deserts and farmland to the high, snowy country around Scaffold Peaks. Adults are mostly dark brown, almost black, while young birds are a lighter, golden brown that darkens as they age. The eagle gets its name from its long tail, which is shaped like a wedge and helps it steer as it soars on warm, rising air. Like other birds of prey, they have hooked beaks for tearing meat and strong, curved claws called talons for gripping. Wedge-tailed eagles hunt rabbits, lizards and other small animals, and they also feed on animals that are already dead. Their eyesight is so sharp that they can spot a rabbit moving from more than a kilometre away. They can soar higher than almost any other Australian bird, sometimes more than a kilometre above the ground. Pairs often stay together for many years and return to the same nesting area each spring. A pair usually raises one or two chicks a year, and both parents take turns bringing food to the nest. Wren wants to add one more sentence. Version A: 'Wedge-tailed eagles build their nests from sticks, often in the tallest tree on a hillside.' Version B: 'Last spring, our eagle built its nest from sticks in the tallest tree on the hill.'",
+      "prompt": "Which version should Wren add to her report, and why?",
+      "success": "Version A gives a present-tense fact about all wedge-tailed eagles. B is a recount of one bird.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Wedge-tailed eagles are clearly the most magnificent birds you could ever hope to see.",
-            "reason": "'Clearly the most magnificent' is an opinion. Reports stick to facts that can be checked."
+            "text": "A, because it is true of every wedge-tailed eagle, not just one bird."
           },
           {
-            "text": "Wedge-tailed eagles build their nests from sticks, often in the tallest tree on a hillside."
+            "text": "B, because it gives a real example that the writer saw herself.",
+            "reason": "A report describes the whole species, not one bird the writer watched."
           },
           {
-            "text": "Watch the eagle's wingtips closely as it circles, and you will see them spread like fingers.",
-            "reason": "That's a command to the reader. Reports describe; they don't tell the reader what to do."
+            "text": "A, because it says where eagles nest, and Version B does not.",
+            "reason": "Both say where: the tallest tree. The difference is all eagles, or one bird."
           },
           {
-            "text": "We watched a wedge-tailed eagle snatch a rabbit from the paddock behind our school.",
-            "reason": "That's a recount: 'we' and past tense for one event. A report describes the whole species."
+            "text": "B, because it adds the season, just like the report's fact about nesting in spring.",
+            "reason": "The spring fact is about all pairs. B tells what one bird did last spring."
           }
         ],
-        "answer": 1
+        "answer": 0
       }
     },
     {
@@ -951,8 +963,8 @@
       "band": 4,
       "topic": "space",
       "frame": "The Architect is writing an explanation for the telescope tower. The Fittlet noticed a verb that doesn't fit.",
-      "prompt": "This explanation describes what always happens. Tap the word in the wrong tense, then choose a better one.",
-      "success": "Explanations of how things always work use present tense. Stars still do this, so the star 'swells'.",
+      "prompt": "This explanation describes what always happens. Tap the verb in the wrong tense, then choose a better one.",
+      "success": "Explanations of how stars always work use present tense, so 'swells'. 'Won't happen' is about our Sun's future.",
       "body": {
         "format": "fix",
         "parts": [
@@ -975,7 +987,12 @@
             "tap": "drift",
             "reason": "'Drift' is present tense. It fits an explanation of what always happens."
           },
-          " away into space, forming a glowing cloud of gas. Astronomers call this cloud a planetary nebula, even though it has nothing to do with planets. All that remains is the tiny, white-hot core, called a white dwarf, which slowly cools for billions of years. A white dwarf is only about the size of Earth, but a teaspoon of it would weigh as much as a truck. Our own Sun is only about halfway through its life, so this won't happen for around five billion years."
+          " away into space, forming a glowing cloud of gas. Astronomers call this cloud a planetary nebula, even though it has nothing to do with planets. All that remains is the tiny, white-hot core, called a white dwarf, which slowly cools for billions of years. A white dwarf is only about the size of Earth, but a teaspoon of it would weigh as much as a truck. Our own Sun is only about halfway through its life, so this ",
+          {
+            "tap": "won't happen",
+            "reason": "This is about our own Sun's future, so a future verb is right here."
+          },
+          " for around five billion years."
         ],
         "spot": 2,
         "options": [

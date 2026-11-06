@@ -51,6 +51,14 @@ export interface Piece {
   day: Day;
 }
 
+/** One sentence of the Student's own from a Write your own card. Kept, never marked. */
+export interface Sentence {
+  skill: SkillId;
+  text: string;
+  ticks: boolean[];
+  day: Day;
+}
+
 export type Activity =
   | { kind: 'teach'; skill: SkillId; step: 0 | 1 | 2; tries: number }
   | { kind: 'encounter'; id: EncounterId; tries: number }
@@ -62,7 +70,9 @@ export type Activity =
       hp: number;
       foe: number;
       turn: number;
-    };
+    }
+  /** The Daily review: Encounters from mastered Skills across Islands. `firsts` counts right-first-try answers so far. */
+  | { kind: 'review'; ids: EncounterId[]; at: number; tries: number; firsts: number };
 
 export interface Save {
   v: 1;
@@ -76,10 +86,13 @@ export interface Save {
   received: { creature: string; shiny: boolean }[];
   chaptersRead: string[];
   pieces: Piece[];
+  sentences: Sentence[];
   daysPlayed: number;
   lastPlayed?: Day;
   tide?: { day: Day; branch: BranchId; done: boolean };
   backupConfirmed?: Day;
+  /** The day the last Daily review was finished. */
+  reviewDay?: Day;
   seen: Record<string, EncounterId[]>;
   activity?: Activity;
 }
@@ -102,9 +115,19 @@ export function newSave(today: Day): Save {
     received: [],
     chaptersRead: [],
     pieces: [],
+    sentences: [],
     daysPlayed: 0,
     seen: {},
   };
+}
+
+/**
+ * A save as stored, which may come from before a field existed. Every field newSave sets is filled in when missing,
+ * so add a default there when Save gains a field.
+ */
+export function upgradeSave(stored: Partial<Save> & Pick<Save, 'started'>): Save {
+  const fresh = newSave(stored.started);
+  return { ...fresh, ...stored, settings: { ...fresh.settings, ...stored.settings }, branches: { ...fresh.branches, ...stored.branches } };
 }
 
 export function skillProgress(save: Save, id: SkillId): SkillProgress {

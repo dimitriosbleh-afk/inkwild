@@ -270,6 +270,20 @@
         }
       ]
     },
+    "write": {
+      "ask": "Finish Mo's sign. Answer the smell worry with a reason that fits it.",
+      "given": [
+        "Fish-finger custard is the best dessert on the boat.",
+        "Some people say it smells too fishy."
+      ],
+      "starter": "Some people say it smells too fishy, but",
+      "checks": [
+        "My sentence names the worry about the smell.",
+        "My answer is about the smell, not price or taste.",
+        "I gave a reason, not just 'whatever'."
+      ],
+      "model": "Some people say it smells too fishy, but Mo bakes it with fresh lemon, so it smells like lemon tart."
+    },
     "creature": {
       "id": "countaby",
       "name": "Countaby",
@@ -482,9 +496,9 @@
       "band": 2,
       "topic": "ocean",
       "frame": "A letter in the Bluster Rock Bugle has the whole crew talking. The Countaby has read it three times.",
-      "text": "Dear Editor, Jet skis should be banned from Shell Bay. Every weekend, they roar past the swimmers and scare the sea turtles away from the seagrass. Last month, a gold jet ski nearly hit a kayaker near the point. Some riders say there's nowhere else to ride, but Long Beach has plenty of room. The bay is a home for turtles, not a racetrack for show-offs. Jet ski riders also say that they spend a lot of money in town. Last summer, I counted twelve turtles in the bay, and this summer I have only seen two. Please ban jet skis before someone gets hurt. Kiri Walsh, Year 6",
+      "text": "Dear Editor, Jet skis should be banned from Shell Bay. Every weekend, they roar past the swimmers and scare the sea turtles away from the seagrass. Last month, a gold jet ski nearly hit a kayaker near the point. Some riders say there's nowhere else to ride, but Long Beach has plenty of room. The bay is a home for turtles, not a racetrack for show-offs. Some riders say they spend lots of money in town, but who cares? Last summer, I counted twelve turtles in the bay, and this summer I have only seen two. Please ban jet skis before someone gets hurt. Kiri Walsh, Year 6",
       "prompt": "Which sentence names the other side's view and answers it with a reason?",
-      "success": "It says what riders think, then answers it: Long Beach has plenty of room.",
+      "success": "It names what riders think, then answers it with a reason: Long Beach has plenty of room.",
       "body": {
         "format": "choose",
         "options": [
@@ -496,8 +510,8 @@
             "text": "Some riders say there's nowhere else to ride, but Long Beach has plenty of room."
           },
           {
-            "text": "Jet ski riders also say that they spend a lot of money in town.",
-            "reason": "This says what riders think, but Kiri never answers it. It's only half."
+            "text": "Some riders say they spend lots of money in town, but who cares?",
+            "reason": "'Who cares?' isn't a reason. Kiri names the riders' view, then brushes it off."
           }
         ],
         "answer": 1
@@ -657,9 +671,9 @@
       "band": 2,
       "topic": "gross-science",
       "frame": "Gus is running a bug-tasting stall at the Bluster Rock Science Fair. Tully is not impressed.",
-      "text": "Gus's sign says: 'Try a roasted cricket! That's not gross. That's science.' He has three flavours: salt and vinegar, honey, and chilli. So far, only the Countaby has tried one, and it went back for seconds. Gus has been roasting crickets in the galley all week, and the whole boat smells like popcorn. Mo says it's the best thing that has ever come out of that oven. Tully walked past and wrote on the bottom of his sign: 'Eating bugs is disgusting. Nobody will try one.' Gus wants to write a reply underneath. He knows Tully reads everything twice. He also knows she won't change her mind unless he takes her view seriously.",
+      "text": "Gus's sign says: 'Try a roasted cricket! That's not gross. That's science.' He has three flavours: salt and vinegar, honey, and chilli. So far, only Mo and the Countaby have tried one, and both went back for seconds. Gus has been roasting crickets in the galley all week, and the whole boat smells like popcorn. Mo says they're the best thing that has ever come out of that oven. Tully walked past and wrote on the bottom of his sign: 'Eating bugs is disgusting. Nobody will try one.' Gus wants to write a reply underneath. He knows Tully reads everything twice. He also knows she won't change her mind unless he takes her view seriously.",
       "prompt": "Which reply names Tully's view and answers it with a reason?",
-      "success": "It names Tully's view, then answers it: roasted crickets taste like nutty chips.",
+      "success": "It names Tully's view that nobody will try one, then answers it: Mo and the Countaby went back for seconds.",
       "body": {
         "format": "choose",
         "options": [
@@ -668,11 +682,11 @@
             "reason": "This gives reasons to eat crickets, but it never names Tully's view that bugs are gross."
           },
           {
-            "text": "You think bugs are gross, Tully, and you said that nobody will try one.",
-            "reason": "This names Tully's view, but Gus gives no answer to it."
+            "text": "You think bugs are gross, Tully, but I've been roasting them in the galley all week.",
+            "reason": "This has 'but', yet roasting them all week doesn't show they aren't gross."
           },
           {
-            "text": "You think bugs are gross, Tully, but roasted crickets taste like nutty chips."
+            "text": "You say nobody will try one, Tully, but Mo and the Countaby went back for seconds."
           }
         ],
         "answer": 2
@@ -683,29 +697,29 @@
       "band": 3,
       "topic": "sport",
       "frame": "The Year 6 sports captains have written to the school council. Tully is checking it before it goes in.",
-      "text": "To the School Council. Our sports day is held every year in the second week of February, which is often the hottest week on Bluster Rock. Last year, the temperature reached forty-one degrees, and three students were taken to the first aid tent before lunch. During the races, the little kids wilted in the heat, and the parents crowded into the only patch of shade under the old pepper tree. The tug-of-war rope was so hot that nobody wanted to touch it. We think sports day should move to May. In May, the mornings are cool and the oval is still dry. Some argue the oval is only free in February, but the footy club has offered to swap nights. Others say that many families have already planned their holidays around February. Moving it would also give the Year 6 leaders more time to train the little kids. We hope the council will agree. Signed, the Year 6 Sports Captains",
-      "prompt": "Which sentence names the other side's view and answers it with a reason?",
-      "success": "It names an argument against moving, the booked oval, then answers it with the footy club's offer.",
+      "text": "To the School Council. Our sports day is held every year in the second week of February, often the hottest week on Bluster Rock. Last year, it reached forty-one degrees, and three students were taken to the first aid tent before lunch. The tug-of-war rope was so hot that nobody wanted to touch it. We think sports day should move to May, when the mornings are cool and the oval is still dry. Some argue that May is when lots of families go camping up the coast, but May mornings are much cooler. February is hot, but May is perfect for running. We know the oval is booked for footy in May, but the club has offered to swap days with us. Moving the day would also give the Year 6 leaders more time to train the little kids. The canteen has even offered to sell icy poles at the finish line. We hope the council will agree. Signed, the Year 6 Sports Captains",
+      "prompt": "Which part names a worry about moving and answers it with a reason that fits?",
+      "success": "The worry is the booked oval. The club's offer to swap days answers it, and fits the worry.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Last year, the temperature reached forty-one degrees, and three students were taken to the first aid tent before lunch.",
+            "text": "Some argue that May is when lots of families go camping up the coast, but May mornings are much cooler.",
+            "reason": "It names the camping worry, but cool mornings don't help families who are away. The answer misses the worry."
+          },
+          {
+            "text": "We know the oval is booked for footy in May, but the club has offered to swap days with us."
+          },
+          {
+            "text": "February is hot, but May is perfect for running.",
+            "reason": "Two facts about the weather, joined by 'but'. Nobody who disagrees is named."
+          },
+          {
+            "text": "Last year, it reached forty-one degrees, and three students were taken to the first aid tent before lunch.",
             "reason": "This is evidence for the captains' side. It doesn't mention anyone who disagrees."
-          },
-          {
-            "text": "Others say that many families have already planned their holidays around February.",
-            "reason": "This names the other side, but the captains never answer it."
-          },
-          {
-            "text": "Moving it would also give the Year 6 leaders more time to train the little kids.",
-            "reason": "This is another reason for the captains' side. No other view is mentioned."
-          },
-          {
-            "text": "Some argue the oval is only free in February, but the footy club has offered to swap nights."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
@@ -713,8 +727,8 @@
       "band": 3,
       "topic": "animals",
       "frame": "Wren is reading a letter about the vote for a new school mascot. The Countaby has voted for itself, which isn't allowed.",
-      "prompt": "Tap the sentence where the writer names the other side's view and answers it with a reason.",
-      "success": "It names the view that wombats are too slow, then answers it: they can sprint at forty kilometres an hour.",
+      "prompt": "Tap the sentence where Ollie names a worry about his plan and answers it with a reason that fits.",
+      "success": "'Isn't cheap, I know' admits the cost worry. The parents' club paying answers it. No 'some say' needed.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -725,24 +739,24 @@
           },
           " ",
           {
-            "tap": "A wombat would also look great on the front of our new footy jumpers.",
-            "reason": "This is another reason for the writer's side. No other view is mentioned."
+            "tap": "Some students say a wombat is too slow for a sporty school, but a wombat would look great on our footy jumpers.",
+            "reason": "It names the worry about speed, but footy jumpers don't answer it. The answer misses the worry."
           },
           " ",
           {
-            "tap": "Some students say a wombat is too slow and sleepy for a sporty school, but wombats can sprint at forty kilometres an hour."
+            "tap": "A new costume isn't cheap, I know, so the parents' club has already offered to pay for it."
           },
           " ",
           {
-            "tap": "Other students say that a new costume would cost too much money.",
-            "reason": "This names the other side, but the writer never answers it."
+            "tap": "Some kids say Cocky is part of our history, but whatever.",
+            "reason": "It names a view, then says 'whatever'. That's no reason at all."
           },
           " ",
           {
             "tap": "Frankly, Cocky looks like a feather duster that has had a nasty fright.",
             "reason": "This makes fun of Cocky. It doesn't name or answer anyone's view."
           },
-          " Please vote for the wombat at Friday's assembly. Our art club has already sketched three designs, and one of them wears a tiny sweatband. Yours sincerely, Ollie Brandt, Year 6 captain. P.S. Wombats also do square poos, which I think makes them the most interesting animal in Australia."
+          " Please vote for the wombat at Friday's assembly. Our art club has already sketched three designs, and one of them wears a tiny sweatband. Yours sincerely, Ollie Brandt, Year 6 captain. P.S. Wombats do square poos, which makes them the most interesting animal in Australia."
         ],
         "answer": 2
       }
@@ -753,44 +767,49 @@
       "topic": "food",
       "frame": "The canteen is dropping chocolate milk. Mo collected comments from newsletter readers who agree with the change.",
       "prompt": "Put each comment in the right box.",
-      "success": "Only the last box names the other side and answers it. Naming it alone is only half the job.",
+      "success": "Only the last box answers the worry. A 'but' or 'whatever' after the worry isn't an answer.",
       "body": {
         "format": "sort",
         "bins": [
           "ignores the other side",
-          "names it, but doesn't answer",
+          "names it, but doesn't answer it",
           "names it and answers it"
         ],
         "items": [
           {
             "text": "A carton of chocolate milk has about four teaspoons of sugar.",
             "bin": 0,
-            "reason": "This is a fact for one side. It doesn't mention anyone who disagrees."
+            "reason": "This is a fact for the writer's side. Nobody who disagrees is mentioned."
           },
           {
-            "text": "The canteen already sells far too many sugary drinks.",
+            "text": "Some kids say chocolate milk is the only milk they'll drink, but whatever.",
+            "bin": 1,
+            "reason": "It names the kids' view, then says 'whatever'. That isn't an answer."
+          },
+          {
+            "text": "Kids who'll miss the chocolate taste can still get it in the new chocolate-banana smoothie.",
+            "bin": 2,
+            "reason": "It names what some kids will miss, then answers it: the smoothie keeps the chocolate taste."
+          },
+          {
+            "text": "The canteen sells lots of sugary drinks, but this change is a good start.",
+            "bin": 0,
+            "reason": "It has 'but', yet nobody who disagrees is named. It's all the writer's side."
+          },
+          {
+            "text": "Many parents say dropping it is unfair, but the canteen still sells pies.",
+            "bin": 1,
+            "reason": "Pies have nothing to do with fairness. The answer misses the worry, so it's only half."
+          },
+          {
+            "text": "Our school wants every drink at the canteen to be healthy.",
             "bin": 0,
             "reason": "This is only the writer's view. No other side is mentioned."
           },
           {
-            "text": "Some kids say chocolate milk is the only milk they will drink.",
-            "bin": 1,
-            "reason": "This names what some kids say, but nobody answers it."
-          },
-          {
-            "text": "Many parents say that dropping it is unfair.",
-            "bin": 1,
-            "reason": "This names the parents' view, but nobody answers it."
-          },
-          {
-            "text": "Although some kids love the chocolate flavour, most in our taste test liked plain milk just as much.",
+            "text": "Some say plain milk is boring, but in our taste test, most kids rated plain milk as highly as chocolate.",
             "bin": 2,
-            "reason": "It names the taste point, then answers it: in the taste test, most liked plain milk too."
-          },
-          {
-            "text": "Some say plain milk is boring, but the canteen will add a banana smoothie.",
-            "bin": 2,
-            "reason": "It names the view that plain milk is boring, then answers it."
+            "reason": "It names the worry that plain milk is boring, then answers it with the taste test."
           }
         ]
       }
@@ -799,45 +818,45 @@
       "id": "3.10-b3-4",
       "band": 3,
       "topic": "gaming",
-      "frame": "Zed gave a speech asking for a lunchtime gaming club. Mo wrote it up for the newsletter, but got Zed's answer wrong.",
-      "text": "Speech by Zed, Year 6. I'm asking for a gaming club in the library on Tuesday and Thursday lunchtimes. Lots of kids already play the same games at home, but they never get to play together. A club would let us team up, share tips and meet kids from other classes. We could even hold a tournament at the end of term, with a trophy made by the art club. Every member would have to sign a promise to share the controllers. Some teachers worry that kids would spend lunch inside instead of running around, but the club would only run on two days, so the other three are still for the oval. We would only play games that our librarian, Mr Dunne, has checked. Gaming also builds problem-solving skills, because every level is a puzzle. Some parents might say screens are bad for eyes. My mum says that too. On rainy days, kids could also bring in their own board games. Please let us try it for one term.",
-      "prompt": "Tap the part Mo got wrong, then choose Zed's real answer.",
-      "success": "Zed answers the worry about running around: the club runs two days, leaving three for the oval.",
+      "frame": "Zed gave a speech asking for a lunchtime gaming club. Mo wrote it up for the newsletter, but got one part wrong.",
+      "text": "Speech by Zed, Year 6. I'm asking for a gaming club in the library on Tuesday and Thursday lunchtimes. Lots of kids already play the same games at home, but they never get to play together. A club would let us team up, share tips and meet kids from other classes. We could even hold a tournament at the end of term, with a trophy made by the art club. Some teachers worry that kids would spend lunch inside instead of running around, but the club would only run on two days, so the other three are still for the oval. We would only play games that our librarian, Mr Dunne, has checked. Some parents might say screens are bad for eyes. That's why every round lasts ten minutes, with a look-out-the-window break after each one. On rainy days, kids could also bring in board games. Please let us try it for one term.",
+      "prompt": "Tap the part Mo got wrong, then choose what Zed really said.",
+      "success": "'That's why' links the short rounds back to the eye worry. Zed answers it without any 'but'.",
       "body": {
         "format": "fix",
         "parts": [
-          "Some teachers worry kids would ",
+          "Mo's write-up: Zed names ",
           {
-            "tap": "stay inside at lunch",
-            "reason": "That's right. That's the teachers' worry in Zed's speech."
+            "tap": "two worries",
+            "reason": "That's right. Teachers worry about running around, and parents worry about eyes."
           },
-          ". Zed answers that ",
+          " about his club. He answers the teachers' worry with ",
           {
-            "tap": "gaming builds problem-solving skills"
+            "tap": "the two-day plan",
+            "reason": "That's right. Two club days leave three days for the oval."
           },
-          ". The club would be in the ",
+          ". The parents' worry about eyes ",
           {
-            "tap": "library",
-            "reason": "That's right. Zed asks for a club in the library."
+            "tap": "gets no answer at all"
           },
           "."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
-            "text": "Mr Dunne would check every game",
-            "reason": "That's in the speech, but it doesn't answer the worry about running around."
+            "text": "is answered by Mr Dunne checking the games",
+            "reason": "Mr Dunne checks which games are played. That doesn't help tired eyes."
           },
           {
-            "text": "three days are still free for the oval"
+            "text": "is answered by short rounds with window breaks"
           },
           {
-            "text": "kids would meet kids from other classes",
-            "reason": "That's a reason for the club, but it isn't an answer to the teachers' worry."
+            "text": "is answered by meeting kids from other classes",
+            "reason": "Meeting kids is a reason for the club. It doesn't answer the worry about eyes."
           },
           {
-            "text": "screens are bad for eyes",
-            "reason": "That's a worry Zed mentions. He never answers it, and it isn't an answer."
+            "text": "is answered by the art club's trophy",
+            "reason": "A trophy has nothing to do with eyes. Find the sentence that starts 'That's why'."
           }
         ],
         "answer": 1
@@ -848,17 +867,17 @@
       "band": 3,
       "topic": "space",
       "frame": "Tully wrote a paragraph for the Bluster Rock Bugle. The Countaby bounced on her laptop and jumbled it.",
-      "prompt": "Put Tully's sentences back in order.",
-      "success": "Claim, then the other side, then the answer, then the wrap-up. 'However' and 'For these reasons' show the way.",
+      "prompt": "Put Tully's sentences back in order. There's no 'however' this time, so follow the ideas.",
+      "success": "Claim, then the cost worry, then the answer to it. 'That money' points back to the cost.",
       "body": {
         "format": "order",
         "items": [
           "Bluster Rock should build a new observatory on top of the red cliffs.",
-          "It is true that the observatory would cost a lot of money to build.",
-          "However, it would bring thousands of stargazing tourists to town every year.",
-          "For these reasons, the council should approve the plan at next week's meeting."
+          "Building it would cost the council a lot of money.",
+          "That money would come back within five years, from the stargazing tourists who visit.",
+          "So the council should approve the plan at next week's meeting."
         ],
-        "reason": "The claim comes first, so 'the observatory' makes sense. Then the other side, then 'However', then the wrap-up."
+        "reason": "'It' needs the observatory first. 'That money' needs the cost just before it. 'So' wraps it up."
       }
     },
     {
@@ -866,26 +885,26 @@
       "band": 3,
       "topic": "funny",
       "frame": "Two show-makers answered complaints about their shows. The Countaby is reading both replies.",
-      "text": "THE COMPLAINT, from a Vantafam member: Maxx, your Creature Rescue Show is too short. Each episode is only four minutes long! THE REPLY FROM MAXX: Some of you say my show is too short. Whatever! Smash that heart button like it owes you money, and check out my new gold sunnies! THE REPLY FROM RANGER BO, who makes the Bluster Rock Wildlife Hour: People sometimes tell me our show is too long. I get it, because an hour is a big chunk of your day. But real animals take time, and we don't cut out the boring bits just to look exciting. If you're short on time, each episode has chapters, so you can jump to the part you want. The Countaby read both replies twice, then fell asleep on the keyboard with its tail over its nose. Mo said it had seen enough arguing for one day.",
-      "prompt": "Which writer names the other side's view and answers it with a reason?",
-      "success": "Only Ranger Bo. Bo admits an hour is long, then answers it: real animals take time, and there are chapters.",
+      "text": "THE COMPLAINT, from a Vantafam member: Maxx, your Creature Rescue Show is too short. Each episode is only four minutes long, and I miss half of it while it loads! THE REPLY FROM MAXX: Some of you say my show is too short, but my new gold sunnies drop on Friday! Smash that heart button like it owes you money! THE COMPLAINT, from a viewer of the Bluster Rock Wildlife Hour: Ranger Bo, your show is too long. I can't sit still for a whole hour after school! THE REPLY FROM RANGER BO: I get it. An hour is a big chunk of your day. That's why every episode now has chapters, so you can jump straight to the animal you want. The Countaby read both replies twice, then fell asleep on the keyboard with its tail over its nose. Mo said it had seen enough arguing for one day.",
+      "prompt": "Which show-maker names the complaint and answers it with a reason that fits?",
+      "success": "Bo admits an hour is long, then offers chapters. That fits. Maxx's 'but' leads to sunnies.",
       "body": {
         "format": "choose",
         "options": [
           {
             "text": "Only Maxx",
-            "reason": "Maxx names the complaint, then says 'Whatever!' and moves on. He never answers it with a reason."
+            "reason": "Maxx uses 'some say' and 'but', then talks about sunnies. Do sunnies fix a short show?"
           },
           {
             "text": "Only Ranger Bo"
           },
           {
             "text": "Both of them",
-            "reason": "Only one of them answers with reasons. 'Whatever!' isn't a reason."
+            "reason": "Only one answer fits its complaint. Read each reply after the complaint again."
           },
           {
             "text": "Neither of them",
-            "reason": "Read the last reply again. Does it answer the worry with a reason?"
+            "reason": "Bo has no 'but', yet look again. Do chapters help someone short on time?"
           }
         ],
         "answer": 1
@@ -896,29 +915,29 @@
       "band": 4,
       "topic": "ocean",
       "frame": "An opinion piece in the Bluster Rock Bugle is about a new marine sanctuary. Wren has circled it twice.",
-      "text": "SAVE CORAL GULLY, by marine scientist Dr Lena Moss. Coral Gully, on the northern side of Bluster Rock, is home to the island's last healthy patch of reef. In the past five years, our surveys have found that the number of fish on the reef has fallen by almost half, and the giant clams that once lined the gully have nearly disappeared. I believe the council should make Coral Gully a no-fishing sanctuary, where the reef can rest and recover. Some fishing families fear the sanctuary will leave their nets empty, but at Pelican Point, catches just outside a sanctuary doubled within ten years. That happens because fish grow large and breed inside the protected area, then spill out into the surrounding water. Healthy reefs also attract snorkellers, who spend money in local cafes, dive shops and caravan parks. Some people say the council cannot afford new signs and patrol boats. The decision will be made at the council meeting on the first Monday of next month, and I urge every resident who cares about the reef to come along and speak up. Children are welcome too, and the surf club will run a free sausage sizzle afterwards. Copies of our survey results are available at the library.",
-      "prompt": "Which sentence does Dr Moss use to name the other side's view and answer it with a reason?",
-      "success": "It names the fishing families' fear, then answers it with what happened at Pelican Point.",
+      "text": "SAVE CORAL GULLY, by marine scientist Dr Lena Moss. Coral Gully, on the northern side of Bluster Rock, is home to the island's last healthy patch of reef. In the past five years, our surveys have found that the number of fish on the reef has fallen by almost half. I believe the council should make Coral Gully a no-fishing sanctuary, where the reef can rest and recover. I know that many fishing families fear the sanctuary will leave their nets empty. Some say a sanctuary will hurt fishing, but the reef deserves a rest after fifty years of nets. Healthy reefs also attract snorkellers, who spend about $2 million a year in local cafes, dive shops and caravan parks. At Pelican Point, catches just outside a sanctuary doubled within ten years of it opening. That happens because fish grow large and breed inside the protected area, then spill out into the water around it. Coral Gully has the island's last 300 giant clams, which have nearly vanished elsewhere. The council will decide at its meeting on the first Monday of next month. I urge every resident who cares about the reef to come along and speak up. Copies of our survey results are available at the library.",
+      "prompt": "Dr Moss names the fishing families' fear of empty nets. Which sentence would do most to change their minds?",
+      "success": "The worry is empty nets. Pelican Point shows catches grew next to a sanctuary. That fits the worry best.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "In the past five years, our surveys have found that the number of fish on the reef has fallen by almost half, and the giant clams that once lined the gully have nearly disappeared.",
-            "reason": "This is evidence for Dr Moss's side. It doesn't mention anyone who disagrees."
+            "text": "Some say a sanctuary will hurt fishing, but the reef deserves a rest after fifty years of nets.",
+            "reason": "This has 'some say' and 'but', yet a resting reef doesn't fill anyone's nets."
           },
           {
-            "text": "Some fishing families fear the sanctuary will leave their nets empty, but at Pelican Point, catches just outside a sanctuary doubled within ten years."
+            "text": "Healthy reefs also attract snorkellers, who spend about $2 million a year in local cafes, dive shops and caravan parks.",
+            "reason": "Snorkellers help cafes and dive shops. That money doesn't reach the fishing boats."
           },
           {
-            "text": "Healthy reefs also attract snorkellers, who spend money in local cafes, dive shops and caravan parks.",
-            "reason": "This gives another benefit, but it never names what the other side thinks."
+            "text": "At Pelican Point, catches just outside a sanctuary doubled within ten years of it opening."
           },
           {
-            "text": "Some people say the council cannot afford new signs and patrol boats.",
-            "reason": "This names the other side's worry about cost, but Dr Moss never answers it."
+            "text": "Coral Gully has the island's last 300 giant clams, which have nearly vanished elsewhere.",
+            "reason": "Clams matter to the reef, but this says nothing about the families' catches."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -926,36 +945,36 @@
       "band": 4,
       "topic": "art",
       "frame": "The council wants to pull down the Big Galah, Bluster Rock's giant pink statue. Indi has written a speech to save it.",
-      "prompt": "Tap the sentence where Indi names the other side's view and answers it with a reason.",
-      "success": "It names what some say, peeling paint, then answers it: the art club will repaint it cheaply.",
+      "prompt": "Councillor Fitz says the Big Galah costs too much to keep. Tap the sentence that answers him best.",
+      "success": "The worry is cost. A coat of paint is far cheaper than knocking it down. That answer fits.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Councillors, for forty years the Big Galah has stood beside the highway, welcoming every traveller to Bluster Rock with its enormous pink crest. Families pull over to take photos beneath it, and the cafe next door sells more galah-shaped biscuits than any other item on its menu. When the highway was widened twenty years ago, the whole town signed a petition to keep it, and the road was moved around its feet instead. Even the Countaby salutes it every morning. ",
+          "Councillors, for forty years the Big Galah has stood beside the highway, welcoming every traveller to Bluster Rock with its enormous pink crest. Families pull over to take photos beneath it. When the highway was widened twenty years ago, the whole town signed a petition to keep it, and the road was moved around its feet instead. Even the Countaby salutes it every morning. ",
           {
-            "tap": "To most of us, the Big Galah isn't just a statue; it's the first sign that we're nearly home.",
-            "reason": "This is Indi's own feeling about the statue. It doesn't mention what anyone else thinks."
+            "tap": "Some say it costs too much, but the Big Galah is loved by everyone in town.",
+            "reason": "It has 'some say' and 'but', yet being loved isn't about cost. It misses the worry."
           },
           " ",
           {
             "tap": "Last summer alone, more than six thousand visitors signed the guestbook at its feet.",
-            "reason": "This is evidence for Indi's side. No other view is mentioned."
+            "reason": "This shows the Galah is popular. It doesn't show it's cheap to keep."
           },
           " ",
           {
-            "tap": "Some councillors believe the land would be better used as a car park.",
-            "reason": "This names the other side's view, but Indi never answers it."
+            "tap": "The cafe next door sells more galah-shaped biscuits than any other item on its menu.",
+            "reason": "That's money for the cafe, not the council. It doesn't make the Galah cheaper to keep."
           },
           " ",
           {
-            "tap": "Some say the paint is peeling and the beak has faded, but our art club has offered to repaint it for the cost of the paint alone."
+            "tap": "Tearing it down would cost more than eight thousand dollars, while a fresh coat of pink would cost less than four hundred."
           },
           " ",
           {
             "tap": "Anyone who wants to knock down a giant galah clearly has no sense of fun.",
-            "reason": "This insults people instead of answering their view with a reason."
+            "reason": "This insults people instead of answering their worry with a reason."
           },
-          " Tearing it down would cost more than eight thousand dollars, while a fresh coat of pink would cost less than four hundred. The Big Galah has watched over this town for longer than most of us have been alive. I am asking you, tonight, to let it keep watching."
+          " The Big Galah has watched over this town for longer than most of us have been alive. I am asking you, tonight, to let it keep watching."
         ],
         "answer": 3
       }
@@ -964,46 +983,50 @@
       "id": "3.10-b4-3",
       "band": 4,
       "topic": "robots",
-      "frame": "The Bluster Rock Bugle asked readers whether robot lifeguards should patrol Redsand Beach. Gus is sorting the replies.",
-      "prompt": "Put each reply in the right box.",
-      "success": "Naming the other side is only half. The last box admits it and gives a reason back.",
+      "frame": "The Bluster Rock Bugle asked readers about robot lifeguards at Redsand Beach. Gus is sorting the replies.",
+      "prompt": "Critics fear a robot could break down while someone is in trouble. Put each reply in the right box.",
+      "success": "An answer has to fit the fear. Spare batteries, checks and humans fit. Lunch breaks and warranties don't.",
       "body": {
         "format": "sort",
         "bins": [
-          "ignores the other side",
-          "names it, but doesn't answer",
-          "names it and answers it"
+          "answers that fear",
+          "doesn't answer that fear"
         ],
         "items": [
           {
-            "text": "Robot lifeguards can scan the whole beach every few seconds and never need a lunch break.",
-            "bin": 0,
-            "reason": "This is only a reason for robots. No other view is mentioned."
-          },
-          {
-            "text": "In trials at another beach, the robots spotted swimmers in trouble twice as fast as people did.",
-            "bin": 0,
-            "reason": "This is evidence for one side. It doesn't mention anyone who disagrees."
-          },
-          {
-            "text": "Admittedly, many swimmers feel safer when they can see a real person in the tower.",
+            "text": "Admittedly, robots can break down, but they don't need lunch breaks.",
             "bin": 1,
-            "reason": "This admits the other side's point, but it gives no answer to it."
+            "reason": "Lunch breaks have nothing to do with breakdowns. The answer misses the fear."
           },
           {
-            "text": "Critics argue that a robot could break down at the worst possible moment.",
+            "text": "Every robot runs a self-check each morning and stays off the beach if anything is faulty.",
+            "bin": 0,
+            "reason": "No 'but' needed. A daily check answers the fear of a breakdown."
+          },
+          {
+            "text": "Every robot comes with a five-year factory warranty that pays for repairs.",
             "bin": 1,
-            "reason": "This names the critics' worry, but nobody answers it here."
+            "reason": "A warranty pays to fix a robot later. It doesn't help a swimmer in trouble right then."
           },
           {
-            "text": "Although some fear the robots could break down, each one has a human lifeguard ready to take over.",
-            "bin": 2,
-            "reason": "It names the fear, then answers it: a human is always ready."
+            "text": "Robots can break, but each one works beside a human lifeguard who can take over in seconds.",
+            "bin": 0,
+            "reason": "It admits robots can break, then answers it: a human is always there to take over."
           },
           {
-            "text": "Some say robots can't comfort a frightened child, which is why they would work beside our lifeguards, not replace them.",
-            "bin": 2,
-            "reason": "It names a worry, then answers it: humans stay to do the comforting."
+            "text": "Some say robots break down, but robots are clearly the future of our beaches.",
+            "bin": 1,
+            "reason": "'The future' isn't a reason. The fear of a breakdown is left unanswered."
+          },
+          {
+            "text": "Each robot carries two batteries, so it keeps running if one of them fails.",
+            "bin": 0,
+            "reason": "A spare battery answers the fear that the robot might stop working."
+          },
+          {
+            "text": "Critics also forget how cheap the robots are to run each summer.",
+            "bin": 1,
+            "reason": "Cost is a different point. It doesn't answer the breakdown fear."
           }
         ]
       }
@@ -1012,66 +1035,78 @@
       "id": "3.10-b4-4",
       "band": 4,
       "topic": "music",
-      "frame": "The council might ban busking in the Bluster Rock mall. Zed summed up a busker's speech, but changed her answer.",
-      "text": "Speech by Rosa Delgado, street musician. I have played my guitar outside the Bluster Rock bakery every Saturday morning for six years. In that time, I've played for tourists, toddlers, grumpy truck drivers and one very confused emu. I want to talk about the proposal to ban busking in the mall. I understand that some shop owners find the music distracting, and a few have said that it makes it hard to talk to customers. I hear them. But a simple rule that buskers must move every hour and keep the volume low would fix that problem, without silencing anyone. Music brings people into the mall, and people who stop to listen often stay to buy a coffee or a pie. The bakery owner, Mr Lam, told me his Saturday sales are the best of the week. Other towns have tried banning buskers, and some say their main streets became quiet and empty. Please don't make that mistake here. Let the music stay, and let's write some fair rules together. Rosa finished her speech by playing a short song she had written about the mall, and three councillors tapped their feet. One of them even hummed along on the way out of the meeting. The vote will be held next month.",
-      "prompt": "Tap the part Zed got wrong, then choose Rosa's real answer.",
-      "success": "Rosa's answer to the shop owners is a fair rule: move every hour and keep the volume low.",
+      "frame": "The council might ban busking in the Bluster Rock mall. Zed summed up a busker's speech, but got one part wrong.",
+      "text": "Speech by Rosa Delgado, street musician. I have played my guitar outside the Bluster Rock bakery every Saturday morning for six years. In that time, I've played for tourists, toddlers, grumpy truck drivers and one very confused emu. I want to talk about the plan to ban busking in the mall. Some shop owners find the music distracting, and a few say it makes it hard to talk to customers. I hear them. A simple rule that buskers must move every hour and keep the volume low would fix that problem, without silencing anyone. Music also brings people into the mall, and people who stop to listen often stay to buy a coffee or a pie. The bakery owner, Mr Lam, told me his Saturday sales are the best of the week. Other towns have banned buskers, and some say their main streets became quiet and empty. Please don't make that mistake here. Let the music stay, and let's write some fair rules together. Rosa finished by playing a short song she had written about the mall, and three councillors tapped their feet. One of them even hummed along on the way out.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "The worry is distraction. Moving every hour and playing softly fixes exactly that, with no 'but' needed.",
       "body": {
         "format": "fix",
         "parts": [
-          "Rosa admits that some ",
+          "Zed's summary: Rosa names the shop owners' worry that the music is ",
           {
-            "tap": "shop owners",
-            "reason": "That's right. Rosa names the shop owners' view."
+            "tap": "distracting",
+            "reason": "That's right. Some shop owners find the music distracting."
           },
-          " find the music distracting. She answers that ",
+          ". Her answer that fits that worry best is ",
           {
-            "tap": "music brings people into the mall"
+            "tap": "Mr Lam's busy Saturdays"
           },
-          ". She has played outside the ",
+          ". Her point about ",
           {
-            "tap": "bakery",
-            "reason": "That's right. Rosa plays outside the bakery every Saturday."
+            "tap": "other towns' empty streets",
+            "reason": "That's right. Empty streets elsewhere are a warning. They don't make the music less distracting."
           },
-          " for six years."
+          " is a warning, not an answer to that worry."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "Mr Lam's Saturday sales are the best of the week",
-            "reason": "That's a reason for buskers, but it doesn't answer the worry about distraction."
+            "text": "people stopping to buy a coffee or a pie",
+            "reason": "That shows music is good for sales. It doesn't make it less distracting."
           },
           {
-            "text": "other towns became quiet after banning buskers",
-            "reason": "That's a warning about bans. It doesn't deal with the music being distracting."
+            "text": "her six years outside the bakery",
+            "reason": "Six years shows she's a regular. It doesn't fix the distraction."
           },
           {
-            "text": "she once played for a very confused emu",
-            "reason": "That's a funny detail, not an answer to anyone's worry."
+            "text": "a rule to move every hour and play softly"
           },
           {
-            "text": "buskers could move every hour and play quietly"
+            "text": "the tourists, toddlers and confused emu",
+            "reason": "That's a funny detail. It doesn't deal with the music being distracting."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "3.10-b4-5",
       "band": 4,
       "topic": "sport",
-      "frame": "Tully wrote a paragraph for the Reef Rays club newsletter. The Countaby jumped on the printer and the lines came out jumbled.",
-      "prompt": "Put Tully's paragraph back in order.",
-      "success": "Claim, admit the other side, answer it with 'Yet', then 'That is why' to finish.",
+      "frame": "Tully wrote two drafts of a paragraph for the Reef Rays newsletter. She wants the one that deals with the other side best.",
+      "text": "Tully's note: The newsletter goes to every family in the club, including the fans who love the old Saturday games. I want those fans to feel listened to, not told off. So I wrote two drafts, and the Countaby has already chewed the corner of one.\n\nDRAFT A: In my view, the girls' footy teams deserve the same Saturday time slot as the boys' teams at the Bluster Rock oval. Girls' footy is growing fast, and last season our under-12s won the cup. Some fans say the boys have always played on Saturdays, but our girls' teams are really good this year. The club should share the Saturday slot fairly from next season.\n\nDRAFT B: In my view, the girls' footy teams deserve the same Saturday time slot as the boys' teams at the Bluster Rock oval. Girls' footy is growing fast, and last season our under-12s won the cup. The boys have played on Saturdays for more than fifty years, and many fans are used to it. Yet tradition alone is no reason to keep the girls on a weeknight, when half their families can't come to watch. The club should share the Saturday slot fairly from next season.",
+      "prompt": "Which draft takes better account of the other side, and why?",
+      "success": "Draft B answers the tradition point head on: tradition alone isn't a reason. Draft A's 'but' talks about something else.",
       "body": {
-        "format": "order",
-        "items": [
-          "In my view, the girls' footy teams deserve the same Saturday time slot as the boys' teams at the Bluster Rock oval.",
-          "Admittedly, the boys have played on Saturdays for more than fifty years, and some fans are used to it.",
-          "Yet tradition alone is no reason to keep the girls on a weeknight, when half of their families can't come to watch.",
-          "That is why the club should share the Saturday slot fairly from next season."
+        "format": "choose",
+        "options": [
+          {
+            "text": "Draft A, because 'some fans say' and 'but' show both sides.",
+            "reason": "Draft A names the fans' view, but 'really good this year' doesn't answer the point about tradition."
+          },
+          {
+            "text": "Draft B, because it is longer and gives more facts.",
+            "reason": "Length isn't the test. Does the answer fit the fans' point about tradition?"
+          },
+          {
+            "text": "Draft B, because its answer deals with the tradition point itself."
+          },
+          {
+            "text": "Draft A, because it's shorter, so fans will read to the end.",
+            "reason": "Short is fine, but Draft A's answer misses the fans' point about tradition."
+          }
         ],
-        "reason": "Claim first. 'Admittedly' gives the other side, and 'Yet' answers it. 'That is why' sums up the answer."
+        "answer": 2
       }
     },
     {
@@ -1080,28 +1115,28 @@
       "topic": "spooky",
       "frame": "The Countaby found an article about the ghost tours at the old Bluster Rock cemetery.",
       "text": "KEEP THE LANTERN TOURS, by Ezra Finch, tour guide. For twelve years, the Lantern Tours have led visitors through the old Bluster Rock cemetery after dark, telling the true stories of the miners, cooks and camel drivers who built this town. Each tour raises money to repair the crumbling headstones, and last year we fixed thirty-one of them. Visitors come from all over the country, and many are descendants of the people buried there, hoping to learn more about their own families. Without the tours, these stories would be forgotten, and the headstones would keep falling apart.\n\nSome neighbours have complained that the tours are noisy, and that torch beams shine through their bedroom windows late at night. They are right, and I am sorry. From next month, every tour will finish by half past eight, and our guides will use red lanterns, which are far dimmer than torches. We will also stay on the paths at the far end, well away from the houses.\n\nThe Lantern Tours bring history to life in a way no textbook can. Last month, a Year 5 class joined a tour and wrote a whole book about the camel drivers. Our guides are all volunteers, and they would be heartbroken to stop. I hope the council will let them continue.",
-      "prompt": "What does Ezra do in the second paragraph?",
-      "success": "Ezra admits the neighbours are right about noise and light, then answers with new rules that fix it.",
+      "prompt": "In the second paragraph, why does Ezra say the neighbours are right before giving his new rules?",
+      "success": "Admitting they're right shows Ezra listened. Then his fix answers their worry, so they're more likely to agree.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "He admits what the other side says, then answers it."
+            "text": "He has changed his mind, and now he wants the council to stop the Lantern Tours for good.",
+            "reason": "He still asks for the tours to continue in the last paragraph."
           },
           {
-            "text": "He changes his mind and agrees the tours should stop.",
-            "reason": "He says sorry, but the last paragraph still asks for the tours to continue."
+            "text": "He wants the council to think the neighbours' complaints are unfair.",
+            "reason": "He says the neighbours are right. That's the opposite of calling them unfair."
           },
           {
-            "text": "He attacks the neighbours instead of answering their worry.",
-            "reason": "He says the neighbours are right, then fixes the problem. That's not an attack."
+            "text": "Agreeing first shows he has listened, so the neighbours are more likely to accept his fix."
           },
           {
-            "text": "He gives more evidence for his own side, without mentioning any other view.",
-            "reason": "The paragraph is all about the neighbours' complaint. That's the other view."
+            "text": "He needs more evidence that the tours raise money for the headstones.",
+            "reason": "The headstone money is in the first paragraph. The second is all about the neighbours."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     }
   ]

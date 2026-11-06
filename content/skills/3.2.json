@@ -254,6 +254,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Back up Tully's bare claim. Add a reason or proof that fits it.",
+      "given": [
+        "The Reef Rays are the best team in the league."
+      ],
+      "starter": "The Reef Rays are the best team in the league, because",
+      "checks": [
+        "I kept Tully's claim.",
+        "I added a reason or proof someone could check.",
+        "My reason shows why the claim is true."
+      ],
+      "model": "The Reef Rays are the best team in the league, because they have won all twelve games this season."
+    },
     "creature": {
       "id": "bilbolster",
       "name": "Bilbolster",
@@ -643,7 +656,7 @@
       "topic": "spooky",
       "frame": "Slick Vinnie has a new flyer for his ghost tour. The Bilbolster read it under a blanket.",
       "prompt": "Vinnie makes four claims in a row. Tap the one with nothing backing it up.",
-      "success": "Vinnie's lucky number has nothing to do with the tour. Each other claim has real backing.",
+      "success": "Ninety minutes is true, but it doesn't show the tour is fun. Each other claim has backing that fits.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -659,7 +672,7 @@
           },
           " ",
           {
-            "tap": "This is the best tour on the planet, because Vinnie's lucky number is seven."
+            "tap": "This tour is great fun, because it lasts exactly ninety minutes."
           },
           " ",
           {
@@ -676,29 +689,33 @@
       "band": 3,
       "topic": "sport",
       "frame": "Coach Dev Marsh is writing to the Bluster Rock Bugle. The Bilbolster is checking his draft for backing.",
-      "text": "Dear Editor, I coach the Bluster Rock Roos, our town's junior footy team. Our home ground is the oval at Red Dune Park, and I am writing to ask the council to put lights on it. Every winter, the sun sets before 5:30 pm, and by the time the kids finish school and get to the oval, there is barely an hour of daylight left. The oval needs lights. I have coached here for eleven years, and I have watched this problem get worse every season. Parents have offered to run a sausage sizzle at every home game to help raise money. Our players are aged from eight to twelve, and we have three teams. I have one more sentence to add to this letter, and I want it to give readers a real reason to agree with me. I would be grateful if the council could discuss this at its next meeting. Yours sincerely, Dev Marsh, coach of the Bluster Rock Roos",
-      "prompt": "Dev claims the oval needs lights. Which sentence would back up his claim?",
-      "success": "Cancelled games are proof the dark is causing a real problem. That holds up Dev's claim.",
+      "prompt": "Dev claims the oval needs lights. Tap the sentence that really backs up his claim.",
+      "success": "Barely an hour before dark shows a real problem. Backing doesn't need 'because', and 'because' doesn't make backing.",
       "body": {
-        "format": "choose",
-        "options": [
+        "format": "tapText",
+        "answer": 1,
+        "parts": [
+          "Dear Editor, I coach the Bluster Rock Roos, our town's junior footy team. I am writing to ask the council to put lights on the oval at Red Dune Park. ",
           {
-            "text": "The oval needs lights, and it needs them now.",
-            "reason": "This says the same claim again, with 'now' added. It isn't backing."
+            "tap": "I have coached at Red Dune Park for eleven years, longer than anyone else in town.",
+            "reason": "Eleven years tells you about Dev, not about the oval. It doesn't show lights are needed."
           },
+          " ",
           {
-            "text": "A set of oval lights can weigh more than two tonnes.",
-            "reason": "This may be true, but it doesn't show why the oval needs lights."
+            "tap": "Every winter, the sun sets before 5:30 pm, so the kids get barely an hour of training before dark."
           },
+          " ",
           {
-            "text": "Last season, four of our games were called off because it was too dark to see the ball."
+            "tap": "We need lights, because our kids deserve the very best.",
+            "reason": "'Deserve the very best' is a feeling. It doesn't show the dark is causing a real problem."
           },
+          " ",
           {
-            "text": "Our club was started in 1974 by a group of local farmers who wanted their kids to have a team.",
-            "reason": "The club's history is interesting, but it says nothing about why lights are needed."
-          }
-        ],
-        "answer": 2
+            "tap": "Parents have offered to run a sausage sizzle at every home game to help pay for them.",
+            "reason": "This shows how lights could be paid for, not why the oval needs them."
+          },
+          " Our players are aged from eight to twelve, and we have three teams. The oval also needs new goalposts, but that's a letter for another day. I would be grateful if the council could discuss this at its next meeting. Yours sincerely, Dev Marsh, coach of the Bluster Rock Roos"
+        ]
       }
     },
     {
@@ -706,9 +723,9 @@
       "band": 3,
       "topic": "food",
       "frame": "The Year 6 debate on canteen food got heated. The Bilbolster took notes with its ears.",
-      "text": "On Thursday, Year 6 held a debate in the library about what the Bluster Rock Primary canteen should sell. One team argued for healthier food, and the other argued for keeping the menu just as it is. Mo was the timekeeper, although he kept stopping the clock to tell jokes about sausages. The healthy-food team wore green T-shirts, and the keep-the-menu team brought a giant cardboard pie as a mascot. At one point, the pie fell over and knocked a jug of water onto the judges' notes. Year 5 students in the audience were asked to listen carefully and write down every claim they heard. Both teams made lots of claims. Some were backed up with real reasons or proof. Others sounded convincing but had nothing holding them up. Watch out for reasons that just say the claim again in different words, and for 'proof' that has nothing to do with the claim. Principal Okafor will read the best arguments at assembly next week.",
-      "prompt": "Put each claim from the debate in the right box. A backed-up claim has a reason that actually supports it.",
-      "success": "Backing has to show why the claim is true. Repeating it, or adding an unrelated fact, holds nothing up.",
+      "text": "On Thursday, Year 6 held a debate about what the canteen should sell. Mo was the timekeeper, although he kept stopping the clock to tell jokes about sausages.",
+      "prompt": "Put each claim from the debate in the right box.",
+      "success": "Backing must fit the claim and show why. A 'because' with a feeling or an off-topic fact holds nothing up.",
       "body": {
         "format": "sort",
         "bins": [
@@ -717,34 +734,39 @@
         ],
         "items": [
           {
-            "text": "The canteen should sell more fruit, because last term's fruit cups sold out every single day.",
+            "text": "Last term, the fruit cups sold out every single day. The canteen should sell more fruit.",
             "bin": 1,
-            "reason": "Fruit cups selling out is proof that students would buy more fruit."
+            "reason": "Fruit cups selling out shows students would buy more fruit. Backing doesn't need 'because'."
           },
           {
             "text": "Fruit is the best snack, because it is better than every other snack.",
             "bin": 0,
-            "reason": "'Better than every other snack' is just 'best' in different words. The claim holds itself up."
+            "reason": "'Better than every other snack' just means 'best'. The claim holds itself up."
           },
           {
-            "text": "Chips should stay on the menu, because potatoes were first grown in South America about 8,000 years ago.",
+            "text": "Chips should stay on the menu, because I'd be really sad without them.",
             "bin": 0,
-            "reason": "Where potatoes come from has nothing to do with the menu. It doesn't hold the claim up."
+            "reason": "Being sad is a feeling. It doesn't show why the canteen should keep chips."
           },
           {
-            "text": "Sushi rolls would sell well, because sixty students asked for them in the canteen survey.",
+            "text": "Sushi rolls would sell well. Sixty students asked for them in the canteen survey.",
             "bin": 1,
             "reason": "Sixty students asking is proof that sushi would sell. The claim is backed up."
           },
           {
-            "text": "The menu is perfect, and anyone who disagrees is wrong.",
+            "text": "Salads would sell out every day, because lettuce is mostly water.",
             "bin": 0,
-            "reason": "Calling people wrong isn't a reason. Nothing holds this claim up."
+            "reason": "Lettuce really is mostly water, but that doesn't show kids would buy salads. The reason doesn't fit."
           },
           {
             "text": "Pies should stay, because the canteen makes more money from pies than anything else.",
             "bin": 1,
             "reason": "Making the most money is a real reason to keep pies. The claim is backed up."
+          },
+          {
+            "text": "The menu is perfect, because nobody could possibly want to change it.",
+            "bin": 0,
+            "reason": "This tells you to agree without showing why. Nothing holds the claim up."
           }
         ]
       }
@@ -755,14 +777,15 @@
       "topic": "animals",
       "frame": "Wren has written to the council about the dingo rescue centre. The Bilbolster is reading it upside down.",
       "prompt": "Wren claims the rescue centre needs a bigger pen. Tap the sentence that backs up her claim.",
-      "success": "Pups sleeping in the office shows the pen is too small. That's proof for Wren's claim.",
+      "success": "Fourteen pups in a pen built for six shows it's too small. That's proof, even with no 'because'.",
       "body": {
         "format": "tapText",
+        "answer": 2,
         "parts": [
           "Dear Councillors, I volunteer at the Red Dust Dingo Rescue, which cares for dingo pups that have lost their mothers. I am writing because the rescue centre needs a bigger pen. ",
           {
-            "tap": "A bigger pen would honestly be the best thing for everybody.",
-            "reason": "'The best thing' is Wren's opinion. It doesn't give a reason or proof."
+            "tap": "A bigger pen is needed, because a bigger pen would honestly be better for everybody.",
+            "reason": "The 'because' part just says the claim again. It gives no reason or proof."
           },
           " ",
           {
@@ -775,12 +798,11 @@
           },
           " ",
           {
-            "tap": "I really, truly believe that a bigger pen is needed as soon as possible.",
-            "reason": "This tells you how strongly Wren believes it. Believing hard isn't backing."
+            "tap": "Our volunteers have offered to build a new pen on weekends, if the council pays for the wire.",
+            "reason": "This is about the pen, but it shows how it could be built, not why it's needed."
           },
-          " Our volunteers have offered to build the new pen on weekends if the council can pay for the wire and posts. We have already measured the land beside the shed, and there is plenty of room. Please come and visit the centre before your next meeting. The pups would love to meet you, although one of them, Biscuit, will try to eat your shoelaces. Yours sincerely, Wren, the Soggy Biscuit"
-        ],
-        "answer": 2
+          " We have already measured the land beside the shed, and there is plenty of room. Please come and visit the centre before your next meeting. The pups would love to meet you, although one of them, Biscuit, will try to eat your shoelaces. Yours sincerely, Wren, the Soggy Biscuit"
+        ]
       }
     },
     {
@@ -789,10 +811,12 @@
       "topic": "gaming",
       "frame": "Zed's game review has a weak spot. The Bilbolster found it in about two seconds.",
       "text": "REVIEW: SKY RANCH, by Zed. Sky Ranch is a farming game in which you run a cattle station on a floating island above the outback. You can grow saltbush, herd floating cows and build windmills that keep your island in the air. The game has over 200 different buildings to unlock, and you can visit your friends' islands to trade. The art is gorgeous, with sunsets that turn the whole sky orange and purple. I have played it for thirty hours, and I still find new things every time. My little cousin, who is seven, learned to play it in an afternoon. Sky Ranch costs $25, which is cheaper than most farming games. There is nothing extra to buy once you own it. The music is calm. There is also a button that makes all the cows moo at once, and I pressed it about four hundred times. At the end of my review, I listed three reasons to buy it, but Tully says one of them isn't a reason at all.",
-      "prompt": "Tap the reason that doesn't back up Zed's claim. Then choose a real one.",
-      "success": "Learning it in an afternoon is proof it's easy to pick up. 'It's a must-buy' just repeats the claim.",
+      "prompt": "Tap the reason that doesn't back up Zed's claim. Then choose a real one from his review.",
+      "success": "Nothing extra to buy is a real reason it's worth the money. 'Must buy' just says the claim again.",
       "body": {
         "format": "fix",
+        "spot": 1,
+        "answer": 1,
         "parts": [
           "You should buy Sky Ranch, because ",
           {
@@ -810,25 +834,23 @@
           },
           "."
         ],
-        "spot": 1,
         "options": [
           {
             "text": "you would be making a big mistake if you didn't",
             "reason": "This warns you, but it gives no reason. It just says 'buy it' another way."
           },
           {
-            "text": "a seven-year-old learned to play it in one afternoon"
+            "text": "there is nothing extra to buy once you own it"
           },
           {
-            "text": "its box is bright orange and 20 centimetres wide",
-            "reason": "The box's colour and size don't show the game is worth buying."
+            "text": "it is a farming game set on a floating island",
+            "reason": "This tells you what the game is about. It doesn't show why it's worth your money."
           },
           {
             "text": "I personally think everyone should get it",
             "reason": "This tells you Zed's view again. It doesn't show why."
           }
-        ],
-        "answer": 1
+        ]
       }
     },
     {
@@ -838,27 +860,27 @@
       "frame": "Maxx is answering questions about his trip to the Moon. The Bilbolster's ears keep drooping.",
       "text": "Maxx it out, Vantafam! It's question time, and you've been flooding my comments about the Gold Rocket. Some of you want to know if I'm really going to the Moon. Others want to know why the rocket has a waterslide. A few of you, and you know who you are, keep asking whether the rocket is just a water tank with gold paint on it. Rude! The launch is now set for 3 March, and tickets to watch from the beach have already sold out. The Gold Rocket is thirty metres tall, it has four seats, and yes, the waterslide is real. I've been training for months, mostly by spinning around in my office chair. I've answered your four most popular questions below, so read them carefully. And before you ask, yes, I'm taking my hair spray. My hair has to look good in zero gravity. Smash that heart button like it owes you money, and I'll see you from space! Stay gold!",
       "prompt": "Which of Maxx's answers is a bare claim?",
-      "success": "Height and gold paint aren't proof of safety. Each other answer gives a reason or something you could check.",
+      "success": "A waterslide and gold paint are real, but they don't show the rocket is safe. The backing doesn't fit.",
       "body": {
         "format": "choose",
+        "answer": 2,
         "options": [
           {
-            "text": "The rocket is real. Engineers from three countries helped build it, and you can see their names on the side.",
+            "text": "The rocket is real. Engineers from three countries helped build it, and their names are on the side.",
             "reason": "Engineers' names on the side are something you could check. This claim is backed up."
           },
           {
-            "text": "The trip is possible. My rocket has already flown to the edge of space twice, and both flights were filmed.",
+            "text": "The trip is possible, because my rocket has already flown to the edge of space twice, on film.",
             "reason": "Two filmed flights are proof you could check. This claim is backed up."
           },
           {
-            "text": "My rocket is the safest one ever built. It's thirty metres tall and painted gold."
+            "text": "The rocket is safe for the trip, because it has a waterslide, four seats and real gold paint."
           },
           {
-            "text": "The waterslide is useful. It helps me cool down after the launch, when the cabin gets hot.",
-            "reason": "Cooling down after a hot launch is a reason. Silly, but it's backing."
+            "text": "The Gold Rocket is the fastest rocket on Bluster Rock. In last month's test, it beat the old record.",
+            "reason": "'Fastest' sounds like boasting, but a record-beating test is proof. This claim is backed up."
           }
-        ],
-        "answer": 2
+        ]
       }
     },
     {
@@ -866,10 +888,11 @@
       "band": 3,
       "topic": "funny",
       "frame": "Slick Vinnie is selling a shampoo for lizards. The Bilbolster has never been so confused.",
-      "prompt": "Vinnie makes four claims in a row. Tap the one with nothing backing it up.",
-      "success": "'Better than every other shampoo' just means 'best' again. Each other claim has a reason or proof.",
+      "prompt": "Vinnie makes four claims. Tap the one with nothing really backing it up.",
+      "success": "Nice smells don't make scales shine. A 'because' isn't enough: the reason has to fit the claim.",
       "body": {
         "format": "tapText",
+        "answer": 1,
         "parts": [
           "SLICK VINNIE'S SCALE-SHINE: SHAMPOO FOR LIZARDS! Does your blue-tongue look a bit dull? Is your bearded dragon having a bad scale day? Then read on. ",
           {
@@ -878,21 +901,20 @@
           },
           " ",
           {
-            "tap": "Scale-Shine works fast, because in our test, twenty lizards were shiny after one wash.",
-            "reason": "Twenty shiny lizards after one wash is proof. This claim is backed up."
+            "tap": "Scale-Shine makes scales shine, because it comes in two smells, eucalyptus and fresh rain."
           },
           " ",
           {
-            "tap": "Scale-Shine is the best lizard shampoo, because it is better than every other shampoo."
+            "tap": "Scale-Shine works fast. In our test, twenty lizards were shiny after one wash.",
+            "reason": "Twenty shiny lizards after one wash is proof, with no 'because' needed. This claim is backed up."
           },
           " ",
           {
-            "tap": "Scale-Shine is good value, because one bottle lasts for a whole year of washes.",
-            "reason": "A bottle lasting a year is a reason it's good value. This claim is backed up."
+            "tap": "Scale-Shine is the cheapest lizard shampoo at the market. Every other stall charges at least $15.",
+            "reason": "'Cheapest' sounds like boasting, but other stalls' prices are proof you could check."
           },
-          " Scale-Shine costs $12 a bottle and comes in two smells, eucalyptus and fresh rain. Vinnie's own lizard, Señor Scales, is so shiny that he has to wear tiny sunglasses. To use it, wet your lizard with warm water, rub in a small blob of shampoo and rinse gently. Never get it in your lizard's eyes. Ask an adult to help, and keep the bottle away from little brothers, who will try to drink it. Find Vinnie's stall at the Bluster Rock market, every Saturday from 8 am. Lizards are not included."
-        ],
-        "answer": 2
+          " Scale-Shine costs $12 a bottle. Vinnie's own lizard, Señor Scales, is so shiny that he has to wear tiny sunglasses. To use it, wet your lizard with warm water, rub in a small blob of shampoo and rinse gently. Never get it in your lizard's eyes. Ask an adult to help, and keep the bottle away from little brothers, who will try to drink it. Find Vinnie's stall at the Bluster Rock market, every Saturday from 8 am. Lizards are not included."
+        ]
       }
     },
     {
@@ -902,27 +924,27 @@
       "frame": "Ada Pennick is drafting a second letter about the turtles. The Bilbolster is reading it from a rock pool.",
       "text": "Dear Editor, Last month, I wrote to object to jet ski hire in Bluster Bay, and many readers have asked me why I am so certain that jet skis are hurting the turtles. It is a fair question. The northern end of the bay has been a nesting beach for green turtles for as long as anyone can remember, and every summer, volunteers like me count the nests, fence them off and watch the hatchlings scramble down to the water. Until this year, injured turtles were rare. Each nest holds around a hundred eggs, and the hatchlings come out at night, guided by the moonlight on the water. Jet skis are allowed in the bay from 7 am to 7 pm, seven days a week, and the hire shop has twelve of them. On a busy Saturday, all twelve are out on the water at once. I am not against fun, and I am not against tourists, who bring welcome money to our town. But I believe that jet skis are hurting the turtles, and I want to show readers why. I have one sentence left to write before I send this letter, and I want it to be the strongest backing I can give. The council will vote on the jet ski hire licence on 12 December. Yours faithfully, Ada Pennick, turtle volunteer",
       "prompt": "Ada claims jet skis are hurting the turtles. Which sentence would back up her claim best?",
-      "success": "Propeller-shaped cuts appearing since the hire shop opened is real proof. It links the injuries to jet skis.",
+      "success": "Propeller cuts since the hire shop opened link the injuries to jet skis. Nothing else shows a turtle was hurt.",
       "body": {
         "format": "choose",
+        "answer": 3,
         "options": [
           {
             "text": "Jet skis are clearly a menace, as anyone with eyes can see.",
             "reason": "'As anyone can see' asks you to agree without showing anything. The claim stays bare."
           },
           {
-            "text": "Green turtles have been swimming in the world's oceans for more than 100 million years.",
-            "reason": "This is an impressive fact, but it says nothing about whether jet skis hurt them."
+            "text": "On one Saturday, locals counted nine jet skis zooming within fifty metres of the nesting beach.",
+            "reason": "Close to the beach isn't the same as hurting turtles. Nothing here shows a turtle was hurt."
           },
           {
-            "text": "The company that runs the hire shop also sponsors Maxx Vantablack's channel.",
-            "reason": "This might make you distrust the company, but it isn't proof that jet skis hurt turtles."
+            "text": "The hire shop earned $60,000 last summer, and it also sponsors Maxx Vantablack's channel.",
+            "reason": "This might make you distrust the shop, but money and sponsors don't show any turtle was hurt."
           },
           {
             "text": "Since the hire shop opened, rangers have found fourteen turtles with propeller cuts."
           }
-        ],
-        "answer": 3
+        ]
       }
     },
     {
@@ -930,45 +952,27 @@
       "band": 4,
       "topic": "art",
       "frame": "Maxx is defending his art auction in the comments. The Bilbolster is trying very hard to find any backing.",
-      "text": "Maxx it out, Vantafam! So, some of you have been leaving comments about my painting, 'Gold on Gold', which sold last night for $40,000. A few haters are saying it was just a canvas with gold paint splashed on it, and one person, who I won't name, said it looked like a dropped pancake. Let me tell you a bit about the painting first. It's two metres wide, it's covered in real gold leaf, and I finished it in a single afternoon, between my morning workout and my afternoon hair appointment. The frame alone weighs twelve kilograms. The buyer is a mystery collector from overseas, who has asked me not to say their name, but I can tell you they have excellent taste. They also bought my sunglasses. Well, I've decided to answer every complaint, one by one, because that's the kind of transparent, honest streamer I am. I've also included a few comments from my biggest supporters, who wrote in to defend me, and some of them make excellent points. Read them all, and then decide for yourself who's right. Spoiler: it's me. Remember, every cent from the auction goes to the Maxx Vantablack Rescue Fund, so if you complain, you're basically complaining about rescued Creatures. That's Maxx-imum content! Stay gold!",
-      "prompt": "Put each comment in the right box.",
-      "success": "Backing must show why the claim is true. Insults, repetition and unrelated facts hold nothing up.",
+      "text": "Maxx it out, Vantafam! Some of you have been leaving comments about my painting, 'Gold on Gold', which was auctioned last night. A few haters are saying it was just a canvas with gold paint splashed on it, and one person said it looked like a dropped pancake. Let me tell you about the painting. It's two metres wide, and it's covered in real gold leaf. I finished it in a single afternoon, between my morning workout and my hair appointment. The auction was held in public at the Bluster Rock town hall, and bidders offered up to $40,000 for it. Thousands of Vantafam watched the bidding live on my stream. I also asked my Goldies to write in, and some of them make excellent points. My Goldie Kaz says it is the best thing I have ever painted, and Kaz has seen everything I've painted. Remember, every cent goes to the Maxx Vantablack Rescue Fund, so if you complain, you're basically complaining about rescued Creatures. That's Maxx-imum content! Stay gold!",
+      "prompt": "Maxx claims 'Gold on Gold' is valuable. Which detail backs up that claim best?",
+      "success": "Valuable means people will pay a lot for it. Real bids at a public auction are proof you could check.",
       "body": {
-        "format": "sort",
-        "bins": [
-          "bare claim: nothing supports it",
-          "backed-up claim: a reason or proof that supports it"
-        ],
-        "items": [
+        "format": "choose",
+        "answer": 0,
+        "options": [
           {
-            "text": "The painting is valuable, because a collector paid $40,000 for it at a public auction.",
-            "bin": 1,
-            "reason": "A real sale price is proof of what someone thought it was worth."
+            "text": "Bidders at a public auction offered up to $40,000 for it."
           },
           {
-            "text": "The painting is a work of genius, because only a genius could have painted it.",
-            "bin": 0,
-            "reason": "The reason only says 'genius' again. The claim holds itself up, so it's bare."
+            "text": "It is two metres wide and covered in real gold leaf.",
+            "reason": "Gold leaf is very thin. Size and gold show what it's made of, not what people would pay."
           },
           {
-            "text": "Anyone who doesn't like the painting is just jealous of Maxx.",
-            "bin": 0,
-            "reason": "Calling critics jealous is an attack, not a reason. Nothing supports the claim."
+            "text": "Thousands of Vantafam watched the bidding live on his stream.",
+            "reason": "Watching costs nothing. A big audience doesn't show anyone would pay for it."
           },
           {
-            "text": "The painting took real skill, because Maxx spent three years at art school learning to use gold leaf.",
-            "bin": 1,
-            "reason": "Three years of training is a reason to think skill was needed."
-          },
-          {
-            "text": "The painting is beautiful, because the auction was held in a fancy hotel with 300 rooms.",
-            "bin": 0,
-            "reason": "A hotel's size says nothing about the painting itself. It doesn't support the claim."
-          },
-          {
-            "text": "The money reached the Rescue Fund, because the fund's bank records show $40,000 arriving this morning.",
-            "bin": 1,
-            "reason": "Bank records are proof you could check. They support the claim that the money arrived."
+            "text": "Kaz says it is the best thing Maxx has ever painted.",
+            "reason": "Kaz is a fan, and 'best' is a feeling. It doesn't show what the painting is worth."
           }
         ]
       }
@@ -978,20 +982,21 @@
       "band": 4,
       "topic": "music",
       "frame": "A local band has written to the Bluster Rock Bugle. The Bilbolster is tapping its foot and its ears.",
-      "prompt": "The band claims a festival would be good for local shops. Tap the sentence that backs up this claim.",
-      "success": "Takings doubling last time is proof a festival brings shoppers. That backs up the claim directly.",
+      "prompt": "The band claims a festival would be good for local shops. Tap the sentence that backs up this claim best.",
+      "success": "Doubled takings at the last festival is checkable proof about these very shops. The others only hint at it.",
       "body": {
         "format": "tapText",
+        "answer": 2,
         "parts": [
           "Dear Editor, We are Red Dust Static, a band that started in a garage behind the Bluster Rock service station four years ago. We are writing to ask the council to bring back the Bluster Rock Music Festival, which has not been held since 2019. We believe a festival would be good for local shops. ",
           {
-            "tap": "Without any doubt whatsoever, a festival is exactly what this town's shops need most.",
-            "reason": "Being very certain isn't the same as giving proof. This just says the claim more strongly."
+            "tap": "Lots of shop owners have told us they would love to have a festival again.",
+            "reason": "Wanting a festival shows the owners hope it helps. It doesn't show it did."
           },
           " ",
           {
-            "tap": "Music has been bringing people together for thousands of years, in every culture on Earth.",
-            "reason": "This may be true, but it's about music in general. It doesn't show shops would benefit."
+            "tap": "Festivals in other towns, like Saltbush Creek, are said to be good for business.",
+            "reason": "'Are said to be' means nobody has checked. It's about another town, too."
           },
           " ",
           {
@@ -999,12 +1004,11 @@
           },
           " ",
           {
-            "tap": "Our drummer's grandmother, who has lived here for seventy years, played the piano at the very first festival.",
-            "reason": "This is a nice piece of history, but it says nothing about local shops."
+            "tap": "Thousands of people came to the last festival, and many said they had a great time.",
+            "reason": "A big, happy crowd is a good sign, but it doesn't show anyone spent money in the shops."
           },
-          " We would happily play for free, and three other local bands have already offered to join us. We have even found a stage: the old flatbed truck behind the footy club, which only needs new tyres and a very thorough clean. If the council agrees, we could hold the festival next autumn, when the evenings are cool and the flies have mostly given up. Yours sincerely, Jojo, Sunny and Dax, Red Dust Static"
-        ],
-        "answer": 2
+          " We would happily play for free, and three other local bands have already offered to join us. We have even found a stage: the old flatbed truck behind the footy club, which only needs new tyres and a very thorough clean. If the council agrees, we could hold the festival next autumn, when the evenings are cool. Yours sincerely, Jojo, Sunny and Dax, Red Dust Static"
+        ]
       }
     },
     {
@@ -1012,11 +1016,13 @@
       "band": 4,
       "topic": "robots",
       "frame": "Gus is preparing a speech for the school council. The Bilbolster has spotted a reason that isn't one.",
-      "text": "Gus has always loved taking things apart, and he once rebuilt a toaster so that it could launch toast across the kitchen. For three years, Gus has been asking Bluster Rock Primary to start a robotics club. This term, the school council has finally agreed to listen, and Gus has five minutes to make his case at Thursday's meeting. He has spent the week preparing. He has borrowed a robot kit from the Bluster Rock library and built a small robot that can sort recycling into the right bins. He tested it on the contents of the staffroom rubbish bin, which he describes as 'a scientific experience'. The robot is called Sorty, and it has a camera eye, two claws made from salad tongs and a conveyor belt that used to be part of a treadmill. During the staffroom test, Sorty sorted forty-one out of fifty items correctly. It did, however, put a teabag in the paper bin and a banana skin on Principal Okafor's chair. He has also collected the names of students who want to join. His speech ends with three reasons, but Wren has pointed out that one of them doesn't actually give the council a reason to agree. Gus would like to fix it before Thursday, preferably without starting again.",
-      "prompt": "Tap the reason that doesn't back up Gus's claim. Then choose a real one.",
-      "success": "Twenty-six students signing up is proof the club would be used. The weak reason just said 'robotics clubs are good'.",
+      "text": "For three years, Gus has been asking Bluster Rock Primary to start a robotics club. This term, the school council has finally agreed to listen, and Gus has five minutes to make his case on Thursday. He has borrowed a robot kit from the library for free and built a small robot called Sorty, which sorts recycling into the right bins. Sorty has a camera eye, two claws made from salad tongs and a conveyor belt that used to be part of a treadmill. In a test on the staffroom rubbish bin, Sorty sorted forty-one out of fifty items correctly. It did, however, put a banana skin on Principal Okafor's chair. Gus has heard that the robotics club at Saltbush Creek Primary is very popular. He has also collected names, and twenty-six students have already signed up to join. His speech ends with three reasons, but Wren has pointed out that one of them doesn't give the council a reason to agree. Gus would like to fix it before Thursday, preferably without starting again.",
+      "prompt": "Tap the reason that doesn't back up Gus's claim. Then choose the strongest backing to swap in.",
+      "success": "Twenty-six names from this school show the club would be used. Another school's club is only a hint.",
       "body": {
         "format": "fix",
+        "spot": 2,
+        "answer": 1,
         "parts": [
           "The school should start a robotics club, because ",
           {
@@ -1034,7 +1040,6 @@
           },
           "."
         ],
-        "spot": 2,
         "options": [
           {
             "text": "robots are the future, and the future is robots",
@@ -1044,45 +1049,44 @@
             "text": "twenty-six students have already signed up to join"
           },
           {
-            "text": "nobody with any sense could possibly say no",
-            "reason": "This pressures the council but gives no reason. The claim stays bare."
+            "text": "Saltbush Creek's robotics club is said to be popular",
+            "reason": "That's about another school, and nobody has checked it. Names from this school would be stronger."
           },
           {
             "text": "I have personally wanted one for three whole years",
             "reason": "Wanting something for a long time isn't a reason the school should do it."
           }
-        ],
-        "answer": 1
+        ]
       }
     },
     {
       "id": "3.2-b4-5",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Four companies want to sell their products at the Vantamart. The Bilbolster is reading their pitches with its nose held.",
-      "text": "Every month, the Vantamart's buyers listen to pitches from companies that want their products on its shelves. This month's theme is 'Gross but Good', and four companies have been shortlisted. The first sells a toothpaste made from crushed seashells. The second sells a spray that makes old socks smell like fresh lemons. The third sells a slime that glows in the dark, and the fourth sells a soap that is shaped like a cane toad. Each company was allowed to send one short claim to the buyers, along with whatever backing it chose to include. Maxx will make the final decision himself, after he has tried every product live on his stream. The buyers have asked for claims that are short and clear, because they read hundreds of them every month. Last month's winner was a burping water bottle that sold out in three days. Whichever product wins will be sold in every Vantamart and advertised on Maxx's stream for a whole month. The products will be judged on how well they sell, how gross they are and, in Maxx's words, 'how good they look next to my face'. Gus has asked for free samples of all four, and Mo has asked whether any of them are edible.",
-      "prompt": "Which company's pitch is a bare claim?",
-      "success": "The day the soap was invented says nothing about how good it is. The soap pitch has no real backing.",
+      "frame": "Four companies sent pitches to the Vantamart. The Bilbolster is reading the soap one with its nose held.",
+      "text": "The Vantamart's buyers asked four companies for one claim each, with backing. Here is the soap company's pitch: 'Our soap gets hands cleaner than any other soap, because it is shaped like a real cane toad.'",
+      "prompt": "The soap pitch has a 'because', but it's still a bare claim. Why?",
+      "success": "Backing has to fit the claim. Even a real toad shape says nothing about clean hands.",
       "body": {
         "format": "choose",
+        "answer": 0,
         "options": [
           {
-            "text": "Our toothpaste cleans well, because a dentist tested it on 200 people and found less plaque after a month.",
-            "reason": "A dentist's test on 200 people is proof you could check. This claim is backed up."
+            "text": "Even if the toad shape is real, it doesn't show the soap cleans better."
           },
           {
-            "text": "Our spray removes sock smells, because it contains a chemical that breaks down the germs that cause the stink.",
-            "reason": "Breaking down the germs that cause the smell is a reason it works. This claim is backed up."
+            "text": "It leans on 'because' to sound convincing, and that makes the reason weak.",
+            "reason": "'Because' can lead to strong backing too. Look at what comes after it."
           },
           {
-            "text": "Our slime is safe for children, because it passed every test set by the national toy safety board.",
-            "reason": "Passing safety tests is proof. This claim is backed up."
+            "text": "The toad shape might not be real, since the pitch shows no photo of it.",
+            "reason": "Even a real toad shape wouldn't show cleaner hands. Whether it's true isn't the problem."
           },
           {
-            "text": "Our toad-shaped soap is the best soap ever made, because it was invented on a Tuesday in 2019."
+            "text": "The because part says the claim again, just in different words.",
+            "reason": "A toad shape is a new idea, not the claim again. Does it show cleaner hands?"
           }
-        ],
-        "answer": 3
+        ]
       }
     },
     {
@@ -1090,19 +1094,24 @@
       "band": 4,
       "topic": "spooky",
       "frame": "Slick Vinnie has written a notice about the mystery lights. The Bilbolster is reading it by torchlight.",
-      "prompt": "Vinnie makes four claims in a row. Tap the one with nothing backing it up.",
-      "success": "A $10 ticket doesn't show the tour is the only way to see the lights. The other claims have backing.",
+      "prompt": "Say every one of Vinnie's reasons is true. Tap the claim that is still bare.",
+      "success": "Comfy seats may be true, but they don't help you see lights. A reason that doesn't fit holds nothing up.",
       "body": {
         "format": "tapText",
+        "answer": 1,
         "parts": [
           "A NOTICE FROM SLICK VINNIE, TOUR GUIDE. As you will have read in the Bugle, strange green lights have been appearing above the old mine at the back of Bluster Rock. People have been asking me about them all week, so here is what I can tell you. ",
           {
-            "tap": "The lights are real, because a security camera at the service station filmed them on Tuesday night.",
-            "reason": "Security camera footage is proof you could check. This claim is backed up."
+            "tap": "The lights are real. A security camera at the service station filmed them on Tuesday night.",
+            "reason": "Camera footage is proof you could check. This claim is backed up."
           },
           " ",
           {
-            "tap": "The lights appear at the same time each night, because they have been seen at about 11:40 pm three nights in a row.",
+            "tap": "My midnight tour is the only way to see the lights properly, because my bus has the comfiest seats in town."
+          },
+          " ",
+          {
+            "tap": "The lights appear at the same time each night. They have been seen at about 11:40 pm three nights in a row.",
             "reason": "Three sightings at the same time are proof of a pattern. This claim is backed up."
           },
           " ",
@@ -1110,13 +1119,8 @@
             "tap": "The mine is unsafe to enter alone, because the council's engineers found two collapsed tunnels in last year's inspection.",
             "reason": "An engineers' inspection is proof the tunnels are dangerous. This claim is backed up."
           },
-          " ",
-          {
-            "tap": "My midnight tour is the only way to see the lights properly, because tickets are just $10."
-          },
           " Tickets are now $10, up from $5, due to what I'm calling 'ghost demand'. Bring a torch, a warm jumper and a sense of adventure. The Soggy Biscuit crew has asked whether I have anything to do with the lights. I would like to say, very clearly, that I do not, and that the box of green glow sticks in my ute belongs to my cousin."
-        ],
-        "answer": 3
+        ]
       }
     }
   ]

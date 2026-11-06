@@ -258,6 +258,20 @@
       "name": "Whopskip",
       "evolved": "Whopskippador",
       "blurb": "A mangrove mudskipper that says it jumped a million kilometres before breakfast. It didn't. Spot the stretch, then work out what it really means."
+    },
+    "write": {
+      "ask": "Combine these into one sentence. Use hyperbole to show how hungry Gus was.",
+      "given": [
+        "Gus came home from footy.",
+        "He was very hungry."
+      ],
+      "starter": "Gus came home from footy so hungry that",
+      "checks": [
+        "My sentence joins both ideas.",
+        "My stretch could never really be true.",
+        "It shows Gus was very hungry."
+      ],
+      "model": "Gus came home from footy so hungry that he could have eaten the goalposts."
     }
   },
   "encounters": [
@@ -669,25 +683,25 @@
       "topic": "gross-science",
       "frame": "Gus has left his lab diary open on the galley table. The Whopskip is holding its nose.",
       "text": "Lab diary, Day 34. The Stink Sock is ready. I have worn this sock for five weeks without washing it, including three footy games and one very sweaty bushwalk. Today I opened the jar for the first time. The smell could melt the paint off a battleship. Mo, who was standing two metres away, sat down on the deck without a word. A seagull flying overhead turned around and went back the way it came. Zed said his eyebrows were trying to leave his face. I have put the lid back on and wrapped the jar in three plastic bags. I wrote down every reaction in my notebook, with times. At 9.02, Mo sat down. At 9.03, the seagull left. At 9.05, Wren opened every porthole on the boat and asked me, very politely, never to do that again. Next step: test it on Maxx's guards. That's not gross. That's science.",
-      "prompt": "Why does Gus write that the smell 'could melt the paint off a battleship'?",
-      "success": "To show the smell is far stronger than any normal stink. A smell can't really melt paint.",
+      "prompt": "Gus needs real proof that the smell is strong. Which line from his diary is proof, not a stretch?",
+      "success": "Mo sitting down could really happen, so it's proof. Melting paint and runaway eyebrows are stretches, so they prove nothing.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to show the sock really damaged a ship's paint",
-            "reason": "There's no battleship in the diary. A smell can't melt paint, so this is a stretch."
+            "text": "The smell could melt the paint off a battleship.",
+            "reason": "A smell can't melt paint. It's a stretch, so it can't prove anything."
           },
           {
-            "text": "to warn people that the sock is unsafe to touch",
-            "reason": "He's describing the smell when the jar opens, not what happens if you touch it."
+            "text": "Zed said his eyebrows were trying to leave his face.",
+            "reason": "Eyebrows can't leave a face. Zed is stretching, so it isn't proof."
           },
           {
-            "text": "to show the smell is stronger than any normal stink"
+            "text": "Mo, standing two metres away, sat down without a word."
           },
           {
-            "text": "to compare the colour of the sock to old paint",
-            "reason": "Nothing in the diary is about colour. The stretch is about how strong the smell is."
+            "text": "Next step: test the Stink Sock on all of Maxx's guards.",
+            "reason": "That's a plan for later. It hasn't happened yet, so it can't prove anything."
           }
         ],
         "answer": 2
@@ -698,31 +712,31 @@
       "band": 3,
       "topic": "space",
       "frame": "Zed wrote about the meteor shower in the crew logbook. The Whopskip watched too, from the mud.",
-      "prompt": "Tap the hyperbole in Zed's logbook entry.",
-      "success": "Nobody has to duck under shooting stars. Zed stretches the truth to show how many there were.",
+      "prompt": "Tap the hyperbole in Zed's logbook. Careful: some big numbers were really counted.",
+      "success": "They rowed out at nine and back at two: five hours. Tully stretches it to show how long it felt.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Last night the crew rowed out past the mangroves to watch the meteor shower. The mist had cleared, and the sky was black and huge. ",
+          "At nine o'clock last night, the crew rowed out past the mangroves to watch the meteor shower. The mist had cleared, and the sky was black and huge. ",
           {
             "tap": "We counted forty-two meteors in the first hour.",
-            "reason": "Forty-two is a real count. Meteor showers can really be that busy."
+            "reason": "Forty-two is a real count from the first hour. A big number can be true."
           },
-          " Some were quick white streaks. ",
+          " Some were quick white streaks, and a few left glowing green trails. Tully kept a tally on her arm in pen. ",
           {
-            "tap": "A few left glowing green trails that faded slowly.",
-            "reason": "Some meteors really do leave glowing trails. This describes what Zed saw."
+            "tap": "Gus was so tired that he fell asleep before the first one appeared.",
+            "reason": "A very tired person really can fall asleep early. This could be true."
           },
-          " By midnight, ",
+          " Mo made a wish on every meteor, and all his wishes were for pancakes. By one o'clock, Tully was shivering under two blankets. ",
           {
-            "tap": "we were ducking every few seconds to dodge the shooting stars."
+            "tap": "'I've been sitting in this freezing boat for a hundred hours,' she groaned."
           },
-          " Tully kept a tally on her arm in pen. ",
+          " We rowed back to the boat at two in the morning. ",
           {
-            "tap": "Gus was so tired that he fell asleep before the first one even appeared.",
-            "reason": "Falling asleep early could really happen to someone as tired as Gus."
+            "tap": "Tully's tally says we saw two hundred and six meteors altogether.",
+            "reason": "Tully counted these on her arm, one mark at a time. A big number can be a real count."
           },
-          " Mo said he made a wish on every single meteor, and all his wishes were for pancakes. We rowed back at two in the morning, cold and tired, but nobody was grumpy. Even Gus, who missed the whole thing, said it was worth it. Tully's tally says we saw two hundred and six meteors altogether, though Zed thinks a few were planes. Next year we're bringing more blankets, a thermos of hot chocolate and a pillow for Gus."
+          " Zed thinks a few of them were planes. Even Gus, who missed the whole thing, said it was worth it. Next year we're bringing more blankets and a pillow for Gus."
         ],
         "answer": 2
       }
@@ -734,42 +748,42 @@
       "frame": "Indi summed up Mo's cooking blog for the crew newsletter. One word is wrong.",
       "text": "MO'S GALLEY BLOG. This morning I made my famous mangrove pancakes. The first pancake needed its own postcode. I flipped it into orbit, and I think it's still up there. The second one was smaller, but I accidentally added chilli instead of cinnamon, and Gus's hair stood straight up. By the time breakfast was ready, the crew was so hungry they had started chewing on the sails. Tully said she hadn't eaten since the last ice age. In the end, everyone ate three pancakes each and asked for more. Gus says the chilli pancake was a science experiment. Wren says it was a crime. Indi drew the giant pancake for the noticeboard, and Zed timed how long each person took to eat. Tomorrow I'm trying pancakes with sardines. Nobody has asked for that, but I'm doing it anyway.",
       "prompt": "Tap the word Indi got wrong, then choose a better one.",
-      "success": "Hungry. Chewing the sails and not eating since the ice age both stretch how hungry the crew was.",
+      "success": "Huge. A postcode covers a whole suburb, so it's about size. Mo could still flip it, so it wasn't heavy.",
       "body": {
         "format": "fix",
         "parts": [
-          "Mo's hyperboles show the first pancake was ",
+          "Mo's blog uses three stretches. 'Needed its own postcode' shows the first pancake was very ",
           {
-            "tap": "huge",
-            "reason": "That's right. A pancake that needs its own postcode is a stretch for huge."
+            "tap": "heavy"
           },
-          ", he flipped it very ",
+          ". 'Flipped it into orbit' shows he flipped it very ",
           {
             "tap": "high",
-            "reason": "That's right. Flipping it into orbit is a stretch for a very high flip."
+            "reason": "Orbit is far above the earth. That fits a very high flip."
           },
-          " and the crew was very ",
+          ". 'Chewing on the sails' shows the crew was very ",
           {
-            "tap": "seasick"
+            "tap": "hungry",
+            "reason": "People chew things when they want food. That fits the crew waiting for breakfast."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "tired",
-            "reason": "Chewing on sails is about wanting food, not wanting sleep."
+            "text": "burnt",
+            "reason": "The blog never says the first pancake burnt. A postcode is about how much space something covers."
           },
           {
-            "text": "bored",
-            "reason": "Nobody in the blog is bored. Chewing the sails shows they needed food."
+            "text": "round",
+            "reason": "Most pancakes are round anyway. A postcode is for a whole area, so think about space."
           },
           {
-            "text": "hungry"
+            "text": "huge"
           },
           {
-            "text": "cold",
-            "reason": "The blog never mentions the weather. The stretches are all about food."
+            "text": "thin",
+            "reason": "A postcode is for a whole area of land. Would a thin pancake need one?"
           }
         ],
         "answer": 2
@@ -862,34 +876,44 @@
       "id": "4.5-b3-6",
       "band": 3,
       "topic": "spooky",
-      "frame": "Wren found this story pinned to the boardwalk noticeboard. The Whopskip won't go near it.",
-      "prompt": "Tap the hyperbole in the story.",
-      "success": "A heartbeat can't shake a boardwalk. The writer stretches the truth to show how scared they were.",
+      "frame": "Gus told the crew about his night walk. Wren was there too. The Whopskip is hiding under the table.",
+      "text": "Last night Gus walked the boardwalk after dark, and Wren went with him. This morning he told the crew all about it at breakfast. Wren wrote down what really happened.\n\nGUS: I walked the whole boardwalk alone. My torch went out halfway along. I was so scared that my hair turned white and fell out. My heart was thumping so hard they could hear it in the city. Then something jumped out at me, and I chased it right off the boardwalk!\n\nWREN'S NOTES: I held Gus's hand the whole way, because he asked me to. His torch did go out, so we used mine. Near the end, a mudskipper flopped onto the boards in front of us. Gus screamed and ran all the way back to the boat. This morning his hair is still brown and still on his head. It just needs a wash.",
+      "prompt": "Sort Gus's lines. Use Wren's notes to check each one.",
+      "success": "Hyperbole wants you to spot it. A fib, like walking alone, wants you to believe it. Wren's notes catch fibs.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "The boardwalk through the mangroves is a different place after dark. I was walking back to the boat alone, and the only light came from my little torch. ",
-          {
-            "tap": "A thin mist hung low over the water.",
-            "reason": "Mist really does hang over water at night. This is a plain detail."
-          },
-          " Somewhere to my left, ",
-          {
-            "tap": "a branch cracked so loudly that I jumped.",
-            "reason": "A loud crack really can make you jump. This could be true."
-          },
-          " I stopped. ",
-          {
-            "tap": "My torch flickered twice and went out.",
-            "reason": "Torches can really flicker and die. That could happen."
-          },
-          " Then something splashed in the water below. ",
-          {
-            "tap": "My heartbeat shook the whole boardwalk."
-          },
-          " I ran the rest of the way without looking back. When I reached the boat, Mo was on deck eating a sausage. 'You look like you've seen a ghost,' he said. Behind me, a mudskipper flopped onto the boards and blinked at us. I told him it was nothing, just the mist playing tricks. Then I went straight to my cabin and slept with the light on. The next morning I walked the boardwalk again, and it was just a boardwalk."
+        "format": "sort",
+        "bins": [
+          "hyperbole: meant to be spotted",
+          "fib: meant to be believed",
+          "true: Wren's notes agree"
         ],
-        "answer": 3
+        "items": [
+          {
+            "text": "I walked the whole boardwalk alone.",
+            "bin": 1,
+            "reason": "This could happen, so Gus wants you to believe it. Wren's notes show it's false."
+          },
+          {
+            "text": "I was so scared that my hair turned white and fell out.",
+            "bin": 0,
+            "reason": "The crew can see his hair. Gus knows nobody will believe it. He's showing how scared he was."
+          },
+          {
+            "text": "My torch went out halfway along.",
+            "bin": 2,
+            "reason": "Wren's notes say his torch really did go out."
+          },
+          {
+            "text": "My heart was thumping so hard they could hear it in the city.",
+            "bin": 0,
+            "reason": "Nobody in the city could hear a heartbeat. It is a stretch to show his fear."
+          },
+          {
+            "text": "Then something jumped out at me, and I chased it right off the boardwalk!",
+            "bin": 1,
+            "reason": "Gus wants the crew to think he was brave. Wren saw him run away from a mudskipper."
+          }
+        ]
       }
     },
     {
@@ -897,29 +921,29 @@
       "band": 4,
       "topic": "music",
       "frame": "A Maxx Vantablack ad is playing on every screen in the Mirage Mangroves ferry terminal.",
-      "text": "INTRODUCING MAXXPODS GOLD: THE ONLY HEADPHONES THAT MATTER.\n\nAre you tired of headphones that sound like a mosquito humming inside a tin can? Say goodbye to boring sound forever! MaxxPods Gold are so powerful that you'll hear next week's songs today. The bass is so deep that whales will swim up to the beach to listen. Every pair is hand-polished by me, Maxx Vantablack, using a cloth made from the softest clouds in the sky. Wear them once, and you'll never be able to listen to music any other way again.\n\nMaxxPods Gold come in gold, extra gold and limited-edition Maxx-imum gold. The battery lasts for roughly a thousand years, so you'll never need to charge them, and they're so light you'll forget you have ears. Each pair arrives in a gold box with a free signed photo of me, which you can hang above your bed. Fans love them so much that they've worn their ears out! My personal chef says MaxxPods Gold changed his life, and he never lies, because I pay him not to.\n\nOrder now for just $399, or three easy payments of $399. Two Xs, because one X is for losers. Stay gold!\n\nSmall print: Battery lasts about four hours. Not tested on whales.",
-      "prompt": "Why is Maxx's ad so full of hyperbole?",
-      "success": "To make ordinary headphones sound amazing so people buy them. The small print shows the real facts.",
+      "text": "INTRODUCING MAXXPODS GOLD: THE ONLY HEADPHONES THAT MATTER.\n\nAre you tired of headphones that sound like a mosquito humming inside a tin can? Say goodbye to boring sound forever! MaxxPods Gold are so powerful that you'll hear next week's songs today. The bass is so deep that whales will swim up to the beach to listen. Every pair is hand-polished by me, Maxx Vantablack, using a cloth made from the softest clouds in the sky. Wear them once, and you'll never be able to listen to music any other way again.\n\nMaxxPods Gold come in gold, extra gold and limited-edition Maxx-imum gold. The battery is so strong that you'll never need to charge them. They're so light you'll forget you have ears. Each pair arrives in a gold box with a free signed photo of me, which you can hang above your bed. Fans love them so much that they've worn their ears out! My personal chef says MaxxPods Gold changed his life, and he never lies, because I pay him not to.\n\nOrder now for just $399, or three easy payments of $399. Two Xs, because one X is for losers. Stay gold!\n\nSmall print: Battery lasts about four hours. Not tested on whales.",
+      "prompt": "Most of Maxx's stretches are easy to spot. Which stretch could fool a buyer into believing it?",
+      "success": "'Never charge them' sounds possible, so buyers might believe it. The small print says it lasts four hours.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "to give buyers exact facts so they can compare headphones",
-            "reason": "The small print says the battery lasts four hours, not a thousand years. His claims aren't exact."
+            "text": "The bass is so deep that whales will swim up to the beach to listen.",
+            "reason": "Nobody believes whales come to listen. This stretch is easy to spot, so it won't fool anyone."
           },
           {
-            "text": "to warn buyers that the headphones are dangerously loud",
-            "reason": "He boasts about the deep bass. He never warns anyone about anything."
+            "text": "Each pair arrives with a free signed photo of me.",
+            "reason": "That isn't a stretch. It could easily be true, so it can't be the stretch that fools buyers."
           },
           {
-            "text": "to make fun of the other streamers who sell headphones",
-            "reason": "No other streamers are mentioned. Every stretch is about his own headphones."
+            "text": "The battery is so strong that you'll never need to charge them."
           },
           {
-            "text": "to make ordinary headphones sound amazing so people buy them"
+            "text": "MaxxPods Gold come in gold, extra gold and limited-edition Maxx-imum gold.",
+            "reason": "Silly names, but not a stretch. They're just the colours you can buy."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -927,31 +951,41 @@
       "band": 4,
       "topic": "animals",
       "frame": "Wren wrote an article on mangrove wildlife for the island newsletter. It's about mudskippers, so the Whopskip is very proud.",
-      "prompt": "Tap the hyperbole in Wren's article.",
-      "success": "Nobody could park a ute on a cloud of mosquitoes. Wren stretches the truth to show how many there were.",
+      "prompt": "Wren writes calmly and carefully, but one line slips in a hyperbole. Tap it. Some true facts sound amazing.",
+      "success": "Wren is a kid, so she can't have waited a hundred years. She means she waited a very long time.",
       "body": {
         "format": "tapText",
         "parts": [
-          "LIFE IN THE MUD. Most visitors hurry along the Mirage Mangroves boardwalk, swatting insects and holding their noses, but if you slow down, the mud is full of surprises. Look closely at the edge of the water at low tide and you will see mudskippers, small fish that can breathe air and skip across the mud on their front fins. ",
+          "LIFE IN THE MUD. Most visitors hurry along the Mirage Mangroves boardwalk, swatting insects and holding their noses. If you slow down, though, the mud is full of surprises. At low tide, look closely at the edge of the water and you will see mudskippers. ",
           {
-            "tap": "Mudskippers are so well built for land that they can stay out of the water for hours, as long as their skin stays damp.",
-            "reason": "This is a fact about how mudskippers live. It isn't stretched."
+            "tap": "These small fish can breathe air and stay out of the water for hours, as long as their skin stays damp.",
+            "reason": "It sounds amazing, but Wren gives the condition: damp skin. That's a careful fact, not a stretch."
           },
-          " Next to them, hundreds of tiny fiddler crabs wave one oversized claw, which the males use to show off to females. ",
+          " ",
           {
-            "tap": "The ranger told me the oldest tree on the boardwalk is about a hundred years old.",
-            "reason": "A ranger giving a tree's age is a fact. Old mangroves can be that old."
+            "tap": "I watched one climb a mangrove root and sit there like a lookout.",
+            "reason": "That's a simile, not a stretch. A mudskipper really can sit on a root and watch."
           },
-          " The trees themselves are just as clever. Their roots poke up out of the mud like snorkels, so the tree can breathe when the tide is high. ",
+          " Next to them, hundreds of fiddler crabs wave their claws. ",
           {
-            "tap": "One tree can drop hundreds of seedlings, which float away on the tide to start new forests.",
-            "reason": "Trees really do drop many seedlings. Hundreds is a real number here, not a stretch."
+            "tap": "The ranger measured one male whose big claw was almost as long as the rest of his body.",
+            "reason": "The ranger measured it. A surprising fact can still be true."
           },
-          " There is one creature, though, that nobody comes to see. At dusk, the mosquitoes rise from the water. ",
+          " The males wave them to show off. The trees are just as clever. Their roots poke up out of the mud, so the tree can breathe when the tide is high. One tree can drop hundreds of seedlings, which float away on the tide to start new forests. I wanted a photo of a mudskipper jumping, so I crouched beside a burrow with my camera ready. ",
           {
-            "tap": "Last night, a ute could have parked on their cloud."
+            "tap": "I waited about a hundred years before one finally popped out."
           },
-          " Bring insect spray and wear long sleeves, and the walk is well worth it."
+          " It skipped right over my shoe. ",
+          {
+            "tap": "By then, both my legs had gone numb from crouching.",
+            "reason": "Legs really do go numb if you crouch for a long time. That could be true."
+          },
+          " ",
+          {
+            "tap": "The ranger says this boardwalk gets more than ten thousand visitors a year.",
+            "reason": "This is the ranger's count of visitors. Big numbers that are counted can be true."
+          },
+          " Most of them never notice the mudskippers at all. Bring insect spray, wear long sleeves and walk slowly. The mud is worth a closer look."
         ],
         "answer": 3
       }
@@ -960,45 +994,45 @@
       "id": "4.5-b4-3",
       "band": 4,
       "topic": "funny",
-      "frame": "Mo wrote Gus an apology letter. Tully summed it up, but got one word wrong.",
+      "frame": "Mo wrote Gus an apology letter. Tully wrote what each hyperbole does, but got one part wrong.",
       "text": "Dear Gus,\n\nI am writing to say sorry about your slime experiment. I know you have been working on it since roughly the beginning of time, and I know it was meant to win the Island Science Fair. When I saw the bucket of green goo in the galley, I honestly thought it was lime jelly. I was so hungry that I could have eaten the entire boat, including the anchor, so I grabbed a spoon.\n\nI only had one mouthful. It tasted like a swimming pool full of old socks. I have brushed my teeth four hundred times since then, and my tongue is still green. I am so sorry that I will probably never sleep again.\n\nTo make it up to you, I have bought you a new bucket and three bottles of glue, and I will clean the galley every night for a week. I have also written a sign for the bucket that says NOT JELLY in capital letters. Please forgive me. You are my best mate in the whole history of the universe.\n\nMo",
-      "prompt": "Tap the word Tully got wrong, then choose a better one.",
-      "success": "Sorry. 'I will probably never sleep again' stretches how bad Mo feels about eating the slime.",
+      "prompt": "Tap the part Tully got wrong, then choose a better one.",
+      "success": "How bad it tasted. Nobody brushes four hundred times. The stretch shows Mo couldn't get rid of the taste.",
       "body": {
         "format": "fix",
         "parts": [
-          "When Mo says he 'could have eaten the entire boat', he means he was very ",
+          "'I could have eaten the entire boat' explains ",
           {
-            "tap": "hungry",
-            "reason": "That's right. Nobody can eat a boat. Mo means he was very hungry."
+            "tap": "why Mo grabbed a spoon",
+            "reason": "Mo was so hungry that he grabbed a spoon. The boat stretch does explain that."
           },
-          ". 'Since the beginning of time' means Gus had worked on the slime for a ",
+          ". 'I have brushed my teeth four hundred times' shows ",
           {
-            "tap": "long time",
-            "reason": "That's right. It's a stretch that means Gus had been working on it for ages."
+            "tap": "how much Mo enjoyed the slime"
           },
-          ". 'I will probably never sleep again' shows that Mo feels very ",
+          ". 'My best mate in the whole history of the universe' makes the letter end ",
           {
-            "tap": "sleepy"
+            "tap": "in a warm, friendly way",
+            "reason": "Calling Gus his best mate ever is kind. It ends the letter in a friendly way."
           },
-          " about what he did."
+          "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "proud",
-            "reason": "Mo is apologising and making it up to Gus. Proud people don't do that."
+            "text": "how clean Mo's teeth are now",
+            "reason": "That reads it as really true. Why would anyone brush that many times after one mouthful?"
           },
           {
-            "text": "sorry"
+            "text": "how bad the slime tasted"
           },
           {
-            "text": "confused",
-            "reason": "Mo knows exactly what happened: he thought the slime was jelly and ate it."
+            "text": "how long Gus worked on the slime",
+            "reason": "That's the 'beginning of time' stretch. The brushing is about Mo's mouth."
           },
           {
-            "text": "excited",
-            "reason": "Nothing in the letter is exciting for Mo. He's trying to fix a mistake."
+            "text": "how hungry Mo was at the time",
+            "reason": "The boat stretch shows his hunger. The brushing came after he tasted the slime."
           }
         ],
         "answer": 1
@@ -1009,51 +1043,57 @@
       "band": 4,
       "topic": "gaming",
       "frame": "Zed posted about Swamp Dash Level 50 on the crew chat. The Whopskip helped, by sitting on the controller.",
-      "text": "Crew, I have finally beaten Level 50 of Swamp Dash, and I need to tell you about it. First of all, the final boss, a giant robot crocodile, had about nine billion health points, and every jump needed perfect timing, down to a millionth of a second. I'm fairly sure I started this level back in Year 2. While I was waiting for the last checkpoint to load, my apple went mouldy and then turned into soil. Gus brought me a sandwich when I started, and by the time I finished, he had grown a long grey beard. When I finally landed the last hit, I cheered so loudly that the street lights in the whole town flickered, and the controller buzzed loud enough to wake every sleeping baby in Victoria. For the record, the level has twelve checkpoints, three hidden keys and a lava bridge that collapses if you stand still. I found two keys on my own and the third with a guide. Tully says I owe her a new pair of earmuffs. Now I'm going to lie down for about a decade.",
-      "prompt": "Match each hyperbole to what it really shows.",
-      "success": "Each stretch makes one thing bigger: how hard the level was, how long it took, or how loud it got.",
+      "text": "Crew, I have finally beaten Level 50 of Swamp Dash, and I need to tell you about it. First of all, the final boss, a giant robot crocodile, could take a hit from a volcano and keep smiling, and every jump needed perfect timing, down to a millionth of a second. I'm fairly sure I started this level when dinosaurs were still around. While I was waiting for the last checkpoint to load, my apple went mouldy and then turned into soil. Gus brought me a sandwich when I started, and by the time I finished, he had grown a long grey beard. When I finally landed the last hit, I cheered, and people in New Zealand covered their ears. The controller buzzed, and every sleeping baby in Victoria woke up. For the record, the level has twelve checkpoints, three hidden keys and a lava bridge that collapses if you stand still. I found two keys on my own and the third with a guide. Tully says I owe her a new pair of earmuffs. Now I'm going to lie down for about a decade.",
+      "prompt": "Match each line from Zed's post to what it really shows, or to 'not a stretch'.",
+      "success": "Each stretch makes one thing bigger: how hard, how long or how loud. The checkpoints and keys were counted.",
       "body": {
         "format": "sort",
         "bins": [
           "how hard it was",
           "how long it took",
-          "how loud it was"
+          "how loud it was",
+          "not a stretch: could be true"
         ],
         "items": [
           {
-            "text": "The boss had about nine billion health points.",
+            "text": "The boss could take a hit from a volcano and keep smiling.",
             "bin": 0,
-            "reason": "Huge health points mean the boss was very hard to beat."
+            "reason": "Nothing survives a volcano. It means the boss was very tough to beat."
+          },
+          {
+            "text": "I started this level when dinosaurs were still around.",
+            "bin": 1,
+            "reason": "Zed is a kid. He means he has been stuck on the level for ages."
           },
           {
             "text": "Every jump needed timing down to a millionth of a second.",
             "bin": 0,
-            "reason": "Impossible timing is a stretch for how difficult the jumps were."
+            "reason": "Nobody can time a jump that exactly. It stretches how difficult the jumps were."
           },
           {
-            "text": "I started this level back in Year 2.",
-            "bin": 1,
-            "reason": "Zed means he has been stuck on the level for ages."
+            "text": "I cheered, and people in New Zealand covered their ears.",
+            "bin": 2,
+            "reason": "Nobody could hear a cheer from across the sea. Think about what that says about the cheer."
           },
           {
             "text": "My apple went mouldy and turned into soil while it loaded.",
             "bin": 1,
-            "reason": "An apple rotting into soil stretches how long the wait felt."
+            "reason": "An apple takes months to rot into soil. It stretches how long the wait felt."
+          },
+          {
+            "text": "The level has twelve checkpoints and three hidden keys.",
+            "bin": 3,
+            "reason": "These are counted game facts. Zed could really check them."
+          },
+          {
+            "text": "The controller buzzed, and every sleeping baby in Victoria woke up.",
+            "bin": 2,
+            "reason": "One controller could never wake a whole state. Think about what that says about the buzz."
           },
           {
             "text": "By the time I finished, Gus had grown a long grey beard.",
             "bin": 1,
             "reason": "Gus is a kid. A long grey beard stretches how long the level took."
-          },
-          {
-            "text": "I cheered so loudly that the street lights in the whole town flickered.",
-            "bin": 2,
-            "reason": "A cheer can't make street lights flicker. It means Zed was very loud."
-          },
-          {
-            "text": "The controller buzzed loud enough to wake every sleeping baby in Victoria.",
-            "bin": 2,
-            "reason": "Waking every baby in the state is a stretch for a very loud buzz."
           }
         ]
       }
@@ -1064,28 +1104,28 @@
       "topic": "ocean",
       "frame": "The Mirage Mangroves surf club pinned up this report. The Whopskip can't swim in surf, so it's just reading.",
       "text": "SURF REPORT: OUTER BAR, SATURDAY. A strong southerly swell arrived overnight, and by seven o'clock the waves on the outer bar had reached about three metres, measured from the club tower. Sets were rolling in every eleven seconds, with a nasty rip running out beside the rocks at the northern end. The water temperature had dropped to sixteen degrees, so most surfers wore full wetsuits and booties.\n\nOnly the most experienced club members paddled out, and not a single surfer caught a wave before nine, because the sets were breaking so fast and so close together. At around ten, club veteran Bev Nguyen caught the wave of the morning. From the top of it, she could have waved to the passengers on passing planes, and she rode it all the way to the sand without falling off once. The crowd on the beach cheered and blew their whistles.\n\nBy lunchtime, the wind had swung round to the north-east and the swell was easing. The red and yellow flags are back up, and the club barbecue starts at two.",
-      "prompt": "Which sentence from the surf report is hyperbole?",
-      "success": "No wave lets you wave to planes. The other details were measured, counted or explained, so they could be true.",
+      "prompt": "The surf club wants this report to keep surfers safe. Which part should the editor change, and why?",
+      "success": "Waving to planes is a stretch. Surfers deciding whether to paddle out need the real height, not a joke.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "By seven o'clock the waves had reached about three metres, measured from the club tower.",
-            "reason": "This was measured from the tower. Three-metre waves really happen in a strong swell."
+            "text": "'About three metres': surfers need an exact number, not just 'about'.",
+            "reason": "Waves vary, so 'about' is honest. It was measured from the club tower, a real reading."
           },
           {
-            "text": "The sets broke so fast that not one surfer caught a wave before nine.",
-            "reason": "The report says the sets broke too fast and too close together. This could be true."
+            "text": "'Could have waved to passengers on planes': surfers need the real height."
           },
           {
-            "text": "From the top of her wave, she could have waved to passengers on planes."
+            "text": "'Not a single surfer caught a wave before nine': it might scare surfers.",
+            "reason": "It's true, and the report explains why. Honest facts about danger help surfers stay safe."
           },
           {
-            "text": "The water temperature had dropped all the way to sixteen degrees.",
-            "reason": "Sixteen degrees is a real reading. That's why surfers wore full wetsuits."
+            "text": "'A nasty rip running out beside the rocks': the word 'nasty' is too emotional.",
+            "reason": "The rip really is dangerous. A strong word warns surfers, and it's true, not a stretch."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -1094,28 +1134,28 @@
       "topic": "space",
       "frame": "A page from a young astronaut's training diary has washed up in the mangroves.",
       "text": "Training diary, Week 12. Today was the day I'd been dreading since I first signed up: the spinning chair. It's a seat on the end of a long metal arm that whirls you round and round to test how much your body can take before you black out or throw up. The instructor strapped me in and gave me a paper bag, which did not make me feel any better.\n\nThe moment the arm started to turn, my stomach dropped about forty floors. After one minute, my cheeks were pulled back so far that I could see my own ears. After two minutes, I'm fairly sure my brain had swapped places with my lunch. The instructor's voice came through the headset, calm and slow, telling me to breathe, but I couldn't remember how breathing worked. Six minutes felt like six hundred years.\n\nWhen the arm finally stopped, I sat there with my eyes shut while the room kept spinning without me. I didn't need the paper bag, which my instructor said makes me one of only three trainees this year. Tomorrow I have to do it again. I am going to eat a very small breakfast.",
-      "prompt": "What do the hyperboles in the second paragraph show about the writer?",
-      "success": "Seeing your own ears and swapped brains stretch how awful the spinning felt, so the writer was struggling badly.",
+      "prompt": "The astronaut's first draft said, 'The spinning chair made me feel sick.' Why is the final version, with its hyperboles, better for the reader?",
+      "success": "The stretches let you feel it: a dropping stomach, ears you can see, a swapped brain. 'Sick' just tells you.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The writer found the spinning chair dull and too slow.",
-            "reason": "Six minutes feeling like six hundred years shows suffering, not boredom. It was fast and awful."
+            "text": "It lets the reader feel how awful the spinning was."
           },
           {
-            "text": "The writer was hurt and had to see a doctor afterwards.",
-            "reason": "The writer just sits with closed eyes and will go again tomorrow. Nobody was injured."
+            "text": "It tells the reader exactly how fast the chair spun.",
+            "reason": "None of the stretches is a real speed. 'Forty floors' isn't a measurement."
           },
           {
-            "text": "The writer was struggling badly while the chair was spinning."
+            "text": "It shows the reader the writer was badly hurt.",
+            "reason": "The writer sits with closed eyes, then plans to go again tomorrow. Nobody was hurt."
           },
           {
-            "text": "The writer enjoyed it more than any other part of training.",
-            "reason": "The writer had been dreading it and plans a tiny breakfast before trying it again."
+            "text": "It makes the reader want a go on the chair.",
+            "reason": "The writer was dreading it and plans a tiny breakfast. That doesn't sell the ride."
           }
         ],
-        "answer": 2
+        "answer": 0
       }
     }
   ]

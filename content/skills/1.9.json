@@ -272,6 +272,19 @@
       "name": "Bridgle",
       "evolved": "Bridglewing",
       "blurb": "A sugar glider that leaps between two gum trees, carrying what one tree has to the other. Link two texts and it glides further."
+    },
+    "write": {
+      "ask": "Write one sentence that says what Text B adds to Text A.",
+      "given": [
+        "Text A (a poster): The school pool opens on Monday.",
+        "Text B (Zed's message, Sunday night): The pool won't open until Wednesday. The heater broke."
+      ],
+      "checks": [
+        "I said something only Text B tells you.",
+        "I didn't repeat what both texts say.",
+        "I named the job, like reason, update or correction."
+      ],
+      "model": "Text B is an update: the pool now opens on Wednesday, because the heater broke."
     }
   },
   "encounters": [
@@ -556,6 +569,11 @@
             "reason": "The poster says film songs, and Indi says the band played them."
           },
           {
+            "text": "Indi and Mo brought a thermos of hot chocolate.",
+            "bin": 1,
+            "reason": "Look at what the poster says to bring. Is hot chocolate on it?"
+          },
+          {
             "text": "There were fireworks at the end.",
             "bin": 1,
             "reason": "Only Indi's diary mentions fireworks."
@@ -624,11 +642,11 @@
         "format": "choose",
         "options": [
           {
-            "text": "that Pupbot never barks",
-            "reason": "Not new. The ad and the review both say it never barks."
+            "text": "that Pupbot doesn't bark",
+            "reason": "Not new. The ad and the review both say it doesn't bark."
           },
           {
-            "text": "that Pupbot never chews up your shoes",
+            "text": "that Pupbot won't chew up your shoes",
             "reason": "Not new. Only the ad says that, and the review doesn't."
           },
           {
@@ -670,28 +688,28 @@
       "topic": "sport",
       "frame": "Tully cut out a news story and an interview about the same swimmer. The Bridgle is linking them.",
       "text": "Text A (the Hollowgum Herald): Twelve-year-old Ella Park smashed the island's 50-metre freestyle record at Saturday's swimming carnival. She touched the wall in 29.8 seconds, beating the old record by almost two full seconds. That record had stood for twenty-three years. The crowd at Hollowgum Pool rose to its feet as the time flashed up on the scoreboard. Text B (an interview with Ella's coach): People see the record and think it happened overnight. It didn't. A year ago, Ella broke her wrist falling off her skateboard, and for two months she couldn't swim at all. When she came back, she was slower than ever. So we started training at five o'clock every morning, before school. We changed the way she breathes, so she only takes a breath every fourth stroke. She hated it at first. Now it's her secret weapon. She wants to win the record back from herself next year.",
-      "prompt": "What does Text B add to Text A?",
-      "success": "The news story reports the record. The coach explains the hard year of training behind it.",
+      "prompt": "What job does Text B do for Text A?",
+      "success": "The coach gives the reason behind the record: a year of early training and a new way to breathe.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "how Ella got ready to break the record"
+            "text": "a correction: it shows the news story got Ella's record wrong",
+            "reason": "The coach never says the time is wrong. Did Text A ever say it happened overnight?"
           },
           {
-            "text": "how much faster Ella was than the old record",
-            "reason": "Text B doesn't add this. Only the news story gives the time difference."
+            "text": "a reason: it explains how Ella got fast enough to break it"
           },
           {
-            "text": "that Ella set a new record",
-            "reason": "Not new. Both texts tell you Ella holds the record."
+            "text": "an update: it tells what has changed for Ella since Saturday",
+            "reason": "The coach looks back at the year before the carnival, not at what changed since."
           },
           {
-            "text": "which school Ella swims for",
-            "reason": "Neither text names Ella's school."
+            "text": "nothing new: both texts say that Ella broke the record",
+            "reason": "That part is in both, so it isn't new. What else does the coach tell you?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -701,7 +719,7 @@
       "frame": "Wren is studying platypuses. The Bridgle is carrying facts between her book and her notes.",
       "text": "Text A (an encyclopedia entry): The platypus is a small, shy animal found in rivers and creeks in eastern Australia. It has a flat bill like a duck's, webbed feet and thick brown fur. Platypuses dive underwater to hunt for food, with their eyes, ears and nostrils shut. Instead, they find food by sensing tiny electric signals from the bodies of worms, shrimp and insect larvae. Males have a sharp spur on each back leg that can deliver a painful venom. Text B (Wren's survey notes): Spent the whole evening at Stringybark Creek. Saw two platypuses just after sunset, diving again and again near the fallen log to find food. Each dive lasted about thirty seconds. One came up chewing so hard that I could hear it. Gravel in its cheeks helps it grind up food, because adults have no teeth. Counted fifty-six dives in an hour. Did not see the sharp spurs that males have on their back legs, so they may both have been females.",
       "prompt": "Where does each fact come from? Match each one to the right tree.",
-      "success": "The encyclopedia gives general facts. Wren's notes add what she saw at one creek on one evening.",
+      "success": "Some facts are in both, even when Wren only shows them, like the spurs she uses to guess.",
       "body": {
         "format": "sort",
         "bins": [
@@ -713,32 +731,37 @@
           {
             "text": "Platypuses find food by sensing electric signals.",
             "bin": 0,
-            "reason": "Only the encyclopedia explains how platypuses sense their food."
-          },
-          {
-            "text": "Adult platypuses have no teeth.",
-            "bin": 1,
-            "reason": "Only Wren's notes mention teeth and the gravel they use instead."
-          },
-          {
-            "text": "Male platypuses have spurs on their back legs.",
-            "bin": 2,
-            "reason": "The encyclopedia describes the spurs, and Wren's notes use them to guess the platypuses were female."
-          },
-          {
-            "text": "Platypuses dive underwater to find food.",
-            "bin": 2,
-            "reason": "The encyclopedia says they dive to hunt, and Wren watched them dive for food."
-          },
-          {
-            "text": "Each dive lasted about thirty seconds.",
-            "bin": 1,
-            "reason": "Only Wren's notes time the dives."
+            "reason": "Look for this in both texts. Does Wren say how they find food?"
           },
           {
             "text": "Platypuses shut their eyes and ears underwater.",
             "bin": 0,
-            "reason": "Only the encyclopedia says they close their eyes, ears and nostrils when they dive."
+            "reason": "Look for this in both texts. Does Wren say anything about eyes or ears?"
+          },
+          {
+            "text": "Adult platypuses have no teeth.",
+            "bin": 1,
+            "reason": "Look for teeth in both texts. Which one explains the gravel?"
+          },
+          {
+            "text": "A platypus dive can last about thirty seconds.",
+            "bin": 1,
+            "reason": "Look for how long a dive lasts. Which text timed the dives?"
+          },
+          {
+            "text": "Male platypuses have spurs on their back legs.",
+            "bin": 2,
+            "reason": "Check how Wren guessed the platypuses were female. What did she look for?"
+          },
+          {
+            "text": "Platypuses dive underwater to find food.",
+            "bin": 2,
+            "reason": "What does the book say they do to hunt? What did Wren watch them do?"
+          },
+          {
+            "text": "Platypuses can be found living in creeks.",
+            "bin": 2,
+            "reason": "Where does the book say they live? Where was Wren when she saw two?"
           }
         ]
       }
@@ -749,28 +772,28 @@
       "topic": "space",
       "frame": "A rocket launch has been held up. The Bridgle found two reports about it.",
       "text": "Text A (a notice from Hollowgum Space Centre): The launch of the Kestrel 2 rocket has been delayed. It will now take off on Thursday at 6 am, three days later than planned. Kestrel 2 will carry a small weather satellite into orbit, where it will help scientists track storms over the Southern Ocean. Visitors with tickets for Monday's launch can use them on Thursday instead. Text B (an engineer's blog): Here's what really held us up. On Sunday morning, we found that a pair of seagulls had built a nest on the launch tower, right beside the rocket. There were two speckled eggs in it. We can't launch with birds that close, and moving an active nest is against the rules. So we called a wildlife expert, who said the eggs were about to hatch. We decided to wait. The chicks hatched on Tuesday, and the whole family has now moved to a quieter roof. Our weather satellite is still safe and ready to go.",
-      "prompt": "Which question does Text B answer that Text A leaves open?",
-      "success": "The notice says the launch is late but never says why. The blog explains: a seagull nest.",
+      "prompt": "What does Text B add to Text A?",
+      "success": "The blog gives the reason, a seagull nest, and adds that the bird family has now moved away.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "When will the rocket launch?",
-            "reason": "Text A already answers this: Thursday at 6 am. The blog doesn't give a launch time."
+            "text": "why the launch was held up, and that the cause has now moved away"
           },
           {
-            "text": "Why was the launch delayed?"
+            "text": "a correction: the notice gave the wrong day, so the launch is not on Thursday",
+            "reason": "The blog never changes the date. Check what it says the hold-up was."
           },
           {
-            "text": "What will the rocket carry?",
-            "reason": "Not new. Both texts say the rocket carries a weather satellite."
+            "text": "what the satellite will do in orbit, and which ocean's storms it will track",
+            "reason": "Only the notice says that. The blog just says the satellite is safe and ready."
           },
           {
-            "text": "Where will the satellite track storms?",
-            "reason": "Text B leaves this out. Only the notice says the Southern Ocean."
+            "text": "that the launch moved to Tuesday, the day the seagull chicks finally hatched",
+            "reason": "The chicks hatched on Tuesday. Nothing says the launch moved to that day."
           }
         ],
-        "answer": 1
+        "answer": 0
       }
     },
     {
@@ -780,38 +803,38 @@
       "frame": "Tully wrote notes on two texts about Mo's famous burger. The Bridgle spotted a mistake.",
       "text": "Text A (the galley menu): Mo's Monster Burger. Two juicy beef patties, melted cheese, crunchy pickles, lettuce and a toasted bun, all topped with Mo's world-famous Secret Sauce. Warning: this burger is very big, so you may need two hands and a nap afterwards. Served with a mountain of chips and a pickled onion on a stick. Not available on Mondays, because that's when Mo scrubs the grill. Text B (Mo's diary): Gus keeps begging me to tell him what's in my Secret Sauce, so I'm writing it down here where he'll never look. It's tomato sauce, mayonnaise, one mashed banana and a pinch of curry powder. The banana is the secret. It makes the sauce sweet and gloopy, and nobody ever guesses it. Tully thinks it's just tomato sauce, and Zed is convinced it's toothpaste. I invented it by accident when I dropped my morning tea into the mixing bowl. If Gus ever reads this, he owes me ten dollars.",
       "prompt": "Tap the wrong part of Tully's notes, then choose a better one.",
-      "success": "The menu keeps the sauce a secret. Mo's diary reveals what's in it, banana and all.",
+      "success": "Gus begs to know and never finds out. Mo's diary adds what is really in it, banana and all.",
       "body": {
         "format": "fix",
         "parts": [
-          "Text A says the burger isn't served on ",
+          "Text A tells us the burger comes with ",
           {
-            "tap": "Mondays",
-            "reason": "That part is right. The menu says it's not available on Mondays."
-          },
-          ". It also tells us ",
-          {
-            "tap": "what goes into the Monster Burger",
-            "reason": "That part is right. The menu lists the patties, cheese, pickles, lettuce and bun."
+            "tap": "Mo's Secret Sauce",
+            "reason": "That part is right. The menu says it's topped with Mo's Secret Sauce."
           },
           ". Text B adds ",
           {
-            "tap": "how big the burger is"
+            "tap": "what Gus thinks is in it"
+          },
+          " and ",
+          {
+            "tap": "how Mo invented it by accident",
+            "reason": "That part is right. Mo dropped his morning tea into the bowl."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "how many patties the burger has",
-            "reason": "Not new. The menu says two patties, and the diary doesn't mention them."
+            "text": "that the sauce is just tomato sauce",
+            "reason": "That's only Tully's guess. What does Mo say the secret is?"
           },
           {
-            "text": "what is in the Secret Sauce"
+            "text": "what is really in the sauce"
           },
           {
-            "text": "how long the burger takes to cook",
-            "reason": "Neither text says how long it takes to cook."
+            "text": "that the burger comes with the sauce",
+            "reason": "Not new. The menu already says so. What does the diary add?"
           }
         ],
         "answer": 1
@@ -824,24 +847,24 @@
       "frame": "The Bridgle found a council notice and a letter to the newspaper on the same page.",
       "text": "Text A (a council notice): Gumtree Road will be closed to all traffic from Monday 3 March for two weeks. Council crews will be repairing potholes and laying a new surface between the post office and the bridge. Drivers should use Bay Street instead. We thank residents for their patience. Text B (a letter to the Hollowgum Herald): I'm writing about the two-week closure of Gumtree Road. Did anyone at the council think about the school bus? Gumtree Road is the only road from the north of the island to Hollowgum School. With it closed, the bus must go the long way around Bay Street, which adds forty minutes each way. Children from the north will have to leave home before seven o'clock and will still miss the start of class. Why can't this work be done in the school holidays, which start in just three weeks? From a tired parent.",
       "prompt": "What does Text B add to Text A?",
-      "success": "The notice explains the roadworks. The letter shows how the closure will affect children on the school bus.",
+      "success": "The notice explains the roadworks. The letter adds a problem it skips: children from the north will miss class.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "how long the road will be closed",
-            "reason": "Not new. Both texts say the closure lasts two weeks."
+            "text": "an update: the work has been moved to the school holidays",
+            "reason": "The parent only asks for that. Nothing says it has happened."
           },
           {
-            "text": "why the roadworks are needed",
-            "reason": "Text B doesn't add this. Only the notice explains the potholes."
+            "text": "a correction: the notice got the length of the closure wrong",
+            "reason": "The parent agrees it's two weeks. The complaint is about who it affects."
           },
           {
-            "text": "how the closure will affect students from the north"
+            "text": "a problem the notice leaves out: the school bus from the north"
           },
           {
-            "text": "whether the council will move the work to the school holidays",
-            "reason": "Neither text says. The parent only asks the question."
+            "text": "a reason: why the council has to repair Gumtree Road",
+            "reason": "Only the notice talks about potholes. The parent never gives that reason."
           }
         ],
         "answer": 2
@@ -853,25 +876,25 @@
       "topic": "gaming",
       "frame": "Zed wrote a game guide, but then an update came out. The Bridgle is linking the two.",
       "text": "Text A (Zed's game guide, written last month): How to beat the Ice Cave boss in Frost Frenzy. The boss is a giant woolly mammoth that stomps around the cave and throws snowballs. Its weak spot is its tail. Wait until it charges at you, then jump to one side. While it's stuck in the wall, jump on its tail three times. Do this twice and it's game over for the mammoth. It took me eleven tries to work this out, so you're welcome. Text B (the game's update notes): Version 2.1 is out now! We've heard your feedback that the Ice Cave boss was too easy. The mammoth's tail is now covered in sharp icicles, and jumping on it will hurt you instead. To defeat the boss, players must now hit the glowing crystal on top of its head. The mammoth also no longer gets stuck in walls, so you'll need to find another way to reach its head. We've also fixed a bug that made the mammoth moonwalk backwards.",
-      "prompt": "What does Text B add to Text A?",
-      "success": "Zed's guide says to jump on the tail. The update adds a new way to win: hit the crystal.",
+      "prompt": "What job does Text B do for Text A? Check when each was written.",
+      "success": "Zed was right last month. The game has changed since, so Text B is an update.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "how the mammoth stomps around the cave and throws snowballs",
-            "reason": "Text B doesn't add this. Only Zed's guide describes the stomping and snowballs."
+            "text": "a correction: Zed's guide was wrong about the tail",
+            "reason": "Zed's tip worked when he wrote it. Check when each text was written."
           },
           {
-            "text": "that the boss is a giant woolly mammoth",
-            "reason": "Not new. Both texts tell you the boss is a mammoth."
+            "text": "nothing new: both texts say the Ice Cave boss is a mammoth with a tail",
+            "reason": "That's in both, so it isn't new. What has changed in the game?"
           },
           {
-            "text": "tips for beating the levels before the Ice Cave",
-            "reason": "Text B only talks about the Ice Cave boss."
+            "text": "an example: it shows a player jumping on the mammoth's tail and getting hurt",
+            "reason": "Text B doesn't show anyone playing. It tells you what the makers changed."
           },
           {
-            "text": "the new way players have to beat the boss"
+            "text": "an update: the tail trick no longer works, so hit the crystal"
           }
         ],
         "answer": 3
@@ -889,19 +912,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "The cave really is haunted, so Maxx should be careful.",
+            "text": "The cave really is haunted, so the sign closes it to keep visitors safe from the ghost.",
             "reason": "The sign says the moans come from wind in the limestone, not a ghost."
           },
           {
-            "text": "Maxx has already been fined once for sneaking into the cave without a permit.",
-            "reason": "Neither text says Maxx has been fined. The sign only warns that there's a fine."
+            "text": "The moans are natural, so Maxx can safely film there with his floodlight.",
+            "reason": "Natural moans, yes. But check what bright lights do to the bats in December."
           },
           {
-            "text": "The moans are natural, and his visit could harm bats raising pups."
+            "text": "The moans are natural, and his lights and smoke could make bat mothers abandon their pups."
           },
           {
-            "text": "Maxx plans to bring cameras and a smoke machine.",
-            "reason": "That comes from Maxx's own stream. The sign doesn't mention his plan."
+            "text": "The moans are natural, and Maxx's visit would break the law but harm nothing.",
+            "reason": "Check what the sign says bright lights and smoke do to the bat mothers."
           }
         ],
         "answer": 2
@@ -912,9 +935,9 @@
       "band": 4,
       "topic": "ocean",
       "frame": "The Bridgle is carrying facts between an old diary and a museum plaque about the same shipwreck. Help it sort them.",
-      "text": "Text A (from the diary of Ada Cole, aged twelve, the lighthouse keeper's daughter, 9 June 1902): A terrible storm last night. At about two o'clock, Father woke me, shouting that a ship was on the rocks below the point. We could see her lamps swinging wildly in the dark. It was the schooner Curlew, carrying timber to the mainland. Father and two fishermen rowed out three times in the little lifeboat, and by dawn they had brought all eleven sailors safely ashore. I made tea until my arms ached. The Curlew broke apart before breakfast, and planks are still washing up along the beach. Text B (a plaque at the Hollowgum Maritime Museum): The Wreck of the Curlew. In 1902, the timber schooner Curlew struck the rocks off Hollowgum Point during a winter storm. For more than a century, nobody knew exactly where her remains lay. Then, in 2019, two local divers searching for crayfish spotted a ship's bell half buried in the sand. The bell was cleaned and found to carry the name Curlew. Divers have since mapped the wreck, which lies fourteen metres underwater and is now home to schools of fish and a large, grumpy groper.",
+      "text": "Text A (from the diary of Ada Cole, aged twelve, the lighthouse keeper's daughter, 9 June 1902): A terrible storm last night. At about two o'clock, Father woke me, shouting that a ship was on the rocks below Hollowgum Point. We could see her lamps swinging wildly in the dark. It was the schooner Curlew, carrying timber to the mainland. Father and two fishermen rowed out three times in the little lifeboat, and by dawn they had brought all eleven sailors safely ashore. I made tea until my arms ached. The Curlew broke apart before breakfast, and planks are still washing up along the beach. Text B (a plaque at the Hollowgum Maritime Museum): The Wreck of the Curlew. In 1902, the timber schooner Curlew struck the rocks off Hollowgum Point during a winter storm. For more than a century, nobody knew exactly where her remains lay. Then, in 2019, two local divers searching for crayfish spotted a ship's bell half buried in the sand. The bell was cleaned and found to carry the name Curlew. Divers have since mapped the wreck, which lies fourteen metres underwater and is now home to schools of fish and a large, grumpy groper.",
       "prompt": "Where does each fact come from? Match each one to the right tree.",
-      "success": "Ada's diary gives an eyewitness account of the night. The plaque adds what was discovered over a century later.",
+      "success": "Ada saw the night itself. The plaque adds what was found a century later. Some facts are in both.",
       "body": {
         "format": "sort",
         "bins": [
@@ -924,34 +947,39 @@
         ],
         "items": [
           {
-            "text": "All eleven sailors were brought safely to shore.",
+            "text": "Nobody on board the Curlew died.",
             "bin": 0,
-            "reason": "Only Ada's diary tells you what happened to the sailors."
-          },
-          {
-            "text": "Divers found the ship's bell in 2019.",
-            "bin": 1,
-            "reason": "Only the plaque tells you about the bell, which was found long after Ada's diary."
-          },
-          {
-            "text": "The Curlew was wrecked during a storm.",
-            "bin": 2,
-            "reason": "Ada describes the storm, and the plaque says the ship struck the rocks during one."
-          },
-          {
-            "text": "The Curlew was carrying timber.",
-            "bin": 2,
-            "reason": "Ada says it carried timber, and the plaque calls it a timber schooner."
+            "reason": "Look for the sailors in both texts. Which one says what happened to them?"
           },
           {
             "text": "The lighthouse keeper rowed out in the lifeboat.",
             "bin": 0,
-            "reason": "Only Ada's diary describes the rescue."
+            "reason": "Look for the rescue in both texts. Who rowed out?"
           },
           {
-            "text": "The wreck lies fourteen metres underwater.",
+            "text": "For over a century, nobody knew where the wreck lay.",
             "bin": 1,
-            "reason": "Only the plaque gives the depth of the wreck."
+            "reason": "Could Ada know this in 1902? Which text looks back from much later?"
+          },
+          {
+            "text": "Divers found the ship's bell in 2019.",
+            "bin": 1,
+            "reason": "Could Ada know this in 1902? Look for the bell."
+          },
+          {
+            "text": "The Curlew hit the rocks near Hollowgum Point.",
+            "bin": 2,
+            "reason": "Where does Ada see the ship? Where does the plaque say it struck?"
+          },
+          {
+            "text": "The Curlew was carrying timber.",
+            "bin": 2,
+            "reason": "What does Ada say the ship carried? What kind of schooner does the plaque call it?"
+          },
+          {
+            "text": "The Curlew was wrecked during a storm.",
+            "bin": 2,
+            "reason": "What was the weather in Ada's diary? What does the plaque say about the weather?"
           }
         ]
       }
@@ -962,25 +990,25 @@
       "topic": "gross-science",
       "frame": "Gus found an old medical book and a modern news story, both about leeches. The Bridgle is linking them.",
       "text": "Text A (from a doctor's handbook printed in 1840): For a patient suffering from fever, headache or a general weakness of the body, the application of leeches is strongly advised. The illness is caused by an excess of bad blood, which must be drawn out if the patient is to recover. Place six to twelve leeches upon the skin of the temples or chest and allow them to feed until they fall away of their own accord. Leeches may be kept alive in a jar of pond water and used again. Text B (a news story from today): Doctors at Hollowgum Hospital have used leeches to help save the finger of a fisherman who caught his hand in a winch. Surgeons sewed the finger back on, but blood began to pool in it, because the tiny veins could not yet carry it away. If the blood had stayed, the finger would have died. So the team placed medical leeches on the finger. Leech saliva contains a chemical that stops blood from clotting, which keeps it flowing while new veins grow. Doctors stressed that the old idea of draining bad blood to cure fevers was wrong, and that each leech is used only once.",
-      "prompt": "What does Text B add to Text A?",
-      "success": "Text A uses leeches to drain bad blood. Text B adds a modern use: keeping blood flowing in a finger.",
+      "prompt": "What job does Text B do for Text A?",
+      "success": "Text B says the bad-blood idea was wrong, and adds a modern use: keeping blood flowing.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "that leeches cure fevers by drawing out bad blood",
-            "reason": "That's Text A's idea. What does the news story say about it?"
+            "text": "a correction: leeches don't help patients, so today's doctors have stopped using them",
+            "reason": "Doctors in Text B still use leeches. What does it say was wrong?"
           },
           {
-            "text": "a modern use for leeches that works for a different reason"
+            "text": "a correction and a new use: leeches help, but not by draining bad blood"
           },
           {
-            "text": "how to keep leeches alive in pond water to use again",
-            "reason": "Only Text A says that. Text B says each leech is used only once."
+            "text": "an example: a modern case of leeches curing a fisherman's fever, as the handbook said",
+            "reason": "The fisherman had no fever. His finger needed blood kept flowing."
           },
           {
-            "text": "how doctors in 1840 caught their leeches",
-            "reason": "Neither text says how leeches were caught."
+            "text": "an update: leeches can now be kept alive in pond water and reused",
+            "reason": "Text B says each leech is used only once. Pond water is from Text A."
           }
         ],
         "answer": 1
@@ -993,7 +1021,7 @@
       "frame": "Tully wrote notes on two texts about the island's most famous band. The Bridgle spotted a mistake.",
       "text": "Text A (a magazine article): The Rusty Kettles are the biggest band ever to come out of Hollowgum Island. The four members met in Year 9 and spent two years playing at school discos and footy club fundraisers before anyone outside the island had heard of them. Their big break came when a radio presenter on the mainland played their song Low Tide by accident, thinking it was a different band. Listeners flooded the station with requests, and within a month the song was on every playlist in the country. Their first album, released the following year, sold out in a single weekend. Text B (an interview with the drummer, Kez): Everyone asks about the name. The truth is, for our first year we practised in my nan's kitchen, because it was the only room big enough for the drum kit. Nan didn't mind the noise, but she insisted on making tea every half hour. Her old kettle was so rusty that it whistled out of tune, and one day it whistled right in the middle of a song, in exactly the right key. We all stopped and stared at it. Our guitarist said, well, that's our name, then. Nan still has the kettle. It sits on a shelf next to our gold record.",
       "prompt": "Tap the wrong part of Tully's notes, then choose a better one.",
-      "success": "The article tells how the band became famous. Kez's interview tells the story behind the name.",
+      "success": "Kez never says the article is wrong. He adds a story it leaves out: how the kettle named the band.",
       "body": {
         "format": "fix",
         "parts": [
@@ -1002,29 +1030,29 @@
             "tap": "how the band became famous",
             "reason": "That part is right. The article explains the radio mistake that made them famous."
           },
-          ". Text B adds ",
+          ". Text B ",
           {
-            "tap": "how quickly their first album sold"
+            "tap": "corrects a mistake in the article"
           },
-          ". For its first year, the band practised in ",
+          " by telling ",
           {
-            "tap": "Nan's kitchen",
-            "reason": "That part is right. Kez says they practised in Nan's kitchen, the only room big enough."
+            "tap": "how the band got its name",
+            "reason": "That part is right. Kez tells the story of Nan's rusty kettle."
           },
           "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "how many people are in the band",
-            "reason": "Not really new. The article already says there are four members, and Kez never gives a number."
+            "text": "gives an update on the article",
+            "reason": "Nothing has changed since the article. Kez looks back at the first year."
           },
           {
-            "text": "how the band got its name"
+            "text": "adds a story the article leaves out"
           },
           {
-            "text": "which song the radio presenter played",
-            "reason": "Text B doesn't add this. Only the article names the song."
+            "text": "gives an example of the article's point",
+            "reason": "The article never mentions the name, so Kez's story isn't an example of it."
           }
         ],
         "answer": 1
@@ -1046,7 +1074,7 @@
             "reason": "That's the label's story. Read Wynn's letter: where was she during the storm?"
           },
           {
-            "text": "why the gallery treasures this painting above all others",
+            "text": "why the gallery treasures this painting more than its other works",
             "reason": "Only the label calls it treasured. The letter doesn't mention the gallery."
           },
           {
@@ -1072,18 +1100,18 @@
         "format": "choose",
         "options": [
           {
-            "text": "that RoboGuard was tested at Hollowgum Beach",
-            "reason": "Not new. Both texts say the trial was at Hollowgum Beach."
+            "text": "that RoboGuard's two-week trial took place at Hollowgum Beach",
+            "reason": "Not new. Text A already says the trial was at Hollowgum Beach."
           },
           {
-            "text": "trial details that make the company's claims look less impressive"
+            "text": "details showing the 'every swimmer' claim is less impressive than it sounds"
           },
           {
-            "text": "what RoboGuard does when it finds a swimmer in trouble",
+            "text": "what RoboGuard does once its camera finds a swimmer in trouble in the surf",
             "reason": "Text B doesn't add this. Only the press release describes the ring."
           },
           {
-            "text": "that the lifeguards want RoboGuard to replace them on every beach",
+            "text": "that the lifeguards want RoboGuard to take over their patrols on busy beaches",
             "reason": "The head lifeguard says no robot should replace a trained human."
           }
         ],

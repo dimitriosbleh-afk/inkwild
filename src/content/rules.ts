@@ -1,6 +1,6 @@
 import { normalise, piecesNeeded, taps, tilesFor } from '../core/check';
 import type { SkillFile } from './bank';
-import { BANDS, CREW, INTERESTS, type Band, type Body, type Chunk, type Show, type Task, type Teach } from './types';
+import { BANDS, CREW, INTERESTS, type Band, type Body, type Chunk, type Show, type Task, type Teach, type WriteTask } from './types';
 
 export interface Problem {
   where: string;
@@ -187,6 +187,7 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
   if (!s.why.trim() || !s.how.trim()) add(id, 'needs a WHY line and a HOW line');
   if (!CREW.includes(s.teach.crew)) add(id, `unknown crew member ${s.teach.crew}`);
   out.push(...teachProblems(s.teach.iDo, id));
+  if (!id.startsWith('9.')) out.push(...writeProblems(s.write, id));
   if (wordCount(s.why) > LIMITS.why) add(id, `why is ${wordCount(s.why)} words; keep it to ${LIMITS.why}`);
   if (wordCount(s.how) > LIMITS.how) add(id, `how is ${wordCount(s.how)} words; keep it to ${LIMITS.how}`);
   s.teach.weDo.forEach((t, i) => {
@@ -292,19 +293,31 @@ export function chapterProblems(c: { id: string; title: string; bands: Record<Ba
  * Answers must not give themselves away by their shape. If the right option is the longest (or the shortest)
  * in most of a Skill's choose tasks, a Student can win by picking on length without reading.
  */
+const uniquely = (chooses: Extract<Body, { format: 'choose' }>[], pick: (lens: number[]) => number) =>
+  chooses.filter((b) => {
+    const lens = b.options.map((o) => wordCount(o.text) * 100 + o.text.length);
+    const target = pick(lens);
+    return lens[b.answer] === target && lens.filter((l) => l === target).length === 1;
+  }).length;
+
+/** Judging tasks at Bands 3 and 4 drift toward a long, careful right answer; checked apart so easy Bands can't hide it. */
+function upperLongest(file: SkillFile): string[] {
+  const upper = file.encounters.flatMap((e) => (e.band >= 3 && e.body.format === 'choose' ? [e.body] : []));
+  const longest = uniquely(upper, (l) => Math.max(...l));
+  return upper.length >= 4 && longest / upper.length > 0.5
+    ? [`at Bands 3 and 4 the answer is the longest option in ${longest} of ${upper.length} choose tasks; make wrong options as full and specific`]
+    : [];
+}
+
 export function tells(file: SkillFile): string[] {
   const chooses = file.encounters.flatMap((e) => (e.body.format === 'choose' ? [e.body] : []));
   const sorts = file.encounters.flatMap((e) => (e.body.format === 'sort' ? [e.body] : []));
   const even = sorts.filter((b) => new Set(b.bins.map((_, k) => b.items.filter((i) => i.bin === k).length)).size === 1).length;
   const evenProblem = sorts.length >= 3 && even / sorts.length > 0.75 ? [`${even} of ${sorts.length} sorts split evenly across their bins; make some uneven so students can't count instead of read`] : [];
-  if (chooses.length < 6) return [...evenProblem, ...lastSlot(file)];
-  const unique = (pick: (lens: number[]) => number) =>
-    chooses.filter((b) => {
-      const lens = b.options.map((o) => wordCount(o.text) * 100 + o.text.length);
-      const target = pick(lens);
-      return lens[b.answer] === target && lens.filter((l) => l === target).length === 1;
-    }).length;
-  const out: string[] = [...evenProblem, ...lastSlot(file)];
+  const always = [...evenProblem, ...lastSlot(file), ...absoluteTell(chooses), ...upperLongest(file)];
+  if (chooses.length < 6) return always;
+  const unique = (pick: (lens: number[]) => number) => uniquely(chooses, pick);
+  const out: string[] = [...always];
   const longest = unique((l) => Math.max(...l));
   const shortest = unique((l) => Math.min(...l));
   if (longest / chooses.length > 0.5) out.push(`the answer is the longest option in ${longest} of ${chooses.length} choose tasks; even out option lengths`);
@@ -399,4 +412,32 @@ export function teachProblems(iDo: Teach['iDo'], id: string): Problem[] {
     }
   }
   return out;
+}
+
+/** Write your own: a short, clear ask, two or three checks a student can tick honestly, and a model to compare with. */
+export function writeProblems(w: WriteTask | undefined, id: string): Problem[] {
+  const where = `${id} write`;
+  if (!w) return [{ where, problem: "every marked Skill needs a write task: one sentence of the student's own using the move" }];
+  const out: Problem[] = [];
+  const add = (problem: string) => out.push({ where, problem });
+  if (wordCount(w.ask) > LIMITS.say) add(`ask is ${wordCount(w.ask)} words; keep it to ${LIMITS.say}`);
+  if (w.checks.length < 2 || w.checks.length > 3) add(`needs 2 or 3 checks, not ${w.checks.length}`);
+  for (const c of w.checks) if (wordCount(c) > 10) add(`check "${c}" is ${wordCount(c)} words; keep it to 10`);
+  if (wordCount(w.model) > 30) add(`model is ${wordCount(w.model)} words; keep it to 30`);
+  if ((w.given ?? []).length > 3) add('give at most 3 sentences to combine');
+  for (const t of [w.ask, w.model, w.starter ?? '', ...w.checks, ...(w.given ?? [])]) {
+    const us = t.match(US_SPELLINGS);
+    if (us) add(`US spelling "${us[0]}"`);
+  }
+  return out;
+}
+
+const ABSOLUTE = /\b(always|never|only|every|everyone|nobody|no one|must|all)\b/i;
+
+/** Students learn to skip any option that says always or never. A Skill fails when its wrong options carry that tell far more than its answers do. */
+function absoluteTell(chooses: Extract<Body, { format: 'choose' }>[]): string[] {
+  const told = chooses.filter((b) => b.options.some((o, i) => i !== b.answer && ABSOLUTE.test(o.text)) && !ABSOLUTE.test(b.options[b.answer]?.text ?? ''));
+  return told.length >= 4 && told.length / chooses.length > 0.25
+    ? [`${told.length} of ${chooses.length} choose tasks put always, never or only in a wrong option but not the answer; students learn to skip absolutes`]
+    : [];
 }

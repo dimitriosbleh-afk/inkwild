@@ -6,7 +6,7 @@ import { iconCanvas } from '../../art/icons';
 import { parseCode, restorable, restore, toCode } from '../../backup/code';
 import { INTERESTS, type Interest } from '../../content/types';
 import { befriended } from '../../core/creatures';
-import type { CaptainLook, Save } from '../../core/save';
+import { upgradeSave, type CaptainLook, type Save } from '../../core/save';
 import type { App, ScreenView } from '../app';
 import { h } from '../dom';
 
@@ -123,7 +123,7 @@ export function restoreScreen(app: App): ScreenView {
     try {
       const save = JSON.parse(await f.text()) as Save;
       if (save.v !== 1 || !save.branches) throw new Error('not a save');
-      app.store.replace(save);
+      app.store.replace(upgradeSave(save));
       app.applySettings();
       app.go({ name: 'home' });
     } catch {

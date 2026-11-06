@@ -318,6 +318,20 @@
       "name": "Barkindle",
       "evolved": "Barkindrax",
       "blurb": "A thick-tailed gecko that lives on the volcano's warm black rocks. It barks at every missing mark and licks away any mark that shouldn't be there."
+    },
+    "write": {
+      "ask": "Rewrite Gus's two sentences with every punctuation mark fixed. Check one thing at a time.",
+      "given": [
+        "when the slime ate its jar Gus ran",
+        "its loose in the newsroom"
+      ],
+      "starter": "When the slime",
+      "checks": [
+        "Each sentence has a capital and an end mark",
+        "A comma shows where the when part ends",
+        "I said 'it is' to test each its"
+      ],
+      "model": "When the slime ate its jar, Gus ran. It's loose in the newsroom."
     }
   },
   "encounters": [
@@ -425,7 +439,7 @@
       "band": 1,
       "topic": "space",
       "frame": "Gus wrote captions for the space page. Barkindle is sorting them into two piles.",
-      "prompt": "Match each caption to the right pile.",
+      "prompt": "Is each caption punctuated correctly? Sort them.",
       "success": "Correct captions start with a capital and end with the right mark: a full stop or a question mark.",
       "body": {
         "format": "sort",
@@ -502,20 +516,20 @@
       "topic": "music",
       "frame": "Indi is checking a poster for band night at the crater.",
       "prompt": "Which edit of the poster is punctuated correctly?",
-      "success": "Commas go between the items in the list: a drum, a bell. 'Or' joins the last two.",
+      "success": "'It is band night' works, so write it's. The apostrophe marks the missing i.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Bring a drum a bell or a whistle.",
-            "reason": "Items in a list need commas between them. Find where each item ends."
+            "text": "Its' band night at the crater!",
+            "reason": "No word looks like that. Say 'it is' in the gap. Does it work?"
           },
           {
-            "text": "Bring a, drum a bell or a whistle.",
-            "reason": "That comma splits 'a' from 'drum'. Commas go between the items."
+            "text": "Its band night at the crater!",
+            "reason": "Say 'it is band night'. That works, so it needs an apostrophe."
           },
           {
-            "text": "Bring a drum, a bell or a whistle."
+            "text": "It's band night at the crater!"
           }
         ],
         "answer": 2
@@ -696,53 +710,71 @@
       "band": 2,
       "topic": "spooky",
       "frame": "Zed's ghost story is going in the spooky issue. Barkindle has one worry.",
-      "prompt": "Which edit is punctuated correctly?",
-      "success": "The sheet belongs to the ghost, so 'its' has no apostrophe. 'It's' would mean 'it is'.",
+      "prompt": "Tap the part with the punctuation mistake, then choose the fix.",
+      "success": "'When the clock struck midnight' opens the sentence and leaves you waiting. A comma goes where it ends.",
       "body": {
-        "format": "choose",
+        "format": "fix",
+        "parts": [
+          "The old lighthouse was ",
+          {
+            "tap": "dark and cold.",
+            "reason": "This sentence tells you something, so the full stop is right."
+          },
+          " When the clock struck ",
+          {
+            "tap": "midnight"
+          },
+          " the ghost dropped ",
+          {
+            "tap": "its sheet",
+            "reason": "The sheet belongs to the ghost, so its with no apostrophe is right."
+          },
+          " and ran from the dog."
+        ],
+        "spot": 1,
         "options": [
           {
-            "text": "The ghost dropped its' sheet and ran away from the dog.",
-            "reason": "'Its'' isn't a word. Does the ghost own the sheet, or is this 'it is'?"
+            "text": "midnight.",
+            "reason": "That leaves 'When the clock struck midnight' alone, and it can't be a sentence by itself."
           },
           {
-            "text": "The ghost dropped it's sheet and ran away from the dog.",
-            "reason": "'It's' means 'it is'. Read it as 'dropped it is sheet'. Does that make sense?"
+            "text": "midnight,"
           },
           {
-            "text": "The ghost dropped its sheet and ran away from the dog."
+            "text": "midnight?",
+            "reason": "Nobody is asking anything. The sentence tells what the ghost did."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
       "id": "8.7-b3-1",
       "band": 3,
       "topic": "robots",
-      "frame": "Barkindle is checking a news brief about the newsroom's sorting robot.",
+      "frame": "Barkindle is checking a news brief about the newsroom sorting robot.",
       "prompt": "Which edit is punctuated correctly?",
-      "success": "A comma separates 'paper' and 'pens', and 'doesn't' has its apostrophe where the o was.",
+      "success": "The opening part ends at 'newsroom', so the comma goes there. The letters belong to Krak: Krak's.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The newsroom robot sorts paper pens and ink. It doesn't stop for lunch.",
-            "reason": "A list of three needs a comma. Check where the first item ends."
+            "text": "After the robot sorted Krak's letters in the newsroom, it beeped twice and switched off."
           },
           {
-            "text": "The newsroom robot sorts paper, pens and ink. It doesn't stop for lunch."
+            "text": "After the robot sorted Kraks letters in the newsroom, it beeped twice and switched off.",
+            "reason": "The comma is right, but the letters belong to Krak. Owners get an apostrophe: Krak's."
           },
           {
-            "text": "The newsroom robot sorts, paper, pens and ink. It doesn't stop for lunch.",
-            "reason": "No comma goes between 'sorts' and the list. It splits the action from what it sorts."
+            "text": "After the robot sorted Krak's letters in the newsroom it beeped twice, and switched off.",
+            "reason": "The comma must end the opening part. Find the doer of the main part: it."
           },
           {
-            "text": "The newsroom robot sorts paper, pens and ink. It does'nt stop for lunch.",
-            "reason": "The apostrophe takes the place of the missing letter. Say it the long way: does not."
+            "text": "After the robot sorted Krak's letters in the newsroom. It beeped twice and switched off.",
+            "reason": "That leaves the opening part alone, and it can't be a sentence by itself."
           }
         ],
-        "answer": 1
+        "answer": 0
       }
     },
     {
@@ -801,29 +833,29 @@
       "id": "8.7-b3-3",
       "band": 3,
       "topic": "art",
-      "frame": "Indi's review of the new newsroom mural. Barkindle stopped at one line.",
-      "prompt": "Tap the sentence with the punctuation mistake.",
-      "success": "The artist's words need a comma before the closing speech mark: “...three weeks,” said the artist.",
+      "frame": "Indi's review of the new newsroom mural quotes three people. Barkindle stopped at one line.",
+      "prompt": "Tap the line with the punctuation mistake.",
+      "success": "'It nearly broke my arm' is a new sentence. Put a full stop after 'she said', then the capital I.",
       "body": {
         "format": "tapText",
         "parts": [
           {
-            "tap": "The new mural on the newsroom wall shows the volcano erupting at sunset.",
-            "reason": "Capital to start and a full stop to end. Nothing is missing."
+            "tap": "“The paint is still wet,” said Indi, “so please don't touch the wall.”",
+            "reason": "Indi's sentence keeps going after 'said Indi', so the comma and the small s are right."
           },
           " ",
           {
-            "tap": "The artist used seven shades of orange and one tiny splash of blue.",
-            "reason": "There's no list of three here, so no comma is needed. It's right."
+            "tap": "“I used seven shades of orange,” said the artist. “The blue took longest.”",
+            "reason": "These are two whole sentences. The full stop after 'said the artist' and the capital T are right."
           },
           " ",
           {
-            "tap": "“This mural took me three weeks” said the artist."
+            "tap": "“This mural took three weeks,” she said, “It nearly broke my arm.”"
           },
           " ",
           {
-            "tap": "Visitors can see it from Monday to Friday until the end of June.",
-            "reason": "The days and the month are names, so their capitals are right."
+            "tap": "“Can I paint the next one?” asked Gus.",
+            "reason": "Gus is asking, and his question mark sits inside the speech marks. That's right."
           }
         ],
         "answer": 2
@@ -834,7 +866,7 @@
       "band": 3,
       "topic": "music",
       "frame": "The Crater Choir's newsletter came to the editing desk. Barkindle is sorting the lines.",
-      "prompt": "Match each line to the right pile.",
+      "prompt": "Is each line punctuated correctly? Sort them.",
       "success": "Owners and short forms take apostrophes, but plurals don't. Questions need '?'. Extra detail needs commas on both sides.",
       "body": {
         "format": "sort",
@@ -880,24 +912,23 @@
       "id": "8.7-b3-5",
       "band": 3,
       "topic": "general",
-      "frame": "The caption for a photo of Chief Editor Krak's desk got torn into strips.",
+      "frame": "The caption for a photo of the newsroom during the eruption got torn into strips.",
       "prompt": "Tap the pieces in order to write the corrected caption.",
-      "success": "One editor owns the desk, so write 'editor's'. A comma goes between 'red pens' and 'sticky notes'.",
+      "success": "The top belongs to the volcano, so its. The opening part ends at 'top', so the comma goes there.",
       "body": {
         "format": "build",
         "tiles": [
-          "The editor's desk",
-          "The editors desk",
-          "holds red pens,",
-          "holds red pens",
-          "sticky notes",
-          "and a cold cup of tea",
-          "."
+          "When the volcano blew",
+          "it's top,",
+          "its top",
+          "the newsroom, shook.",
+          "its top,",
+          "the newsroom shook."
         ],
         "accept": [
-          "The editor's desk holds red pens, sticky notes and a cold cup of tea."
+          "When the volcano blew its top, the newsroom shook."
         ],
-        "reason": "The desk belongs to one editor. Which piece shows that? The list needs a comma too."
+        "reason": "Whose top is it? Then find where the opening part ends and the main part starts."
       }
     },
     {
@@ -933,78 +964,57 @@
       "id": "8.7-b4-1",
       "band": 4,
       "topic": "space",
-      "frame": "A science report for the Redpen Rumble's front page. Barkindle's tail is twitching.",
-      "prompt": "Tap the part where a comma is missing, then choose the fix.",
-      "success": "'Who runs the observatory' is extra detail about Dr Basalt, so it needs a closing comma before 'said'.",
+      "frame": "Dr Basalt wrote two sentences for the observatory page. Barkindle's tail is twitching.",
+      "text": "Sentence 1: When the dome is fixed the first photos will be shared. Sentence 2: The first photos will be shared when the dome is fixed.",
+      "prompt": "Krak says both sentences need a comma. Which is the right call?",
+      "success": "Sentence 1 opens with the when part, so it needs a comma after 'fixed'. Sentence 2 doesn't.",
       "body": {
-        "format": "fix",
-        "parts": [
-          "The observatory on the ",
-          {
-            "tap": "volcano's",
-            "reason": "The rim belongs to the volcano, so 'volcano's' is right."
-          },
-          " northern rim reopened this week after months of repairs to its cracked dome. ",
-          {
-            "tap": "Its new",
-            "reason": "The telescope belongs to the observatory, so 'its' takes no apostrophe."
-          },
-          " telescope, which cost more than the newsroom's whole yearly ",
-          {
-            "tap": "budget, can",
-            "reason": "This comma closes the extra detail about the telescope. It's right."
-          },
-          " spot a crater on the Moon smaller than a footy oval. Dr Basalt, who runs the ",
-          {
-            "tap": "observatory said"
-          },
-          " the first photos would be shared on Friday. Tours must be booked at the front desk by Thursday afternoon."
-        ],
-        "spot": 3,
+        "format": "choose",
         "options": [
           {
-            "text": "observatory, said"
+            "text": "Both need one, because both have a when part in them.",
+            "reason": "A comma ends a when part at the start. In sentence 2 the main part comes first."
           },
           {
-            "text": "observatory. Said",
-            "reason": "A full stop cuts the sentence, leaving 'Said the first photos...' with no doer."
+            "text": "Only sentence 2 needs one, because its when part comes last.",
+            "reason": "Flip it. The comma marks where an opening when part ends."
           },
           {
-            "text": "observatory said,",
-            "reason": "A comma after 'said' splits it from what was said. Where does the extra detail end?"
+            "text": "Only sentence 1 needs one, because its when part comes first."
           },
           {
-            "text": "observatory, said,",
-            "reason": "The first comma is right, but the second splits 'said' from what was said."
+            "text": "Neither needs one, because each sentence is under fifteen words long.",
+            "reason": "Length doesn't decide it. Sentence 1 opens with a when part, so it needs a comma."
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "8.7-b4-2",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Gus wrote one sentence about the crater's smell. Four people edited it.",
-      "prompt": "Which edit is punctuated correctly?",
-      "success": "The crater owns the stink, 'it's' means 'it is' and the crater's own walls take 'its' with no apostrophe.",
+      "frame": "Gus wrote two versions of one sentence for the science page.",
+      "text": "Version A: Gus's sister, Pip, ate the slime. Version B: Gus's sister Pip ate the slime.",
+      "prompt": "What do the commas in version A tell the reader?",
+      "success": "Cover 'Pip', and 'Gus's sister ate the slime' still works. So Pip is extra detail: Gus has one sister.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Gus insists the craters stink isn't dangerous, but it's strong enough to curl the paint on its walls.",
-            "reason": "The stink belongs to the crater. Which word should show that it owns it?"
+            "text": "Gus has more than one sister, and Pip is the one who ate it.",
+            "reason": "That's version B. Without commas, Pip's name picks out which sister."
           },
           {
-            "text": "Gus insists the crater's stink isn't dangerous, but it's strong enough to curl the paint on its walls."
+            "text": "Gus has one sister, and the commas add her name as extra detail."
           },
           {
-            "text": "Gus insists the crater's stink isn't dangerous, but its strong enough to curl the paint on its walls.",
-            "reason": "Read it as 'it is strong enough'. Does the word show the missing letter?"
+            "text": "Gus is talking to Pip and telling her what his sister did.",
+            "reason": "Then Pip would be the person spoken to, as in 'Hurry up, Gus'. Here Pip names the sister."
           },
           {
-            "text": "Gus insists the crater's stink isn't dangerous, but it's strong enough to curl the paint on it's walls.",
-            "reason": "Try reading the last part as 'on it is walls'. Does that make sense?"
+            "text": "The commas tell the reader to pause, so Pip sounds surprised.",
+            "reason": "These commas aren't about sound. Cover 'Pip', and 'Gus's sister ate the slime' still works."
           }
         ],
         "answer": 1
@@ -1016,81 +1026,86 @@
       "topic": "ocean",
       "frame": "A news report about dolphins in the steaming bay. Barkindle found one slip.",
       "prompt": "Tap the sentence with the punctuation mistake.",
-      "success": "One pod owns the feeding area, so it needs an apostrophe: the pod's feeding area.",
+      "success": "'When the pod left last summer' opens the sentence and leaves you waiting, so a comma goes after 'summer'.",
       "body": {
         "format": "tapText",
         "parts": [
           {
-            "tap": "A pod of dolphins was spotted yesterday in the steaming bay below Redpen Volcano.",
-            "reason": "Capitals for the start and the name, and a full stop to end. It's right."
+            "tap": "When will the dolphins come back to the steaming bay below Redpen Volcano?",
+            "reason": "It's a question. When asks something here, so nothing leaves you waiting and no comma is needed."
           },
           " ",
           {
-            "tap": "Scientists think the dolphins came to feed on the fish that gather near the warm vents.",
-            "reason": "Capital to start, full stop to end, and no marks are missing inside."
+            "tap": "When the pod left last summer the whole bay seemed to go quiet."
           },
           " ",
           {
-            "tap": "One of the scientists, Dr Ella Shore, counted twelve adults and three calves.",
-            "reason": "'Dr Ella Shore' is extra detail with a comma on each side. That's right."
+            "tap": "Dr Ella Shore, the island's dolphin expert, says they return when the water warms.",
+            "reason": "Both commas wrap the extra detail. The when part comes last, so it needs no comma."
           },
           " ",
           {
-            "tap": "Boat owners must stay at least fifty metres away from the pods feeding area."
+            "tap": "As soon as the first fin appears, rangers will close the bay to boats.",
+            "reason": "The opening part ends at 'appears', and the comma marks it. That's right."
           },
           " ",
           {
-            "tap": "Will the dolphins stay in the bay until the end of summer?",
-            "reason": "It asks a question and ends with a question mark. That's right."
+            "tap": "Boat owners must stay fifty metres away while the pod is feeding.",
+            "reason": "The while part comes last, so no comma is needed."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
       "id": "8.7-b4-4",
       "band": 4,
       "topic": "robots",
-      "frame": "A profile of the newsroom robot. Each line has one mistake, and Barkindle wants them filed.",
-      "prompt": "Match each line to the mistake it has.",
-      "success": "Owners and short forms need apostrophes. Lists and extra detail need commas. Questions need question marks.",
+      "frame": "A profile of the newsroom robot. Barkindle wants every apostrophe checked.",
+      "prompt": "Does each line need an apostrophe put in, taken out, or neither? Sort them.",
+      "success": "Owners and short forms take an apostrophe. Plurals don't, and neither does its. Test each one.",
       "body": {
         "format": "sort",
         "bins": [
-          "missing apostrophe",
-          "missing comma",
-          "needs a question mark"
+          "leave it",
+          "take an apostrophe out",
+          "put an apostrophe in"
         ],
         "items": [
           {
-            "text": "The robots arm can lift a whole stack of newspapers at once.",
+            "text": "The robot's arm can lift a stack of newspapers at once.",
             "bin": 0,
-            "reason": "The arm belongs to the robot, so it needs 'robot's'."
+            "reason": "One robot owns the arm, so 'robot's' is right."
           },
           {
-            "text": "Its owner, the chief engineer says it is the fastest robot on the island.",
+            "text": "The robot sorts letter's and parcels in under a minute.",
             "bin": 1,
-            "reason": "'The chief engineer' is extra detail, so it needs a comma after it too."
+            "reason": "Nothing belongs to the letters. A plural takes no apostrophe: letters."
           },
           {
-            "text": "It cant work if anyone spills tea on its control panel.",
+            "text": "Its battery lasts for a twelve-hour shift.",
             "bin": 0,
+            "reason": "The battery belongs to the robot. Its never takes an apostrophe, so it's right."
+          },
+          {
+            "text": "Every night it plugs into it's charger by the door.",
+            "bin": 1,
+            "reason": "Try 'it is charger'. That's silly, so write its with no apostrophe."
+          },
+          {
+            "text": "It cant work if anyone spills tea on it.",
+            "bin": 2,
             "reason": "'Cannot' shortens to 'can't', with an apostrophe for the missing letters."
           },
           {
-            "text": "Did anyone ask whether it gets tired after a twelve-hour shift.",
-            "bin": 2,
-            "reason": "The sentence asks something, so it ends with a question mark."
-          },
-          {
-            "text": "It sorts letters parcels and magazines in under a minute.",
-            "bin": 1,
-            "reason": "The list needs a comma between 'letters' and 'parcels'."
-          },
-          {
-            "text": "Every night it sleeps beside the printers warm motor.",
+            "text": "It's the fastest robot on the whole island.",
             "bin": 0,
-            "reason": "The motor belongs to the printer, so 'printers' needs an apostrophe."
+            "reason": "Say 'It is the fastest robot'. That works, so it's is right."
+          },
+          {
+            "text": "It sleeps beside the printers warm motor.",
+            "bin": 2,
+            "reason": "The motor belongs to the printer, so it needs 'printer's'."
           }
         ]
       }
@@ -1123,29 +1138,30 @@
       "id": "8.7-b4-6",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed's game review has four edited versions. Only one got past Barkindle.",
-      "prompt": "Which edit is punctuated correctly?",
-      "success": "'Zed's' needs its apostrophe, the extra detail needs both commas and the game's music takes 'its' with no apostrophe.",
+      "frame": "Zed's game review. Barkindle barked at this sentence, but Barkindle isn't always right.",
+      "text": "If you beat the boss on level ten, its crown drops into your hands.",
+      "prompt": "Is there a mistake in Zed's sentence?",
+      "success": "Its means 'belongs to it', and the comma ends the opening if part. Barkindle barked at a correct sentence.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Zed's review of Crater Quest, the island's newest game praises its music but calls the final boss unfair.",
-            "reason": "'The island's newest game' is extra detail. Check both sides of it."
+            "text": "Yes. The crown belongs to the boss, so it needs it's.",
+            "reason": "Owners usually take an apostrophe, but its never does. Try 'it is crown'."
           },
           {
-            "text": "Zeds review of Crater Quest, the island's newest game, praises its music but calls the final boss unfair.",
-            "reason": "The review belongs to Zed. Check how the first word shows that."
+            "text": "Yes. The comma after 'ten' should come out.",
+            "reason": "'If you beat the boss on level ten' opens the sentence and leaves you waiting. Its comma is right."
           },
           {
-            "text": "Zed's review of Crater Quest, the island's newest game, praises it's music but calls the final boss unfair.",
-            "reason": "Try reading it as 'praises it is music'. Does that make sense?"
+            "text": "No. The crown belongs to the boss, so its is right."
           },
           {
-            "text": "Zed's review of Crater Quest, the island's newest game, praises its music but calls the final boss unfair."
+            "text": "Yes. The comma after 'ten' should be a full stop.",
+            "reason": "Then 'If you beat the boss on level ten' is left alone. It can't be a sentence."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     }
   ]

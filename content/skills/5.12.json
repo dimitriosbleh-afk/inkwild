@@ -292,6 +292,12 @@
       "name": "Tocktle",
       "evolved": "Tockwarden",
       "blurb": "A flatback turtle with a clock face on its shell. Give its verb the right time and the hands tick the right way."
+    },
+    "write": {
+      "ask": "Write the next sentence of Wren's story. Keep your verb in the same time as these two.",
+      "given": ["Wren opened the box.", "A tiny owl blinked up at her."],
+      "checks": ["I checked what time the other verbs are in", "My verb stays in that time", "My sentence follows on from the story"],
+      "model": "Very gently, she lifted it out of the box."
     }
   },
   "encounters": [
@@ -593,19 +599,18 @@
       "id": "5.12-b3-4",
       "band": 3,
       "topic": "ocean",
-      "frame": "The Tocktle's clock has three hands. Sort the lines from today's reef report.",
-      "prompt": "Match each sentence to when it happens.",
-      "success": "Had dived, scuttled: finished. Were exploring, were sunbaking: in progress. Will turn, is going to leave: still to come.",
+      "frame": "Gus's reef story starts with 'The divers jumped off the boat.' It has no time words, so the Tocktle checks every verb.",
+      "prompt": "Match each next line to the right pile.",
+      "success": "No time word? Match the other verbs. The story started in the past, so it has to stay there.",
       "body": {
         "format": "sort",
-        "bins": ["done and finished", "was in the middle of happening", "hasn't happened yet"],
+        "bins": ["stays in the past", "slips out of the past"],
         "items": [
-          { "text": "The whale had already dived.", "bin": 0, "reason": "Had already dived tells you the dive was finished." },
-          { "text": "The divers were exploring the wreck.", "bin": 1, "reason": "Were exploring shows the divers were in the middle of it at a past moment." },
-          { "text": "The tide will turn at noon.", "bin": 2, "reason": "Will turn looks ahead, so it hasn't happened yet." },
-          { "text": "A crab scuttled under a rock.", "bin": 0, "reason": "Scuttled is the simple past. It happened and it's over." },
-          { "text": "The seals were sunbaking on the rocks.", "bin": 1, "reason": "Were sunbaking shows the seals were in the middle of it at a past moment." },
-          { "text": "The boat is going to leave soon.", "bin": 2, "reason": "Is going to leave looks ahead, so it hasn't happened yet." }
+          { "text": "A turtle swam right past them.", "bin": 0, "reason": "Swam is past, like jumped. It stays in the story's time." },
+          { "text": "They follow it towards the reef.", "bin": 1, "reason": "Follow is present. The story started in the past." },
+          { "text": "A shark was circling far below.", "bin": 0, "reason": "Was circling is past too. It was still going on in the story." },
+          { "text": "Everyone swims back to the boat.", "bin": 1, "reason": "Swims is present. The story started in the past." },
+          { "text": "The skipper counted every diver twice.", "bin": 0, "reason": "Counted is past, like jumped. It stays in the story's time." }
         ]
       }
     },
@@ -613,14 +618,15 @@
       "id": "5.12-b3-5",
       "band": 3,
       "topic": "art",
-      "frame": "Indi's art show is next week. Build her poster sentence so it talks about the future.",
-      "prompt": "Tap the pieces in order. Use the verb that fits the time.",
-      "success": "Will unveil. Next Friday hasn't happened yet, so the verb has to look ahead.",
+      "frame": "Indi's story about painting her mural has no time words at all. The Tocktle holds the pieces of the next line.",
+      "text": "Indi mixed the paint. She climbed the ladder.",
+      "prompt": "Build the next sentence so it stays in the same time as the story.",
+      "success": "Painted. There's no time word, but mixed and climbed are past, so the next verb stays in the past.",
       "body": {
         "format": "build",
-        "tiles": ["Next Friday,", "Indi", "will unveil", "unveiled", "has unveiled", "her giant mural."],
-        "accept": ["Next Friday, Indi will unveil her giant mural."],
-        "reason": "Next Friday hasn't happened yet. Unveiled and has unveiled both say it's already done."
+        "tiles": ["She", "paints", "painted", "Indi", "will paint", "is painting", "the first giant stroke."],
+        "accept": ["She painted the first giant stroke.", "Indi painted the first giant stroke."],
+        "reason": "There's no time word, so look at the other verbs. What time are mixed and climbed in?"
       }
     },
     {
@@ -650,19 +656,19 @@
       "id": "5.12-b4-1",
       "band": 4,
       "topic": "space",
-      "frame": "A page from a retired astronaut's memoir, on display in the space museum.",
-      "text": "When the capsule finally splashed down in the Pacific, we ___ in space for almost two hundred days.",
-      "prompt": "Which verb fits the time?",
-      "success": "Had been. The two hundred days came before the splashdown, and the splashdown is already in the past.",
+      "frame": "The space museum is choosing between two versions of a sign about a capsule landing.",
+      "text": "A: When the rescue ship arrived, the astronauts left the capsule. B: When the rescue ship arrived, the astronauts had left the capsule.",
+      "prompt": "What does version B tell the reader that version A doesn't?",
+      "success": "Had left puts the leaving before the ship arrived. In A, they leave once the ship is there.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "had been" },
-          { "text": "have been", "reason": "Have been links the past to now, but the splashdown is long over. What came before it?" },
-          { "text": "will have been", "reason": "Will have been looks into the future. The splashdown already happened." },
-          { "text": "are", "reason": "Are is the present. The memoir is about a trip that is long over." }
+          { "text": "The astronauts left the capsule once the ship arrived.", "reason": "That's what version A says. 'Had left' moves the leaving earlier." },
+          { "text": "The astronauts are still out of the capsule today.", "reason": "That would need 'have left', which joins the past to now." },
+          { "text": "The astronauts were already out before the ship arrived." },
+          { "text": "The astronauts will leave once the ship arrives.", "reason": "That's the future. Both versions are about the past." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -734,14 +740,15 @@
       "id": "5.12-b4-5",
       "band": 4,
       "topic": "robots",
-      "frame": "The robot butler is sending a message to its owner. Build it so the timing is clear.",
-      "prompt": "Tap the pieces in order. Use the verb that fits the time.",
-      "success": "Will have cleaned. The cleaning will be done by a future moment: when you get home.",
+      "frame": "The robot butler is explaining its daily routine to its new owners. The Tocktle holds the pieces of its next line.",
+      "text": "Every morning, I dust the shelves. Then I polish the spoons.",
+      "prompt": "Build the next line so the routine stays in the same time as the others.",
+      "success": "Mop. A routine is a habit, and habits use the plain present, just like dust and polish.",
       "body": {
         "format": "build",
-        "tiles": ["By the time you get home,", "I", "will have cleaned", "had cleaned", "have cleaned", "the whole house."],
-        "accept": ["By the time you get home, I will have cleaned the whole house."],
-        "reason": "'By the time you get home' is in the future. You need a verb for a job finished by then."
+        "tiles": ["After that,", "I", "mopped", "will mop", "mop", "was mopping", "the kitchen floor."],
+        "accept": ["After that, I mop the kitchen floor."],
+        "reason": "This is something the robot does every day. What time are dust and polish in?"
       }
     },
     {

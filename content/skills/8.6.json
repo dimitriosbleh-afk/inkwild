@@ -268,6 +268,21 @@
         }
       ]
     },
+    "write": {
+      "ask": "Read the paragraph. Cut the sentence that doesn't belong, then write one that does.",
+      "given": [
+        "Biscuit the dog loves the beach.",
+        "He chases every wave that rolls in.",
+        "The beach car park closes at six."
+      ],
+      "starter": "He even",
+      "checks": [
+        "I cut the sentence that wanders off",
+        "My new sentence is about Biscuit loving the beach",
+        "It tells the reader something new"
+      ],
+      "model": "Biscuit the dog loves the beach. He chases every wave that rolls in. He even digs holes so he can lie in the cool, wet sand."
+    },
     "creature": {
       "id": "strandle",
       "name": "Strandle",
@@ -395,7 +410,7 @@
       "band": 1,
       "topic": "ocean",
       "frame": "Wren is writing a paragraph about how sea turtles live. The Strandle is checking every strand.",
-      "prompt": "Match each sentence to the right bin.",
+      "prompt": "Does each sentence belong in Wren's paragraph about how sea turtles live? Sort them.",
       "success": "Every sentence that stays tells you how sea turtles live. A toy turtle and Wren's ice cream don't.",
       "body": {
         "format": "sort",
@@ -619,7 +634,7 @@
       "band": 2,
       "topic": "gross-science",
       "frame": "Gus is writing a paragraph about why snot is useful. The Strandle is holding its nose.",
-      "prompt": "Match each sentence to the right bin.",
+      "prompt": "Does each sentence belong in Gus's paragraph? Sort them.",
       "success": "The sentences that stay explain what snot does for you. Gus's sneeze and his snot jar don't.",
       "body": {
         "format": "sort",
@@ -765,30 +780,30 @@
       "id": "8.6-b3-2",
       "band": 3,
       "topic": "food",
-      "frame": "Mo is writing about one of his dishes. The Strandle wants one strand out.",
-      "text": "Mo's banana-and-tuna pie is the strangest dish he has ever invented. His lemon tart, on the other hand, won second prize at the island show. He mashes six bananas into a tin of tuna, then adds a layer of custard on top. The pastry is sprinkled with crushed salt-and-vinegar chips. Gus says the smell alone could clear a room.",
+      "frame": "Mo is writing up one of his recipes for the Redpen Rumble. The Strandle wants one strand out.",
+      "text": "Mo mashes six bananas into a tin of tuna and spreads it in a pie dish. Next, he pours a layer of custard on top. The pie sells for four dollars a slice at the canteen. Then he sprinkles crushed salt-and-vinegar chips over the custard. Finally, he bakes it for an hour, until the custard turns brown.",
       "prompt": "Which sentence should Mo cut?",
-      "success": "The paragraph is about Mo's strange pie. His prize-winning tart is a different dish.",
+      "success": "There's no topic sentence, but every other line is a step in making the pie. The price isn't a step.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "His lemon tart, on the other hand, won second prize at the island show."
+            "text": "Next, he pours a layer of custard on top.",
+            "reason": "This belongs. Pouring on the custard is the second step."
           },
           {
-            "text": "He mashes six bananas into a tin of tuna, then adds a layer of custard on top.",
-            "reason": "This belongs. It tells you what goes into the strange pie."
+            "text": "The pie sells for four dollars a slice at the canteen."
           },
           {
-            "text": "The pastry is sprinkled with crushed salt-and-vinegar chips.",
-            "reason": "This belongs. Chips on pastry is another strange part of the pie."
+            "text": "Then he sprinkles crushed salt-and-vinegar chips over the custard.",
+            "reason": "This belongs. The chips are the next step in making the pie."
           },
           {
-            "text": "Gus says the smell alone could clear a room.",
-            "reason": "This belongs. It's about the pie's smell."
+            "text": "Finally, he bakes it for an hour, until the custard turns brown.",
+            "reason": "This belongs. Baking is the last step."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -850,45 +865,51 @@
       "id": "8.6-b3-4",
       "band": 3,
       "topic": "space",
-      "frame": "Zed is writing a paragraph about what living on Mars would be like. The Strandle is sorting his notes.",
-      "prompt": "Match each sentence to the right bin.",
-      "success": "The sentences that stay are about what people would need to live there. Zed's poster and the planet's name aren't.",
+      "frame": "Zed is writing about Mars. The Strandle is checking his notes against his first sentence.",
+      "text": "Zed's first sentence: 'Living on Mars would be very hard work.'",
+      "prompt": "Does each sentence belong in Zed's paragraph? Sort them.",
+      "success": "The first sentence says living there is hard work. Sentences about that stay, even Gus's opinion.",
       "body": {
         "format": "sort",
         "bins": [
-          "belongs in a paragraph about living on Mars",
+          "belongs in the paragraph",
           "doesn't belong"
         ],
         "items": [
           {
-            "text": "Settlers would need to grow their food in sealed greenhouses.",
+            "text": "Settlers would need to grow all their food in sealed greenhouses.",
             "bin": 0,
-            "reason": "This belongs. Growing food is part of living on Mars."
+            "reason": "This belongs. Growing every meal in a greenhouse is hard work."
           },
           {
             "text": "Zed has had a huge poster of Mars above his bed since Year 2.",
             "bin": 1,
-            "reason": "This is about Zed's bedroom, not what living on Mars would be like."
+            "reason": "This is about Zed's bedroom, not about living on Mars."
           },
           {
-            "text": "Every breath of air would come from a tank or a machine.",
+            "text": "Gus reckons fixing the air machines would be the worst job of all.",
             "bin": 0,
-            "reason": "This belongs. Breathing is something settlers would have to sort out."
+            "reason": "This belongs. It's what Gus thinks, but it's about the hard work."
           },
           {
             "text": "Homes would need thick walls to block the Sun's harmful rays.",
             "bin": 0,
-            "reason": "This belongs. It's about the homes people would live in."
+            "reason": "This belongs. Building homes like that is hard work."
           },
           {
             "text": "Mars was named after the Roman god of war.",
             "bin": 1,
-            "reason": "This is about the planet's name, not what living there would be like."
+            "reason": "It's about Mars, but not about how hard living there would be."
           },
           {
-            "text": "Dust storms could cover the solar panels for up to three months.",
+            "text": "Dust storms could cover the solar panels for months, so someone would have to clean them.",
             "bin": 0,
-            "reason": "This belongs. It's a problem settlers would face for power."
+            "reason": "This belongs. Cleaning the panels is more hard work."
+          },
+          {
+            "text": "Mars has two tiny moons that look like lumpy potatoes.",
+            "bin": 1,
+            "reason": "It's a fact about Mars, but it isn't about the work of living there."
           }
         ]
       }
@@ -969,72 +990,60 @@
       "id": "8.6-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "Wren's science article on coral is nearly ready. The Strandle has found one strand from a different nest.",
-      "prompt": "Tap the sentence that doesn't belong.",
-      "success": "The paragraph explains coral bleaching. The reef fact is about coral, but not about bleaching.",
+      "frame": "Wren's science article on coral is nearly ready. Krak has made one cut, and the Strandle wants to know why.",
+      "text": "When the ocean stays one or two degrees too warm for weeks, corals push out the tiny algae living inside them. Those algae give coral most of its colour, so without them it turns a ghostly white. They also make most of the coral's food, which means a bleached coral slowly starves. If the water cools in time, the algae can return and the coral may recover. Coral reefs cover less than one per cent of the ocean floor.",
+      "prompt": "Krak cut the last sentence. Which reason explains the cut best?",
+      "success": "Same subject isn't enough. Every sentence must explain bleaching, and the reef-size fact doesn't.",
       "body": {
-        "format": "tapText",
-        "parts": [
+        "format": "choose",
+        "options": [
           {
-            "tap": "When the ocean stays one or two degrees too warm for weeks, corals become stressed and push out the tiny algae living inside them.",
-            "reason": "This is the first sentence. It explains what starts bleaching."
+            "text": "It isn't about coral at all, so it has wandered right off the topic.",
+            "reason": "It is about coral. That's what makes it sneaky."
           },
-          " ",
           {
-            "tap": "Those algae give coral most of its colour, so without them the coral turns a ghostly white.",
-            "reason": "This belongs. It explains why bleached coral turns white."
+            "text": "It's about coral, but every other sentence explains bleaching, and this one doesn't."
           },
-          " ",
           {
-            "tap": "They also make most of the coral's food, which means a bleached coral slowly starves.",
-            "reason": "This belongs. It explains why bleaching harms the coral."
+            "text": "It has a number in it, and science articles should explain, not count.",
+            "reason": "The first sentence has numbers too. Numbers are fine when they fit the main idea."
           },
-          " ",
           {
-            "tap": "If the water cools down in time, the algae can return and the coral may recover.",
-            "reason": "This belongs. It tells you how coral can survive bleaching."
-          },
-          " ",
-          {
-            "tap": "If the heat lasts for many weeks, though, the coral is likely to die.",
-            "reason": "This belongs. It tells you what happens when bleaching goes on too long."
-          },
-          " ",
-          {
-            "tap": "Coral reefs cover less than one per cent of the ocean floor."
+            "text": "It comes last, and the last sentence should always sum up the paragraph.",
+            "reason": "Where it sits isn't the problem. It would be cut wherever it went."
           }
         ],
-        "answer": 5
+        "answer": 1
       }
     },
     {
       "id": "8.6-b4-2",
       "band": 4,
       "topic": "robots",
-      "frame": "The Redpen Rumble is reporting on the beach's new robot lifeguard. The Strandle thinks one strand drifted in from somewhere else.",
-      "text": "The new robot lifeguard at Hollowgum Beach has had a rocky first week. Meanwhile, the surf club is still looking for volunteers to help run its Sunday sausage sizzle. On Monday, the robot mistook a floating pool noodle for a swimmer and dragged it heroically to shore. On Wednesday, its sensors overheated in the summer heat, and it spent the afternoon spinning in circles on the sand. By Friday, it had blown its whistle at a seagull more than four hundred times.",
-      "prompt": "Which sentence should the editor cut?",
-      "success": "The paragraph is about the robot's rocky first week. The surf club's sausage sizzle is a different topic.",
+      "frame": "The Redpen Rumble is reporting on the beach's new robot lifeguard. Two editors want to cut different sentences.",
+      "text": "The new robot lifeguard at Hollowgum Beach has had a rocky first week. On Monday, it mistook a floating pool noodle for a swimmer and dragged it heroically to shore. Head lifeguard Bev says she laughed so hard she had to sit down on the sand. The robot was built on the mainland and cost the council forty thousand dollars. By Friday, it had blown its whistle at a seagull more than four hundred times.",
+      "prompt": "Krak wants to cut Bev's sentence. Gus wants to cut the sentence about the cost. Who is right?",
+      "success": "Gus is right. Bev's laugh is about a mistake, so it stays. The cost isn't part of the rocky week.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "On Monday, the robot mistook a floating pool noodle for a swimmer and dragged it heroically to shore.",
-            "reason": "This belongs. Rescuing a pool noodle is one of the robot's mistakes."
+            "text": "Krak, because Bev's sentence is only what someone says, so it can't belong.",
+            "reason": "That shortcut fails. Bev laughing shows how silly the noodle rescue was."
           },
           {
-            "text": "Meanwhile, the surf club is still looking for volunteers to help run its Sunday sausage sizzle."
+            "text": "Both, because neither sentence is one of the robot's actual mistakes.",
+            "reason": "Bev's laugh isn't a mistake, but it shows how silly the noodle rescue was, so it stays."
           },
           {
-            "text": "On Wednesday, its sensors overheated in the summer heat, and it spent the afternoon spinning in circles on the sand.",
-            "reason": "This belongs. Overheating is another problem from its first week."
+            "text": "Gus, because the cost is about the robot but not about its rocky week."
           },
           {
-            "text": "By Friday, it had blown its whistle at a seagull more than four hundred times.",
-            "reason": "This belongs. Whistling at a seagull is another mistake from the week."
+            "text": "Neither, because every sentence is about the robot lifeguard, so they all stay.",
+            "reason": "Being about the robot isn't enough. The cost doesn't show a rocky week."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -1043,23 +1052,27 @@
       "topic": "art",
       "frame": "Indi is writing about her newest mural. The Strandle wants a strand that fits.",
       "prompt": "Tap the sentence that doesn't belong, then choose one that fits.",
-      "success": "The paragraph is about the recycled paint. Waiting for someone to throw out more paint is part of that story.",
+      "success": "The paragraph is about thrown-away paint. How long the mural took isn't, but waiting for more thrown-out paint is.",
       "body": {
         "format": "fix",
         "parts": [
           {
-            "tap": "Indi's newest mural was painted entirely with recycled paint.",
-            "reason": "The first sentence says the paragraph is about the recycled paint."
+            "tap": "Every drop of paint in Indi's newest mural was paint that someone else had thrown away.",
+            "reason": "The first sentence says the paragraph is about thrown-away paint, not the whole mural."
           },
           " ",
           {
-            "tap": "Every tin came from the island tip, where people throw out half-used paint after fixing up their homes.",
-            "reason": "This belongs. It tells you where the recycled paint came from."
+            "tap": "The tins came from the island tip, where people dump half-used paint after fixing up their homes.",
+            "reason": "This belongs. It tells you where the thrown-away paint came from."
+          },
+          " ",
+          {
+            "tap": "The mural took Indi three weekends and covers the whole side of the bakery."
           },
           " ",
           {
             "tap": "She sorted the tins by colour on her back verandah, mixing leftovers to make new shades.",
-            "reason": "This belongs. It tells you how she used the recycled paint."
+            "reason": "This belongs. It tells you how she used the thrown-away paint."
           },
           " ",
           {
@@ -1069,32 +1082,28 @@
           " ",
           {
             "tap": "Not a single one of her forty-two tins was bought from a shop.",
-            "reason": "This belongs. It shows all the paint really was recycled."
-          },
-          " ",
-          {
-            "tap": "Next year, Indi hopes to enter a brand-new painting in a big art prize."
+            "reason": "This belongs. It shows none of the paint was new."
           }
         ],
-        "spot": 5,
+        "spot": 2,
         "options": [
           {
             "text": "The mural shows the island ferry, the lighthouse and three pelicans.",
-            "reason": "This is about what the mural shows, not the recycled paint."
-          },
-          {
-            "text": "Indi has been drawing every single day since she could hold a crayon.",
-            "reason": "This is about Indi's childhood, not where the paint came from."
-          },
-          {
-            "text": "Visitors can see the mural on the back wall of the Redpen Rumble office.",
-            "reason": "This is about where the mural is, not the recycled paint."
+            "reason": "This is about what the mural shows, not the thrown-away paint."
           },
           {
             "text": "When one colour ran out, she had to wait for someone to throw out more."
+          },
+          {
+            "text": "Indi's mural won a prize at the island show last spring.",
+            "reason": "This is about the mural winning a prize, not where the paint came from."
+          },
+          {
+            "text": "Indi's favourite paint colour is bright orange, like a sunset.",
+            "reason": "This is about her favourite colour, not paint other people threw away."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
@@ -1149,17 +1158,12 @@
       "id": "8.6-b4-5",
       "band": 4,
       "topic": "spooky",
-      "frame": "The Redpen Rumble is running a story about the lava tube ghost tour. The Strandle found a strand from another nest.",
+      "frame": "The Redpen Rumble is running a story about the lava tube ghost tour. The Strandle says to read to the end before you cut.",
       "prompt": "Tap the sentence that doesn't belong.",
-      "success": "The paragraph is about how scary the tour is. The ticket price and free hot chocolate aren't scary at all.",
+      "success": "The last sentence gives the main idea: the tour is scary. How the tunnels formed isn't scary at all.",
       "body": {
         "format": "tapText",
         "parts": [
-          {
-            "tap": "The ghost tour of Redpen Volcano's lava tubes is not for the faint-hearted.",
-            "reason": "This opening sentence says the paragraph is about how scary the tour is."
-          },
-          " ",
           {
             "tap": "Guides lead groups by torchlight through tunnels so narrow that you must crawl on your hands and knees.",
             "reason": "This belongs. Crawling through narrow tunnels in the dark is scary."
@@ -1168,6 +1172,10 @@
           {
             "tap": "Somewhere in the dark, water drips with a sound like slow footsteps.",
             "reason": "This belongs. Sounds like footsteps in the dark are spooky."
+          },
+          " ",
+          {
+            "tap": "The tunnels were made thousands of years ago by rivers of lava flowing under the ground."
           },
           " ",
           {
@@ -1181,10 +1189,11 @@
           },
           " ",
           {
-            "tap": "Tickets cost twenty dollars, and every visitor gets a free hot chocolate at the end."
+            "tap": "No wonder people say the ghost tour of Redpen Volcano's lava tubes is the scariest trip on the island.",
+            "reason": "This gives the main idea. Here it comes last instead of first."
           }
         ],
-        "answer": 5
+        "answer": 2
       }
     },
     {
@@ -1193,28 +1202,28 @@
       "topic": "funny",
       "frame": "Wren is writing about Maxx Vantablack's latest 'rescue' video. The Strandle wants one strand out.",
       "text": "Maxx Vantablack's latest 'rescue' video was full of mistakes that sharp-eyed fans spotted straight away. The video has already been watched more than nine million times. In one shot, the 'wild' koala he saved was wearing a price tag from a toy shop. Later, the 'stormy sea' behind him was clearly a paddling pool with a leaf blower aimed at it. Worst of all, a crew member's reflection appeared in his sunnies, holding up a sign that said CRY NOW.",
-      "prompt": "Which sentence should Wren cut?",
-      "success": "The paragraph is about the video's mistakes. How many people watched it isn't a mistake in the video.",
+      "prompt": "Wren cut the sentence about nine million views. What does that cut do for her reader?",
+      "success": "Every sentence left is a mistake fans spotted, so the reader moves through them without a break.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "In one shot, the 'wild' koala he saved was wearing a price tag from a toy shop.",
-            "reason": "This belongs. A price tag shows the koala was a toy, which is a mistake."
+            "text": "It lets the reader go from one mistake to the next without wandering off."
           },
           {
-            "text": "The video has already been watched more than nine million times."
+            "text": "It stops the reader from finding out that Maxx made any mistakes at all.",
+            "reason": "The mistakes are all still there. Only the views sentence went."
           },
           {
-            "text": "Later, the 'stormy sea' behind him was clearly a paddling pool with a leaf blower aimed at it.",
-            "reason": "This belongs. A fake sea is another mistake fans spotted."
+            "text": "It tells the reader that the video wasn't very popular after all.",
+            "reason": "Cutting a sentence doesn't make it untrue. It just keeps the paragraph on the mistakes."
           },
           {
-            "text": "Worst of all, a crew member's reflection appeared in his sunnies, holding up a sign that said CRY NOW.",
-            "reason": "This belongs. The reflection is the worst mistake in the video."
+            "text": "It leaves the reader without the strongest proof that the video was faked.",
+            "reason": "Views don't prove anything about faking. The price tag, the pool and the reflection do."
           }
         ],
-        "answer": 1
+        "answer": 0
       }
     }
   ]

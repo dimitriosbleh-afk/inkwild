@@ -276,6 +276,21 @@
       "name": "Gulpelli",
       "evolved": "Gulpelliath",
       "blurb": "A pelican that swallows a whole story in one gulp. It spits out any summary that's too small, too big or untrue."
+    },
+    "write": {
+      "ask": "Write one sentence that sums up this whole story.",
+      "given": [
+        "Indi's kite got stuck in a gum tree.",
+        "Gus threw a footy to knock it down, but the footy got stuck too.",
+        "Then a cockatoo landed and pulled them both free."
+      ],
+      "starter": "When",
+      "checks": [
+        "It covers the start and the end.",
+        "Every part of it is true.",
+        "It says what actually happened."
+      ],
+      "model": "When Indi's kite and Gus's footy both got stuck in a gum tree, a cockatoo pulled them free."
     }
   },
   "encounters": [
@@ -350,7 +365,7 @@
             "reason": "Too narrow. That's one funny detail, not the whole report."
           },
           {
-            "text": "Astronauts dropped a bag of honey, and it fell and splashed all over the floor.",
+            "text": "Astronauts dropped a bag of honey, and it fell and splashed across the floor.",
             "reason": "Untrue. Remember, there is almost no gravity on the station."
           }
         ],
@@ -361,7 +376,7 @@
       "id": "1.7-b1-4",
       "band": 1,
       "topic": "sport",
-      "frame": "Tully's footy report has four summaries. The Gulpelli will only swallow one.",
+      "frame": "Tully's footy report has five summaries. The Gulpelli will only swallow one.",
       "text": "The Reef Rays were losing by five points. There was one minute left. Then it started to hail. Most players ran for cover. But Kira, the smallest Ray, kept going. She grabbed the ball out of a puddle. She kicked it from the boundary line. It wobbled through the air and went straight through the posts. The Rays won by one point!",
       "prompt": "Match each summary to the right label.",
       "success": "The best summary covers the whole report and gets every fact right.",
@@ -377,22 +392,27 @@
           {
             "text": "Kira kicked a goal in the hail to win the game for the Rays.",
             "bin": 0,
-            "reason": "It covers the whole report: the hail, Kira's kick and the win."
+            "reason": "Does it cover the start, the middle and the end of the report?"
+          },
+          {
+            "text": "Kira, the tallest Ray, kicked a goal to win the game.",
+            "bin": 3,
+            "reason": "Check how the report describes Kira. Was she the tallest Ray?"
           },
           {
             "text": "Kira grabbed the ball out of a puddle.",
             "bin": 1,
-            "reason": "It's true, but it's just one moment. It skips the goal and the win."
+            "reason": "Is this the whole report, or one moment? Does it say who won?"
           },
           {
             "text": "This report is about a sport.",
             "bin": 2,
-            "reason": "It's true, but it could fit any sports report ever written."
+            "reason": "Could this fit any sports report? Does it say what happened?"
           },
           {
             "text": "The Reef Rays lost the game in the hail.",
             "bin": 3,
-            "reason": "The report says the Rays won by one point, so this is wrong."
+            "reason": "Check the last line of the report. How many points did the Rays win by?"
           }
         ]
       }
@@ -453,15 +473,15 @@
         "format": "choose",
         "options": [
           {
-            "text": "Neatbot folded all of Gus's shirts.",
+            "text": "Neatbot folded Gus's shirts on the second day.",
             "reason": "Too narrow. That's just day two. It skips the slime and the batteries."
           },
           {
             "text": "Gus switched off his tidying robot after it tried to bin his slime."
           },
           {
-            "text": "Gus built a tidying robot that still cleans his whole room for him every day.",
-            "reason": "Untrue. Gus took out its batteries, so he doesn't use it now."
+            "text": "Gus built a tidying robot that still keeps his whole room neat for him.",
+            "reason": "Untrue. Gus took out its batteries, and his room is messy again."
           }
         ],
         "answer": 1
@@ -552,6 +572,11 @@
             "reason": "It's true, but it could fit a fact file about nests, eggs or flying."
           },
           {
+            "text": "Owls cough up pellets, and scientists study them to work out how old owls are.",
+            "bin": 3,
+            "reason": "Check what scientists work out from a pellet. Is it how old the owl is?"
+          },
+          {
             "text": "Owls chew up bones and fur so they can digest every part of a mouse.",
             "bin": 3,
             "reason": "The fact file says owls can't digest bones and fur. They cough them up."
@@ -571,7 +596,7 @@
         "format": "choose",
         "options": [
           {
-            "text": "Mo is writing to say sorry for all the noise and to give the drum kit back.",
+            "text": "Mo is writing to say sorry for the noise and to give the drum kit back.",
             "reason": "Untrue. Read the end of the letter. What does Mo ask for?"
           },
           {
@@ -658,27 +683,27 @@
       "frame": "Zed wrote up the lighthouse mystery. The Gulpelli gulps only the best summary.",
       "text": "For three weeks, a strange light had been flickering at the top of the old Hollowgum lighthouse. Nobody had lived there for fifty years. Locals whispered that the ghost of the last keeper had come back to tend his lamp. Some said they had heard footsteps on the stairs and smelled something burning. Zed and Tully decided to find out the truth. At midnight, they crept up the spiral staircase with a torch and a camera. The burning smell grew stronger with every step. At the top, they flung open the door. There, sitting on an upturned bucket, was Mo. He was holding a frying pan over a tiny camping stove. Mo had been sneaking out to cook midnight snacks where nobody would complain about the smoke. The flickering was his head torch, which had a loose battery. Mo offered them each a burnt pancake. Zed said it was the scariest thing he'd seen all night.",
       "prompt": "Which is the best summary?",
-      "success": "It covers the mystery and the answer, and every part of it is true.",
+      "success": "It covers the mystery and the answer: who was up there and why. Every part is true.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "A spooky lighthouse light turned out to be Mo secretly cooking midnight snacks."
+            "text": "Zed and Tully climbed the lighthouse at midnight to find out if a ghost was making the light.",
+            "reason": "It's true, but it stops halfway. What did they find at the top?"
           },
           {
-            "text": "Zed and Tully crept up the lighthouse stairs at midnight with a torch and a camera.",
-            "reason": "Too narrow. It's true, but it stops before they find out what the light was."
+            "text": "After weeks of ghost stories, a lighthouse mystery that had the town whispering finally had a surprising answer.",
+            "reason": "Too broad. It sounds clever, but what was the answer? It never says."
           },
           {
-            "text": "The locals caught Mo cooking pancakes in the lighthouse after weeks of ghost stories.",
-            "reason": "Untrue. The locals believed in the ghost. Zed and Tully were the ones who found Mo."
+            "text": "A spooky light in the old lighthouse turned out to be Mo cooking secret midnight snacks."
           },
           {
-            "text": "A strange thing happened at the old Hollowgum lighthouse.",
-            "reason": "Too broad. Which strange thing? It never says what the light really was."
+            "text": "The flickering light at the top of the lighthouse was a head torch with a loose battery.",
+            "reason": "Too narrow. It explains the flicker, but whose torch, and what were they doing up there?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
@@ -688,7 +713,7 @@
       "frame": "Tully's carnival report has five summaries. Help the Gulpelli sort them.",
       "text": "The Hollowgum School relay team had trained all year for the district swimming carnival. Then, on the morning of the race, their fastest swimmer, Priya, woke up with a fever. The team needed a fourth swimmer, and the only one left was Sam. Sam had only learnt to swim properly the year before. He had never raced in front of a crowd. He was so nervous that he put his cap on inside out. The first three swimmers kept the team in fourth place. Then Sam dived in for the last leg. He didn't swim with perfect style, but he never stopped kicking. Slowly, he passed one swimmer, then another. The crowd was on its feet, and even the other schools were cheering for him. The team touched the wall in second place, their best result ever. Their coach said she had never seen anyone kick so hard. Priya watched the race on a video call from her bed and cheered so loudly that her mum came running in.",
       "prompt": "Match each summary to the right label.",
-      "success": "The best summary covers the problem, Sam's swim and the result, and none of it is wrong.",
+      "success": "The best summary covers the problem, Sam's swim and the result. Two near misses get a fact wrong.",
       "body": {
         "format": "sort",
         "bins": [
@@ -699,29 +724,29 @@
         ],
         "items": [
           {
-            "text": "With their fastest swimmer sick, the relay team relied on nervous Sam, who lifted them to second place.",
+            "text": "With their fastest swimmer sick, the relay team relied on nervous Sam, who kicked them up to second.",
             "bin": 0,
-            "reason": "It covers the problem, who stepped in and the result, and it's all true."
+            "reason": "Does it cover the problem, who stepped in and how the race ended?"
           },
           {
-            "text": "Sam was so nervous that he put his cap on inside out.",
-            "bin": 1,
-            "reason": "It's true, but it's one small moment. It skips the race and the result."
-          },
-          {
-            "text": "Priya watched the race on a video call from her bed.",
-            "bin": 1,
-            "reason": "It's true, but it's only the ending. It skips Sam's swim."
-          },
-          {
-            "text": "A school team took part in a swimming race.",
-            "bin": 2,
-            "reason": "It's true, but it fits almost any carnival. It leaves out everything that made this one special."
-          },
-          {
-            "text": "Sam's perfect swimming style helped the relay team win the district carnival.",
+            "text": "With Priya sick, Sam swam the first leg and kept the relay team in fourth place.",
             "bin": 3,
-            "reason": "Sam's style wasn't perfect, and the team came second, not first."
+            "reason": "Check which leg Sam swam. Who kept the team in fourth place?"
+          },
+          {
+            "text": "Priya cheered from her bed so loudly that her mum came running in.",
+            "bin": 1,
+            "reason": "Is this the whole report, or one moment near the end?"
+          },
+          {
+            "text": "A school relay team had a carnival day that none of them will ever forget.",
+            "bin": 2,
+            "reason": "What happened on that day? Does it name the problem or the result?"
+          },
+          {
+            "text": "Sam swam the last leg after Priya got sick, and the team won the carnival.",
+            "bin": 3,
+            "reason": "Check the end of the report. Where did the team touch the wall?"
           }
         ]
       }
@@ -732,21 +757,22 @@
       "topic": "space",
       "frame": "The Hollowgum Museum has a new display card. The Gulpelli has jumbled up its summary.",
       "text": "When farmer Lyn Doyle found a heavy black rock in her sheep paddock, she thought it was a lump of old iron. She used it as a doorstop for eleven years. She nearly threw it in the dam more than once. Then a visiting geology student noticed the strange dimples on its surface and asked if she could test it. The results were astonishing. The rock was a meteorite, around four and a half billion years old. It had been drifting through space long before there were any dinosaurs, or even any oceans. Scientists believe it fell during a wild storm that Lyn remembers from the year she bought the farm. She had heard a bang like thunder, but she never saw anything land. The meteorite is now on display at the Hollowgum Museum. Some of the museum's experts cried when they first held it. Lyn visits it every month. She says she misses it, but mostly because her back door now slams shut every time the wind blows.",
-      "prompt": "Tap the pieces in order to build the best summary.",
-      "success": "It covers the doorstop, the big discovery and where the rock is now, and it's all true.",
+      "prompt": "Tap the pieces in order to build the best summary. Check every piece is true.",
+      "success": "Every piece is true. Lyn never saw it land, and her door slams because the rock is gone.",
       "body": {
         "format": "build",
         "tiles": [
-          "A rock that Lyn used as a doorstop for years",
-          "A rock that a student found in a paddock",
+          "A doorstop Lyn kept for eleven years",
+          "A rock Lyn saw fall in a storm",
           "turned out to be an ancient meteorite",
           "turned out to be a lump of old iron",
-          "and is now in a museum."
+          "and is now in a museum.",
+          "and still holds her back door open."
         ],
         "accept": [
-          "A rock that Lyn used as a doorstop for years turned out to be an ancient meteorite and is now in a museum."
+          "A doorstop Lyn kept for eleven years turned out to be an ancient meteorite and is now in a museum."
         ],
-        "reason": "Check every piece against the card. Lyn found the rock, and it wasn't iron after all."
+        "reason": "Test each piece. Did Lyn see anything land? And why does her back door slam now?"
       }
     },
     {
@@ -756,27 +782,27 @@
       "frame": "Wren's field diary is open on the Gulpelli's nest.",
       "text": "Every spring, the magpie by the school gate goes wild. This year it swooped Zed four times in one morning and once pulled a hair right out of his head. Zed started wearing a bike helmet all day, even inside. The principal wanted to call a ranger to move it. Wren asked for one week to try something else first. She found out that only male magpies swoop, and only while there are chicks in the nest. They aren't being cruel. They're guarding their babies. So Wren mapped a new route to school that went around the nest tree instead of under it. It took a little longer, but nobody minded. Indi painted big eyes on the back of everyone's hats, because magpies are less likely to swoop when they think they're being watched. By Friday, nobody had been swooped. The principal agreed to leave the magpie alone. In a few weeks, the chicks will fly, and the swooping will stop anyway.",
       "prompt": "Which is the best summary of Wren's diary?",
-      "success": "It covers the problem, what Wren worked out and how it ended without moving the bird.",
+      "success": "It covers the problem, what Wren worked out and how it ended, without moving the bird.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Indi painted big eyes on the back of everyone's hats.",
-            "reason": "Too narrow. The hats were only one part of Wren's plan."
-          },
-          {
-            "text": "Wren had a ranger move the swooping magpie away from the school gate to keep everyone safe.",
-            "reason": "Untrue. Read the end of the diary. What did the principal decide?"
+            "text": "After the magpie swooped Zed, Wren found out why and asked for a week to try another way.",
+            "reason": "True, but it stops halfway. Did her plan work, and what did the principal decide?"
           },
           {
             "text": "Wren worked out why the magpie swooped and stopped the swooping without moving the bird."
           },
           {
-            "text": "Male magpies only swoop while they have chicks in the nest.",
-            "reason": "Too narrow. It's a true fact from the diary, but it skips what Wren did with it."
+            "text": "Indi's painted eyes stopped the magpie swooping, so the principal let it stay.",
+            "reason": "It gives the hats all the credit. What else was in Wren's plan?"
+          },
+          {
+            "text": "The school gate magpie taught the school something about living with wildlife.",
+            "reason": "Too broad. It sounds wise, but what happened? It never says."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -786,7 +812,7 @@
       "frame": "Tully summed up the festival notice, but one part leaves out the reason, so the Gulpelli won't swallow it.",
       "text": "Notice from the Hollowgum Festival Committee. For forty years, the highlight of our festival has been the Great Pumpkin Roll. Growers roll their giant pumpkins down Gumtree Hill, and the first to reach the bottom wins. Sadly, last year's winning pumpkin did not stop at the bottom. It bounced over the fence, rolled across the car park and smashed through the front window of the bakery. Nobody was hurt, but the bakery was closed for a month and the owner is still finding seeds. The committee has decided that the roll is now too dangerous. We know many of you will be disappointed, and so are we. This year, it will be replaced by the Great Pumpkin Paddle. Growers will hollow out their pumpkins and paddle them across Hollowgum Lake. Pumpkins must be grown by the person paddling them. Life jackets are compulsory. Prizes will be given for the fastest pumpkin and the best-decorated one. The baker has kindly agreed to judge the decorations.",
       "prompt": "Tap the part of the summary that leaves out the reason, then choose a better one.",
-      "success": "The bakery crash is the reason the notice gives, so naming it makes the summary complete.",
+      "success": "The crash is why the committee calls the roll too dangerous. Now the summary gives the reason.",
       "body": {
         "format": "fix",
         "parts": [
@@ -808,15 +834,15 @@
         "spot": 0,
         "options": [
           {
-            "text": "Because nobody came to watch it last year",
-            "reason": "Untrue. Read the notice again. What happened to last year's winning pumpkin?"
+            "text": "Because the baker wanted to judge a new contest",
+            "reason": "The baker agreed to judge after the change. Why did the committee stop the roll?"
           },
           {
-            "text": "Because last year's winner smashed into the bakery"
+            "text": "Because last year's winning pumpkin smashed into the bakery"
           },
           {
-            "text": "Because life jackets are now compulsory",
-            "reason": "Untrue. Life jackets are a rule for the new race, not the reason for the change."
+            "text": "Because the pumpkins had grown too heavy to roll",
+            "reason": "The notice never says that. What happened at the bottom of the hill last year?"
           }
         ],
         "answer": 1
@@ -834,19 +860,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "A Mowzo mowed a giant smiley face into the footy oval before the grand final.",
-            "reason": "Too narrow. It's the funniest part, but it skips the faulty update and the fix."
+            "text": "After a faulty update, one Mowzo escaped and mowed a giant smiley face into the footy oval.",
+            "reason": "Too narrow. That is one mower. What went wrong for owners, and what should they do?"
           },
           {
-            "text": "The update made the mowers quieter as planned, but owners must now pay to have their lawns repaired.",
-            "reason": "Untrue. Read what the update actually did to the lawns, and what repairs cost."
+            "text": "A faulty update made the mowers cut circles, so owners need to fix their own mowers tonight.",
+            "reason": "Check what the notice says about fixing your mower yourself."
           },
           {
-            "text": "Hollowgum Robotics has an important message for all Mowzo owners.",
-            "reason": "Too broad. It names the company and the mowers, but what's the message?"
+            "text": "Hollowgum Robotics is sorry that its latest mower update did not go to plan.",
+            "reason": "Too broad. What went wrong, and what should owners do? It never says."
           },
           {
-            "text": "A faulty update made the mowers cut circles, so owners should switch them off while it's fixed."
+            "text": "A faulty update made mowers cut circles, so owners should switch them off until it's fixed."
           }
         ],
         "answer": 3
@@ -856,30 +882,30 @@
       "id": "1.7-b4-1",
       "band": 4,
       "topic": "ocean",
-      "frame": "The Hollowgum Herald has landed in the Gulpelli's pouch.",
+      "frame": "The Hollowgum Herald has landed in the Gulpelli's pouch. Zed and Tully each wrote a summary.",
       "text": "Every summer, volunteers wade into the rock pools at Hollowgum Point for the annual Sea Slug Count. Armed with buckets, magnifying glasses and waterproof notebooks, they spend a low tide searching under ledges and among the seaweed for nudibranchs, the brilliantly coloured sea slugs that live along the coast. Most years, the count is pleasant but unremarkable: volunteers record around thirty species, eat a sausage from the barbecue and go home. This year was different. Eleven-year-old Ruby Tan, attending for the first time, spotted a slug no longer than a grain of rice. It was electric purple with orange tips, and none of the experts recognised it. One of them was so surprised that she dropped her notebook in the pool. Photographs were sent to the state museum, where a marine biologist confirmed that the slug had never been described by science. Under the rules for naming animals, the scientist who formally describes a new species chooses its name, but she has invited Ruby to suggest one. Ruby is considering Grape Fizz. She admits she only came along because her grandmother made her, and she had planned to spend the day looking for crabs. Next year's count is expected to attract three times as many volunteers, and organisers have asked newcomers to tread carefully, because rock pools are fragile and the next undiscovered species could be underfoot.",
-      "prompt": "Which is the best summary of the article?",
-      "success": "It captures the event, who made the discovery and why it matters, without adding anything false.",
+      "prompt": "Zed: 'Ruby Tan found an electric purple slug no bigger than a grain of rice.' Tully: 'A first-timer at the Sea Slug Count found a slug new to science.' Both are true. Which is better, and why?",
+      "success": "Zed's is too narrow: it describes the slug. Tully's gives the news: a species nobody had found before.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "A first-time volunteer at the Sea Slug Count found a species new to science."
+            "text": "Zed's, because it gives the exact details, like the slug's colour and its tiny size.",
+            "reason": "Details aren't the point. Does Zed's say why this slug made the news?"
           },
           {
-            "text": "Volunteers at the Sea Slug Count usually record about thirty species and eat a sausage.",
-            "reason": "Too narrow. That describes ordinary years, and the article is about what made this year different."
+            "text": "Tully's, because it says what made this year special: a slug new to science."
           },
           {
-            "text": "Ruby Tan formally described a new species of sea slug and named it Grape Fizz.",
-            "reason": "Untrue. The scientist describes and names it. Ruby is only considering a name to suggest."
+            "text": "Zed's, because a good summary names the main person in the story.",
+            "reason": "Naming Ruby helps, but Zed's still skips what made the slug special."
           },
           {
-            "text": "Volunteers at Hollowgum Point had an exciting day at this year's Sea Slug Count.",
-            "reason": "Too broad. Exciting how? It leaves out what happened, which is the whole point."
+            "text": "Tully's, because it is shorter, and a shorter summary is easier to remember.",
+            "reason": "Too broad ones are short too. What does Tully's say that Zed's doesn't?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -889,7 +915,7 @@
       "frame": "Zed recorded Maxx Vantablack's latest stream. Help the Gulpelli sort the crew's summaries.",
       "text": "Welcome back, Vanta-fans! Today is the day you've all been waiting for: the launch of my very own game, Vanta Rescue. In this game, you play as me, obviously, travelling the islands and saving rare creatures from danger. Watch this. I'm sneaking up on a wild Gulpelli, and, boom, it's in my rescue pod! Now it's safe forever. Listen to it squawking with happiness. Some of you in the chat are asking why the rescue pods have bars and padlocks. Great question. That's for the creatures' protection, because the outside world is extremely dangerous. Others are asking why there's no button to release them. Honestly, why would you want to? They're much happier with me, and if they're not happy, they'll learn to be. Right, let's check the leaderboard, because whoever rescues the most creatures by Sunday wins a signed hoodie. Hang on, someone's spamming the chat. They say the maps in my game match the real Hollowgum Island exactly, with every creature's nest marked. That's a total coincidence, and I'm deleting that comment. Moderators, please ban anyone who mentions maps. And no, my real rescue centre is not open to visitors, so stop asking. Let's move on to the next level, shall we? Tomorrow I'll be streaming from a secret location, so stay tuned.",
       "prompt": "Match each summary to the right label.",
-      "success": "The best summary covers the launch and the viewers' worrying questions, and it doesn't claim anything Maxx didn't say.",
+      "success": "The best summary sees past Maxx's words to the bars, padlocks and maps. Taking him at his word misses it.",
       "body": {
         "format": "sort",
         "bins": [
@@ -902,27 +928,32 @@
           {
             "text": "Maxx launches his creature rescue game and brushes off viewers who point out signs that it's really trapping.",
             "bin": 0,
-            "reason": "It covers the launch and the bars, padlocks and maps that Maxx waves away."
+            "reason": "Does it cover the launch and what the viewers keep asking about?"
           },
           {
-            "text": "Whoever rescues the most creatures by Sunday wins a signed hoodie.",
+            "text": "Maxx explains that whoever rescues the most creatures by Sunday wins a signed hoodie.",
             "bin": 1,
-            "reason": "It's true, but it's one small detail from the middle of the stream."
+            "reason": "Is this the whole stream, or one moment? What do the viewers keep asking about?"
           },
           {
-            "text": "A streamer talks to his viewers about a video game.",
+            "text": "A streamer's big game launch leaves his viewers with some tricky questions.",
             "bin": 2,
-            "reason": "It's true, but it would fit thousands of streams and says nothing about this one."
+            "reason": "Which questions? Does it say what the game is or what worries the viewers?"
           },
           {
-            "text": "Maxx agrees to add a release button after his viewers complain about the padlocks.",
+            "text": "Maxx deletes a comment and tells his moderators to ban anyone who mentions maps.",
+            "bin": 1,
+            "reason": "Is this the whole stream, or one moment near the end?"
+          },
+          {
+            "text": "Maxx launches a rescue game, and his viewers have no questions about how it works.",
             "bin": 3,
-            "reason": "Maxx refuses. He asks why anyone would want to release them."
+            "reason": "Check the chat. What do viewers ask about the pods, the release button and the maps?"
           },
           {
             "text": "Maxx admits that his game maps show where real creatures nest on Hollowgum Island.",
             "bin": 3,
-            "reason": "Maxx calls the maps a coincidence and deletes the comment. He admits nothing."
+            "reason": "What does Maxx call the maps? What does he do with that comment?"
           }
         ]
       }
@@ -931,24 +962,30 @@
       "id": "1.7-b4-3",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Gus wants a one-line summary of this news story for his stink collection. The Gulpelli has the pieces.",
+      "frame": "Gus wants a one-line summary of this story for his stink collection. He wrote two drafts.",
       "text": "Visitors to the Hollowgum Botanic Gardens are being warned to bring a peg for their noses. The gardens' corpse flower, a giant plant from the rainforests of Sumatra, has bloomed for the first time in seven years. Its single flower spike is taller than a grown adult, and its frilly purple skirt opened late on Tuesday night. The plant is named for its smell. To attract the flies and beetles that pollinate it, the flower gives off a stench that visitors have compared to rotting fish, sweaty socks and a bin left in the sun for a fortnight. It even warms itself up so that the smell spreads further. Since the news broke, the queue has stretched around the lake, with some people waiting three hours for a sniff. Even the ducks on the lake are keeping their distance, and school groups have been asked to write words for a smell warning at the gate. Head gardener Phil Okafor says the crowds should hurry, because the bloom lasts only about two days before the skirt closes and the spike collapses. Gardeners worked through the night to collect pollen, which will be shared with other gardens so that more corpse flowers can be grown. 'It's disgusting,' said one visitor, holding her nose. 'I'm coming back tomorrow.'",
-      "prompt": "Tap the pieces in order to build the best summary.",
-      "success": "It names the stinky rare flower, the crowds and how short the bloom is, and every piece is true.",
+      "prompt": "Draft 1: 'A stinky corpse flower has bloomed at the gardens for the first time in seven years.' Draft 2: 'A rare corpse flower has bloomed, and crowds are queuing to smell it before it collapses.' Both are true. Which is better, and why?",
+      "success": "Draft 1 stops at the bloom. Draft 2 adds the queues and the rush, the heart of the story.",
       "body": {
-        "format": "build",
-        "tiles": [
-          "Crowds are queuing to smell",
-          "Gardeners are hurrying to remove",
-          "a rare, stinky corpse flower",
-          "a rare, sweet-smelling flower",
-          "that blooms for only two days.",
-          "that blooms every single week."
+        "format": "choose",
+        "options": [
+          {
+            "text": "Draft 1, because it says how long the town waited for the flower to bloom.",
+            "reason": "The wait is one detail. What does most of the story go on to tell you?"
+          },
+          {
+            "text": "Draft 2, because it adds the crowds and why people must hurry to see it."
+          },
+          {
+            "text": "Draft 1, because it keeps the smell, and the smell is what the plant is named for.",
+            "reason": "Draft 2 keeps the smell too: crowds queue to smell it. What else does it add?"
+          },
+          {
+            "text": "Draft 2, because 'rare' is a stronger word than 'stinky'.",
+            "reason": "A stronger word doesn't make a better summary. Which draft covers more of the story?"
+          }
         ],
-        "accept": [
-          "Crowds are queuing to smell a rare, stinky corpse flower that blooms for only two days."
-        ],
-        "reason": "Check each piece against the story. The flower stinks, it bloomed after seven years, and gardeners are collecting its pollen."
+        "answer": 1
       }
     },
     {
@@ -963,19 +1000,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "Arthur plays a carpenter's saw with a violin bow, and nobody knows the name of his song.",
-            "reason": "Too narrow. It describes Arthur, but it skips the ban, the campaign and his return."
+            "text": "After thirty-one years at the ferry gates, busker Arthur was moved to a quiet corner of the car park.",
+            "reason": "True, but it stops halfway. What did the commuters do, and where is Arthur now?"
           },
           {
-            "text": "The council moved Arthur because commuters complained that his saw music was too eerie.",
-            "reason": "Untrue. Check the reason the council gave. And what did the commuters do after he left?"
+            "text": "When a busker was moved, a schoolgirl's petition got him a new spot in the car park.",
+            "reason": "Check where Arthur was moved to. Where does he play now?"
           },
           {
             "text": "When a much-loved busker was moved from the ferry terminal, commuters campaigned until he returned."
           },
           {
             "text": "Music at the Hollowgum ferry terminal means a lot to commuters.",
-            "reason": "Too broad. True, but what happened to the music, and what did commuters do about it?"
+            "reason": "Too broad. True, but what happened to the music, and what did commuters do?"
           }
         ],
         "answer": 2
@@ -985,44 +1022,44 @@
       "id": "1.7-b4-5",
       "band": 4,
       "topic": "art",
-      "frame": "Indi summed up an art scandal for the Gulpelli, but one part of her summary is wrong.",
+      "frame": "Indi summed up an art scandal for the Gulpelli, but one part tells only what people first believed.",
       "text": "When the judges of the Hollowgum Art Prize announced this year's winner, the crowd at the gallery burst into applause. The winning work, titled Storm Over the Bay, was a huge canvas covered in swirls of blue, splashes of yellow and a mysterious brown smudge in one corner. One judge called it fearless, and another said it captured the chaos of nature. The artist, a quiet sculptor named Dev Marsh, accepted the prize of two thousand dollars and said very little. Several art students wrote essays about the work's hidden meaning. A week later, he admitted the truth in a letter to the local paper. Storm Over the Bay was not a painting at all. It was the old cloth he spreads across his studio floor to catch drips while he works on other pieces. He had entered it as a joke, never expecting to be shortlisted, and the brown smudge was a coffee stain. Some locals demanded that the prize be taken back. However, the judges met again and decided that Dev could keep it, because, as their statement put it, art is about how a work makes you feel. Dev has since donated the prize money to the school art room, and the cloth now hangs in the gallery's front window.",
-      "prompt": "Tap the part of the summary that is wrong, then choose a better one.",
-      "success": "The judges met again and let Dev keep the prize, so that part makes the summary true.",
+      "prompt": "Tap the part of the summary that the story later shows is wrong, then choose a better one.",
+      "success": "Dev's letter changes everything: it was never a painting. The summary must include that twist.",
       "body": {
         "format": "fix",
         "parts": [
-          "The Hollowgum Art Prize was won by ",
+          "The Hollowgum Art Prize went to ",
           {
-            "tap": "an artwork",
-            "reason": "That part is right. Storm Over the Bay was entered as an artwork and won."
+            "tap": "a fearless painting of a storm"
           },
-          " that turned out to be ",
+          ". ",
           {
-            "tap": "the cloth from the artist's studio floor",
-            "reason": "That part is right. Dev admitted it was the cloth that catches his drips."
+            "tap": "Some locals",
+            "reason": "That part is right. Some locals demanded the prize be taken back."
           },
-          ", and ",
+          " were angry, but ",
           {
-            "tap": "the judges took the prize back"
+            "tap": "the judges let Dev keep the prize",
+            "reason": "That part is right. The judges met again and let him keep it."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "the prize money went to the runner-up",
-            "reason": "Untrue. Read what the judges decided when they met again."
+            "text": "a painting that art students wrote essays about",
+            "reason": "The students did, but was it a painting? Read what Dev admitted."
           },
           {
-            "text": "the brown smudge was a coffee stain",
-            "reason": "Too narrow. It's true, but it's a small detail and skips what the judges decided."
+            "text": "an old studio cloth that Dev had entered as a joke"
           },
           {
-            "text": "the judges decided the artist could keep the prize"
+            "text": "a canvas that took Dev a whole year to paint",
+            "reason": "Nothing says he spent a year on it. What did the cloth really do in his studio?"
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -1037,19 +1074,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "The giant lamington needed twelve bakers, three wheelbarrows of coconut and a forklift to put together.",
-            "reason": "Too narrow. It's true, but it's only how the cake was built, before anything went wrong."
+            "text": "The bakery's giant lamington melted in Saturday's heat before the judge from the mainland could measure it.",
+            "reason": "True, but it stops halfway. What did the town do next?"
           },
           {
-            "text": "The bakery set the record for the world's largest lamington despite the heat.",
-            "reason": "Untrue. The lamington melted, and the judge said it didn't count."
+            "text": "When their giant lamington melted, the town pitched in and helped the bakers break the lamington record anyway.",
+            "reason": "Check which record the judge confirmed. Did the lamington hold its shape?"
           },
           {
-            "text": "The Hollowgum Bakery's record attempt in the town square didn't go to plan.",
-            "reason": "Too broad. True, but what went wrong, and how did it end?"
+            "text": "A hot Saturday in the town square turned a bakery's big record attempt into something the town didn't expect.",
+            "reason": "Too broad. It sounds specific, but what went wrong, and how did it end?"
           },
           {
-            "text": "When the giant lamington melted, the bakers and townspeople turned it into a record-breaking trifle."
+            "text": "After their giant lamington melted, the bakers and the whole town made a record-breaking trifle instead."
           }
         ],
         "answer": 3

@@ -208,7 +208,7 @@
             "options": [
               {
                 "text": "The old green door, peeling and tired, swung shut with a long, sad sigh.",
-                "reason": "That's long and slow, full of detail. Dash writes short and fast."
+                "reason": "That's long and slow, full of detail. Dash writes short and tense."
               },
               {
                 "text": "A door slammed. Then nothing."
@@ -223,13 +223,13 @@
         },
         {
           "prompt": "Match each line to the style it's written in.",
-          "hint": "Is it short and fast? Long and full of colour? Or is it trying to make you laugh?",
-          "success": "Short and tense, long and colourful, or jokey. Each style is a different author's fingerprint.",
+          "hint": "Is it short and fast? Does it compare things using like or as? Or is it trying to make you laugh?",
+          "success": "Short and tense, colourful comparisons, or jokes. Each style is a different author's fingerprint.",
           "body": {
             "format": "sort",
             "bins": [
               "short and tense",
-              "long and colourful",
+              "colourful comparisons",
               "full of jokes"
             ],
             "items": [
@@ -241,7 +241,7 @@
               {
                 "text": "The sunset spilled across the water like orange juice, warm and bright and glowing.",
                 "bin": 1,
-                "reason": "It's long, full of colour, and compares the sunset to orange juice."
+                "reason": "It compares the sunset to orange juice, using like."
               },
               {
                 "text": "The captain's socks were so smelly, the fish moved house.",
@@ -252,6 +252,19 @@
           }
         }
       ]
+    },
+    "write": {
+      "ask": "Rewrite this plain sentence the way Dash Kettle would write it.",
+      "given": [
+        "The dog walked slowly towards the dark shed, and then it heard a strange noise."
+      ],
+      "starter": "The dog",
+      "checks": [
+        "My sentences are short and tense",
+        "I used a sound word, like Creak or Thud",
+        "There are no jokes"
+      ],
+      "model": "The dog crept closer. The shed. Dark. Silent. Then a noise. Creak."
     },
     "creature": {
       "id": "scrittle",
@@ -276,8 +289,8 @@
             "text": "Dash Kettle, who writes short, tense sentences"
           },
           {
-            "text": "Marigold Featherby, who writes long, colourful sentences",
-            "reason": "These sentences are tiny, and there's no colour at all. That's not Marigold."
+            "text": "Marigold Featherby, who compares things using like or as",
+            "reason": "There isn't a single like or as here. That's not Marigold."
           },
           {
             "text": "Bunny Pickles, who fills every page with jokes",
@@ -293,12 +306,12 @@
       "topic": "food",
       "frame": "Three authors each wrote about Mo's cooking. The Scrittle mixed up their pages.",
       "prompt": "Match each line to the author who wrote it.",
-      "success": "Short and tense is Dash. Long and colourful is Marigold. Jokes are Bunny.",
+      "success": "Short and tense is Dash. Comparing with like or as is Marigold. Jokes are Bunny.",
       "body": {
         "format": "sort",
         "bins": [
           "Dash Kettle: short and tense",
-          "Marigold Featherby: long and colourful",
+          "Marigold Featherby: colourful comparisons",
           "Bunny Pickles: jokes"
         ],
         "items": [
@@ -320,12 +333,12 @@
           {
             "text": "Mo's soup was the colour of a swamp at sunset, thick and green and gently bubbling.",
             "bin": 1,
-            "reason": "A long sentence full of colour. That's Marigold."
+            "reason": "It compares the soup to a swamp at sunset. That's Marigold."
           },
           {
             "text": "Steam curled from the pot like a lazy grey ribbon, drifting slowly up to the ceiling.",
             "bin": 1,
-            "reason": "Long and slow, comparing steam to a ribbon. That's Marigold."
+            "reason": "It compares the steam to a lazy ribbon, using like. That's Marigold."
           },
           {
             "text": "Mo's soup was so thick, the spoon asked for a ladder.",
@@ -451,20 +464,20 @@
       "frame": "The Echobat recorded two writers describing the same Twotide concert.",
       "text": "Extract A. The lights dimmed. A drum. Boom. Then another. Boom. The crowd went quiet. Lila stepped up. She lifted her violin. One note. Then the string snapped. Extract B. The hall glowed gold, like the inside of a honey jar, as Lila stepped into the light. Her violin shone a deep, warm red. The first long note floated up into the roof like a slow, silver bird.",
       "prompt": "Both extracts are about the same concert. What makes Extract B different?",
-      "success": "Extract B is slow and colourful: honey gold, warm red, a silver bird. That's Marigold Featherby's style.",
+      "success": "Extract B compares things: like a honey jar, like a silver bird. That's Marigold Featherby's style.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Extract B is full of jokes.",
+            "text": "Extract B is full of silly jokes.",
             "reason": "There aren't any jokes in Extract B. It's calm and dreamy."
           },
           {
             "text": "Extract B has short, tense sentences.",
-            "reason": "Those tiny bursts are in Extract A. Read Extract B again: how long are its sentences?"
+            "reason": "Those tiny bursts are in Extract A. Read Extract B again: does it feel tense?"
           },
           {
-            "text": "Extract B uses long sentences full of colour."
+            "text": "Extract B compares things using like."
           }
         ],
         "answer": 2
@@ -477,7 +490,7 @@
       "frame": "Narra the Teller found a page without a name in the Twotide library.",
       "text": "The morning tide slid up the beach like a sheet of pale green glass. Ella walked slowly along the shore. Shells lay scattered everywhere, pink and cream and the soft grey of a dove's wing. A crab, as red as a ripe tomato, scuttled sideways into a rock pool. The pool was very still. Inside it, tiny fish flickered like sparks from a campfire, silver and gold and gone in a blink. Ella knelt down. She stayed there for an hour, watching the light dance on the water like a thousand tiny mirrors. By then the sun was high, and her knees were sandy and sore.",
       "prompt": "Which author wrote this page?",
-      "success": "Glass, a tomato, sparks, mirrors: this author compares everything, in long, colourful sentences. That's Marigold.",
+      "success": "Glass, a tomato, sparks, mirrors: this author compares everything using like or as. That's Marigold.",
       "body": {
         "format": "choose",
         "options": [
@@ -486,7 +499,7 @@
             "reason": "There's no danger and no cliffhanger. Ella just watches a rock pool."
           },
           {
-            "text": "Marigold Featherby: long sentences full of colours and comparisons"
+            "text": "Marigold Featherby: colourful comparisons with like and as"
           },
           {
             "text": "Bunny Pickles: jokes and silly names",
@@ -502,12 +515,12 @@
       "topic": "gaming",
       "frame": "The Scrittle chewed up the script for Zed's favourite game. Three authors wrote it.",
       "prompt": "Match each line to the author who wrote it.",
-      "success": "Short and tense is Dash. Long and colourful is Marigold. Jokes and asides in brackets are Bunny.",
+      "success": "Short and tense is Dash. Comparisons with like or as are Marigold. Jokes and asides in brackets are Bunny.",
       "body": {
         "format": "sort",
         "bins": [
           "Dash Kettle: short and tense",
-          "Marigold Featherby: long and colourful",
+          "Marigold Featherby: colourful comparisons",
           "Bunny Pickles: jokes"
         ],
         "items": [
@@ -522,19 +535,19 @@
             "reason": "Short and tense, with sound words. That's Dash."
           },
           {
-            "text": "The lava river glowed orange and gold as it curled slowly through the glittering cave.",
+            "text": "The lava river glowed orange and gold as it curled through the cave like a sleepy snake.",
             "bin": 1,
-            "reason": "A long, slow sentence full of colours. That's Marigold."
+            "reason": "It compares the lava to a sleepy snake. That's Marigold."
           },
           {
             "text": "The castle glittered on the screen like a jewel box, its towers glowing purple and gold.",
             "bin": 1,
-            "reason": "A long sentence of colours, comparing the castle to a jewel box. That's Marigold."
+            "reason": "It compares the castle to a jewel box, using like. That's Marigold."
           },
           {
             "text": "The forest level was a sea of green, every leaf shining like wet paint in the morning light.",
             "bin": 1,
-            "reason": "Long, slow and full of colour. That's Marigold."
+            "reason": "Every leaf shines like wet paint. A comparison with like is Marigold."
           },
           {
             "text": "The final boss was a giant potato called Spudzilla. (Yes, really. I couldn't think of a scarier vegetable.)",
@@ -562,7 +575,7 @@
           "It was the kind of afternoon that feels like warm honey. ",
           {
             "tap": "The picnic rug spread across the grass like a patchwork quilt, red and yellow and blue.",
-            "reason": "Long and colourful, with 'like'. That's Marigold's fingerprint."
+            "reason": "A colourful comparison with 'like'. That's Marigold's fingerprint."
           },
           " ",
           {
@@ -683,76 +696,82 @@
       "id": "2.9-b3-1",
       "band": 3,
       "topic": "spooky",
-      "frame": "A dusty book with no cover was found in the Twotide lighthouse. The Scrittle won't go near it.",
+      "frame": "A dusty book was found in the lighthouse. The Scrittle knows a fourth spooky author: Hattie Vane, who talks straight to you, the reader.",
       "text": "The old lighthouse stood at the edge of the atoll like a tall grey ghost. Its paint peeled away in long, curling strips, the colour of old bones. Inside, the spiral staircase wound upwards into the gloom, every step furred with dust as soft as moth wings. Cobwebs hung from the railings like grey lace curtains, trembling at every breath of air. Far below, the sea sighed against the rocks, as slow as a sleeping giant. Ada climbed slowly, her lantern throwing a trembling circle of honey-coloured light against the walls. Somewhere above her, the wind sang through a broken window, as thin and sad as someone humming a half-forgotten lullaby. At the top, the great lamp sat in its cage of brass and glass, cold and dark and patient. It seemed to have been waiting fifty years for someone to come. Ada reached out a hand that shook like a leaf in the wind. And then, as slowly as a flower opening, the great lamp began to glow.",
       "prompt": "Which author wrote this, and what gives it away?",
-      "success": "A ghost, old bones, moth wings, honey light: long sentences packed with colourful comparisons are Marigold's fingerprint.",
+      "success": "It never talks to you, and it has no tiny bursts. A ghost, old bones, moth wings: Marigold's comparisons.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Dash Kettle, because it's spooky and ends on a cliffhanger",
-            "reason": "It is spooky, with a cliffhanger. But Dash writes in tiny bursts. Do these sentences look tiny?"
+            "text": "Dash Kettle, because it is spooky and ends on a cliffhanger",
+            "reason": "It is spooky. But Dash writes in tiny bursts. Do these sentences look tiny?"
+          },
+          {
+            "text": "Hattie Vane, because it is spooky and talks to the reader",
+            "reason": "Hunt for you or your. Does this page ever talk to the reader?"
+          },
+          {
+            "text": "Marigold Featherby, because of all the colourful comparisons with like"
           },
           {
             "text": "Marigold Featherby, because of the short sentences and sound words",
             "reason": "Hunt for short bursts or sound words in this text. Can you find any?"
-          },
-          {
-            "text": "Bunny Pickles, because it chats to the reader",
-            "reason": "Nobody talks to you, the reader, and there are no jokes or brackets at all."
-          },
-          {
-            "text": "Marigold Featherby, because of the long sentences full of colourful comparisons"
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "2.9-b3-2",
       "band": 3,
       "topic": "sport",
-      "frame": "Tully's netball scrapbook has lines from three authors. The Scrittle has shuffled them all.",
+      "frame": "Tully's netball scrapbook has lines from four authors. Pip Calloway writes short sentences too, but hers are mostly people talking, and cheerful.",
       "prompt": "Match each line to the author who wrote it.",
-      "success": "You looked for the habit, not the length alone. Tense bursts, colourful comparisons and jokes are three different fingerprints.",
+      "success": "Short lines can be Dash or Pip. Tense with no talk is Dash. Cheerful talk is Pip.",
       "body": {
         "format": "sort",
         "bins": [
           "Dash Kettle: short and tense",
-          "Marigold Featherby: long, with colourful comparisons",
-          "Bunny Pickles: jokes and asides"
+          "Marigold Featherby: colourful comparisons",
+          "Bunny Pickles: jokes and asides",
+          "Pip Calloway: short, cheerful talk"
         ],
         "items": [
           {
             "text": "The siren. Two points down. Ten seconds left.",
             "bin": 0,
-            "reason": "Tiny bursts that build tension. That's Dash."
+            "reason": "Is anyone talking? Does it feel cheerful, or tense?"
           },
           {
             "text": "Mia sprinted. Thump. Thump. Her lungs burned.",
             "bin": 0,
-            "reason": "Short sentences and sound words make it tense. That's Dash."
+            "reason": "Short, yes. But is it talk, or a tense moment?"
           },
           {
-            "text": "The court shimmered in the heat like a pool of melted butter, and the white lines wobbled as if they were dancing.",
+            "text": "'Pass!' yelled Mia. 'Here!' called Jo. 'Got it!'",
+            "bin": 3,
+            "reason": "Short, but who is speaking? Does it feel scary?"
+          },
+          {
+            "text": "'Good game,' said Jo. 'Same time next week?' Mia grinned. 'Deal.'",
+            "bin": 3,
+            "reason": "Look for speech marks. Is this tense, or friendly?"
+          },
+          {
+            "text": "The court shimmered in the heat like a pool of melted butter.",
             "bin": 1,
-            "reason": "Long, golden and full of comparisons. That's Marigold."
+            "reason": "What does it compare the court to?"
           },
           {
-            "text": "The crowd's flags rippled in the breeze, a sea of blue and orange that rolled and swelled like waves.",
-            "bin": 1,
-            "reason": "Colours and a comparison to waves in one long sentence. That's Marigold."
-          },
-          {
-            "text": "Our goalie was so tall, birds kept nesting in her hair. (She didn't mind. She liked the company.)",
+            "text": "Our goalie was so tall, birds kept nesting in her hair. (She liked the company.)",
             "bin": 2,
-            "reason": "Birds nesting in hair is a joke, with an aside in brackets. That's Bunny."
+            "reason": "Is that a description, or a joke with an aside?"
           },
           {
             "text": "The umpire blew her whistle so hard that her eyebrows flew off.",
             "bin": 2,
-            "reason": "It isn't short and tense or colourful. Flying eyebrows are a joke. That's Bunny."
+            "reason": "It is not short and not a comparison. What is it?"
           }
         ]
       }
@@ -763,7 +782,7 @@
       "topic": "gross-science",
       "frame": "Gus's favourite Bunny Pickles book has a page that doesn't belong. The Scrittle is suspicious.",
       "prompt": "Bunny Pickles wrote this chapter, but Marigold Featherby wrote one of the sentences. Tap it.",
-      "success": "No joke and no brackets, just long, colourful description: 'like melting emerald honey'. That's Marigold's fingerprint.",
+      "success": "No joke and no brackets, just a colourful comparison: 'like melting emerald honey'. That's Marigold's fingerprint.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -800,48 +819,48 @@
       "id": "2.9-b3-4",
       "band": 3,
       "topic": "art",
-      "frame": "Indi wrote notes comparing two authors who wrote about the same painting. One part is wrong.",
-      "text": "Extract A. The gallery was dark. Empty. Ivy crept past the statues. Then a sound. Crack. Glass. Someone was inside. The alarm was silent. Wrong. It should be ringing. Ivy held her breath. She turned the corner. The painting was gone. Only the frame was left. Her torch shook. Footsteps. Behind her. Close. Closer. Ivy turned around. Extract B. The painting hung in the quiet gallery like a window onto a summer afternoon. It was all soft gold fields and a sky as blue as a robin's egg. In one corner, a little red boat floated on a river that shimmered like spilled silk. Tiny white clouds drifted above it like puffs of spilled flour, and Ivy could almost hear the river murmuring, as soft as a cat purring by the fire. Ivy stood in front of it for a long time, while the afternoon light crept across the polished floor. Slowly, the gallery fell asleep around her, as quiet as snow.",
+      "frame": "Indi compared Pip Calloway and Dash Kettle. Both write short sentences. One part of her notes is wrong.",
+      "text": "Extract A. 'Is it finished?' asked Ivy's brother. 'Nearly,' said Ivy. 'Can I help?' 'You can wash the brushes.' 'Okay!' He ran to the sink. Ivy painted one last star in the corner. 'Done,' she said. Her brother came back with dripping hands. He looked at the painting for a long time. 'It's beautiful,' he said. Ivy smiled. 'Good. It's for you.' He hugged her. His hands were still wet. She didn't mind.\n\nExtract B. The gallery was dark. Empty. Ivy crept past the statues. Then a sound. Crack. Glass. Someone was inside. The alarm was silent. Wrong. It should be ringing. Ivy held her breath. She turned the corner. The painting was gone. Only the frame was left. Her torch shook. Footsteps. Behind her. Close. Closer. Ivy turned around.",
       "prompt": "Tap the part Indi got wrong, then choose a better one.",
-      "success": "Extract B is slow and colourful, with long sentences: gold fields, a robin's-egg sky, spilled silk.",
+      "success": "Same short sentences, different fingerprint. Pip writes warm talk. Dash writes tense scenes with no talk at all.",
       "body": {
         "format": "fix",
         "parts": [
-          "Both extracts are about ",
+          "Extract B feels ",
           {
-            "tap": "a painting in a gallery",
-            "reason": "That's right. Both are set around a painting in a gallery."
+            "tap": "warm and cheerful"
           },
-          ". Extract A uses ",
+          ", but both extracts use ",
           {
-            "tap": "short, sharp sentences",
-            "reason": "That's right. Extract A uses tiny bursts like 'Glass.' and 'Close.'"
+            "tap": "short sentences",
+            "reason": "That's right. Both are full of tiny sentences like 'Done.' and 'Close.'"
           },
-          ". Extract B uses ",
+          ". Only Extract A is mostly ",
           {
-            "tap": "lots of jokes"
+            "tap": "people talking",
+            "reason": "That's right. Extract A is nearly all speech. Extract B has none."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "sound words like 'Crack'",
-            "reason": "'Crack' is in Extract A, not Extract B."
+            "text": "calm and sleepy",
+            "reason": "A crack, footsteps and a missing painting. Is any of that calm?"
           },
           {
-            "text": "brackets that chat to the reader",
-            "reason": "Neither extract has any brackets. That's Bunny Pickles' habit."
+            "text": "tense and scary"
           },
           {
-            "text": "a cliffhanger ending",
-            "reason": "Extract A ends on a cliffhanger. Extract B ends calmly, with the gallery falling asleep."
+            "text": "silly and jokey",
+            "reason": "Is there one joke in Extract B? What is the mood?"
           },
           {
-            "text": "long sentences full of colour"
+            "text": "sad and tearful",
+            "reason": "Nobody cries in Extract B. Her torch shakes from fear, not sadness."
           }
         ],
-        "answer": 3
+        "answer": 1
       }
     },
     {
@@ -861,7 +880,7 @@
           },
           {
             "text": "The dark water closed over her head like a heavy velvet curtain, cold and green and silent.",
-            "reason": "It's tense, but the long, colourful comparison isn't Extract A's style at all."
+            "reason": "It's tense, but the colourful comparison with 'like' isn't Extract A's style at all."
           },
           {
             "text": "Desert. No water. The sun burned. Crunch. Footsteps in the sand. Not his."
@@ -916,19 +935,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "Marigold Featherby: the long, descriptive sentences",
-            "reason": "There is some long description. But read the bits in brackets. Would Marigold write those?"
+            "text": "Marigold Featherby: the comparison of Zorb's clouds to paint stirred into cream",
+            "reason": "There is one comparison. But read the bits in brackets. Would Marigold chat to you like that?"
           },
           {
-            "text": "Bunny Pickles: the jokes and the asides in brackets"
+            "text": "Bunny Pickles: the jokes, and the chats to the reader in brackets"
           },
           {
-            "text": "Dash Kettle: the short, tense bursts when the alarms go off",
-            "reason": "There is one tense moment, but it's soon a joke about windows. Dash never jokes."
+            "text": "Dash Kettle: the tense bursts 'Lights flashed. Alarms howled.' as the ship spins",
+            "reason": "Two short bursts, then a joke about windows. Dash never jokes."
           },
           {
-            "text": "Bunny Pickles: the short, tense sentences all the way through",
-            "reason": "Count the short, tense sentences. Most of this text isn't like that. What else gives the author away?"
+            "text": "Bunny Pickles: the long, colourful description of the planet Zorb's clouds",
+            "reason": "That cloud picture compares with like, which is Marigold's habit. What else gives Bunny away?"
           }
         ],
         "answer": 1
@@ -945,7 +964,7 @@
         "format": "sort",
         "bins": [
           "Dash Kettle: short and tense",
-          "Marigold Featherby: long, colourful comparisons",
+          "Marigold Featherby: colourful comparisons",
           "Bunny Pickles: jokes and asides"
         ],
         "items": [
@@ -967,7 +986,7 @@
           {
             "text": "Across the mudflats, the godwits rose all at once, a shimmering cloud of silver and brown that twisted like a scarf thrown into the wind.",
             "bin": 1,
-            "reason": "Long, flowing and full of colour, with a comparison to a scarf. That's Marigold."
+            "reason": "It compares the birds to a scarf thrown into the wind. That's Marigold."
           },
           {
             "text": "The wombat was so round that when he sneezed he rolled halfway down the hill, which is how he got to school most mornings.",
@@ -986,35 +1005,27 @@
       "id": "2.9-b4-3",
       "band": 4,
       "topic": "robots",
-      "frame": "Dash Kettle's editor sent his new robot thriller to Narra the Teller with a worried note.",
-      "prompt": "The editor says one sentence in Dash Kettle's new book wasn't written by him. Tap it.",
-      "success": "A chatty, jokey aside in brackets breaks the tension. Dash never does that. It's Bunny Pickles' fingerprint.",
+      "frame": "Dash Kettle's editor sent his new robot thriller to Narra the Teller. Narra loves the ending.",
+      "text": "Factory Nine. Midnight. The machines were silent. Rain hammered the tin roof. Juno slipped through the gate. Torch off. Breath held. She had one job: find the missing drone and get out before the guards came back. Ten minutes. No more. The guards' hut was dark. Empty. A cup of tea sat on the desk. Juno touched it. Still warm. Someone had been here. Recently. She crept along the wall. Puddles. Wire. Broken glass. Then a hum. Low. Electric. Juno froze. The hum was coming from the main hall. She pushed the door. It creaked. She waited. Counted to ten. Nothing came. She slipped inside. A green glow came from somewhere. Up ahead. Rows of robots stood in the dark, frozen mid-step. Hundreds of them. Waiting. Juno crept between the rows. Left. Right. Left. Each robot was taller than her. Each one had its head bowed. Metal hands. Fingers curled. Ready. Her shoes squeaked on the wet floor. She stopped. Listened. Nothing. She took another step. Click. A red eye blinked open. Then another. Then all of them.",
+      "prompt": "Dash ends with 'Click.' and 'Then all of them.' What do those tiny sentences do for the reader?",
+      "success": "Tiny bursts make you read fast and hold your breath. So the last line hits you like a jolt.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "Factory Nine. Midnight. ",
+        "format": "choose",
+        "options": [
           {
-            "tap": "The machines were silent.",
-            "reason": "Short and tense. That's exactly how Dash writes."
+            "text": "They give you a rest after a long, calm part, so you can relax.",
+            "reason": "Is there a long, calm part? Look at how the whole page is written."
           },
-          " Rain hammered the tin roof. Juno slipped through the gate. Torch off. Breath held. She had one job: find the missing drone and get out before the guards came back. Ten minutes. No more. The guards' hut was dark. Empty. A cup of tea sat on the desk. Juno touched it. Still warm. Someone had been here. Recently. She crept along the wall. Puddles. Wire. Broken glass. ",
           {
-            "tap": "Then a hum. Low. Electric.",
-            "reason": "Short bursts and a sound. That's classic Dash."
+            "text": "They help you picture the factory, full of colour and comparisons.",
+            "reason": "Is there any colour, or any like or as? That is Marigold's job."
           },
-          " Juno froze. The hum was coming from the main hall. She pushed the door. It creaked. She waited. Counted to ten. Nothing came. She slipped inside. A green glow came from somewhere. Up ahead. Inside, rows of robots stood in the dark, frozen mid-step. Hundreds of them. Waiting. ",
           {
-            "tap": "(Robots don't really sleep, of course, but these ones were giving it a jolly good go, bless them.)"
+            "text": "They make you read fast and hold your breath, so the ending hits hard."
           },
-          " Juno crept between the rows. Left. Right. Left. Each robot was taller than her. Each one had its head bowed. Metal hands. Fingers curled. Ready. Her shoes squeaked on the wet floor. She stopped. Listened. Nothing. She took another step. ",
           {
-            "tap": "Click.",
-            "reason": "A single sound word. Dash uses these to build tension."
-          },
-          " A red eye blinked open. Then another. ",
-          {
-            "tap": "Then all of them.",
-            "reason": "A short, chilling last line. Dash always ends on a cliffhanger."
+            "text": "They show that Juno is bored, because nothing much is happening.",
+            "reason": "A red eye blinks open, then hundreds more. Is that boring?"
           }
         ],
         "answer": 2
@@ -1027,14 +1038,14 @@
       "frame": "Narra the Teller made notes comparing two authors' accounts of the Twotide Brass Band concert. One part is wrong.",
       "text": "Extract A. The band played as the sun went down, and the music rose over the harbour like warm smoke, curling between the masts of the fishing boats and drifting out across the water. The trumpets shone like polished gold in the last of the light, and the big bass drum kept time as steadily as a slow, contented heartbeat. Out on the jetty, an old man closed his eyes and swayed, as gently as seagrass in the tide. Children sat along the edge, their bare feet dangling over the water like fishing lines. When the final note faded, the whole harbour seemed to hold its breath. Extract B. The Twotide Brass Band played at sunset, which was brave of them, because the tuba player had eaten three meat pies beforehand. (I'm not saying the tuba sounded different. I'm just saying the seagulls left.) The drummer, a man called Big Trev, hit the drum so enthusiastically that his hat flew off and landed on a pelican. The pelican kept it. Then, during the quiet bit, the tuba let out a noise that I can only describe as WHOOOMPH. A dog howled. A baby applauded. Everybody agreed it was the best concert in years. (The pelican still wears the hat on Sundays.)",
       "prompt": "Tap the part Narra got wrong, then choose a better one.",
-      "success": "Both extracts really do describe the same sunset concert. Marigold uses no brackets at all; that's only Bunny's habit.",
+      "success": "Both extracts describe the same sunset concert. Only Bunny chats to the reader in brackets.",
       "body": {
         "format": "fix",
         "parts": [
           "Extract A, by Marigold Featherby, describes the concert in ",
           {
-            "tap": "long, flowing sentences",
-            "reason": "That's right. Extract A's sentences curl on and on, like the music."
+            "tap": "colourful comparisons",
+            "reason": "That's right. Music like warm smoke, a drum like a heartbeat."
           },
           ". Extract B, by Bunny Pickles, ",
           {
@@ -1102,30 +1113,30 @@
       "id": "2.9-b4-6",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed found two extracts in the Twotide library. Narra the Teller says the same author wrote both.",
-      "text": "Extract A. The arcade blazed with light the moment Ruby pushed through the door, a dazzling jumble of pink and lime and electric blue that fizzed across the ceiling like lemonade poured too fast. Every machine sang its own bright, bubbling song, and the air smelled sweetly of popcorn and warm plastic. Ruby wandered between the rows of games as if she were walking through a garden in full bloom, her pocket heavy with coins that jingled like tiny bells. In the far corner, a claw machine full of plush toys glowed like an aquarium of sleepy, fluffy fish. Extract B. On the last day before the old game shop closed for good, the shelves stood bare and grey, like the ribs of a ship left to rot on the beach. Faded posters peeled from the walls like old sunburnt skin. Dust drifted through the single beam of afternoon light as slowly as snow falling in a dream. Mr Tan sat behind the counter, polishing a cartridge that nobody would ever buy, his face as tired and crumpled as an old paper bag. When Ruby walked in, he looked up, smiled a small, sad smile, and slid the cartridge across the counter to her without a word.",
-      "prompt": "Which shared feature is an author's fingerprint?",
-      "success": "Lemonade, tiny bells, a ship's ribs, a paper bag: both extracts are built from long sentences full of colourful comparisons.",
+      "frame": "Zed found two extracts in the Twotide library. Narra the Teller says the same author wrote both. Zed is not so sure.",
+      "text": "Extract A. You have played this game before, haven't you? You know the level with the broken bridge. You know the music that plays when the lights go out. But have you ever noticed the door at the end of the hall? You walk past it every time. Tonight, try the handle. You will find it isn't locked. You will find a room you have never seen, with a single controller on the floor. The screen flickers, but you keep playing. Your thumbs feel cold. Somewhere in your house, a door you didn't open swings shut. Don't turn around. Not yet. First, look at the controller on the floor of that room. Look closely. It is the same colour as yours. It has the same scratch on the left button. It is yours.\n\nExtract B. You've played Robo Brawl, right? (If not, where have you BEEN?) You know the bit where the giant toaster attacks? I have lost to that toaster four hundred times. (It's a very good toaster.) So here's my tip: hide behind the fridge. The toaster hates fridges. Nobody knows why. (Possibly a family thing.) Also, never trust the kettle on level six. It looks friendly. It is not friendly. (It once stole my lunch. I'm still upset.) If you beat the toaster, you win a golden crumpet. I have never seen the golden crumpet. My cousin says it's real. My cousin also says he once ate a whole watermelon in one bite, so.",
+      "prompt": "Both extracts talk straight to you, the reader. What shows that they are by different authors?",
+      "success": "Both talk to you. Only Extract B adds jokes and asides in brackets. Extract A stays spooky.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Both are about video games and the people who love them.",
-            "reason": "They are, but a topic isn't a fingerprint. Any author could write about games."
+            "text": "Only Extract A talks to the reader, using the word you.",
+            "reason": "Count the you words in Extract B. Does it talk to you too?"
           },
           {
-            "text": "Both have a sad, gloomy mood.",
-            "reason": "Extract A is joyful and dazzling. Only Extract B is sad."
+            "text": "Extract A is about a video game, but Extract B is about a toaster.",
+            "reason": "Both are about games. And a topic is not a fingerprint anyway."
           },
           {
-            "text": "Both end on a cliffhanger.",
-            "reason": "Neither leaves you hanging. Extract B ends with a quiet, finished moment."
+            "text": "Only Extract B jokes and chats in brackets. Extract A stays spooky."
           },
           {
-            "text": "Both use long sentences built around colourful comparisons."
+            "text": "Extract B uses short sentences, but Extract A never does.",
+            "reason": "Look again at 'You walk past it every time.' Is that long?"
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     }
   ]

@@ -235,6 +235,19 @@
       "name": "Tickamound",
       "evolved": "Tickamonarch",
       "blurb": "A pebble-mound mouse that builds its home on the volcano's slopes one stone at a time. It drops a pebble for every checklist item a draft passes."
+    },
+    "write": {
+      "ask": "Rewrite Mo's notice so it passes every checklist item. Then find the proof for each one.",
+      "given": [
+        "Checklist: names the event, gives the exact day and time, says where.",
+        "Mo's notice: Pancake day is coming soon. Come hungry!"
+      ],
+      "starter": "Pancake day is on",
+      "checks": [
+        "I can point to proof for every item",
+        "My time is exact, not 'soon' or 'after lunch'"
+      ],
+      "model": "Pancake day is on Friday at 1.30 pm in the newsroom kitchen. Come hungry!"
     }
   },
   "encounters": [
@@ -414,27 +427,25 @@
       "band": 1,
       "topic": "general",
       "frame": "Indi wrote a thank-you note to Chief Editor Krak. Tickamound has dropped two pebbles.",
-      "prompt": "Tap the checklist item the draft fails.",
-      "success": "The note never says who it's from. It needs 'From Indi' at the end.",
+      "text": "Checklist for a thank-you note:\n1. Says who the note is to.\n2. Thanks them for something.\n3. Says who the note is from.\n\nIndi's draft:\nDear Chief Editor Krak,\nThank you for my new red pen. I use it every day.",
+      "prompt": "Which line should Indi add at the end to meet item 3?",
+      "success": "'From Indi' tells Krak who wrote the note, so item 3 is now met.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          "Indi's draft:\nDear Chief Editor Krak,\nThank you for my new red pen. I use it every day.\n\nChecklist for a thank-you note:\n",
+        "format": "choose",
+        "options": [
           {
-            "tap": "1. Says who the note is to.",
-            "reason": "'Dear Chief Editor Krak' says who it's to."
+            "text": "Thanks again for the pen",
+            "reason": "That thanks Krak again. It still doesn't say who the note is from."
           },
-          "\n",
           {
-            "tap": "2. Thanks them for something.",
-            "reason": "It thanks Krak for the red pen."
+            "text": "From Indi, your newest reporter"
           },
-          "\n",
           {
-            "tap": "3. Says who the note is from."
+            "text": "See you at the newsroom",
+            "reason": "That's a friendly ending, but it doesn't say who wrote the note."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -545,7 +556,7 @@
       "topic": "art",
       "frame": "Indi wrote captions for the newsroom art show. Tickamound is sorting them.",
       "text": "Checklist for an art show caption:\n1. Gives the title of the artwork.\n2. Gives the artist's name.\n3. Says what it is made from.",
-      "prompt": "Match each caption to the right pile.",
+      "prompt": "Does each caption meet every item? Sort them.",
       "success": "A caption passes only when it has all three: a title, the artist and what it's made from.",
       "body": {
         "format": "sort",
@@ -617,28 +628,42 @@
       "id": "8.8-b2-6",
       "band": 2,
       "topic": "funny",
-      "frame": "Mo's joke for the Rumble's funny page. Tickamound isn't laughing yet.",
-      "prompt": "Tap the checklist item Mo's joke fails.",
-      "success": "The joke is about a chicken in a band. Nothing in it is about Redpen Volcano.",
+      "frame": "Mo wrote instructions for the Rumble's funny page. Tickamound isn't laughing yet.",
+      "prompt": "Tap the step that fails item 2, then choose the fix.",
+      "success": "'Practise it on the dog, but don't expect a laugh' is one sentence, and it starts with a command verb.",
       "body": {
-        "format": "tapText",
+        "format": "fix",
         "parts": [
-          "Mo's draft:\nWhy did the chicken join the band? It had the drumsticks!\n\nChecklist for the funny page:\n",
+          "Checklist for instructions:\n1. Each step starts with a command verb.\n2. Each step is one sentence.\n\nMo's draft: How to tell a joke\n",
           {
-            "tap": "1. Starts with a question.",
-            "reason": "'Why did the chicken join the band?' is a question."
+            "tap": "1. Pick a joke you really like.",
+            "reason": "'Pick' is a command verb, and it's one sentence. It passes both items."
           },
           "\n",
           {
-            "tap": "2. Has a punchline that answers it.",
-            "reason": "'It had the drumsticks!' answers the question."
+            "tap": "2. Practise it on the dog. Don't expect a laugh."
           },
           "\n",
           {
-            "tap": "3. Is about Redpen Volcano."
+            "tap": "3. Tell it to a friend, slowly.",
+            "reason": "'Tell' is a command verb, and it's one sentence. It passes."
           }
         ],
-        "answer": 2
+        "spot": 1,
+        "options": [
+          {
+            "text": "2. Practise it on the dog. Don't laugh at it.",
+            "reason": "Still two sentences, so item 2 still fails."
+          },
+          {
+            "text": "2. Practise it on the dog, but don't expect a laugh."
+          },
+          {
+            "text": "2. The dog hears it first, but it won't laugh.",
+            "reason": "It's one sentence, but it doesn't start with a command verb, so item 1 breaks."
+          }
+        ],
+        "answer": 1
       }
     },
     {
@@ -646,29 +671,29 @@
       "band": 3,
       "topic": "spooky",
       "frame": "Zed's story opening for the spooky issue. Tickamound is clutching its pebbles.",
-      "text": "Checklist for a story opening:\n1. Names the main character.\n2. Says where the story is set.\n3. Includes a sound.\n4. Is written in the past tense.\n\nZed's draft:\nZed crept forward, holding his breath and gripping his torch. Somewhere ahead, something went drip, drip, drip. His torch flickered twice, then went out completely. He wished, more than anything, that he had stayed in bed.",
-      "prompt": "Which checklist item does Zed's draft fail?",
-      "success": "We know who and what happens, but never where. Is Zed in a cave, a house or a forest?",
+      "text": "Checklist for a story opening:\n1. Names the main character.\n2. Says where the story is set.\n3. Includes a sound.\n4. Is written in the past tense.\n\nZed's draft:\nZed crept down the cellar stairs, gripping his torch. The air smelt of wet dog. His torch flickered twice, then went out. Now something is growling in the dark.",
+      "prompt": "Which edit of the last sentence meets item 4 without breaking another item?",
+      "success": "'Growled' is past, so item 4 passes. The growl is still the draft's only sound, so item 3 passes too.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "1. Names the main character.",
-            "reason": "Zed is named in the very first sentence."
+            "text": "Then something moved in the dark.",
+            "reason": "It's past now, but the growl was the only sound, so item 3 breaks."
           },
           {
-            "text": "2. Says where the story is set."
+            "text": "Now something is growling in the dark below.",
+            "reason": "'Is growling' is still present, so item 4 still fails."
           },
           {
-            "text": "3. Includes a sound.",
-            "reason": "'Drip, drip, drip' is a sound."
+            "text": "Then something growled in the dark."
           },
           {
-            "text": "4. Is written in the past tense.",
-            "reason": "'Crept', 'went' and 'flickered' are all past tense."
+            "text": "Then something growls in the dark.",
+            "reason": "'Growls' is present too. Item 4 needs a past verb, like growled."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -677,20 +702,15 @@
       "topic": "food",
       "frame": "Mo reviewed a cafe on the crater rim. Tickamound found one item that isn't ticked.",
       "prompt": "Tap the part that fails item 3, then choose the fix.",
-      "success": "'Four stars out of five' is a star rating, so the review now meets item 3.",
+      "success": "The new first sentence gives four stars and still names the cafe, so items 1 and 3 both pass.",
       "body": {
         "format": "fix",
         "parts": [
           "Checklist for a cafe review:\n1. Names the cafe.\n2. Describes one dish.\n3. Gives a star rating.\n4. Says the price of a meal.\n\nMo's draft:\n",
           {
-            "tap": "Smoky's Cafe",
-            "reason": "That names the cafe, so item 1 is met."
+            "tap": "Smoky's Cafe earns a big thumbs up."
           },
-          " earns ",
-          {
-            "tap": "a big thumbs up"
-          },
-          ". It sits right on the rim of Redpen Volcano. Its lava burger comes with ",
+          " It sits right on the rim of Redpen Volcano. Its lava burger comes with ",
           {
             "tap": "cheese that bubbles like hot mud",
             "reason": "This describes a dish, so item 2 is met."
@@ -702,25 +722,25 @@
           },
           "."
         ],
-        "spot": 1,
+        "spot": 0,
         "options": [
           {
-            "text": "a round of applause",
-            "reason": "Applause is praise, but it isn't a rating, and item 3 needs stars."
+            "text": "This cafe earns four stars out of five.",
+            "reason": "It gives stars, but the cafe's name is gone, so item 1 breaks."
           },
           {
-            "text": "four stars out of five"
+            "text": "Smoky's Cafe earns a big round of applause.",
+            "reason": "Applause is praise, but item 3 needs a star rating."
           },
           {
-            "text": "a gold medal",
-            "reason": "A medal isn't a star rating. Item 3 needs stars."
+            "text": "Smoky's Cafe earns four stars out of five."
           },
           {
-            "text": "my top recommendation",
+            "text": "Smoky's Cafe earns my top recommendation.",
             "reason": "That praises the cafe, but it gives no stars."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -728,37 +748,37 @@
       "band": 3,
       "topic": "sport",
       "frame": "Tully's grand final report has to pass Tickamound's checklist before it's printed.",
-      "prompt": "Tap the sentence that breaks item 1.",
-      "success": "'Kicks' is present tense. To meet item 1 it should be 'Tully kicked the winning goal'.",
+      "prompt": "Tap the line that proves the draft meets item 2.",
+      "success": "Tully played, and her own words are in speech marks. That's the proof for item 2.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Checklist for a sports report:\n1. Uses past tense throughout.\n2. Includes a quote from a player.\n3. Gives the final score.\n\nTully's draft:\n",
+          "Checklist for a sports report:\n1. Gives the final score.\n2. Includes a quote from a player.\n\nTully's draft:\n",
           {
-            "tap": "The Reef Rays travelled to Redpen Volcano for Saturday's grand final.",
-            "reason": "'Travelled' is past tense, so this sentence meets item 1."
+            "tap": "The Reef Rays beat the Crater Crabs 64 to 58 in thick smoke.",
+            "reason": "That's the proof for item 1, the score. Nobody is quoted."
           },
           " ",
           {
-            "tap": "Thick smoke drifted across the ground for the whole first half.",
-            "reason": "'Drifted' is past tense. This sentence is fine."
+            "tap": "Tully kicked the winning goal from fifty metres out.",
+            "reason": "Tully is a player, but these aren't her own words in speech marks."
           },
           " ",
           {
-            "tap": "Tully kicks the winning goal in the very last minute."
+            "tap": "“What a kick!” yelled a fan behind the goals.",
+            "reason": "It's a quote, but a fan said it, not a player."
           },
           " ",
           {
-            "tap": "“I just shut my eyes and hoped,” Tully said after the game.",
-            "reason": "Every verb is past: shut, hoped and said. It's the player quote, too."
+            "tap": "“I just shut my eyes and hoped,” said Tully."
           },
           " ",
           {
-            "tap": "The Rays won 64 to 58.",
-            "reason": "'Won' is past tense, and it gives the final score."
+            "tap": "Coach Ray called it the best kick of the year.",
+            "reason": "The coach isn't a player, and his words aren't in speech marks."
           }
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
@@ -767,8 +787,8 @@
       "topic": "gaming",
       "frame": "Readers sent the Rumble their game reviews. Tickamound is sorting them by what's missing.",
       "text": "Checklist for a reader's game review:\n1. Names the game.\n2. Gives a score out of ten.\n3. Says who would enjoy it.",
-      "prompt": "Match each review to the checklist item it fails.",
-      "success": "Check each item in turn. Every review ticks two items and misses one.",
+      "prompt": "Which item does each review fail? Sort them.",
+      "success": "Five stars and ten levels are near misses. Item 2 needs a score out of ten.",
       "body": {
         "format": "sort",
         "bins": [
@@ -778,29 +798,29 @@
         ],
         "items": [
           {
-            "text": "Crater Quest is tricky but fun. Kids who love puzzles will enjoy it.",
+            "text": "Crater Quest gets five stars. Kids who love puzzles will enjoy it.",
             "bin": 1,
-            "reason": "It names the game and says who'd enjoy it, but gives no score."
+            "reason": "Five stars isn't a score out of ten, so item 2 fails."
           },
           {
-            "text": "I give Lava Leap nine out of ten. The music is amazing.",
+            "text": "I give it eight out of ten. Anyone who likes racing will love it.",
+            "bin": 0,
+            "reason": "It has a score and says who would enjoy it, but never names the game."
+          },
+          {
+            "text": "Lava Leap has ten levels. Speedrunners will love it.",
+            "bin": 1,
+            "reason": "Ten is the number of levels, not a score out of ten."
+          },
+          {
+            "text": "Rock Hopper scores nine out of ten. The music is amazing.",
             "bin": 2,
             "reason": "It names the game and scores it, but never says who would enjoy it."
           },
           {
-            "text": "This one is fast and loud. I give it six out of ten. Speedrunners will love it.",
-            "bin": 0,
-            "reason": "It has a score and says who'd enjoy it, but never names the game."
-          },
-          {
-            "text": "Rock Hopper looks great. Anyone who likes climbing games will enjoy it.",
-            "bin": 1,
-            "reason": "It names the game and the readers, but there's no score out of ten."
-          },
-          {
             "text": "Smoke Racers gets seven out of ten from me. The cars are so fast.",
             "bin": 2,
-            "reason": "It names the game and gives a score, but not who would enjoy it."
+            "reason": "The cars being fast is about the game, not who would enjoy it."
           }
         ]
       }
@@ -841,11 +861,11 @@
       "topic": "animals",
       "frame": "Wren's rescue report for the Rumble. Tickamound has dropped three pebbles out of four.",
       "prompt": "Tap the checklist item Wren's draft fails.",
-      "success": "The report never tells readers what to do if they find an echidna, so it fails item 4.",
+      "success": "'Wren knew exactly what to do' doesn't say what she did. Nothing in the report says how it was helped.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Wren's draft:\nYesterday afternoon, Wren found a baby echidna stuck in a drain beside the newsroom. She wrapped it in a towel and gave it water from a dropper. Ranger Kim picked it up an hour later. The echidna is now resting at the ranger station.\n\nChecklist for a rescue report:\n",
+          "Wren's draft:\nOn Tuesday afternoon, Wren found a baby echidna stuck in a drain beside the newsroom. Luckily, Wren knew exactly what to do. By Friday it was back in the bush, safe and well. If you find an echidna, leave it alone and call a ranger.\n\nChecklist for a rescue report:\n",
           {
             "tap": "1. Says what animal was rescued.",
             "reason": "It says a baby echidna was rescued."
@@ -853,19 +873,19 @@
           "\n",
           {
             "tap": "2. Says when it was found.",
-            "reason": "'Yesterday afternoon' says when."
+            "reason": "'On Tuesday afternoon' says when."
           },
           "\n",
           {
-            "tap": "3. Says how it was helped.",
-            "reason": "Wren wrapped it in a towel and gave it water."
+            "tap": "3. Says how it was helped."
           },
           "\n",
           {
-            "tap": "4. Says what readers should do if they find one."
+            "tap": "4. Says what readers should do if they find one.",
+            "reason": "'Leave it alone and call a ranger' tells readers what to do."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -873,29 +893,29 @@
       "band": 4,
       "topic": "general",
       "frame": "Indi's letter to the council is going on the Rumble's letters page. Tickamound is checking it first.",
-      "text": "Checklist for a persuasive letter:\n1. States the writer's opinion in the first sentence.\n2. Gives at least two reasons.\n3. Includes a number as evidence.\n4. Ends by asking the reader to act.\n\nIndi's draft:\nDear Councillor Ash,\nI believe the council should build a fence along the crater rim before someone falls in. Last month alone, three tourists slipped on the loose rocks near the lookout. The rim is also popular with school groups, who often wander off the path while they are taking photos of the lava. Thank you for taking the time to read my letter.\nYours sincerely,\nIndi",
-      "prompt": "Which checklist item does Indi's draft fail?",
-      "success": "The letter ends by thanking the reader, not asking them to act, such as 'Please build the fence before summer.'",
+      "text": "Checklist for a persuasive letter:\n1. States the writer's opinion in the first sentence.\n2. Gives at least two reasons.\n3. Includes a number as evidence.\n4. Ends by asking the reader to act.\n\nIndi's draft:\nDear Councillor Ash,\nI believe the council should build a fence along the crater rim. Last month alone, three tourists slipped on the loose rocks near the lookout. The rocks near the lookout are so loose that people slip on them all the time. Please build the fence before the summer holidays.\nYours sincerely,\nIndi",
+      "prompt": "Krak ticked item 2. Was he right?",
+      "success": "Count reasons, not sentences. Both sentences say people slip on the loose rocks, so it's one reason.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "1. States the writer's opinion in the first sentence.",
-            "reason": "'I believe the council should build a fence' opens the letter, so item 1 is met."
+            "text": "Yes. There are two sentences of reasons, so item 2 is met.",
+            "reason": "Count reasons, not sentences. Both say people slip on the loose rocks."
           },
           {
-            "text": "2. Gives at least two reasons.",
-            "reason": "Tourists slipping and school groups wandering are two reasons."
+            "text": "Yes. 'Three tourists' is a number, and numbers count as reasons.",
+            "reason": "That number is the evidence for item 3. It backs the same reason."
           },
           {
-            "text": "3. Includes a number as evidence.",
-            "reason": "'Three tourists' is a number used as evidence."
+            "text": "No. Both sentences give one reason: people slip on loose rocks."
           },
           {
-            "text": "4. Ends by asking the reader to act."
+            "text": "No. A persuasive letter needs at least three reasons to pass.",
+            "reason": "Item 2 asks for two. The problem is that the two are really one."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -904,7 +924,7 @@
       "topic": "ocean",
       "frame": "A whale report for the Rumble's front page. One word stops it passing Tickamound's checklist.",
       "prompt": "Tap the part that breaks item 4, then choose the fix.",
-      "success": "'Magnificent' is an opinion. 'Humpback' is a fact readers can check, so item 4 is now met.",
+      "success": "'Magnificent' is an opinion. '15-metre' and 'humpback' are facts readers can check, and no opinion word is left.",
       "body": {
         "format": "fix",
         "parts": [
@@ -932,19 +952,19 @@
         "spot": 1,
         "options": [
           {
-            "text": "majestic whale",
-            "reason": "'Majestic' is an opinion word, so item 4 would still fail."
+            "text": "lonely humpback whale",
+            "reason": "Nobody can check how a whale feels. 'Lonely' is the writer's guess, so it's an opinion."
           },
           {
-            "text": "breathtaking whale",
-            "reason": "'Breathtaking' is the writer's opinion, so item 4 would still fail."
+            "text": "graceful 15-metre whale",
+            "reason": "15 metres is a fact, but 'graceful' is the writer's opinion. Item 4 still fails."
           },
           {
-            "text": "humpback whale"
+            "text": "15-metre humpback whale"
           },
           {
-            "text": "glorious whale",
-            "reason": "'Glorious' is an opinion word. Item 4 says to leave those out."
+            "text": "brave humpback whale",
+            "reason": "'Brave' is the writer's judgement of the whale. It's an opinion word, so item 4 fails."
           }
         ],
         "answer": 2
@@ -955,12 +975,12 @@
       "band": 4,
       "topic": "gross-science",
       "frame": "Gus wrote instructions for a fizzing model volcano. Tickamound can smell the vinegar already.",
-      "prompt": "Tap the step that breaks item 3.",
-      "success": "Step 3 starts with 'The'. A command verb fixes it: 'Add the bicarb soda last, one spoonful at a time.'",
+      "prompt": "Tap the step that breaks item 3, then choose the fix.",
+      "success": "'Slowly' isn't a command verb. 'Tip' is, and this fix keeps the number and needs no new equipment.",
       "body": {
-        "format": "tapText",
+        "format": "fix",
         "parts": [
-          "Checklist for instructions:\n1. Lists the equipment first.\n2. Numbers each step.\n3. Starts each step with a command verb.\n4. Ends with a safety warning.\n\nThe draft:\nYou will need a plastic bottle, vinegar, bicarb soda and red food colouring.\n",
+          "Checklist for instructions:\n1. Lists the equipment first.\n2. Numbers each step.\n3. Starts each step with a command verb.\n4. Ends with a safety warning.\n\nThe draft:\nYou will need a plastic bottle, a measuring cup, a spoon, vinegar, bicarb soda and red food colouring.\n",
           {
             "tap": "1. Pour a cup of vinegar into the bottle.",
             "reason": "'Pour' is a command verb, so step 1 meets item 3."
@@ -972,7 +992,7 @@
           },
           "\n",
           {
-            "tap": "3. The bicarb soda goes in last, one spoonful at a time."
+            "tap": "3. Slowly tip in the bicarb soda, one spoonful at a time."
           },
           "\n",
           {
@@ -981,6 +1001,24 @@
           },
           "\nWarning: never point the bottle at anyone's face."
         ],
+        "spot": 2,
+        "options": [
+          {
+            "text": "3. Tipping in the bicarb soda slowly, one spoonful at a time.",
+            "reason": "'Tipping' doesn't tell you to do it. The command verb is 'Tip'."
+          },
+          {
+            "text": "Tip in the bicarb soda slowly, one spoonful at a time.",
+            "reason": "The step starts with a command verb now, but its number is gone. Item 2 would fail."
+          },
+          {
+            "text": "3. Tip in the bicarb soda slowly, one spoonful at a time."
+          },
+          {
+            "text": "3. Tip in the bicarb soda slowly through a funnel.",
+            "reason": "A funnel isn't in the equipment list, so item 1 would fail."
+          }
+        ],
         "answer": 2
       }
     },
@@ -988,22 +1026,28 @@
       "id": "8.8-b4-4",
       "band": 4,
       "topic": "music",
-      "frame": "The crew's band profile already names all four members. Tickamound is sorting the extra lines by what they add.",
-      "text": "Checklist for a band profile:\n1. Names every band member.\n2. Says what instrument each member plays.\n3. Gives the date of the next show.\n4. Includes a quote from the band.\n\nThe draft already meets item 1. Each line below could be added to help it meet one other item.",
-      "prompt": "Match each line to the checklist item it helps meet.",
-      "success": "Instruments answer item 2, a date answers item 3 and a member's own words in speech marks answer item 4.",
+      "frame": "The crew's band profile already names all four members. Tickamound is checking some extra lines.",
+      "text": "Checklist for a band profile:\n1. Names every band member.\n2. Says what instrument each member plays.\n3. Gives the date of the next show.\n4. Includes a quote from the band.\n\nThe draft already meets item 1. Some of these lines would meet another item all by themselves. Some only look as if they would.",
+      "prompt": "Which item would each line meet on its own? Sort them.",
+      "success": "Read each item's words. A past show, a list with no players and a fan's words are near misses.",
       "body": {
         "format": "sort",
         "bins": [
           "item 2: instruments",
           "item 3: next show",
-          "item 4: a band quote"
+          "item 4: a band quote",
+          "helps no item"
         ],
         "items": [
           {
-            "text": "Indi plays drums, Zed plays bass and Mo plays the spoons.",
+            "text": "Indi plays drums, Zed plays bass, Mo plays spoons and Wren plays keyboard.",
             "bin": 0,
-            "reason": "It says which instrument each of them plays."
+            "reason": "It says which instrument each member plays."
+          },
+          {
+            "text": "Their last show was on Friday 14 March in the car park.",
+            "bin": 3,
+            "reason": "Item 3 asks for the next show. This one is already over."
           },
           {
             "text": "“We play loud so the volcano can hear us,” says Indi.",
@@ -1011,14 +1055,19 @@
             "reason": "These are a band member's own words in speech marks."
           },
           {
-            "text": "Their next show is on Friday 14 March in the newsroom car park.",
+            "text": "The band uses drums, a bass, spoons and a keyboard.",
+            "bin": 3,
+            "reason": "It lists instruments, but not who plays each one, so item 2 isn't met."
+          },
+          {
+            "text": "Their next show is on Friday 9 May in the newsroom car park.",
             "bin": 1,
             "reason": "It gives the date of the next show."
           },
           {
-            "text": "Wren plays a keyboard shaped like a goat.",
-            "bin": 0,
-            "reason": "It says what instrument Wren plays."
+            "text": "A fan yelled, “Play the lava song again!”",
+            "bin": 3,
+            "reason": "It's a quote, but from a fan. Item 4 needs the band's words."
           },
           {
             "text": "“Our songs are mostly about lava,” Zed told the Rumble.",
@@ -1062,33 +1111,38 @@
       "id": "8.8-b4-6",
       "band": 4,
       "topic": "art",
-      "frame": "Indi's entry for the Redpen Art Prize. Tickamound has one pebble left to drop.",
-      "prompt": "Tap the checklist item Indi's draft fails.",
-      "success": "The entry never says what Ash Over the Bay is made from, such as paint, chalk or real ash.",
+      "frame": "Indi's entry for the Redpen Art Prize. Tickamound has four pebbles to drop.",
+      "prompt": "Tap the item Indi's draft fails, or the line that says it passes.",
+      "success": "Every item has proof, even where the words differ: 'the idea came' explains what inspired it. Don't invent a problem.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Indi's draft:\nMy artwork, Ash Over the Bay, shows a grey cloud drifting slowly across the harbour. I was inspired by the morning the volcano coughed and the whole town turned silver. Most of it is grey, with one bright orange boat in the corner to show that life goes on.\n\nChecklist for an art prize entry:\n",
+          "Indi's draft:\nMy artwork, Ash Over the Bay, shows a grey cloud drifting across the harbour. I mixed real ash from the crater into grey paint. The idea came the morning the volcano coughed and the whole town turned silver. One bright orange boat sits in the corner to show that life goes on.\n\nChecklist for an art prize entry:\n",
           {
             "tap": "1. Gives the title of the artwork.",
-            "reason": "'Ash Over the Bay' is the title."
+            "reason": "'Ash Over the Bay' is the title, so item 1 passes."
           },
           "\n",
           {
-            "tap": "2. Says what materials were used."
+            "tap": "2. Says what materials were used.",
+            "reason": "'Real ash from the crater' mixed 'into grey paint' names the materials."
           },
           "\n",
           {
             "tap": "3. Explains what inspired it.",
-            "reason": "The morning the volcano coughed inspired it."
+            "reason": "'The idea came the morning the volcano coughed' explains it, without the word inspired."
           },
           "\n",
           {
-            "tap": "4. Stays under 60 words.",
-            "reason": "The entry is 49 words, so it stays under 60."
+            "tap": "4. Explains one choice the artist made.",
+            "reason": "The orange boat is there 'to show that life goes on'. That explains one of Indi's choices."
+          },
+          "\n",
+          {
+            "tap": "It passes every item."
           }
         ],
-        "answer": 1
+        "answer": 4
       }
     }
   ]

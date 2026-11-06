@@ -34,6 +34,7 @@ function skillFile(id: `${number}.${number}`, perBand = 6): SkillFile {
         ],
       },
       creature: { id: `c${id}`, name: `Critter ${id}`, evolved: `Big Critter ${id}`, blurb: '' },
+      write: { ask: `Write a sentence using move ${id}.`, checks: ['It uses the move'], model: `A model sentence for ${id}.` },
     },
     encounters,
   };

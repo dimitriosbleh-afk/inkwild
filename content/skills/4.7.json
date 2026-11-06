@@ -324,6 +324,19 @@
       "name": "Plonkett",
       "evolved": "Plonkettrill",
       "blurb": "A banjo frog whose call goes plonk across the swamp at night. It loves words that bounce, bang and rhyme."
+    },
+    "write": {
+      "ask": "Rewrite this sentence so we can hear the rain. Use a noise word and alliteration.",
+      "given": [
+        "The rain fell on the roof of the boat."
+      ],
+      "starter": "Plink!",
+      "checks": [
+        "I used a word that sounds like its noise.",
+        "Nearby words start with the same sound.",
+        "It is still about rain on the boat."
+      ],
+      "model": "Plink, plonk! Raindrops rattled on the roof of the rocking boat all night long."
     }
   },
   "encounters": [
@@ -719,31 +732,31 @@
       "band": 3,
       "topic": "gross-science",
       "frame": "Gus wrote up his latest slime experiment. The Plonkett was in the lab when it happened.",
-      "prompt": "Tap the sentence that uses onomatopoeia.",
-      "success": "Splat sounds like a lump of slime smacking the floor. It's a word that sounds like its noise.",
+      "prompt": "Tap the sentence that uses onomatopoeia. Careful: a word can name a sound without sounding like one.",
+      "success": "Splat sounds like slime smacking the floor. Noise and heard tell you about a sound, but don't copy it.",
       "body": {
         "format": "tapText",
         "parts": [
           "Lab report, Experiment 47: Super Slime. I mixed glue, borax and a cup of mangrove mud in a big glass jar, then stirred it for exactly ten minutes with a wooden spoon. The aim was to make the stretchiest slime on the island, strong enough to catch a Goldie's boot. ",
-          {
-            "tap": "The slime came out bright green and very wobbly.",
-            "reason": "This tells you its colour and shape. No word here sounds like a noise."
-          },
-          " I lifted out a lump to test it. ",
           {
             "tap": "It stretched like warm cheese between my fingers.",
             "reason": "This compares the slime to cheese. It's about how it looks and feels, not a noise."
           },
           " So far, so good. Then the Plonkett jumped onto the bench to see what I was doing. ",
           {
-            "tap": "The jar tipped over, and half the slime hit the floor with a splat."
+            "tap": "The jar tipped over with a terrible noise.",
+            "reason": "Noise names a sound, but the word doesn't sound like one. Say it aloud."
           },
-          " The Plonkett jumped straight into the puddle, and it took me twenty minutes to get it out. ",
+          " ",
           {
-            "tap": "I grinned and wrote 'A great success' in my notebook.",
-            "reason": "This tells you how Gus felt. No word in it sounds like a noise."
+            "tap": "Half the slime hit the floor with a splat."
           },
-          " Result: the slime is extremely strong and can hold a frog. Next time, I will put a lid on the jar. That's not gross. That's science."
+          " ",
+          {
+            "tap": "I heard the Plonkett land in the puddle.",
+            "reason": "Heard tells you there was a sound. No word here copies that sound."
+          },
+          " It took me twenty minutes to get it out. Result: the slime is extremely strong and can hold a frog. Next time, I will put a lid on the jar. That's not gross. That's science."
         ],
         "answer": 2
       }
@@ -753,9 +766,9 @@
       "band": 3,
       "topic": "sport",
       "frame": "Tully wrote a poem about the swimming carnival for the school newsletter.",
-      "text": "Tully wrote this poem about the Year 5 and 6 relay at the island swimming carnival. She read it aloud at the presentation night, and the whole relay team stood up and bowed.\n\nTHE RELAY\n\nThe whistle blows. The race is on.\nSwift swimmers slice through the shining water.\nSplash! Each arm dives into the pool.\nThe lanes are churning, foaming, white.\n\nHear them cheer, both far and near.\nThe parents stand. The teachers yell.\nThe last swimmer turns, and kicks, and pushes.\nRuby wins it, half a metre in front.\n\nThe ribbons come, the photos flash,\nand everybody's soaking wet.\nThe relay team all hug and jump,\nthe best race that we've seen yet.\n\nAfterwards, Ms Ali asked Tully which line she was proudest of. Tully said the ending, because it had taken her a whole week to get it sounding right.",
-      "prompt": "Which line from Tully's poem uses alliteration?",
-      "success": "Swift, swimmers and slice start with the same sound, close together. That's alliteration.",
+      "text": "Tully wrote this poem about the Year 5 and 6 relay at the island swimming carnival. She read it aloud at the presentation night, and the whole relay team stood up and bowed.\n\nTHE RELAY\n\nThe whistle blows. The race is on.\nOur keen coach calls out to Kai.\nSplash! Each arm dives into the pool.\nCheering crowds circle the stands.\n\nHear them cheer, both far and near.\nThe parents stand. The teachers yell.\nThe last swimmer turns, and kicks, and pushes.\nRuby wins it, half a metre in front.\n\nThe ribbons come, the photos flash,\nand everybody's soaking wet.\nThe relay team all hug and jump,\nthe best race that we've seen yet.\n\nAfterwards, Ms Ali asked Tully which line she was proudest of. Tully said the ending, because it had taken her a whole week to get it sounding right.",
+      "prompt": "Read each line aloud. Which line from Tully's poem uses alliteration? Listen, don't just look.",
+      "success": "Keen, coach, calls and Kai all start with the same k sound, even though they look different.",
       "body": {
         "format": "choose",
         "options": [
@@ -768,11 +781,11 @@
             "reason": "Splash sounds like its noise, so it's onomatopoeia. The words don't start with the same sound."
           },
           {
-            "text": "Swift swimmers slice through the shining water."
+            "text": "Our keen coach calls out to Kai."
           },
           {
-            "text": "Ruby wins it, half a metre in front.",
-            "reason": "Say it aloud. Each of these words starts with a different sound."
+            "text": "Cheering crowds circle the stands.",
+            "reason": "Say it aloud: ch, cr, s. Three different starting sounds, even though they look alike."
           }
         ],
         "answer": 2
@@ -783,41 +796,47 @@
       "band": 3,
       "topic": "ocean",
       "frame": "Poet Pip wrote a poem after her dive on the reef. The Plonkett can't swim that deep, so it stayed in the boat.",
-      "text": "REEF DIVE\nby Poet Pip\n\nWe roll backwards off the boat,\ninto a world of green and blue.\nThe chain clanks against the hull.\nThen everything goes quiet.\n\nBright blue butterflyfish bob below.\nSilver sardines swirl in a shimmering school.\nWe drift beside the coral reef.\nA turtle nibbles on a leaf.\n\nAn octopus peers out of a crack,\nthen squeezes in and won't come back.\nOur air runs low, it's time to rise.\nWe climb aboard with salty eyes.\n\nPoet Pip says she wrote the poem on the boat ride home, with a wet towel round her shoulders, and she read it out loud to herself again and again. 'A poem isn't finished,' she says, 'until it sounds right in your mouth.' She changed one line six times before she was happy with it.",
-      "prompt": "Match each line or pair of lines to the sound device it uses.",
-      "success": "Repeated starts are alliteration. Clanks sounds like its noise. Reef and leaf, rise and eyes rhyme.",
+      "text": "REEF DIVE\nby Poet Pip\n\nWe roll backwards off the boat,\ninto a world of green and blue.\nThe chain clanks against the hull.\nThen everything goes quiet.\nPale coral, chalky white and cinnamon brown,\nstretches out beneath us.\n\nBright blue butterflyfish bob below.\nKelp curls and coils in the current.\nWe float above the coral bed.\nA turtle bumps me on the head.\n\nAn octopus peers out of a crack,\nthen squeezes in and won't come back.\nOur air runs low, it's time to rise.\nWe climb aboard with salty eyes.\n\nPoet Pip says she wrote the poem on the boat ride home, with a wet towel round her shoulders, and she read it out loud to herself again and again. 'A poem isn't finished,' she says, 'until it sounds right in your mouth.' She changed one line six times before she was happy with it.",
+      "prompt": "Read each line aloud and match it to its sound device. Listen, don't just look.",
+      "success": "Kelp and coils share a k sound. Coral, chalky and cinnamon look alike but start with three different sounds.",
       "body": {
         "format": "sort",
         "bins": [
           "alliteration",
           "onomatopoeia",
-          "rhyme"
+          "rhyme",
+          "no sound device"
         ],
         "items": [
           {
             "text": "Bright blue butterflyfish bob below.",
             "bin": 0,
-            "reason": "Bright, blue, butterflyfish, bob and below all start with the same sound."
+            "reason": "Say it aloud. Listen to the first sound of each word."
           },
           {
-            "text": "Silver sardines swirl in a shimmering school.",
-            "bin": 0,
-            "reason": "Silver, sardines, swirl and school all start with the same sound."
+            "text": "Pale coral, chalky white and cinnamon brown.",
+            "bin": 3,
+            "reason": "Say coral, chalky and cinnamon aloud. Do they really start with the same sound?"
           },
           {
             "text": "The chain clanks against the hull.",
             "bin": 1,
-            "reason": "Clanks sounds like the noise of metal hitting metal."
+            "reason": "Which word sounds like metal hitting metal?"
           },
           {
-            "text": "We drift beside the coral reef. A turtle nibbles on a leaf.",
+            "text": "Kelp curls and coils in the current.",
+            "bin": 0,
+            "reason": "Say kelp, curls and coils aloud. Listen to the first sound, not the letter."
+          },
+          {
+            "text": "We float above the coral bed. A turtle bumps me on the head.",
             "bin": 2,
-            "reason": "Reef and leaf rhyme at the ends of the two lines."
+            "reason": "Say the last word of each line aloud. Do the endings match?"
           },
           {
             "text": "Our air runs low, it's time to rise. We climb aboard with salty eyes.",
             "bin": 2,
-            "reason": "Rise and eyes rhyme at the ends of the two lines."
+            "reason": "Say rise and eyes aloud. Listen to how they end."
           }
         ]
       }
@@ -829,42 +848,42 @@
       "frame": "Tully is teaching the crew the Reef Rays club song. Mo wrote a note about it, but got one word wrong.",
       "text": "Every footy club has a song, and Tully thinks the Reef Rays song is the best one in the league. The players sing it in the rooms after every win, and the fans sing it in the stands, usually much too loudly. This week, she decided the whole crew had to learn it before the grand final. She made everyone stand on the deck in a line and sing it six times.\n\nTHE REEF RAYS SONG\n\nWe are the Rays, the Reef Rays!\nWe play it hard, we play it fair.\nWe fly so high we touch the sky,\nwe kick it long and through the air.\nSo clap your hands and stamp your feet,\nthe Reef Rays never know defeat!\n\nBy the sixth time, Mo knew all the words, Zed was conducting with a spoon, and the Plonkett was croaking along on every beat.",
       "prompt": "Tap the word Mo got wrong, then choose a better one.",
-      "success": "Sky. 'High' and 'sky' rhyme inside the third line of the song.",
+      "success": "Sky. 'High' and 'sky' end with the same sound inside the third line. Hard only starts the same.",
       "body": {
         "format": "fix",
         "parts": [
-          "In the Reef Rays song, 'fair' rhymes with '",
+          "In the Reef Rays song, 'high' rhymes with '",
+          {
+            "tap": "hard"
+          },
+          "', 'fair' rhymes with '",
           {
             "tap": "air",
-            "reason": "That's right. Fair and air rhyme at the ends of lines 2 and 4."
+            "reason": "Say 'fair' and 'air' aloud. Their endings sound the same, at the ends of lines 2 and 4."
           },
-          "', 'feet' rhymes with '",
+          "', and 'feet' rhymes with '",
           {
             "tap": "defeat",
-            "reason": "That's right. Feet and defeat rhyme at the ends of the last two lines."
-          },
-          "', and 'high' rhymes with '",
-          {
-            "tap": "long"
+            "reason": "Say 'feet' and 'defeat' aloud. Their endings match in the last two lines."
           },
           "'."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "hard",
-            "reason": "Say 'high' and 'hard' aloud. They start the same, but they don't rhyme."
+            "text": "hands",
+            "reason": "Say 'high' and 'hands' aloud. They start the same, but the endings don't match."
           },
           {
             "text": "sky"
           },
           {
-            "text": "hands",
-            "reason": "Say 'high' and 'hands' aloud. They don't rhyme."
+            "text": "long",
+            "reason": "Say 'high' and 'long' aloud. The endings sound different."
           },
           {
-            "text": "kick",
-            "reason": "Say 'high' and 'kick' aloud. They don't rhyme."
+            "text": "touch",
+            "reason": "Say 'high' and 'touch' aloud. They don't sound alike at all."
           }
         ],
         "answer": 1
@@ -965,8 +984,8 @@
       "band": 4,
       "topic": "robots",
       "frame": "Maxx Vantablack's newest ad is playing on a giant screen at the ferry terminal. The Plonkett is croaking along.",
-      "prompt": "Tap the line from Maxx's jingle that uses alliteration.",
-      "success": "Maxx's, Marvellous, Mega and Machine all start with the same sound, so the name sticks in your head.",
+      "prompt": "Tap the line from Maxx's jingle that uses alliteration. Read it aloud: one line only looks like it does.",
+      "success": "Quick, clever, king and kitchen all start with a k sound, so the line bounces. Circles, chimes and colours don't.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -980,9 +999,14 @@
             "tap": "It cleans your room, it makes your bed, it even combs your grandad's head.",
             "reason": "Bed and head rhyme. The words don't start with the same sound close together."
           },
-          "\nIt never sleeps, it never stops.\nIt even does the weekly shops.\n",
+          "\n",
           {
-            "tap": "Maxx's Marvellous Mega-Machine!"
+            "tap": "It's quick, it's clever, it's king of the kitchen!"
+          },
+          "\n",
+          {
+            "tap": "Circles, chimes and colours, all in gold!",
+            "reason": "Say it aloud: s, ch, k. They look alike, but each starts with a different sound."
           },
           "\n\nMAXX: That's right! Every Mega-Machine is polished by hand, by me, personally, in my gold workshop on the Vantadome. It comes in gold, double gold and a special edition that is also gold. Each one arrives in a gold box, with a gold remote and a gold bow on top. Thousands of happy fans have already ordered three each. ",
           {
@@ -998,42 +1022,41 @@
       "id": "4.7-b4-3",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren wrote a poem about the wetland at dusk for Poet Pip, who has asked the crew to study it.",
+      "frame": "Wren wrote a poem about the wetland at dusk. Then she tried changing five lines.",
       "text": "Wren doesn't usually write poems. She says she prefers animals to words, because animals never argue about commas. But after a whole evening sitting by the lagoon on the far side of Mirage Mangroves, she had counted eleven different animal sounds in one hour. She tried to fit as many as she could into a poem, and wrote it down in the back of her field notebook and showed it to Poet Pip.\n\nTHE LAGOON AT DUSK\n\nThe sun goes down behind the trees.\nThe water turns to copper glass.\nTwo black swans glide across the bay.\nThe reeds bow down to let them pass.\n\nThen everything begins to sing.\nThe frogs go plonk. The crickets chirp.\nA pelican lands with a splash,\nand gulps a fish, and gives a burp.\n\nThe mosquitoes muster in the murk.\nThe bats wake up inside their camp.\nThe stars appear, the moon is high,\nthe whole lagoon grows cool and damp.\n\nPoet Pip read it twice. Then she said it was the first poem she had ever read that made her want to put on insect spray. Wren took that as a compliment. Then she asked if she could put it on the island's welcome sign.",
-      "prompt": "Match each line or pair of lines from Wren's poem to the sound device it uses.",
-      "success": "Repeated starts are alliteration, words that copy noises are onomatopoeia, and matching line endings are rhyme.",
+      "prompt": "Read each change aloud. Does it add a sound device, or lose one?",
+      "success": "Slide silently and buzz add sound. Call out, sing and 'let them by' lose a noise word or the rhyme.",
       "body": {
         "format": "sort",
         "bins": [
-          "alliteration",
-          "onomatopoeia",
-          "rhyme"
+          "adds a sound device",
+          "loses a sound device"
         ],
         "items": [
           {
-            "text": "The mosquitoes muster in the murk.",
+            "text": "'The frogs go plonk' becomes 'The frogs call out'.",
+            "bin": 1,
+            "reason": "Which version has a word that sounds like the frog? Which one lost it?"
+          },
+          {
+            "text": "'Two black swans glide across the bay' becomes 'Two swans slide silently across the bay'.",
             "bin": 0,
-            "reason": "Mosquitoes, muster and murk all start with the same sound."
+            "reason": "Say the new line aloud. Listen to the first sounds of swans, slide and silently."
           },
           {
-            "text": "The frogs go plonk.",
+            "text": "'The reeds bow down to let them pass' becomes 'The reeds bow down to let them by'.",
             "bin": 1,
-            "reason": "Plonk sounds like the call it names. That's onomatopoeia."
+            "reason": "Look at the line before it: copper glass. Does the new ending still match?"
           },
           {
-            "text": "The crickets chirp.",
+            "text": "'Then everything begins to sing' becomes 'Then everything begins to buzz'.",
+            "bin": 0,
+            "reason": "Say the new word aloud. Does it sound like the noise it names?"
+          },
+          {
+            "text": "'The crickets chirp' becomes 'The crickets sing'.",
             "bin": 1,
-            "reason": "Chirp copies the sound a cricket makes."
-          },
-          {
-            "text": "A pelican lands with a splash.",
-            "bin": 1,
-            "reason": "Splash sounds like a big bird hitting the water."
-          },
-          {
-            "text": "The water turns to copper glass. The reeds bow down to let them pass.",
-            "bin": 2,
-            "reason": "Glass and pass rhyme at the ends of these lines."
+            "reason": "Which version has a word that copies the cricket? Which one lost it?"
           }
         ]
       }
@@ -1072,45 +1095,45 @@
       "id": "4.7-b4-5",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed wrote a theme song for his game Swamp Quest, and a note explaining it. Tully spotted a mistake in the note.",
-      "text": "Zed has been building his game, Swamp Quest, for most of the term. The hero is a Plonkett who has to rescue Creatures from a gold castle in the middle of the swamp. The castle is guarded by goblins, rolling barrels and a very grumpy robot crocodile. The game needed a theme song, so Zed wrote one, and Mo, Gus and Indi recorded it on the deck using a bucket, two spoons and a ukulele with only three strings. It took them nine tries to get through it without Mo laughing, and the Plonkett joined in on the chorus.\n\nSWAMP QUEST THEME\n\nBeat the boss and bag the bonus!\nJump the gaps and dodge the darts!\nWhack! Thud! The goblin's down.\nNow grab the key and save the hearts!\n\nWe hop by day, we fight by night.\nWe never stop, we never quit.\nThe castle's gold, the castle's tall,\nbut one small frog can conquer it.\n\nZed then wrote a note for the game's help screen, explaining the sound devices he used, because he says every good game has a help screen that nobody reads. Tully read it. She found one mistake. Zed says he will fix it in the next update, which could be any time between tomorrow and Year 7.",
-      "prompt": "Tap the word Zed got wrong, then choose a better one.",
-      "success": "Alliteration. Beat, boss, bag and bonus all start with the same sound, close together.",
+      "frame": "Zed wrote a theme song for his game Swamp Quest, and a note on what its sounds do. Tully spotted a mistake.",
+      "text": "Zed has been building his game, Swamp Quest, for most of the term. The hero is a Plonkett who has to rescue Creatures from a gold castle in the middle of the swamp. The castle is guarded by goblins, rolling barrels and a very grumpy robot crocodile. The game needed a theme song, so Zed wrote one, and Mo, Gus and Indi recorded it on the deck using a bucket, two spoons and a ukulele with only three strings. It took them nine tries to get through it without Mo laughing, and the Plonkett joined in on the chorus.\n\nSWAMP QUEST THEME\n\nBeat the boss and bag the bonus!\nJump the gaps and dodge the darts!\nWhack! Thud! The goblin's down.\nNow grab the key and save the hearts!\n\nWe hop by day, we fight by night.\nWe never stop, we never quit.\nThe castle's gold, the castle's tall,\nbut one small frog can conquer it.\n\nZed wanted the song to sound like a fight you could win. He then wrote a note for the help screen, explaining what his sound devices do, because he says every good game has a help screen that nobody reads. Tully read it. She found one mistake. Zed says he will fix it in the next update, which could be any time between tomorrow and Year 7.",
+      "prompt": "Tap the part Zed got wrong, then choose a better one.",
+      "success": "Punchy, like hits. The hard b sounds bounce like blows in a fight Zed wants you to win.",
       "body": {
         "format": "fix",
         "parts": [
-          "The first line, 'Beat the boss and bag the bonus', uses ",
+          "The alliteration in 'Beat the boss and bag the bonus' makes the line feel ",
           {
-            "tap": "rhyme"
+            "tap": "soft and sleepy"
           },
-          ". In the third line, 'Whack! Thud!' is ",
+          ". 'Whack! Thud!' lets players ",
           {
-            "tap": "onomatopoeia",
-            "reason": "That's right. Whack and thud sound like the noises of a fight."
+            "tap": "hear the goblin go down",
+            "reason": "Whack and thud copy the noises of a fight. Players can hear the goblin fall."
           },
-          ". In the second stanza, 'night' ",
+          ". The steady beat of 'We never stop, we never quit' makes the frog sound ",
           {
-            "tap": "rhymes",
-            "reason": "That's right. Say night and fight aloud. Their endings sound the same."
+            "tap": "determined",
+            "reason": "Never stop, never quit, in an even beat. The frog keeps going. That fits."
           },
-          " with 'fight'."
+          "."
         ],
         "spot": 0,
         "options": [
           {
-            "text": "onomatopoeia",
-            "reason": "None of these words sounds like a noise. What repeats is the starting sound of nearby words."
+            "text": "slow and gentle",
+            "reason": "Say the b words aloud. They are hard, quick sounds, and the line ends with an exclamation mark."
           },
           {
-            "text": "alliteration"
+            "text": "punchy, like hits"
           },
           {
-            "text": "hyperbole",
-            "reason": "Nothing in the line is exaggerated. What repeats is the starting sound of nearby words."
+            "text": "sad, like losing",
+            "reason": "The line is about beating the boss and grabbing a prize. Nothing is lost."
           },
           {
-            "text": "simile",
-            "reason": "Nothing in the line is compared using 'like' or 'as'."
+            "text": "spooky, like a ghost",
+            "reason": "Nothing in the song is ghostly. Zed wanted it to sound like a fight."
           }
         ],
         "answer": 1
@@ -1122,28 +1145,28 @@
       "topic": "space",
       "frame": "A crackly message has reached the Soggy Biscuit's radio. Zed wrote it down, word for word.",
       "text": "Zed was on night watch when the old radio in the wheelhouse came to life. It was the island's amateur radio club, who had been trying for weeks to talk to the space station as it passed overhead. They had finally done it, and they were reading out the astronaut's reply for anyone listening. Zed grabbed a pencil and wrote down everything he heard.\n\n'This is the station, passing over the southern islands. Down below, I can see the lights of your towns scattered like spilled glitter. The sea is black. There's a storm out to the east, flashing on and off. Up here it's so quiet that I can hear my own heartbeat. Thank you, Mirage Mangroves. Your signal is coming through clear. We'll pass over you again tomorrow, at the same time.'\n\nThen the line Zed underlined twice in his notebook:\n\nThe radio crackles, then hisses into silence.\n\nHe sat there in the dark for a long time after that, looking up, wondering which of the moving lights was the station. In the morning he told the crew, and Tully worked out exactly when it would come over again.",
-      "prompt": "Which device does the line 'The radio crackles, then hisses into silence' use?",
-      "success": "Onomatopoeia. Crackles and hisses sound like the noises an old radio makes.",
+      "prompt": "What does 'The radio crackles, then hisses into silence' do at the end of the scene?",
+      "success": "Crackles and hisses let you hear the signal fade. Then silence, and Zed sits alone in the dark, looking up.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "alliteration",
-            "reason": "Say it aloud. The nearby words start with different sounds."
+            "text": "Its noise words let you hear the signal fade, leaving Zed alone in the quiet."
           },
           {
-            "text": "rhyme",
-            "reason": "The line doesn't end with a word that rhymes with another line. Crackles and hisses copy noises."
+            "text": "It shows the radio broke, so they can never talk to the station again.",
+            "reason": "The astronaut says they'll pass over again tomorrow, and Tully works out when."
           },
           {
-            "text": "onomatopoeia"
+            "text": "Its rhymes make the message easy for Zed to remember word for word.",
+            "reason": "No words in the line rhyme. Crackles and hisses copy the noises of the radio."
           },
           {
-            "text": "simile",
-            "reason": "Nothing in the line is compared using 'like' or 'as'."
+            "text": "Its noise words show that the storm in the east is getting closer.",
+            "reason": "The storm is far out to the east, seen from space. The crackle is the signal ending."
           }
         ],
-        "answer": 2
+        "answer": 0
       }
     }
   ]

@@ -271,6 +271,20 @@
       "name": "Suitrel",
       "evolved": "Suitrelion",
       "blurb": "A nankeen kestrel that hovers over the volcano's slopes, studying who is below. Only when it knows its reader does it dive with the right words."
+    },
+    "write": {
+      "ask": "Rewrite Tully's footy news for her coach, who missed the game. Keep only what a coach needs.",
+      "given": [
+        "We won! I got so muddy, and Mia was amazing.",
+        "Final score: 58 to 46. Mia kicked four goals."
+      ],
+      "starter": "We won",
+      "checks": [
+        "I gave the score",
+        "I said who kicked goals",
+        "I cut the mud and the feelings"
+      ],
+      "model": "We won 58 to 46, and Mia kicked four goals."
     }
   },
   "encounters": [
@@ -672,121 +686,132 @@
       "id": "8.9-b3-1",
       "band": 3,
       "topic": "general",
-      "frame": "Indi is writing to the council about the crater path. Suitrel is hovering over two edits.",
-      "text": "Indi wants the council to fix the crater path. Councillors want facts they can check and act on.\n\nEdit A: The path is so terrible that I nearly cried the last time I walked on it.\nEdit B: Twelve steps on the path are cracked, and two people tripped there last week.",
-      "prompt": "Which edit suits the council better, and why?",
-      "success": "Cracked steps and people tripping are facts the council can check. That helps them decide.",
+      "frame": "Indi's letter about the crater path reached the council. Suitrel is hovering over two edits.",
+      "text": "The council has already agreed to fix the path. Indi's letter now goes to the repair crew, who have never walked the crater path.\n\nEdit A: Twelve steps are cracked, and two people tripped on them last week.\nEdit B: The cracked steps are the twelve just below the lookout, past the yellow bin.",
+      "prompt": "Which edit suits the repair crew better, and why?",
+      "success": "The crew doesn't need persuading, and they don't know the path. Edit B tells them where to go.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Edit A, because it uses 'I', so it sounds like a real letter.",
-            "reason": "True, but councillors need facts they can check, not how the letter sounds."
+            "text": "Edit A, because two people tripping shows how urgent the job is.",
+            "reason": "True, but the council has already said yes. The crew needs to find the steps."
           },
           {
-            "text": "Edit B, because it is shorter and quicker to read.",
-            "reason": "It is a little shorter, but that isn't what matters. What can councillors check?"
+            "text": "Edit A, because it counts the steps, so the crew knows the size of the job.",
+            "reason": "Edit B counts them too: the twelve below the lookout. It also says where they are."
           },
           {
-            "text": "Edit A, because it shows the council how serious the problem is for Indi.",
-            "reason": "It shows how Indi feels, but councillors can't measure a feeling or know what to fix."
+            "text": "Edit B, because the crew can walk straight to the broken steps."
           },
           {
-            "text": "Edit B, because it counts the cracked steps and the people who tripped."
+            "text": "Edit B, because it would persuade the council that the path is dangerous.",
+            "reason": "The council has already agreed, and B doesn't show danger. It helps the crew find the steps."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "8.9-b3-2",
       "band": 3,
       "topic": "animals",
-      "frame": "Wren made a fact card for the kinder visit. Suitrel spotted a line that doesn't fit.",
-      "prompt": "Tap the sentence that doesn't suit five-year-olds, then choose the edit that does.",
-      "success": "'Eats bugs and plants' and 'loves lying on warm rocks' say the same thing in words five-year-olds know.",
+      "frame": "Wren is writing a fact card for the Reptile Club. Suitrel spotted a line that misses.",
+      "prompt": "Tap the sentence the Reptile Club doesn't need, then choose the edit that suits them.",
+      "success": "Club members already know what dragons eat. A tip about what a wave means is new to them.",
       "body": {
         "format": "fix",
         "parts": [
-          "A teacher will read this card aloud to five-year-olds.\n\n",
+          "Every Reptile Club member owns a bearded dragon. They know what dragons eat and how to keep them warm. They want to understand what their dragon's body is telling them.\n\n",
           {
-            "tap": "Meet the bearded dragon!",
-            "reason": "A cheerful hello suits five-year-olds. Keep it."
+            "tap": "Welcome back, dragon keepers!",
+            "reason": "A friendly hello suits club members. Keep it."
           },
           " ",
           {
-            "tap": "It has spikes under its chin.",
-            "reason": "Simple words that are easy to picture. This suits them."
+            "tap": "Bearded dragons eat bugs and plants."
           },
           " ",
           {
-            "tap": "It is an ectothermic omnivore."
+            "tap": "A puffed-out black beard can mean your dragon feels unsafe.",
+            "reason": "This explains what a dragon's body is saying. It's what members want."
           },
           " ",
           {
-            "tap": "Would you like to hold one?",
-            "reason": "A friendly question suits young listeners. Keep it."
+            "tap": "Bring your dragon stories to the next meeting!",
+            "reason": "An invitation suits club members. Keep it."
           }
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "It is a cold-blooded reptile with an omnivorous diet.",
-            "reason": "'Cold-blooded' and 'omnivorous' are words five-year-olds won't know."
+            "text": "Bearded dragons eat crickets, worms and leafy greens.",
+            "reason": "It's more exact, but members already know what their dragons eat."
           },
           {
-            "text": "It eats bugs and plants and loves lying on warm rocks."
+            "text": "A bearded dragon is a lizard with spikes under its chin.",
+            "reason": "Members own dragons, so they already know what one looks like."
           },
           {
-            "text": "Scientists class it as an ectotherm and an omnivore.",
-            "reason": "That's correct, but 'ectotherm' and 'omnivore' are too hard for five-year-olds."
+            "text": "A dragon that slowly waves one arm is often saying “I give up.”"
           },
           {
-            "text": "It regulates its temperature by basking in sunlight.",
-            "reason": "'Regulates' and 'temperature' are words five-year-olds won't know."
+            "text": "Bearded dragons make great pets for a family.",
+            "reason": "Every member already owns one. They want to understand theirs."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
       "id": "8.9-b3-3",
       "band": 3,
       "topic": "art",
-      "frame": "Indi wrote lines about her lava mural for two different readers. Suitrel is sorting them.",
-      "prompt": "Match each line to the reader it suits better.",
-      "success": "Judges want art words, materials and exact details. Young kids want everyday words and fun things to spot.",
+      "frame": "Indi is writing about her lava mural twice. Suitrel is sorting her lines.",
+      "text": "One piece is for the art prize judges, who will score how the mural was made. The other is for the island visitor guide.",
+      "prompt": "Which reader does each line suit better? Sort them.",
+      "success": "Judges score how and why it was made. Visitor guide readers want to know how to go and see it.",
       "body": {
         "format": "sort",
         "bins": [
           "the art prize judges",
-          "Year 2 kids on a school tour"
+          "visitor guide readers"
         ],
         "items": [
           {
-            "text": "Indi layered thin glazes of acrylic paint to make the lava glow.",
+            "text": "Thin glazes of acrylic paint make the lava seem to glow.",
             "bin": 0,
-            "reason": "Judges want to know the technique, and 'glazes' is an art word."
+            "reason": "It explains how the glow was made. That technique is what judges score."
           },
           {
-            "text": "Indi painted the lava in lots of thin, see-through layers, so it glows like a night light.",
+            "text": "The mural is on the newsroom's back wall, beside the lift.",
             "bin": 1,
-            "reason": "It explains how she did it, but in everyday words with a comparison Year 2 kids know."
+            "reason": "It tells visitors where to find the mural."
           },
           {
-            "text": "Can you spot the tiny goat hiding on the rock?",
+            "text": "It's lit until 9 pm, so it's best seen after dark.",
             "bin": 1,
-            "reason": "A spot-it question is fun for young kids on a tour."
+            "reason": "It sounds artistic, but it tells visitors when to go."
+          },
+          {
+            "text": "Shorter, faster brushstrokes near the crater add a sense of movement.",
+            "bin": 0,
+            "reason": "It explains a choice and its effect, which judges look for."
+          },
+          {
+            "text": "Indi sketched the whole design in chalk before she painted a single stroke.",
+            "bin": 0,
+            "reason": "It explains how Indi planned and made the mural. That is what judges score."
+          },
+          {
+            "text": "Entry is free, and you can take photos.",
+            "bin": 1,
+            "reason": "It tells visitors what a visit costs and what they can do there."
           },
           {
             "text": "Acrylic on plywood, 2 metres by 3 metres.",
             "bin": 0,
-            "reason": "It's short, but the materials and exact size are details judges look for."
-          },
-          {
-            "text": "The brushstrokes get shorter and faster near the crater, adding a sense of movement.",
-            "bin": 0,
-            "reason": "This explains the technique and its effect, which judges look for."
+            "reason": "It's short, but the materials and size are details judges look for."
           }
         ]
       }
@@ -795,28 +820,28 @@
       "id": "8.9-b3-4",
       "band": 3,
       "topic": "gaming",
-      "frame": "Zed is writing a help page for Lava Leap. Suitrel is hovering over two edits.",
-      "prompt": "Tap the edit that suits brand-new players better.",
-      "success": "Edit A explains each move in plain words, so someone who has never played can follow it.",
+      "frame": "Zed is answering a reader question on the Lava Leap help page. Suitrel is hovering over three edits.",
+      "prompt": "Tap the edit that suits Ash better.",
+      "success": "Ash has beaten nine levels, so Ash can already jump. Edit B tells Ash how to get past this gap.",
       "body": {
         "format": "tapText",
         "parts": [
-          "The help page is for brand-new players. Most of them have never played a jumping game before.\n\nEdit A: ",
+          "A player called Ash wrote in: “I've beaten nine levels, but I keep falling into the gap on level 10. Help!”\n\nEdit A: ",
           {
-            "tap": "Tap the screen to jump. Hold your finger down to jump higher."
+            "tap": "Tap the screen to jump. Hold your finger down to jump higher.",
+            "reason": "It's clear for a new player, but Ash has beaten nine levels and already knows this."
           },
           "\nEdit B: ",
           {
-            "tap": "Spam-tap to bunny-hop, then chain a charged jump over the gap.",
-            "reason": "Expert players would love this, but new players won't know 'spam-tap' or 'bunny-hop'."
+            "tap": "On level 10, wait for the second fireball, then hold your jump."
           },
           "\nEdit C: ",
           {
-            "tap": "Leap over rivers of lava and dodge fireballs on your way to the golden volcano!",
-            "reason": "It makes the game sound exciting, but it doesn't tell new players how to jump."
+            "tap": "Level 10 is where most players get stuck, so you are not alone.",
+            "reason": "It's true and kind, but it doesn't tell Ash how to get past the gap."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -824,29 +849,29 @@
       "band": 3,
       "topic": "ocean",
       "frame": "Wren is writing a safety sign for the black-sand beach. Suitrel is circling overhead.",
-      "text": "The sign stands at the beach entrance. Swimmers read it as they walk past, about to go in.\n\nEdit A: Strong rips. Swim between the flags.\nEdit B: The ocean here hides powerful rip currents that have surprised even experienced swimmers.",
+      "text": "This sign stands at the path to a beach with no lifeguards and no flags. Swimmers read it on their way into the water.\n\nEdit A: Strong rips. Swim between the flags.\nEdit B: Rips here pull swimmers out fast. If you're caught, float and raise one arm.",
       "prompt": "Which edit suits these swimmers better, and why?",
-      "success": "Swimmers walking past need the danger and the action fast. Edit A gives both in six words.",
+      "success": "Edit A is shorter, but this beach has no flags. Edit B gives a plan swimmers can use here.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Edit B, because it uses the proper name, rip currents.",
-            "reason": "True, but swimmers walking past need to know what to do, and fast."
+            "text": "Edit A, because swimmers walking past need it short enough to read at a glance.",
+            "reason": "Short is good, but there are no flags here, so A's advice can't be followed."
           },
           {
-            "text": "Edit A, because two quick lines name the danger and the safe spot."
+            "text": "Edit A, because 'between the flags' is the safety rule swimmers learn at school.",
+            "reason": "It is, but this beach has no flags. Swimmers need what to do here."
           },
           {
-            "text": "Edit A, because it has fewer hard words for little kids.",
-            "reason": "True, but this sign is for swimmers of every age. Think about how fast they read it."
+            "text": "Edit B, because there are no flags, so swimmers need a plan if caught."
           },
           {
-            "text": "Edit B, because saying even experienced swimmers get caught makes people take it seriously.",
-            "reason": "It might, but it never says what to do, and people walking past won't read it all."
+            "text": "Edit B, because it warns swimmers that the rips at this beach are strong.",
+            "reason": "Edit A warns about strong rips too. B wins because it gives a plan that works with no flags."
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -855,7 +880,7 @@
       "topic": "music",
       "frame": "Indi is writing to the school music teacher for the Crater Kids band. Suitrel thinks one line misses.",
       "prompt": "Tap the sentence that doesn't give Ms Vega what she needs, then choose a better edit.",
-      "success": "Ms Vega needs two facts to choose bands. This edit gives both: the instruments and ten minutes.",
+      "success": "Ms Vega needs two facts to choose bands. Only this edit gives both: the instruments and ten minutes.",
       "body": {
         "format": "fix",
         "parts": [
@@ -883,19 +908,19 @@
         "spot": 2,
         "options": [
           {
-            "text": "Everyone who hears us says we're the best band on the island.",
-            "reason": "That's praise, but Ms Vega needs the instruments and how long you'll play."
+            "text": "We play guitar, drums and keyboard, and we practise every Tuesday.",
+            "reason": "That gives the instruments, but not how long the set is."
           },
           {
-            "text": "Our songs are about lava, goats and Mo's terrible cooking.",
-            "reason": "It's fun, but it doesn't tell her the instruments or the set length."
+            "text": "Our set is ten minutes long, and every song is about lava.",
+            "reason": "That gives the set length, but not the instruments."
           },
           {
-            "text": "We play guitar, drums and keyboard, and our set is ten minutes long."
+            "text": "We play guitar, drums and keyboard in a ten-minute set."
           },
           {
-            "text": "We would be honoured to play for your wonderful students.",
-            "reason": "It's polite, but it still doesn't say the instruments or the set length."
+            "text": "We have played at three assemblies and at the Redpen Fair.",
+            "reason": "It's a good fact about the band, but it gives neither thing she asked for."
           }
         ],
         "answer": 2
@@ -906,29 +931,29 @@
       "band": 4,
       "topic": "space",
       "frame": "Gus is writing the permission note for the night trip to the observatory. Suitrel is hovering over two edits.",
-      "text": "The note goes home to parents. It must tell them everything they need to say yes and get their child ready for the trip.\n\nEdit A: Students will spend an unforgettable night at the volcano observatory, watching a meteor shower through real telescopes.\nEdit B: The trip runs from 7 pm to 10 pm on Friday 12 June. It costs $15, and students need a warm jacket.",
+      "text": "The permission note goes home to parents. They must drop their child at school and collect them afterwards.\n\nEdit A: The bus leaves the school at 7 pm on Friday 12 June and returns at 10 pm. It costs $15.\nEdit B: The meteor shower peaks at 9 pm on Friday 12 June, and the observatory closes at 10 pm. It costs $15.",
       "prompt": "Which edit suits the parents better, and why?",
-      "success": "A permission note is for planning. Edit B tells parents when, how much and what to pack.",
+      "success": "Both give the date and cost. Only Edit A gives the times parents must act on: drop-off and pick-up.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Edit A, because parents are more likely to say yes when the trip sounds worthwhile.",
-            "reason": "It might help, but parents can't sign or pack without the date, the hours and the cost."
+            "text": "Edit B, because it tells parents when the meteor shower is at its best.",
+            "reason": "True, and the kids will love it. But parents need to know when to drop off and collect."
           },
           {
-            "text": "Edit A, because it names the place, the volcano observatory.",
-            "reason": "True, but naming the place isn't enough. Parents still need to plan the night."
+            "text": "Edit A, because parents learn when to drop their child off and pick them up."
           },
           {
-            "text": "Edit B, because it covers the date, the hours, the price and the jacket."
+            "text": "Edit A, because it tells parents what time the observatory closes.",
+            "reason": "That's Edit B. A says when the bus gets back, which is when parents collect."
           },
           {
-            "text": "Edit B, because its numbers make the note look official.",
-            "reason": "Looking official isn't the point. Think about what parents must do before they say yes."
+            "text": "Edit B, because both give the date and cost, and B also names the meteor shower.",
+            "reason": "The fun part is nice, but A gives the times parents must act on."
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -937,8 +962,8 @@
       "topic": "animals",
       "frame": "Wren wrote about the same snake for three different readers. Suitrel is sorting the lines.",
       "text": "Wren saw a red-bellied black snake on the basalt ridge. She wrote lines for three readers: a ranger's field report, a sign for hikers on the path and a picture book for preschoolers.",
-      "prompt": "Match each line to the reader it suits best.",
-      "success": "Rangers need exact records, hikers need quick instructions and preschoolers need a gentle story.",
+      "prompt": "Which reader does each line suit best? Sort them.",
+      "success": "Look past the surface. A number can warn hikers, and a story can teach. Ask who would read each line.",
       "body": {
         "format": "sort",
         "bins": [
@@ -953,24 +978,34 @@
             "reason": "A path sign needs a clear warning and short instructions for hikers."
           },
           {
-            "text": "Sammy the snake slid under a warm, flat rock for a long afternoon nap, and nobody woke him up.",
+            "text": "Sammy the snake slid under a warm, flat rock for a long afternoon nap.",
             "bin": 2,
             "reason": "A named snake and a cosy nap make a gentle story for preschoolers."
           },
           {
-            "text": "One adult, about 1.2 metres long, was sighted at 9.20 am on the eastern scree slope.",
+            "text": "One adult, about 1.2 metres long, sighted at 9.20 am on the eastern scree slope.",
             "bin": 0,
             "reason": "Exact length, time and place are what a field report records."
           },
           {
-            "text": "Snakes rest on these rocks in summer. Please keep to the path.",
+            "text": "Snakes have been seen here six times this month. Please keep to the path.",
             "bin": 1,
-            "reason": "It warns hikers and tells them what to do, in two short sentences."
+            "reason": "It has a number, but 'please keep to the path' is an instruction for hikers."
+          },
+          {
+            "text": "“If you see me,” said Sammy, “stand very still, and I'll slide home.”",
+            "bin": 2,
+            "reason": "It gives safety advice, but in a story voice with a named snake. That's for preschoolers."
           },
           {
             "text": "Second sighting: two adults, basking, 40 min.",
             "bin": 0,
             "reason": "It's short, but exact counts and times in note form suit a ranger's records."
+          },
+          {
+            "text": "Wear boots and long pants on this track.",
+            "bin": 1,
+            "reason": "It tells hikers what to do before they walk the track."
           }
         ]
       }
@@ -981,7 +1016,7 @@
       "topic": "gross-science",
       "frame": "Gus is writing the leaflet for the Stinking Vents walk. Suitrel thinks one sentence misses its readers.",
       "prompt": "Tap the sentence that doesn't help these readers, then choose the edit that does.",
-      "success": "Visitors with asthma need to know how to stay safe. This edit tells them exactly what to do.",
+      "success": "Visitors with asthma already know the risk. This edit tells them exactly what to do about it.",
       "body": {
         "format": "fix",
         "parts": [
@@ -1008,19 +1043,19 @@
         "spot": 2,
         "options": [
           {
-            "text": "At sunset, the yellow rocks glow like gold against the dark crater walls.",
-            "reason": "It's a lovely picture, but it doesn't help someone with asthma stay safe."
+            "text": "Wear sturdy shoes, because the rocks near the vents are loose and slippery.",
+            "reason": "Good advice for every walker, but these readers need help with the gas."
           },
           {
-            "text": "The vents were first mapped by a team of rock scientists in 1962.",
-            "reason": "It's a history fact, but it doesn't help visitors with asthma stay safe."
+            "text": "The sulphur gas smells like rotten eggs, and the smell is strongest at noon.",
+            "reason": "True, but the leaflet already names the gas. They need what to do about it."
           },
           {
             "text": "People with asthma should carry their puffer and stay behind the yellow rope."
           },
           {
-            "text": "Some of these vents have been puffing out gas since long before people lived here.",
-            "reason": "It's an interesting fact, but it doesn't help visitors with asthma stay safe."
+            "text": "At sunset, the yellow rocks glow like gold against the dark crater walls.",
+            "reason": "It's a lovely picture, but it doesn't help someone with asthma stay safe."
           }
         ],
         "answer": 2
@@ -1032,19 +1067,19 @@
       "topic": "sport",
       "frame": "Tully is writing the footy club's request to the council. Suitrel is hovering over two edits.",
       "prompt": "Tap the edit that suits the council better.",
-      "success": "Edit C gives a number and a reason, so the council can see who the lights would help.",
+      "success": "The council funded the skate park for how many people it would help. Edit C gives that number.",
       "body": {
         "format": "tapText",
         "parts": [
-          "The council is deciding whether to pay for lights at the oval. Councillors want to know how many people the lights would help.\n\nEdit A: ",
+          "The council is deciding whether to pay for lights at the oval. Last year it paid for a skate park because “more than 200 young people will use it every week.”\n\nEdit A: ",
           {
             "tap": "There is nothing quite like the roar of a crowd under bright lights on a cold winter night.",
-            "reason": "It's a vivid line, but it doesn't tell the council how many people the lights would help."
+            "reason": "It's a vivid line, but the council chose the skate park by counting who it would help."
           },
           "\nEdit B: ",
           {
             "tap": "Ours is the only oval in town without lights, so every night game is played somewhere else.",
-            "reason": "It's a useful fact, but it doesn't tell the council how many people the lights would help."
+            "reason": "It's a strong fact, but it doesn't say how many people the lights would help."
           },
           "\nEdit C: ",
           {
@@ -1090,23 +1125,23 @@
       "topic": "food",
       "frame": "Mo is writing a recipe for the Rumble's Cooking with Kids page. Suitrel is hovering over two edits.",
       "prompt": "Tap the edit that suits the young cooks better.",
-      "success": "An eight-year-old shouldn't lift a hot tray alone. Edit A brings in an adult and oven mitts.",
+      "success": "Edit B is careful, but here only adults touch hot things. Edit A hands the tray to an adult.",
       "body": {
         "format": "tapText",
         "parts": [
-          "The page is for children aged eight, cooking with an adult. Safety comes first.\n\nEdit A: ",
+          "The page is for children aged eight, cooking with an adult. On this page, only adults touch anything hot.\n\nEdit A: ",
           {
             "tap": "Ask an adult to lift the hot tray out of the oven, wearing thick oven mitts."
           },
           "\nEdit B: ",
           {
-            "tap": "Remove the tray from the 220-degree oven and rest it on a heatproof trivet for ten minutes.",
-            "reason": "It's clear for adult cooks, but it tells an eight-year-old to handle a hot tray alone."
+            "tap": "Put on thick oven mitts, then slowly lift the hot tray out of the oven.",
+            "reason": "Mitts and care are good, but on this page only adults touch anything hot."
           },
           "\nEdit C: ",
           {
-            "tap": "Take the tray out of the oven as soon as the top turns golden brown.",
-            "reason": "It says when, but it still has an eight-year-old take a hot tray out alone."
+            "tap": "When the top turns golden brown, the cake is ready to come out.",
+            "reason": "It says when it's ready, but not who should take out the hot tray."
           }
         ],
         "answer": 0

@@ -252,6 +252,19 @@
       "name": "Wombrace",
       "evolved": "Wombrastor",
       "blurb": "A snow wombat that carries bonus details in its pouch. It zips them in with a comma on each side so nothing falls out."
+    },
+    "write": {
+      "ask": "Join these into one sentence. Make the second one a bonus detail tucked in after Mo.",
+      "given": [
+        "Mo made dinner for the crew.",
+        "Mo is the worst cook in Comma Cay."
+      ],
+      "checks": [
+        "The bonus detail sits right after Mo",
+        "A comma opens it and a comma closes it",
+        "Lift it out: the sentence still means the same"
+      ],
+      "model": "Mo, the worst cook in Comma Cay, made dinner for the whole crew."
     }
   },
   "encounters": [
@@ -656,29 +669,29 @@
       "id": "6.5-b3-1",
       "band": 3,
       "topic": "gross-science",
-      "frame": "A note from the principal about Gus's lab work has four drafts.",
+      "frame": "A note from the principal about Gus has four drafts.",
       "prompt": "Which version is punctuated right?",
-      "success": "The whole extra part runs from 'which' to 'vinegar'. A comma goes at each end.",
+      "success": "A favourite is only one, so 'which involves rotten eggs' is a bonus detail. A comma opens and closes it.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Gus's favourite experiment, which involves rotten eggs and vinegar, is banned at school."
+            "text": "Gus's favourite experiment which involves rotten eggs is banned at school.",
+            "reason": "Gus has only one favourite. Does this part pick out which one, or is it a bonus?"
           },
           {
-            "text": "Gus's favourite experiment, which involves rotten eggs and vinegar is banned at school.",
-            "reason": "The extra part opens but never closes. Where does the bonus detail end?"
+            "text": "Gus's favourite experiment, which involves rotten eggs, is banned at school."
           },
           {
-            "text": "Gus's favourite experiment which involves rotten eggs and vinegar, is banned at school.",
-            "reason": "The extra part closes but never opens. Where does the bonus detail start?"
+            "text": "Gus's favourite experiment, which involves rotten eggs is banned at school.",
+            "reason": "The bonus detail opens but never closes. Where does it end?"
           },
           {
-            "text": "Gus's favourite experiment, which involves rotten, eggs and vinegar, is banned at school.",
-            "reason": "The comma after 'rotten' splits 'rotten eggs'. Commas go only at the ends of the extra part."
+            "text": "Gus's favourite experiment which involves rotten eggs, is banned at school.",
+            "reason": "The bonus detail closes but never opens. Where does it start?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -720,66 +733,63 @@
       "band": 3,
       "topic": "spooky",
       "frame": "Zed's ghost story got torn up by something in the night.",
-      "prompt": "Tap the pieces in order to make the sentence.",
-      "success": "'Which nobody had visited for years' is extra, so it sits between two commas.",
+      "prompt": "There are two huts: one on the hill and one by the lake. Make the sentence say which hut, then add the bonus detail.",
+      "success": "'On the hill' tells you which hut, so no commas. The visitors part is a bonus, so commas hug it.",
       "body": {
         "format": "build",
         "tiles": [
-          "The old hut",
+          "The hut",
+          "on the hill",
+          ",",
           ",",
           "which nobody had visited for years",
-          ",",
           "had fresh footprints outside",
-          ".",
           "."
         ],
         "accept": [
-          "The old hut, which nobody had visited for years, had fresh footprints outside."
+          "The hut on the hill, which nobody had visited for years, had fresh footprints outside."
         ],
-        "reason": "The extra part needs a comma on each side. A full stop would end the sentence too soon."
+        "reason": "Ask of each part: does it pick out which hut, or is it a bonus? Only the bonus gets commas."
       }
     },
     {
       "id": "6.5-b3-4",
       "band": 3,
       "topic": "food",
-      "frame": "Mo's baking blog has a comma missing.",
-      "prompt": "Tap where a comma is missing, then choose the fix.",
-      "success": "'Which he baked for six hours' is extra. It needs a closing comma after 'hours'.",
+      "frame": "Mo baked three cakes for the crew. Only one tasted bad.",
+      "prompt": "Tap the mark that is wrong, then choose the fix.",
+      "success": "Mo made three cakes, so 'that he baked with honey' tells you which one. It needs no commas at all.",
       "body": {
         "format": "fix",
         "parts": [
-          "Mo's famous snow-gum ",
+          "The ",
           {
-            "tap": "honey cake,",
-            "reason": "This comma opens the extra part. It's in the right place."
+            "tap": "cake that",
+            "reason": "A comma here would make it a bonus detail. Mo made three cakes. Is it a bonus?"
           },
-          " which he baked for six ",
+          " he baked with ",
           {
-            "tap": "hours tasted"
+            "tap": "honey, tasted"
           },
-          " like ",
+          " like a ",
           {
-            "tap": "a candle.",
-            "reason": "This is the end of the sentence, and the full stop is right."
-          }
+            "tap": "burnt candle",
+            "reason": "This is what the cake tasted like, in the main part. Is anything wrong here?"
+          },
+          "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "hours, tasted"
+            "text": "honey tasted"
           },
           {
-            "text": "hours. Tasted",
-            "reason": "A full stop ends the sentence too soon. The extra part needs a closing comma."
+            "text": "honey. Tasted",
+            "reason": "A full stop ends the sentence too soon. Can the tasting stand alone?"
           },
           {
-            "text": "hours tasted,",
-            "reason": "That comma splits 'tasted' from 'like a candle'. Where does the extra part end?"
-          },
-          {
-            "text": "hours, tasted,",
-            "reason": "That second comma splits 'tasted' from 'like a candle'. Only one comma is missing."
+            "text": "honey, tasted,",
+            "reason": "More commas will not help. Does this part pick out which cake?"
           }
         ],
         "answer": 0
@@ -789,46 +799,51 @@
       "id": "6.5-b3-5",
       "band": 3,
       "topic": "music",
-      "frame": "The Wombrace found the school concert notes. Some pouches won't zip.",
+      "frame": "Only some band players were late, and only some kids brought earplugs. The Wombrace is checking the concert notes.",
       "prompt": "Match each sentence to the right pouch.",
-      "success": "Extra information needs an opening comma and a closing comma. Miss either one and the zip won't close.",
+      "success": "Ask: does it pick out which one? No commas. Just a bonus? A comma at each end.",
       "body": {
         "format": "sort",
         "bins": [
-          "commas right",
-          "closing comma missing",
-          "opening comma missing"
+          "punctuated right",
+          "the commas must go",
+          "a comma is missing"
         ],
         "items": [
           {
-            "text": "Our choir, which sings at every assembly, won a prize.",
+            "text": "The tuba, a very loud instrument, shook the windows.",
             "bin": 0,
-            "reason": "'Which sings at every assembly' is extra, and it has a comma on each side."
+            "reason": "There is one tuba. The bonus detail has a comma on each side."
           },
           {
-            "text": "Our choir, which sings at every assembly won a prize.",
+            "text": "The players, who were late, set up the chairs.",
             "bin": 1,
-            "reason": "The extra part opens but never closes. Where does the bonus detail end?"
+            "reason": "Only some were late. The part picks out which players, so it needs no commas."
+          },
+          {
+            "text": "The players who were late set up the chairs.",
+            "bin": 0,
+            "reason": "Only some were late. The part picks out which players, so no commas."
           },
           {
             "text": "Our choir which sings at every assembly, won a prize.",
             "bin": 2,
-            "reason": "The extra part closes but never opens. Where does the bonus detail start?"
+            "reason": "There is one choir, so it is a bonus. It closes but never opens."
           },
           {
-            "text": "The tuba, a very loud instrument, shook the windows.",
-            "bin": 0,
-            "reason": "'A very loud instrument' is extra, and it has a comma on each side."
-          },
-          {
-            "text": "The tuba, a very loud instrument shook the windows.",
+            "text": "The kids, who brought earplugs, enjoyed the tuba solo.",
             "bin": 1,
-            "reason": "The extra part opens but never closes. Where does the bonus detail end?"
+            "reason": "Only some kids brought earplugs. The part picks out which kids, so no commas."
           },
           {
-            "text": "The tuba a very loud instrument, shook the windows.",
+            "text": "Mr Lee, who conducts the band, tapped his baton.",
+            "bin": 0,
+            "reason": "There is one Mr Lee. The bonus detail has a comma on each side."
+          },
+          {
+            "text": "Mr Lee who conducts the band, tapped his baton.",
             "bin": 2,
-            "reason": "The extra part closes but never opens. Where does the bonus detail start?"
+            "reason": "There is one Mr Lee, so it is a bonus. It closes but never opens."
           }
         ]
       }
@@ -866,61 +881,62 @@
       "id": "6.5-b4-1",
       "band": 4,
       "topic": "general",
-      "frame": "The Comma Cay visitor guide is going to the printer. Only one version is right.",
-      "prompt": "Which version is punctuated right?",
-      "success": "'Which towers over Comma Cay' is extra. It needs a comma at each end, and none inside.",
+      "frame": "Two signs went up at Comma Cay school. Only the commas are different.",
+      "text": "A: The students who finished early went outside. B: The students, who finished early, went outside.",
+      "prompt": "What do the commas in sign B tell the reader?",
+      "success": "In B, the commas make 'who finished early' a bonus detail about every student. So everyone went outside.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Mount Frostbite, which towers over Comma Cay, is covered in snow for eight months of the year."
+            "text": "That only the students who finished early went outside.",
+            "reason": "That's what A says. Commas make it a bonus detail. Who does B say went?"
           },
           {
-            "text": "Mount Frostbite, which towers over Comma Cay is covered in snow for eight months of the year.",
-            "reason": "The extra part opens but never closes. Where does the 'which' part end?"
+            "text": "That all the students finished early, and all of them went outside."
           },
           {
-            "text": "Mount Frostbite which towers over Comma Cay, is covered in snow for eight months of the year.",
-            "reason": "The extra part closes but never opens. Where does the 'which' part start?"
+            "text": "That 'who finished early' is a bonus detail, so only those students went outside.",
+            "reason": "A bonus detail doesn't pick out which students. So who went outside in B?"
           },
           {
-            "text": "Mount Frostbite, which towers over, Comma Cay is covered in snow for eight months of the year.",
-            "reason": "The closing comma comes too early. Read on: where does the 'which' part really end?"
+            "text": "That every student went outside, but only some of them finished early.",
+            "reason": "In B, 'who finished early' is about every student. How many finished early?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
       "id": "6.5-b4-2",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren's report on the Wombrace's tiny neighbour has a bonus fact inside it.",
+      "frame": "Wren's report on the possums of Mount Frostbite has one comma missing.",
       "prompt": "One comma is missing. Tap the word it should go after.",
-      "success": "'Which was once thought to be extinct' is a bonus fact. A comma after 'extinct' closes it.",
+      "success": "The 'which' part is a bonus fact, so a comma closes it. The lodge part picks out which possums.",
       "body": {
         "format": "tapText",
         "parts": [
-          "The mountain pygmy possum, which was once ",
+          "The possums that live near the ",
           {
-            "tap": "thought",
-            "reason": "Thought to be what? The bonus fact isn't finished yet. Keep reading."
+            "tap": "lodge",
+            "reason": "That part picks out which possums. Does it need commas?"
           },
-          " to be ",
+          " sleep in its roof. The mountain pygmy possum, which was once thought to be ",
           {
             "tap": "extinct"
           },
           " ",
           {
             "tap": "hibernates",
-            "reason": "'Hibernates under the snow' is the main fact. A comma here splits it. Where did the bonus fact end?"
+            "reason": "Hibernating is the main fact. Where did the bonus fact end?"
           },
           " under the ",
           {
             "tap": "snow",
-            "reason": "A comma here cuts off how long it hibernates. Where does the bonus fact end?"
+            "reason": "This cuts off how long it hibernates. Where does the bonus fact end?"
           },
-          " for up to seven months."
+          " for months."
         ],
         "answer": 1
       }
@@ -930,72 +946,67 @@
       "band": 4,
       "topic": "ocean",
       "frame": "The icebreaker's welcome-home message came through in pieces.",
-      "prompt": "Tap the pieces in order to make the sentence.",
-      "success": "The extra part comes last, so one comma opens it and the full stop closes it.",
+      "prompt": "End the sentence with what Dr Frost did today: she steered the ship home. The rest is bonus detail.",
+      "success": "The whole bonus detail runs from 'who' to 'Mount Frostbite'. A comma closes it before today's news.",
       "body": {
         "format": "build",
         "tiles": [
-          "The whole crew",
-          "cheered for",
           "Dr Ana Frost",
           ",",
-          "the ship's captain",
-          ".",
-          ","
+          ",",
+          "who has crossed the ice cap twice",
+          "and climbed Mount Frostbite",
+          "steered the ship home",
+          "."
         ],
         "accept": [
-          "The whole crew cheered for Dr Ana Frost, the ship's captain.",
-          "The whole crew cheered for the ship's captain, Dr Ana Frost."
+          "Dr Ana Frost, who has crossed the ice cap twice and climbed Mount Frostbite, steered the ship home."
         ],
-        "reason": "At the end of a sentence, one comma opens the extra part and the full stop closes it."
+        "reason": "A bonus detail can be long. Where does the news about her past end, and today begin?"
       }
     },
     {
       "id": "6.5-b4-4",
       "band": 4,
       "topic": "art",
-      "frame": "The ice festival results sheet has a comma missing.",
-      "prompt": "Tap where a comma is missing, then choose the fix.",
-      "success": "The extra part runs all the way to 'ice'. It needs a closing comma there, before 'melted'.",
+      "frame": "The ice festival results sheet has commas that change the story.",
+      "prompt": "Tap the part that is punctuated wrong, then choose the fix.",
+      "success": "There are three yetis, so the part about the square tells you which one. It gets no commas.",
       "body": {
         "format": "fix",
         "parts": [
-          "Indi's latest ",
+          "Indi carved three ",
           {
-            "tap": "sculpture,",
-            "reason": "This comma opens the extra part. It's in the right place."
+            "tap": "yetis around",
+            "reason": "This sentence is fine. Read on: does the next one need to say which yeti?"
           },
-          " a life-sized yeti carved from a single ",
+          " the village. The ",
           {
-            "tap": "block of",
-            "reason": "A block of what? The extra part isn't finished yet. Keep reading."
+            "tap": "yeti, that she carved in the square,"
           },
-          " ",
+          " melted ",
           {
-            "tap": "ice melted"
+            "tap": "before the",
+            "reason": "This says when it melted. Is the main part broken?"
           },
-          " before the ",
-          {
-            "tap": "judges arrived.",
-            "reason": "This is the end of the sentence, and the full stop is right."
-          }
+          " judges arrived."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "ice, melted"
+            "text": "yeti that she carved in the square"
           },
           {
-            "text": "ice. Melted",
-            "reason": "A full stop ends the sentence too soon. The extra part needs a closing comma."
+            "text": "yeti that she carved in the square,",
+            "reason": "One comma is gone, but one is left. Does this part need any commas?"
           },
           {
-            "text": "ice melted,",
-            "reason": "That comma splits 'melted' from when it melted. Where does the extra part end?"
+            "text": "yeti, that she carved in the square",
+            "reason": "The closing comma has gone, but the opening one is left. Does it need any?"
           },
           {
-            "text": "ice, melted,",
-            "reason": "That second comma splits 'melted' from when it melted. Only one comma is missing."
+            "text": "yeti, which she carved in the square,",
+            "reason": "Commas still make it a bonus detail. There are three yetis. Which one melted?"
           }
         ],
         "answer": 0

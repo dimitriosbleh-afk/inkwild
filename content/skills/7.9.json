@@ -259,6 +259,18 @@
       "name": "Tracewhisk",
       "evolved": "Tracewhiskard",
       "blurb": "A spotted-tailed quoll that sniffs every it, he and they back along the trail. It never stops until it finds who the word really means."
+    },
+    "write": {
+      "ask": "Zed won the race. Rewrite this sentence so readers can tell who won.",
+      "given": [
+        "Gus told Zed that he had won the race."
+      ],
+      "checks": [
+        "Readers can tell that Zed won",
+        "Gus is still telling Zed",
+        "No pronoun could mean two people"
+      ],
+      "model": "Gus told Zed, 'You won the race!'"
     }
   },
   "encounters": [
@@ -815,43 +827,54 @@
       "id": "7.9-b3-5",
       "band": 3,
       "topic": "robots",
-      "frame": "The Tracewhisk found a Goldie's work log at the Maxx World building site. The pages are out of order.",
-      "prompt": "Put the sentences in order, so every 'it', 'its' and 'they' points back to something.",
-      "success": "The robot is named first. Then it arrives, gets switched on and chases everyone, Goldies included.",
+      "frame": "Tully is checking the crew newsletter. The Tracewhisk has sniffed out a muddle.",
+      "prompt": "Readers can't tell whose pie burnt. Which version makes it clear?",
+      "success": "In Mo's own words, 'my pie' can only mean Mo's. Nobody has to guess.",
       "body": {
-        "format": "order",
-        "items": [
-          "Maxx ordered a giant gold robot to guard the Maxx World building site.",
-          "It arrived on the back of a truck, wrapped in shiny gold paper.",
-          "The Goldies tore off the paper and switched it on.",
-          "Once it was switched on, its first job was to chase away anyone who came near the gate.",
-          "Unfortunately, it chased the Goldies away too, and they spent the night up a snow gum."
+        "format": "choose",
+        "options": [
+          {
+            "text": "Mo told Gus, 'Your pie's burnt!'",
+            "reason": "Now it's clear, but it says Gus's pie burnt. Gus's came out golden."
+          },
+          {
+            "text": "Mo said to Gus, 'His pie has burnt!'",
+            "reason": "In Mo's own words, 'his' means some other boy, not Mo or Gus."
+          },
+          {
+            "text": "Mo told Gus, 'My pie has burnt!'"
+          },
+          {
+            "text": "Gus heard from Mo that his pie had burnt.",
+            "reason": "The order changed, but 'his' could still be Mo or Gus."
+          }
         ],
-        "reason": "Name the robot before any 'it' can point to it. Then follow the paper, the switch and the chase."
-      }
+        "answer": 2
+      },
+      "text": "Last night Mo and Gus each baked a pie: Gus's came out golden, but Mo's burnt in the oven. In the newsletter, Tully wrote: 'Mo told Gus that his pie had burnt.'"
     },
     {
       "id": "7.9-b3-6",
       "band": 3,
       "topic": "gaming",
       "frame": "Zed is streaming a speedrun from the hut. The Tracewhisk is watching from the beanbag.",
-      "text": "Zed's favourite game, Peak Panic, is all about climbing a frozen mountain before the avalanche catches you. Last night he raced two players from the Pine Gully Gamers, a team that had beaten him three times before. Zed had practised for six nights in a row. The Pine Gully players took the lead early. They knew every shortcut on the first cliff, and they never missed a jump. Zed fell behind by almost a minute. In the chat, his viewers started typing sad faces. Then the avalanche started. Snow came pouring down the mountain, and the goats on the second ledge panicked. They stampeded across the path, knocking both Pine Gully climbers off the cliff. Zed, who was still far behind, simply walked around the goats and kept climbing. He finished first by eleven seconds. The chat exploded with goat emojis. The Pine Gully Gamers have asked for a rematch. Zed has asked the goats to join his team.",
+      "text": "Zed's favourite game, Peak Panic, is all about climbing a frozen mountain before the avalanche catches you. Last night he raced two players from the Pine Gully Gamers, a team that had beaten him three times before. Zed had practised for six nights in a row. The Pine Gully players took the lead early. They knew every shortcut on the first cliff, and they never missed a jump. Zed fell behind by almost a minute. In the chat, his viewers started typing sad faces. Then the avalanche started. Snow came pouring down the mountain, and the goats on the second ledge panicked. Below them, the two Pine Gully climbers were racing for the top, with falling rocks bouncing past. They stampeded across the path, knocking both climbers off the cliff. Zed, who was still far behind, simply walked around the goats and kept climbing. He finished first by eleven seconds. The chat exploded with goat emojis. The Pine Gully Gamers have asked for a rematch. Zed has asked the goats to join his team.",
       "prompt": "'They stampeded across the path.' Who are 'they'?",
-      "success": "The goats. They panicked when the avalanche started, then stampeded across the path.",
+      "success": "The goats. The rocks and climbers come closer, but only the panicked goats could knock the climbers off.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "the Pine Gully players",
-            "reason": "The stampede knocked the Pine Gully climbers off. They can't be the ones stampeding."
+            "text": "the Pine Gully climbers",
+            "reason": "The stampede knocked the climbers off. They can't be the ones knocking themselves off."
           },
           {
-            "text": "the shortcuts",
-            "reason": "Shortcuts can't stampede. Look for something that panicked and ran."
+            "text": "Zed's viewers",
+            "reason": "The viewers are typing in the chat. They are not on the mountain path."
           },
           {
-            "text": "the jumps",
-            "reason": "Jumps are things players do. They can't run across a path."
+            "text": "the falling rocks",
+            "reason": "The rocks were named last, but rocks bounce. They can't stampede. Swap it in to check."
           },
           {
             "text": "the goats"
@@ -865,15 +888,15 @@
       "band": 4,
       "topic": "ocean",
       "frame": "A research ship sent this report to the Scaffold Peaks weather station. The Tracewhisk is reading over Wren's shoulder.",
-      "text": "Field report from Dr Imogen Hale, Southern Ocean survey. For six days our research vessel, the Albatross, has been anchored beside the ice shelf, waiting for the weather to clear. The crew had played so many card games that the cards had gone soft. On the seventh morning, the fog finally lifted, and the crew spotted a southern right whale drifting near the bow. She was enormous, longer than the vessel's lifeboat, and her back was crusted with pale patches that looked like barnacles. Our team lowered a small underwater camera on a cable, hoping to film her feeding. For almost twenty minutes, she ignored the camera completely. Then, without warning, she rolled onto her side, opened one huge eye and swam straight towards it. She nudged it gently with her head, once, twice, three times, until the cable swung like a pendulum. The footage is wobbly, but it shows something remarkable: a calf, no bigger than a car, sheltering beneath its mother's flipper. We had no idea it was there. Within an hour the pair had vanished into the grey water, and the fog rolled back in. Back on board, nobody spoke for a long time. Then the cook made pancakes, and everyone started talking at once.",
+      "text": "Field report from Dr Imogen Hale, Southern Ocean survey. For six days our research vessel, the Albatross, has been anchored beside the ice shelf, waiting for the weather to clear. On the seventh morning, the fog finally lifted, and the crew spotted a southern right whale drifting near the bow. She was enormous, longer than the vessel's lifeboat, and her back was crusted with pale patches that looked like barnacles. Our team lowered a small underwater camera on a cable, hoping to film her feeding. For almost twenty minutes, she ignored the camera completely. Then, without warning, she rolled onto her side, opened one huge eye and swam straight towards it. She nudged it gently with her head, once, twice, three times, until the cable swung like a pendulum. The footage is wobbly, but it shows something remarkable. Pressed against her side, beneath one flipper, is a calf no bigger than a car. It had been hiding there for the whole visit, just out of view of our camera. We had no idea it was there. Within an hour the pair had vanished into the grey water, and the fog rolled back in.",
       "prompt": "'We had no idea it was there.' What does 'it' point back to?",
-      "success": "The whale's calf. The footage revealed it hiding under its mother's flipper, which the team hadn't known.",
+      "success": "The whale's calf. It had been hiding under its mother's flipper all along, and the team hadn't known.",
       "body": {
         "format": "choose",
         "options": [
           {
             "text": "the underwater camera",
-            "reason": "The team lowered the camera themselves, so they knew exactly where it was."
+            "reason": "The camera was named last, but the team lowered it themselves. They knew where it was."
           },
           {
             "text": "the wobbly footage",
@@ -883,8 +906,8 @@
             "text": "the whale's calf"
           },
           {
-            "text": "the ice shelf",
-            "reason": "The ship had been anchored beside the ice shelf for six days. That was no surprise."
+            "text": "the mother's flipper",
+            "reason": "They had watched the whale for twenty minutes, flippers and all. The surprise was hiding beneath one."
           }
         ],
         "answer": 2
@@ -1029,20 +1052,31 @@
       "id": "7.9-b4-5",
       "band": 4,
       "topic": "sport",
-      "frame": "Tully is writing up the season for the Snowcats newsletter. The Tracewhisk knocked her notes off the table.",
-      "prompt": "Put the sentences in order, so every pronoun points back to something already named.",
-      "success": "Rory first, then the doubters, his seven goals, the rattled Rams coach and the defenders who couldn't stop him.",
+      "frame": "Tully is fixing her Snowcats newsletter before it goes to print. The Tracewhisk is chewing her pencil.",
+      "prompt": "Which rewrite fixes the problem best?",
+      "success": "Naming Jess again is clearer than 'she', because two girls could be 'she'. Now nobody has to guess.",
       "body": {
-        "format": "order",
-        "items": [
-          "Before the season began, the Snowcats signed a new full-forward, a lanky teenager named Rory Doyle.",
-          "At the time, few supporters had heard of him, and even the captain had never seen him play.",
-          "In his first match, however, he kicked seven goals against the Ridgeback Rams.",
-          "Their coach was so rattled that he swapped his defenders three times in the final quarter.",
-          "None of them could stop the newcomer, and by full-time the Snowcats had won by forty points."
+        "format": "choose",
+        "options": [
+          {
+            "text": "Tully passed the ball to Jess, and then she kicked the goal from the pocket.",
+            "reason": "More detail, but 'she' could still be Tully or Jess."
+          },
+          {
+            "text": "Tully passed the ball to Jess, and then Jess kicked the winning goal."
+          },
+          {
+            "text": "Tully passed the ball to her, and then she kicked the winning goal.",
+            "reason": "Now Jess's name is gone too. Both pronouns could mean either girl."
+          },
+          {
+            "text": "Jess got the ball from Tully's pass, and then Tully kicked the goal.",
+            "reason": "It's clear, but now Tully kicks the goal. That's not what happened."
+          }
         ],
-        "reason": "Each pronoun needs its noun first: Rory before 'him', the Rams before 'their', the defenders before 'them'."
-      }
+        "answer": 1
+      },
+      "text": "Tully's report says: 'Tully passed the ball to Jess, and then she kicked the winning goal.' Readers can't tell who kicked it, and it was Jess."
     },
     {
       "id": "7.9-b4-6",

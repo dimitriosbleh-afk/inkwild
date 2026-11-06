@@ -282,6 +282,21 @@
         }
       ]
     },
+    "write": {
+      "ask": "Rewrite Gus's notes as one or two sentences with no and then. Keep every event, in order.",
+      "given": [
+        "Gus found a slug.",
+        "And then Gus put the slug in a jar.",
+        "And then the slug ate his lunch."
+      ],
+      "starter": "Gus found a slug",
+      "checks": [
+        "I cut every and then",
+        "Every event is still there, in order",
+        "Each it or he can only mean one thing"
+      ],
+      "model": "Gus found a slug and put it in a jar. After that, the slug ate his lunch."
+    },
     "creature": {
       "id": "snipwing",
       "name": "Snipwing",
@@ -401,7 +416,7 @@
       "band": 1,
       "topic": "sport",
       "frame": "Tully's footy report is on the editing desk. The Snipwing wants the echoes gone.",
-      "prompt": "Match each sentence to the right bin.",
+      "prompt": "Does each sentence need a cut? Sort them.",
       "success": "Cut repeats that add nothing. A sentence where every word says something new can stay.",
       "body": {
         "format": "sort",
@@ -604,12 +619,12 @@
       "band": 2,
       "topic": "animals",
       "frame": "Wren wrote captions for a wildlife page. The Snipwing is sorting out the echoes.",
-      "prompt": "Match each caption to the right bin.",
-      "success": "Cut the repeats that add nothing. Captions where every word is new can stay.",
+      "prompt": "Does each caption need a cut? Sort them.",
+      "success": "Cut repeated words and repeated and thens. Captions where every word is new can stay.",
       "body": {
         "format": "sort",
         "bins": [
-          "cut the repeat",
+          "needs a cut",
           "keep it"
         ],
         "items": [
@@ -727,49 +742,54 @@
       "id": "8.4-b3-2",
       "band": 3,
       "topic": "ocean",
-      "frame": "Wren's turtle rescue report has one repeat too many. The Snipwing is circling it.",
-      "prompt": "Tap the words that repeat, then choose what to swap them for.",
-      "success": "Them. Wren rescued three turtles, so them is the word that stands for all of them.",
+      "frame": "Wren's rescue report repeats some words. The Snipwing says only one of them can safely go.",
+      "prompt": "Tap the repeat you can safely swap, then choose what to swap it for.",
+      "success": "It. Straight after 'freed the crab', it can only mean the crab. The other repeats stop mix-ups.",
       "body": {
         "format": "fix",
         "parts": [
-          "Wren found three baby turtles tangled in an old fishing ",
+          "Wren found a baby turtle and a crab tangled in a fishing ",
           {
             "tap": "net",
             "reason": "Net is only used once, so it isn't a repeat."
           },
-          ". She snipped the turtles free with her ",
+          ". She snipped ",
           {
-            "tap": "scissors",
-            "reason": "Scissors is only used once. It tells you how she cut them free."
+            "tap": "the turtle",
+            "reason": "Keep this one. 'She snipped it free' could mean either animal, or even the net."
           },
-          ", then carried ",
+          " free first. Then she freed ",
           {
-            "tap": "the turtles"
+            "tap": "the crab",
+            "reason": "Keep this one. 'Then she freed it' could mean the turtle again."
           },
-          " down to the ",
+          ", and ",
           {
-            "tap": "water",
-            "reason": "Water is only used once. It tells you where she took them."
+            "tap": "the crab"
+          },
+          " scuttled sideways into a ",
+          {
+            "tap": "rock pool",
+            "reason": "Rock pool is only used once. It tells you where the scuttling ended."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 3,
         "options": [
           {
-            "text": "it",
-            "reason": "It is for one thing. Wren found three turtles."
+            "text": "they",
+            "reason": "They would mean the turtle and the crab both scuttled off."
           },
           {
-            "text": "her",
-            "reason": "Her would mean Wren or another girl, not the turtles."
+            "text": "she",
+            "reason": "She means Wren. Wren didn't scuttle sideways into a rock pool."
           },
           {
-            "text": "them"
+            "text": "it"
           },
           {
-            "text": "us",
-            "reason": "Us would mean the writer was carried too. Wren only carried the turtles."
+            "text": "we",
+            "reason": "We would put the writer in the rock pool too. This report is about Wren."
           }
         ],
         "answer": 2
@@ -817,8 +837,8 @@
       "band": 3,
       "topic": "music",
       "frame": "Indi wrote up the school concert. The Snipwing is sorting what to snip.",
-      "prompt": "Match each sentence to the right bin.",
-      "success": "Cut repeated words and and thens that add nothing. Sentences where every word adds something new can stay.",
+      "prompt": "Does each sentence need a cut? Sort them.",
+      "success": "Cut repeats that add nothing. Keep a repeat when it or he could mean someone else.",
       "body": {
         "format": "sort",
         "bins": [
@@ -827,14 +847,14 @@
         ],
         "items": [
           {
-            "text": "The choir sang a song, and the song they sang was a song about the sea.",
+            "text": "The choir sang a song, and the song they sang was about the sea.",
             "bin": 0,
-            "reason": "Song comes up three times. The choir sang a song about the sea says it once."
+            "reason": "Song and sang both come back. The choir sang a song about the sea says it once."
           },
           {
-            "text": "The violin squeaked, the cello groaned, and the triangle went ding.",
+            "text": "Zed put his guitar next to the cello, then tuned the guitar.",
             "bin": 1,
-            "reason": "Each instrument is different, and so is each sound. Nothing repeats."
+            "reason": "Keep this repeat. Tuned it could mean the cello, and cellos get tuned too."
           },
           {
             "text": "The band played and then the band bowed and then the band walked off.",
@@ -842,9 +862,19 @@
             "reason": "The band comes up three times, with two and thens. Played, bowed and walked off is faster."
           },
           {
-            "text": "Zed tuned his guitar, then played it for the whole school.",
+            "text": "The violin squeaked, the cello groaned, and the triangle went ding.",
             "bin": 1,
-            "reason": "The guitar is named once, and it does the rest. Then is only used once."
+            "reason": "Each instrument is different, and so is each sound. Nothing repeats."
+          },
+          {
+            "text": "Mo picked up the triangle and dropped the triangle on his foot.",
+            "bin": 0,
+            "reason": "Dropped it on his foot is clear. The triangle is the only thing Mo is holding."
+          },
+          {
+            "text": "Mo sat between Zed and Gus, and Gus played the drums.",
+            "bin": 1,
+            "reason": "Keep this repeat. He played the drums could mean Mo, Zed or Gus."
           },
           {
             "text": "The trumpet solo lasted ten minutes, and it went for ten whole minutes.",
@@ -858,57 +888,54 @@
       "id": "8.4-b3-5",
       "band": 3,
       "topic": "gross-science",
-      "frame": "Gus's snail experiment is going in the science page. The Snipwing wants one clean sentence.",
-      "text": "Gus put a snail on the table. And then the snail slid across the table and left a trail of slime across the table.",
-      "prompt": "Build one sentence that keeps every event, in order, with no repeats.",
-      "success": "The snail and the table appear once each, and it stands in for the snail.",
+      "frame": "Gus's slug experiment is going in the science page. The Snipwing wants it tidy, but not muddled.",
+      "text": "Gus dropped a slug next to a snail. And then the slug ate a leaf. And then the slug left a slimy trail.",
+      "prompt": "Build it without 'and then'. Cut the repeat you don't need, but make sure we know which animal did what.",
+      "success": "After that replaces and then. The slug is named again so nobody thinks the snail ate the leaf.",
       "body": {
         "format": "build",
         "tiles": [
-          "Gus put a snail on the table,",
-          "and",
-          "it",
-          "slid across",
-          ",",
-          "leaving a trail of slime",
-          ".",
-          "and then the snail",
-          "the snail slid across the table"
+          "Gus dropped a slug next to a snail.",
+          "After that, it ate a leaf",
+          "After that, the slug ate a leaf",
+          "and left a slimy trail.",
+          "and then it left a slimy trail.",
+          "And then the slug ate a leaf"
         ],
         "accept": [
-          "Gus put a snail on the table, and it slid across, leaving a trail of slime."
+          "Gus dropped a slug next to a snail. After that, the slug ate a leaf and left a slimy trail."
         ],
-        "reason": "Name the snail and the table once. After that, it can stand for the snail."
+        "reason": "Name the slug again, because it could mean the snail. After that takes the place of and then."
       }
     },
     {
       "id": "8.4-b3-6",
       "band": 3,
       "topic": "space",
-      "frame": "A space station log landed on the editing desk. The Snipwing counts four astronauts, but there's only one.",
-      "text": "The astronaut opened the hatch. The astronaut floated out into space. Then the astronaut fixed the broken solar panel, and then the astronaut floated back inside.",
-      "prompt": "Which edit cuts the repeats but keeps every event?",
-      "success": "All four events stay in order, the astronaut is named once, and no then is left dragging.",
+      "frame": "A space station log landed on the editing desk. Two captains went out, and the Snipwing wants to know who did what.",
+      "text": "Captain Ruby and Captain Lena went out on a spacewalk. And then Captain Ruby fixed the solar panel. And then Captain Lena fixed the aerial. And then Captain Ruby and Captain Lena floated back inside.",
+      "prompt": "Which edit cuts every and then but keeps who did what?",
+      "success": "Every and then is gone, and Ruby and Lena are named, so we know who fixed what.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The astronaut floated out, opened the hatch, fixed the broken solar panel and floated back inside.",
-            "reason": "Now the astronaut floats out before opening the hatch."
+            "text": "Captain Ruby and Captain Lena went out on a spacewalk. She fixed the solar panel, and she fixed the aerial. After that, they floated back inside.",
+            "reason": "She could mean either captain, so the reader can't tell who fixed what."
           },
           {
-            "text": "The astronaut opened the hatch, then floated out, then fixed the broken solar panel, then floated back inside.",
-            "reason": "The and then is gone, but then still repeats three times."
+            "text": "Captain Ruby and Captain Lena went out on a spacewalk. Ruby fixed the solar panel, and then Lena fixed the aerial. After that, they floated back inside.",
+            "reason": "Most of the and thens are gone, but one is still there."
           },
           {
-            "text": "The astronaut opened the hatch and floated out to fix the broken solar panel.",
-            "reason": "Floating back inside is gone, so the ending has changed."
+            "text": "Captain Ruby and Captain Lena went out on a spacewalk. Ruby fixed the solar panel, and Lena fixed the aerial. After that, they floated back inside."
           },
           {
-            "text": "The astronaut opened the hatch, floated out, fixed the broken solar panel and floated back inside."
+            "text": "Captain Ruby and Captain Lena went out on a spacewalk. Ruby fixed the solar panel and the aerial. After that, they floated back inside.",
+            "reason": "Now Ruby fixes both. In the log, Lena fixed the aerial."
           }
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
@@ -945,25 +972,25 @@
       "id": "8.4-b4-2",
       "band": 4,
       "topic": "art",
-      "frame": "The arts page has a review of Indi's new mural. One sentence is an echo in disguise.",
+      "frame": "The arts page has a review of Indi's new mural. One sentence is an echo in disguise, and one only looks like it.",
       "prompt": "Tap the sentence that only repeats something the review already said.",
-      "success": "The first sentence already said the mural covers the whole wall. Different words, same fact.",
+      "success": "The first sentence already said the mural covers the whole wall. The forty-metre sentence looks similar but adds new facts.",
       "body": {
         "format": "tapText",
         "parts": [
           {
-            "tap": "Indi's new mural covers the entire back wall of the Hollowgum swimming pool.",
-            "reason": "This is the first time the review says where the mural is and how big it is."
+            "tap": "Indi's new mural covers the whole back wall of the Hollowgum swimming pool.",
+            "reason": "This is the first time the review says where the mural is and how much wall it covers."
           },
           " ",
           {
-            "tap": "It shows a pod of dolphins chasing a school of silver fish through a kelp forest.",
+            "tap": "It shows a pod of dolphins chasing silver fish through a kelp forest.",
             "reason": "This is new. It tells you what the mural shows."
           },
           " ",
           {
-            "tap": "She painted it over six weekends, mostly with a roller tied to a broom handle.",
-            "reason": "This is new. It tells you how long it took and how she did it."
+            "tap": "The wall is forty metres long, which makes it the biggest mural on the island.",
+            "reason": "It's about the wall again, but forty metres and the biggest on the island are new facts."
           },
           " ",
           {
@@ -982,52 +1009,52 @@
       "id": "8.4-b4-3",
       "band": 4,
       "topic": "food",
-      "frame": "Mo is writing about his own cooking again. The Snipwing has spotted a name used one time too many.",
-      "prompt": "Tap the words that repeat, then choose what to swap them for.",
-      "success": "Their. It stands for Tully and Zed together, so you don't need their names twice.",
+      "frame": "Mo's report on the school fair repeats some words. The Snipwing says only one can go without a mix-up.",
+      "prompt": "Tap the repeat you can safely swap, then choose what to swap it for.",
+      "success": "It. Straight after Mo's pie, it can only mean his pie. Zed's and Mo's stay, because there are two pies.",
       "body": {
         "format": "fix",
         "parts": [
-          "Tully and Zed have always dreaded ",
+          "Zed and Mo both baked pies for the school fair. ",
+          {
+            "tap": "Zed's",
+            "reason": "Keep it. His pie could mean Zed's or Mo's."
+          },
+          " pie was apple and sold out in ten minutes. ",
           {
             "tap": "Mo's",
-            "reason": "Mo is named only once. After that, his takes over."
+            "reason": "Keep it. There are two pies, so the reader needs to know whose this is."
           },
-          " cooking. Last night, they pretended to adore his banana-and-tuna pie, then quietly fed ",
+          " pie was banana and tuna, and nobody would touch ",
           {
-            "tap": "Tully and Zed's"
+            "tap": "the pie"
           },
-          " ",
-          {
-            "tap": "slices",
-            "reason": "Slices is only used once. It tells you what they fed away."
-          },
-          " to the ",
+          ". By the end of the day, even the ",
           {
             "tap": "seagulls",
-            "reason": "Seagulls is only used once. It tells you who ate the pie."
+            "reason": "Seagulls is only used once, so it isn't a repeat."
           },
-          " behind the boat."
+          " had given up on it."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
+            "text": "them",
+            "reason": "Them would mean nobody touched either pie. Zed's pie sold out."
+          },
+          {
             "text": "his",
-            "reason": "His would mean only one boy fed his slice away. Tully and Zed both did."
+            "reason": "His could mean Zed's or Mo's, and Zed's pie sold out."
           },
           {
-            "text": "their"
+            "text": "theirs",
+            "reason": "Theirs would mean one pie Zed and Mo made together. They baked one each."
           },
           {
-            "text": "her",
-            "reason": "Her would mean only Tully's slice went to the seagulls."
-          },
-          {
-            "text": "our",
-            "reason": "Our would mean the writer fed slices away too. Only Tully and Zed did."
+            "text": "it"
           }
         ],
-        "answer": 1
+        "answer": 3
       }
     },
     {
@@ -1035,13 +1062,14 @@
       "band": 4,
       "topic": "gaming",
       "frame": "Zed's speedrun write-up is due at the printer. The Snipwing is snipping the echoes.",
-      "prompt": "Match each sentence to the right bin.",
-      "success": "Cut words that say the same thing twice. Keep sentences where every word adds something.",
+      "prompt": "Sort each sentence: cut a repeat, keep a repeat, or nothing repeats.",
+      "success": "Cut repeats that add nothing. Keep a repeat when a word like it or he could mean two things.",
       "body": {
         "format": "sort",
         "bins": [
           "needs a cut",
-          "every word earns its place"
+          "keep the repeat: it stops a mix-up",
+          "nothing repeats"
         ],
         "items": [
           {
@@ -1050,9 +1078,14 @@
             "reason": "Filled the whole screen and took up all of the screen say the same thing. Cut one."
           },
           {
-            "text": "The game crashed twice, but Zed restarted it each time.",
+            "text": "Zed found a sword next to a shield, and he picked up the shield.",
             "bin": 1,
-            "reason": "Each part adds something new: the crashes and what Zed did about them."
+            "reason": "Picked it up could mean the sword. Naming the shield again stops the mix-up."
+          },
+          {
+            "text": "The game crashed twice, but Zed restarted it each time.",
+            "bin": 2,
+            "reason": "Nothing repeats. It can only mean the game, so the swap is already done."
           },
           {
             "text": "Zed reached the final boss, and then he beat the final boss, and then he saved his game.",
@@ -1060,14 +1093,9 @@
             "reason": "The final boss comes up twice, with two and thens. Reached, beat and saved is faster."
           },
           {
-            "text": "The new level, which Zed calls Magma Maze, takes about an hour to finish.",
+            "text": "Zed's knight and his wizard ran to the gate, and the wizard opened it.",
             "bin": 1,
-            "reason": "Nothing repeats. The name and the time are both new details."
-          },
-          {
-            "text": "Zed's controller was sticky because Mo had borrowed it while eating lollies.",
-            "bin": 1,
-            "reason": "Nothing repeats. Every word helps explain the sticky controller."
+            "reason": "He opened it could mean Zed, the knight or the wizard. Keep the wizard."
           },
           {
             "text": "Zed played all night long, and he kept on playing the whole night through.",
@@ -1076,7 +1104,7 @@
           },
           {
             "text": "Tully timed the run on her watch, which she had set to beep at ten minutes.",
-            "bin": 1,
+            "bin": 2,
             "reason": "Tully is named once, then she and her do the rest. Nothing needs cutting."
           }
         ]
@@ -1086,28 +1114,25 @@
       "id": "8.4-b4-5",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren wrote about a Snipwing's night out. It wants its own story snipped properly.",
-      "text": "The ghost bat swooped out of the lava tube at dusk. And then the ghost bat snatched a moth. And then the ghost bat flew back into the lava tube.",
-      "prompt": "Build one sentence that keeps every event in order, without 'and then' or naming the bat or the lava tube twice.",
-      "success": "The bat and the lava tube are named once each, and all three events stay in order.",
+      "frame": "Wren wrote about a ghost bat's night out. The Snipwing wants it snipped, but not so far that we lose who caught what.",
+      "text": "The ghost bat swooped out of the cave at dusk. And then a moth fluttered past. And then the ghost bat snatched the moth. And then the ghost bat flew back into the cave.",
+      "prompt": "Build it with no 'and then'. Cut the repeats a reader doesn't need, but make every it clear.",
+      "success": "Soon replaces and then. The bat is named again, so it can only mean the moth.",
       "body": {
         "format": "build",
         "tiles": [
-          "The ghost bat",
-          "swooped out of the lava tube at dusk",
-          ",",
-          "snatched a moth",
-          "and",
-          "flew back inside",
-          ".",
-          "and then",
-          "the ghost bat",
-          "flew back into the lava tube"
+          "The ghost bat swooped out of the cave at dusk.",
+          "Soon a moth fluttered past.",
+          "It snatched it",
+          "The bat snatched it",
+          "and flew back inside.",
+          "And then the bat snatched the moth",
+          "and then flew back into the cave."
         ],
         "accept": [
-          "The ghost bat swooped out of the lava tube at dusk, snatched a moth and flew back inside."
+          "The ghost bat swooped out of the cave at dusk. Soon a moth fluttered past. The bat snatched it and flew back inside."
         ],
-        "reason": "Name the bat and the lava tube once. Join the three actions with a comma and and."
+        "reason": "Name the bat again, because it could mean the moth. Inside stands in for the cave."
       }
     },
     {

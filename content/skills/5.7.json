@@ -275,6 +275,13 @@
       "name": "Lyraffle",
       "evolved": "Lyrafferon",
       "blurb": "A lyrebird whose long tail trails behind it. Hook the right detail on after the noun and the tail fans out."
+    },
+    "write": {
+      "ask": "Join these into one sentence. Hook the detail on straight after the noun it's about.",
+      "given": ["The girl won the race.", "She had a broken shoelace."],
+      "starter": "The girl",
+      "checks": ["My detail sits right after the noun it's about", "It's clear who had the broken shoelace", "I used one sentence, not two"],
+      "model": "The girl with the broken shoelace won the race."
     }
   },
   "encounters": [
@@ -338,19 +345,12 @@
       "band": 1,
       "topic": "food",
       "frame": "Mo is getting rid of his worst pie. The Lyraffle holds the pieces.",
-      "prompt": "Tap the pieces in order to build the sentence.",
+      "prompt": "Tap the pieces in order. Keep the detail right next to the pie.",
       "success": "The pie with the burnt crust. The detail sits right after pie, so you know which pie Gus got.",
       "body": {
         "format": "build",
-        "tiles": [
-          "Mo gave",
-          "the pie",
-          "with the burnt crust",
-          "to Gus."
-        ],
-        "accept": [
-          "Mo gave the pie with the burnt crust to Gus."
-        ],
+        "tiles": ["Mo gave", "the pie", "with the burnt crust", "to Gus."],
+        "accept": ["Mo gave the pie with the burnt crust to Gus."],
         "reason": "The burnt crust belongs to the pie. Put the detail right after the noun it's about."
       }
     },
@@ -698,68 +698,34 @@
       "id": "5.7-b3-3",
       "band": 3,
       "topic": "spooky",
-      "frame": "Zed found a warning note tucked into a library book.",
-      "prompt": "Tap the pieces in order to build the sentence.",
-      "success": "The ghost who haunts the library. The clause sits right after ghost, so you know which ghost.",
+      "frame": "Zed found a warning note tucked into a library book. It says: 'A ghost lives in the library. The ghost has one red eye.'",
+      "prompt": "Build one sentence from the note. Keep the detail right next to the noun it's about.",
+      "success": "The ghost with one red eye. The phrase sits right after ghost, so the eye can only be the ghost's.",
       "body": {
         "format": "build",
-        "tiles": [
-          "The ghost",
-          "who haunts the library",
-          "only comes out",
-          "on rainy Tuesdays."
-        ],
-        "accept": [
-          "The ghost who haunts the library only comes out on rainy Tuesdays."
-        ],
-        "reason": "The clause tells you which ghost. Put it right after the noun it's about."
+        "tiles": ["lives in the library", "The ghost", "with one red eye.", "lives in the library.", "with one red eye"],
+        "accept": ["The ghost with one red eye lives in the library."],
+        "reason": "Whose eye is it? Hook the detail onto that noun, not onto the library."
       }
     },
     {
       "id": "5.7-b3-4",
       "band": 3,
       "topic": "general",
-      "frame": "Tully is describing the jetties along the bay for a fishing map.",
+      "frame": "Tully is describing the jetties along the bay for a fishing map. Some details look alike.",
       "prompt": "Match each noun group to the right box.",
-      "success": "Detail goes in front, or after as a phrase or clause. A clause after the noun has its own verb.",
+      "success": "A phrase and a clause can say almost the same thing. Only the clause has its own verb.",
       "body": {
         "format": "sort",
-        "bins": [
-          "detail in front of the noun",
-          "phrase after the noun",
-          "clause after the noun"
-        ],
+        "bins": ["phrase after the noun (no verb)", "clause after the noun (has a verb)"],
         "items": [
-          {
-            "text": "a rickety wooden jetty",
-            "bin": 0,
-            "reason": "Rickety and wooden both come before jetty, so the detail is in front."
-          },
-          {
-            "text": "the old jetty",
-            "bin": 0,
-            "reason": "Old comes before jetty, so the detail is in front."
-          },
-          {
-            "text": "the jetty near the boat ramp",
-            "bin": 1,
-            "reason": "'Near the boat ramp' comes after jetty and has no verb, so it's a phrase."
-          },
-          {
-            "text": "the jetty at the end of the beach",
-            "bin": 1,
-            "reason": "'At the end of the beach' comes after jetty and has no verb, so it's a phrase."
-          },
-          {
-            "text": "the jetty that the storm wrecked",
-            "bin": 2,
-            "reason": "'That the storm wrecked' comes after jetty and has a verb, wrecked, so it's a clause."
-          },
-          {
-            "text": "the jetty where we catch squid",
-            "bin": 2,
-            "reason": "'Where we catch squid' comes after jetty and has a verb, catch, so it's a clause."
-          }
+          { "text": "the jetty at the end of the beach", "bin": 0, "reason": "'At the end of the beach' has no verb, so it's a phrase." },
+          { "text": "the jetty that ends at the beach", "bin": 1, "reason": "Ends is a verb, so 'that ends at the beach' is a clause." },
+          { "text": "the jetty near the boat ramp", "bin": 0, "reason": "'Near the boat ramp' has no verb, so it's a phrase." },
+          { "text": "the jetty Dad built last year", "bin": 1, "reason": "There's no 'that', but built is a verb. 'Dad built last year' is a clause." },
+          { "text": "the jetty with the broken rail", "bin": 0, "reason": "'With the broken rail' has no verb. Broken just says what the rail is like." },
+          { "text": "the jetty where we catch squid", "bin": 1, "reason": "Catch is a verb, so 'where we catch squid' is a clause." },
+          { "text": "the jetty by the old shed", "bin": 0, "reason": "'By the old shed' has no verb, so it's a phrase." }
         ]
       }
     },
@@ -907,22 +873,14 @@
       "id": "5.7-b4-3",
       "band": 4,
       "topic": "gross-science",
-      "frame": "Gus is writing up his grossest discovery yet.",
-      "prompt": "Tap the pieces in order to build the sentence.",
-      "success": "The clause sits right after beetle and tells you which beetle does the squirting.",
+      "frame": "Gus keeps two beetles. He bought one at the pet shop. He found the other in the compost bin, and that one squirts a foul-smelling spray.",
+      "prompt": "Build one sentence that tells the reader which beetle squirts the spray.",
+      "success": "The clause sits right after beetle and picks out the compost-bin beetle, the one that squirts.",
       "body": {
         "format": "build",
-        "tiles": [
-          "The beetle",
-          "that Gus found in the compost bin",
-          "can squirt",
-          "a foul-smelling spray",
-          "from its bottom."
-        ],
-        "accept": [
-          "The beetle that Gus found in the compost bin can squirt a foul-smelling spray from its bottom."
-        ],
-        "reason": "The clause tells you which beetle. Put it right after the noun it's about."
+        "tiles": ["The beetle", "that Gus bought at the pet shop", "squirts a foul-smelling spray", "that Gus found in the compost bin", "squirts a foul-smelling spray.", "that Gus found in the compost bin."],
+        "accept": ["The beetle that Gus found in the compost bin squirts a foul-smelling spray."],
+        "reason": "Check which beetle squirts. Then keep its detail right next to 'beetle', not next to the spray."
       }
     },
     {
@@ -976,52 +934,30 @@
       "id": "5.7-b4-5",
       "band": 4,
       "topic": "ocean",
-      "frame": "The dive school's safety report has a linking word that doesn't work.",
+      "frame": "The coastguard's report has a linking word that doesn't work.",
       "prompt": "Tap the word that doesn't work, then choose a better one.",
-      "success": "Whose. The tank belongs to the diver, and whose is the word that hooks on something a person owns.",
+      "success": "Whose. It isn't only for people. It hooks on anything the noun owns, like a boat's engine.",
       "body": {
         "format": "fix",
         "parts": [
           "The ",
-          {
-            "tap": "diver",
-            "reason": "Diver is the right noun. The detail after it is about the diver's tank."
-          },
+          { "tap": "boat", "reason": "Boat is the right noun. The detail after it is about the boat's engine." },
           " ",
-          {
-            "tap": "who"
-          },
-          " tank was nearly empty swam ",
-          {
-            "tap": "slowly",
-            "reason": "Slowly is fine. Swimming slowly saves air."
-          },
-          " back to the ",
-          {
-            "tap": "boat",
-            "reason": "Boat is fine. Look at the word that hooks the detail onto 'diver'."
-          },
+          { "tap": "which" },
+          " engine had failed drifted ",
+          { "tap": "slowly", "reason": "Slowly is fine. Look at the word that hooks the detail onto 'boat'." },
+          " towards the ",
+          { "tap": "reef", "reason": "Reef is fine. Look at the word that hooks the detail onto 'boat'." },
           "."
         ],
         "spot": 1,
         "options": [
-          {
-            "text": "whose"
-          },
-          {
-            "text": "which",
-            "reason": "Which is for things, and 'the diver which tank was nearly empty' still doesn't show the tank is the diver's."
-          },
-          {
-            "text": "that",
-            "reason": "'The diver that tank was nearly empty' makes no sense. You need to show the tank belongs to the diver."
-          },
-          {
-            "text": "where",
-            "reason": "Where is for places. The detail is about something the diver owns."
-          }
+          { "text": "who", "reason": "Who is for people, and 'the boat who engine' still doesn't show the engine is the boat's." },
+          { "text": "that", "reason": "'The boat that engine had failed' makes no sense. You need to show the engine belongs to the boat." },
+          { "text": "where", "reason": "Where is for places. The detail is about something the boat has." },
+          { "text": "whose" }
         ],
-        "answer": 0
+        "answer": 3
       }
     },
     {

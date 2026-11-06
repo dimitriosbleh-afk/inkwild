@@ -276,6 +276,12 @@
       "name": "Tagglet",
       "evolved": "Tagglider",
       "blurb": "A baby sugar glider that can't glide on its own, so it clings to a bigger glider the way a dependent clause hangs on to a main clause."
+    },
+    "write": {
+      "ask": "Join these into one sentence. Use a joining word to turn one of them into a dependent clause.",
+      "given": ["The siren went.", "The players ran off."],
+      "checks": ["I used a joining word like 'when' or 'after'", "My main clause makes sense on its own", "My dependent clause leaves you waiting by itself"],
+      "model": "As soon as the siren went, the players ran off."
     }
   },
   "encounters": [
@@ -379,18 +385,12 @@
       "topic": "spooky",
       "frame": "The Tagglet needs something to hang on to. Give it a main clause.",
       "prompt": "Tap the pieces in order to make a complete sentence.",
-      "success": "'The whole class screamed' is the main clause. It holds up 'When the lights went out'.",
+      "success": "'The whole class screamed' is the main clause. It makes sense alone, so the other part can hang on.",
       "body": {
         "format": "build",
-        "tiles": [
-          "When the lights went out,",
-          "the whole class screamed.",
-          "because the power had failed."
-        ],
-        "accept": [
-          "When the lights went out, the whole class screamed."
-        ],
-        "reason": "'Because the power had failed' is another dependent clause. Your sentence still needs a main clause to stand on."
+        "tiles": ["When the lights went out,", "the whole class screamed.", "until the teacher found a torch.", "because the power had failed.", "Because the power had failed,"],
+        "accept": ["When the lights went out, the whole class screamed.", "Because the power had failed, the whole class screamed."],
+        "reason": "Both of your parts leave you waiting. Your sentence still needs a main clause to stand on."
       }
     },
     {
@@ -657,32 +657,21 @@
       "id": "5.2-b3-1",
       "band": 3,
       "topic": "sport",
-      "frame": "Tully's report on the wettest match of the year has three Tagglets hanging off it.",
-      "prompt": "Tap the main clause.",
-      "success": "'The crowd stayed' is short, but it's the only part that stands alone. Everything else hangs on to it.",
+      "frame": "Tully's match notes have four lines. The Tagglet says one of them has no main clause at all.",
+      "prompt": "Tap the line with no main clause.",
+      "success": "'When the rain finally stopped...' leaves you waiting. What happened then? There's nothing for it to hang on.",
       "body": {
         "format": "tapText",
         "parts": [
-          {
-            "tap": "Although it was bucketing down,",
-            "reason": "Although leaves you waiting, so this is a dependent clause."
-          },
+          { "tap": "When did the siren go?", "reason": "Say it out loud. It's a whole question, so it makes sense alone." },
           " ",
-          {
-            "tap": "the crowd stayed"
-          },
+          { "tap": "Until the siren went, nobody left their seat.", "reason": "'Nobody left their seat' makes sense alone. That's the main clause, so this line stands up." },
           " ",
-          {
-            "tap": "until the siren sounded",
-            "reason": "Until the siren sounded... what happened? This can't stand alone."
-          },
+          { "tap": "When the rain finally stopped at the end of the third quarter." },
           " ",
-          {
-            "tap": "because nobody wanted to leave.",
-            "reason": "'Because nobody wanted to leave' gives a reason, but it can't stand alone."
-          }
+          { "tap": "Then the whole crowd went home.", "reason": "Then just says when. Say the line alone. It still makes sense by itself." }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -793,43 +782,21 @@
       "body": {
         "format": "fix",
         "parts": [
-          {
-            "tap": "Whenever"
-          },
+          { "tap": "Whenever" },
           " Mo ",
-          {
-            "tap": "tells",
-            "reason": "Tells is a verb, and it's fine. Look for the word that makes the whole thing leave you hanging."
-          },
+          { "tap": "tells", "reason": "Tells is a verb, and it's fine. Look for the word that makes the whole thing leave you hanging." },
           " a joke at ",
-          {
-            "tap": "dinner",
-            "reason": "Dinner is fine. Look for the word that makes the whole thing leave you hanging."
-          },
+          { "tap": "dinner", "reason": "Dinner is fine. Look for the word that makes the whole thing leave you hanging." },
           " and Dad pretends to ",
-          {
-            "tap": "laugh",
-            "reason": "Laugh is fine. Look for the word that makes the whole thing leave you hanging."
-          },
+          { "tap": "laugh", "reason": "Laugh is fine. Look for the word that makes the whole thing leave you hanging." },
           "."
         ],
         "spot": 0,
         "options": [
-          {
-            "text": "Every night"
-          },
-          {
-            "text": "As soon as",
-            "reason": "As soon as is about time, but it still leaves you waiting. There's still no main clause."
-          },
-          {
-            "text": "Unless",
-            "reason": "Unless sets a condition and leaves you waiting, so there's still no main clause."
-          },
-          {
-            "text": "Since",
-            "reason": "Since gives a reason or a time, but it still leaves you waiting for a main clause."
-          }
+          { "text": "Every night" },
+          { "text": "As soon as", "reason": "As soon as is about time, but it still leaves you waiting. There's still no main clause." },
+          { "text": "Unless", "reason": "Unless sets a condition and leaves you waiting, so there's still no main clause." },
+          { "text": "Never", "reason": "Read the whole line with it: 'Never Mo tells a joke' doesn't make sense." }
         ],
         "answer": 0
       }
@@ -868,32 +835,19 @@
       "id": "5.2-b4-1",
       "band": 4,
       "topic": "general",
-      "frame": "Wren is reading an old museum plaque. A whole family of Tagglets is clinging to one main clause.",
-      "prompt": "Tap the part that could stand alone as the main clause.",
-      "success": "'Sailors sent messages home' stands alone. The other three parts tell you when, how and what the pigeons could do.",
+      "frame": "Wren and Zed are reading a museum plaque. Zed says 'sailors sent messages home' can't be the main clause, because it isn't at the start.",
+      "text": "Long before the internet existed, sailors sent messages home by tying notes to pigeons.",
+      "prompt": "Who is right, and why?",
+      "success": "A main clause can sit anywhere in a sentence. The test is whether it makes sense on its own.",
       "body": {
-        "format": "tapText",
-        "parts": [
-          {
-            "tap": "Long before the internet existed,",
-            "reason": "'Long before the internet existed' tells you when, but it can't stand alone."
-          },
-          " ",
-          {
-            "tap": "sailors sent messages home"
-          },
-          " ",
-          {
-            "tap": "by tying notes to pigeons,",
-            "reason": "'By tying notes to pigeons' tells you how, but it can't stand alone."
-          },
-          " ",
-          {
-            "tap": "which could fly hundreds of kilometres.",
-            "reason": "This tells you more about the pigeons. As a statement it leaves you hanging, so it can't stand alone."
-          }
+        "format": "choose",
+        "options": [
+          { "text": "Zed is right: a main clause comes first, so it's 'long before the internet existed'.", "reason": "Say 'long before the internet existed' alone. It leaves you waiting, so it can't be the main clause." },
+          { "text": "Zed is right: a main clause needs a joining word, and 'sailors sent messages home' has none.", "reason": "It's the other way round. A joining word like 'before' stops a clause standing alone." },
+          { "text": "Wren is right: it's the main clause because it makes sense alone, wherever it sits." },
+          { "text": "Wren is right: it's the main clause because it comes straight after the comma.", "reason": "Where it sits doesn't decide it. Think about the test for a main clause." }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -976,66 +930,40 @@
       "id": "5.2-b4-4",
       "band": 4,
       "topic": "music",
-      "frame": "The choir's concert review has come apart. The Tagglet needs a real main clause to hang on to.",
-      "prompt": "Tap the pieces in order to make a complete sentence.",
-      "success": "'The opening note came out as a squeak' has its own verb, came, so it's the main clause.",
+      "frame": "The choir's concert review is three short sentences. The Tagglet wants one sentence with just one main clause.",
+      "text": "The choir had rehearsed for months. The conductor raised her baton. The opening note came out as a squeak.",
+      "prompt": "Join all three so that only the squeak could stand alone.",
+      "success": "Only 'the opening note came out as a squeak' stands alone. The even though and when parts hang on it.",
       "body": {
         "format": "build",
-        "tiles": [
-          "Even though the choir",
-          "had rehearsed for months,",
-          "the opening note",
-          "came out as a squeak.",
-          "which came out as a squeak."
-        ],
-        "accept": [
-          "Even though the choir had rehearsed for months, the opening note came out as a squeak."
-        ],
-        "reason": "'The opening note which came out as a squeak' is a long name. A main clause needs its own verb."
+        "tiles": ["The choir had rehearsed for months,", "when the conductor raised her baton.", "the opening note came out as a squeak", "Even though the choir had rehearsed for months,", "and the conductor raised her baton.", "the conductor raised her baton."],
+        "accept": ["Even though the choir had rehearsed for months, the opening note came out as a squeak when the conductor raised her baton."],
+        "reason": "Two of your parts can stand alone. Use joining words so that only the squeak can."
       }
     },
     {
       "id": "5.2-b4-5",
       "band": 4,
       "topic": "ocean",
-      "frame": "A research ship's radio log has a line with no main clause.",
+      "frame": "The first line of a research ship's radio log has no main clause.",
       "prompt": "Tap the word that leaves it hanging, then choose a replacement that gives it a main clause.",
       "success": "'By noon' is just a time phrase, so both clauses can now stand alone and the sentence holds up.",
       "body": {
         "format": "fix",
         "parts": [
-          {
-            "tap": "Because"
-          },
+          { "tap": "Because" },
           " the research vessel had ",
-          {
-            "tap": "drifted",
-            "reason": "Drifted is a verb, and it's fine. Look for the word that turns everything after it into a dependent clause."
-          },
+          { "tap": "drifted", "reason": "Drifted is a verb, and it's fine. Look for the word that turns everything after it into a dependent clause." },
           " kilometres off course, and the radio had been ",
-          {
-            "tap": "silent",
-            "reason": "Silent is fine. Look for the word that turns everything after it into a dependent clause."
-          },
+          { "tap": "silent", "reason": "Silent is fine. Look for the word that turns everything after it into a dependent clause." },
           " since dawn."
         ],
         "spot": 0,
         "options": [
-          {
-            "text": "By noon"
-          },
-          {
-            "text": "Given that",
-            "reason": "Given that gives a reason, so it still leaves you waiting for a main clause."
-          },
-          {
-            "text": "Whereas",
-            "reason": "Whereas sets up a contrast, but it still leaves the whole sentence hanging."
-          },
-          {
-            "text": "Ever since",
-            "reason": "Ever since is about time, but it still turns everything after it into a dependent clause."
-          }
+          { "text": "By noon" },
+          { "text": "Given that", "reason": "Given that gives a reason, so it still leaves you waiting for a main clause." },
+          { "text": "Whereas", "reason": "Whereas sets up a contrast, but it still leaves the whole sentence hanging." },
+          { "text": "As soon as", "reason": "As soon as tells you when, but it's a joining word, so it still leaves the sentence hanging." }
         ],
         "answer": 0
       }

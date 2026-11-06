@@ -265,6 +265,18 @@
       "name": "Cubbler",
       "evolved": "Cubblestone",
       "blurb": "A wombat that leaves neat cube-shaped clues wherever it goes. It never tells you why it dug, so you'll have to work it out."
+    },
+    "write": {
+      "ask": "Write the next sentence. Give a clue that shows why Gus held his nose, but don't say why.",
+      "given": [
+        "Gus opened the fridge, held his nose and backed away."
+      ],
+      "checks": [
+        "I didn't use 'because' or say the reason.",
+        "My clue is something you could see, hear or smell.",
+        "A reader could work out the why from my clue."
+      ],
+      "model": "On the top shelf sat a carton of milk from last Easter, its lid puffed up like a balloon."
     }
   },
   "encounters": [
@@ -359,9 +371,9 @@
       "band": 1,
       "topic": "space",
       "frame": "The crew camped on a hill to watch shooting stars. The Cubbler dug itself a warm burrow.",
-      "text": "The crew camped out on the hill to watch the meteor shower. It was a clear night, so the stars were bright. It was also freezing. There was frost on the grass. And the mozzies were everywhere. Zed put on two beanies. Tully put bug spray on her arms. Mo wrapped himself in three blankets. Gus kept slapping his neck. At midnight, a shooting star zipped across the sky. Everyone cheered.",
+      "text": "The crew camped out on the hill to watch the meteor shower. It was a clear night, so the stars were bright. It was also freezing. There was frost on the grass. And the mozzies were everywhere. Zed put on two beanies. Indi zipped her jacket up to her chin. Tully put bug spray on her arms. Mo wrapped himself in three blankets. Gus kept slapping his neck. At midnight, a shooting star zipped across the sky. Everyone cheered.",
       "prompt": "Match each thing the crew did to the reason they did it.",
-      "success": "Beanies and blankets are for the cold. Bug spray and slapping are for the mozzies.",
+      "success": "Beanies, jackets and blankets are for the cold. Bug spray and slapping are for the mozzies.",
       "body": {
         "format": "sort",
         "bins": [
@@ -373,6 +385,11 @@
             "text": "Zed put on two beanies.",
             "bin": 0,
             "reason": "Beanies keep your head warm, and there was frost on the grass."
+          },
+          {
+            "text": "Indi zipped her jacket up to her chin.",
+            "bin": 0,
+            "reason": "A jacket zipped up high keeps you warm, and there was frost on the grass."
           },
           {
             "text": "Tully put bug spray on her arms.",
@@ -399,38 +416,38 @@
       "frame": "Gus wrote a note about Indi's lunch. One part is wrong.",
       "text": "Indi opened her lunchbox and shut it again, fast. She pushed it to the far end of the table. Inside was Mum's leftover fish curry. It had been in her bag all morning. Her bag had been sitting in the hot sun. A fly landed on the lid, then flew away very quickly. Zed held his nose. Indi ate an apple for lunch instead.",
       "prompt": "Tap the part of Gus's note that's wrong, then choose a better one.",
-      "success": "Fish curry sitting in the hot sun all morning would stink. Even the fly left fast.",
+      "success": "Fish curry left in the hot sun all morning would stink. That's why she pushed it away.",
       "body": {
         "format": "fix",
         "parts": [
-          "Indi's lunch was ",
+          "Indi's curry had been sitting in the ",
           {
-            "tap": "fish curry",
-            "reason": "That's right. Inside the lunchbox was Mum's leftover fish curry."
+            "tap": "cold fridge"
           },
-          ". She pushed her ",
+          " all morning, so it ",
           {
-            "tap": "lunchbox",
-            "reason": "That's right. She pushed her lunchbox away. Check each part against the clues."
+            "tap": "smelled bad",
+            "reason": "That part fits. Zed held his nose, and even the fly left fast."
           },
-          " away because ",
+          ". She ate ",
           {
-            "tap": "she was full"
+            "tap": "an apple",
+            "reason": "That's right. Indi ate an apple for lunch instead."
           },
-          "."
+          " for lunch."
         ],
-        "spot": 2,
+        "spot": 0,
         "options": [
           {
-            "text": "it was empty",
-            "reason": "Inside was Mum's leftover fish curry, so it wasn't empty."
+            "text": "school hall",
+            "reason": "The text never mentions a hall. Find where her bag had been sitting."
           },
           {
-            "text": "it smelled bad"
+            "text": "hot sun"
           },
           {
-            "text": "she didn't like the colour",
-            "reason": "The text never mentions a colour. Look at the clues about the sun and the fly."
+            "text": "dark cupboard",
+            "reason": "Nothing says it was in a cupboard. Her bag had been out somewhere warm."
           }
         ],
         "answer": 1
@@ -668,13 +685,13 @@
       "frame": "The school band has a problem. The Cubbler has been listening at the music room door.",
       "text": "Sam had been practising his trumpet solo for 'Sunrise March' every night for six weeks. The concert was only two weeks away. His neighbours knew every note. He even played it in the shower, which was difficult. On Monday, he came to school with a brand-new set of braces, shiny and silver across his top and bottom teeth. At band practice that afternoon, he lifted his trumpet, blew one note and winced. He tried again, and his eyes watered. He put the trumpet down on his knee and pressed his lips together. At lunch the next day, he ate only mashed potato, very slowly. After practice, he went to see Mr Okoro, the band teacher. On Tuesday, Mr Okoro announced that Lucy would play the solo at the concert instead. Lucy's mouth fell open, because she hadn't even known the solo was free. Lucy played the solo beautifully. Sam played the triangle. He hit it perfectly, every time, and smiled carefully with his mouth closed.",
       "prompt": "Why did Sam stop playing the trumpet solo?",
-      "success": "He winced and his eyes watered the day he got braces. Playing with new braces hurt.",
+      "success": "The pain started the day he got braces. Soft food and a closed-mouth smile point to his teeth.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "He hadn't practised enough.",
-            "reason": "He practised every night for six weeks. His neighbours knew every note."
+            "text": "His lips were sore from six weeks of practice.",
+            "reason": "He practised for six weeks with no trouble. The pain started the day his braces went on."
           },
           {
             "text": "Lucy asked to have the solo.",
@@ -684,8 +701,8 @@
             "text": "His new braces made playing hurt."
           },
           {
-            "text": "He wanted to play the triangle instead.",
-            "reason": "The triangle came after he gave up the solo. The clues are about his sore mouth."
+            "text": "He was too nervous to play a solo at the concert.",
+            "reason": "Nothing shows nerves. He winces in pain, and he eats only soft mashed potato."
           }
         ],
         "answer": 2
@@ -697,7 +714,7 @@
       "topic": "space",
       "frame": "A log from a space station has beamed down to Hollowgum. Gus is reading it with goggles on, just in case.",
       "prompt": "Tap the clue that tells you why the crew wore goggles at dinner.",
-      "success": "Floating soup blobs had splatted into faces. Goggles protect your eyes, so the clue explains them.",
+      "success": "Stinging blobs floated for hours and ended up in eyebrows. Goggles keep them out of your eyes.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -714,11 +731,11 @@
           " ",
           {
             "tap": "In space, nothing stays put, so everyone strapped their feet to the floor.",
-            "reason": "This explains the foot straps, not the goggles."
+            "reason": "This explains the foot straps. Find what floating soup did to the crew yesterday."
           },
           " ",
           {
-            "tap": "Yesterday, a soup pouch had burst, and stinging, oniony blobs had floated around the cabin for hours, splatting into people's faces."
+            "tap": "Yesterday, a soup pouch had burst, and stinging, oniony blobs had floated around the cabin for hours."
           },
           " Engineer Tom Pike had been wiping soup out of his eyebrows until bedtime. Even the pot plant had soup on it. Tonight, everyone squeezed their pouches very, very gently. ",
           {
@@ -750,8 +767,8 @@
             "reason": "The lid was still clipped on tight. They squeezed out through the drain holes."
           },
           {
-            "text": "They were escaping the heat.",
-            "reason": "It was a stormy, wet night. Nothing in the text says it was hot."
+            "text": "The loud storm frightened them out.",
+            "reason": "The storm matters, but look in the bottom tray. What did all that rain leave behind?"
           },
           {
             "text": "Their farm had filled with water."
@@ -810,45 +827,45 @@
       "frame": "The ranger wrote a quick note about the Hollowgum cockatoo. One part is wrong.",
       "text": "Ranger's report, Hollowgum Camping Ground. Since Monday, a sulphur-crested cockatoo has visited tent 4 every single morning at about seven o'clock. It does not visit any of the other twenty tents. The family in tent 4 told me they have tried everything to get rid of it. They have shouted, flapped towels and even played loud music at it, but it just screeches back and waits on their car roof. I noticed that they eat breakfast at a fold-out table outside their tent. They leave open packets of chips and bread on it overnight. The other campers pack their food into their cars at night. This morning, I watched the cockatoo land on the table, tear open a bag of chips and fling them all over the grass. Then it chewed the corner off the table, just for fun. I have given the family a plastic tub with a clip-on lid. I will check again tomorrow.",
       "prompt": "Tap the part of the note that's wrong, then choose a better one.",
-      "success": "Tent 4 is the only one with food left out overnight. That's what keeps the cockatoo coming back.",
+      "success": "Tent 4 is the only tent with food out overnight. The other campers pack theirs into their cars.",
       "body": {
         "format": "fix",
         "parts": [
-          "The cockatoo keeps visiting ",
+          "The cockatoo picks ",
           {
             "tap": "tent 4",
-            "reason": "That's right. It only visits tent 4. Check each part against the clues."
+            "reason": "That's right. It visits tent 4 every morning at about seven."
           },
-          " each ",
+          " because the family leaves food out, and the other campers ",
           {
-            "tap": "morning",
-            "reason": "That's right. It visits every single morning at about seven o'clock."
+            "tap": "leave their food on tables"
           },
-          " because ",
+          ". So it ",
           {
-            "tap": "the tent is bright yellow"
+            "tap": "ignores the other tents",
+            "reason": "That's right. It does not visit any of the other twenty tents."
           },
           "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "the family feeds it on purpose",
-            "reason": "They've tried to get rid of it by shouting and flapping towels."
+            "text": "feed it bread every morning",
+            "reason": "Nothing says anyone feeds it. If they did, it would visit their tents too."
           },
           {
-            "text": "the family leaves food out"
+            "text": "eat their breakfast inside",
+            "reason": "The report never says where the others eat. It says what they do with food at night."
           },
           {
-            "text": "it is nesting in the tent",
-            "reason": "It waits on the car roof and visits in the morning. Nothing says it nests there."
+            "text": "pack their food into their cars"
           },
           {
-            "text": "it likes the family's music",
-            "reason": "They played loud music to scare it off, and it screeched back."
+            "text": "play loud music at it",
+            "reason": "Tent 4 played the music, and it didn't work. What do the others do with their food?"
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {
@@ -871,11 +888,11 @@
           },
           {
             "text": "She was embarrassed by how it looked.",
-            "reason": "It was hung right by the door. Look at who she kept watching for all evening."
+            "reason": "She hung it right by the door. And look who she kept watching for all evening."
           },
           {
-            "text": "She didn't want Zed to copy her idea.",
-            "reason": "Nothing says anyone would copy it. She was watching for Nan's bus."
+            "text": "She wanted to wait until the hall was full.",
+            "reason": "She pulled off the sheet the moment Nan walked in, not when a crowd arrived."
           }
         ],
         "answer": 0
@@ -887,28 +904,28 @@
       "topic": "general",
       "frame": "Maxx Vantablack is streaming a 'rescue'. Wren has been watching the replay with the Cubbler.",
       "text": "MAXX VANTABLACK LIVE: RESCUE DAY! Maxx has millions of followers, and most of them believe he rescues creatures for a living. 'Vantafam, welcome back! Today I'm saving a super-rare Glimmerwing from the dangerous wild. Look how happy it is in its new home!' He swung the camera towards a small glass box on his desk. Inside, a little silver creature was flapping against the walls, again and again, until its wings made a soft tapping sound on the glass. 'Ha, it's dancing!' said Maxx. The chat filled with hearts. Then one message popped up in red: 'Is it trying to get out?' Another followed: 'Why does it keep hitting the glass?' Maxx stopped smiling. He leaned forward, read the messages, and quickly tilted the camera up towards the ceiling, so that the box disappeared from the shot. 'Oops, camera slipped!' he said brightly. 'Anyway, let's talk about my new hoodie range.' He held up a hoodie with his own face on it. For the rest of the stream, the camera never pointed at the desk again, even though his battery showed 96 per cent and the room was perfectly well lit. Afterwards, Wren watched the replay four times, pausing each time on the moment the camera tilted. Then she quietly started packing her rescue kit.",
-      "prompt": "Why did Maxx tilt the camera away from the box?",
-      "success": "He read the worried messages, stopped smiling and tilted it straight away. He was hiding the creature's struggle.",
+      "prompt": "Why does the writer tell you the battery showed 96 per cent and the room was well lit?",
+      "success": "With a full battery and good light, the only reason left is hiding the creature's struggle.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The camera slipped by accident, just as he told everyone.",
-            "reason": "He says it slipped, but he read the worried messages first and never pointed it back."
+            "text": "To show that Maxx's camera gear is very expensive.",
+            "reason": "Nothing here is about cost. These details come just when you wonder why the camera stays away."
           },
           {
-            "text": "His camera battery was running low, and the stream was about to cut out.",
-            "reason": "His battery showed 96 per cent, so that wasn't the problem."
+            "text": "To rule out other reasons for hiding the box."
           },
           {
-            "text": "He didn't want viewers to see the creature trying to escape."
+            "text": "To explain why Maxx's stream looked so good.",
+            "reason": "How good the stream looked isn't the puzzle. What excuses do these details take away from Maxx?"
           },
           {
-            "text": "The room was too dark to film.",
-            "reason": "The text says the room was perfectly well lit."
+            "text": "To prove the camera really did slip by accident.",
+            "reason": "They do the opposite. If the camera worked fine, why did it never point back at the box?"
           }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -1004,8 +1021,8 @@
             "reason": "The bread was still warm, and its smell drifted down the street."
           },
           {
-            "text": "It was her birthday.",
-            "reason": "Her birthday is in June, and this happened in November."
+            "text": "She was retiring and wanted to say thank you.",
+            "reason": "That fits the free bread, but the second sign says she'll be back in two weeks."
           },
           {
             "text": "She wanted the Hollowgum Herald to write a story about her.",
@@ -1036,7 +1053,7 @@
           },
           " because ",
           {
-            "tap": "he wanted to annoy his neighbours"
+            "tap": "his lawn has to be the neatest on the street"
           },
           ". He had finished by ",
           {
@@ -1048,22 +1065,22 @@
         "spot": 1,
         "options": [
           {
+            "text": "he wanted to annoy his neighbours",
+            "reason": "Beryl was annoyed, but he mowed her lawn too. Check what he pointed at."
+          },
+          {
             "text": "it would be far too hot later"
+          },
+          {
+            "text": "he wanted to finish before Beryl woke up",
+            "reason": "He mowed Beryl's lawn too, while she got dressed. He wasn't hiding from her."
           },
           {
             "text": "he was going away for the day",
             "reason": "Nothing says he was going anywhere. He finished and went inside."
-          },
-          {
-            "text": "his mower only works in the dark",
-            "reason": "Nothing says that about his mower. He pointed at the heat headline instead."
-          },
-          {
-            "text": "the post office asked him to",
-            "reason": "Beryl says he mowed the post office strip 'for some reason'. Nobody asked him."
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -1081,16 +1098,16 @@
             "text": "To keep her safe for the grand final."
           },
           {
-            "text": "She was playing badly and missing easy shots at goal.",
-            "reason": "She had kicked eight goals and the crowd was chanting her name."
+            "text": "To stop her setting a new goal record.",
+            "reason": "Nothing says he minds records. He talked about the grand final and taking no risks."
           },
           {
             "text": "She was injured.",
             "reason": "She jogged off saying she felt great and could run all day."
           },
           {
-            "text": "She asked to come off.",
-            "reason": "She begged to stay on for one more goal."
+            "text": "To give the other forwards a turn.",
+            "reason": "He took the next-best forwards off too. He is resting his best players, not sharing goals."
           }
         ],
         "answer": 0

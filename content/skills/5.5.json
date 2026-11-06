@@ -251,6 +251,13 @@
       "name": "Tuckbill",
       "evolved": "Tuckadore",
       "blurb": "A pelican that tucks extra detail into the middle of a sentence the way it tucks fish into its pouch, right behind the noun it belongs to."
+    },
+    "write": {
+      "ask": "Tuck the second sentence inside the first one as an embedded clause.",
+      "given": ["The volcano erupted last night.", "It had been quiet for 300 years."],
+      "starter": "The volcano,",
+      "checks": ["My clause sits right after the noun it's about", "I put commas around it, because it's an extra fact", "I used 'which', not 'that', after the comma"],
+      "model": "The volcano, which had been quiet for 300 years, erupted last night."
     }
   },
   "encounters": [
@@ -319,7 +326,7 @@
       "success": "'Which took all morning' sits right after sandcastle, so you know it's the sandcastle that took all morning.",
       "body": {
         "format": "build",
-        "tiles": ["The sandcastle,", "which took all morning,", "who took all morning,", "washed away in one wave."],
+        "tiles": ["The sandcastle,", "who took all morning,", "The sandcastle took all morning.", "which took all morning,", "washed away in one wave."],
         "accept": ["The sandcastle, which took all morning, washed away in one wave."],
         "reason": "A sandcastle is a thing, not a person. Tuck the clause that fits straight after 'The sandcastle,'."
       }
@@ -494,40 +501,40 @@
       "id": "5.5-b3-1",
       "band": 3,
       "topic": "music",
-      "frame": "The Tuckbill is reviewing the talent show. Something is tucked into this sentence.",
-      "prompt": "Tap the embedded clause.",
-      "success": "'Who had been hiding in the piano' is tucked in after dancer. It tells you which dancer.",
+      "frame": "The Tuckbill is reviewing the talent show. Two clauses are tucked in after nouns, but only one is needed.",
+      "prompt": "Tap the clause you can't take out, because it tells you which one.",
+      "success": "'Who had been hiding in the piano' has no commas. It tells you which dancer, so you need it.",
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "When the lights came on,", "reason": "This is a dependent clause, but it's at the front. It isn't tucked in after a noun." },
-          " ",
-          { "tap": "the dancer", "reason": "This is who the sentence is about. The embedded clause comes straight after it." },
-          " ",
+          { "tap": "When the lights came on,", "reason": "This is a dependent clause at the front. It isn't tucked in after a noun." },
+          " the dancer ",
           { "tap": "who had been hiding in the piano" },
-          " ",
-          { "tap": "took a bow.", "reason": "This is part of the main clause: the dancer took a bow." }
+          " took a bow. The judge, ",
+          { "tap": "who was eating a meat pie,", "reason": "This one sits between commas. Lift it out and you still know which judge." },
+          " dropped his fork ",
+          { "tap": "in surprise.", "reason": "This says how he dropped his fork. It has no verb, so it isn't a clause." }
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
       "id": "5.5-b3-2",
       "band": 3,
       "topic": "ocean",
-      "frame": "The Tuckbill found a newspaper story washed up on the beach.",
-      "text": "The diver who spotted the giant squid had only been diving for a week.",
-      "prompt": "What does the embedded clause tell you?",
-      "success": "'Who spotted the giant squid' tells you which diver the sentence is about.",
+      "frame": "The Tuckbill is helping the island newspaper write up a strange day at sea.",
+      "text": "Two divers were on the boat. One of them spotted a giant squid. The other saw nothing at all.",
+      "prompt": "Which sentence makes it clear which diver the story is about?",
+      "success": "With no commas, 'who spotted the squid' picks out one of the two divers. That's the one you mean.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "which diver the sentence is about" },
-          { "text": "how long the diver had been diving", "reason": "That's in the main clause: had only been diving for a week." },
-          { "text": "where the giant squid lives", "reason": "The sentence never says where the squid lives." },
-          { "text": "why the diver went diving", "reason": "The sentence never gives a reason for diving." }
+          { "text": "The diver, who spotted the squid, had only been diving for a week.", "reason": "The commas make it an extra fact, as if there were only one diver. There were two." },
+          { "text": "The diver who spotted the squid had only been diving for a week." },
+          { "text": "The diver who wore a blue mask had only been diving for a week.", "reason": "This does pick out one diver, but the story never says who wore a blue mask." },
+          { "text": "The diver which spotted the squid had only been diving for a week.", "reason": "Which is for animals and things. A diver is a person." }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
@@ -599,38 +606,36 @@
       "id": "5.5-b3-6",
       "band": 3,
       "topic": "general",
-      "frame": "Indi is writing a complaint about the school bus. A word is missing.",
-      "text": "Our school bus, ___ has no air conditioning, turns into an oven in February.",
-      "prompt": "Which word fits?",
-      "success": "Which is for things and can sit after a comma. It adds extra detail about the bus.",
+      "frame": "Indi is writing a complaint about the school bus. The Tuckbill wants her two sentences as one.",
+      "text": "Our school bus has no air conditioning. It turns into an oven in February.",
+      "prompt": "Tap the pieces in order to make one sentence with an embedded clause.",
+      "success": "'Which has no air conditioning' sits between commas after bus. It adds the fact that explains the oven.",
       "body": {
-        "format": "choose",
-        "options": [
-          { "text": "which" },
-          { "text": "that", "reason": "That doesn't go straight after a comma. What other word for things can?" },
-          { "text": "who", "reason": "Who is for people. A bus is a thing." },
-          { "text": "where", "reason": "Where is for places. This clause is telling you about the bus itself." }
-        ],
-        "answer": 0
+        "format": "build",
+        "tiles": ["Our school bus has no air conditioning,", "that has no air conditioning,", "Our school bus,", "and it turns into an oven in February.", "which has no air conditioning,", "turns into an oven in February."],
+        "accept": ["Our school bus, which has no air conditioning, turns into an oven in February."],
+        "reason": "Tuck the clause in right after 'bus'. Which word can sit straight after a comma?"
       }
     },
     {
       "id": "5.5-b4-1",
       "band": 4,
       "topic": "gross-science",
-      "frame": "The Tuckbill is reading a science magazine about the creatures that live in sloth fur.",
-      "prompt": "Tap the embedded clause.",
-      "success": "'Who studies sloth fur' is tucked in right after scientist. It tells you which scientist made the discovery.",
+      "frame": "The Tuckbill is reading a science magazine about the moths that live in sloth fur.",
+      "prompt": "Tap the tucked-in clause that solves the puzzle of the eggs.",
+      "success": "The sloth climbs down to poo, so the moths ride down with it and lay their eggs there.",
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "Although nobody believed her at first,", "reason": "This is a dependent clause, but it's at the front. It isn't tucked in after a noun." },
-          " ",
-          { "tap": "the scientist", "reason": "This is who the sentence is about. The embedded clause comes straight after it." },
-          " ",
-          { "tap": "who studies sloth fur" },
-          " ",
-          { "tap": "has found three new kinds of moth there.", "reason": "This is part of the main clause: the scientist has found three new kinds of moth." }
+          "Sloth moths, ",
+          { "tap": "which live only in sloth fur,", "reason": "This sets up the puzzle. If the moths never leave the fur, how do eggs get into the poo?" },
+          " lay their eggs in sloth poo. That sounds impossible for a moth ",
+          { "tap": "that never leaves the fur.", "reason": "This makes the puzzle harder, not easier. Read on to see how it's solved." },
+          " But the sloth, ",
+          { "tap": "which climbs down to the ground once a week to poo," },
+          " takes its moths along for the ride. The scientist ",
+          { "tap": "who cracked the puzzle", "reason": "This tells you which scientist. It doesn't say how the eggs get there." },
+          " was thrilled."
         ],
         "answer": 2
       }
@@ -677,43 +682,44 @@
       "id": "5.5-b4-4",
       "band": 4,
       "topic": "robots",
-      "frame": "Gus's delivery drone has had a bad day. The Tuckbill wants the whole story in one sentence.",
-      "prompt": "Tap the pieces in order to make one sentence with an embedded clause.",
-      "success": "'Which Gus had programmed in a hurry' sits between commas after drone. It adds a detail that explains the mess.",
+      "frame": "Gus's delivery drone has had a bad day. The Tuckbill wants the story in one sentence that hints at what went wrong.",
+      "prompt": "Build one sentence where the tucked-in detail helps explain the mess.",
+      "success": "'Which Gus had programmed in a hurry' sits between commas after drone. It hints at why the drone went wrong.",
       "body": {
         "format": "build",
-        "tiles": ["The delivery drone,", "which Gus had programmed in a hurry,", "that Gus had programmed in a hurry,", "dropped a family-sized pizza", "into the principal's lap."],
-        "accept": ["The delivery drone, which Gus had programmed in a hurry, dropped a family-sized pizza into the principal's lap."],
-        "reason": "The clause sits between commas. Can 'that' go straight after a comma?"
+        "tiles": ["The delivery drone,", "which was painted bright red,", "which Gus had named Captain Crust,", "The delivery drone dropped a pizza", "which Gus had programmed in a hurry,", "dropped a pizza into the principal's lap."],
+        "accept": ["The delivery drone, which Gus had programmed in a hurry, dropped a pizza into the principal's lap."],
+        "reason": "Which tucked-in detail gives a reason the drone might go wrong? Check what each one tells you."
       }
     },
     {
       "id": "5.5-b4-5",
       "band": 4,
       "topic": "space",
-      "frame": "The planetarium's fact sheet has one wrong word.",
-      "prompt": "Tap the wrong word, then choose a better one.",
-      "success": "Which is for things and can sit after a comma. It adds extra detail about Mars.",
+      "frame": "The space centre's report has a sentence that gives the wrong idea.",
+      "text": "Only some of the crew trained in the underwater tank before the mission.",
+      "prompt": "Tap the part that gives the wrong idea about the crew, then choose a fix.",
+      "success": "With no commas, the clause picks out the astronauts who trained underwater. The commas said they all did.",
       "body": {
         "format": "fix",
         "parts": [
-          { "tap": "Mars", "reason": "Mars is the planet being described. Look for the word starting the embedded clause." },
-          ", ",
-          { "tap": "that" },
-          " has the ",
-          { "tap": "tallest", "reason": "Tallest is fine. Look for the word starting the embedded clause." },
-          " volcano in the solar system, is about ",
-          { "tap": "half", "reason": "Half is fine. Look for the word starting the embedded clause." },
-          " the size of Earth."
+          { "tap": "The astronauts, who trained underwater," },
+          " ",
+          { "tap": "coped", "reason": "Coped is fine. Look at the part that tells you which astronauts." },
+          " ",
+          { "tap": "best", "reason": "Best is fine. Look at the part that tells you which astronauts." },
+          " on the ",
+          { "tap": "spacewalk", "reason": "The spacewalk is fine. Look at the part that tells you which astronauts." },
+          "."
         ],
-        "spot": 1,
+        "spot": 0,
         "options": [
-          { "text": "which" },
-          { "text": "who", "reason": "Who is for people. Mars is a planet." },
-          { "text": "where", "reason": "Where needs its own doer after it, like 'where you'll find'. You need a word that stands for Mars." },
-          { "text": "whose", "reason": "Whose shows belonging, as in 'whose volcano is the tallest'. Here you need a word that stands for Mars itself." }
+          { "text": "The astronauts, which trained underwater,", "reason": "Which is for animals and things. And the commas still say every astronaut trained there." },
+          { "text": "The astronauts who trained underwater" },
+          { "text": "The astronauts, that trained underwater,", "reason": "That never sits after a comma. And the commas still say every astronaut trained there." },
+          { "text": "The astronauts, who all trained underwater,", "reason": "Now it really does say every astronaut trained underwater. Only some of them did." }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {

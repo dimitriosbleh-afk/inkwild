@@ -249,6 +249,19 @@
       "name": "Floeppa",
       "evolved": "Floepparch",
       "blurb": "An alpine tree frog that hops from ice floe to ice floe. When the 'when' floe comes first, it needs a comma to land on."
+    },
+    "write": {
+      "ask": "Join these into one sentence that starts with a joining word like when or because. Put the comma in.",
+      "given": [
+        "The yeti sneezed.",
+        "The igloo fell down."
+      ],
+      "checks": [
+        "My sentence starts with a joining word like when",
+        "The comma comes where the dependent clause ends",
+        "The main clause makes sense on its own"
+      ],
+      "model": "As soon as the yeti sneezed, the whole igloo fell down around him."
     }
   },
   "encounters": [
@@ -675,41 +688,47 @@
       "topic": "gross-science",
       "frame": "Gus's lab notes are wobbling. One comma is missing.",
       "prompt": "Tap where a comma is missing, then choose the fix.",
-      "success": "'Whenever Gus sneezes in the lab' can't stand alone. The comma goes after 'lab'.",
+      "success": "The main clause starts with 'the slime samples', so the comma goes just before it. The first sentence needs none.",
       "body": {
         "format": "fix",
         "parts": [
+          "The slime ",
+          {
+            "tap": "wobbles when",
+            "reason": "The main clause comes first in this sentence. Does it need a comma?"
+          },
+          " Gus sneezes. ",
           {
             "tap": "Whenever Gus",
-            "reason": "This is the start of the 'whenever' part. The comma comes where it ends."
+            "reason": "This is where the 'whenever' part starts. Where does it end?"
           },
-          " sneezes in the ",
+          " laughs in the ",
           {
-            "tap": "lab the slime"
+            "tap": "lab the"
           },
           " ",
           {
-            "tap": "samples wobble",
-            "reason": "The slime samples are the doers. A comma here would split them from the action."
+            "tap": "slime samples",
+            "reason": "The slime samples are the doers of the main clause. Would you split them?"
           },
-          " like jelly."
+          " jump like jelly."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
-            "text": "lab, the slime"
+            "text": "lab, the"
           },
           {
-            "text": "lab. The slime",
-            "reason": "'Whenever Gus sneezes in the lab.' can't stand alone. It needs a comma, not a full stop."
+            "text": "lab. The",
+            "reason": "The 'whenever' part can't stand alone. Does it need a full stop or a comma?"
           },
           {
-            "text": "lab the, slime",
-            "reason": "That comma splits 'the slime samples'. Where does the 'whenever' part finish?"
+            "text": "lab the,",
+            "reason": "That comma lands inside the doer. Where does the main clause start?"
           },
           {
-            "text": "lab the slime,",
-            "reason": "That comma splits 'slime samples'. Where does the 'whenever' part finish?"
+            "text": "lab and the",
+            "reason": "Adding a word changes the sentence. Which mark shows where the clause ends?"
           }
         ],
         "answer": 0
@@ -719,24 +738,24 @@
       "id": "6.4-b3-3",
       "band": 3,
       "topic": "art",
-      "frame": "The plaque for Indi's ice sculpture has cracked into pieces.",
-      "prompt": "Tap the pieces in order to make the sentence.",
-      "success": "'Even though her hands were freezing' can't stand alone, so a comma joins it to the main part.",
+      "frame": "The plaque for Indi's painting has cracked into pieces.",
+      "prompt": "Make the sentence say the owl was watching Indi. Use one comma.",
+      "success": "The comma ends the 'while' part, so Indi isn't painting the owl. The owl is watching her.",
       "body": {
         "format": "build",
         "tiles": [
-          "Even though her hands",
-          "were freezing",
+          "While",
+          "Indi painted",
+          "the owl",
+          "watched her",
           ",",
-          "Indi kept carving",
-          "the ice owl",
-          ".",
+          ",",
           "."
         ],
         "accept": [
-          "Even though her hands were freezing, Indi kept carving the ice owl."
+          "While Indi painted, the owl watched her."
         ],
-        "reason": "The 'even though' part can't stand alone. It needs a comma before the main part, not a full stop."
+        "reason": "Where the comma sits decides what Indi painted. Read it aloud: who is watching whom?"
       }
     },
     {
@@ -826,104 +845,106 @@
       "topic": "gaming",
       "frame": "Zed is writing a cheat guide for a penguin game.",
       "prompt": "Which version is punctuated right?",
-      "success": "'Whenever Zed's character jumps' can't stand alone. The comma goes where it ends.",
+      "success": "The main clause comes first, so no comma is needed. The others misread or leave a part alone.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Whenever Zed's character jumps, a tiny penguin appears on the screen."
+            "text": "Whenever Zed jumps a tiny penguin appears on the screen.",
+            "reason": "With no comma, Zed seems to jump a penguin. What marks where the 'whenever' part ends?"
           },
           {
-            "text": "Whenever Zed's character, jumps a tiny penguin appears on the screen.",
-            "reason": "The comma splits the character from what it does. Where does the 'whenever' part finish?"
+            "text": "Whenever Zed jumps. A tiny penguin appears on the screen.",
+            "reason": "Say the first part alone. Does the 'whenever' part make sense, or leave you waiting?"
           },
           {
-            "text": "Whenever Zed's character jumps a tiny penguin, appears on the screen.",
-            "reason": "The comma splits the penguin from what it does. Where does the 'whenever' part finish?"
+            "text": "A tiny penguin appears on the screen whenever Zed jumps."
           },
           {
-            "text": "Whenever Zed's character jumps. A tiny penguin appears on the screen.",
-            "reason": "The 'whenever' part can't stand alone. It needs a comma, not a full stop."
+            "text": "A tiny penguin appears on the screen. Whenever Zed jumps.",
+            "reason": "The last part leaves you waiting. Can a 'whenever' part stand alone?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "6.4-b4-1",
       "band": 4,
       "topic": "animals",
-      "frame": "A ranger's report from the high country has four drafts of one sentence.",
-      "prompt": "Which version is punctuated right?",
-      "success": "The comma after 'circled' ends the 'as' part, so the lambs are clearly the ones who bolted.",
+      "frame": "A ranger's report has this line with no comma.",
+      "text": "As the wedge-tailed eagle circled the lambs bolted for the shelter of the snow gums.",
+      "prompt": "Why does this sentence trip readers up?",
+      "success": "With no comma, the eagle seems to circle the lambs. A comma after 'circled' shows the lambs bolted.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "As the wedge-tailed eagle circled, the lambs bolted for the shelter of the snow gums."
+            "text": "The 'as' part should come after the main clause, never before it.",
+            "reason": "A dependent clause can come first. What goes wrong when you read it straight through?"
           },
           {
-            "text": "As the wedge-tailed eagle circled the lambs bolted for the shelter of the snow gums.",
-            "reason": "With no comma, you first read 'circled the lambs', then 'bolted' has no doer."
+            "text": "Readers join up 'circled the lambs', then find that 'bolted' has no doer."
           },
           {
-            "text": "As the wedge-tailed eagle circled the lambs, bolted for the shelter of the snow gums.",
-            "reason": "Now the eagle circled the lambs, and 'bolted' has no doer."
+            "text": "It is two sentences, so it needs a full stop after 'circled'.",
+            "reason": "Say the 'as' part alone. Can it stand alone as a sentence?"
           },
           {
-            "text": "As the wedge-tailed, eagle circled the lambs bolted for the shelter of the snow gums.",
-            "reason": "The comma splits 'wedge-tailed eagle', and the 'as' part is never closed."
+            "text": "It needs a comma after 'eagle' to show who did the circling.",
+            "reason": "That splits the eagle from what it did. Where does the dependent clause really end?"
           }
         ],
-        "answer": 0
+        "answer": 1
       }
     },
     {
       "id": "6.4-b4-2",
       "band": 4,
       "topic": "ocean",
-      "frame": "The icebreaker's captain is writing up a bad week.",
-      "prompt": "Tap where a comma is missing, then choose the fix.",
-      "success": "The 'although' part runs all the way to 'pack ice'. The comma goes there, before 'the frozen sea'.",
+      "frame": "The icebreaker captain's log has one punctuation mistake.",
+      "prompt": "Tap the spot that's wrong, then choose the fix.",
+      "success": "'Although the captain kept steering' leaves you waiting. A comma, not a full stop, joins it to the main clause.",
       "body": {
         "format": "fix",
         "parts": [
+          "The icebreaker kept ",
           {
-            "tap": "Although the",
-            "reason": "This is the start of the 'although' part. The comma comes where it ends."
+            "tap": "going when",
+            "reason": "The main clause comes first here. Does it need a comma before when?"
           },
-          " research ship was built to ",
+          " the sea froze. Because its engines were ",
           {
-            "tap": "smash through",
-            "reason": "Smash through what? The 'although' part isn't finished yet. Keep reading."
+            "tap": "strong, it",
+            "reason": "'Because its engines were strong' leaves you waiting. The comma closes it, so this one is right."
           },
-          " pack ",
+          " broke through for ten days. Although the captain kept ",
           {
-            "tap": "ice the"
+            "tap": "steering. The"
           },
-          " ",
+          " ice ",
           {
-            "tap": "frozen sea",
-            "reason": "The frozen sea is the doer in the main part. A comma here would split it."
+            "tap": "trapped it",
+            "reason": "This is what the ice did, inside the main clause. Is anything wrong here?"
           },
-          " held it fast for eleven days."
+          " on day eleven."
         ],
         "spot": 2,
         "options": [
           {
-            "text": "ice, the"
+            "text": "steering, the"
           },
           {
-            "text": "ice. The",
-            "reason": "The 'although' part can't stand alone. It needs a comma, not a full stop."
+            "text": "steering the",
+            "reason": "Now you read 'steering the ice'. Where does the 'although' part end?"
           },
           {
-            "text": "ice the,",
-            "reason": "That comma splits 'the frozen sea'. Where does the 'although' part finish?"
+            "text": "steering and the",
+            "reason": "Now it's one long 'although' part with no main clause. Does it make sense alone?"
           },
           {
-            "text": "ice, the,",
-            "reason": "The second comma splits 'the frozen sea'. How many commas does this sentence need?"
+            "text": "steering, The",
+            "reason": "A capital in the middle of a sentence? Is 'the ice' starting a new sentence?"
           }
         ],
         "answer": 0
@@ -934,23 +955,23 @@
       "band": 4,
       "topic": "space",
       "frame": "The space station's emergency plan was shredded by a printer fault.",
-      "prompt": "Tap the pieces in order to make the sentence.",
-      "success": "'If the solar storm reaches the station' can't stand alone. The comma goes where it ends.",
+      "prompt": "Make the sentence say the storm reaches the station. Use one comma.",
+      "success": "The comma ends the 'if' part after 'the station', so nobody reads 'station crew members'.",
       "body": {
         "format": "build",
         "tiles": [
-          "If the solar storm",
-          "reaches the station",
+          "If the solar storm reaches",
+          "the station",
+          "crew members",
           ",",
-          "the astronauts",
-          "will shelter in the core module",
-          ".",
+          ",",
+          "must shelter in the core",
           "."
         ],
         "accept": [
-          "If the solar storm reaches the station, the astronauts will shelter in the core module."
+          "If the solar storm reaches the station, crew members must shelter in the core."
         ],
-        "reason": "The 'if' part can't stand alone. Put a comma, not a full stop, where it ends."
+        "reason": "Find the doer of the main clause. Is it 'the station crew', or the crew members?"
       }
     },
     {
@@ -958,32 +979,38 @@
       "band": 4,
       "topic": "spooky",
       "frame": "Zed found a legend pinned to the lighthouse door.",
-      "prompt": "Tap where the comma should go.",
-      "success": "The 'although' part runs to 'fifty years'. The comma goes there, before 'a lantern'.",
+      "prompt": "Tap the word the comma goes after.",
+      "success": "The 'although' clause runs to 'long ago', because that's when the keeper left. The comma goes there.",
       "body": {
         "format": "tapText",
         "parts": [
+          "The lantern ",
           {
-            "tap": "Although nobody",
-            "reason": "This is the start of the 'although' part. The comma comes where it ends."
+            "tap": "flickers",
+            "reason": "The main clause comes first in this sentence. Does it need a comma before when?"
           },
-          " had lived in the ",
+          " when the fog rolls in. Although the keeper ",
           {
-            "tap": "lighthouse for",
-            "reason": "For how long? The 'although' part isn't finished yet. Keep reading."
+            "tap": "left",
+            "reason": "Left what? Read on. Does the 'although' part end yet?"
           },
-          " fifty ",
+          " the ",
           {
-            "tap": "years a"
+            "tap": "lighthouse",
+            "reason": "Read on. When did the keeper leave? That's still part of the 'although' clause."
           },
-          " ",
+          " long ",
           {
-            "tap": "lantern still",
-            "reason": "The lantern is the doer in the main part. A comma here would split it."
+            "tap": "ago"
           },
-          " glowed at the top every night."
+          " the ",
+          {
+            "tap": "lantern",
+            "reason": "The lantern is the doer of the main clause. Can a comma split it from 'still glows'?"
+          },
+          " still glows each night."
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
@@ -1042,29 +1069,29 @@
       "id": "6.4-b4-6",
       "band": 4,
       "topic": "music",
-      "frame": "The orchestra's program notes need checking before the winter concert.",
-      "prompt": "Which version is punctuated right?",
-      "success": "'As soon as the conductor raised her baton' can't stand alone. The comma goes where it ends.",
+      "frame": "The orchestra program says: As soon as the conductor raised her baton, the whole orchestra fell silent.",
+      "prompt": "Why does the comma go after 'baton' and not after 'conductor'?",
+      "success": "The dependent clause runs until the baton goes up. The comma sits just before the doer of the main clause.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "As soon as the conductor raised her baton, the whole orchestra fell silent."
+            "text": "'Raised her baton' is the main clause, so a comma goes straight after it.",
+            "reason": "'Raised her baton' has no doer of its own. Which part makes sense alone?"
           },
           {
-            "text": "As soon as the conductor raised her baton the whole orchestra, fell silent.",
-            "reason": "The comma splits the orchestra from what it did. Where does the 'as soon as' part finish?"
+            "text": "Readers need to breathe after the baton goes up, so the pause goes there.",
+            "reason": "Commas aren't for breathing. Which clause does this comma close?"
           },
           {
-            "text": "As soon as the conductor, raised her baton the whole orchestra fell silent.",
-            "reason": "The comma splits the conductor from what she did. Where does the 'as soon as' part finish?"
+            "text": "The 'as soon as' clause ends at 'baton'. The main clause starts after it."
           },
           {
-            "text": "As soon as the conductor raised her baton. The whole orchestra fell silent.",
-            "reason": "The 'as soon as' part can't stand alone. It needs a comma, not a full stop."
+            "text": "'As soon as the conductor' tells you when, so either spot would be fine.",
+            "reason": "That leaves out what the conductor did. Where does the whole 'as soon as' part end?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     }
   ]

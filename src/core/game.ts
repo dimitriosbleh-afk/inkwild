@@ -1,7 +1,8 @@
-import type { Band, BranchId, Content, Encounter, Response, Skill, SkillId, Task } from '../content/types';
-import { BANDS } from '../content/types';
+import type { BranchId, Content, Encounter, EncounterId, Response, Skill, SkillId, Task } from '../content/types';
 import { recordForBand } from './bands';
 import { check } from './check';
+import { interestWeight, poolKey, poolNear, weighted } from './pick';
+import { reviewFor } from './review';
 import { isUnlocked, keeperOpen, masteredAt, unlockedSkills } from './route';
 import { skillProgress, type Activity, type Day, type Outcome, type Save } from './save';
 
@@ -18,7 +19,9 @@ export type Action =
   | { type: 'answer'; response: Response }
   | { type: 'retreat' }
   | { type: 'piece'; skill: SkillId; title: string; text: string; ticks: boolean[] }
-  | { type: 'receive'; creature: string; shiny: boolean };
+  | { type: 'receive'; creature: string; shiny: boolean }
+  | { type: 'sentence'; skill: SkillId; text: string; ticks: boolean[] }
+  | { type: 'review' };
 
 export type GameEvent =
   | { type: 'secondLook'; reason: string }
@@ -34,7 +37,9 @@ export type GameEvent =
   | { type: 'retreated'; branch: BranchId }
   | { type: 'tide'; branch: BranchId }
   | { type: 'empty'; branch: BranchId }
-  | { type: 'received'; creature: string; shiny: boolean; already: boolean };
+  | { type: 'received'; creature: string; shiny: boolean; already: boolean }
+  | { type: 'wrote'; skill: SkillId }
+  | { type: 'reviewDone'; first: number; of: number };
 
 export interface Step {
   save: Save;
@@ -43,6 +48,7 @@ export interface Step {
 
 const RECENT_ATTEMPTS = 10;
 const XP_PER_ENCOUNTER = 10;
+const XP_PER_SENTENCE = 10;
 const SHINY_ODDS = 64;
 const TIDE_SHINY_ODDS = 16;
 export const KEEPER_HP = 100;
@@ -62,7 +68,12 @@ export function currentTask(content: Content, activity: Activity): Task {
     const task = teach.weDo[activity.step === 2 ? 1 : 0];
     return task;
   }
-  return content.encounter(activity.id);
+  return content.encounter(encounterOf(activity));
+}
+
+/** The Encounter on screen in any activity but teaching. */
+export function encounterOf(activity: Exclude<Activity, { kind: 'teach' }>): EncounterId {
+  return activity.kind === 'review' ? activity.ids[activity.at]! : activity.id;
 }
 
 export function tideBranch(content: Content, save: Save, ctx: Ctx): BranchId {
@@ -98,6 +109,10 @@ class Run {
         return this.piece(action);
       case 'receive':
         return this.receive(action.creature, action.shiny);
+      case 'sentence':
+        return this.sentence(action);
+      case 'review':
+        return this.startReview();
     }
   }
 
@@ -139,6 +154,23 @@ class Run {
       foe: KEEPER_HP,
       turn: 1,
     };
+  }
+
+  private startReview(): void {
+    if (this.save.activity) return;
+    const ids = reviewFor(this.content, this.save, this.ctx.day, this.ctx.rand);
+    if (ids.length === 0) return;
+    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, firsts: 0 };
+  }
+
+  /** A Write your own sentence: kept on the iPad, never marked, worth a little XP. */
+  private sentence(a: Extract<Action, { type: 'sentence' }>): void {
+    const text = a.text.trim();
+    const p = skillProgress(this.save, a.skill);
+    if (!this.content.skill(a.skill).write || !p.taught || !text) return;
+    this.save.sentences.push({ skill: a.skill, text, ticks: a.ticks, day: this.ctx.day });
+    this.save.skills[a.skill] = { ...p, xp: p.xp + XP_PER_SENTENCE };
+    this.events.push({ type: 'wrote', skill: a.skill });
   }
 
   private nearSide(branch: BranchId): Skill[] {
@@ -189,8 +221,13 @@ class Run {
     this.events.push({ type: 'received', creature, shiny, already });
   }
 
+  /** Leaving a Keeper battle or a Daily review early. A review left early gives no credit and can be started again. */
   private retreat(): void {
     const a = this.save.activity;
+    if (a?.kind === 'review') {
+      delete this.save.activity;
+      return;
+    }
     if (a?.kind !== 'keeper') return;
     delete this.save.activity;
     this.events.push({ type: 'retreated', branch: a.branch });
@@ -218,6 +255,7 @@ class Run {
       ...(verdict.kind === 'wrong' ? { reason: verdict.reason } : {}),
     });
     if (a.kind === 'teach') return a.step === 0 ? undefined : this.teachDone(a.skill, a.step);
+    if (a.kind === 'review') return this.reviewTurn(a, outcome);
     const encounter = this.content.encounter(a.id);
     this.record(encounter, outcome);
     if (a.kind === 'keeper') return this.keeperTurn(a, outcome);
@@ -264,6 +302,35 @@ class Run {
       return;
     }
     this.save.activity = { ...a, id: next.id, tries: 0, hp, foe, turn: a.turn + 1 };
+  }
+
+  /**
+   * One Daily review answer. It gives XP and notes the attempt so this Skill waits longest for its next review, but
+   * never moves the Band, placement or mastery, and never counts as play on that Island.
+   */
+  private reviewTurn(a: Extract<Activity, { kind: 'review' }>, outcome: Outcome): void {
+    const { content, save, ctx } = this;
+    const encounter = content.encounter(encounterOf(a));
+    const p = skillProgress(save, encounter.skill);
+    save.skills[encounter.skill] = {
+      ...p,
+      xp: p.xp + XP_PER_ENCOUNTER,
+      recent: [...p.recent, { outcome, band: encounter.band, day: ctx.day }].slice(-RECENT_ATTEMPTS),
+    };
+    const key = poolKey(encounter.skill, encounter.band);
+    save.seen[key] = [...(save.seen[key] ?? []), encounter.id];
+    if (save.lastPlayed !== ctx.day) {
+      save.daysPlayed += 1;
+      save.lastPlayed = ctx.day;
+    }
+    const firsts = a.firsts + (outcome === 'first' ? 1 : 0);
+    if (a.at + 1 < a.ids.length) {
+      save.activity = { ...a, at: a.at + 1, tries: 0, firsts };
+      return;
+    }
+    delete save.activity;
+    save.reviewDay = ctx.day;
+    this.events.push({ type: 'reviewDone', first: firsts, of: a.ids.length });
   }
 
   private record(encounter: Encounter, outcome: Outcome): void {
@@ -338,7 +405,7 @@ class Run {
     const skill = weighted(skills, this.ctx.rand, () => 1);
     if (!skill) return undefined;
     const band = this.save.branches[skill.branch].band;
-    const pool = this.poolNear(skill.id, band);
+    const pool = poolNear(this.content, skill.id, band);
     if (pool.length === 0) return undefined;
     const key = poolKey(skill.id, pool[0]!.band);
     const seen = new Set(this.save.seen[key] ?? []);
@@ -347,30 +414,6 @@ class Run {
       this.save.seen[key] = [];
       fresh = pool;
     }
-    const interests = new Set<string>(this.save.interests);
-    return weighted(fresh, this.ctx.rand, (e) => (interests.has(e.topic) ? 3 : 1));
+    return weighted(fresh, this.ctx.rand, interestWeight(this.save.interests));
   }
-
-  private poolNear(skill: SkillId, band: Band): Encounter[] {
-    const byDistance = [...BANDS].sort((x, y) => Math.abs(x - band) - Math.abs(y - band) || x - y);
-    for (const b of byDistance) {
-      const pool = this.content.pool(skill, b);
-      if (pool.length > 0) return pool;
-    }
-    return [];
-  }
-}
-
-export function poolKey(skill: SkillId, band: Band): string {
-  return `${skill}|${band}`;
-}
-
-function weighted<T>(items: T[], rand: () => number, weight: (item: T) => number): T | undefined {
-  const total = items.reduce((sum, item) => sum + weight(item), 0);
-  let r = rand() * total;
-  for (const item of items) {
-    r -= weight(item);
-    if (r < 0) return item;
-  }
-  return items.at(-1);
 }

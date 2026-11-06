@@ -299,6 +299,12 @@
       "name": "Mendlet",
       "evolved": "Mendlestar",
       "blurb": "A reef sea star that can grow back a lost arm. It makes broken bits whole and snips run-ons where they should stop."
+    },
+    "write": {
+      "ask": "This is a run-on. Rewrite it as one correct sentence, or as two.",
+      "given": ["Mo dropped the cake it landed upside down."],
+      "checks": ["Each sentence has a doer and a verb", "No two thoughts are jammed together with only a comma", "Full stop, or comma plus joining word, between thoughts"],
+      "model": "Mo dropped the cake, and it landed upside down."
     }
   },
   "encounters": [
@@ -658,33 +664,33 @@
       "id": "5.13-b4-1",
       "band": 4,
       "topic": "space",
-      "frame": "The observatory's newsletter has four drafts of its headline story. Only one is a sentence.",
-      "prompt": "Which version is written correctly?",
-      "success": "The 'which' part sits inside the sentence, and 'the comet blazed across the sky' is the complete thought around it.",
+      "frame": "The observatory's newsletter has a run-on: 'The comet had not been seen for seventy-six years tonight it blazed across the sky.' Two fixes are correct.",
+      "prompt": "Which fix is correct and also shows that the two thoughts clash?",
+      "success": "Both 'and' and 'but' fix the run-on. Only 'but' shows the clash: unseen for years, then blazing tonight.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The comet, which had not been seen for seventy-six years, blazed across the sky." },
-          { "text": "The comet, which had not been seen for seventy-six years.", "reason": "This is a fragment. It tells you about the comet but never says what the comet did." },
-          { "text": "The comet had not been seen for seventy-six years, it blazed across the sky.", "reason": "This is a run-on. Two complete thoughts are held together by just a comma." },
-          { "text": "Blazing across the sky after seventy-six years unseen.", "reason": "This is a fragment. It never says what was blazing." }
+          { "text": "The comet had not been seen for seventy-six years, and tonight it blazed across the sky.", "reason": "This does fix the run-on, but 'and' just adds the second thought. It doesn't show the clash." },
+          { "text": "The comet had not been seen for seventy-six years, tonight it blazed across the sky.", "reason": "A comma on its own can't hold two complete thoughts together. It's still a run-on." },
+          { "text": "The comet had not been seen for seventy-six years, but tonight it blazed across the sky." },
+          { "text": "The comet had not been seen for seventy-six years. Tonight blazing across the sky.", "reason": "'Tonight blazing across the sky.' is a fragment. It never says what was blazing." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "5.13-b4-2",
       "band": 4,
       "topic": "music",
-      "frame": "A review of the reef concert has one broken part. The Mendlet has found it, but wants you to.",
-      "prompt": "Tap the part that is not a complete sentence.",
-      "success": "'Who had never played to a crowd before.' is a fragment. It describes the cellist, so it must attach there.",
+      "frame": "A review of the reef concert has two broken parts. One needs splitting with a full stop. The other needs joining on.",
+      "prompt": "Tap the part that should be joined onto the sentence before it.",
+      "success": "'Who had never played to a crowd before.' describes the cellist, so it joins on right after 'cellist'.",
       "body": {
         "format": "tapText",
         "parts": [
           { "tap": "The orchestra had rehearsed for months.", "reason": "This is complete. It says who (the orchestra) and what they had done." },
           " ",
-          { "tap": "When the conductor finally raised her baton, the hall fell silent.", "reason": "This is complete. It starts with 'when', but 'the hall fell silent' finishes the thought." },
+          { "tap": "The conductor raised her baton the hall fell silent.", "reason": "This is a run-on. It needs splitting with a full stop after 'baton', not joining on." },
           " ",
           { "tap": "Every eye turned to the young cellist in the front row.", "reason": "This is complete. It says what (every eye) and what it did." },
           " ",

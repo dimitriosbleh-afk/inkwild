@@ -253,6 +253,20 @@
       "name": "Stashlet",
       "evolved": "Stashmantle",
       "blurb": "A broad-toothed rat that stores seeds in neat rows under the snow. It puts a comma between each one so they never roll together."
+    },
+    "write": {
+      "ask": "Join these into one sentence with a list. Then add a fourth thing Indi packed.",
+      "given": [
+        "Indi packed her paint pots.",
+        "She packed two big brushes.",
+        "She packed a jar of water."
+      ],
+      "checks": [
+        "Commas keep the items apart",
+        "I used and before the last item",
+        "Each item stays whole, with no comma inside"
+      ],
+      "model": "Indi packed her paint pots, two big brushes, a jar of water and a very old apron."
     }
   },
   "encounters": [
@@ -725,17 +739,18 @@
           "Gus's slime needs ",
           {
             "tap": "glue, shaving",
-            "reason": "This comma keeps the glue apart from the shaving foam. It's right."
+            "reason": "This comma keeps the glue apart from the shaving foam. Is anything wrong here?"
           },
           " ",
           {
             "tap": "foam glitter"
           },
-          " and green food ",
+          " and ",
           {
-            "tap": "colouring.",
-            "reason": "This is the last item, and the full stop ends the list."
-          }
+            "tap": "green food",
+            "reason": "Green food colouring is one item. Would a comma inside it help?"
+          },
+          " colouring."
         ],
         "spot": 1,
         "options": [
@@ -762,51 +777,28 @@
       "id": "6.2-b3-3",
       "band": 3,
       "topic": "animals",
-      "frame": "The Stashlet's winter store was dug up. Build the list of what's inside.",
-      "prompt": "Tap the pieces in order to make a list sentence. Use 'and' before the last item.",
-      "success": "Commas keep the first three items apart, and 'and' joins the last. One full stop ends it.",
+      "frame": "The Stashlet's winter store was dug up. It had eaten four different things.",
+      "prompt": "Make the sentence say the Stashlet ate four things. Start the list with honey and end with berries.",
+      "success": "The comma after 'honey' splits honey from cake, so the list shows four things, not three.",
       "body": {
         "format": "build",
         "tiles": [
-          "The Stashlet hides",
-          "snow-gum seeds",
-          ",",
-          "dried berries",
-          ",",
-          ",",
-          "a lost mitten",
+          "The Stashlet ate",
+          "honey",
+          "cake",
+          "nuts",
           "and",
-          "one very old sock",
-          ".",
+          "berries",
+          ",",
+          ",",
+          ",",
           "."
         ],
         "accept": [
-          "The Stashlet hides snow-gum seeds, dried berries, a lost mitten and one very old sock.",
-          "The Stashlet hides snow-gum seeds, dried berries, one very old sock and a lost mitten.",
-          "The Stashlet hides snow-gum seeds, a lost mitten, dried berries and one very old sock.",
-          "The Stashlet hides snow-gum seeds, a lost mitten, one very old sock and dried berries.",
-          "The Stashlet hides snow-gum seeds, one very old sock, dried berries and a lost mitten.",
-          "The Stashlet hides snow-gum seeds, one very old sock, a lost mitten and dried berries.",
-          "The Stashlet hides dried berries, snow-gum seeds, a lost mitten and one very old sock.",
-          "The Stashlet hides dried berries, snow-gum seeds, one very old sock and a lost mitten.",
-          "The Stashlet hides dried berries, a lost mitten, snow-gum seeds and one very old sock.",
-          "The Stashlet hides dried berries, a lost mitten, one very old sock and snow-gum seeds.",
-          "The Stashlet hides dried berries, one very old sock, snow-gum seeds and a lost mitten.",
-          "The Stashlet hides dried berries, one very old sock, a lost mitten and snow-gum seeds.",
-          "The Stashlet hides a lost mitten, snow-gum seeds, dried berries and one very old sock.",
-          "The Stashlet hides a lost mitten, snow-gum seeds, one very old sock and dried berries.",
-          "The Stashlet hides a lost mitten, dried berries, snow-gum seeds and one very old sock.",
-          "The Stashlet hides a lost mitten, dried berries, one very old sock and snow-gum seeds.",
-          "The Stashlet hides a lost mitten, one very old sock, snow-gum seeds and dried berries.",
-          "The Stashlet hides a lost mitten, one very old sock, dried berries and snow-gum seeds.",
-          "The Stashlet hides one very old sock, snow-gum seeds, dried berries and a lost mitten.",
-          "The Stashlet hides one very old sock, snow-gum seeds, a lost mitten and dried berries.",
-          "The Stashlet hides one very old sock, dried berries, snow-gum seeds and a lost mitten.",
-          "The Stashlet hides one very old sock, dried berries, a lost mitten and snow-gum seeds.",
-          "The Stashlet hides one very old sock, a lost mitten, snow-gum seeds and dried berries.",
-          "The Stashlet hides one very old sock, a lost mitten, dried berries and snow-gum seeds."
+          "The Stashlet ate honey, cake, nuts and berries.",
+          "The Stashlet ate honey, nuts, cake and berries."
         ],
-        "reason": "Count the items. Commas split them, not full stops. Where does 'and' do the comma's job?"
+        "reason": "Commas change the count. Is honey cake one thing or two? How many things does your sentence show?"
       }
     },
     {
@@ -819,27 +811,28 @@
       "body": {
         "format": "tapText",
         "parts": [
-          "In the haunted ",
-          {
-            "tap": "hut, we",
-            "reason": "This comma ends the opening phrase. It's in the right place."
-          },
-          " found ",
+          "In the haunted hut we found ",
           {
             "tap": "cobwebs, a",
-            "reason": "This comma keeps the cobwebs apart from the mirror. It's right."
+            "reason": "This comma keeps the cobwebs apart from the mirror. Is anything wrong here?"
           },
           " cracked ",
           {
             "tap": "mirror an"
           },
-          " old diary and a ",
+          " ",
           {
-            "tap": "single glove.",
-            "reason": "This is the last item, and the full stop ends the list."
-          }
+            "tap": "old diary",
+            "reason": "An old diary is one item. Would a comma inside it help?"
+          },
+          " and a ",
+          {
+            "tap": "single glove",
+            "reason": "A single glove is one item, and 'and' already joins it to the list. Does it need a comma?"
+          },
+          "."
         ],
-        "answer": 2
+        "answer": 1
       }
     },
     {
@@ -899,55 +892,56 @@
       "id": "6.2-b3-6",
       "band": 3,
       "topic": "robots",
-      "frame": "Gus is writing an ad for the lodge's new cleaning robot.",
-      "prompt": "Which version is punctuated right?",
-      "success": "Each job stays whole: sweep floors, wash dishes, fold the laundry. Commas go between the jobs.",
+      "frame": "Gus's ad says the cleaning robot washes three things. It never washes pets.",
+      "prompt": "Which version says that?",
+      "success": "Dog bowls stay one item, so the robot washes three things, and none of them is a pet.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The robot can sweep floors, wash dishes and fold the laundry."
+            "text": "The robot washes dogs, bowls, cups and muddy boots.",
+            "reason": "Count the things between the commas. Is one of them a pet?"
           },
           {
-            "text": "The robot can sweep floors wash dishes and fold the laundry.",
-            "reason": "There are no commas, so the first two jobs run together."
+            "text": "The robot washes dog bowls cups and muddy boots.",
+            "reason": "Nothing keeps two of the items apart, so they run together. Where does the first thing end?"
           },
           {
-            "text": "The robot can sweep, floors, wash dishes and fold the laundry.",
-            "reason": "The comma splits 'sweep floors', which is one job."
+            "text": "The robot washes dog bowls, cups and muddy boots."
           },
           {
-            "text": "The robot can sweep floors, wash, dishes and fold the laundry.",
-            "reason": "The comma splits 'wash dishes', which is one job."
+            "text": "The robot washes dog, bowls, cups and muddy boots.",
+            "reason": "A comma inside an item splits it in two. What is the robot washing now?"
           }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "6.2-b4-1",
       "band": 4,
       "topic": "general",
-      "frame": "An alpine expedition's equipment report has turned up at the lodge.",
-      "prompt": "Which version is punctuated right?",
-      "success": "Each item stays whole, with a comma between items and 'and' joining the last one straight on.",
+      "frame": "Two shopping lists for the expedition. Only one comma is different.",
+      "text": "List A: We need ice, axes, rope and a stove. List B: We need ice axes, rope and a stove.",
+      "prompt": "What does the extra comma in List A tell the shopper?",
+      "success": "A comma splits items, so 'ice, axes' is two things. Without it, 'ice axes' is one tool.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The expedition carried crampons, ice axes, a satellite phone and enough food for a fortnight."
+            "text": "Buy ice and axes as two things, so four things in all."
           },
           {
-            "text": "The expedition carried crampons, ice, axes, a satellite phone and enough food for a fortnight.",
-            "reason": "The comma splits 'ice axes', which is one item."
+            "text": "Buy ice axes as one tool, so three things in all.",
+            "reason": "That matches List B. In List A, what does the comma between the two words do?"
           },
           {
-            "text": "The expedition carried crampons, ice axes, a satellite phone and, enough food for a fortnight.",
-            "reason": "There's a comma straight after 'and'. Nothing goes between 'and' and the last item."
+            "text": "Take a breath before the axes, but the shopping stays the same.",
+            "reason": "A list comma isn't a breath. Count the things in each list. Do they match?"
           },
           {
-            "text": "The expedition carried crampons ice axes, a satellite phone and enough food for a fortnight.",
-            "reason": "One pair of items has nothing keeping them apart. Which pair?"
+            "text": "Nothing. The comma is a mistake, so the shopper should ignore it.",
+            "reason": "Commas change the count. If the shopper trusts the comma, what do they buy?"
           }
         ],
         "answer": 0
@@ -957,43 +951,45 @@
       "id": "6.2-b4-2",
       "band": 4,
       "topic": "space",
-      "frame": "The polar research station's website lists what its scientists study.",
-      "prompt": "Tap where a comma is missing, then choose the fix.",
-      "success": "Meteorites and the frozen lake are separate things. The comma goes after 'meteorites', where one item ends.",
+      "frame": "The polar research station's website says its scientists study four things.",
+      "prompt": "One comma is wrong. Tap it, then choose the fix.",
+      "success": "'Sea ice' is one item, so no comma goes inside it. Now the list has four things.",
       "body": {
         "format": "fix",
         "parts": [
-          "Scientists at the ",
+          "The scientists study ",
           {
-            "tap": "station study",
-            "reason": "This starts the sentence. The list hasn't begun yet."
+            "tap": "glowing auroras",
+            "reason": "'Glowing auroras' is one item, and a comma ends it. Is anything wrong here?"
           },
-          " auroras, ",
+          ", ",
           {
-            "tap": "meteorites the"
+            "tap": "sea, ice"
           },
-          " frozen lake and the strange sounds the ice makes at ",
+          ", ",
           {
-            "tap": "night.",
-            "reason": "This is the end of the last item, and the full stop is already there."
-          }
+            "tap": "lake water",
+            "reason": "'Lake water' is one item, kept whole. Is anything wrong here?"
+          },
+          " and ",
+          {
+            "tap": "penguin poo",
+            "reason": "'Penguin poo' is the last item, after and. Is anything wrong here?"
+          },
+          "."
         ],
         "spot": 1,
         "options": [
           {
-            "text": "meteorites, the"
+            "text": "sea ice"
           },
           {
-            "text": "meteorites the,",
-            "reason": "That comma splits 'the' from 'frozen lake'. Where does one item really end?"
+            "text": "sea and ice",
+            "reason": "Sea and ice are still two things. Count again: how many things does the list show?"
           },
           {
-            "text": "meteorites. The",
-            "reason": "A full stop ends the sentence in the middle of the list."
-          },
-          {
-            "text": "meteorites, the,",
-            "reason": "The second comma splits 'the' from 'frozen lake'. How many commas does this gap need?"
+            "text": "sea. Ice",
+            "reason": "A full stop ends the sentence in the middle of the list. Lists need commas."
           }
         ],
         "answer": 0
@@ -1004,50 +1000,27 @@
       "band": 4,
       "topic": "art",
       "frame": "Indi's sign for her winter festival stall got scattered by the wind.",
-      "prompt": "Tap the pieces in order to make a list sentence. Use 'and' before the last item.",
-      "success": "Commas keep the first three items apart, and 'and' joins the last. One full stop ends it.",
+      "prompt": "Use every word. Make the sign say the stall sold exactly three things. Start the list with tea.",
+      "success": "Tea towels stay one item. With snow globes and ice owls, that's three things, so one comma is enough.",
       "body": {
         "format": "build",
         "tiles": [
           "Indi's stall sold",
-          "painted lanterns",
-          ",",
-          "knitted beanies",
-          ",",
-          ",",
+          "tea",
+          "towels",
           "snow globes",
           "and",
-          "tiny ice sculptures",
-          ".",
+          "ice owls",
+          ",",
+          ",",
+          ",",
           "."
         ],
         "accept": [
-          "Indi's stall sold painted lanterns, knitted beanies, snow globes and tiny ice sculptures.",
-          "Indi's stall sold painted lanterns, knitted beanies, tiny ice sculptures and snow globes.",
-          "Indi's stall sold painted lanterns, snow globes, knitted beanies and tiny ice sculptures.",
-          "Indi's stall sold painted lanterns, snow globes, tiny ice sculptures and knitted beanies.",
-          "Indi's stall sold painted lanterns, tiny ice sculptures, knitted beanies and snow globes.",
-          "Indi's stall sold painted lanterns, tiny ice sculptures, snow globes and knitted beanies.",
-          "Indi's stall sold knitted beanies, painted lanterns, snow globes and tiny ice sculptures.",
-          "Indi's stall sold knitted beanies, painted lanterns, tiny ice sculptures and snow globes.",
-          "Indi's stall sold knitted beanies, snow globes, painted lanterns and tiny ice sculptures.",
-          "Indi's stall sold knitted beanies, snow globes, tiny ice sculptures and painted lanterns.",
-          "Indi's stall sold knitted beanies, tiny ice sculptures, painted lanterns and snow globes.",
-          "Indi's stall sold knitted beanies, tiny ice sculptures, snow globes and painted lanterns.",
-          "Indi's stall sold snow globes, painted lanterns, knitted beanies and tiny ice sculptures.",
-          "Indi's stall sold snow globes, painted lanterns, tiny ice sculptures and knitted beanies.",
-          "Indi's stall sold snow globes, knitted beanies, painted lanterns and tiny ice sculptures.",
-          "Indi's stall sold snow globes, knitted beanies, tiny ice sculptures and painted lanterns.",
-          "Indi's stall sold snow globes, tiny ice sculptures, painted lanterns and knitted beanies.",
-          "Indi's stall sold snow globes, tiny ice sculptures, knitted beanies and painted lanterns.",
-          "Indi's stall sold tiny ice sculptures, painted lanterns, knitted beanies and snow globes.",
-          "Indi's stall sold tiny ice sculptures, painted lanterns, snow globes and knitted beanies.",
-          "Indi's stall sold tiny ice sculptures, knitted beanies, painted lanterns and snow globes.",
-          "Indi's stall sold tiny ice sculptures, knitted beanies, snow globes and painted lanterns.",
-          "Indi's stall sold tiny ice sculptures, snow globes, painted lanterns and knitted beanies.",
-          "Indi's stall sold tiny ice sculptures, snow globes, knitted beanies and painted lanterns."
+          "Indi's stall sold tea towels, snow globes and ice owls.",
+          "Indi's stall sold tea towels, ice owls and snow globes."
         ],
-        "reason": "Count the items. Commas split them, not full stops. Where does 'and' do the comma's job?"
+        "reason": "Commas change the count. Is tea towels one thing or two? How many things does your sentence show?"
       }
     },
     {
@@ -1060,24 +1033,26 @@
       "body": {
         "format": "tapText",
         "parts": [
+          "Divers have filmed ",
           {
-            "tap": "Divers under",
-            "reason": "This starts the sentence. The list of creatures hasn't begun."
+            "tap": "giant sea",
+            "reason": "Giant sea spiders is one creature. Would a comma inside it help?"
           },
-          " the Antarctic ice have filmed giant sea ",
+          " ",
           {
             "tap": "spiders, glowing",
-            "reason": "This comma keeps the sea spiders apart from the jellyfish. It's right."
+            "reason": "This comma keeps the sea spiders apart from the jellyfish. Is anything wrong here?"
           },
           " ",
           {
             "tap": "jellyfish ghostly"
           },
-          " white fish and worms that live in ",
+          " ",
           {
-            "tap": "the mud.",
-            "reason": "This is the end of the last item, and the full stop is already there."
-          }
+            "tap": "white fish",
+            "reason": "Ghostly white fish is one creature. Can you split its describing words off?"
+          },
+          " and worms that live in the mud."
         ],
         "answer": 2
       }

@@ -223,6 +223,18 @@
       "name": "Topsittle",
       "evolved": "Topsittrix",
       "blurb": "A varied sittella that runs down tree trunks head first while other birds climb up. It knows the usual way, and bends it on purpose."
+    },
+    "write": {
+      "ask": "Rewrite this recipe step as a line in a letter to the food. Keep the step.",
+      "given": [
+        "Stir the porridge for five minutes."
+      ],
+      "starter": "Dear Porridge,",
+      "checks": [
+        "My sentence talks to the food, like a letter",
+        "I kept the step: stir for five minutes"
+      ],
+      "model": "Dear Porridge, I will stir you gently for five whole minutes, so please don't stick."
     }
   },
   "encounters": [
@@ -615,7 +627,7 @@
       "band": 3,
       "topic": "sport",
       "frame": "Tully wrote the match report for the Scaffold Peaks Gazette. The Topsittle thinks it smells delicious.",
-      "text": "Match reports usually tell you who played, what happened and the final score, in that order. Tully's report for the Gazette looks a little different.\n\nRECIPE FOR A COMEBACK\nServes: one very happy footy club.\nIngredients: eighteen tired Snowcats, one slippery ball, a thirty-point deficit at half-time and one coach with a very loud voice.\nMethod:\n1. Take your tired Snowcats and leave them in a freezing change room for twenty minutes, while the coach shouts.\n2. Stir in three quick goals at the start of the third quarter.\n3. Add a mark on the siren by a nervous full-forward.\n4. Let him kick it straight through the middle.\n5. Serve hot: Snowcats 64, Rams 62.\nChef's tip: Do not panic if your mixture looks flat at half-time. Ours did, and it rose beautifully.\n\nThat, Snowcats fans, is how you cook up a comeback. Next week's recipe: a grand final win, served with extra gravy.",
+      "text": "RECIPE FOR A COMEBACK\nServes: one very happy footy club.\nIngredients: eighteen tired Snowcats, one slippery ball, a thirty-point deficit at half-time and one coach with a very loud voice.\nMethod:\n1. Take your tired Snowcats and leave them in a freezing change room for twenty minutes, while the coach shouts.\n2. Stir in three quick goals at the start of the third quarter.\n3. Add a mark on the siren by a nervous full-forward.\n4. Let him kick it straight through the middle.\n5. Serve hot: Snowcats 64, Rams 62.\nChef's tip: Do not panic if your mixture looks flat at half-time. Ours did, and it rose beautifully.\n\nThat, Snowcats fans, is how you cook up a comeback. Next week's recipe: a grand final win, served with extra gravy.",
       "prompt": "Why might Tully have written her match report as a recipe?",
       "success": "A recipe is a set of steps that build something. Tully shows the comeback was built the same way.",
       "body": {
@@ -645,12 +657,12 @@
       "band": 3,
       "topic": "music",
       "frame": "Lila wrote a recount of her concert on the fourth tower. The Topsittle was in the front row.",
-      "prompt": "Tap the sentence where the writer bends the usual order and jumps back in time.",
+      "prompt": "Tap the sentence where Lila bends the usual order of a recount.",
       "success": "'Three years earlier' jumps back in time. The flashback shows why playing tonight means so much to Lila.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Recounts usually tell events in the order they happened. Lila's recount of the concert mostly does, except for one jump.\n\nAt six o'clock, Lila and the band climbed the ladder to the stage on the fourth tower. ",
+          "At six o'clock, Lila and the band climbed the ladder to the stage on the fourth tower. ",
           {
             "tap": "They tuned their instruments while the crowd found their seats.",
             "reason": "Tuning up happens before the show, right where it belongs in the order."
@@ -679,7 +691,7 @@
       "band": 3,
       "topic": "space",
       "frame": "Zed wrote a report on a comet for the observatory. Tully wrote a note about it, and one word is wrong.",
-      "text": "Information reports usually describe something with headings like 'What it is' and 'Where it is found'. Zed's report on Comet Halfrey is a bit different.\n\nWANTED: COMET HALFREY\nDescription: A ball of ice, dust and rock about eleven kilometres wide. Has a glowing tail that can stretch for millions of kilometres. Tail always points away from the Sun. About as wide as the whole of Scaffold Peaks.\nLast seen: Near the planet Jupiter, travelling at about seventy kilometres a second.\nKnown habits: Swings past Earth every seventy-six years. Grows a brighter tail as it gets closer to the Sun.\nWarning: Do not approach. Comet is extremely cold and moving very fast. Often seen with a cloud of glowing dust.\nREWARD: One free hot chocolate at the observatory for the first person to spot it.\nNote: This poster was made by Zed, who has never caught a comet, but plans to.",
+      "text": "WANTED: COMET HALFREY\nDescription: A ball of ice, dust and rock about eleven kilometres wide. Has a glowing tail that can stretch for millions of kilometres. Tail always points away from the Sun. About as wide as the whole of Scaffold Peaks.\nLast seen: Near the planet Jupiter, travelling at about seventy kilometres a second.\nKnown habits: Swings past Earth every seventy-six years. Grows a brighter tail as it gets closer to the Sun. Has never been caught in over two thousand years.\nWarning: Do not approach. Comet is extremely cold and moving very fast. Often seen with a cloud of glowing dust.\nREWARD: One free hot chocolate at the observatory for the first person to spot it.\nNote: This poster was made by Zed, who has never caught a comet, but plans to.",
       "prompt": "Tap the word Tully got wrong, then choose a better one.",
       "success": "A wanted poster. WANTED, a description, 'last seen', a warning and a reward are all parts of one.",
       "body": {
@@ -773,26 +785,36 @@
           }
         ]
       },
-      "text": "Every text type has a usual shape, like a recipe that lists what you need and then gives the steps. A thank-you letter usually starts with 'Dear', thanks the person in full sentences and ends with a name."
+      "text": "Every text type has a usual shape, like a recipe that lists what you need and then gives the steps."
     },
     {
       "id": "7.11-b3-5",
       "band": 3,
       "topic": "gaming",
       "frame": "Zed wrote a story about the Frost Cup final. The Topsittle mixed up his notes.",
-      "text": "Most stories begin at the beginning. Zed's story about the Frost Cup final begins in the middle.\n\nThe screen went white, and the crowd in the library gasped. Zed's character was frozen solid, one jump from the finish line. For a moment, the library was so quiet that you could hear the snow falling outside. Ten minutes earlier, everything had been fine. Zed had won the first two rounds easily, and his rival, Kit, had looked worried. Then, in round three, Kit had found a secret ice cannon behind a waterfall. She had waited until Zed was right at the edge of the last cliff before firing it. Now, frozen, Zed could only watch as Kit strolled past and crossed the line. He took a deep breath, shook her hand and asked her to show him the waterfall. Kit said yes, but only if Zed promised never to use it on her. Everyone agreed it was the best final the library had ever seen.",
-      "prompt": "Put the events in the order they really happened.",
-      "success": "Wins, cannon found, cannon fired, freeze, handshake. Starting in the middle grabs you straight away.",
+      "text": "The screen went white, and the crowd in the library gasped. Zed's character was frozen solid, one jump from the finish line. For a moment, the library was so quiet that you could hear the snow falling outside. Ten minutes earlier, everything had been fine. Zed had won the first two rounds easily, and his rival, Kit, had looked worried. Then, in round three, Kit had found a secret ice cannon behind a waterfall. She had waited until Zed was right at the edge of the last cliff before firing it. Now, frozen, Zed could only watch as Kit strolled past and crossed the line. He took a deep breath, shook her hand and asked her to show him the waterfall. Kit said yes, but only if Zed promised never to use it on her. Everyone agreed it was the best final the library had ever seen.",
+      "prompt": "Zed's story doesn't start at the beginning. Why might he start with the freeze?",
+      "success": "Starting at the most exciting moment grabs readers. Then they want to know how Zed ended up frozen.",
       "body": {
-        "format": "order",
-        "items": [
-          "Zed won the first two rounds easily.",
-          "Kit found a secret ice cannon behind a waterfall.",
-          "Kit fired the ice cannon as Zed reached the last cliff.",
-          "The screen went white, and Zed's character froze.",
-          "Kit crossed the finish line, and Zed shook her hand."
+        "format": "choose",
+        "options": [
+          {
+            "text": "To grab readers with the most exciting moment, then show how it happened."
+          },
+          {
+            "text": "Because the start of the final was too boring to write about.",
+            "reason": "The start is still told, straight after. Zed held it back, he didn't cut it."
+          },
+          {
+            "text": "To hide who won the Frost Cup until the very last line.",
+            "reason": "Kit crosses the line soon after the freeze. The winner isn't hidden."
+          },
+          {
+            "text": "Because every good story has to start in the middle.",
+            "reason": "Most stories start at the start. Zed bent the order on purpose, for this one."
+          }
         ],
-        "reason": "The story opens with the freeze, then goes back. In real time, Zed's easy wins come first."
+        "answer": 0
       }
     },
     {
@@ -800,7 +822,7 @@
       "band": 3,
       "topic": "animals",
       "frame": "Wren wrote an echidna report for the ranger station. The Topsittle thinks it's prickly.",
-      "text": "Animal reports usually use headings, like 'Appearance', 'Food' and 'Home'. This report on the echidna is different.\n\nTHE SPIKY TRUTH: An interview with Edna the Echidna\nQ: Edna, thanks for joining us. What's with the spikes?\nA: They're my armour. When a fox comes near, I dig straight down and leave only my spikes showing.\nQ: What do you eat?\nA: Ants and termites, mostly. I don't have teeth, so I catch them with my long, sticky tongue.\nQ: Is it true you lay eggs?\nA: It is. I lay one leathery egg and keep it in a pouch on my tummy until it hatches.\nQ: What is a baby echidna called?\nA: A puggle. It stays in my pouch until its spines start to grow, and then it's time to move out.\nQ: And where do you live?\nA: Almost anywhere in Australia, from the snowy mountains to the desert.\nQ: Edna, thank you.\nA: No worries. Mind the spikes on your way out.",
+      "text": "THE SPIKY TRUTH: An interview with Edna the Echidna\nQ: Edna, thanks for joining us. What's with the spikes?\nA: They're my armour. When a fox comes near, I dig straight down and leave only my spikes showing.\nQ: What do you eat?\nA: Ants and termites, mostly. I don't have teeth, so I catch them with my long, sticky tongue.\nQ: Is it true you lay eggs?\nA: It is. I lay one leathery egg and keep it in a pouch on my tummy until it hatches.\nQ: What is a baby echidna called?\nA: A puggle. It stays in my pouch until its spines start to grow, and then it's time to move out.\nQ: And where do you live?\nA: Almost anywhere in Australia, from the snowy mountains to the desert.\nQ: Edna, thank you.\nA: No worries. Mind the spikes on your way out.",
       "prompt": "How has the writer bent the usual shape of an animal report?",
       "success": "An interview. A host's questions, Edna's answers and a thank-you make it one, and the facts are all there.",
       "body": {
@@ -830,8 +852,8 @@
       "band": 4,
       "topic": "spooky",
       "frame": "The Topsittle found the visitors' logbook in the hut on Crag Tower. It has not slept since.",
-      "text": "Most ghost stories have a narrator who tells you what happened, from start to finish. This one has no narrator at all. It is made entirely of entries from the visitors' logbook in the hut on Crag Tower. Each visitor writes a line or two before they leave.\n\n3 June. Arrived at dusk after a long climb. Lovely hut. Someone has left a candle burning in the window, which was kind. – Priya\n\n5 June. Strange night. The candle was burning again when we arrived, but the hut was empty, and the logbook says Priya left two days ago. Who lit it? – Tom and Bec\n\n7 June. Heard tapping in the walls all night. Tom thinks it's mice. I've hidden the chocolate. – Bec\n\n9 June. Snowed in for two days. Each night the candle relit itself after we blew it out. Bec is sure it's a draught. I am sure it is not. – Tom\n\n12 June. Found the 'ghost'. A ringtail possum has been nesting in the wall behind the window. It knocks a box of matches onto the old heater every night, and the heat sets them smouldering. Mystery solved. Please, please fix the heater. – Ranger Kim\n\n13 June. There is no heater in this hut. – Priya",
-      "prompt": "How has the author bent the usual shape of a ghost story?",
+      "text": "3 June. Arrived at dusk after a long climb. Lovely hut. Someone has left a candle burning in the window, which was kind. – Priya\n\n5 June. Strange night. The candle was burning again when we arrived, but the hut was empty, and the logbook says Priya left two days ago. Who lit it? – Tom and Bec\n\n7 June. Heard tapping in the walls all night. Tom thinks it's mice. I've hidden the chocolate. – Bec\n\n9 June. Snowed in for two days. Each night the candle relit itself after we blew it out. Bec is sure it's a draught. I am sure it is not. – Tom\n\n10 June. Bec has moved the chocolate twice. Still no sign of any mice. – Tom\n\n12 June. Found the 'ghost'. A ringtail possum has been nesting in the wall behind the window. It knocks a box of matches onto the old heater every night, and the heat sets them smouldering. Mystery solved. Please, please fix the heater. – Ranger Kim\n\n13 June. There is no heater in this hut. – Priya",
+      "prompt": "This is a ghost story. How has the author bent its usual shape?",
       "success": "There's no narrator, just signed logbook entries. You piece the mystery together the way the visitors did.",
       "body": {
         "format": "choose",
@@ -893,7 +915,7 @@
       "band": 4,
       "topic": "food",
       "frame": "Mo reviewed the pie shop on the second tower for the Gazette. Indi wrote a note about it, and one word is wrong.",
-      "text": "Restaurant reviews usually tell readers about the food, the service and the price, then give a score. Mo's review of the Summit Pie Shop is not like that.\n\nMy dearest Pie,\nFrom the moment the waiter set you down in front of me, steaming and golden, I knew this was something special. I had smelled you three ladders below the shop, and I climbed faster than I have ever climbed. Your pastry was flaky, your gravy was rich, and your filling of beef and mushroom was hot all the way through, which is rare up here at two thousand metres. You cost only seven dollars, and you were worth every cent. The waiter was friendly, although he did give me a strange look when I started whispering to you. The only thing I did not love was the wait: twenty minutes in a queue that stretched out the door and onto the ledge. I am sorry I ate you so quickly. I will never forget you. You were the best thing I have eaten all year, and I have eaten a lot of things. I give you five stars out of five, and my whole heart. Next Saturday I will be back for your cousin, the apple pie. Please don't tell it about us.\nYours forever,\nMo",
+      "text": "My dearest Pie,\nFrom the moment the waiter set you down in front of me, steaming and golden, I knew this was something special. I had smelled you three ladders below the shop, and I climbed faster than I have ever climbed. Your pastry was flaky, your gravy was rich, and your filling of beef and mushroom was hot all the way through, which is rare up here at two thousand metres. You cost only seven dollars, and you were worth every cent. The waiter was friendly, although he did give me a strange look when I started whispering to you. The only thing I did not love was the wait: twenty minutes in a queue that stretched out the door and onto the ledge. I am sorry I ate you so quickly. I will never forget you. You were the best thing I have eaten all year, and I have eaten a lot of things. I give you five stars out of five, and my whole heart. Next Saturday I will be back for your cousin, the apple pie. Please don't tell it about us.\nYours forever,\nMo",
       "prompt": "Tap the word Indi got wrong, then choose a better one.",
       "success": "The pie. Mo writes 'My dearest Pie' and talks to it as 'you' all the way through.",
       "body": {
@@ -941,9 +963,9 @@
       "band": 4,
       "topic": "robots",
       "frame": "Gus asked his robot to write up their science experiment. The Topsittle is reading the result.",
-      "text": "Science reports usually have headings, such as Aim, Method, Results and Conclusion, and they usually don't use 'I'. Gus asked his robot, Sprocket, to write up their experiment. Sprocket wrote a diary.\n\n8:00 am. Gus says today we are finding out which melts ice fastest: salt, sugar or sand. Gus has given me a lab coat. It is too big. I am excited. I have never melted anything before, except a crayon, by accident.\n\n8:15 am. We put three ice cubes of the same size on three plates. Gus sprinkled one spoon of salt on the first, one spoon of sugar on the second and one spoon of sand on the third. Gus says the plates must match and the room must stay the same temperature, or it isn't a fair test.\n\n9:15 am. Results! The salty cube melted completely in 31 minutes. The sugary cube took 48 minutes. The sandy cube took 52 minutes, barely faster than a plain one. I timed them all with my internal clock, which is extremely accurate.\n\n9:20 am. Conclusion: salt melts ice fastest. This is why people put salt on icy roads. Gus says I may write the next report too. I am honoured. He also says I should try pepper next time. I say pepper is for soup.",
+      "text": "Gus asked his robot, Sprocket, to write up their science experiment as a report. Sprocket wrote a diary.\n\n8:00 am. Gus says today we are finding out which melts ice fastest: salt, sugar or sand. Gus has given me a lab coat. It is too big. I am excited. I have never melted anything before, except a crayon, by accident.\n\n8:15 am. We put three ice cubes of the same size on three plates. Gus sprinkled one spoon of salt on the first, one spoon of sugar on the second and one spoon of sand on the third. Gus says the plates must match and the room must stay the same temperature, or it isn't a fair test.\n\n9:15 am. Results! The salty cube melted completely in 31 minutes. The sugary cube took 48 minutes. The sandy cube took 52 minutes, barely faster than a plain one. I timed them all with my internal clock, which is extremely accurate.\n\n9:20 am. Conclusion: salt melts ice fastest. This is why people put salt on icy roads. Gus says I may write the next report too. I am honoured. He also says I should try pepper next time. I say pepper is for soup.",
       "prompt": "Sort these. What did Sprocket keep from a usual science report, and what did Sprocket change?",
-      "success": "Sprocket kept the aim, method and results. The diary shape changed who's talking and how it's set out.",
+      "success": "Sprocket kept the method, results and conclusion. The diary shape changed who is talking and how it is set out.",
       "body": {
         "format": "sort",
         "bins": [
@@ -952,14 +974,14 @@
         ],
         "items": [
           {
-            "text": "It says what the experiment is trying to find out.",
+            "text": "It ends with a conclusion that answers the question.",
             "bin": 0,
-            "reason": "Every science report states its aim. Sprocket does it in the first entry."
+            "reason": "Science reports end with a conclusion. Sprocket even labels it: salt melts ice fastest."
           },
           {
-            "text": "It is told by the robot, using 'I'.",
+            "text": "It includes the robot's feelings, like 'I am excited'.",
             "bin": 1,
-            "reason": "Usual science reports don't use 'I'. Sprocket tells it like a diary."
+            "reason": "Usual science reports don't share the writer's feelings. Diaries do."
           },
           {
             "text": "The steps are described in the order they were done.",
@@ -967,9 +989,9 @@
             "reason": "A method gives steps in order, and the 8:15 entry does exactly that."
           },
           {
-            "text": "Times of day replace most of the usual headings.",
+            "text": "Each entry starts with a time of day instead of a heading.",
             "bin": 1,
-            "reason": "Instead of Aim and Method, entries start with times, like a diary."
+            "reason": "Instead of headings like Aim and Method, entries start with times, like a diary."
           },
           {
             "text": "The results give exact times in minutes.",
@@ -984,19 +1006,29 @@
       "band": 4,
       "topic": "art",
       "frame": "The Scaffold Peaks gallery has a new sign about a famous island painter. The Topsittle has read it upside down.",
-      "text": "Biographies usually begin with a person's childhood and end with their later life. This short biography of the painter Mina Ostrova runs the other way.\n\nAt ninety, Mina Ostrova was the most famous painter on the island, and her mountain murals covered the walls of every school on Scaffold Peaks. Visitors came from all over the world to see them, and she still painted every morning before breakfast. Twenty years earlier, she had painted her greatest work, a sunrise over the towers so large it needed four ladders and a crane. Critics who had once ignored her called it a masterpiece. In her thirties, she had been almost unknown, selling small paintings of snow gums at the weekend market for five dollars each. Most weekends she sold none at all, and she lived on day-old bread. Before that, as a young woman, she had worked in a bakery, sketching customers on paper bags during her lunch break. Her boss once found a portrait of himself on a bag of bread rolls and hung it in the shop window. And it had all begun when she was seven, when her grandmother gave her a tin of watercolours and told her to paint whatever she could see from the kitchen window.",
-      "prompt": "Put the events of Mina's life in the order they really happened.",
-      "success": "Watercolours, bakery, market, sunrise, murals. Told backwards, the ending reveals how small her start was.",
+      "text": "At ninety, Mina Ostrova was the most famous painter on the island, and her mountain murals covered the walls of every school on Scaffold Peaks. Visitors came from all over the world to see them, and she still painted every morning before breakfast. Twenty years earlier, she had painted her greatest work, a sunrise over the towers so large it needed four ladders and a crane. Critics who had once ignored her called it a masterpiece. In her thirties, she had been almost unknown, selling small paintings of snow gums at the weekend market for five dollars each. Most weekends she sold none at all, and she lived on day-old bread. Before that, as a young woman, she had worked in a bakery, sketching customers on paper bags during her lunch break. Her boss once found a portrait of himself on a bag of bread rolls and hung it in the shop window. And it had all begun when she was seven, when her grandmother gave her a tin of watercolours and told her to paint whatever she could see from the kitchen window.",
+      "prompt": "This biography runs from old age back to childhood. Why might the writer tell it that way?",
+      "success": "Ending on a tin of watercolours shows how small Mina's start was, so her success feels even bigger.",
       "body": {
-        "format": "order",
-        "items": [
-          "Mina's grandmother gave her a tin of watercolours.",
-          "Mina sketched customers on paper bags at the bakery.",
-          "Mina sold small paintings of snow gums at the market.",
-          "Mina painted a giant sunrise that needed four ladders and a crane.",
-          "Mina's murals covered the walls of every school on the island."
+        "format": "choose",
+        "options": [
+          {
+            "text": "To end on how small her start was, so her success feels bigger."
+          },
+          {
+            "text": "Because the writer forgot the order that her life happened in.",
+            "reason": "Every step back is clear: twenty years earlier, her thirties, before that. It's backwards on purpose."
+          },
+          {
+            "text": "To make the biography shorter by leaving out her childhood.",
+            "reason": "Her childhood is still there, at the very end: the tin of watercolours at seven."
+          },
+          {
+            "text": "To show that her early paintings were the best work she did.",
+            "reason": "Critics called the later sunrise her masterpiece. Her early paintings hardly sold."
+          }
         ],
-        "reason": "The biography runs from old age back to childhood. The real story starts with the tin of watercolours at seven."
+        "answer": 0
       }
     },
     {
@@ -1004,26 +1036,26 @@
       "band": 4,
       "topic": "sport",
       "frame": "Indi wrote the chairlift rules for the Scaffold Peaks ski school. The Topsittle rode the chairlift to read them.",
-      "text": "Safety rules are usually a short numbered list in plain words. When the Scaffold Peaks ski school asked Indi to write the chairlift rules for its youngest skiers, aged four to six, she wrote a fairy tale instead.\n\nOnce upon a time, a small skier named Pip came to the chairlift. A wise old wombat was waiting by the gate. 'Before you ride the magic chair,' said the wombat, 'you must learn three secrets.' The first secret was to wait behind the red line until the chair swung round behind you. The second was to sit right back and pull the safety bar down, snug across your tummy. The third, and most important, was never to wriggle, bounce or lean over to look at your boots, no matter how interesting they were. Pip learnt all three secrets. Up and up she floated, past the snow gums and the rock towers, until she reached the top. There she lifted the bar, stood up and skied away, as safe and happy as anyone had ever been. And every child who learns the wombat's secrets rides the magic chair safely, ever after.\n\nThe ski school has printed the story on a big sign beside the chairlift, with a picture of the wombat. Since then, not one small skier has wriggled.",
+      "text": "The Scaffold Peaks ski school asked Indi to write the chairlift rules for its youngest skiers. She wrote a fairy tale.\n\nOnce upon a time, a small skier named Pip came to the chairlift. A wise old wombat was waiting by the gate. 'Before you ride the magic chair,' said the wombat, 'you must learn three secrets.' The first secret was to wait behind the red line until the chair swung round behind you. The second was to sit right back and pull the safety bar down, snug across your tummy. The third, and most important, was never to wriggle, bounce or lean over to look at your boots, no matter how interesting they were. Pip learnt all three secrets. Up and up she floated, past the snow gums and the rock towers, until she reached the top. There she lifted the bar, stood up and skied away, as safe and happy as anyone had ever been. And every child who learns the wombat's secrets rides the magic chair safely, ever after.\n\nThe ski school has printed the story on a big sign beside the chairlift, with a picture of the wombat. Since then, not one small skier has wriggled.",
       "prompt": "Why did Indi turn the chairlift rules into a fairy tale?",
       "success": "Young children love stories. The wombat, the 'secrets' and the happy ending help the rules stick.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "To show the rules matter less than having a fun ride.",
-            "reason": "All three rules are still there, and the 'most important' one is stressed."
+            "text": "To teach young skiers about the wise wombats that live near the lift.",
+            "reason": "The wombat only tells the rules. The story is about riding the chairlift safely."
           },
           {
-            "text": "To keep the rules secret from all the older skiers at the ski school.",
-            "reason": "Nothing is hidden. The 'secrets' are the rules, set out clearly for little skiers."
+            "text": "To give older skiers something fun to read while they wait in the queue.",
+            "reason": "The ski school asked for rules for its youngest skiers, not the older ones."
           },
           {
             "text": "To make the rules easy for very young skiers to follow and remember."
           },
           {
-            "text": "Because the ski school asked her for a story, not for rules.",
-            "reason": "The ski school asked for chairlift rules. Indi chose the fairy tale herself."
+            "text": "Because the ski school asked her to write a story for its new sign.",
+            "reason": "The ski school asked for chairlift rules. The fairy tale was Indi's own idea."
           }
         ],
         "answer": 2

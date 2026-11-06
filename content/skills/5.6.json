@@ -310,6 +310,12 @@
       "name": "Trinklet",
       "evolved": "Trinkastor",
       "blurb": "A bowerbird that piles shiny words in front of a plain noun until everyone stops to look."
+    },
+    "write": {
+      "ask": "Rewrite the second sentence. Expand 'the dog' into a noun group that picks out just one dog.",
+      "given": ["The park had a big black dog, a small black dog and a small white dog.", "The dog stole Mo's sandwich."],
+      "checks": ["My noun group picks out only one of the dogs", "Every word I added tells the reader something new", "Dog is still the main noun"],
+      "model": "The big black dog stole Mo's sandwich."
     }
   },
   "encounters": [
@@ -596,58 +602,57 @@
       "id": "5.6-b3-2",
       "band": 3,
       "topic": "art",
-      "frame": "Indi has put up a lost-property notice in the art room.",
+      "frame": "Indi has put up a lost-property notice in the art room. The Trinklet wants to find the thing she lost.",
       "prompt": "Tap the main noun in Indi's noun group.",
-      "success": "Pencil. Every other word builds it up: whose, what it's like, what it's made of and what it's for.",
+      "success": "Pencil. Ask 'Indi's favourite charcoal drawing what?' Pencil. 'With teeth marks' just adds detail after it.",
       "body": {
         "format": "tapText",
         "parts": [
           "Lost: Indi's ",
-          { "tap": "favourite", "reason": "Favourite tells you what Indi thinks of it. It builds up the main noun." },
+          { "tap": "favourite", "reason": "Favourite says what Indi thinks of it. Ask: Indi's favourite what?" },
           " ",
-          { "tap": "chunky", "reason": "Chunky tells you what it looks like. It builds up the main noun." },
+          { "tap": "charcoal", "reason": "Charcoal is a noun, but here it says what kind. Ask: charcoal what?" },
           " ",
-          { "tap": "charcoal", "reason": "Charcoal tells you what it's made of. It builds up the main noun." },
-          " ",
-          { "tap": "drawing", "reason": "Drawing tells you what it's for. Ask: a drawing what?" },
+          { "tap": "drawing", "reason": "Drawing says what kind, like 'racing' in racing car. Ask: drawing what?" },
           " ",
           { "tap": "pencil" },
+          " with teeth ",
+          { "tap": "marks", "reason": "Marks is the last noun, but it's part of the detail after the main noun. What did Indi lose?" },
           "."
         ],
-        "answer": 4
+        "answer": 3
       }
     },
     {
       "id": "5.6-b3-3",
       "band": 3,
       "topic": "food",
-      "frame": "The Trinklet is rebuilding the saddest sentence in Mo's cooking diary.",
-      "prompt": "Tap the pieces in order to build the sentence.",
-      "success": "His last two homemade meat pies. Which ones, how many, what they're like, what kind, then the noun.",
+      "frame": "Mo baked two meat pies and two apple pies. He burnt both of the meat pies.",
+      "prompt": "Build the sentence so the reader knows exactly which pies Mo burnt.",
+      "success": "His two meat pies. Two says how many, meat says what kind, and together they pick out the burnt ones.",
       "body": {
         "format": "build",
-        "tiles": ["Mo burnt", "his", "last", "two", "homemade", "meat", "pies."],
-        "accept": ["Mo burnt his last two homemade meat pies."],
-        "reason": "Which ones and how many come first. Then what they're like, then what kind, right beside the noun."
+        "tiles": ["Mo burnt", "four", "his", "apple", "two", "meat", "pies."],
+        "accept": ["Mo burnt his two meat pies."],
+        "reason": "Check both facts: how many pies did Mo burn, and what kind were they?"
       }
     },
     {
       "id": "5.6-b3-4",
       "band": 3,
       "topic": "gaming",
-      "frame": "Zed's new level has a noun group in every room. Sort the words that build them up.",
+      "frame": "Zed's new level has a noun group in every room. Lots of the words are nouns, but only one in each group is the main noun.",
       "prompt": "Match each word to the right chest.",
-      "success": "Which one or how many comes first, then what it's like. What kind sits next to the noun.",
+      "success": "Ask 'what?' to find the main noun. A rusty pirate what? Ship. Pirate just says what kind.",
       "body": {
         "format": "sort",
-        "bins": ["which one or how many", "what it's like", "what kind"],
+        "bins": ["what kind", "main noun"],
         "items": [
-          { "text": "'Zed's' in Zed's rusty pirate ship", "bin": 0, "reason": "Zed's tells you whose ship, so it tells you which one." },
-          { "text": "'every' in every locked door", "bin": 0, "reason": "Every tells you how many doors: all of them." },
-          { "text": "'rusty' in Zed's rusty pirate ship", "bin": 1, "reason": "Rusty tells you what the ship is like." },
-          { "text": "'enormous' in an enormous treasure chest", "bin": 1, "reason": "Enormous tells you what the chest is like." },
-          { "text": "'pirate' in Zed's rusty pirate ship", "bin": 2, "reason": "A pirate ship is a kind of ship, so pirate names the kind." },
-          { "text": "'treasure' in an enormous treasure chest", "bin": 2, "reason": "A treasure chest is a kind of chest, so treasure names the kind." }
+          { "text": "'pirate' in Zed's rusty pirate ship", "bin": 0, "reason": "A rusty pirate what? Ship. Pirate says what kind of ship." },
+          { "text": "'chest' in an enormous treasure chest", "bin": 1, "reason": "An enormous treasure what? Chest. That's the thing itself." },
+          { "text": "'dragon' in a glowing dragon egg", "bin": 0, "reason": "A glowing dragon what? Egg. Dragon says what kind of egg." },
+          { "text": "'treasure' in an enormous treasure chest", "bin": 0, "reason": "Treasure is a noun, but here it says what kind of chest." },
+          { "text": "'egg' in a glowing dragon egg", "bin": 1, "reason": "A glowing dragon what? Egg. That's the thing itself." }
         ]
       }
     },
@@ -722,77 +727,74 @@
       "id": "5.6-b4-1",
       "band": 4,
       "topic": "space",
-      "frame": "A message is crackling in from a deep-space probe.",
+      "frame": "A message is crackling in from a deep-space probe. Zed is writing the caption for its photo.",
       "text": "The probe's camera picked out a moon no wider than a city. Its surface was pitted with thousands of craters.",
-      "prompt": "Which noun group fits everything the probe saw?",
-      "success": "A tiny pockmarked moon. Tiny matches 'no wider than a city', and pockmarked matches the craters.",
+      "prompt": "Which noun group sums up both facts, with no word wasted?",
+      "success": "A tiny cratered moon. Two sharp words cover both facts. Words that repeat each other add nothing.",
       "body": {
         "format": "choose",
         "options": [
-          { "text": "a tiny pockmarked moon" },
-          { "text": "a vast pockmarked moon", "reason": "Pockmarked fits the craters, but vast clashes with 'no wider than a city'." },
-          { "text": "a tiny glassy moon", "reason": "Tiny fits, but glassy means smooth and shiny. This surface is covered in craters." },
-          { "text": "a tiny pockmarked planet", "reason": "The describing words fit, but the main noun is wrong. The probe saw a moon." }
+          { "text": "a tiny pitted cratered moon", "reason": "Both facts are here, but pitted and cratered say the same thing. One of them is wasted." },
+          { "text": "a big round cratered moon", "reason": "Cratered fits, but big clashes with 'no wider than a city'." },
+          { "text": "a tiny cratered moon" },
+          { "text": "a tiny round moon", "reason": "Tiny fits, but the photo's biggest fact, the craters, is missing." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {
       "id": "5.6-b4-2",
       "band": 4,
       "topic": "animals",
-      "frame": "Wren's rescue log from the bay has one long noun group in it.",
-      "prompt": "Tap the main noun in the noun group that starts with 'the four'.",
-      "success": "Turtles. Four, exhausted, baby and loggerhead all build it up, and they all sit in front of the main noun.",
+      "frame": "Wren's rescue log from the bay has a long noun group. The Trinklet thinks one word in it is wasted.",
+      "prompt": "Tap the word in Wren's noun group that tells the reader nothing new.",
+      "success": "Baby. The log already says they came out of their eggs a week ago. Every other word adds something new.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Wren released the four ",
-          { "tap": "exhausted", "reason": "Exhausted tells you what the animals are like. It builds up the main noun." },
+          "The turtles had crawled out of their eggs only a week before. Wren released the ",
+          { "tap": "four", "reason": "Four is new. The log hasn't said how many turtles there were." },
           " ",
-          { "tap": "baby", "reason": "Baby tells you how old they are. Ask: four exhausted baby what?" },
+          { "tap": "exhausted", "reason": "Exhausted is new. It tells you how the turtles were feeling." },
           " ",
-          { "tap": "loggerhead", "reason": "Loggerhead tells you what kind of turtle. It sits right next to the main noun, which comes after it." },
+          { "tap": "baby" },
           " ",
-          { "tap": "turtles" },
-          " back into the ",
-          { "tap": "bay", "reason": "Bay is a noun, but in a different part of the sentence. What do four and exhausted build up?" },
-          "."
+          { "tap": "loggerhead", "reason": "Loggerhead is new. It says what kind of turtle they were." },
+          " turtles back into the bay."
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "5.6-b4-3",
       "band": 4,
       "topic": "music",
-      "frame": "Zed's concert review fell off the stage in pieces.",
-      "prompt": "Tap the pieces in order to build the sentence.",
-      "success": "His last two booming drum solos. Which ones, how many, what they're like, what kind, then the noun.",
+      "frame": "Zed played three drum solos. The first two were quiet. The last one was so booming that it blew the speakers.",
+      "prompt": "Build the sentence so the reader knows exactly which solo blew the speakers.",
+      "success": "Zed's last booming drum solo. Last and booming both point to the third solo, and nothing else fits.",
       "body": {
         "format": "build",
-        "tiles": ["Zed hammered out", "his", "last", "two", "booming", "drum", "solos", "before the speakers blew."],
-        "accept": ["Zed hammered out his last two booming drum solos before the speakers blew."],
-        "reason": "Which ones and how many come first. Then what they're like, then what kind, right beside the noun."
+        "tiles": ["The speakers blew during", "first", "Zed's", "quiet", "last", "booming", "drum", "solo."],
+        "accept": ["The speakers blew during Zed's last booming drum solo."],
+        "reason": "Check every word against the facts. Which solo was booming, and was it first or last?"
       }
     },
     {
       "id": "5.6-b4-4",
       "band": 4,
       "topic": "art",
-      "frame": "Indi is labelling the paintings for the school art show.",
+      "frame": "Indi is labelling the paintings for the school art show. Some words change job from one label to the next.",
       "prompt": "Match each word to the right easel.",
-      "success": "Which one or how many leads, then what it's like. What kind sits right next to the noun.",
+      "success": "The same word can do different jobs. Ask 'what?' each time: the main noun is the thing itself.",
       "body": {
         "format": "sort",
-        "bins": ["which one or how many", "what it's like", "what kind"],
+        "bins": ["main noun", "what kind"],
         "items": [
-          { "text": "'both' in both smudged watercolour landscapes", "bin": 0, "reason": "Both tells you how many: the two of them." },
-          { "text": "'Indi's' in Indi's vivid portrait sketches", "bin": 0, "reason": "Indi's tells you whose sketches, so it tells you which ones." },
-          { "text": "'smudged' in both smudged watercolour landscapes", "bin": 1, "reason": "Smudged tells you what the landscapes look like." },
-          { "text": "'vivid' in Indi's vivid portrait sketches", "bin": 1, "reason": "Vivid tells you what the sketches are like: bright and bold." },
-          { "text": "'watercolour' in both smudged watercolour landscapes", "bin": 2, "reason": "Watercolour names the kind of painting, so it sits right next to the noun." },
-          { "text": "'portrait' in Indi's vivid portrait sketches", "bin": 2, "reason": "Portrait names the kind of sketch: a drawing of a person." }
+          { "text": "'watercolour' in Indi's smudged watercolour landscape", "bin": 1, "reason": "Indi's smudged watercolour what? Landscape. Here watercolour says what kind." },
+          { "text": "'watercolour' in Indi's best watercolour", "bin": 0, "reason": "Indi's best what? Watercolour. Here it's the thing itself." },
+          { "text": "'portrait' in the portrait of the mayor", "bin": 0, "reason": "The what of the mayor? Portrait. 'Of the mayor' adds detail after it." },
+          { "text": "'portrait' in a vivid portrait sketch", "bin": 1, "reason": "A vivid portrait what? Sketch. Here portrait says what kind." },
+          { "text": "'sketch' in a vivid portrait sketch", "bin": 0, "reason": "A vivid portrait what? Sketch. That's the thing itself." }
         ]
       }
     },

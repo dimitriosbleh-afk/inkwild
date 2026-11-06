@@ -273,6 +273,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Write one sentence that is the resolution: it solves Gus's problem.",
+      "given": [
+        "Gus's kite got stuck in a gum tree.",
+        "Then a magpie started pulling at the string."
+      ],
+      "starter": "In the end,",
+      "checks": [
+        "My sentence solves the kite problem",
+        "It doesn't just make things worse"
+      ],
+      "model": "In the end, Gus offered the magpie half his sausage roll, and it dropped the string right into his hands."
+    },
     "creature": {
       "id": "tortarc",
       "name": "Tortarc",
@@ -675,8 +688,8 @@
         "format": "choose",
         "options": [
           {
-            "text": "Ghosts are real, so stay off jetties at night.",
-            "reason": "The 'ghost' turns out to be a dog. The story shows the opposite."
+            "text": "Being brave means you stop feeling scared.",
+            "reason": "Priya's heart thumps the whole way down the jetty. She is scared and brave at once."
           },
           {
             "text": "Facing a fear can show it's smaller than you thought."
@@ -686,7 +699,7 @@
             "reason": "Lady does wear a coat, but that's a detail. It isn't what the whole story is about."
           },
           {
-            "text": "Always do what your friends dare you to do.",
+            "text": "Saying yes to a dare from your friends is a good idea.",
             "reason": "The dare gets Priya onto the jetty, but the story is about what she finds, not about dares."
           }
         ],
@@ -698,8 +711,8 @@
       "band": 3,
       "topic": "sport",
       "frame": "The Twotide Times reports on the Beach Cricket Final. The Tortarc was the third umpire.",
-      "prompt": "Tap the sentence where Team Sandfly's problem is finally solved.",
-      "success": "Kit's six wins the game. That's the moment the problem of needing six runs is solved.",
+      "prompt": "Team Sandfly needs six runs off the last ball. Tap the sentence where that problem is solved.",
+      "success": "Getting the ball back only fixes the pelican. The six off the last ball solves the real problem.",
       "body": {
         "format": "tapText",
         "parts": [
@@ -718,7 +731,12 @@
             "tap": "The umpire checked the rule book, which said nothing about pelicans.",
             "reason": "The rule book doesn't help. The pelican still has the ball, and nobody has scored."
           },
-          " For twenty minutes, both teams waved buckets and hats at the bird. Kit sat down beside the pelican and offered it half of her fish-paste sandwich. The pelican coughed up the ball to make room for the sandwich. ",
+          " For twenty minutes, both teams waved buckets and hats at the bird. Kit sat down beside the pelican and offered it half of her fish-paste sandwich. ",
+          {
+            "tap": "The pelican coughed up the ball to make room for the sandwich.",
+            "reason": "That gets the ball back. But does Team Sandfly have its six runs yet?"
+          },
+          " ",
           {
             "tap": "On the last ball, Kit swung with her eyes shut and whacked it into the sea for six."
           },
@@ -728,7 +746,7 @@
             "reason": "This comes after the game is won. It's a funny ending, not the solution."
           }
         ],
-        "answer": 3
+        "answer": 4
       }
     },
     {
@@ -759,9 +777,14 @@
             "reason": "This makes things worse and adds a time limit."
           },
           {
-            "text": "Dot fixed the engine and the ship escaped.",
+            "text": "Dot fixed the engine in four minutes.",
             "bin": 2,
-            "reason": "This solves the problem. The ship gets away."
+            "reason": "This is the fix. Dot gets the engine working again."
+          },
+          {
+            "text": "The ship roared away from the black hole with seconds to spare.",
+            "bin": 2,
+            "reason": "The danger is over. The ship gets away."
           },
           {
             "text": "Asking for help is a strength, not a weakness.",
@@ -880,7 +903,7 @@
         "format": "choose",
         "options": [
           {
-            "text": "Parents should never leave their children to fend for themselves.",
+            "text": "Parents should stay until their children are ready to leave home.",
             "reason": "The story says shearwater parents always leave, and it doesn't blame them. It's about Kip's choice."
           },
           {
@@ -902,30 +925,30 @@
       "id": "2.8-b4-2",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed found this story in the Twotide library and read it four times in a row.",
-      "text": "Asha had spent six weeks building Moonwalker, a game about an astronaut collecting lost socks on the moon, for the Inter-Island Young Coders Prize. Two days before the deadline, she found a bug. Whenever the astronaut was meant to walk forwards, he walked backwards, gliding smoothly away from every sock. Asha spent the whole night hunting through her code, line by line, with a torch under the blanket so her mum wouldn't notice. She found nothing. Then, at breakfast, an email arrived from the judges. Because of a storm warning, the ferry carrying entries to the mainland would leave a day early, so every game had to be sent by noon. That gave her four hours instead of twenty-eight. Asha put her head on the table next to her cereal. Her little brother, Rafi, picked up the controller and started playing. Within a minute he was shrieking with laughter. 'He's going the wrong way!' he yelled. 'Make the socks run away too!' Asha lifted her head. Instead of fixing the bug, she spent the next three hours building the whole game around it. Now the socks ran away, the astronaut chased them backwards, and every level was played in reverse. She sent it at 11:58. Moonwalker won the prize for Most Original Game, and the judges called the backwards walking 'a bold design choice'. Asha has never told them otherwise.",
-      "prompt": "Which event makes Asha's problem worse?",
-      "success": "The email cuts Asha's time from twenty-eight hours to four. That makes her problem much worse.",
+      "frame": "Zed found two short stories in the Twotide library and read them back to back.",
+      "text": "Story 1. Asha had built a game for the Young Coders Prize, but it had a bug: her astronaut walked backwards. With four hours left, she still couldn't find the problem. Then her little brother played it and shrieked with laughter. 'Make the socks run away too!' he said. So Asha didn't fix the bug. She built the whole game around it, with every level played in reverse, and the judges gave it the prize for Most Original Game.\n\nStory 2. The Twotide Under-10s had lost every match, because not one of them could kick the ball straight. Every kick curved off to the left like a banana. Coach Pham spent weeks trying to fix it. Then, one wet Tuesday, she gave up trying. 'Fine,' she said. 'If it curves, we'll aim around things.' She set up cones in front of the goal, and the team practised bending the ball around them. In the last match of the season, the other team lined up a wall of defenders. The Under-10s curved the ball around every one of them and won four to nil.",
+      "prompt": "Which big idea fits both stories best?",
+      "success": "Asha keeps the bug and Coach Pham keeps the curve. Both turn a weakness into a strength.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "The astronaut walked backwards instead of forwards.",
-            "reason": "That's the problem itself. Look for what makes it harder to solve."
+            "text": "Keep practising and practising until you can do something the proper way.",
+            "reason": "Coach Pham stops trying to fix the curve. Does anyone learn the proper way?"
           },
           {
-            "text": "An email moved the deadline to noon that day."
+            "text": "A younger child often sees what a grown-up has missed.",
+            "reason": "That fits Asha. But who has the idea in the football story?"
           },
           {
-            "text": "Rafi picked up the controller, played the game and shrieked with laughter.",
-            "reason": "Rafi's laughing gives Asha the idea that solves the problem. It helps rather than hurts."
+            "text": "A weakness can become a strength if you use it differently."
           },
           {
-            "text": "Moonwalker won the prize for Most Original Game.",
-            "reason": "That's the ending, after the problem has been solved."
+            "text": "A team that keeps losing will win in the end if it keeps trying.",
+            "reason": "Only the Under-10s were losing. What do both stories do with their problem?"
           }
         ],
-        "answer": 1
+        "answer": 2
       }
     },
     {

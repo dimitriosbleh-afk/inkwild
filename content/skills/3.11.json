@@ -243,6 +243,19 @@
         }
       ]
     },
+    "write": {
+      "ask": "Bazza says snakes are everywhere. Write what you'd check, where, and why that source is better.",
+      "given": [
+        "Bazza's Snake Spray ad: Snakes are everywhere at camp this week! Only $20 a can!"
+      ],
+      "starter": "Before I believe Bazza, I would check",
+      "checks": [
+        "I named one thing to check.",
+        "I named a source with nothing to sell.",
+        "I said why that source is better."
+      ],
+      "model": "Before I believe Bazza, I would check the camp ranger's snake count from this week, because the ranger knows snakes and sells nothing."
+    },
     "creature": {
       "id": "proofanna",
       "name": "Proofanna",
@@ -655,26 +668,26 @@
       "band": 3,
       "topic": "space",
       "frame": "Mo is hiding under the galley table. He heard an asteroid is about to hit Bluster Rock. The Proofanna checked four sources.",
-      "text": "SOURCE 1, a statement from the Bluster Rock Observatory, posted this morning: 'Our telescopes have tracked asteroid KX-41 every night for three weeks. On Friday, it will pass about eight million kilometres from Earth, which is more than twenty times the distance to the Moon. There is no danger to anyone. Our tracking charts are pinned up in the observatory foyer for anyone to check.' SOURCE 2, Maxx Vantablack's stream from yesterday: 'Vantafam, an asteroid is coming STRAIGHT for Bluster Rock! Only I can save you! Grab my Asteroid Survival Kit, just ninety-nine dollars!' SOURCE 3, a newspaper article from thirty years ago: 'Astronomers warn that an asteroid could hit the island one day.' SOURCE 4, an anonymous comment under Maxx's stream: 'My uncle works at a secret base, and he says it's real. Trust me.' Mo wants to know whether to pack an emergency bag of sausage rolls. The Proofanna has already eaten two.",
-      "prompt": "Which source should Mo trust most?",
-      "success": "The observatory. It's new, it's from experts, it shows evidence and it isn't selling anything.",
+      "text": "SOURCE 1, the Bluster Rock Observatory, posted this morning: 'We first spotted asteroid KX-41 three weeks ago, and our telescopes have tracked it every night since. On Friday, it will pass about eight million kilometres from Earth, more than twenty times the distance to the Moon. There is no danger to anyone. Our tracking charts are pinned up in the foyer for anyone to check.' SOURCE 2, a safety page from Rock Solid Bunkers, posted yesterday, with a chart of the asteroid's path: 'KX-41 could hit the island! Our steel bunkers start at five thousand dollars. Order before Friday!' SOURCE 3, a space book by Professor Ada Byrne, a famous astronomer, printed twenty years ago: 'One day, an asteroid could strike our island.' SOURCE 4, Space Shock Weekly, posted this morning: 'Experts say KX-41 is heading our way!' No experts are named. Mo wants to know whether to pack an emergency bag of sausage rolls. The Proofanna has already eaten two.",
+      "prompt": "Which source should Mo trust most about Friday?",
+      "success": "The observatory spotted KX-41, tracked it every night, posted today, and sells nothing.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Maxx's stream",
-            "reason": "Maxx gains money if you panic and buy his kit, and he shows no evidence."
+            "text": "the bunker company's page, because it shows a chart",
+            "reason": "It has a chart, but the company sells bunkers. It gains if Mo panics."
           },
           {
-            "text": "the thirty-year-old article",
-            "reason": "It's very old, and it's about 'one day', not this Friday."
+            "text": "Professor Byrne's book, because she is a famous astronomer",
+            "reason": "She's an expert, but KX-41 was only spotted three weeks ago. Her book can't be about it."
           },
           {
-            "text": "the observatory's statement"
+            "text": "the observatory, because it tracked it and sells nothing"
           },
           {
-            "text": "the anonymous comment",
-            "reason": "Nobody knows who wrote it, and 'trust me' isn't evidence."
+            "text": "Space Shock Weekly, because it was posted this morning",
+            "reason": "It's new, but it names no experts and shows no evidence."
           }
         ],
         "answer": 2
@@ -718,50 +731,50 @@
       "id": "3.11-b3-3",
       "band": 3,
       "topic": "sport",
-      "frame": "Tully is checking reports about sports drinks for the Reef Rays. The Proofanna made her a list of clues.",
-      "prompt": "Put each clue in the right box.",
-      "success": "Independent experts, big studies and new dates help. Company money, no numbers and old results are warnings.",
+      "frame": "Tully is checking a report about sports drinks for the Reef Rays. The Proofanna made her a list of clues.",
+      "prompt": "Put each clue in the right box. Careful: old isn't always a problem.",
+      "success": "Gain, no numbers and a changed recipe are reasons to doubt. Old facts that never change are fine.",
       "body": {
         "format": "sort",
         "bins": [
-          "trust the report more",
-          "trust the report less"
+          "a reason to doubt the report",
+          "not a reason to doubt it"
         ],
         "items": [
           {
-            "text": "The writers are sports scientists with no link to any drink company.",
-            "bin": 0,
-            "reason": "Experts with nothing to gain are more likely to be fair."
-          },
-          {
-            "text": "The study tested two hundred runners over a whole season.",
-            "bin": 0,
-            "reason": "A big, long study is strong evidence."
-          },
-          {
-            "text": "The report was published this year.",
-            "bin": 0,
-            "reason": "This year is recent, so the findings are up to date."
-          },
-          {
-            "text": "Other scientists repeated the study and got the same results.",
-            "bin": 0,
-            "reason": "When others repeat a study and get the same results, the evidence is stronger."
-          },
-          {
             "text": "The study was paid for by the company that makes the drink.",
+            "bin": 0,
+            "reason": "The company gains if its drink looks good, so check the report somewhere else."
+          },
+          {
+            "text": "The part saying sweat is mostly water was written six years ago.",
             "bin": 1,
-            "reason": "The company gains if the drink looks good, so the report might be one-sided."
+            "reason": "Sweat hasn't changed in six years. Old is fine for facts that don't change."
+          },
+          {
+            "text": "The drink was tested six years ago, and its recipe has changed since then.",
+            "bin": 0,
+            "reason": "The drink is different now, so the old test results might not fit it."
+          },
+          {
+            "text": "Two other teams of scientists repeated the test and got the same results.",
+            "bin": 1,
+            "reason": "Other sources agree. That's the best check of all."
           },
           {
             "text": "It calls the drink 'the only drink real athletes need' but gives no numbers.",
-            "bin": 1,
+            "bin": 0,
             "reason": "A big claim with no numbers is not evidence."
           },
           {
-            "text": "The newest result in the report is from twenty years ago.",
+            "text": "The writers are sports scientists who know a lot about running.",
             "bin": 1,
-            "reason": "Twenty-year-old results may be out of date now."
+            "reason": "Knowing the topic well is a reason to trust a writer more, not less."
+          },
+          {
+            "text": "Every runner in the test was sponsored by the drink company.",
+            "bin": 0,
+            "reason": "The runners gain from the company too, so they might not be fair."
           }
         ]
       }
@@ -773,7 +786,7 @@
       "frame": "A flyer about a giant beach slide blew onto the Soggy Biscuit's deck. Wren filled in a checklist about it, but made one mistake.",
       "text": "VOTE YES TO THE MEGA-SLIDE! Smiles have TRIPLED at every beach that got a SplashKing slide, and every family deserves one. The only way to make summer truly fun is a SplashKing Mega-Slide, made from our famous triple-strength rubber. A picture shows a giant blow-up slide shaped like a whale, with a grinning kid flying off its tail. Tell the council to put SplashKing slides on every beach on Bluster Rock, before summer is over! Our slides have been sold to beaches all along the coast, and our customers love them. Order now and get ten per cent off. Flyer from SplashKing Slides, the island's biggest seller of blow-up slides. Printed last week. Wren loves a good slide, so she wanted to take the flyer seriously. But before she believed it, she wanted to know who was behind it. Small print at the bottom: Figures come from our company's own records. Wren read it twice, then reached for her checklist and the Proofanna, which was already trying to bounce on the picture.",
       "prompt": "Tap the part of Wren's checklist that's wrong, then choose a better one.",
-      "success": "The small print says the figures come from the company's own records. Nobody outside checked them.",
+      "success": "The figures are the company's own, and nobody outside checked them. That's weak evidence, even if it's new.",
       "body": {
         "format": "fix",
         "parts": [
@@ -782,33 +795,33 @@
             "tap": "sells blow-up slides",
             "reason": "That's right. SplashKing Slides is the island's biggest seller of blow-up slides."
           },
+          ". Is the evidence strong? ",
+          {
+            "tap": "Yes, smiles tripled at every beach"
+          },
           ". Is it recent? ",
           {
-            "tap": "Yes, last week",
+            "tap": "Yes, printed last week",
             "reason": "That's right. The flyer was printed last week."
-          },
-          ". Evidence? Only ",
-          {
-            "tap": "the surf club's records"
           },
           "."
         ],
-        "spot": 2,
+        "spot": 1,
         "options": [
           {
-            "text": "a scientist's study of beaches",
-            "reason": "No scientist is named. Check the small print for who made the figures."
+            "text": "Yes, because the flyer is so new",
+            "reason": "New isn't the same as proof. Read the small print: who made the figures?"
           },
           {
-            "text": "the council's beach reports",
-            "reason": "The council isn't given as a source. Check the small print again."
+            "text": "No, because sellers always tell lies",
+            "reason": "Sellers can be right. The problem is that nobody outside checked the figures."
           },
           {
-            "text": "the company's own records"
+            "text": "No, the figures are only from its own records"
           },
           {
-            "text": "the lifeguards' daily logs",
-            "reason": "No lifeguards are mentioned. Read the small print to see where the figures come from."
+            "text": "Yes, because lots of beaches bought one",
+            "reason": "Selling lots of slides doesn't prove anyone smiled more. Read the small print."
           }
         ],
         "answer": 2
@@ -820,15 +833,15 @@
       "topic": "animals",
       "frame": "Wren found a wombat with patchy fur near the dam. Before she helps it, the Proofanna wants her to check her sources.",
       "prompt": "Put the sources from most trustworthy to least trustworthy.",
-      "success": "Recent experts with evidence come first. Old experts come next. Sellers with no evidence come last.",
+      "success": "The hospital comes first. The old vet book still helps, as patchy fur hasn't changed. The newest post comes last.",
       "body": {
         "format": "order",
         "items": [
           "A guide from the Bluster Rock Wildlife Hospital, updated this year, with photos from three hundred wombats it has treated.",
-          "A wildlife book from the town library, written by a vet and printed twenty-five years ago.",
-          "A post by a company selling 'magic wombat cream', with no photos and no studies."
+          "A wildlife book by a vet, printed twenty-five years ago, with photos of wombats with patchy fur.",
+          "A post from yesterday by a company selling 'magic wombat cream', with no photos and no studies."
         ],
-        "reason": "The hospital is expert, recent and has evidence. The book is expert but old. The seller gains and shows nothing."
+        "reason": "Hospital: expert, new, with evidence. Book: old but expert, with photos. Seller: newest, but it gains and shows nothing."
       }
     },
     {
@@ -843,19 +856,19 @@
         "format": "choose",
         "options": [
           {
-            "text": "Maxx saying it louder and more often on every single one of his streams",
-            "reason": "Saying something more often doesn't make it true. It's still just Maxx's word."
+            "text": "Maxx's paid team saying again that everything is perfect",
+            "reason": "Maxx pays his team, so they gain from keeping him happy. Ask someone outside."
           },
           {
-            "text": "More followers smashing the heart button under the video",
-            "reason": "Likes show the video is popular, not that the Creatures are happy."
+            "text": "Thousands of fans commenting that they believe him",
+            "reason": "Fans believing him isn't evidence. None of them have seen the Creatures."
           },
           {
             "text": "An outside vet checking the Creatures and sharing her report"
           },
           {
-            "text": "Brighter lights and happier music in the spa video",
-            "reason": "That would make the video look nicer. It wouldn't be evidence."
+            "text": "A gold 'Five-Star Spa' badge that Maxx made for his page",
+            "reason": "Maxx made the badge himself. It's still only Maxx's word."
           }
         ],
         "answer": 2
@@ -896,80 +909,63 @@
       "band": 4,
       "topic": "spooky",
       "frame": "Mo found an article about the Bluster Rock lighthouse ghost. He wants to believe it. The Proofanna is not so sure.",
-      "prompt": "Tap the clue that shows the writer gains from you believing the story.",
-      "success": "A ghost tour company sells more tickets if you believe in the ghost. That's what the writer gains.",
+      "prompt": "Mo found four reasons to doubt the ghost story. One of them isn't a good reason here. Tap it.",
+      "success": "Age matters for things that change, like beaches. A ghost story isn't more or less true for being old.",
       "body": {
         "format": "tapText",
         "parts": [
           "THE LADY OF THE LIGHT. On stormy nights, they say, a woman in a long grey coat can be seen at the top of the old Bluster Rock lighthouse, holding a lantern out over the black water. Her name was Edith Crane, and she was the keeper's daughter. One winter, her father's boat failed to come home, and Edith kept the lamp burning for forty nights, waiting for him. He never returned. Ever since, sailors have reported a flickering light in the tower, long after the lamp was switched off for good. Some say that if you stand at the bottom of the stairs at midnight, you can hear her calling her father's name. Others claim the lantern swings even when there is no wind at all. The old keeper's cottage still stands beside the tower, its windows boarded up. ",
           {
             "tap": "The writer says that every local knows the story is true.",
-            "reason": "This is a claim with no proof, but it doesn't show what the writer gains."
+            "reason": "That is a good reason. 'Everyone knows' is a claim with no proof."
           },
           " ",
           {
             "tap": "No photos, diaries or records of the ghost are given.",
-            "reason": "This is about missing evidence, not about what the writer gains."
+            "reason": "That is a good reason. A ghost claim with no evidence is hard to trust."
           },
           " ",
           {
-            "tap": "The article was first published more than sixty years ago.",
-            "reason": "This is a warning about age. It doesn't show what the writer gains."
+            "tap": "The article was first published more than sixty years ago."
           },
           " ",
           {
-            "tap": "The article was written by Captain Morrow's Ghost Tours, which runs nightly trips to the lighthouse at forty dollars a ticket."
+            "tap": "The article was written by Captain Morrow's Ghost Tours, which runs nightly trips to the lighthouse at forty dollars a ticket.",
+            "reason": "That is a good reason. The tour company sells more tickets if you believe."
           },
           " Mo has already booked two tickets, and he is practising his scream."
         ],
-        "answer": 3
+        "answer": 2
       }
     },
     {
       "id": "3.11-b4-3",
       "band": 4,
       "topic": "funny",
-      "frame": "Zed compared Maxx's Rescue Fund donation page with the Bluster Rock Wildlife Hospital's donation page.",
-      "prompt": "Put each clue in the right box.",
-      "success": "The hospital shows checks, recent updates and exact spending. Maxx shows no proof, no outside checks and nothing new.",
+      "frame": "Zed has ten dollars of pocket money for a Creature charity. He compared two donation pages.",
+      "text": "PAGE A: Bluster Rock Wombat Rescue. 'Every dollar helps sick wombats.' Our money is checked every year by an outside accountant, a money checker with no link to the rescue. Our latest report, from last year, lists what the money paid for: 412 bags of joey formula, a new trailer and two heat lamps. The ranger's office also lists us as a rescue it works with. The page has one grey photo of a wombat in a basket and no videos. PAGE B: The Creature Care Fund, run by Dazza, a streamer with a gold microphone. Posted this morning. 'Every dollar goes straight to Creatures!' The page has twelve bright videos of happy Creatures, music, and a giant gold donate button. Dazza says his own team counts the money. No outside checker is named, and there are no receipts or reports. The comments are full of hearts, and one says, 'Dazza is a legend!' Nobody in the comments says what the money bought. Zed wants every cent of his ten dollars to reach an animal, not a gold microphone.",
+      "prompt": "Which is the best reason for Zed to give to Page A?",
+      "success": "An outsider with nothing to gain checks Page A's money, and it shows what the money bought.",
       "body": {
-        "format": "sort",
-        "bins": [
-          "a reason to trust the page",
-          "a reason to doubt the page"
-        ],
-        "items": [
+        "format": "choose",
+        "options": [
           {
-            "text": "Maxx's page says every dollar 'goes straight to rescued Creatures', but it shows no receipts or reports.",
-            "bin": 1,
-            "reason": "A promise with no receipts or reports is not evidence."
+            "text": "Its report is newer than anything on Page B.",
+            "reason": "Page B was posted this morning. Page A's report is from last year."
           },
           {
-            "text": "Maxx's fund is run by Maxx himself, and nobody outside his company checks the money.",
-            "bin": 1,
-            "reason": "If nobody outside checks, Maxx could spend the money on anything."
+            "text": "An outsider checks its money and lists what it paid for."
           },
           {
-            "text": "The newest update on Maxx's page is from three years ago.",
-            "bin": 1,
-            "reason": "Three years with no update means you can't tell where today's money goes."
+            "text": "The ranger's office lists it as a rescue it works with.",
+            "reason": "That shows the rescue is real, but not where each dollar goes. Zed cares about every cent."
           },
           {
-            "text": "On the hospital's page, an outside accountant checks the money every year and posts the report.",
-            "bin": 0,
-            "reason": "An outside check by someone with nothing to gain is strong evidence."
-          },
-          {
-            "text": "The hospital's page was last updated two weeks ago, with photos of the new possum enclosure.",
-            "bin": 0,
-            "reason": "It's recent, and the photos show where the money went."
-          },
-          {
-            "text": "The hospital's page lists exactly what the money paid for, such as 412 bags of joey formula.",
-            "bin": 0,
-            "reason": "Exact details are evidence you could check."
+            "text": "Its plain grey photo shows it doesn't waste money.",
+            "reason": "A plain photo isn't evidence of anything. Look for who checks the money."
           }
-        ]
+        ],
+        "answer": 1
       }
     },
     {
@@ -977,44 +973,44 @@
       "band": 4,
       "topic": "music",
       "frame": "Tully read a rave review of the Dusty Possums' new album. Zed wrote a trust check, but got one part wrong.",
-      "text": "ALBUM REVIEW: 'RED DIRT ROAD' by The Dusty Possums. Posted this week. Let me be clear: this is the greatest album ever recorded on Bluster Rock, and possibly anywhere. From the first twang of the banjo to the final crash of the drums, every one of its twelve songs is a number-one hit waiting to happen. The band formed four years ago in a shearing shed outside town, and this is their second album. The drumming on 'Galah Galah' is so fast that I worried the drummer might take off. Song seven, a slow ballad about a lost cattle dog, made me cry twice. There is not one weak moment from start to finish.Critics who say the middle songs sound the same simply haven't listened properly. Lead singer Mabel Dunn's voice is like honey poured over gravel, and the title track will have you dancing in your kitchen. If you buy one album this year, make it this one, and buy a second copy for a friend. I can't recommend it highly enough. You can order it from the band's own shop, where signed copies are thirty dollars. Review by Jett Ramone, manager of The Dusty Possums, who is paid a share of every album sold.",
+      "text": "ALBUM REVIEW: 'RED DIRT ROAD' by The Dusty Possums. Posted this week. Let me be clear: this is the greatest album ever recorded on Bluster Rock, and possibly anywhere. From the first twang of the banjo to the final crash of the drums, every one of its twelve songs is a number-one hit waiting to happen. The band formed four years ago in a shearing shed outside town, and this is their second album. The drumming on 'Galah Galah' is so fast that I worried the drummer might take off. Song seven, a slow ballad about a lost cattle dog, made me cry twice. There is not one weak moment from start to finish. Critics who say the middle songs sound the same simply haven't listened properly. Lead singer Mabel Dunn's voice is like honey poured over gravel, and the title track will have you dancing in your kitchen. If you buy one album this year, make it this one, and buy a second copy for a friend. I can't recommend it highly enough. You can order it from the band's own shop, where signed copies are thirty dollars. Review by Jett Ramone, manager of The Dusty Possums, who is paid a share of every album sold.",
       "prompt": "Tap the part Zed got wrong, then choose a better one.",
-      "success": "Jett Ramone is the band's manager. He's paid more when more albums sell, so he gains from a rave review.",
+      "success": "A writer who gains might still be right. That's a warning sign, so check what other reviews say.",
       "body": {
         "format": "fix",
         "parts": [
-          "The review is recent, because it was posted ",
+          "Zed's trust check: The review is recent, because it was posted ",
           {
             "tap": "this week",
             "reason": "That's right. The review says it was posted this week."
           },
-          ". But it's hard to trust, because the writer is ",
+          ". The writer gains, because he is ",
           {
-            "tap": "a music critic"
+            "tap": "paid a share of every album sold",
+            "reason": "That's right. Jett Ramone is the band's manager and gets a share of sales."
           },
-          " who earns money when ",
+          ". So the review ",
           {
-            "tap": "albums sell",
-            "reason": "That's right. Jett is paid a share of every album sold."
+            "tap": "is wrong about the album"
           },
           "."
         ],
-        "spot": 1,
+        "spot": 2,
         "options": [
           {
-            "text": "a fan who bought the album",
-            "reason": "The writer isn't just a fan. Look at who Jett Ramone works for."
+            "text": "is right, because it was posted this week",
+            "reason": "New doesn't mean right. Jett still gains from every sale."
           },
           {
-            "text": "the band's manager"
+            "text": "might be right, but check other reviews first"
           },
           {
-            "text": "a radio presenter",
-            "reason": "No radio presenter is mentioned. What does the review say Jett's job is?"
+            "text": "is wrong, because it's far too long",
+            "reason": "Length doesn't decide trust. A long review can still be right."
           },
           {
-            "text": "the band's drummer",
-            "reason": "The drummer isn't named as the writer. What job does Jett Ramone do for the band?"
+            "text": "is right, because it names all twelve songs",
+            "reason": "Naming songs isn't proof the album is good. Jett gains if you believe him."
           }
         ],
         "answer": 1
@@ -1025,16 +1021,16 @@
       "band": 4,
       "topic": "general",
       "frame": "After the big flood, Mo wants to know if the tap water on Bluster Rock is safe to drink. The Proofanna gathered three sources.",
-      "prompt": "Put the sources from most trustworthy to least trustworthy.",
-      "success": "Fresh test results first, then an older but expert leaflet, then an ad from someone selling the alternative.",
+      "prompt": "Put the sources in order, from most to least trustworthy about today's tap water.",
+      "success": "Today's tests first. The leaflet's advice fits any flood. The old article was about the last flood, not this one.",
       "body": {
         "format": "order",
         "items": [
-          "The town water authority's test results, posted this morning, showing samples from twelve taps across Bluster Rock.",
-          "A health department leaflet about floods, printed eight years ago, which says to boil water until tests show it is safe.",
-          "An ad from a bottled water company that says, 'Never trust tap water again!' but gives no test results."
+          "The town water authority's test results, posted this morning, from samples taken at twelve taps across Bluster Rock.",
+          "A health department leaflet, printed eight years ago, which says that after any flood, tap water should be boiled until new tests say it is safe.",
+          "A Bugle article, printed eight years ago, which says the water was safe to drink again a week after the last flood."
         ],
-        "reason": "The results are expert, new and full of evidence. The leaflet is expert but old. The ad gains from fear."
+        "reason": "Old is fine for advice that never changes. Old news about the water back then says nothing about now."
       }
     },
     {
@@ -1042,26 +1038,26 @@
       "band": 4,
       "topic": "sport",
       "frame": "Players keep twisting their ankles on the new Bluster Rock oval. Tully found two articles that disagree about why.",
-      "text": "ARTICLE A, from Grassmaster Turf, the company that laid the oval's new artificial grass. Posted last year. 'Grassmaster Turf is the safest playing surface money can buy. No injuries have ever been linked to our turf, and players everywhere love the bounce. Our turf is made from the finest materials and has been laid at more than two hundred grounds. It stays green all year, even in the hottest summer, and never needs mowing.Clubs that switch to Grassmaster never look back.' ARTICLE B, by Dr Kim Lau, physiotherapist for the Bluster Rock footy club. Posted last week. 'This season, I treated twenty-three ankle injuries from games on the new turf. Last season, on the old grass, I treated six. Most of the injuries happened late in games, and most were on the wing near the clubrooms, where the surface feels hardest underfoot. Several players have also told me their boots grip too tightly when they turn. That is a worrying jump, although it does not yet prove that the turf is the cause, because we also have more players this year. Together with the council, I am now measuring how hard the surface is in different spots, and I will share the results with every club member. Until then, players should wear boots with shorter studs.'",
+      "text": "ARTICLE A, from Grassmaster Turf, the company that laid the oval's new artificial grass. Posted last year. 'Grassmaster Turf is the safest playing surface money can buy. No injuries have ever been linked to our turf, and players everywhere love the bounce. Our turf is made from the finest materials and has been laid at more than two hundred grounds. It stays green all year, even in the hottest summer, and never needs mowing. Clubs that switch to Grassmaster never look back.' ARTICLE B, by Dr Kim Lau, physiotherapist for the Bluster Rock footy club. Posted last week. 'This season, I treated twenty-three ankle injuries from games on the new turf. Last season, on the old grass, I treated six. Most of the injuries happened late in games, and most were on the wing near the clubrooms, where the surface feels hardest underfoot. Several players have also told me their boots grip too tightly when they turn. That is a worrying jump, although it does not yet prove that the turf is the cause, because we also have more players this year. Together with the council, I am now measuring how hard the surface is in different spots, and I will share the results with every club member. Until then, players should wear boots with shorter studs.'",
       "prompt": "Which is the best reason to be careful of Article A?",
-      "success": "Grassmaster laid the turf, so it would lose money and business if the turf were blamed.",
+      "success": "Grassmaster laid the turf, so it would lose business if the turf were blamed. Check what others say.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "Article A is shorter than Article B, so it must leave out lots of important facts.",
-            "reason": "Length doesn't decide trust. A short text can be true. Look at what the writer gains."
+            "text": "Article A says the turf stays green the whole year, which sounds too good to be true.",
+            "reason": "Artificial grass really does stay green. Look at who wrote Article A, and what they would lose."
           },
           {
-            "text": "The company that laid the turf would lose money if the turf were blamed."
+            "text": "The company that laid the turf would lose business if the turf were blamed."
           },
           {
-            "text": "Article A uses the word 'turf' many times.",
-            "reason": "Repeating a word isn't a reason to doubt a source."
+            "text": "Dr Lau, an expert, says the new turf caused the ankle injuries.",
+            "reason": "Read again. Dr Lau says the jump does not yet prove the turf is the cause."
           },
           {
-            "text": "Dr Lau admits she is still testing, so Article A must be right.",
-            "reason": "Being careful about what she can prove makes Dr Lau more trustworthy, not less."
+            "text": "Article A doesn't give a single number to back up what it says.",
+            "reason": "Read again: it says more than two hundred grounds. Look at who wrote it instead."
           }
         ],
         "answer": 1
