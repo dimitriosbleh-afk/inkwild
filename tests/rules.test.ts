@@ -72,7 +72,7 @@ describe('content rule checks', () => {
   });
 
   it('reject a teaching step that is too long', () => {
-    expect(problemsAfter((f) => (f.skill.teach.iDo.steps[0]!.say = 'word '.repeat(25))).join()).toMatch(/keep it to 20/);
+    expect(problemsAfter((f) => (f.skill.teach.iDo.steps[0]!.say = 'word '.repeat(13))).join()).toMatch(/say is 13 words; keep it to 12/);
   });
 
   it('reject a tap step whose wrong chunk has no nudge', () => {
