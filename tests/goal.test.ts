@@ -85,8 +85,17 @@ describe('goal on Home Island', () => {
     expect(goalFor(content, save, 'home', TODAY).line).toContain('Peer Island');
   });
 
+  it('sends a brand-new student to their first island, not to the Tide quest', () => {
+    const save = newSave(TODAY);
+    save.tide = { day: TODAY, branch: 'between', done: false };
+    const goal = goalFor(content, save, 'home', TODAY);
+    expect(goal.kind).toBe('boat');
+    expect(goal.line).toContain('first rescue');
+  });
+
   it('points at the notice board when a Tide quest is open', () => {
     const save = newSave(TODAY);
+    save.skills['1.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false };
     save.tide = { day: TODAY, branch: 'between', done: false };
     const goal = goalFor(content, save, 'home', TODAY);
     expect(goal.kind).toBe('board');

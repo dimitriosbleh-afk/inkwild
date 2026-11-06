@@ -2,7 +2,23 @@
 
 These are the 10 Encounters the automatic checks were least sure about. For each, tick **OK**, or write what is wrong. Two right answers, a confusing prompt, or a wrong answer are all worth a note.
 
-## 1. 7.12-b3-4 (Band 3)
+## 1. 7.10-b3-3 (Band 3)
+
+> Halfway up the highest tower, there is a tiny café that serves only one thing: dumplings. The walls are covered in photos of sweaty, happy climbers holding chopsticks. There are no tables, just a long wooden bench by the window and a view that goes all the way to the sea. Mrs Tran makes four hundred dumplings every morning. Each dumpling is folded by hand into a little purse shape and pinched shut at the top. Inside there is pork, ginger and a splash of hot soup, so you have to be careful when you bite. Climbers say the dumplings are worth the four-ladder climb. Mrs Tran's dumplings have been on the menu for thirty years, and she has never changed the recipe. She says the secret is patience. I say the secret is the ginger.
+
+**Zed heard 'don't repeat words', so he swapped some. Match each swap.**
+
+- Mrs Tran → the cook → **keeps the chain**
+- the dumplings → the things → **breaks the chain**
+- She says → They say → **breaks the chain**
+- a tiny café → a tiny shop → **keeps the chain**
+- Mrs Tran's dumplings → someone's food → **breaks the chain**
+
+Why: A clear new name for the same thing keeps the chain. A vague word like 'things' breaks it.
+
+☐ OK   ☐ Needs a fix: ______________________________________
+
+## 2. 7.12-b3-4 (Band 3)
 
 > Zed's saved game of Peak Panic has vanished, along with forty hours of progress. He is writing to the game company's support team, and he is also telling the crew in their group chat.
 
@@ -20,7 +36,19 @@ Why: The support team, who don't know Zed, get calm, polite facts. His mates get
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 2. 7.2-b4-6 (Band 4)
+## 3. 7.12-b1-1 (Band 1)
+
+> Tully is writing a letter to the mayor of Scaffold Peaks. She wants new goalposts for the snow oval. The old ones are bent and rusty. One fell over last week and nearly squashed a goat. The mayor is a busy, important person. Tully has never met her. She has drawn a picture of the goat to go with the letter. She wants the mayor to take her letter seriously.
+
+**Which sentence fits Tully's letter to the mayor?**
+
+Options: Oi, Mayor! Get us some new goalposts, yeah? These ones are cooked. / **Could you please arrange new goalposts for the snow oval?** (answer) / Can you get us some new goalposts?
+
+Why: Polite words like 'could' and 'please' fit an important reader like the mayor.
+
+☐ OK   ☐ Needs a fix: ______________________________________
+
+## 4. 7.2-b4-6 (Band 4)
 
 
 
@@ -37,110 +65,81 @@ Why: The first two set the scene. The builders start the trouble and the truck m
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 3. 7.1-b4-1 (Band 4)
+## 5. 7.10-b4-5 (Band 4)
 
-> MAXX WORLD: THE FACTS. Maxx World will open next summer on the highest rock tower in Scaffold Peaks, and it will be the most incredible theme park in the history of the universe. Here are the facts, and every single one of them is true, because I checked them myself in the mirror this morning. The park will have forty-two rides, including the Vantavator, a gold lift that climbs three hundred metres in nine seconds. There will be fourteen food stalls, and every single one will sell my favourite snack, gold-dusted fairy floss. Experts agree that it will be the best day out on Earth, and those experts are me. The park will also feature rare Creatures from all over the archipelago, shown in comfortable, award-winning enclosures that are definitely not cages. Each visitor will also get a free selfie with me, which is worth at least a thousand dollars. Tickets cost just ninety-nine dollars, which is practically free when you think about how amazing I am. Only ten thousand tickets will be sold, so the smart Vantafam are already buying theirs. Do you really want to be the only kid in your class who missed out? Pre-order now through the gold button on my channel. Stay gold!
+> On Saturday, Mo cooked the world's biggest pancake, using an old satellite dish as his frying pan. The batter stuck Mo to the dish from the knees down, but the record-breaking pancake still fed forty climbers.
 
-**The heading says 'The Facts'. What is this text really for?**
+**Which of the editor's changes would break a chain?**
 
-Options: to give readers useful facts about a new theme park / to explain how the Vantavator lift climbs so fast / **to persuade readers to buy tickets to Maxx World** (answer) / to recount the day that Maxx World first opened its gates
+Options: Change 'the dish' to 'the giant pan' in the second sentence. / Change 'The batter' to 'The gooey mixture' in the second sentence. / **Change 'the record-breaking pancake' to 'the thing' at the end.** (answer) / Change the second 'Mo' to 'the cook', since he did the cooking.
 
-Why: It persuades. Opinions, pressure ('missed out?') and 'Pre-order now' show the facts are just there to sell tickets.
-
-☐ OK   ☐ Needs a fix: ______________________________________
-
-## 4. 7.10-b4-1 (Band 4)
-
-> When a blue whale washed up on Pebble Bay three years ago, the town faced a problem the size of a bus. Nobody wanted to bury it, and nobody could move it. In the end, the local museum came up with a plan. Volunteers spent six months cleaning every bone, and then the long job of rebuilding began. This month, the skeleton finally went on display. Hanging from steel cables in the museum's main hall, the enormous frame stretches twenty-four metres from jaw to tail. Its ribs are taller than most adults, and its skull alone weighs as much as a small car. Visitors walk beneath the giant in silence, craning their necks. 'People expect to feel small,' says Dr Rosa Hemming, who led the project. 'What they don't expect is to feel moved.' Not everything went smoothly. Halfway through the rebuild, the team discovered that one flipper bone was missing, probably carried off by a dog. A local sculptor carved a replacement from pale wood, and only the sharpest-eyed visitors can spot it. The museum's new star has already doubled ticket sales. Dr Hemming says the volunteers, many of whom had never seen a whale before, now call it 'our girl'.
-
-**Which set of words all name the whale skeleton on display?**
-
-Options: the enormous frame, the giant, the main hall / **the skeleton, the giant, the museum's new star** (answer) / the enormous frame, the museum's new star, the team / its ribs, its skull, one flipper bone
-
-Why: Skeleton, giant, museum's new star: three names for one thing, and the chain runs right through the article.
+Why: 'The thing' could be anything. The other changes give a clear new name for the same thing.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 5. 7.11-b4-1 (Band 4)
+## 6. 7.5-b3-5 (Band 3)
 
-> Most ghost stories have a narrator who tells you what happened, from start to finish. This one has no narrator at all. It is made entirely of entries from the visitors' logbook in the hut on Crag Tower. Each visitor writes a line or two before they leave.
+> Gus's lab tent has a slime tank, a worm farm, a jar of snot and a green fridge that hums. Visitors read only the first few words of each rule on the tent flap, so a rule should start with what to do, or with the moment to do it.
 
-3 June. Arrived at dusk after a long climb. Lovely hut. Someone has left a candle burning in the window, which was kind. – Priya
+**Which rules lead with what the reader needs first? Match each rule.**
 
-5 June. Strange night. The candle was burning again when we arrived, but the hut was empty, and the logbook says Priya left two days ago. Who lit it? – Tom and Bec
+- Wear goggles near the slime tank. → **leads with what the reader needs**
+- If the snot jar bubbles, step back slowly. → **leads with what the reader needs**
+- Because the worms escaped twice last week, keep the worm farm lid shut. → **makes the reader wait**
+- Ask Gus before you sniff any of the cheese samples. → **leads with what the reader needs**
+- After all the fuss on Tuesday with Mo and the green fridge, never eat from it. → **makes the reader wait**
+- Wash your hands, then wash them again. → **leads with what the reader needs**
 
-7 June. Heard tapping in the walls all night. Tom thinks it's mice. I've hidden the chocolate. – Bec
-
-9 June. Snowed in for two days. Each night the candle relit itself after we blew it out. Bec is sure it's a draught. I am sure it is not. – Tom
-
-12 June. Found the 'ghost'. A ringtail possum has been nesting in the wall behind the window. It knocks a box of matches onto the old heater every night, and the heat sets them smouldering. Mystery solved. Please, please fix the heater. – Ranger Kim
-
-13 June. There is no heater in this hut. – Priya
-
-**How has the author bent the usual shape of a ghost story?**
-
-Options: The story is one climber's private diary, written over a single week. / The story is told backwards, starting with the last night in the hut. / The story is a ranger's report, with headings and plenty of facts about the hut. / **The story is told through entries written by different visitors to the hut.** (answer)
-
-Why: There's no narrator, just signed logbook entries. You piece the mystery together the way the visitors did.
+Why: Lead with what the reader needs: the action, or the moment to act. Backstory and reasons can wait.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 6. 7.3-b4-1 (Band 4)
+## 7. 7.10-b4-3 (Band 4)
 
-> Wedge-tailed Eagles. Wedge-tailed eagles are the largest birds of prey in Australia, with wings that can stretch more than two metres from tip to tip. They are found all over the mainland and in Tasmania, from deserts and farmland to the high, snowy country around Scaffold Peaks. Adults are mostly dark brown, almost black, while young birds are a lighter, golden brown that darkens as they age. The eagle gets its name from its long tail, which is shaped like a wedge and helps it steer as it soars on warm, rising air. Like other birds of prey, they have hooked beaks for tearing meat and strong, curved claws called talons for gripping. Wedge-tailed eagles hunt rabbits, lizards and other small animals, and they also feed on animals that are already dead. Their eyesight is so sharp that they can spot a rabbit moving from more than a kilometre away. They can soar higher than almost any other Australian bird, sometimes more than a kilometre above the ground. Pairs often stay together for many years and return to the same nesting area each spring. A pair usually raises one or two chicks a year, and both parents take turns bringing food to the nest.
 
-**Which sentence fits this information report best?**
 
-Options: Wedge-tailed eagles are clearly the most magnificent birds you could ever hope to see. / **Wedge-tailed eagles build their nests from sticks, often in the tallest tree on a hillside.** (answer) / Watch the eagle's wingtips closely as it circles, and you will see them spread like fingers. / We watched a wedge-tailed eagle snatch a rabbit from the paddock behind our school.
+**Tap the word that breaks the chain, then choose a better one.**
 
-Why: Reports give facts about the whole species, in present tense. This one describes how all wedge-tailed eagles nest.
+Text: "Frostbite Frenzy is the best climbing game I have played this year, and I have played a lot of them. You play as Pip, a small, nervous goat who has to reach the top of a frozen mountain before a storm hits. Pip can jump, slide and headbutt, but she cannot swim, which becomes a serious problem on level six. The controls are simple: one button to jump and one to slide. What makes the game special is the way the mountain changes every time you play. Ice bridges collapse in different places, avalanches start at random, and the yetis who chase you are never in the same spot twice. I have played the first level forty times, and it has never been the same. The graphics are bright and chunky, and Pip's little scarf flaps in the wind as she climbs. My little brother, who is six, loved the headbutting most of all. Compared with last year's big hit, Summit Smash, the game feels fresh, funny and surprisingly hard. My only complaint is the music, which is a single yodel played on a loop until you want to throw your controller into a snowdrift. Even so, if you only buy one game this winter, make it Frostbite Frenzy."
 
-☐ OK   ☐ Needs a fix: ______________________________________
+Wrong spot: **the game**, fix: **Frostbite Frenzy** (other fixes: Pip, level six, the mountain)
 
-## 7. 7.4-b4-1 (Band 4)
-
-> ___ After an earthquake, rescuers must find survivors inside collapsed buildings that could crumble further at any moment. Instead of sending people in first, many teams now send snake-like robots that can wriggle through gaps narrower than a person's arm, carrying cameras, microphones and lights. During bushfires, drones fly through thick smoke that would blind a pilot, using heat cameras to spot people and animals that are trapped. After an accident at a nuclear power station in Japan, robots were sent into areas where the radiation was strong enough to make a person seriously ill within minutes. Police use tough, tank-like robots to inspect suspicious packages, so that no officer has to stand beside one. In flooded mines, swimming robots search the black, freezing water long before it would be safe for divers. Underwater robots check bridges and ships for damage after storms, so divers don't have to search in dangerous currents. Some robots can even carry water bottles and radios to trapped survivors while human teams dig towards them. In every case, a person still steers the robot, watches its cameras and decides what to do next, but that person can stay at a safe distance. Each robot that goes in first means one fewer human life put at risk.
-
-**Which topic sentence fits this paragraph best?**
-
-Options: Snake robots can wriggle through gaps that are narrower than a person's arm. / Robots are becoming cheaper and easier to build every year. / **Robots are taking on the most dangerous jobs in disaster zones.** (answer) / Robots will soon replace human rescuers altogether.
-
-Why: Collapsed buildings, smoke, radiation, packages and floods are all dangerous jobs that robots now do first.
+Why: Frostbite Frenzy. 'The game' could mean either game here. Naming it keeps the chain clear.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 8. 7.5-b4-1 (Band 4)
-
-> Every morning in winter, the rangers at Scaffold Peaks pin a notice to the board outside the ranger station. Hundreds of walkers pass the board on their way to the two tracks that lead to the summit. Most of them barely slow down. They glance at the first line of the notice, nod, and keep walking, already thinking about the view at the top. Last night, a metre of fresh snow fell on the eastern slopes, and strong winds piled it into unstable drifts above the east track. Ranger Okoye spent the early hours checking the slopes with a long metal probe, and she did not like what she found. The east track will stay closed until the snow settles. The west track, which is sheltered by a long rocky ridge, is still safe, although it is steeper and takes an extra hour. Last winter, a notice that began with a long weather report was ignored by almost everyone, and two walkers had to be rescued from a drift by a team on snowshoes. Ranger Okoye knows the one thing every walker must take away from the notice, even if they read only a few words: the east track is closed. She picks up her marker and starts writing.
-
-**Which opening line puts the message Ranger Okoye needs up front?**
-
-Options: Following last night's heavy snowfall and strong winds, the east track to the summit is closed. / Although the west track remains open for walkers, the east track to the summit is closed today. / **The east track to the summit is closed today; the west track remains open for walkers.** (answer) / Rangers, who have been checking the slopes since dawn, have decided to close the east track.
-
-Why: It opens with 'The east track to the summit is closed'. A walker who glances still gets the warning.
-
-☐ OK   ☐ Needs a fix: ______________________________________
-
-## 9. 7.6-b4-1 (Band 4)
+## 8. 7.4-b4-2 (Band 4)
 
 
 
-**Put the guide's explanation in order.**
+**Tap the topic sentence of Indi's paragraph.**
 
-Order: 1. Every winter, humpback whales leave the icy waters of Antarctica and swim thousands of kilometres north to warmer seas. 2. They make this enormous journey for one main reason: to give birth to their calves in calm, sheltered water. 3. Those calves are born with very little blubber, so they would freeze in the Antarctic water. 4. To stop them freezing, the mothers stay in the warm north until the calves have built up blubber on rich milk. 5. This milk is so thick and fatty that it looks a bit like toothpaste, and a calf drinks an enormous amount of it every day. 6. Once the calves are fat enough, the whales begin the long swim back south, towards Antarctica. 7. There, the hungry mothers finally feast on krill, after months without a proper meal.
+Tap: **It seems that learning a musical instrument changes the way the whole brain works.** in "Brain scans show that the bridge between the left and right sides of the brain grows thicker in people who have played since childhood. Musicians also tend to be better at picking out one voice in a noisy room, because their brains have practised separating sounds. Reading music while moving your hands trains the brain to juggle several jobs at once, and some scientists think this might help with other tasks too. Some studies have found that children who practise an instrument remember lists of words more easily. So the biggest change that music makes is to your memory. Learning to play also seems to strengthen the parts of the brain that control small, careful finger movements. In older adults, playing an instrument has been linked to keeping the mind sharper for longer. Musicians even seem to react faster when they hear a sound. These changes seem to appear whether a student plays the drums, the piano or the recorder. It seems that learning a musical instrument changes the way the whole brain works."
 
-Why: Each sentence hooks onto the one before: this journey, those calves, freezing, this milk, fat enough, there.
+Why: It covers every detail, from thicker brain parts to sharper minds. It comes last, like a big finish.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 10. 7.7-b4-1 (Band 4)
+## 9. 7.1-b3-4 (Band 3)
 
 
 
-**Gus wrote this as one paragraph. Tap the sentence where a new paragraph should start.**
+**Tap the sentence that does a different job from the rest of the sign.**
 
-Tap: **At the summit, four hundred rungs higher, a dented, smoking Clank hauled himself over the edge first, missing one toaster.** in "The Robot Ladder Race began at the foot of the tallest tower on Scaffold Peaks, where twelve robots stood in a row with their engines humming in the cold. Gus had built his robot, Clank, out of a vacuum cleaner, two old toasters and the springs from Mo's mattress, which Mo still did not know about. Clank's suction-cup feet squeaked against the bottom rung as he waited for the starting horn. Next to him, a sleek silver robot called Dazzle flashed its lights at the crowd. Its owner, a boy in a gold tracksuit, smirked at Gus and looked away. Gus patted Clank's toaster head and told him it didn't matter if they came last. At the summit, four hundred rungs higher, a dented, smoking Clank hauled himself over the edge first, missing one toaster. The Architect, waiting beside a finish line scratched into the snow, clicked a stopwatch. Close behind him, Dazzle crawled over the edge with its lights flickering weakly. Its batteries, it turned out, did not like the cold. The Architect handed Gus a trophy shaped like a ladder."
+Tap: **When the girder reaches the right height, pull the brake lever hard so the cable can't unwind.** in "How the Tower Crane Lifts a Girder. When the driver presses the lift button, a motor at the top of the crane starts to turn a drum. As the drum turns, it winds in a steel cable, which pulls the hook upwards. The girder hangs from the hook on two short chains, so it rises with it. While it climbs, a sensor in the hook measures how heavy the load is. If the load is too heavy, an alarm sounds and the motor stops. A heavy girder could tip the crane over, so concrete blocks hang off the back arm to balance it. When the girder reaches the right height, pull the brake lever hard so the cable can't unwind. Next, the long arm swings around until the girder is above the right spot. Finally, the drum turns the other way, and the cable lowers the girder gently into place."
 
-Why: 'At the summit' jumps from the foot of the tower to the top. A new place starts a new paragraph.
+Why: 'Pull the brake lever' tells the reader what to do. The rest explain how the crane works, even 'Next'.
+
+☐ OK   ☐ Needs a fix: ______________________________________
+
+## 10. 7.4-b3-6 (Band 3)
+
+
+
+**Tap the topic sentence of Tully's paragraph.**
+
+Tap: **On a space station, the simplest everyday jobs turn into hard work.** in "Drinking water floats out of a cup, so astronauts have to suck it from sealed pouches through a straw. To sleep, they zip themselves into sleeping bags strapped to the wall, so they don't drift around. Washing their hair means rubbing in a special shampoo that doesn't need rinsing, then towelling it dry. Even the toilet has to use a fan that sucks waste away, because nothing falls down in space. Cutting fingernails is done next to an air vent, so the clippings don't float into someone's eye. Getting dressed can take ages, because socks and shirts keep drifting off. Astronauts say that eating is the trickiest job of all. Even dropping a crumb can be a problem, because it may float into a machine. On a space station, the simplest everyday jobs turn into hard work."
+
+Why: It covers every detail, from drinking to getting dressed. It comes last, like a big finish.
 
 ☐ OK   ☐ Needs a fix: ______________________________________

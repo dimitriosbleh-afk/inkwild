@@ -54,9 +54,12 @@ export function reviewReady(content: Content, save: Save, today: Day): boolean {
   return reviewDue(content, save, today);
 }
 
+/** A student who hasn't learnt a single move yet is sent to their first island, not to whichever island today's tide picked. */
+const started = (save: Save) => Object.values(save.skills).some((p) => p?.taught);
+
 function tideOpen(content: Content, save: Save, today: Day): BranchId | null {
   const t = save.tide;
-  return t && !t.done && t.day === today && charted(content, t.branch) ? t.branch : null;
+  return started(save) && t && !t.done && t.day === today && charted(content, t.branch) ? t.branch : null;
 }
 
 export function placeState(content: Content, save: Save, place: Place, today: Day): PlaceState {
@@ -148,6 +151,7 @@ const ISLAND_RULES: Rule[] = [
 ];
 
 const HOME_RULES: Rule[] = [
+  { when: (c) => !started(c.save) && !!nextIsland(c.content, c.save, c.today), kind: 'boat', line: (c) => `Your first rescue starts on ${nextIsland(c.content, c.save, c.today)!.island}. Walk to the dock and set sail!` },
   { when: (c) => !!c.st.tide, kind: 'board', line: (c) => `Today's tide quest is on ${c.content.branch(c.st.tide!).island}. Check the notice board!` },
   { when: (c) => c.st.review, kind: 'grass', line: () => "Daily review: three quick moves from islands you've done.", label: 'REVIEW' },
   { when: (c) => !!nextIsland(c.content, c.save, c.today), kind: 'boat', line: (c) => `Walk to the dock and ${sailTo(c)}!` },

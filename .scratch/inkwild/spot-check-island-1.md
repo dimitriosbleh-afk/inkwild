@@ -2,41 +2,23 @@
 
 These are the 10 Encounters the automatic checks were least sure about. For each, tick **OK**, or write what is wrong. Two right answers, a confusing prompt, or a wrong answer are all worth a note.
 
-## 1. 1.9-b3-2 (Band 3)
+## 1. 1.6-b1-4 (Band 1)
 
-> Text A (an encyclopedia entry): The platypus is a small, shy animal found in rivers and creeks in eastern Australia. It has a flat bill like a duck's, webbed feet and thick brown fur. Platypuses dive underwater to hunt for food, with their eyes, ears and nostrils shut. Instead, they find food by sensing tiny electric signals from the bodies of worms, shrimp and insect larvae. Males have a sharp spur on each back leg that can deliver a painful venom. Text B (Wren's survey notes): Spent the whole evening at Stringybark Creek. Saw two platypuses just after sunset, diving again and again near the fallen log to find food. Each dive lasted about thirty seconds. One came up chewing so hard that I could hear it. Gravel in its cheeks helps it grind up food, because adults have no teeth. Counted fifty-six dives in an hour. Did not see the sharp spurs that males have on their back legs, so they may both have been females.
+> Snot is actually useful. It traps dust and germs before they get into your lungs. It also stops the inside of your nose from drying out. You make about a cup of it every day. Gus once sneezed so hard that his snot hit the whiteboard. Some snails make slime that is a bit like snot. When you're sick, your snot can turn green. That green colour comes from the germ fighters in it.
 
-**Where does each fact come from? Match each one to the right tree.**
+**Put each sentence in the right box.**
 
-- Platypuses find food by sensing electric signals. → **only in Text A**
-- Adult platypuses have no teeth. → **only in Text B**
-- Male platypuses have spurs on their back legs. → **in both texts**
-- Platypuses dive underwater to find food. → **in both texts**
-- Each dive lasted about thirty seconds. → **only in Text B**
-- Platypuses shut their eyes and ears underwater. → **only in Text A**
+- Snot does a useful job in your body. → **main idea**
+- Snot traps dust and germs before they reach your lungs. → **detail that backs it up**
+- Gus once sneezed snot onto the whiteboard. → **fun extra**
+- Snot stops your nose from drying out. → **detail that backs it up**
+- Some snails make slime like snot. → **fun extra**
 
-Why: The encyclopedia gives general facts. Wren's notes add what she saw at one creek on one evening.
-
-☐ OK   ☐ Needs a fix: ______________________________________
-
-## 2. 1.1-b4-3 (Band 4)
-
-> REVIEW: LANTERN DRIFT, by Zed. Lantern Drift is a puzzle game in which you guide a paper lantern down a river at night, lighting up hidden paths for a lost fox cub. Each level adds something new, such as whirlpools, sleeping owls or floating ice. There are forty levels, and each one takes about five minutes, although the final level took me nearly an hour and two packets of crackers. The controls are simple: tilt the screen to steer, and tap to make the lantern glow brighter. Glowing brighter uses up oil, so you have to decide when the extra light is worth it. The fox cub follows close behind and gives a tiny yip whenever it finds a star. The music is gentle and plinky, which I liked at first but found slightly annoying by level thirty. The best feature is the photo mode, which lets you pause anywhere and snap the scenery, and I have taken about three hundred shots of the same waterfall. My only real complaint is that you can't replay a level once you have finished it, so if you miss a hidden star, it's gone for good. Overall, Lantern Drift is calm, clever and occasionally frustrating. I give it eight lanterns out of ten.
-
-**Match each sentence to the right box.**
-
-- Making the lantern glow brighter uses up oil. → **The review says so**
-- You can replay a level after you finish it. → **The review says the opposite**
-- Zed enjoyed the music all the way through. → **The review says the opposite**
-- The game costs ten dollars. → **The review doesn't tell us**
-- The fox cub finds its family at the end. → **The review doesn't tell us**
-- You steer by tilting the screen. → **The review says so**
-
-Why: You checked each one against the exact words. 'Eight out of ten' is a score, not a price.
+Why: One sentence sums up the poster. Two show how snot helps. Two are just fun extras.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 3. 1.2-b4-3 (Band 4)
+## 2. 1.2-b4-3 (Band 4)
 
 > The final of the Hollowgum Kart Cup came down to three laps between Zed and a Year 6 boy called Rex, who had won the cup two years running. About fifty kids had squeezed into the library to watch on the big screen. Before the race, Zed kept wiping his palms on his shorts and checking his controller's battery, even though he had charged it twice. Rex, meanwhile, leaned back in his chair with his hands behind his head and told the crowd he would 'try not to lap anyone'. On lap one, Rex skidded on a banana skin and slid off the track. He slammed his fist on the table and growled at the screen through gritted teeth. On lap two, Zed's hands were shaking so much that he clipped a wall, and he whispered 'come on, come on' under his breath the whole way round. Rex caught up and overtook him with a smirk, glancing back as he went past. On the final straight, Zed hit a boost pad and crossed the line a tenth of a second ahead. The crowd went wild. Zed let out an enormous breath, slumped back in his chair and closed his eyes. Rex stared at the scoreboard for a long moment, then threw his cap on the floor.
 
@@ -54,19 +36,19 @@ Why: You matched actions to feelings, not who won or lost. Each action had its o
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 4. 1.4-b4-2 (Band 4)
+## 3. 1.7-b4-3 (Band 4)
 
-> What's up, Vantafam! It's your boy Maxx Vantablack, coming to you live from the deepest, darkest gully on Hollowgum Island. Tonight I'm finally going to "rescue" a wild Hintatoo. These birds are super rare, and everybody says they're impossible to catch, because they sit completely still for hours, studying everything around them before they move a single feather. But nobody is smarter than Maxx. Last week three of my traps failed, but that was totally Jono's fault. Check out my genius trap. I've tipped a pile of sunflower seeds on this rock, right under my net. When the Hintatoo swoops down for the seeds, my assistant Jono pulls the rope, and BAM, the net drops. Simple. This one's going straight into my private collection. I mean, the rescue centre. Okay, Jono, get ready. Jono? Why are you sneezing? Oh, great, he's allergic to feathers. Anyway, the Hintatoo is right there on that branch, staring at us. It's been staring for twenty minutes. It's blinking really slowly, which is kind of creepy. It's looked at the seeds, then at the net, then at the rope, then at Jono, then back at the net. Honestly, it's almost like it's thinking. Whatever, it's just a bird. Here it comes, Vantafam! It's spreading its wings! It's leaning towards the seeds...
+> Visitors to the Hollowgum Botanic Gardens are being warned to bring a peg for their noses. The gardens' corpse flower, a giant plant from the rainforests of Sumatra, has bloomed for the first time in seven years. Its single flower spike is taller than a grown adult, and its frilly purple skirt opened late on Tuesday night. The plant is named for its smell. To attract the flies and beetles that pollinate it, the flower gives off a stench that visitors have compared to rotting fish, sweaty socks and a bin left in the sun for a fortnight. It even warms itself up so that the smell spreads further. Since the news broke, the queue has stretched around the lake, with some people waiting three hours for a sniff. Even the ducks on the lake are keeping their distance, and school groups have been asked to write words for a smell warning at the gate. Head gardener Phil Okafor says the crowds should hurry, because the bloom lasts only about two days before the skirt closes and the spike collapses. Gardeners worked through the night to collect pollen, which will be shared with other gardens so that more corpse flowers can be grown. 'It's disgusting,' said one visitor, holding her nose. 'I'm coming back tomorrow.'
 
-**What will most likely happen next?**
+**Draft 1: 'A stinky corpse flower has bloomed at the gardens for the first time in seven years.' Draft 2: 'A rare corpse flower has bloomed, and crowds are queuing to smell it before it collapses.' Both are true. Which is better, and why?**
 
-Options: **The Hintatoo will grab the seeds without being caught.** (answer) / The Hintatoo will fly straight into the net. / Jono will pull the rope at exactly the right moment. / Maxx will give up and switch the stream off.
+Options: Draft 1, because it says how long the town waited for the flower to bloom. / **Draft 2, because it adds the crowds and why people must hurry to see it.** (answer) / Draft 1, because it keeps the smell, and the smell is what the plant is named for. / Draft 2, because 'rare' is a stronger word than 'stinky'.
 
-Why: It had studied the whole trap. It grabbed the seeds, the net fell on Maxx, and the stream cut out.
+Why: Draft 1 stops at the bloom. Draft 2 adds the queues and the rush, the heart of the story.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 5. 1.1-b3-3 (Band 3)
+## 4. 1.1-b3-3 (Band 3)
 
 > The banging started at midnight, and by then Wren had already been awake for hours. She lay frozen under her doona, listening. Her heart was thumping louder than the noise. Thump. Scratch. Thump. It sounded like someone dragging a suitcase across the ceiling. Earlier that evening, before dinner, she had noticed that the attic hatch was open a crack. She had meant to tell Dad, but then the pizza arrived and she forgot all about it. Now, at midnight, she crept up the ladder with a torch between her teeth. Two shining eyes stared back at her from behind a box of Christmas decorations. Wren gasped, and the torch fell out of her mouth. It was a brushtail possum, and it had a string of tinsel wrapped around its tail. The next morning, Dad found the hole in the roof where it had squeezed in. He fixed it while the possum glared at him from the gum tree.
 
@@ -78,19 +60,27 @@ Why: 'Earlier that evening' sends you back in time. The hatch and the pizza came
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 6. 1.6-b3-4 (Band 3)
+## 5. 1.5-b3-3 (Band 3)
 
-> I've eaten fish and chips all over the island, and I'm the ship's cook, so trust me. The Salty Gull on the jetty serves the best fish and chips I have ever tasted. Last week I ate there three times. The batter is so crunchy you can hear it from the next table. The fish comes fresh off the boats each morning, still smelling of the sea. Even the chips are perfect: fat, golden and salty, with crispy little bits at the bottom of the bag. The potato cakes are also really excellent, if you can keep them away from the birds. The owner, Stavros, has a parrot that shouts 'Vinegar!' at every customer. Tables fill up fast, so get there before noon. Watch out for the seagulls, because they are bold, hungry and organised. One stole a potato cake right out of my mouth. I would still go back tomorrow.
+> Day 400 on Planet Kreeb. This is Rover Pip, reporting to Earth. In every direction there is nothing but red dust and grey rock. There are no trees, no rivers and no animals. I have not seen a single living thing since I landed. My cameras still work perfectly, but there is nothing to film. I have counted every rock within a kilometre. There are 9,412, and none of them can talk. The wind blows all day, but there is nobody to hear it except me. At night the only light comes from two tiny moons, and it drops to ninety degrees below zero. This is the most desolate place I have ever explored. Yesterday I found a rock shaped like a sandwich and got very excited. It was just a rock. Sometimes I play my landing song just to hear a sound that isn't wind. Please send a friend. Even a small one. Even a toaster.
 
-**Put each sentence in the right box.**
+**What does desolate mean?**
 
-- The Salty Gull serves the best fish and chips Mo has ever tasted. → **main idea**
-- A parrot shouts 'Vinegar!' at every customer. → **interesting detail**
-- A seagull stole a potato cake out of Mo's mouth. → **interesting detail**
-- The batter is so crunchy you can hear it. → **interesting detail**
-- Mo has eaten fish and chips all over the island. → **interesting detail**
+Options: **empty and lonely** (answer) / quiet and peaceful / bright and colourful / dangerous and scary
 
-Why: The batter, fish and chips all back up one claim: the Salty Gull's fish and chips are the best.
+Why: Empty and lonely. There's nothing alive, nobody to hear the wind, and Pip begs for a friend.
+
+☐ OK   ☐ Needs a fix: ______________________________________
+
+## 6. 1.7-b3-1 (Band 3)
+
+> For three weeks, a strange light had been flickering at the top of the old Hollowgum lighthouse. Nobody had lived there for fifty years. Locals whispered that the ghost of the last keeper had come back to tend his lamp. Some said they had heard footsteps on the stairs and smelled something burning. Zed and Tully decided to find out the truth. At midnight, they crept up the spiral staircase with a torch and a camera. The burning smell grew stronger with every step. At the top, they flung open the door. There, sitting on an upturned bucket, was Mo. He was holding a frying pan over a tiny camping stove. Mo had been sneaking out to cook midnight snacks where nobody would complain about the smoke. The flickering was his head torch, which had a loose battery. Mo offered them each a burnt pancake. Zed said it was the scariest thing he'd seen all night.
+
+**Which is the best summary?**
+
+Options: Zed and Tully climbed the lighthouse at midnight to find out if a ghost was making the light. / After weeks of ghost stories, a lighthouse mystery that had the town whispering finally had a surprising answer. / **A spooky light in the old lighthouse turned out to be Mo cooking secret midnight snacks.** (answer) / The flickering light at the top of the lighthouse was a head torch with a loose battery.
+
+Why: It covers the mystery and the answer: who was up there and why. Every part is true.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
@@ -118,26 +108,28 @@ Why: 'Under competition rules' tells you it's the rule. A level final goes to th
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 9. 1.2-b4-1 (Band 4)
+## 9. 1.2-b3-1 (Band 3)
 
-> Nia had been dreading this dive for weeks. Her big brother had spent the whole boat ride telling her that whale sharks were the biggest fish in the ocean, as long as a bus, with mouths wide enough to swallow a wheelie bin. By the time the skipper called 'Fins on!', her hands were trembling so badly that he had to do up her mask strap for her. She slipped into the water last, clinging to the ladder. Then the shark arrived. It rose out of the blue haze below her like a spotted island, slow and enormous, its mouth gaping open as it sieved the water for tiny shrimp. Nia let go of the ladder. She forgot to kick. She forgot to check where her brother was. She simply hung there in the water, eyes wide behind her mask, as the shark glided past close enough to count the white spots on its back. When it had gone, she surfaced, spat out her snorkel and stared at the place where it had disappeared. For once, she didn't say a word. Back on the boat, she sat wrapped in a towel, still gazing at the water, and quietly asked the skipper if they could come back tomorrow.
+> The grand final had come down to a penalty shootout, and Kai was in goal. He had let in the last two kicks. Now it was the final kick of the match. If Pine Gully scored, they would win the cup, but if Kai saved it, the cup would go to Hollowgum. Kai bounced on his toes and wiped his gloves on his shorts again and again. The striker ran in and kicked low to the left. Kai dived, stretched, and felt the ball slam into his fingertips and bounce away. For a second, nobody moved. Then Kai rolled onto his back in the mud and let out a breath that seemed to go on forever. His shoulders sagged. He laughed a wobbly laugh and covered his face with his gloves. 'I thought I was going to be sick,' he told his teammates when they piled on top of him. 'I really thought I was going to be sick.' Up in the stands, his mum sat down for the first time in an hour.
 
-**How does Nia feel as the shark glides past?**
+**How does Kai feel right after the save?**
 
-Options: terrified / disappointed / **amazed** (answer) / impatient
+Options: nervous / **relieved** (answer) / disappointed / embarrassed
 
-Why: Amazed. She lets go of the ladder, forgets everything else and stares. Then she wants to come back.
+Why: Relieved. The long breath, sagging shoulders and wobbly laugh show the worry has finally drained out.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 10. 1.2-b4-4 (Band 4)
+## 10. 1.5-b3-6 (Band 3)
 
-> Nell had only meant to look around the old lighthouse, not take anything. It had been empty for forty years, and the door creaked like an old ship. But when she found the tarnished brass key hanging on a nail beside the keeper's empty bed, she slipped it into her pocket before she could think. That night, back home, she put it in her sock drawer. Then she took it out and put it under her mattress. Then she moved it to a shoebox at the back of the wardrobe, as far from her bed as it could possibly go. She couldn't stop picturing the empty nail. Every time the wind rattled the window, she glanced at the wardrobe. At dinner, when Dad mentioned that the lighthouse was being turned into a museum, Nell knocked over her glass of water. 'Have you been up there?' he asked. 'No,' she said, and immediately felt her face go hot. She lay awake until two in the morning, staring at the wardrobe door. The next afternoon, she rode her bike all the way back to the lighthouse, hung the key back on its nail, and left a note underneath that said, in very small writing, 'Sorry. I won't do it again.' On the ride home, she sang the whole way.
 
-**How does Nell feel while the key is in her room?**
 
-Options: **guilty** (answer) / proud / relieved / curious
+**Tap the word that clashes with the clues, then choose the word the clues point to.**
 
-Why: Guilty. She keeps hiding the key, lies to Dad, goes red and can't sleep until she puts it back.
+Text: "Today Gus invented slime pizza. He spent all morning on it, boiling seaweed and stirring in something from a jar marked 'Do not eat'. The whole galley smelled like a swamp. The pizza was bright green and it wobbled when you touched the plate. I was eager to try it. When Gus held out a slice, I backed away until I hit the wall. I shook my head and said I'd rather eat my own shoe. In the end, Wren had to hold the plate right under my nose. It tasted like lime jelly and feet. I chewed it for a whole minute, and it never got any smaller. When I finally swallowed, it slid down very slowly. Then Gus asked if I wanted a second slice. I ran out of the galley and hid in the lifeboat until dinner. Gus says it is the future of food. Wren says it is the future of the bin."
+
+Wrong spot: **eager**, fix: **reluctant** (other fixes: thrilled, desperate, proud)
+
+Why: Reluctant. Mo backed away, shook his head and would rather eat his shoe, so he didn't want to try it.
 
 ☐ OK   ☐ Needs a fix: ______________________________________

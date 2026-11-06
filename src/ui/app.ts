@@ -85,7 +85,8 @@ export class App {
       if (this.announced.has(c.id)) continue;
       this.announced.add(c.id);
       localStorage.setItem('inkwild.announced', JSON.stringify([...this.announced]));
-      this.moments.push(h('div', {}, h('h2', {}, 'NEW CHAPTER!'), iconCanvas('book', 6), h('p', { class: 'note' }, `"${c.title}" is waiting in your Logbook.`)));
+      const card = h('div', { 'data-chapter': c.id }, h('h2', {}, 'NEW CHAPTER!'), iconCanvas('book', 6), h('p', { class: 'note' }, `"${c.title}" is waiting in your Logbook.`));
+      this.moments.push(card);
     }
     if (!this.showing) setTimeout(() => this.nextMoment(), 450);
   }
@@ -97,8 +98,11 @@ export class App {
       return;
     }
     this.showing = true;
-    const close = h('button', { class: 'big', onclick: () => (overlay.remove(), this.nextMoment()) }, 'NICE!');
-    const overlay = h('div', { class: 'overlay' }, h('div', { class: 'panel pop' }, next, h('div', { class: 'actions', style: 'justify-content:center' }, close)));
+    const chapter = next.dataset.chapter;
+    const close = h('button', { class: chapter ? 'ghost' : 'big', onclick: () => (overlay.remove(), this.nextMoment()) }, chapter ? 'LATER' : 'NICE!');
+    // A new chapter is the reason to keep playing, so reading it is the main button, not a detour through the Logbook.
+    const read = chapter ? h('button', { class: 'big', onclick: () => (overlay.remove(), (this.showing = false), this.go({ name: 'story', chapter })) }, 'READ IT NOW') : null;
+    const overlay = h('div', { class: 'overlay' }, h('div', { class: 'panel pop' }, next, h('div', { class: 'actions', style: 'justify-content:center' }, close, read)));
     document.body.append(overlay);
     const art = overlay.querySelector('canvas');
     if (art) setTimeout(() => burst(art), 120);

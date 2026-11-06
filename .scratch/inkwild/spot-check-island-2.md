@@ -2,45 +2,46 @@
 
 These are the 10 Encounters the automatic checks were least sure about. For each, tick **OK**, or write what is wrong. Two right answers, a confusing prompt, or a wrong answer are all worth a note.
 
-## 1. 2.2-b4-6 (Band 4)
+## 1. 2.2-b4-2 (Band 4)
 
+> The final of the Twotide Speedrun Cup was played in the library, with the two of us sitting back to back so that neither could see the other's screen. Behind me, Rex was hammering his buttons like a woodpecker. The crowd could watch both screens on the big projector, but I kept my eyes on my own. At the four-minute mark, the crowd gasped. Rex's best friend, Oscar, told me afterwards that Rex had found a secret shortcut through the waterfall. I didn't know any of that at the time; all I knew was that I had to be faster. I took the long way round the volcano, as I always do, and crossed the line in 9 minutes 41. Rex let me win on purpose. The scoreboard flashed. I had won by four-tenths of a second. Rex shook my hand, said 'Good game' and nothing else, and he has refused to talk about the final ever since. Whenever anyone mentions the waterfall, he suddenly needs to tie his shoelaces.
 
+**The narrator says, 'Rex let me win on purpose.' What is the best reason to doubt that?**
 
-**Maxx is telling this. Tap the sentence he can't possibly know.**
+Options: Oscar told the narrator about the shortcut, so Oscar might have made the whole thing up. / They sat back to back, so the narrator could not hear Rex playing. / **Rex has never said why he lost, so this can only be the narrator guessing.** (answer) / Rex told Oscar that he lost because the waterfall shortcut was slower.
 
-Tap: **Right now, in every lounge room in the country, the Vantafam is crying happy tears.** in "MAXX VANTABLACK, LIVE FROM TWOTIDE ATOLL. Maxx it out, Vantafam! Your boy is standing on a beach so golden it matches my teeth. The sand is hot, the water is sparkling, and a crab is pinching my left shoe. Not on camera, little buddy! Behind me, a baby turtle is crawling towards the waves, and it is the cutest thing I've ever filmed. My producer just told me through my earpiece that we've hit two million viewers. The comments are flying past on my screen so fast that I can barely read them. Somebody's asking why the turtle is wearing a tiny gold bow tie. It's called style, people. Next question! Goldie Number Four, get my good side. Goldie Number Two, hold that ring light higher. Your arms are shaking, and it's ruining my glow. The sun is right behind me, and my hair has never looked better. Right now, in every lounge room in the country, the Vantafam is crying happy tears. I can hear the Goldies clapping behind the camera, so you know this is special. Smash that heart button like it owes you money! Here comes the wave. Here comes the turtle. And it is gone! Rescue complete. This is Maxx-imum content, people. Two Xs, because one X is for losers. Stay gold!"
-
-Why: Maxx is on a beach. He can't see into lounge rooms, so the happy tears are made up.
+Why: Rex never said why he lost. Nobody can see a silent decision, so it can only be a guess.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 2. 2.7-b4-3 (Band 4)
+## 2. 2.4-b4-3 (Band 4)
 
-> PEMBERTON'S PHOTOGRAPHIC STUDIO, 12 Harbour Street. Established 1884. Have your portrait taken by the finest photographer on the coast! Our studio has a large glass roof, so that we may use the bright light of day, and we are therefore open only when the sun is shining. Sitters must keep perfectly still for one whole minute while the picture is taken. A metal stand will be placed behind your head to help you, and it is quite comfortable once you are used to it. Our assistant, Mr Finch, will dust your face with powder so that it does not shine, and he will hold up a white sheet to bounce the light onto your cheeks. Please do not smile. A serious face looks far more dignified than a grin, and a smile is very difficult to hold for a whole minute. Wear your best clothes for your portrait. Children may hold a favourite toy, provided it does not wriggle. You will not see your picture until it has been printed, two weeks later, on card fit to hang in any parlour. We are very busy on Saturdays, so please book ahead. Mr Pemberton regrets that he can no longer photograph dogs, after the unfortunate incident with the Mayor's poodle.
+> The Twotide Art Prize is held every year in the old surf club, and this year's two finalists could hardly have been more different. Odette had painted a storm rolling over the lagoon in thick, swirling grey, and the judges had stood in front of it for ages without speaking. Ruben had painted himself, life-sized, in a gold frame he had built himself, with a small sign underneath that read MASTERPIECE (DO NOT TOUCH). When a reporter asked Odette about her painting, she shrugged and pointed at a picture of a kingfisher by a Year 3 student. 'Honestly, I think that one's better,' she said. 'Mine's still not quite finished.' Ruben didn't wait to be asked. He strode over and told the reporter that his painting was 'the best thing in the room, possibly in the country'. Then he turned to the photographer. 'Only shoot my left side, please,' he said. When Odette was announced as the winner, she went pink. 'Thank you to my art teacher, my mum and the lagoon,' she said. Ruben told everyone that the judges clearly didn't understand art. Then he wandered over to the prize table. 'Can I keep the ribbon, just to try it on?' he asked.
 
-**Is each part of this 1884 advertisement different now, or still the same?**
+**Match each clue. Careful: some details are true but tell you nothing about what the artist is like.**
 
-- Sitters must keep perfectly still for a whole minute. → **different now**
-- Wear your best clothes for your portrait. → **still the same now**
-- Please do not smile, because a serious face looks more dignified. → **different now**
-- You won't see your picture until it's printed, two weeks later. → **different now**
-- Children may hold a favourite toy. → **still the same now**
-- We are busy on Saturdays, so please book ahead. → **still the same now**
-- The studio is open only when the sun is shining. → **different now**
+- 'Honestly, I think that one's better.' → **shows Odette is modest**
+- 'Mine's still not quite finished.' → **shows Odette is modest**
+- When asked about her painting, she pointed at a Year 3 student's kingfisher. → **shows Odette is modest**
+- 'Only shoot my left side, please.' → **shows Ruben is vain**
+- A small sign under his painting read MASTERPIECE (DO NOT TOUCH). → **shows Ruben is vain**
+- He told everyone the judges clearly didn't understand art. → **shows Ruben is vain**
+- The judges stood in front of her storm painting for ages. → **shows neither**
+- This year, the prize was held in the old surf club. → **shows neither**
 
-Why: Booking ahead and dressing up haven't changed. Holding still for a minute, no smiles and two-week waits show 1884.
+Why: The judges staring shows her painting is good, not that she is modest. Check what each clue shows.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
 ## 3. 2.8-b4-3 (Band 4)
 
-> For three months, Tavi had practised the solo she would sing at the Twotide Lantern Festival, a slow, soaring song that ended on a note so high it made dogs look up. The trouble was that she could only hit that last note about half the time; the other half, her voice cracked like a dropped plate. Then the organisers announced that the concert would be broadcast live across every island, so if her voice cracked, the whole archipelago would hear it. Two days before the festival, things got even worse. Tavi woke up with a sore throat and a voice like a rusty gate, and by the next morning, she could only croak. That evening, Tavi sat on the beach, miserable, whistling the tune without thinking as she watched the tide. A fisherman mending his nets stopped to listen. 'That's the finest whistling I've heard in forty years,' he said. On festival night, Tavi stepped up to the microphone, took a breath and whistled the whole solo, clear and pure, right up to the last impossible note, which she hit perfectly. The crowd went silent, then roared. Her choir teacher said afterwards that the song had never been meant for whistling. Tavi said that, as it turned out, it had.
+> For three months, Tavi had practised the solo she would sing at the Twotide Lantern Festival, a slow, soaring song that ended on a note so high it made dogs look up. The trouble was that she could only hit that last note about half the time; the other half, her voice cracked like a dropped plate. Then, to make it worse, the organisers announced that the concert would be broadcast live across every island, so if her voice cracked, the whole archipelago would hear it. Two days before the festival, things got even worse. Tavi woke up with a sore throat and a voice like a rusty gate, and by the next morning, she could only croak. That evening, Tavi sat on the beach, miserable, whistling the tune without thinking as she watched the tide. A fisherman mending his nets stopped to listen. 'That's the finest whistling I've heard in forty years,' he said. On festival night, Tavi stepped up to the microphone, took a breath and whistled the whole solo, clear and pure, right up to the last impossible note, which she hit perfectly. The crowd went silent, then roared. Her choir teacher said afterwards that the song had never been meant for whistling. Tavi said that, as it turned out, it had.
 
 **Match each part of Tavi's story to its place in the plot.**
 
-- From the start, Tavi could only hit the last high note half the time. → **problem**
-- The concert would be broadcast live, so every island would hear a crack. → **complication**
-- Two days before the festival, Tavi lost her voice. → **complication**
+- From the start, Tavi could only hit the last high note half the time. → **complication (the problem)**
+- The concert would be broadcast live, so every island would hear a crack. → **it gets worse**
+- Two days before the festival, Tavi lost her voice. → **it gets worse**
 - Tavi whistled the solo and hit the last note perfectly. → **resolution**
 - When one plan fails, there may be another way to shine. → **big idea**
 
@@ -48,67 +49,63 @@ Why: The cracking note is the problem. Losing her voice makes it worse. Whistlin
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 4. 2.9-b4-2 (Band 4)
+## 4. 2.1-b3-6 (Band 3)
 
+> 'I'm starving,' I said, and the seagull stole my pie.
 
+**Tap the pieces to rewrite Mo's sentence in third person, told by someone outside the story.**
 
-**Match each line to the author who wrote it.**
+Pieces: 'I'm starving,' | 'He's starving,' Mo said, | Mo said, | I said, | and the seagull stole | his pie. | my pie.
 
-- The snake. Still. Waiting. Then it struck. → **Dash Kettle: short and tense**
-- Crack. A branch. The wallaby froze, ears up. → **Dash Kettle: short and tense**
-- The pelican's beak glowed like a pink lantern. → **Marigold Featherby: long, colourful comparisons**
-- Across the mudflats, the godwits rose all at once, a shimmering cloud of silver and brown that twisted like a scarf thrown into the wind. → **Marigold Featherby: long, colourful comparisons**
-- The wombat was so round that when he sneezed he rolled halfway down the hill, which is how he got to school most mornings. → **Bunny Pickles: jokes and asides**
-- The koala was grumpy. (Koalas are always grumpy before lunch. And after lunch.) → **Bunny Pickles: jokes and asides**
+Answer: **'I'm starving,' Mo said, and the seagull stole his pie.**
 
-Why: A short line can be Marigold's if it's a colourful comparison. A long one can be Bunny's joke.
+Why: Mo's own words stay inside the speech marks. Only the narrator's I and my change to Mo and his.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 5. 2.10-b3-3 (Band 3)
+## 5. 2.4-b3-3 (Band 3)
 
-> Commander Ray had flown the starship Dusty for twenty years, and he never let anyone forget it. His crew had heard his stories so many times that they could say them along with him. When a meteor storm hit, he shouted orders from his big gold chair. Most of them were wrong. 'Turn left!' he yelled, and the ship flew straight into a rock. While the commander shouted, Pip, the ship's little cleaning robot, rolled quietly into the engine room. Pip was so small that most of the crew forgot it was there. Pip found the cracked fuel line and wrapped it in tape. Then it worked out a safe path through the storm, one rock at a time, and whispered the directions to the pilot. The Dusty made it through without another scratch. Back on Earth, Commander Ray made a long speech about leadership and didn't mention Pip once. Pip was in the corner, cleaning up the cake crumbs from the party.
+> The Twotide Primary band had never won anything, and the competition started in ten minutes. The drummer had lost one stick, the trumpet player had hiccups, and the bass player was hiding in the toilets. Mei, who played the keyboard, didn't panic. She found a wooden spoon in the canteen and handed it to the drummer. 'Use this. Nobody will see it from the seats,' she said calmly. Then she knocked on the toilet door and talked to the bass player until he came out. 'We don't have to be perfect,' she told the whole band. 'We just have to start together.' The trumpet player gave her a thumbs up between hiccups. When the curtain opened, every single head in the band turned to Mei, waiting for her nod. She counted them in, and they started together. Halfway through the song, the trumpet player hiccupped right in the middle of his solo, so Mei simply played louder until he found his place again. They came fourth out of five, and the drummer kept the wooden spoon as a lucky charm.
 
-**Zed thinks Pip is the real hero of the story. Match each piece of evidence to where it belongs.**
+**Match each clue about Mei to the kind of clue it is.**
 
-- Pip fixed the cracked fuel line with tape. → **In the story, and backs Zed up**
-- Pip worked out a safe path and whispered it to the pilot. → **In the story, and backs Zed up**
-- Commander Ray sat in a big gold chair. → **In the story, but doesn't back Zed up**
-- The crew could say the commander's stories along with him. → **In the story, but doesn't back Zed up**
-- Pip fought off a gang of space pirates. → **Not in the story**
-- Pip took the controls and flew the ship itself. → **Not in the story**
+- She found a wooden spoon and handed it to the drummer. → **what Mei does**
+- 'We just have to start together.' → **what Mei says**
+- Every head in the band turned to Mei, waiting for her nod. → **how others react to Mei**
+- She simply played louder until the trumpet player found his place. → **what Mei does**
+- 'Nobody will see it from the seats.' → **what Mei says**
+- The trumpet player gave her a thumbs up between hiccups. → **how others react to Mei**
+- She knocked on the toilet door and talked to the bass player. → **what Mei does**
 
-Why: Only what the story says, and what shows Pip saving the ship, can back Zed up.
-
-☐ OK   ☐ Needs a fix: ______________________________________
-
-## 6. 2.2-b3-3 (Band 3)
-
-> I was home sick on the day of the science fair, which turned out to be lucky. I spent the whole morning on the couch, staring at my phone and waiting for news. My brother Gus had built a volcano out of papier-mâché, vinegar and something he called 'Mystery Goo'. At nine o'clock, he texted me a photo of it on the table, bright green and bubbling. It looked like a giant bowl of pea soup. At ten o'clock, he texted again: 'It's bigger than I planned.' After that, he stopped texting. At lunchtime, I heard a fire engine go past our house with its siren on. When Gus got home, his eyebrows were orange and he smelled like a rotten egg sandwich. He told me the judges had given him a ribbon for 'Most Memorable Project'. He would not tell me what was in the Mystery Goo, and he still won't. I've decided not to ask any more.
-
-**How does the teller know each thing? Match each one.**
-
-- Gus's eyebrows were orange. → **saw, heard or smelled it**
-- A fire engine went past with its siren on. → **saw, heard or smelled it**
-- Gus smelled like a rotten egg sandwich. → **saw, heard or smelled it**
-- The volcano got bigger than Gus planned. → **was told it**
-- The judges gave Gus a ribbon. → **was told it**
-- The Mystery Goo was made of snot and pickle juice. → **can't know it**
-- The volcano covered the principal in goo. → **can't know it**
-
-Why: A teller knows what reaches their own eyes, ears and nose, or what someone tells them. That's all.
+Why: The thumbs up and the turning heads are the band reacting to Mei. Every clue says calm leader.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 7. 2.8-b3-2 (Band 3)
+## 6. 2.8-b3-2 (Band 3)
 
 
 
-**Tap the sentence where Team Sandfly's problem is finally solved.**
+**Team Sandfly needs six runs off the last ball. Tap the sentence where that problem is solved.**
 
 Tap: **On the last ball, Kit swung with her eyes shut and whacked it into the sea for six.** in "The Twotide Beach Cricket Final came down to the very last ball. Team Sandfly needed six runs to win, and their best batter had gone home with sunburn. That left eleven-year-old Kit, who had never hit a ball past the bowler. Her bat was older than she was and had a crack down the middle. The crowd groaned as she walked out. Then a pelican swooped down, swallowed the only ball and sat in the middle of the pitch. The umpire checked the rule book, which said nothing about pelicans. For twenty minutes, both teams waved buckets and hats at the bird. Kit sat down beside the pelican and offered it half of her fish-paste sandwich. The pelican coughed up the ball to make room for the sandwich. On the last ball, Kit swung with her eyes shut and whacked it into the sea for six. The pelican was named Player of the Match."
 
-Why: Kit's six wins the game. That's the moment the problem of needing six runs is solved.
+Why: Getting the ball back only fixes the pelican. The six off the last ball solves the real problem.
+
+☐ OK   ☐ Needs a fix: ______________________________________
+
+## 7. 2.8-b3-3 (Band 3)
+
+> Commander Juno was the youngest captain in the Star Fleet, and also the most stubborn. When her ship's engine broke down near a black hole, she refused to call the other ships for help. 'I can fix it myself,' she told her crew, and she locked herself in the engine room. She worked for six hours straight. Then a warning light began to flash: the black hole was pulling the ship closer, a little more every minute. Juno's hands shook as she tried part after part, but nothing worked. At last, her engineer, a quiet robot called Dot, knocked on the door. 'Commander,' said Dot, 'I have fixed this engine four hundred times. Would you like me to hold the torch, or would you like me to fix it?' Juno looked at the clock, then at Dot. She handed over the spanner. Dot fixed the engine in four minutes, and the ship roared away from the black hole with seconds to spare. That night, Juno painted a new rule on the wall: 'Ask Dot first.'
+
+**Match each part of Juno's story to its place in the plot.**
+
+- Juno's ship broke down near a black hole. → **complication (the problem)**
+- The black hole began pulling the ship closer every minute. → **it gets worse**
+- Dot fixed the engine in four minutes. → **resolution**
+- The ship roared away from the black hole with seconds to spare. → **resolution**
+- Asking for help is a strength, not a weakness. → **big idea**
+
+Why: Engine breaks, black hole makes it worse, Dot fixes it. The big idea: asking for help is strong.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
@@ -124,15 +121,15 @@ Why: Eating the stew and blasting home solves the problem. Zed gets back without
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
-## 9. 2.1-b4-1 (Band 4)
+## 9. 2.10-b4-1 (Band 4)
 
-> Captain Abena Osei had been alone on Station Kestrel for two hundred and eleven days, and she had grown used to its sounds: the hum of the air filters, the tick of the cooling pipes, the groan of metal as the station swung into sunlight. The knocking was new. It began on Tuesday, three soft taps behind the wall of the galley, then a pause, then three more. At first she blamed the pipes. By Thursday she had stopped blaming anything and started recording. 'Station log, day 212,' she said into the microphone, keeping her voice steady. 'I can hear knocking inside the walls again. I am not frightened. I would simply like it to stop.' She unscrewed the vent cover with trembling fingers and shone her torch into the dark. Two tiny eyes blinked back at her. A box of seed samples in the cargo hold had been chewed open, and the culprit was a fat brown mouse with sunflower husks stuck to its whiskers. It had stowed away from Earth, eaten its way through four kilograms of seeds and, judging by its size, had been having a wonderful time. Captain Osei laughed so loudly that the mouse dropped its seed. That evening she added a second entry to the log: 'Crew now two. New crew member is small, rude and excellent company.'
+> I have always hated the sea. I want to be clear about that from the start. It is cold, it is wet, it is full of things that sting, and it tastes like a sock that has been pickled. When Mum announced that we were moving to Twotide Atoll, where the sea is everywhere you look, I locked myself in the bathroom for an entire afternoon. Our new house was so close to the water that I could hear it at night, shushing and grumbling, as if it were complaining about me. For the first month, I didn't go near it. Then, one evening, my little brother's kite blew out over the lagoon, and before I could think, I had waded in up to my knees to grab the string. The water was warm. That surprised me so much that I just stood there, holding the kite, while tiny silver fish nibbled at my ankles as if they were checking whether I was edible. A turtle surfaced a few metres away, looked at me with its old, wrinkled face and sank again without a sound. I stayed until the sun went down. I still think the sea tastes like a pickled sock. But now, every evening, I am the first one in the water, and Mum has to drag me out when it gets dark.
 
-**Which explanation is right?**
+**Wren thinks the narrator changes her mind about the sea. Which evidence backs this up?**
 
-Options: First person, because the log entries say I. / First person, because we learn Captain Osei is frightened, even though she says she isn't. / Third person, because the story happens far away in space, on a lonely station. / **Third person, because the teller stays outside the story and calls Captain Osei she.** (answer)
+Options: She hates the sea at the start, and still says it tastes like a pickled sock. / She loves the sea at the start, but ends up locking herself in the bathroom. / She is scared of turtles at first, but ends up feeding the fish every evening. / **She hates the sea at the start, but ends up first in the water every evening.** (answer)
 
-Why: Third person. The log entries are in speech marks. Outside them, the teller never says I and calls her she.
+Why: Structure. The first line: she hates the sea. The last: she's first in the water. That's a change.
 
 ☐ OK   ☐ Needs a fix: ______________________________________
 
@@ -142,10 +139,10 @@ Why: Third person. The log entries are in speech marks. Outside them, the teller
 
 The raw tape, written down by Zed: Waves crashing. Maxx is sitting on a dry rock, checking his teeth in a phone screen. A Goldie says, 'It's wedged behind that rock, boss.' Maxx says, 'Then get it out. I'm not getting my hair wet.' The Goldie wades in and scoops the hatchling into a gold net. His tracksuit is soaked to the knees. For forty seconds, it squeaks sharply, the way frightened turtles do. Maxx covers his ears and says, 'Ugh. We'll put happy chirps over that in the studio.' Then he takes the net, holds it up to the drone and flashes his teeth. The hatchling is still squeaking. 'Are we rolling? Okay. Deep in the sea caves...'
 
-**How does Maxx seem in each telling?**
+**The voice-over leaves out many things. Which one matters most for judging what Maxx is like?**
 
-Options: Brave and caring in both tellings. / Lazy in the voice-over, but brave on the raw tape. / **Brave and caring in the voice-over, but lazy and fake on the raw tape.** (answer) / Frightened in the voice-over, but caring on the raw tape.
+Options: that Maxx checked his teeth in a phone screen / that the tide was rising fast in the caves / **that a Goldie did the rescue while Maxx stayed dry** (answer) / that the hatchling was stuck behind a rock
 
-Why: The voice-over makes Maxx a hero. The raw tape shows a Goldie doing the work while Maxx fakes it.
+Why: A Goldie did the rescue while Maxx kept his hair dry. That changes him from hero to faker.
 
 ☐ OK   ☐ Needs a fix: ______________________________________

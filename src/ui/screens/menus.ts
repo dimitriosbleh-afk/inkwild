@@ -30,13 +30,25 @@ export function firstRunScreen(app: App): ScreenView {
   const look: CaptainLook = app.store.save.captain ?? randomLook();
   const picks = new Set<Interest>(app.store.save.interests);
 
+  // The first screen is the hook, so it shows the Creatures at stake rather than a line of small print.
+  const parade = () => {
+    const ids = content.branches.flatMap((b) => content.skillsOf(b.id).slice(0, 1).map((s) => s.creature.id)).slice(0, 5);
+    return h('div', { class: 'row', style: 'justify-content:center;gap:18px;margin:14px 0 6px' }, ...ids.map((id, i) => {
+      const art = creatureCanvas(id, { scale: 5 });
+      art.classList.add('bob');
+      art.style.animationDelay = `${i * 0.18}s`;
+      return art;
+    }));
+  };
   const welcome = () =>
     el.replaceChildren(
       h(
         'div',
-        { class: 'panel', style: 'text-align:center;margin-top:8vh' },
-        h('h1', { style: 'font-size:34px' }, GAME_TITLE.toUpperCase()),
-        h('p', { class: 'note' }, 'Somebody is stealing the rarest creatures in the archipelago. Your crew needs a captain.'),
+        { class: 'panel', style: 'text-align:center;margin-top:6vh' },
+        h('h1', { style: 'font-size:40px' }, GAME_TITLE.toUpperCase()),
+        parade(),
+        h('p', { class: 'reading', style: 'font-size:22px;line-height:1.5;margin:10px auto 4px;max-width:560px' }, 'Someone is stealing the rarest Creatures in the islands.'),
+        h('p', { class: 'reading', style: 'font-size:22px;line-height:1.5;margin:0 auto 10px;max-width:560px;font-weight:700' }, 'Your crew needs a captain.'),
         h('div', { class: 'actions', style: 'justify-content:center' }, h('button', { class: 'big pulse', onclick: captain }, 'THAT’S ME')),
         h('div', { class: 'actions', style: 'justify-content:center' }, h('button', { class: 'ghost', onclick: () => app.go({ name: 'restore' }) }, 'I HAVE A BACKUP CODE')),
       ),
