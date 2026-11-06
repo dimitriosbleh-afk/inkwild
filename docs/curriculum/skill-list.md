@@ -42,7 +42,7 @@ Every Encounter in the game teaches or practises exactly one of these Skills. Sk
 |---|---|---|
 | 3.1 | Fact or opinion | L4, VC2E6LA02 |
 | 3.2 | Bare claim or backed-up claim | VC2E5LA02 |
-| 3.3 | Kinds of backing: evidence, expert, example | VC2E5LA02 |
+| 3.3 | Kinds of backing: facts and figures, expert, example | VC2E5LA02 |
 | 3.4 | Emotive words: spot them and say it neutrally | VC2E6LA02 |
 | 3.5 | Objective or subjective language | VC2E6LA02 |
 | 3.6 | Spot the bias: what is left out or made one-sided | VC2E6LA02, VC2E6LY06 |

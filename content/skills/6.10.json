@@ -36,6 +36,31 @@
             "win": "Yes! Those are her exact words. Speech marks hug them. Some books call them quotation marks."
           },
           {
+            "say": "Some books use single speech marks instead. Here are Wren and Mo with single marks.",
+            "show": [
+              "‘Brr!’ said Wren. ‘Me too,’ said Mo."
+            ],
+            "ask": "Which of these is true?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Only double marks are right.",
+                  "reason": "Lots of Australian books use single marks. Look again: are Wren's words still marked?"
+                },
+                {
+                  "text": "Single or double are both right, if you keep to one."
+                },
+                {
+                  "text": "You can swap between single and double in one story.",
+                  "reason": "Swapping makes readers stop and wonder why. Pick one style and stick to it."
+                }
+              ]
+            },
+            "win": "Yes! Single or double are both right. Just keep to one style all the way through."
+          },
+          {
             "say": "When Mo stops talking, a mark goes inside the speech marks, just before they close.",
             "show": [
               "“Pass the cocoa___” said Mo."
@@ -174,7 +199,7 @@
           "terms": [
             {
               "term": "SPOKEN WORDS",
-              "means": "The exact words someone says. Speech marks hug them."
+              "means": "The exact words someone says. Single or double speech marks hug them."
             },
             {
               "term": "WHO SAID IT",
@@ -198,7 +223,7 @@
             ],
             [
               {
-                "text": "“Hold still,”",
+                "text": "‘Hold still,’",
                 "tag": "SPOKEN WORDS"
               },
               {
@@ -206,12 +231,12 @@
                 "tag": "WHO SAID IT"
               },
               {
-                "text": "“or your nose goes green!”",
+                "text": "‘or your nose goes green!’",
                 "tag": "SECOND HALF"
               }
             ]
           ],
-          "test": "Marks hug the exact words. Their comma or ? goes inside. New speaker, new line."
+          "test": "Marks hug the exact words. Their comma or ? goes inside. New speaker, new line. Single or double: keep to one."
         }
       },
       "weDo": [
@@ -268,16 +293,16 @@
       "blurb": "A gang-gang cockatoo from the snow gums that repeats exactly what you say, but only between its two curly wings. Its red crest flares when someone new starts talking."
     },
     "write": {
-      "ask": "Rewrite this as Mo's exact words. Split them with said Mo in the middle.",
+      "ask": "Write Mo's words as speech. Split them with said Mo in the middle.",
       "given": [
-        "Mo said that he was freezing and that somebody had hidden his beanie."
+        "Mo's words: I'm freezing and somebody has hidden my beanie."
       ],
       "checks": [
         "Speech marks hug only Mo's exact words",
         "The comma sits inside the speech marks",
         "The second half starts with a small letter"
       ],
-      "model": "“I'm freezing,” said Mo, “and somebody has hidden my beanie!”"
+      "model": "“I'm freezing,” said Mo, “and somebody has hidden my beanie.”"
     }
   },
   "encounters": [
@@ -492,9 +517,9 @@
       "body": {
         "format": "order",
         "items": [
-          "“Quick,”",
+          "‘Quick,’",
           "whispered Wren,",
-          "“the platypus is coming up!”"
+          "‘the platypus is coming up!’"
         ],
         "reason": "Start with Wren's first words. The lowercase 'the' shows the last part finishes her sentence."
       }
@@ -503,7 +528,7 @@
       "id": "6.10-b2-3",
       "band": 2,
       "topic": "music",
-      "frame": "The band is warming up in the snow. Indi is writing a comic about it.",
+      "frame": "The band is warming up in the snow. Indi is writing a comic about it, with single speech marks.",
       "prompt": "Match each line to the mark that fills the gap.",
       "success": "A question needs a question mark. Words that tell something, followed by said, take a comma.",
       "body": {
@@ -514,22 +539,22 @@
         ],
         "items": [
           {
-            "text": "“Can you play the drums___” asked Indi.",
+            "text": "‘Can you play the drums___’ asked Indi.",
             "bin": 1,
             "reason": "Indi is asking something, so it needs a question mark."
           },
           {
-            "text": "“I can play the triangle___” said Mo.",
+            "text": "‘I can play the triangle___’ said Mo.",
             "bin": 0,
             "reason": "Mo is telling, not asking, and 'said Mo' follows, so use a comma."
           },
           {
-            "text": "“Is that a cello___” asked Tully.",
+            "text": "‘Is that a cello___’ asked Tully.",
             "bin": 1,
             "reason": "Tully is asking something, so it needs a question mark."
           },
           {
-            "text": "“The tuba is frozen___” said Zed.",
+            "text": "‘The tuba is frozen___’ said Zed.",
             "bin": 0,
             "reason": "Zed is telling, not asking, and 'said Zed' follows, so use a comma."
           }
@@ -970,6 +995,10 @@
           {
             "text": "has",
             "reason": "The conductor is still speaking, so the speech marks have to open again."
+          },
+          {
+            "text": "“Has,",
+            "reason": "A comma here splits the question again. Is this a new sentence, or the rest of one?"
           }
         ],
         "answer": 0
@@ -1012,26 +1041,26 @@
       "id": "6.10-b4-6",
       "band": 4,
       "topic": "funny",
-      "frame": "Mo's frozen pie has gone very hard. Gus wants to know if Mo meant it to bounce.",
-      "prompt": "Which version shows that?",
-      "success": "'Asked Gus' shows who spoke. The comma before Mo shows Gus is talking to him.",
+      "frame": "Mo's frozen pie has gone very hard. Gus has a question about it, and he says it in two parts.",
+      "prompt": "Gus's question is split by 'asked Gus'. Which version is punctuated correctly?",
+      "success": "Gus asks one question, split by 'asked Gus'. A comma carries it on, and the ? waits for the end.",
       "body": {
         "format": "choose",
         "options": [
           {
-            "text": "“Is it meant to bounce?” asked Mo.",
-            "reason": "Here Mo is the one asking. Who should be asking?"
+            "text": "‘Do you think?’ asked Gus, ‘this pie is meant to bounce?’",
+            "reason": "Gus hasn't finished asking after 'think'. Which mark lets his question carry on?"
           },
           {
-            "text": "Mo asked, “Is it meant to bounce, Gus?”",
-            "reason": "Here Mo asks Gus. The question should go the other way. Who is speaking?"
+            "text": "‘Do you think,’ asked Gus. ‘this pie is meant to bounce?’",
+            "reason": "A full stop after Gus ends the sentence, but his question isn't over yet."
           },
           {
-            "text": "“Is it meant to bounce, Mo?” asked Gus."
+            "text": "‘Do you think,’ asked Gus, ‘this pie is meant to bounce?’"
           },
           {
-            "text": "“Is it meant to bounce?” Mo asked Gus.",
-            "reason": "The words after the marks say who asked. Who is the speaker here?"
+            "text": "‘Do you think,’ asked Gus, ‘This pie is meant to bounce?’",
+            "reason": "Read only Gus's words. Is the second part a new sentence, or the rest of one?"
           }
         ],
         "answer": 2

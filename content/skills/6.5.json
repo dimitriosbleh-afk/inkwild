@@ -13,7 +13,7 @@
       "iDo": {
         "steps": [
           {
-            "say": "Wren here. Some sentences carry a bonus detail. It tells you more about someone you already know.",
+            "say": "Wren here. Some sentences carry a bonus detail. It tells you more about someone or something you already know.",
             "show": [
               {
                 "text": "Gus,",
@@ -87,7 +87,7 @@
               "kind": "tap",
               "answer": 1
             },
-            "win": "Yes! It picks out which kids. Take it out and it sounds like all the kids went."
+            "win": "Yes! It tells you which kids. Without it, you'd think all the kids went."
           },
           {
             "say": "Zed put commas around it. Watch what happens to the meaning.",
@@ -168,7 +168,7 @@
           "terms": [
             {
               "term": "BONUS DETAIL",
-              "means": "Extra news about someone you already know. Commas go around it."
+              "means": "Extra news about someone or something you already know. Commas go around it."
             },
             {
               "term": "WHICH ONE",
@@ -262,7 +262,7 @@
       "checks": [
         "The bonus detail sits right after Mo",
         "A comma opens it and a comma closes it",
-        "Lift it out: the sentence still means the same"
+        "It's a bonus detail. It doesn't tell you which Mo"
       ],
       "model": "Mo, the worst cook in Comma Cay, made dinner for the whole crew."
     }
@@ -393,12 +393,12 @@
       "topic": "general",
       "frame": "The Wombrace only zips up pouches that are done right.",
       "prompt": "Match each sentence to the right pouch.",
-      "success": "Extra information needs a comma on each side, like a zip that closes at both ends.",
+      "success": "A comma opens a bonus detail. A comma closes it, or the full stop does if it comes last.",
       "body": {
         "format": "sort",
         "bins": [
           "commas right",
-          "a comma is missing"
+          "needs a fix"
         ],
         "items": [
           {
@@ -417,9 +417,9 @@
             "reason": "'A fluffy mutt' is extra, and it has a comma on each side."
           },
           {
-            "text": "Our dog a fluffy mutt, ate the snow.",
-            "bin": 1,
-            "reason": "The extra part closes but never opens. Where does the bonus detail start?"
+            "text": "We waved to Tully, our captain.",
+            "bin": 0,
+            "reason": "Only one comma, but the bonus detail comes last. The full stop closes it."
           },
           {
             "text": "Our cat, a grumpy old tabby slept all day.",
@@ -432,9 +432,9 @@
             "reason": "'The best artist here' is extra, and it has a comma on each side."
           },
           {
-            "text": "Indi the best artist here, drew a yeti.",
+            "text": "Mo, the best, cook here made soup.",
             "bin": 1,
-            "reason": "The extra part closes but never opens. Where does the bonus detail start?"
+            "reason": "There are two commas, but the second one cuts the bonus detail short. Where does it end?"
           }
         ]
       }
@@ -646,7 +646,7 @@
       "topic": "food",
       "frame": "Mo's pies were rock hard. Only some kids managed to finish one.",
       "prompt": "Which version is punctuated right?",
-      "success": "'Who finished Mo's pie' tells you which kids. Lift it out and the meaning changes, so no commas.",
+      "success": "'Who finished Mo's pie' tells you which kids, so it isn't a bonus detail. It gets no commas.",
       "body": {
         "format": "choose",
         "options": [

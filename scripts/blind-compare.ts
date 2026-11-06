@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { readContentFiles } from '../src/content/files';
 import { joinTiles, normalise, taps } from '../src/core/check';
 import type { Encounter, Part } from '../src/content/types';
@@ -54,7 +54,8 @@ const { readdirSync } = await import('node:fs');
 const recheck = new Map<string, Answer>(
   readdirSync(dir)
     .filter((f) => /^recheck.*\.answers\.json$/.test(f))
-    .sort()
+    // Newest file last, so a later recheck always overrides an earlier one whatever it is called.
+    .sort((a, b) => statSync(new URL(a, dir)).mtimeMs - statSync(new URL(b, dir)).mtimeMs)
     .flatMap((f) => (JSON.parse(readFileSync(new URL(f, dir), 'utf8')) as Answer[]).map((a) => [a.id, a] as const)),
 );
 const rows: { id: string; flag: string; detail: string; score: number }[] = [];

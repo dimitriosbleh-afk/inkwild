@@ -113,27 +113,49 @@
             "trap": true
           },
           {
-            "say": "Indi was scared to show her painting. She showed it anyway, and it won!",
+            "say": "What is a story saying about life? First I ask: what did Indi do, and how did it go?",
             "show": [
               {
-                "text": "Paintings always win prizes.",
-                "nudge": "Not always! What does Indi's story teach anyone about life?"
+                "text": "Indi was scared to show her painting.",
+                "nudge": "That's how she felt at first. What did she do about it?"
               },
               {
-                "text": "Indi is a painter.",
-                "nudge": "That's a fact about Indi. What does her story teach about life?"
+                "text": "She showed it anyway."
               },
               {
-                "text": "Being brave can bring good things.",
+                "text": "It won first prize.",
+                "nudge": "That's how it turned out. What did Indi choose to do first?"
+              }
+            ],
+            "ask": "Tap what Indi chose to do, even though she was scared.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! She was scared, but she did it anyway, and it went well. Now I make it fit anyone."
+          },
+          {
+            "say": "Now I say it so it fits anyone. No names, no paintings. Is it true for everyone?",
+            "show": [
+              {
+                "text": "Indi should show every painting.",
+                "nudge": "That's still about Indi. Say it so it fits anyone."
+              },
+              {
+                "text": "Brave people always win prizes.",
+                "nudge": "Always? Brave people don't always win. It must be true for anyone."
+              },
+              {
+                "text": "Doing something scary can bring good things.",
                 "tag": "BIG IDEA"
               }
             ],
-            "ask": "Tap what the story says about life.",
+            "ask": "Tap the one that fits anyone, not just Indi.",
             "check": {
               "kind": "tap",
               "answer": 2
             },
-            "win": "Yes! That's the big idea. It's about life, for anyone, not just Indi. Some books call it the theme."
+            "win": "Yes! No names, and it's true for anyone. That's the big idea. Some books call it the theme."
           },
           {
             "say": "Careful! Some stories start at the end, then jump back.",
@@ -274,17 +296,19 @@
       ]
     },
     "write": {
-      "ask": "Write one sentence that is the resolution: it solves Gus's problem.",
+      "ask": "Write Pinch's last line. Show the big idea through what he does or says.",
       "given": [
-        "Gus's kite got stuck in a gum tree.",
-        "Then a magpie started pulling at the string."
+        "Pinch the hermit crab's shell got too small, and the other crabs giggled.",
+        "A seagull stole the lovely shell he found.",
+        "So Pinch moved into a bright orange bucket lid."
       ],
-      "starter": "In the end,",
+      "starter": "Now Pinch",
       "checks": [
-        "My sentence solves the kite problem",
-        "It doesn't just make things worse"
+        "My line says what Pinch does or says",
+        "I can say the big idea my line shows",
+        "I didn't write the big idea as a rule"
       ],
-      "model": "In the end, Gus offered the magpie half his sausage roll, and it dropped the string right into his hands."
+      "model": "Now Pinch waves at the giggling crabs from under his glowing orange roof, and he has never once wished for a plain shell."
     },
     "creature": {
       "id": "tortarc",
@@ -402,7 +426,7 @@
           },
           " The ship drifted in the dark. ",
           {
-            "tap": "He tried to call for help, but the radio was broken.",
+            "tap": "He tried to call for help, but the radio was broken and only crackled.",
             "reason": "That makes the problem worse, but it doesn't fix anything."
           },
           " Zed looked in the cupboard. There was only one thing inside: Mo's Extra Windy Bean Stew. ",
@@ -958,40 +982,40 @@
       "frame": "The Echobat sang this story to Narra the Teller, very badly. Narra wants it sorted.",
       "text": "For three months, Tavi had practised the solo she would sing at the Twotide Lantern Festival, a slow, soaring song that ended on a note so high it made dogs look up. The trouble was that she could only hit that last note about half the time; the other half, her voice cracked like a dropped plate. Then, to make it worse, the organisers announced that the concert would be broadcast live across every island, so if her voice cracked, the whole archipelago would hear it. Two days before the festival, things got even worse. Tavi woke up with a sore throat and a voice like a rusty gate, and by the next morning, she could only croak. That evening, Tavi sat on the beach, miserable, whistling the tune without thinking as she watched the tide. A fisherman mending his nets stopped to listen. 'That's the finest whistling I've heard in forty years,' he said. On festival night, Tavi stepped up to the microphone, took a breath and whistled the whole solo, clear and pure, right up to the last impossible note, which she hit perfectly. The crowd went silent, then roared. Her choir teacher said afterwards that the song had never been meant for whistling. Tavi said that, as it turned out, it had.",
       "prompt": "Match each part of Tavi's story to its place in the plot.",
-      "success": "The cracking note is the problem. Losing her voice makes it worse. Whistling solves it, by finding another way.",
+      "success": "Practising is the set-up. The cracking note is the problem all along. The broadcast and lost voice make it worse.",
       "body": {
         "format": "sort",
         "bins": [
+          "orientation",
           "complication (the problem)",
           "it gets worse",
-          "resolution",
-          "big idea"
+          "resolution"
         ],
         "items": [
           {
-            "text": "From the start, Tavi could only hit the last high note half the time.",
-            "bin": 0,
-            "reason": "This is the trouble from the very start, before anything else goes wrong. It's the complication."
-          },
-          {
             "text": "The concert would be broadcast live, so every island would hear a crack.",
-            "bin": 1,
+            "bin": 2,
             "reason": "This makes the cracking note matter even more. It makes the problem harder."
           },
           {
-            "text": "Two days before the festival, Tavi lost her voice.",
+            "text": "From the start, Tavi could only hit the last high note half the time.",
             "bin": 1,
-            "reason": "Now she can't sing at all. That makes the problem even worse."
+            "reason": "It's told near the start, but it's already a problem. Everything else makes this trouble worse."
           },
           {
             "text": "Tavi whistled the solo and hit the last note perfectly.",
-            "bin": 2,
+            "bin": 3,
             "reason": "This is how the problem gets solved on festival night."
           },
           {
-            "text": "When one plan fails, there may be another way to shine.",
-            "bin": 3,
-            "reason": "This isn't an event. It's what the whole story says about life."
+            "text": "For three months, Tavi had practised a solo for the Lantern Festival.",
+            "bin": 0,
+            "reason": "This tells you who, what and when. Practising isn't a problem yet."
+          },
+          {
+            "text": "Two days before the festival, Tavi lost her voice.",
+            "bin": 2,
+            "reason": "Now she can't sing at all. That makes the problem even worse."
           }
         ]
       }
@@ -1001,33 +1025,42 @@
       "band": 4,
       "topic": "art",
       "frame": "Indi found this story in the Twotide gallery shop and hasn't stopped talking about it.",
-      "prompt": "Tap the sentence that states the story's big idea.",
-      "success": "Mr Osei's words sum up the story: a copy can be perfect, but only you can paint what you see.",
+      "prompt": "Nobody says the big idea out loud. Tap the moment Lena first shows she has learned it.",
+      "success": "She paints her own sister, cat and all, not a copy. She's learned to paint what she sees.",
       "body": {
         "format": "tapText",
         "parts": [
           "Lena could copy any painting in the world. ",
           {
             "tap": "Her copy of the famous sunflowers was so exact that a gallery guard once tried to hang it on the wall.",
-            "reason": "This shows how good Lena is at copying. It's not the big idea itself."
+            "reason": "This is Lena copying, before the judges' note. She hasn't learned anything yet."
           },
           " So when the Island Young Artist Prize was announced, she copied the most famous seascape she could find, stroke for stroke, and handed it in with total confidence. Two weeks later, the judges sent it back with a note: 'Technically flawless. But where are you?' Lena was furious. She marched into the studio of Mr Osei, the oldest painter on the atoll, who had been one of the judges. ",
           {
-            "tap": "His studio smelled of turpentine and toast, and every wall was covered in wobbly paintings of the same old fishing boat.",
-            "reason": "This describes Mr Osei's studio. It's a detail, not what the story means."
+            "tap": "His studio smelled of turpentine and toast, and every single wall was covered in wobbly paintings of the same old fishing boat.",
+            "reason": "This describes Mr Osei's studio. Lena hasn't changed anything yet."
           },
           " 'Those boats aren't even straight,' Lena said. ",
           {
-            "tap": "'A copy can be perfect,' said Mr Osei, 'but only you can paint what you see.'"
+            "tap": "'No,' said Mr Osei, smiling at the window. 'That's how they look to me.'",
+            "reason": "This is a big clue, but it's Mr Osei talking about his boats. What does Lena do with it?"
           },
-          " Lena went home and sat by the window for a long time. Then she painted her little sister asleep on the couch, with the cat on her head and toast crumbs on her chin. ",
+          " Lena went home and sat by the window for a long time. ",
+          {
+            "tap": "Then she painted her little sister asleep on the couch, with the cat on her head."
+          },
+          " ",
           {
             "tap": "It was messier than anything she had ever painted, and she hated every minute of it.",
-            "reason": "This shows how hard the change was for Lena, but it doesn't state the big idea."
+            "reason": "By now she has already painted it. Find the moment she first does it."
           },
-          " The next year, it won the prize."
+          " ",
+          {
+            "tap": "The next year, it won the prize.",
+            "reason": "Winning is how it turns out. Find the moment Lena changes what she paints."
+          }
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
@@ -1083,18 +1116,19 @@
       "band": 4,
       "topic": "gross-science",
       "frame": "The Echobat dropped the Twotide Times on deck. Gus has read it eleven times.",
-      "text": "STINK SOLVED: FIFTY-YEAR-OLD SANDWICH TO BLAME. A Year 5 student has ended the Great Twotide Stink, after a week in which the whole atoll smelled like rotten eggs left in a hot car. Residents first noticed the smell last Monday, drifting out of the school grounds and across the harbour. By Wednesday, the fish market had closed, and three seagulls were seen fainting off the jetty. Council workers blamed the sewers and spent two days digging up Main Street, but the smell only grew stronger while they dug, and by Friday it could be detected from the mainland. Then Lola Ferris, aged ten, decided to follow her nose. Wearing a peg on her nose and her dad's swimming goggles, she traced the stink across the playground, under the old library and down to a rusty metal box buried beneath the flagpole. It was the school's time capsule, buried fifty years ago and cracked open by the summer heat. Inside, among some photos and a yo-yo, was the cause: an egg sandwich, packed by a student in 1975 'so future people know what we ate'. The sandwich was carefully removed by a scientist in a full protective suit. It has been sealed in three jars and sent to a museum, which has promised never to open them. Lola has been given the key to the town.",
+      "text": "STINK SOLVED: FIFTY-YEAR-OLD SANDWICH TO BLAME. A Year 5 student has ended the Great Twotide Stink, after a week in which the whole atoll smelled like rotten eggs left in a hot car. Residents first noticed the smell last Monday, drifting out of the school grounds and across the harbour. By Wednesday, the fish market had closed, and three seagulls were seen fainting off the jetty. Council workers blamed the sewers and spent two days digging up Main Street, but the smell only grew stronger while they dug, and by Friday it could be detected from the mainland. Then Lola Ferris, aged ten, decided to follow her nose. Wearing a peg on her nose and her dad's swimming goggles, she traced the stink across the playground, under the old library and down to a rusty metal box buried beneath the flagpole. It was the school's time capsule, buried fifty years ago. The summer heat had cracked it open just before the smell began. Inside, among some photos and a yo-yo, was the cause: an egg sandwich, packed by a student in 1975 'so future people know what we ate'. The sandwich was carefully removed by a scientist in a full protective suit. It has been sealed in three jars and sent to a museum, which has promised never to open them. Lola has been given the key to the town.",
       "prompt": "News reports often tell the ending first. Put the events in the order they really happened.",
-      "success": "The report opens with the ending. The stink came first, the digging made it worse, then Lola solved it.",
+      "success": "Packed in 1975, cracked by heat, then the stink, the digging and Lola. The report starts near the end.",
       "body": {
         "format": "order",
         "items": [
+          "A student packed an egg sandwich for the school time capsule.",
+          "The summer heat cracked open the time capsule.",
           "A terrible smell spread from the school across the harbour.",
           "Council workers dug up Main Street, and the smell got worse.",
-          "Lola followed the smell to the cracked time capsule.",
-          "The sandwich was sealed in jars and sent to a museum."
+          "Lola followed the smell to the cracked time capsule."
         ],
-        "reason": "Ignore the headline order. Find when the smell started, what made it worse and who solved it."
+        "reason": "The report tells it out of order. The sandwich was packed in 1975, and the crack came before the smell."
       }
     }
   ]

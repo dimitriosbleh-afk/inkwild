@@ -314,7 +314,7 @@ export function tells(file: SkillFile): string[] {
   const sorts = file.encounters.flatMap((e) => (e.body.format === 'sort' ? [e.body] : []));
   const even = sorts.filter((b) => new Set(b.bins.map((_, k) => b.items.filter((i) => i.bin === k).length)).size === 1).length;
   const evenProblem = sorts.length >= 3 && even / sorts.length > 0.75 ? [`${even} of ${sorts.length} sorts split evenly across their bins; make some uneven so students can't count instead of read`] : [];
-  const always = [...evenProblem, ...lastSlot(file), ...absoluteTell(chooses), ...upperLongest(file)];
+  const always = [...evenProblem, ...lastSlot(file), ...absoluteTell(chooses), ...upperLongest(file), ...tapLongest(file)];
   if (chooses.length < 6) return always;
   const unique = (pick: (lens: number[]) => number) => uniquely(chooses, pick);
   const out: string[] = [...always];
@@ -440,4 +440,31 @@ function absoluteTell(chooses: Extract<Body, { format: 'choose' }>[]): string[] 
   return told.length >= 4 && told.length / chooses.length > 0.25
     ? [`${told.length} of ${chooses.length} choose tasks put always, never or only in a wrong option but not the answer; students learn to skip absolutes`]
     : [];
+}
+
+/** When the sentence to tap is usually the longest, a student taps the biggest one without reading. */
+function tapLongest(file: SkillFile): string[] {
+  const tasks = file.encounters.flatMap((e) => (e.body.format === 'tapText' ? [e.body] : []));
+  const longest = tasks.filter((b) => {
+    const lens = taps(b.parts).map((p) => wordCount(p.tap));
+    const top = lens[b.answer];
+    return lens.length >= 3 && top === Math.max(...lens) && lens.filter((l) => l === top).length === 1;
+  }).length;
+  return tasks.length >= 4 && longest / tasks.length > 0.6 ? [`the tap answer is the longest part in ${longest} of ${tasks.length} tap tasks; make a wrong part the longest sometimes`] : [];
+}
+
+/**
+ * A grammar term must mean the same thing on every island, so a student never has to unlearn it. The Story workshop
+ * uses some of the same words as craft terms (an ACTION opening), so it is left out.
+ */
+export function glossaryProblems(files: SkillFile[], glossary: Record<string, string>): Problem[] {
+  return files.flatMap((f) =>
+    f.skill.id.startsWith('9.')
+      ? []
+      : (f.skill.teach.iDo.card?.terms ?? []).flatMap((t) =>
+          glossary[t.term] !== undefined && t.means !== glossary[t.term]
+            ? [{ where: `${f.skill.id} Move card`, problem: `"${t.term}" must use the shared definition in content/glossary.json: "${glossary[t.term]}"` }]
+            : [],
+        ),
+  );
 }

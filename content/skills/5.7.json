@@ -182,15 +182,15 @@
           "terms": [
             {
               "term": "NOUN",
-              "means": "The person, animal or thing the detail is about."
+              "means": "A word for a person, place or thing, like 'Mo', 'reef' or 'pie'."
             },
             {
               "term": "PHRASE",
-              "means": "Detail with no verb, like 'with the sore paw'."
+              "means": "A group of words with no verb, like 'after lunch'."
             },
             {
               "term": "CLAUSE",
-              "means": "Detail with its own verb. Starts with a word like who, which, that or whose."
+              "means": "A chunk with a doer and an action, like 'the slime bubbled'."
             }
           ],
           "examples": [
@@ -278,9 +278,16 @@
     },
     "write": {
       "ask": "Join these into one sentence. Hook the detail on straight after the noun it's about.",
-      "given": ["The girl won the race.", "She had a broken shoelace."],
+      "given": [
+        "The girl won the race.",
+        "She had a broken shoelace."
+      ],
       "starter": "The girl",
-      "checks": ["My detail sits right after the noun it's about", "It's clear who had the broken shoelace", "I used one sentence, not two"],
+      "checks": [
+        "My detail sits right after the noun it's about",
+        "It's clear who had the broken shoelace",
+        "I used one sentence, not two"
+      ],
       "model": "The girl with the broken shoelace won the race."
     }
   },
@@ -349,8 +356,15 @@
       "success": "The pie with the burnt crust. The detail sits right after pie, so you know which pie Gus got.",
       "body": {
         "format": "build",
-        "tiles": ["Mo gave", "the pie", "with the burnt crust", "to Gus."],
-        "accept": ["Mo gave the pie with the burnt crust to Gus."],
+        "tiles": [
+          "Mo gave",
+          "the pie",
+          "with the burnt crust",
+          "to Gus."
+        ],
+        "accept": [
+          "Mo gave the pie with the burnt crust to Gus."
+        ],
         "reason": "The burnt crust belongs to the pie. Put the detail right after the noun it's about."
       }
     },
@@ -703,8 +717,16 @@
       "success": "The ghost with one red eye. The phrase sits right after ghost, so the eye can only be the ghost's.",
       "body": {
         "format": "build",
-        "tiles": ["lives in the library", "The ghost", "with one red eye.", "lives in the library.", "with one red eye"],
-        "accept": ["The ghost with one red eye lives in the library."],
+        "tiles": [
+          "lives in the library",
+          "The ghost",
+          "with one red eye.",
+          "lives in the library.",
+          "with one red eye"
+        ],
+        "accept": [
+          "The ghost with one red eye lives in the library."
+        ],
         "reason": "Whose eye is it? Hook the detail onto that noun, not onto the library."
       }
     },
@@ -717,15 +739,46 @@
       "success": "A phrase and a clause can say almost the same thing. Only the clause has its own verb.",
       "body": {
         "format": "sort",
-        "bins": ["phrase after the noun (no verb)", "clause after the noun (has a verb)"],
+        "bins": [
+          "phrase after the noun (no verb)",
+          "clause after the noun (has a verb)"
+        ],
         "items": [
-          { "text": "the jetty at the end of the beach", "bin": 0, "reason": "'At the end of the beach' has no verb, so it's a phrase." },
-          { "text": "the jetty that ends at the beach", "bin": 1, "reason": "Ends is a verb, so 'that ends at the beach' is a clause." },
-          { "text": "the jetty near the boat ramp", "bin": 0, "reason": "'Near the boat ramp' has no verb, so it's a phrase." },
-          { "text": "the jetty Dad built last year", "bin": 1, "reason": "There's no 'that', but built is a verb. 'Dad built last year' is a clause." },
-          { "text": "the jetty with the broken rail", "bin": 0, "reason": "'With the broken rail' has no verb. Broken just says what the rail is like." },
-          { "text": "the jetty where we catch squid", "bin": 1, "reason": "Catch is a verb, so 'where we catch squid' is a clause." },
-          { "text": "the jetty by the old shed", "bin": 0, "reason": "'By the old shed' has no verb, so it's a phrase." }
+          {
+            "text": "the jetty at the end of the beach",
+            "bin": 0,
+            "reason": "'At the end of the beach' has no verb, so it's a phrase."
+          },
+          {
+            "text": "the jetty that ends at the beach",
+            "bin": 1,
+            "reason": "Ends is a verb, so 'that ends at the beach' is a clause."
+          },
+          {
+            "text": "the jetty near the boat ramp",
+            "bin": 0,
+            "reason": "'Near the boat ramp' has no verb, so it's a phrase."
+          },
+          {
+            "text": "the jetty Dad built last year",
+            "bin": 1,
+            "reason": "There's no 'that', but built is a verb. 'Dad built last year' is a clause."
+          },
+          {
+            "text": "the jetty with the broken rail",
+            "bin": 0,
+            "reason": "'With the broken rail' has no verb. Broken just says what the rail is like."
+          },
+          {
+            "text": "the jetty where we catch squid",
+            "bin": 1,
+            "reason": "Catch is a verb, so 'where we catch squid' is a clause."
+          },
+          {
+            "text": "the jetty by the old shed",
+            "bin": 0,
+            "reason": "'By the old shed' has no verb, so it's a phrase."
+          }
         ]
       }
     },
@@ -878,8 +931,17 @@
       "success": "The clause sits right after beetle and picks out the compost-bin beetle, the one that squirts.",
       "body": {
         "format": "build",
-        "tiles": ["The beetle", "that Gus bought at the pet shop", "squirts a foul-smelling spray", "that Gus found in the compost bin", "squirts a foul-smelling spray.", "that Gus found in the compost bin."],
-        "accept": ["The beetle that Gus found in the compost bin squirts a foul-smelling spray."],
+        "tiles": [
+          "The beetle",
+          "that Gus bought at the pet shop",
+          "squirts a foul-smelling spray",
+          "that Gus found in the compost bin",
+          "squirts a foul-smelling spray.",
+          "that Gus found in the compost bin."
+        ],
+        "accept": [
+          "The beetle that Gus found in the compost bin squirts a foul-smelling spray."
+        ],
         "reason": "Check which beetle squirts. Then keep its detail right next to 'beetle', not next to the spray."
       }
     },
@@ -941,21 +1003,43 @@
         "format": "fix",
         "parts": [
           "The ",
-          { "tap": "boat", "reason": "Boat is the right noun. The detail after it is about the boat's engine." },
+          {
+            "tap": "boat",
+            "reason": "Boat is the right noun. The detail after it is about the boat's engine."
+          },
           " ",
-          { "tap": "which" },
+          {
+            "tap": "which"
+          },
           " engine had failed drifted ",
-          { "tap": "slowly", "reason": "Slowly is fine. Look at the word that hooks the detail onto 'boat'." },
+          {
+            "tap": "slowly",
+            "reason": "Slowly is fine. Look at the word that hooks the detail onto 'boat'."
+          },
           " towards the ",
-          { "tap": "reef", "reason": "Reef is fine. Look at the word that hooks the detail onto 'boat'." },
+          {
+            "tap": "reef",
+            "reason": "Reef is fine. Look at the word that hooks the detail onto 'boat'."
+          },
           "."
         ],
         "spot": 1,
         "options": [
-          { "text": "who", "reason": "Who is for people, and 'the boat who engine' still doesn't show the engine is the boat's." },
-          { "text": "that", "reason": "'The boat that engine had failed' makes no sense. You need to show the engine belongs to the boat." },
-          { "text": "where", "reason": "Where is for places. The detail is about something the boat has." },
-          { "text": "whose" }
+          {
+            "text": "who",
+            "reason": "Who is for people, and 'the boat who engine' still doesn't show the engine is the boat's."
+          },
+          {
+            "text": "that",
+            "reason": "'The boat that engine had failed' makes no sense. You need to show the engine belongs to the boat."
+          },
+          {
+            "text": "where",
+            "reason": "Where is for places. The detail is about something the boat has."
+          },
+          {
+            "text": "whose"
+          }
         ],
         "answer": 3
       }

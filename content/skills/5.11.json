@@ -261,7 +261,7 @@
     "write": {
       "ask": "Rewrite this sentence. Add adverb groups that tell Mum when and where Mo hid the lollies.",
       "given": ["Mo hid the lollies."],
-      "checks": ["I added a group that answers when", "I added a group that answers where", "Both groups are about the hiding, not a noun"],
+      "checks": ["I added a group that answers when", "I added a group that answers where", "Each group answers a question about the hiding"],
       "model": "After dinner, Mo hid the lollies in the washing basket."
     }
   },
@@ -294,7 +294,7 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "At night", "reason": "At night tells you when the possum looks, not where." },
+          { "tap": "Late at night", "reason": "Late at night tells you when the possum looks, not where." },
           ", ",
           { "tap": "the possum", "reason": "The possum is who the sentence is about. It isn't a place." },
           " looks for fruit ",
@@ -702,28 +702,18 @@
       "id": "5.11-b4-3",
       "band": 4,
       "topic": "music",
-      "frame": "A reporter asked where the orchestra would perform. The press release answers the wrong question.",
-      "prompt": "The reporter asked where. Tap the group that answers the wrong question, then choose one that answers it.",
-      "success": "In the old wool shed on the hill is a place, so now the reporter knows where to go.",
+      "frame": "A reporter asked where the orchestra will perform. The Kelpwick found four lines in the press release, and every one names the wool shed.",
+      "prompt": "Which line tells the reporter where the orchestra will perform?",
+      "success": "'In the old wool shed' says where. In the others, the shed tells you which orchestra, piece or choir.",
       "body": {
-        "format": "fix",
-        "parts": [
-          "The ",
-          { "tap": "orchestra", "reason": "Orchestra is who is performing. Look for the group that should say where." },
-          " will ",
-          { "tap": "perform", "reason": "Perform is what the orchestra will do. Look for the group that should say where." },
-          " its new piece ",
-          { "tap": "with a choir of two hundred voices" },
-          "."
-        ],
-        "spot": 2,
+        "format": "choose",
         "options": [
-          { "text": "in the old wool shed on the hill" },
-          { "text": "to raise money for the koala hospital", "reason": "To raise money for the koala hospital is the reason for the concert. It tells you why, not where." },
-          { "text": "as soon as the hall is repaired", "reason": "As soon as the hall is repaired is about time. It names a hall but tells you when, not where." },
-          { "text": "without a single rehearsal", "reason": "Without a single rehearsal tells you how they'll perform, not where." }
+          { "text": "The orchestra from the old wool shed will perform on Saturday.", "reason": "'From the old wool shed' sits after orchestra and tells you which orchestra. Where will they play?" },
+          { "text": "The orchestra will perform its new piece about the wool shed on Saturday.", "reason": "'About the wool shed' tells you which piece. It doesn't say where the performing happens." },
+          { "text": "On Saturday, the orchestra will perform in the old wool shed." },
+          { "text": "On Saturday, the orchestra will perform with the wool shed choir.", "reason": "'With the wool shed choir' tells you who they perform with, not where." }
         ],
-        "answer": 0
+        "answer": 2
       }
     },
     {

@@ -354,7 +354,7 @@
             "tap": "Close the gate behind you.",
             "reason": "This rule starts with what to do: 'Close the gate'."
           },
-          " Thank you, and enjoy your walk! The wombats will probably ignore you. They are very busy sleeping."
+          " Thank you, and enjoy your walk!"
         ],
         "answer": 2
       }
@@ -383,7 +383,7 @@
           {
             "tap": "Spookily"
           },
-          ", there is a tiny door with a sign. It says KEEP OUT. Nobody opened it. Nobody even breathed."
+          ", there is a tiny door with a sign. It says KEEP OUT."
         ],
         "spot": 2,
         "options": [
@@ -925,20 +925,25 @@
       "band": 4,
       "topic": "space",
       "frame": "A mission log from the starship Wattle has landed in the Frontnip's creek.",
-      "prompt": "Tap the entry whose opener lets the engineers on Earth down.",
+      "prompt": "The engineers match each entry to the mission clock at a glance. Tap the entry that fails them.",
       "success": "'Shortly after lunch' says when, but not the clock time. The engineers need that exact time first.",
       "body": {
         "format": "tapText",
         "parts": [
-          "Commander Ayana Okoye kept a log on the starship Wattle's first trip to the frozen moon of Pellucia. Engineers on Earth match each entry to the ship's data, and the only thing they can match it with is the time on the mission clock. So mission control asked for every entry to begin with that time, written in hours. The commander had never kept a log before, and she was very excited. Here is the first page, exactly as she wrote it. ",
+          "Commander Ayana Okoye keeps a log on the starship Wattle's first trip to Pellucia, a frozen moon. Back on Earth, a team of engineers line up every entry with the ship's data. They read hundreds of entries a day, and the only thing they can line an entry up with is the time on the mission clock. Here is her first page. ",
           {
             "tap": "At 0600 hours, the main engines fired, and the whole ship shook like a washing machine full of shoes.",
-            "reason": "This entry leads with the mission clock time, so engineers can match it."
+            "reason": "This entry leads with the mission clock time, so engineers can match it at a glance."
           },
           " ",
           {
             "tap": "At 0745 hours, we passed the last of the satellites and saw nothing but stars.",
-            "reason": "This entry leads with the mission clock time, so engineers can match it."
+            "reason": "This entry leads with the mission clock time, so engineers can match it at a glance."
+          },
+          " ",
+          {
+            "tap": "At 1205 hours, the crew ate tubes of frozen spaghetti and chased the crumbs around the cabin.",
+            "reason": "This entry leads with the mission clock time, so engineers can match it at a glance."
           },
           " ",
           {
@@ -947,16 +952,20 @@
           " ",
           {
             "tap": "At 1600 hours, Pellucia appeared in the window, glittering like a ball of crushed ice.",
-            "reason": "This entry leads with the mission clock time, so engineers can match it."
+            "reason": "This entry leads with the mission clock time, so engineers can match it at a glance."
+          },
+          " ",
+          {
+            "tap": "At 1930 hours, the ship turned slowly and lined up with the landing zone.",
+            "reason": "This entry leads with the mission clock time, so engineers can match it at a glance."
           },
           " ",
           {
             "tap": "At 2215 hours, we landed safely on the ice, and the whole crew cheered.",
-            "reason": "This entry leads with the mission clock time, so engineers can match it."
-          },
-          " Mission control sent back a single word: 'Congratulations.' The engineer who sat on the button has been given a cushion with a sign on it that says SIT HERE, NOT THERE."
+            "reason": "This entry leads with the mission clock time, so engineers can match it at a glance."
+          }
         ],
-        "answer": 2
+        "answer": 3
       }
     },
     {
@@ -964,37 +973,37 @@
       "band": 4,
       "topic": "animals",
       "frame": "Wren is writing a report for the Field Guide. The Frontnip spotted a problem.",
-      "prompt": "One opener in Wren's report lets the reader down. Tap it, then choose a better one.",
-      "success": "'In winter' names the season, like every other opener. 'Later that year' says when, but not which season.",
+      "prompt": "Readers scan the openers to find the time of year they will visit. Tap the opener that fails them, then choose a better one.",
+      "success": "'In winter' names the season a reader is looking for. 'Later that year' says when, but not which season.",
       "body": {
         "format": "fix",
         "parts": [
-          "The mountain pygmy possum is smaller than a mouse, yet it survives some of the harshest weather in Australia, high on the boulder fields where the snow lies deepest. Wren has watched one possum, which she calls Bramble, for a whole year through a hidden camera. Her report follows Bramble through that year. ",
+          "The mountain pygmy possum is about the size of a mouse, yet it lives high on the boulder fields of the Australian Alps, where the snow lies deepest. Wren watched one possum, which she calls Bramble, for a whole year through a hidden camera. Field Guide readers plan their trips by the time of year, and they scan the start of each sentence to find their trip. Most readers visit only once, so they want to find their part fast. ",
           {
             "tap": "In spring",
-            "reason": "That fits. It names the season when Bramble wakes and feasts on moths."
+            "reason": "That fits. A reader visiting in spring can find this part at a glance."
           },
           ", the possum wakes up hungry and feasts on the bogong moths that arrive in their millions. ",
           {
             "tap": "In summer",
-            "reason": "That fits. It names the season for raising babies."
+            "reason": "That fits. A reader visiting in summer can find this part at a glance."
           },
-          ", it raises up to four babies in a nest of shredded bark among the boulders. ",
+          ", it raises up to four babies in a nest of shredded bark tucked among the boulders. ",
           {
             "tap": "In autumn",
-            "reason": "That fits. It names the season for fattening up."
+            "reason": "That fits. A reader visiting in autumn can find this part at a glance."
           },
           ", it stuffs itself with seeds and stores even more, until it is almost twice its usual weight. ",
           {
             "tap": "Later that year"
           },
-          ", buried beneath a thick blanket of snow, the possum curls into a ball and sleeps for up to seven months, its heart barely beating. Then the snow melts, the moths return, and the whole cycle begins again. Wren thinks Bramble is the toughest animal on the mountain, and she would like to see Gus try sleeping for seven months without a snack."
+          ", buried beneath a thick blanket of snow, the possum curls into a ball and sleeps for up to seven months, its heart barely beating. Then the snow melts, the moths return, and the whole cycle begins again."
         ],
         "spot": 3,
         "options": [
           {
             "text": "Soon afterwards",
-            "reason": "Like the opener there now, this says when but not which season. The others name one."
+            "reason": "Like the opener there now, this says when, but a reader still has to guess the time of year."
           },
           {
             "text": "In autumn",
@@ -1005,7 +1014,7 @@
           },
           {
             "text": "Under the boulders",
-            "reason": "This tells where. The report moves through the year, so this opener should say when."
+            "reason": "This tells where. A reader planning a trip is looking for the time of year."
           }
         ],
         "answer": 2
@@ -1087,10 +1096,10 @@
       "id": "7.5-b4-6",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed is writing a walkthrough for the Ice Palace level. The Frontnip is stuck in the Kitchen.",
-      "text": "The Ice Palace is the hardest level in Frostbite Quest, and Zed has finally written a walkthrough for it. The palace has four rooms, which players must clear in this order: the Great Hall, the Kitchen, the Library and the Throne Room. Zed wrote it for players who get stuck halfway. They need to find their place in the walkthrough at a glance. In the Great Hall, a swarm of ice bats swoops from the ceiling, so keep moving and never stand still under the chandelier. In the Kitchen, the frozen chef throws icicles shaped like fish fingers, which you can dodge by ducking behind the giant fridge. In the Library, every book is a trap, apart from the blue one on the bottom shelf, which opens a secret door. ___, the Ice Queen waits on a throne of frozen custard, and she can only be defeated by a well-aimed snowball to the crown. Zed says the custard throne is the most disgusting thing he has ever seen in a game, and he has played Sewer Slugs 3.",
-      "prompt": "Which opener fits the gap in Zed's walkthrough?",
-      "success": "'In the Throne Room' names the room, like every other opener. A stuck player can find it at a glance.",
+      "frame": "Zed is writing a walkthrough for the Ice Palace level. The Frontnip is stuck somewhere inside.",
+      "text": "The Ice Palace is the hardest level in Frostbite Quest, and Zed has finally written a walkthrough for it. Zed wrote it for players who get stuck halfway. The palace has four rooms, which players must clear in this order: the Great Hall, the Kitchen, the Library and the Throne Room. Each room has one big danger. In the Great Hall, a swarm of angry ice bats swoops from the ceiling, so keep moving and never stand still under the chandelier. In the Kitchen, the frozen chef throws icicles shaped like fish fingers, which you can dodge by ducking behind the giant fridge. In the Library, every book is a trap, apart from the blue one on the bottom shelf, which opens a secret door to the final room. ___, the Ice Queen waits on a throne of frozen custard, and she can only be defeated by a well-aimed snowball to the crown. Zed says the custard throne is the most disgusting thing he has ever seen in a game, and he has played Sewer Slugs 3.",
+      "prompt": "Stuck players scan the walkthrough for the room they're in. Which opener fits the gap?",
+      "success": "'In the Throne Room' names the room up front, so a player stuck there finds their place at a glance.",
       "body": {
         "format": "choose",
         "options": [
@@ -1103,7 +1112,7 @@
           },
           {
             "text": "After a long, hard fight,",
-            "reason": "This tells when, not which room. Each sentence in the walkthrough starts by naming the room."
+            "reason": "This tells when, not where. A stuck player scanning for their room would skip right past it."
           },
           {
             "text": "Through the secret door,",

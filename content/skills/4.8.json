@@ -314,7 +314,7 @@
         "My picture makes the shed feel creepy.",
         "It is still about the old shed."
       ],
-      "model": "At the end of the path, the old shed crouched in the weeds, and its broken windows watched me like hungry eyes."
+      "model": "At the end of the path, the old shed crouched in the weeds, waiting for someone to come too close."
     }
   },
   "encounters": [
@@ -350,23 +350,23 @@
       "topic": "food",
       "frame": "A storm is lashing the Soggy Biscuit. The Moodgill has crawled into the kitchen.",
       "prompt": "Tap the picture that makes the kitchen feel cosy.",
-      "success": "A purring, sleepy cat is warm and calm, so the soup makes the kitchen feel cosy.",
+      "success": "A campfire on a winter night is warm and safe, so the oven makes the kitchen feel cosy.",
       "body": {
         "format": "tapText",
         "parts": [
           "Rain was pelting down on the Soggy Biscuit. Inside, the crew huddled in the tiny kitchen. ",
           {
-            "tap": "Then the kettle screamed for attention.",
-            "reason": "A screaming kettle is loud and bossy. It makes nobody feel cosy."
+            "tap": "The pots clanged like a marching band falling down the stairs.",
+            "reason": "A band falling down stairs is loud and messy. It makes nobody feel cosy."
           },
           " ",
           {
-            "tap": "Mo's pot of soup purred on the stove like a sleepy cat."
+            "tap": "The little oven glowed like a campfire on a winter night."
           },
           " ",
           {
-            "tap": "Outside, the wind howled around the boat like a hungry wolf.",
-            "reason": "A howling, hungry wolf is scary. It makes the storm feel frightening, not cosy."
+            "tap": "Outside, the waves threw themselves at the boat like a herd of angry bulls.",
+            "reason": "Angry bulls charging the boat are scary. They make the storm feel frightening, not cosy."
           },
           " Everyone sipped from warm mugs. Mo said it was pumpkin soup. Nobody asked why it was green."
         ],
@@ -1019,64 +1019,30 @@
       "id": "4.8-b4-3",
       "band": 4,
       "topic": "gaming",
-      "frame": "Zed is writing a guide to every level of his favourite game. The Moodgill is sorting his descriptions by mood.",
-      "prompt": "Zed's guide uses similes, metaphors, personification and hyperbole. Match each line to the mood it creates.",
-      "success": "Sleeping ponds and lullabies are tranquil, pouncing castles menacing, fireworks and confetti triumphant, bare skies desolate.",
+      "frame": "Zed is rewriting his guide to his favourite game. The Moodgill is reading the new draft over his shoulder.",
+      "text": "LEVEL 7: THE FROST PLAINS. Zed is rewriting his guide to Skyquest, the game he plays every arvo. The Frost Plains are the quietest level in the game. There are no shops, no music and no other players, and your map shows nothing for miles. In his first draft, Zed wrote: 'An old lighthouse stands by the sea.' Indi read it and shrugged. 'That just tells me what's there,' she said. 'It doesn't make me feel anything.' So Zed tried again. His new line reads: 'A ruined lighthouse leans over the frozen sea, still waiting for a ship that never came.' After it, he added: 'A single crow sits on a fence post, and nobody comes to meet it.' Indi read the new version twice. Then she went quiet for a while, which Zed decided was a very good sign. Mo, who had been reading over her shoulder, said it made him want to give the lighthouse a hug. Zed has now rewritten six levels this way, and he says the Frost Plains took the longest.",
+      "prompt": "What does Zed's new lighthouse line do that his first draft didn't?",
+      "success": "'Still waiting for a ship that never came' gives the lighthouse a sad wait, so the plains feel forgotten.",
       "body": {
-        "format": "sort",
-        "bins": [
-          "tranquil (calm and still)",
-          "menacing (threatening)",
-          "triumphant (proud of winning)",
-          "desolate (empty and lonely)"
-        ],
-        "items": [
+        "format": "choose",
+        "options": [
           {
-            "text": "The Lily Lagoon lies smooth and silver, like a sleeping pond in a picture book.",
-            "bin": 0,
-            "reason": "A sleeping pond in a picture book is gentle and still."
+            "text": "It makes the lighthouse seem ready to strike, so the level feels dangerous and tense.",
+            "reason": "Leaning and waiting for a ship is not getting ready to attack. Nothing in the line threatens the player."
           },
           {
-            "text": "The Shadow King's castle crouches on the cliff, ready to pounce.",
-            "bin": 1,
-            "reason": "A castle that crouches to pounce is about to attack."
+            "text": "It promises that a ship is coming soon, so the level feels hopeful and exciting.",
+            "reason": "'A ship that never came' says no ship arrives. There's nothing left to hope for."
           },
           {
-            "text": "When you beat the final boss, a million fireworks explode over the city.",
-            "bin": 2,
-            "reason": "Fireworks after you beat the boss celebrate your win."
+            "text": "It makes the lighthouse seem forgotten, so the whole level feels empty and lonely."
           },
           {
-            "text": "Paper lanterns bob on the water, humming lullabies to the lilies.",
-            "bin": 0,
-            "reason": "A lullaby is soft and soothing. Nothing moves fast here."
-          },
-          {
-            "text": "The Frost Plains stretch out under a sky as bare as an empty plate.",
-            "bin": 3,
-            "reason": "An empty plate has nothing on it. Nothing and nobody is there."
-          },
-          {
-            "text": "The spiked vines are fingers, waiting to snatch your ankles.",
-            "bin": 1,
-            "reason": "Fingers waiting to snatch you are a threat."
-          },
-          {
-            "text": "Gold coins rain down on your hero like confetti at a grand final parade.",
-            "bin": 2,
-            "reason": "Confetti at a grand final parade celebrates a win."
-          },
-          {
-            "text": "A ruined lighthouse leans over the sea, still waiting for a ship that never came.",
-            "bin": 3,
-            "reason": "Waiting forever for a ship that never comes is lonely and hopeless."
-          },
-          {
-            "text": "Your banner rises over the castle like a flag planted on a mountain peak.",
-            "bin": 2,
-            "reason": "A flag planted on a peak marks a hard-won victory."
+            "text": "It describes the lighthouse in more detail, so players can find it on their map.",
+            "reason": "The map shows nothing for miles. The new words add a feeling, not directions."
           }
-        ]
+        ],
+        "answer": 2
       }
     },
     {

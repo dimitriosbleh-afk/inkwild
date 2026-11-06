@@ -117,6 +117,18 @@ describe('content rule checks', () => {
     ).toMatch(/at Bands 3 and 4 the answer is the longest/);
   });
 
+  it('reject a Skill whose tap answer is usually the longest part', () => {
+    const f = structuredClone(good);
+    const template = f.encounters.find((e) => e.body.format === 'tapText') ?? f.skill.teach.weDo.find((t) => t.body.format === 'tapText');
+    const tasks = Array.from({ length: 4 }, (_, i) => ({
+      ...f.encounters[i]!,
+      body: { format: 'tapText' as const, parts: [{ tap: 'Gus ran.' }, ' ', { tap: 'The long, slow, rambling sentence is here.' }, ' ', { tap: 'Mo sat.' }], answer: 1 },
+    }));
+    void template;
+    f.encounters.splice(0, 4, ...tasks);
+    expect(skillFileProblems(f, listed).map((p) => p.problem).join()).toMatch(/tap answer is the longest part/);
+  });
+
   it('reject a Skill whose wrong options keep saying always or never', () => {
     expect(
       problemsAfter((f) => {

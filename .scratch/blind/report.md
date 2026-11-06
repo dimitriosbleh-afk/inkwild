@@ -1,6 +1,6 @@
 # Blind solve report
 
-2038 Encounters checked, 93 flagged for rewrite.
+2043 Encounters checked, 102 flagged for rewrite.
 
 | Encounter | Flag | Detail |
 |---|---|---|
@@ -13,6 +13,7 @@
 | 8.5-b1-1 | DISAGREES, SECOND ANSWER, CONFIDENCE medium | solver said {"spot":"good","replacement":"fizzy"} / also: Spot 'cold' with replacement 'icy' is arguable, since 'icy' sharpens 'cold' and matches the frost. / 'icy' and 'cool' do not sharpen 'good'; 'fizzy' is right only by elimination, as nothing in the text supports it. |
 | 7.2-b4-6 | DISAGREES, CONFIDENCE medium | solver said {"Every autumn, Pinch filled the hut's old teapot with seeds, ready for her long winter sleep.":"sets the scene","As the truck rumbled away and the first snow began to fall, Pinch had nowhere to sleep and nothing to eat.":"the problem starts and grows","Then one morning, a terrible crash woke Pinch: builders were smashing the hut's walls to make room for Maxx World.":"the problem starts and grows","High on Tower Six, in a hut that nobody had used for years, lived a mountain pygmy possum called Pinch.":"sets the scene","Wren rescued the teapot from the truck, found Pinch shivering nearby, and tucked them both into a hollow log.":"the problem is solved","By lunchtime, the builders had carried off the teapot, seeds and all, and tossed it onto a truck.":"the problem starts and grows"} / Slight story-logic wrinkle: the truck 'rumbled away' with the teapot, yet Wren then rescues the teapot 'from the truck'. A child could briefly wonder about the order of the two middle-bin truck sentences, but the bin assignment is unaffected. |
 | 1.1-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: Pizza before hatch: the text says she noticed the hatch, meant to tell Dad, 'then' pizza arrived, so hatch first; fairly clear. / Hatch/pizza order rests on 'then'. |
+| 1.2-b4-2 | SECOND ANSWER, CONFIDENCE medium | also: He said he wasn't hungry... (the untouched sausage rolls) is the second slip; the 'walked over' and 'asked about sensors' parts are coping, so only mild ambiguity / Packing Clank away is the first non-spoken leak. |
 | 1.2-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: Rex leaning back with hands behind head could be 'relaxed/confident' rather than smug, but smug is the only fitting bin. / Both frustrated Rex items could also read as 'smug turned sore' but frustrated is clear. |
 | 1.5-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: cold and dark: the text mentions night cold and darkness, though the emphasis is emptiness. |
 | 1.6-b2-2 | SECOND ANSWER, CONFIDENCE medium | also: I've played Mole Mayhem for three weeks straight. (opening sentence, but it only sets up the review) / Opinion sentence is the claim the rest supports. |
@@ -22,19 +23,24 @@
 | 2.2-b4-2 | SECOND ANSWER, CONFIDENCE medium | also: Oscar told the narrator about the shortcut, so Oscar might have made it up (weaker: it doubts the shortcut, not the 'on purpose' claim). |
 | 2.4-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: 'She knocked on the toilet door and talked to the bass player' could be argued as 'what Mei says', but it is reported as an action. |
 | 2.4-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: 'Judges stood before her painting' could be said to show her work is good, not that she is modest; 'Mine's still not finished' could be read as an excuse, but modest fits. |
-| 2.8-b1-4 | SECOND ANSWER, CONFIDENCE medium | also: 'Mission control said it was the smelliest landing ever.' is the final sentence and could be read as the ending, but it only reacts to the solution. / Resolution is how the fuel/radio problem is solved; the last sentence is an aftermath line. |
+| 2.5-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: The pelican refusing is the obstacle; the final line (free fish life) is not bracketed so no real rival / Cue 'more than anything' appears in the text, not options. |
+| 2.8-b1-4 | SECOND ANSWER, CONFIDENCE medium | also: Mission control said it was the smelliest landing ever (final sentence, could be read as coda/resolution) |
 | 2.8-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: The pelican coughing up the ball solves the missing-ball problem, but the prompt names the six-runs problem. |
 | 2.8-b3-3 | SECOND ANSWER, CONFIDENCE medium | also: 'The ship roared away' and 'Dot fixed the engine' both fit resolution; one could be argued as the climax, but no such bin exists. |
-| 2.8-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: Broadcast item could be argued as part of the complication (raising stakes), but 'even worse' text sits after it. |
+| 2.8-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: Broadcast item could be read as part of the complication (raising stakes) rather than it gets worse; text says 'to make it worse' so it gets worse is favoured / Two items in 'it gets worse', none-extra elsewhere. |
+| 2.8-b4-4 | SECOND ANSWER, CONFIDENCE medium | also: 'No,' said Mr Osei... is where idea is voiced; 'It was messier than anything she had ever painted...' also shows learning, but the painting itself is the first act of learning / Strong reader could narrow quickly but needs thought. |
 | 3.1-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: Option 2 if 'brightest' is read as a judgement, but a camera can record brightness, so it is checkable. |
-| 3.10-b1-3 | SECOND ANSWER, CONFIDENCE medium | also: 'The canteen sells pies and chips, but it has no icy poles.' has a 'but' that a child might read as a counter-and-answer; it is only a contrast of facts, with no opposing view, so only the writer's side. / The pattern 'but' is a decoy in the icy-pole sentence. |
+| 3.10-b1-3 | SECOND ANSWER, CONFIDENCE medium | also: 'The canteen sells pies and chips, but it has no icy poles.' has a 'but' pattern like the other-side items, though it states no opposing view / The 'but' cue is a decoy only if students pattern-match |
 | 3.10-b3-1 | SECOND ANSWER, CONFIDENCE medium | also: The camping option also names a worry, but its answer (cooler mornings) does not fit that worry. |
 | 3.11-b2-5 | SECOND ANSWER, CONFIDENCE medium | also: Poster and text could be swapped: the poster is out of date (superseded by the change), so a child could argue it is as unreliable as the guess. But the poster comes from the school and was once accurate, while the cousin is not at the school and only guesses, so poster above text. / Newsletter first is certain; the order of the last two rests on 'who made it' (school vs outsider) outweighing 'when'. |
 | 3.11-b4-5 | SECOND ANSWER, CONFIDENCE medium | also: Leaflet and Bugle could swap: both are eight years old; I put the official general advice above the news report of a past flood. |
 | 3.2-b1-3 | SECOND ANSWER, CONFIDENCE medium | also: 'The Reef Rays are the best. They won the last three cups.' is backed-up by the intended reading, but winning three cups does not strictly prove 'the best'; a strict reader could call it bare. / The 2 pm item is a number that does not support 'best ever'. |
 | 3.2-b2-1 | SECOND ANSWER, CONFIDENCE medium | also: 'The band is fantastic. It has 24 players in red jackets.' has a fact attached, but the fact does not support 'fantastic', so bare. 'Won state competition' supports 'deserves' moderately. / 3 backed / 2 bare. |
 | 3.2-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: Chips item could be called backed (it gives a reason, a personal feeling). |
-| 3.3-b4-5 | SECOND ANSWER, CONFIDENCE medium | also: Example option, if the company's own test is seen as a single story; but twenty cases is a count. |
+| 3.3-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: Ruby's dentist could be read as expert (a dentist) but it is one person's case, so example / 'Every class that swapped...' is a record-type claim without numbers |
+| 3.3-b3-5 | SECOND ANSWER, CONFIDENCE medium | also: None strong; option 4 (cousin Darren and two mates) is clearly an example / Test-flight record has no number but is a record |
+| 3.3-b4-2 | SECOND ANSWER, CONFIDENCE medium | also: Tash Moore contains a number (6,000) so could be called facts and figures; but it is one person's story. Rosa Ferri could be called an example by someone ignoring her role / Marked tricky by the prompt |
+| 3.3-b4-5 | SECOND ANSWER, CONFIDENCE medium | also: 'Example: twenty dogs in one test is still just one story' could be defended since it is one company test / Option 4 is clearly wrong on logic; option 1 is the real rival |
 | 3.4-b2-6 | SECOND ANSWER, CONFIDENCE medium | also: 'The tour dragged on for three hours in the cold.' also uses exactly 6 tiles; only the loaded 'dragged on' makes it non-neutral, which a child may judge mild. / Forced to use 'in the cold' just to reach six tiles. |
 | 3.7-b3-4 | SECOND ANSWER, CONFIDENCE medium | also: Line 3 could be argued as 'no trick, just information' (it gives a visitor count), but 'so book before the holidays fill up' is bandwagon plus urgency. / Replacement option duplicates the label already given to Line 2, which hints at the answer. |
 | 3.7-b4-3 | SECOND ANSWER, CONFIDENCE medium | also: 'Is your child under four?' could be labelled rhetorical question (a question in form); 'own little train' could be labelled exaggeration. |
@@ -51,6 +57,7 @@
 | 5.1-b1-4 | SECOND ANSWER, CONFIDENCE medium | also: The door creaked open, / and / a bat flew out. is equally valid (lowercase 'a bat flew out.' tile ends a sentence). |
 | 5.1-b2-5 | SECOND ANSWER, CONFIDENCE medium | also: Because / its battery ran out, / the robot shut down. is also a correct complex sentence. |
 | 5.1-b4-2 | DISAGREES | solver said "complex: 'since the bridge collapsed during the storm' depends on the main clause" |
+| 5.1-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: When the divers found the wreck, they stayed down for an hour because the water was freezing. is grammatical, but the unpunctuated 'they stayed down for an hour' tile has no full stop and the meaning is odd / Resulting sentence is awkward (two dependent clauses stacked). Punctuation/capital cues in tiles largely decide the answer. |
 | 5.12-b3-5 | SECOND ANSWER, CONFIDENCE medium | also: She / painted / the first giant stroke. is equally valid (She refers to Indi). |
 | 5.2-b1-4 | SECOND ANSWER, CONFIDENCE medium | also: Because the power had failed, + the whole class screamed. is equally a complete sentence / two openers both work |
 | 5.2-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: 'the fog rolled in' could literally stand alone as a sentence, but it is the clause inside 'Whenever the fog rolled in', not the main clause. / Prompt wording 'could stand alone as the main clause' is loose; a literal reader could pick the fog option. |
@@ -70,6 +77,7 @@
 | 7.10-b4-5 | SECOND ANSWER, CONFIDENCE medium | also: 'the dish' to 'the giant pan' could be argued to break the chain, since the dish is a satellite dish, not a pan / 'the thing' is too vague to point clearly back to the pancake |
 | 7.12-weDo1 | SECOND ANSWER, CONFIDENCE medium | also: 'Hi Ms Lee! Can we please use the hall for our cooking show?' is polite and respectful; only the exclamation and 'Hi' make it less formal. 'Dear ... I am writing' is the conventional letter opening. / Answerable by form: 'Dear' signals letter. |
 | 7.5-b3-5 | SECOND ANSWER, CONFIDENCE medium | also: 'If the snot jar bubbles, step back slowly.' could be seen as making the reader wait for the action, but the brief says leading with the moment counts / Relies on the text's rule that a moment-to-do-it opening counts |
+| 7.5-b4-6 | SECOND ANSWER, CONFIDENCE medium | also: Through the secret door, also leads to the final room, but it names a door rather than the room players scan for / The Throne Room option is the only one naming an unmentioned-by-opener room that matches the paragraph's pattern; the Ice Queen/throne text confirms it. |
 | 8.2-b4-1 | SECOND ANSWER, CONFIDENCE medium | also: Indi only, if a reader insists a full stop leaves a fragment, but that claim is false. / Option 3's reasoning is wrong; a full stop is a valid fix. |
 | 8.4-b2-4 | SECOND ANSWER, CONFIDENCE medium | also: Possum item could be argued 'keep it' since it is a sequence of different actions, only 'and then it' repeats. / Possum item is the shaky one. |
 | 8.4-b3-2 | SECOND ANSWER, CONFIDENCE medium | also: the turtle -> it (but 'it' could be read as the net). / Choice relies on nearest-noun reading. |
@@ -85,10 +93,11 @@
 | 1.1-b4-2 | SECOND ANSWER | also: The sudden-death sentence is about a future change, not the current rule; the judges-awarded sentence is the application, not the rule. |
 | 1.2-b3-1 | SECOND ANSWER | also: nervous (his feeling just before the save, not right after) |
 | 1.5-b3-6 | SECOND ANSWER | also: desperate (no: it would also clash) |
+| 2.10-b2-2 | SECOND ANSWER | also: The power cut is bad luck, not the unfair decision; coin toss is clearly the unfairness |
 | 3.11-b1-6 | SECOND ANSWER | also: 'Written by the surf club lifeguards' is a reason to trust, not distrust, so not a rival. / Passage lists only one negative clue. |
 | 3.11-b3-2 | SECOND ANSWER | also: 'This article was written by the Brainy Bar Chocolate Company' shows bias rather than weak evidence; 'posted twelve years ago' shows age. / Longest bracket. |
 | 3.11-b4-3 | SECOND ANSWER | also: The ranger's office listing is a weaker second. |
-| 3.3-b2-5 | SECOND ANSWER | also: A tally Mo kept himself could be called one person's example, but 310 of 400 is numbers, so evidence. / Option 1 is also the first listed. |
+| 3.3-b3-1 | SECOND ANSWER | also: 'Four games were called off' is a tally of events, so facts and figures, not an example |
 | 3.4-b2-4 | SECOND ANSWER | also: 'painted' is a neutral word but would wrongly imply the mural was painted on Monday; 'ruined' is emotive. / Vocabulary level of 'marked' vs 'ruined' makes it easy. |
 | 3.9-b3-4 | SECOND ANSWER | also: 'possibly' is also weaker than 'definitely' but is less sure than Jules's 'I think they are probably'. / Text uses the word 'probably' verbatim. |
 | 4.6-b2-6 | SECOND ANSWER | also: 'Mo's cabin was a jumble of clothes and burnt toast.' is grammatical but does not help smell. / Tile text gives it away: 'stank' is the only smell tile; and it is the only tile pair that forms a smell sentence. |
@@ -100,11 +109,13 @@
 | 1.1-b1-3 | CONFIDENCE medium | Sandflies is a team name; 'Who?' is the only bin that fits, but two items in one bin may surprise a child. |
 | 1.5-b2-1 | CONFIDENCE medium | Text shows a strong smell; 'sharp' is not directly supported but other options are clearly wrong. |
 | 1.7-b4-2 | CONFIDENCE medium | Item 'tricky questions' could be argued as an acceptable vague summary, but it is clearly less specific, so too broad. |
+| 2.3-b2-6 | CONFIDENCE medium | 'clever' is weakly arguable from Mo's own telling, but the slot is Tully's telling, where Mo laughs at his own joke. |
+| 2.3-b3-4 | CONFIDENCE medium | 'reckless, and a bit of a cheat' fails only on 'cheat' (the shortcut is allowed). |
 | 3.1-b4-3 | CONFIDENCE medium |  |
 | 3.10-b3-3 | CONFIDENCE medium | The sugary-drinks 'but this change is a good start' item could be read as naming a side. |
 | 3.10-b4-3 | CONFIDENCE medium | Self-check and two batteries reduce breakdown rather than cover someone in trouble; arguably debatable. |
 | 4.2-b3-4 | CONFIDENCE medium | 'pinballed' is a verb metaphor; some may call it neither. 'as slippery as a freshly mopped floor' compares similar things (floor to ground) arguably, but is a standard as-simile. |
-| 5.1-b4-6 | CONFIDENCE medium |  |
+| 4.2-b4-4 | CONFIDENCE medium | 'Gus trumpeted' is a verb metaphor, but loud is the only fit |
 | 6.2-b4-3 | CONFIDENCE medium | Only way to use exactly 8 tiles and get three things: 'tea towels, ice owls and snow globes'. Tiles are not all unique-use (two spare commas), and 'tea' + 'towels' as separate tiles is a trick; solvable but unusual. |
 | 6.3-b4-5 | CONFIDENCE medium | 'Before the final battle Zed' is mildly bumpy but still clear. |
 | 6.8-b4-4 | CONFIDENCE medium | Relies on 'All three of them' implying several scientists; 'weeks' and 'The whole town voted' support it but the singular reading is not strictly excluded by text alone. |

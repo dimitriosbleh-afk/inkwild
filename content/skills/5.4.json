@@ -197,19 +197,19 @@
           "terms": [
             {
               "term": "DEPENDENT CLAUSE",
-              "means": "Can't stand alone. Starts with a word like 'when', 'if' or 'although'."
+              "means": "A clause that starts with a word like when, because or if. It can't stand alone."
             },
             {
               "term": "MAIN CLAUSE",
-              "means": "Makes sense on its own. When it comes second, a comma goes before it."
+              "means": "A clause that makes sense on its own. Every sentence needs one."
             },
             {
               "term": "JOINING WORD",
-              "means": "Joins the clauses, like 'when' or 'although'. Use just one: no extra 'but' or 'so'."
+              "means": "And and but join two whole thoughts. When, because, although make one part need the other."
             },
             {
               "term": "PHRASE",
-              "means": "Words with no verb, like 'after lunch'. Not a dependent clause."
+              "means": "A group of words with no verb, like 'after lunch'."
             }
           ],
           "examples": [
@@ -240,7 +240,7 @@
       "weDo": [
         {
           "prompt": "Which version leads with the dependent clause?",
-          "hint": "Look for the version that starts with when.",
+          "hint": "Which version makes you wait for the main clause?",
           "success": "'When the whistle blew' comes first, then a comma, then the main clause.",
           "body": {
             "format": "choose",
@@ -267,9 +267,10 @@
           "body": {
             "format": "build",
             "tiles": [
+              "Walk straight to the oval",
               "If the alarm rings,",
-              "walk straight",
-              "to the oval."
+              "if the alarm rings.",
+              "walk straight to the oval."
             ],
             "accept": [
               "If the alarm rings, walk straight to the oval."
@@ -287,9 +288,16 @@
     },
     "write": {
       "ask": "Join these into one sentence that leads with the dependent clause, so the surprise lands last.",
-      "given": ["The lights went out.", "Mo was halfway through his magic trick."],
+      "given": [
+        "The lights went out.",
+        "Mo was halfway through his magic trick."
+      ],
       "starter": "Just as Mo",
-      "checks": ["My sentence starts with the dependent clause", "A comma comes before the main clause", "There is no extra 'and', 'but' or 'so'"],
+      "checks": [
+        "My sentence starts with the dependent clause",
+        "A comma comes before the main clause",
+        "There is no extra 'and', 'but' or 'so'"
+      ],
       "model": "Just as Mo was halfway through his magic trick, the lights went out."
     }
   },
@@ -365,8 +373,16 @@
       "success": "Leading with 'While Mo was cooking' sets the scene. Then the smoke alarm lands at the end, like a punchline.",
       "body": {
         "format": "build",
-        "tiles": ["The smoke alarm went off", "Mo was cooking,", "while Mo was cooking.", "While Mo was cooking,", "the smoke alarm went off."],
-        "accept": ["While Mo was cooking, the smoke alarm went off."],
+        "tiles": [
+          "The smoke alarm went off",
+          "Mo was cooking,",
+          "while Mo was cooking.",
+          "While Mo was cooking,",
+          "the smoke alarm went off."
+        ],
+        "accept": [
+          "While Mo was cooking, the smoke alarm went off."
+        ],
         "reason": "Which part can't stand alone? That's the dependent clause, and it goes first."
       }
     },
@@ -400,14 +416,18 @@
       "band": 1,
       "topic": "spooky",
       "frame": "The Frillip found a spooky sentence in pieces under the old piano.",
-      "prompt": "Put the pieces in order so the sentence leads with the dependent clause.",
+      "prompt": "Tap the pieces in order so the sentence leads with the dependent clause.",
       "success": "The when part goes first and sets the scene. Then the piano surprises you at the end.",
       "body": {
-        "format": "order",
-        "items": [
+        "format": "build",
+        "tiles": [
+          "The old piano began to play",
+          "when the clock struck twelve.",
           "When the clock struck twelve,",
-          "the old piano",
-          "began to play by itself."
+          "the old piano began to play."
+        ],
+        "accept": [
+          "When the clock struck twelve, the old piano began to play."
         ],
         "reason": "Start with the part that leaves you waiting. The main clause comes after the comma."
       }
@@ -740,8 +760,17 @@
       "success": "The reason comes first and you start to worry. Then the fur coat lands at the end. Gross.",
       "body": {
         "format": "build",
-        "tiles": ["The fridge had been off for a week,", "and the yoghurt had grown a fur coat.", "Although", "the fridge had been off for a week,", "Because", "the yoghurt had grown a fur coat."],
-        "accept": ["Because the fridge had been off for a week, the yoghurt had grown a fur coat."],
+        "tiles": [
+          "The fridge had been off for a week,",
+          "and the yoghurt had grown a fur coat.",
+          "Although",
+          "the fridge had been off for a week,",
+          "Because",
+          "the yoghurt had grown a fur coat."
+        ],
+        "accept": [
+          "Because the fridge had been off for a week, the yoghurt had grown a fur coat."
+        ],
         "reason": "Pick the joining word that gives a reason. After the comma, the main clause starts straight away."
       }
     },
@@ -835,10 +864,21 @@
       "body": {
         "format": "choose",
         "options": [
-          { "text": "The whole town saw the comet blaze across the sky when the cloud finally cleared.", "reason": "This is correct, but it jumps to the comet first. The cloud only comes back at the end." },
-          { "text": "When the cloud finally cleared, the whole town saw the comet blaze across the sky." },
-          { "text": "Although the cloud finally cleared, the whole town saw the comet blaze across the sky.", "reason": "Although signals a surprise, but a clear sky is exactly when you'd expect to see a comet." },
-          { "text": "When the cloud finally cleared, and the whole town saw the comet blaze across the sky.", "reason": "The extra 'and' leaves no main clause. After the comma, the main clause should start straight away." }
+          {
+            "text": "The whole town saw the comet blaze across the sky when the cloud finally cleared.",
+            "reason": "This is correct, but it jumps to the comet first. The cloud only comes back at the end."
+          },
+          {
+            "text": "When the cloud finally cleared, the whole town saw the comet blaze across the sky."
+          },
+          {
+            "text": "Although the cloud finally cleared, the whole town saw the comet blaze across the sky.",
+            "reason": "Although signals a surprise, but a clear sky is exactly when you'd expect to see a comet."
+          },
+          {
+            "text": "When the cloud finally cleared, and the whole town saw the comet blaze across the sky.",
+            "reason": "The extra 'and' leaves no main clause. After the comma, the main clause should start straight away."
+          }
         ],
         "answer": 1
       }
@@ -879,43 +919,49 @@
       "topic": "robots",
       "frame": "Gus is commentating the robot championships. The Frillip wants his openers sorted.",
       "prompt": "Match each sentence to the right pile.",
-      "success": "Only a clause has its own doer and verb. 'Despite a missing wheel' has no verb, so it's a phrase.",
+      "success": "Judge the opener by its verb, not its first word. 'After' and 'until' can start a phrase too.",
       "body": {
         "format": "sort",
         "bins": [
           "leads with a dependent clause",
-          "leads with a phrase"
+          "leads with a phrase",
+          "leads with the main clause"
         ],
         "items": [
           {
-            "text": "Whenever the arena lights flicker, the robots freeze in place.",
-            "bin": 0,
-            "reason": "'Whenever the arena lights flicker' has a doer and a verb, so it's a dependent clause."
-          },
-          {
-            "text": "Despite a missing wheel, Gus's robot reached the final.",
-            "bin": 1,
-            "reason": "'Despite a missing wheel' has no verb, so it's a phrase."
-          },
-          {
             "text": "As soon as the buzzer sounded, both robots charged at the cone.",
             "bin": 0,
-            "reason": "'As soon as the buzzer sounded' has a doer and a verb, so it's a dependent clause."
+            "reason": "'As soon as the buzzer sounded' has a doer and a verb, but it can't stand alone."
           },
           {
-            "text": "Without warning, the champion robot reversed into the wall.",
+            "text": "After the buzzer, both robots charged at the cone.",
             "bin": 1,
-            "reason": "'Without warning' has no verb, so it's a phrase."
+            "reason": "'After' can start a clause, but 'after the buzzer' has no verb. It's a phrase."
+          },
+          {
+            "text": "Until the final, nobody had beaten Unit 9.",
+            "bin": 1,
+            "reason": "'Until' often starts a clause, but 'until the final' has no verb. It's a phrase."
           },
           {
             "text": "Although its arm had fallen off, the little robot kept pushing.",
             "bin": 0,
-            "reason": "'Although its arm had fallen off' has a doer and a verb, so it's a dependent clause."
+            "reason": "'Although its arm had fallen off' has a doer and a verb, but it can't stand alone."
           },
           {
-            "text": "By the final round, only three robots were still moving.",
-            "bin": 1,
-            "reason": "'By the final round' has no verb, so it's a phrase."
+            "text": "Unit 9 kept spinning until its battery died.",
+            "bin": 2,
+            "reason": "'Unit 9 kept spinning' comes first and makes sense alone. The until clause comes last."
+          },
+          {
+            "text": "Whenever the arena lights flicker, the robots freeze in place.",
+            "bin": 0,
+            "reason": "'Whenever the arena lights flicker' has a doer and a verb, but it can't stand alone."
+          },
+          {
+            "text": "The champion robot reversed into the wall, and the crowd gasped.",
+            "bin": 2,
+            "reason": "It has a comma, but 'the champion robot reversed into the wall' makes sense alone, and it leads."
           }
         ]
       }
@@ -929,8 +975,17 @@
       "success": "Leading with the because clause links back to the shark. After the comma, the main clause starts straight away.",
       "body": {
         "format": "build",
-        "tiles": ["The skipper called everyone back on board", "Although the shark was so close,", "the skipper called everyone back on board.", "Because the shark was so close,", "because the shark was so close.", "and the skipper called everyone back on board."],
-        "accept": ["Because the shark was so close, the skipper called everyone back on board."],
+        "tiles": [
+          "The skipper called everyone back on board",
+          "Although the shark was so close,",
+          "the skipper called everyone back on board.",
+          "Because the shark was so close,",
+          "because the shark was so close.",
+          "and the skipper called everyone back on board."
+        ],
+        "accept": [
+          "Because the shark was so close, the skipper called everyone back on board."
+        ],
         "reason": "Start with the shark, using the joining word that fits. Then the main clause, with no extra joining word."
       }
     },
@@ -945,23 +1000,48 @@
         "format": "fix",
         "parts": [
           "The ",
-          { "tap": "astronomers", "reason": "The astronomers are who the sentence is about. Look for the joining word that has nothing to join." },
+          {
+            "tap": "astronomers",
+            "reason": "The astronomers are who the sentence is about. Look for the joining word that has nothing to join."
+          },
           ", ",
-          { "tap": "because", "reason": "Because is the one joining word this sentence needs. It starts the dependent clause." },
+          {
+            "tap": "because",
+            "reason": "Because is the one joining word this sentence needs. It starts the dependent clause."
+          },
           " the comet would not return for another ",
-          { "tap": "seventy-six", "reason": "The number is fine. Look for the joining word that has nothing to join." },
+          {
+            "tap": "seventy-six",
+            "reason": "The number is fine. Look for the joining word that has nothing to join."
+          },
           " years, ",
-          { "tap": "and stayed" },
+          {
+            "tap": "and stayed"
+          },
           " up all ",
-          { "tap": "night", "reason": "Night is fine. Look for the joining word that has nothing to join." },
+          {
+            "tap": "night",
+            "reason": "Night is fine. Look for the joining word that has nothing to join."
+          },
           " to watch it."
         ],
         "spot": 3,
         "options": [
-          { "text": "stayed" },
-          { "text": "but stayed", "reason": "But is another joining word. 'Because' already joins the two ideas." },
-          { "text": "yet stayed", "reason": "Yet is another joining word, and it adds a clash that isn't there." },
-          { "text": "or stayed", "reason": "Or is another joining word, and it adds a choice that isn't there." }
+          {
+            "text": "stayed"
+          },
+          {
+            "text": "they stayed",
+            "reason": "The astronomers are already the doer. 'They' says it twice. What does the main clause need next?"
+          },
+          {
+            "text": "but stayed",
+            "reason": "But is another joining word. 'Because' already joins the two ideas."
+          },
+          {
+            "text": "and they stayed",
+            "reason": "And is another joining word, and 'they' repeats the astronomers. Because already joins the ideas."
+          }
         ],
         "answer": 0
       }
@@ -976,13 +1056,24 @@
       "body": {
         "format": "tapText",
         "parts": [
-          { "tap": "When will the emu finally calm down?", "reason": "Say it out loud. It's a whole question that makes sense alone, so there's no dependent clause." },
+          {
+            "tap": "When will the emu finally calm down?",
+            "reason": "Say it out loud. It's a whole question that makes sense alone, so there's no dependent clause."
+          },
           " ",
-          { "tap": "Before breakfast, check the latch on the emu gate.", "reason": "'Before breakfast' has no verb. It's a phrase, not a dependent clause." },
+          {
+            "tap": "Before breakfast, check the latch on the emu gate.",
+            "reason": "'Before breakfast' has no verb. It's a phrase, not a dependent clause."
+          },
           " ",
-          { "tap": "If the emu escapes again, who will catch it?" },
+          {
+            "tap": "If the emu escapes again, who will catch it?"
+          },
           " ",
-          { "tap": "Check the emu gate before you go home.", "reason": "This has a dependent clause, but it comes last. The instruction leads." }
+          {
+            "tap": "Check the emu gate before you go home.",
+            "reason": "This has a dependent clause, but it comes last. The instruction leads."
+          }
         ],
         "answer": 2
       }
