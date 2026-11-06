@@ -8,7 +8,7 @@ import { branches, content, Player } from './fixture';
 const TODAY = 100;
 
 function master(save: Save, ...ids: SkillId[]): Save {
-  for (const id of ids) save.skills[id] = { taught: true, done: 6, xp: 60, recent: [], mastered: true, reviewMisses: 0, rusty: false };
+  for (const id of ids) save.skills[id] = { taught: true, done: 6, xp: 60, recent: [], mastered: true, reviewMisses: 0, rusty: false, streak: 0 };
   return save;
 }
 
@@ -59,7 +59,7 @@ describe('goal on an Island', () => {
     });
     const bank = buildContent(branches, [prompt('9.1'), prompt('9.2')]);
     const save = newSave(TODAY);
-    save.skills['9.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false };
+    save.skills['9.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
     const goal = goalFor(bank, save, 'workshop', TODAY);
     expect(goal.kind).toBe('grass');
     expect(goal.line).toMatch(/writ/i);
@@ -95,7 +95,7 @@ describe('goal on Home Island', () => {
 
   it('points at the notice board when a Tide quest is open', () => {
     const save = newSave(TODAY);
-    save.skills['1.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false };
+    save.skills['1.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
     save.tide = { day: TODAY, branch: 'between', done: false };
     const goal = goalFor(content, save, 'home', TODAY);
     expect(goal.kind).toBe('board');

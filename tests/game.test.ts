@@ -159,7 +159,7 @@ describe('mastery and Creatures', () => {
   it('needs four of five first try spread over two days before a Creature evolves', () => {
     const p = settled(4);
     p.learn('sentence');
-    for (let i = 0; i < 5; i++) expect(types(p.encounter('sentence', 'first'))).not.toContain('evolved');
+    for (let i = 0; i < 5; i++) expect(types(onSkill(p, '5.1', 'first'))).not.toContain('evolved');
     p.day += 1;
     const events = onSkill(p, '5.1', 'first');
     expect(types(events)).toContain('evolved');
@@ -381,7 +381,7 @@ describe('Write your own', () => {
   it('is never owed for a Skill without a write task', async () => {
     const { owesSentence } = await import('../src/core/sentence');
     const save = new Player().save;
-    save.skills['5.1'] = { taught: true, done: 3, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false };
+    save.skills['5.1'] = { taught: true, done: 3, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
     const { write: _, ...noWrite } = content.skill('5.1');
     const bank = { ...content, skill: () => noWrite };
     expect(owesSentence(bank, save, '5.1')).toBe(false);
@@ -414,7 +414,7 @@ describe('loading an older save', () => {
     old.settings = { textSize: 1, spacing: false, cream: false, sound: true };
     old.activity = { kind: 'review', ids: ['5.1-b2-0'], at: 0, tries: 0, firsts: 0 };
     const loaded = upgradeSave(old as unknown as Save);
-    expect(loaded.skills['5.1']).toMatchObject({ mastered: true, reviewMisses: 0, rusty: false });
+    expect(loaded.skills['5.1']).toMatchObject({ mastered: true, reviewMisses: 0, rusty: false, streak: 0 });
     expect(loaded.sentences[0]).toMatchObject({ text: 'Old one.', ticks: [true], marks: [] });
     expect(loaded.pieces[0]).toMatchObject({ text: 'Old piece.', marks: [] });
     expect(loaded.settings).toMatchObject({ textSize: 1, sound: true, readAloud: false });

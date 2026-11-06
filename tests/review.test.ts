@@ -24,6 +24,7 @@ function mastered(save: Save, id: SkillId, lastDay: number): Save {
     masteredBand: 2,
     reviewMisses: 0,
     rusty: false,
+    streak: 0,
   };
   return save;
 }
@@ -31,10 +32,24 @@ function mastered(save: Save, id: SkillId, lastDay: number): Save {
 const skillsOf = (ids: string[]) => ids.map((id) => content.encounter(id).skill);
 
 describe('choosing a Daily review', () => {
-  it('waits until two Skills are mastered', () => {
+  it('has nothing until a Skill is taught and played, then always three rounds', () => {
     expect(reviewFor(content, newSave(TODAY), TODAY, rand)).toEqual([]);
-    expect(reviewFor(content, mastered(newSave(TODAY), '5.1', 90), TODAY, rand)).toEqual([]);
-    expect(reviewFor(content, mastered(mastered(newSave(TODAY), '5.1', 90), '5.2', 80), TODAY, rand)).toHaveLength(2);
+    const one = reviewFor(content, mastered(newSave(TODAY), '5.1', 90), TODAY, rand);
+    expect(one).toHaveLength(3);
+    expect(new Set(one).size).toBe(3);
+    expect(new Set(skillsOf(one))).toEqual(new Set(['5.1']));
+    const two = reviewFor(content, mastered(mastered(newSave(TODAY), '5.1', 90), '5.2', 80), TODAY, rand);
+    expect(two).toHaveLength(3);
+    expect(new Set(skillsOf(two))).toEqual(new Set(['5.1', '5.2']));
+  });
+
+  it('draws from taught Skills played at least once until two are mastered, then only from mastered ones', () => {
+    const save = newSave(TODAY);
+    save.skills['5.1'] = { taught: true, done: 1, xp: 10, recent: [{ outcome: 'second', band: 2, day: 99 }], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
+    save.skills['5.2'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
+    expect(new Set(skillsOf(reviewFor(content, save, TODAY, rand)))).toEqual(new Set(['5.1']));
+    mastered(mastered(save, '1.1', 90), '1.2', 90);
+    expect(new Set(skillsOf(reviewFor(content, save, TODAY, rand)))).toEqual(new Set(['1.1', '1.2']));
   });
 
   it('picks the longest-unpractised Skills, one Encounter each', () => {
@@ -83,7 +98,7 @@ const types = (events: GameEvent[]) => events.map((e) => e.type);
 describe('playing a Daily review', () => {
   it('works like an Encounter: a Second look, then the success line', () => {
     const p = reviewer();
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     expect(p.save.activity).toMatchObject({ kind: 'review', at: 0, tries: 0 });
     expect(p.answerWrong()).toEqual([{ type: 'secondLook', reason: expect.any(String) }]);
     const success = p.task().success;
@@ -96,7 +111,7 @@ describe('playing a Daily review', () => {
     const branches = structuredClone(p.save.branches);
     const xp = (s: Save) => Object.values(s.skills).reduce((sum, sk) => sum + (sk?.xp ?? 0), 0);
     const before = xp(p.save);
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     // Two shown (no XP: the Creature slipped away) and one second try.
     for (let i = 0; i < 3; i++) {
       p.answerWrong();
@@ -109,29 +124,29 @@ describe('playing a Daily review', () => {
 
   it('reports first-try answers at the end and blocks a second review the same day', () => {
     const p = reviewer();
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     p.answerRight();
     p.answerWrong();
     p.answerRight();
     const last = p.answerRight();
-    expect(last).toContainEqual({ type: 'reviewDone', first: 2, of: 3 });
+    expect(last).toContainEqual({ type: 'battleDone', won: true, creature: 'c5.1', wins: 1, first: 2, right: 3, of: 3 });
     expect(p.save.activity).toBeUndefined();
     expect(p.save.reviewDay).toBe(TODAY);
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     expect(p.save.activity).toBeUndefined();
     p.day += 1;
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     expect(p.save.activity).toMatchObject({ kind: 'review' });
   });
 
   it('brings back other Skills next time, because a review counts as practice for choosing', () => {
     const p = reviewer();
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     const first = p.save.activity?.kind === 'review' ? skillsOf(p.save.activity.ids) : [];
     for (let i = 0; i < 3; i++) p.answerRight();
     p.save = mastered(p.save, '5.3', 70);
     p.day += 1;
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     const next = p.save.activity?.kind === 'review' ? skillsOf(p.save.activity.ids) : [];
     expect(first).toHaveLength(3);
     expect(next[0]).toBe('5.3');
@@ -139,7 +154,7 @@ describe('playing a Daily review', () => {
 
   it('ends without credit on RETREAT', () => {
     const p = reviewer();
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     p.answerRight();
     p.do({ type: 'retreat' });
     expect(p.save.activity).toBeUndefined();
@@ -151,21 +166,21 @@ describe('playing a Daily review', () => {
     const p = reviewer();
     p.do({ type: 'begin', branch: 'sentence' });
     const midway = p.save.activity;
-    p.do({ type: 'review' });
+    p.do({ type: 'review', creature: 'c5.1' });
     expect(p.save.activity).toEqual(midway);
   });
 
   it('is pure: the save passed in is untouched', () => {
     const save = reviewer().save;
     const copy = structuredClone(save);
-    step(content, save, { type: 'review' }, { day: TODAY, rand });
+    step(content, save, { type: 'review', creature: 'c5.1' }, { day: TODAY, rand });
     expect(save).toEqual(copy);
   });
 });
 
 /** Every answer in today's review: right first try, or missed first try. */
 function playReview(p: Player, how: 'first' | 'miss'): SkillId[] {
-  p.do({ type: 'review' });
+  p.do({ type: 'review', creature: 'c5.1' });
   const a = p.save.activity;
   if (a?.kind !== 'review') throw new Error('no review');
   for (let i = 0; i < a.ids.length; i++) {
@@ -240,8 +255,10 @@ describe('choosing a Daily review with misses', () => {
     expect(skills[2]).toBe('1.2');
   });
 
-  it('still waits for two mastered Skills', () => {
-    expect(reviewFor(content, mark(mastered(newSave(TODAY), '5.1', 90), '5.1', 2), TODAY, rand)).toEqual([]);
+  it('puts a rusty Skill first even before two are mastered', () => {
+    const save = mark(mastered(newSave(TODAY), '5.1', 90), '5.1', 2);
+    save.skills['1.1'] = { taught: true, done: 2, xp: 20, recent: [], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
+    expect(skillsOf(reviewFor(content, save, TODAY, rand))[0]).toBe('5.1');
   });
 });
 
@@ -262,7 +279,7 @@ describe('the refresher before a rusty Skill', () => {
   };
 
   it('opens on the trap step, waits for it, then plays the item', () => {
-    let save = step(trapped, rustySave(), { type: 'review' }, ctx).save;
+    let save = step(trapped, rustySave(), { type: 'review', creature: 'c5.1' }, ctx).save;
     expect(save.activity).toMatchObject({ kind: 'review', at: 0, phase: 'refresher' });
     expect(skillsOf((save.activity as { ids: string[] }).ids)[0]).toBe('5.1');
     const id = (save.activity as { ids: string[] }).ids[0]!;
@@ -278,31 +295,32 @@ describe('the refresher before a rusty Skill', () => {
   });
 
   it('skips the refresher for a Skill that is not rusty, or has no trap step', () => {
-    const fresh = step(trapped, reviewer().save, { type: 'review' }, ctx).save;
+    const fresh = step(trapped, reviewer().save, { type: 'review', creature: 'c5.1' }, ctx).save;
     expect(fresh.activity).toMatchObject({ phase: 'task' });
-    const noTrap = step(content, rustySave(), { type: 'review' }, ctx).save;
+    const noTrap = step(content, rustySave(), { type: 'review', creature: 'c5.1' }, ctx).save;
     expect(noTrap.activity).toMatchObject({ phase: 'task' });
   });
 });
 
 describe('Daily review on Home Island', () => {
-  it('puts a ! on the long grass with the REVIEW label, after an open Tide quest', () => {
+  it('puts a ! on the long grass with the GOLDIE BATTLE label, ahead of an open Tide quest', () => {
     const save = mastered(mastered(newSave(TODAY), '5.1', 90), '1.1', 90);
-    expect(goalFor(content, save, 'home', TODAY)).toEqual({ kind: 'grass', label: 'REVIEW', line: "Daily review: three quick moves from islands you've done." });
+    expect(goalFor(content, save, 'home', TODAY)).toEqual({ kind: 'grass', label: 'GOLDIE BATTLE', line: 'A Goldie wants to battle! Pick a Creature and fight.' });
     expect(alertsFor(content, save, 'home', TODAY).grass).toBe(true);
     save.tide = { day: TODAY, branch: 'between', done: false };
-    expect(goalFor(content, save, 'home', TODAY).kind).toBe('board');
+    expect(goalFor(content, save, 'home', TODAY).kind).toBe('grass');
     expect(alertsFor(content, save, 'home', TODAY).grass).toBe(true);
-    save.tide.done = true;
     save.reviewDay = TODAY;
+    expect(goalFor(content, save, 'home', TODAY).kind).toBe('board');
+    save.tide.done = true;
     expect(goalFor(content, save, 'home', TODAY).kind).toBe('boat');
     expect(alertsFor(content, save, 'home', TODAY).grass).toBe(false);
   });
 
   it('keeps pointing at the review while one is under way, and leaves Island goals alone', () => {
     const p = reviewer();
-    p.do({ type: 'review' });
-    expect(goalFor(content, p.save, 'home', TODAY).label).toBe('REVIEW');
+    p.do({ type: 'review', creature: 'c5.1' });
+    expect(goalFor(content, p.save, 'home', TODAY).label).toBe('GOLDIE BATTLE');
     expect(goalFor(content, p.save, 'between', TODAY).line).not.toMatch(/waiting in the long grass/);
   });
 });

@@ -2,10 +2,13 @@ import { chapters, content } from '../app/content';
 import { unreadChapters } from '../story/chapters';
 import { Store } from '../app/store';
 import { creatureCanvas } from '../art/creatures';
-import { iconCanvas } from '../art/icons';
+import { iconCanvas, VARIANT_ICON } from '../art/icons';
 import type { BranchId, SkillId } from '../content/types';
+import { befriended, CHAMPION_WINS, GOLDEN_STREAK, moveName } from '../core/creatures';
 import type { GameEvent } from '../core/game';
+import type { Variant } from '../core/save';
 import { h } from './dom';
+import './collect.css';
 import { burst } from './fx';
 import { blip } from './sound';
 import { hush, setReadAloud } from './speech';
@@ -19,6 +22,7 @@ export type Screen =
   | { name: 'activity'; branch: BranchId; wrote?: boolean }
   | { name: 'sentence'; skill: SkillId }
   | { name: 'guide' }
+  | { name: 'battle' }
   | { name: 'settings' }
   | { name: 'backup' }
   | { name: 'progress' }
@@ -26,6 +30,9 @@ export type Screen =
   | { name: 'write'; skill: SkillId }
   | { name: 'pieces' }
   | { name: 'swap' };
+
+/** Sparkles for a golden or Champion reveal. */
+const GOLD = ['#f7c948', '#fff2b8', '#e8b93a', '#ffffff'];
 
 export type ScreenView = { el: HTMLElement; stop?: () => void };
 export type ScreenFn = (app: App, screen: never) => ScreenView;
@@ -108,7 +115,9 @@ export class App {
     const overlay = h('div', { class: 'overlay' }, h('div', { class: 'panel pop' }, next, h('div', { class: 'actions', style: 'justify-content:center' }, close, read)));
     document.body.append(overlay);
     const art = overlay.querySelector('canvas');
-    if (art) setTimeout(() => burst(art), 120);
+    // A reveal bursts first and names the Creature after; a golden or Champion one bursts again, in gold.
+    const big = next.dataset.reveal === 'big';
+    if (art) for (const ms of big ? [120, 520, 920] : [120]) setTimeout(() => burst(art, big ? GOLD : undefined), ms);
     this.sfx('fanfare');
   }
 
@@ -116,25 +125,45 @@ export class App {
     return content.skill(skill).creature;
   }
 
+  /** A catch moment: the Creature in a sparkle burst, then what it is. Golden and Champion are bigger. */
+  private reveal(skill: SkillId, variant: Variant, title: string, line: string): HTMLElement {
+    const c = this.skillCreature(skill);
+    const mine = befriended(content, this.store.save).find((b) => b.creature === c.id);
+    const big = variant === 'golden' || variant === 'champion';
+    const name = mine?.name ?? c.name;
+    return h(
+      'div',
+      { class: `reveal${big ? ' reveal-big' : ''}`, 'data-reveal': big ? 'big' : 'small' },
+      h('div', { class: 'reveal-stage' }, h('div', { class: 'reveal-rays' }), creatureCanvas(c.id, { scale: big ? 11 : 9, evolved: !!mine?.evolved, variant })),
+      h('h2', { class: 'reveal-title' }, variant === 'plain' ? null : iconCanvas(VARIANT_ICON[variant], 3), title),
+      h('div', { class: 'reveal-name' }, name.toUpperCase()),
+      h('p', { class: 'note' }, line),
+    );
+  }
+
   private moment(e: GameEvent): HTMLElement | null {
     switch (e.type) {
       case 'befriended': {
         const c = this.skillCreature(e.skill);
-        return h(
-          'div',
-          {},
-          h('h2', {}, e.shiny ? `A SHINY ${c.name.toUpperCase()}!` : `${c.name.toUpperCase()} JOINED YOUR CREW!`),
-          creatureCanvas(c.id, { scale: 9, shiny: e.shiny }),
-          h('p', { class: 'note' }, c.blurb),
-        );
+        return e.shiny
+          ? this.reveal(e.skill, 'shiny', 'SHINY!', `A rare shiny ${c.name}, caught on a right-first-try answer! ${c.blurb}`)
+          : this.reveal(e.skill, 'plain', 'NEW CREATURE!', `${c.name} joined your crew! ${c.blurb}`);
+      }
+      case 'variant': {
+        const c = this.skillCreature(e.skill);
+        const move = moveName(content.skill(e.skill));
+        if (e.variant === 'shiny') return this.reveal(e.skill, 'shiny', 'SHINY!', `You got ${move} right first try, and a rare shiny ${c.name} came out to see!`);
+        if (e.variant === 'golden') return this.reveal(e.skill, 'golden', 'GOLDEN!', `${GOLDEN_STREAK} right first try in a row on ${move}! ${c.name} turned to gold.`);
+        return this.reveal(e.skill, 'champion', 'CHAMPION!', `${CHAMPION_WINS} Goldie battles won! ${c.name} is a Champion now.`);
       }
       case 'evolved': {
         const c = this.skillCreature(e.skill);
+        const look = befriended(content, this.store.save).find((b) => b.creature === c.id)?.look ?? 'plain';
         return h(
           'div',
           {},
           h('h2', {}, `${c.name.toUpperCase()} EVOLVED!`),
-          creatureCanvas(c.id, { scale: 9, evolved: true, shiny: this.store.save.shinies.includes(c.id) }),
+          creatureCanvas(c.id, { scale: 9, evolved: true, variant: look }),
           h('p', { class: 'note' }, `It's now ${c.evolved}. You've got this move down.`),
         );
       }

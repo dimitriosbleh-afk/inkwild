@@ -130,6 +130,7 @@ export function restore(content: Content, data: Restorable, today: Day): Save {
         masteredBand: band,
         reviewMisses: 0,
         rusty: false,
+        streak: 0,
       };
     }
   }

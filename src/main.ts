@@ -2,7 +2,9 @@ import './ui/styles.css';
 import { askToKeepStorage } from './app/persist';
 import { App } from './ui/app';
 import { activityScreen } from './ui/screens/activity';
-import { backupScreen, firstRunScreen, guideScreen, progressScreen, restoreScreen, settingsScreen } from './ui/screens/menus';
+import { backupScreen, firstRunScreen, progressScreen, restoreScreen, settingsScreen } from './ui/screens/menus';
+import { guideScreen } from './ui/screens/guide';
+import { battleScreen } from './ui/screens/battle';
 import { homeScreen, islandScreen, mapScreen } from './ui/screens/world';
 import { storyScreen } from './ui/screens/story';
 import { piecesScreen, writeScreen } from './ui/screens/write';
@@ -17,6 +19,7 @@ const app = new App(document.getElementById('app')!, {
   island: islandScreen,
   activity: activityScreen,
   guide: guideScreen,
+  battle: battleScreen,
   settings: settingsScreen,
   backup: backupScreen,
   progress: progressScreen,

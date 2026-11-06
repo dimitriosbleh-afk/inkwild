@@ -66,8 +66,16 @@ _Avoid_: raid, mission, level
 The rival a Student battles to earn an Island's badge; the Keeper battle is that Branch's checkpoint.
 _Avoid_: boss, gym leader, test
 
+**Variant**:
+A rarer look of a Creature the Student already has: shiny (a lucky find), golden (a run of first tries in its Skill) or Champion (Goldie battles won with it).
+_Avoid_: skin, edition, tier
+
+**Goldie battle**:
+The daily review on Home Island: a Student picks one of their Creatures and fights one of Maxx's Goldies over three rounds drawn from Skills they have done.
+_Avoid_: daily quiz, revision test
+
 **Field Guide**:
-The record of every Creature a Student has met or befriended.
+The record of every Creature a Student has met or befriended, and of the Variants they hold.
 _Avoid_: dex, collection, inventory
 
 **Swap**:
@@ -89,5 +97,5 @@ A Student's own free writing from the Story workshop: never marked, kept only on
 _Avoid_: submission, entry, assignment
 
 **Backup code**:
-A 12-character code holding a Student's progress, copied into their book and typed back to prove it was copied correctly, used to restore the Save on any iPad; swapped and shiny Creatures are not in it.
+A 12-character code holding a Student's progress, copied into their book and typed back to prove it was copied correctly, used to restore the Save on any iPad; swapped Creatures and Variants are not in it.
 _Avoid_: password, login code

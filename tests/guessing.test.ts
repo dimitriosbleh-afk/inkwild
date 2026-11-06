@@ -29,7 +29,7 @@ class Reader {
     activity: Activity = { kind: 'encounter', id: '5.1-b2-0', tries: 0 },
   ) {
     this.save = newSave(100);
-    this.save.skills['5.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false };
+    this.save.skills['5.1'] = { taught: true, done: 0, xp: 0, recent: [], mastered: false, reviewMisses: 0, rusty: false, streak: 0 };
     this.save.activity = activity;
   }
   do(action: Action): GameEvent[] {
@@ -174,7 +174,7 @@ describe('the Creature slips away', () => {
 
   it('gives no XP for a Daily review item whose answer is shown', () => {
     const encounter: Encounter = content.encounter('5.1-b2-0');
-    const r = new Reader(content, { kind: 'review', ids: [encounter.id], at: 0, tries: 0, firsts: 0, phase: 'task' });
+    const r = new Reader(content, { kind: 'review', ids: [encounter.id], at: 0, tries: 0, rounds: [], phase: 'task', fighter: 'c5.1' });
     r.answer(pick(1));
     r.answer(pick(1));
     expect(r.save.skills['5.1']).toMatchObject({ xp: 0, reviewMisses: 1 });

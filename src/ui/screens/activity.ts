@@ -1,9 +1,11 @@
 import { content, crew } from '../../app/content';
-import { captainCanvas } from '../../art/captain';
+import { captainCanvas, GOLDIE_LOOK } from '../../art/captain';
+import { iconCanvas } from '../../art/icons';
 import { crewCanvas } from '../../art/crew';
 import { creatureCanvas } from '../../art/creatures';
 import type { BranchId, Response, SkillId, Task } from '../../content/types';
-import { currentTask, encounterOf, KEEPER_HP, type GameEvent } from '../../core/game';
+import { befriended, CHAMPION_WINS, rarest } from '../../core/creatures';
+import { BATTLE_TO_WIN, battleHp, currentTask, encounterOf, GOLDIE_HP, KEEPER_HP, type GameEvent } from '../../core/game';
 import { TOO_FAST_HOLD_MS } from '../../core/pace';
 import type { Activity, Outcome } from '../../core/save';
 import { trapStep } from '../../core/review';
@@ -55,10 +57,10 @@ export function activityScreen(app: App, { branch, wrote }: { branch: BranchId; 
 }
 
 function header(app: App, branch: BranchId, a: Activity): HTMLElement {
-  const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' ? 'RETREAT' : 'ISLAND');
+  const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' || a.kind === 'review' ? 'RETREAT' : 'ISLAND');
   const teaching = (a.kind === 'teach' && a.step === 0) || (a.kind === 'review' && a.phase === 'refresher');
   const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(content.skill(skillOf(a))) }, 'MOVE CARD');
-  const title = a.kind === 'review' ? `DAILY REVIEW · ${a.at + 1} OF ${a.ids.length}` : content.branch(branch).island.toUpperCase();
+  const title = a.kind === 'review' ? `GOLDIE BATTLE · ROUND ${a.at + 1} OF ${a.ids.length}` : content.branch(branch).island.toUpperCase();
   return h('div', { class: 'row spread task-head' }, h('div', { class: 'row' }, back, card), h('div', { class: 'frame' }, title));
 }
 
@@ -66,7 +68,7 @@ function skillOf(a: Activity): SkillId {
   return a.kind === 'teach' ? a.skill : content.encounter(encounterOf(a)).skill;
 }
 
-/** A Keeper battle or a Daily review ends when the Student leaves; anything else waits for them. A review goes back Home, where it began. */
+/** A Keeper or Goldie battle ends when the Student leaves; anything else waits for them. A Goldie battle goes back Home, where it began. */
 function leave(app: App, branch: BranchId): void {
   const kind = app.store.save.activity?.kind;
   if (kind === 'keeper' || kind === 'review') app.store.dispatch({ type: 'retreat' });
@@ -129,10 +131,27 @@ function stage(app: App, a: Exclude<Activity, { kind: 'teach'; step: 0 }> | Extr
     return { el, sprite: null };
   }
 
-  if (a.kind === 'encounter' || a.kind === 'review') {
+  if (a.kind === 'review') {
+    const skill = content.skill(skillOf(a));
+    const shout = task.prompt.replace(/\.$/, '!');
+    const el = h(
+      'div',
+      { class: 'stage stage-keeper stage-goldie' },
+      goldieArena(app, a),
+      h('div', { class: 'frame keeper-call' }, `WIN ${BATTLE_TO_WIN} ROUNDS TO BEAT IT. FIRST TRY HITS HARDEST!`),
+      frame,
+      bubble('Goldie', [shout], [said('say-prompt', shout)], 'from-foe'),
+    );
+    return { el, sprite: null };
+  }
+
+  if (a.kind === 'encounter') {
     const skill = content.skill(content.encounter(encounterOf(a)).skill);
     const p = app.store.save.skills[skill.id];
-    const wild = creatureCanvas(skill.creature.id, { scale: 5, evolved: !!p?.mastered, shiny: app.store.save.shinies.includes(skill.creature.id) });
+    // The wild one looks like the rarest one the Student has, but a crown is won in battle, not found in the grass.
+    const mine = befriended(content, app.store.save).find((c) => c.creature === skill.creature.id);
+    const look = rarest((mine?.variants ?? []).filter((v) => v !== 'champion'));
+    const wild = creatureCanvas(skill.creature.id, { scale: 5, evolved: !!p?.mastered, variant: look });
     wild.classList.add('bob');
     const guide = crewCanvas(skill.teach.crew, 5);
     guide.classList.add('stage-guide');
@@ -179,9 +198,9 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
   const text = w.passage ?? passage(task);
   if (text) panel.append(text);
   panel.append(w.el, feedback);
-  // The Creature on stage: wild in an Encounter or review, the Keeper's in a battle.
+  // The Creature on stage: wild in an Encounter, the Keeper's or the Goldie in a battle.
   const creature = sprite ?? panel.querySelector('.foe-sprite');
-  const wild = a.kind === 'encounter' || a.kind === 'review';
+  const wild = a.kind === 'encounter';
 
   const react = (events: GameEvent[]) => {
     for (const e of events) {
@@ -202,7 +221,7 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
         const note = w.lookNote?.();
         feedback.replaceChildren(h('div', { class: 'feedback look pop' }, h('b', {}, 'SECOND LOOK'), readable(e.reason), note ? h('div', { class: 'look-count' }, readable(note)) : null));
       }
-      if (e.type === 'hit') hit(panel, e.target, e.amount, app);
+      if (e.type === 'hit') hit(panel, e.target, e.amount, app, a.kind === 'review' ? GOLDIE_HP : KEEPER_HP);
       if (e.type === 'resolved') {
         w.reveal(e.outcome);
         if (task.body.format === 'choose' && text) {
@@ -212,7 +231,7 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
             blank.classList.add('filled');
           }
         }
-        const title = wild ? CAUGHT[e.outcome] : e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
+        const title = wild ? CAUGHT[e.outcome] : a.kind === 'review' ? ROUND[e.outcome] : e.outcome === 'first' ? 'SPOT ON!' : e.outcome === 'second' ? 'GOT IT!' : "HERE'S HOW IT GOES";
         const why = e.outcome === 'shown' && e.reason && e.reason !== SORT_LOOK ? [readable(e.reason), h('br'), h('br')] : [];
         const box = h('div', { class: 'feedback good pop' }, h('b', {}, title), ...why, readable(e.success));
         // A review item missed first time: the Move card is the next thing to look at.
@@ -222,8 +241,11 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
         }
         const next = nextButtons(app, branch, events, a.kind === 'encounter' ? skillOf(a) : undefined);
         feedback.replaceChildren(box, ...(next ? [next] : []));
-        const done = events.find((x) => x.type === 'reviewDone');
-        if (done) feedback.append(reviewResult(app, done.first, done.of));
+        const done = events.find((x) => x.type === 'battleDone');
+        if (done) {
+          feedback.append(battleResult(app, done));
+          setTimeout(() => finish(panel, done.won), 700);
+        }
         if (wild && sprite) {
           creatureReacts(sprite, e.outcome);
           if (e.outcome !== 'shown') app.sfx('right');
@@ -236,6 +258,9 @@ function taskView(app: App, branch: BranchId, a: Exclude<Activity, { kind: 'teac
   };
   return panel;
 }
+
+/** A Goldie battle round, by how it was answered. */
+const ROUND: Record<Outcome, string> = { first: 'FULL HIT!', second: 'HALF HIT!', shown: 'THE GOLDIE HITS BACK!' };
 
 /** What became of the wild Creature, by how it was answered. */
 const CAUGHT: Record<Outcome, string> = { first: 'CAUGHT!', second: "GOT IT, BUT IT'S NERVOUS", shown: 'IT SLIPPED AWAY…' };
@@ -262,7 +287,7 @@ function nextButtons(app: App, branch: BranchId, events: GameEvent[], played?: S
   const ended = events.find((e) => e.type === 'badge' || e.type === 'retreated');
   const still = app.store.save.activity;
   const row = h('div', { class: 'actions' });
-  if (events.some((e) => e.type === 'reviewDone')) return null;
+  if (events.some((e) => e.type === 'battleDone')) return null;
   if (still?.kind === 'review') {
     row.append(h('button', { class: 'big', onclick: () => app.go({ name: 'activity', branch: activityBranch(content, still) }) }, 'NEXT'));
     return row;
@@ -287,22 +312,42 @@ function nextButtons(app: App, branch: BranchId, events: GameEvent[], played?: S
   return row;
 }
 
-/** The end of a Daily review: how many came back first try, then home. */
-function reviewResult(app: App, first: number, of: number): HTMLElement {
+/** The end of a Goldie battle: won or not, how the rounds went, and how close the fighter is to Champion. Then home. */
+function battleResult(app: App, e: Extract<GameEvent, { type: 'battleDone' }>): HTMLElement {
+  const mine = befriended(content, app.store.save).find((c) => c.creature === e.creature);
+  const name = mine?.name ?? 'Your crew';
+  const won =
+    e.wins > CHAMPION_WINS
+      ? `${name} beat the Goldie! That's ${e.wins} wins for a Champion.`
+      : e.wins === CHAMPION_WINS
+        ? `${name} beat the Goldie! That's ${CHAMPION_WINS} wins.`
+        : `${name} beat the Goldie! ${e.wins} of ${CHAMPION_WINS} wins to become a Champion.`;
+  const lost = `${e.right} of ${e.of} rounds right. You needed ${BATTLE_TO_WIN}. Train and try again tomorrow!`;
   return h(
     'div',
-    { class: 'panel pop review-done' },
-    h('h2', {}, 'DAILY REVIEW DONE'),
-    h('p', { class: 'note' }, readable(`${first} of ${of} right first try. Old moves stay sharp when you use them.`)),
+    { class: `panel pop review-done battle-done${e.won ? ' won' : ''}` },
+    h('h2', {}, e.won ? 'YOU WON!' : 'THE GOLDIE GOT AWAY'),
+    mine?.wins ? h('div', { class: 'battle-wins' }, ...Array.from({ length: Math.min(mine.wins, CHAMPION_WINS) }, () => iconCanvas('crown', 3)), mine.wins >= CHAMPION_WINS ? null : `${mine.wins}/${CHAMPION_WINS}`) : null,
+    h('p', { class: 'note' }, readable(e.won ? won : lost)),
+    h('p', { class: 'note' }, readable(`${e.first} of ${e.of} right first try. Old moves stay sharp when you use them.`)),
     h('div', { class: 'actions' }, h('button', { class: 'big', onclick: () => app.go({ name: 'home' }) }, 'HOME')),
   );
 }
 
-function arena(app: App, a: Extract<Activity, { kind: 'keeper' }>): HTMLElement {
-  const b = content.branch(a.branch);
-  const mine = befriendedFor(app, a.branch);
-  const foe = creatureCanvas(b.keeper.creature.toLowerCase(), { scale: 7, evolved: true });
-  const me = mine ? creatureCanvas(mine.id, { scale: 8, flip: true, evolved: mine.evolved }) : captainCanvas(app.store.save.captain!, 6);
+/** The battle is decided: the loser's bar runs out and it flashes. */
+function finish(panel: HTMLElement, won: boolean): void {
+  const arenaEl = panel.querySelector('.arena');
+  if (!arenaEl) return;
+  const bar = arenaEl.querySelector<HTMLElement>(won ? '.foe-hp' : '.you-hp');
+  if (bar) bar.style.width = '0%';
+  const loser = arenaEl.querySelector(won ? '.foe-sprite' : '.me-sprite');
+  loser?.classList.remove('bob');
+  loser?.classList.add(won ? 'run-off' : 'flash');
+  if (won) burst(arenaEl.querySelector('.me-sprite') ?? arenaEl);
+}
+
+/** Two fighters and their HP bars, out of 100: the foe on the right, the Student's side on the left. */
+function arenaView(foe: HTMLCanvasElement, me: HTMLCanvasElement, foeName: string, foePct: number, meName: string, mePct: number): HTMLElement {
   foe.classList.add('bx', 'bob', 'foe-sprite');
   me.classList.add('bx', 'me-sprite');
   foe.style.cssText = 'right:70px;top:18px';
@@ -315,9 +360,27 @@ function arena(app: App, a: Extract<Activity, { kind: 'keeper' }>): HTMLElement 
     h('div', { class: 'pad', style: 'left:50px;bottom:22px;width:200px' }),
     foe,
     me,
-    h('div', { class: 'hp bx', style: 'left:16px;top:16px' }, `${b.keeper.name.toUpperCase()}`, bar((100 * a.foe) / KEEPER_HP, 'foe-hp')),
-    h('div', { class: 'hp bx', style: 'right:16px;bottom:16px' }, `YOU · TURN ${a.turn}`, bar((100 * a.hp) / KEEPER_HP, 'you-hp')),
+    h('div', { class: 'hp bx', style: 'left:16px;top:16px' }, foeName, bar(foePct, 'foe-hp')),
+    h('div', { class: 'hp bx', style: 'right:16px;bottom:16px' }, meName, bar(mePct, 'you-hp')),
   );
+}
+
+function arena(app: App, a: Extract<Activity, { kind: 'keeper' }>): HTMLElement {
+  const b = content.branch(a.branch);
+  const mine = befriendedFor(app, a.branch);
+  const foe = creatureCanvas(b.keeper.creature.toLowerCase(), { scale: 7, evolved: true });
+  const me = mine ? creatureCanvas(mine.id, { scale: 8, flip: true, evolved: mine.evolved }) : captainCanvas(app.store.save.captain!, 6);
+  return arenaView(foe, me, b.keeper.name.toUpperCase(), (100 * a.foe) / KEEPER_HP, `YOU · TURN ${a.turn}`, (100 * a.hp) / KEEPER_HP);
+}
+
+/** The Goldie against the Creature the Student picked, drawn as they have it. */
+function goldieArena(app: App, a: Extract<Activity, { kind: 'review' }>): HTMLElement {
+  const hp = battleHp(a.rounds);
+  const mine = befriended(content, app.store.save).find((c) => c.creature === a.fighter);
+  const foe = captainCanvas(GOLDIE_LOOK, 6);
+  const me = mine ? creatureCanvas(mine.creature, { scale: 8, flip: true, evolved: mine.evolved, variant: mine.look }) : captainCanvas(app.store.save.captain!, 6);
+  const name = mine ? mine.name.toUpperCase() : 'YOU';
+  return arenaView(foe, me, "MAXX'S GOLDIE", (100 * hp.foe) / GOLDIE_HP, `${name} · ROUND ${a.at + 1}`, (100 * hp.you) / GOLDIE_HP);
 }
 
 function befriendedFor(app: App, branch: BranchId) {
@@ -326,13 +389,13 @@ function befriendedFor(app: App, branch: BranchId) {
   return s ? { id: s.creature.id, evolved: true } : undefined;
 }
 
-function hit(panel: HTMLElement, target: 'foe' | 'you', amount: number, app: App): void {
+function hit(panel: HTMLElement, target: 'foe' | 'you', amount: number, app: App, max: number): void {
   const arenaEl = panel.querySelector('.arena');
   if (!arenaEl) return;
   shake(arenaEl);
   app.sfx('hit');
   const barEl = arenaEl.querySelector<HTMLElement>(target === 'foe' ? '.foe-hp' : '.you-hp');
-  if (barEl) barEl.style.width = `${Math.max(0, parseFloat(barEl.style.width) - (100 * amount) / KEEPER_HP)}%`;
+  if (barEl) barEl.style.width = `${Math.max(0, parseFloat(barEl.style.width) - (100 * amount) / max)}%`;
   const sprite = arenaEl.querySelector(target === 'foe' ? '.foe-sprite' : '.me-sprite');
   sprite?.classList.add('flash');
 }

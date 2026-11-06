@@ -171,7 +171,7 @@ export function teachPlayer(skill: Skill, done: () => void): HTMLElement {
 /** A rusty Skill's trap step, replayed before its Daily review item, with the same player as the I do. */
 export function refresherPlayer(skill: Skill, trap: Step, done: () => void): HTMLElement {
   const person = crew[skill.teach.crew];
-  return stepPlayer(skill, { frame: `QUICK REFRESHER · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`, steps: [trap], last: 'BACK TO THE REVIEW', intro: 'Quick refresher first!' }, done);
+  return stepPlayer(skill, { frame: `QUICK REFRESHER · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`, steps: [trap], last: 'BACK TO THE BATTLE', intro: 'Quick refresher first!' }, done);
 }
 
 /** The reminder: what each term means, two labelled examples, and the quick test. */

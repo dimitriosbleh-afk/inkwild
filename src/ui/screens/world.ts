@@ -9,6 +9,7 @@ import { iconCanvas } from '../../art/icons';
 import { drawMap, type MapIsland } from '../../art/map';
 import { backupDue } from '../../backup/code';
 import type { BranchId } from '../../content/types';
+import { befriended } from '../../core/creatures';
 import { isUnlocked, keeperOpen } from '../../core/route';
 import { skillProgress } from '../../core/save';
 import { activityBranch, alertsFor, charted, goalFor, islandProgress, placeState, type Goal } from '../../world/goal';
@@ -136,11 +137,11 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
     positions.set(branch, { x: scene.player.x, y: scene.player.y });
     app.go({ name: 'activity', branch: branch as BranchId });
   };
+  // A Goldie battle under way carries on; a new one starts by picking a Creature to fight with.
   const review = () => {
-    if (app.store.save.activity?.kind !== 'review') app.store.dispatch({ type: 'review' });
     const a = app.store.save.activity;
-    if (a?.kind !== 'review') return say(speech, 'DAILY REVIEW', 'No review right now. Come back tomorrow!');
-    app.go({ name: 'activity', branch: activityBranch(content, a) });
+    if (a?.kind === 'review') return app.go({ name: 'activity', branch: activityBranch(content, a) });
+    app.go({ name: 'battle' });
   };
   const battle = () => {
     app.store.dispatch({ type: 'keeper', branch: branch as BranchId });
@@ -182,7 +183,7 @@ export function islandScreen(app: App, { branch }: { branch: BranchId | 'home' }
   const use = (poi: Poi) => uses[poi.kind]();
   const walkAndUse = (poi: Poi) => scene.walkTo(poi, () => use(poi));
 
-  const grassLabel = (kind: PoiKind) => (kind !== 'grass' ? undefined : home && st.review ? 'REVIEW' : branch === 'workshop' ? 'WRITE' : undefined);
+  const grassLabel = (kind: PoiKind) => (kind !== 'grass' ? undefined : home && st.review ? 'BATTLE' : branch === 'workshop' ? 'WRITE' : undefined);
   scene.onNear = (poi) => {
     action.disabled = !poi;
     action.textContent = poi ? grassLabel(poi.kind) ?? ACTION_LABEL[poi.kind] : '·';
@@ -285,6 +286,7 @@ function showRoute(app: App, box: HTMLElement, branch: BranchId): void {
   const s = app.store.save;
   const b = content.branch(branch);
   const skills = content.skillsOf(branch);
+  const looks = new Map(befriended(content, s).map((c) => [c.creature, c.look]));
   const rows: HTMLElement[] = [];
   skills.forEach((skill, i) => {
     if (b.marked && i === b.keeperAfter) {
@@ -297,7 +299,7 @@ function showRoute(app: App, box: HTMLElement, branch: BranchId): void {
         'div',
         { class: `node ${p.mastered ? 'done' : isOpen ? 'open' : 'locked'}` },
         h('div', { class: 'dot' }),
-        p.done > 0 ? creatureCanvas(skill.creature.id, { scale: 2, evolved: p.mastered, shiny: s.shinies.includes(skill.creature.id) }) : null,
+        p.done > 0 ? creatureCanvas(skill.creature.id, { scale: 2, evolved: p.mastered, variant: looks.get(skill.creature.id) ?? 'plain' }) : null,
         h('div', { class: 'name' }, isOpen ? skill.name : '???'),
       ),
     );

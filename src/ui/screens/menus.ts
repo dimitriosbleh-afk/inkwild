@@ -240,45 +240,6 @@ async function saveToFiles(app: App): Promise<void> {
   a.click();
 }
 
-export function guideScreen(app: App): ScreenView {
-  const s = app.store.save;
-  const mine = new Map(befriended(content, s).map((c) => [c.creature, c]));
-  const sections = content.branches
-    .filter((b) => content.skillsOf(b.id).length > 0)
-    .map((b) =>
-      h(
-        'div',
-        { class: 'panel' },
-        h('h3', {}, b.island.toUpperCase()),
-        h(
-          'div',
-          { class: 'grid' },
-          content.skillsOf(b.id).map((skill) => {
-            const c = mine.get(skill.creature.id);
-            const art = creatureCanvas(skill.creature.id, { scale: 5, evolved: c?.evolved ?? false, shiny: c?.shiny ?? false });
-            if (c) art.classList.add('bob');
-            const rusty = !!c && !c.received && !!s.skills[skill.id]?.rusty;
-            return h(
-              'div',
-              { class: `card${c ? '' : ' unknown'}` },
-              art,
-              c ? c.name.toUpperCase() : '???',
-              c ? h('div', {}, `LV ${c.level}`) : null,
-              c?.shiny ? h('span', { class: 'tag' }, 'SHINY') : null,
-              c?.received ? h('span', { class: 'tag', style: 'background:var(--sky)' }, 'SWAP') : null,
-              rusty ? h('span', { class: 'tag refresh-tag' }, 'NEEDS A REFRESH') : null,
-            );
-          }),
-        ),
-      ),
-    );
-  const count = mine.size;
-  const total = content.branches.reduce((n, b) => n + content.skillsOf(b.id).length, 0);
-  return {
-    el: h('div', { class: 'centre' }, h('div', { class: 'row spread', style: 'margin-bottom:12px' }, h('button', { class: 'ghost', onclick: () => app.go({ name: 'home' }) }, 'HOME'), h('h2', { style: 'margin:0' }, `FIELD GUIDE ${count}/${total}`), h('button', { class: 'alt', onclick: () => app.go({ name: 'swap' }) }, 'SWAP')), sections),
-  };
-}
-
 export function settingsScreen(app: App): ScreenView {
   const s = () => app.store.save.settings;
   const el = h('div', { class: 'centre' });

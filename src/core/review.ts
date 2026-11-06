@@ -1,17 +1,24 @@
 import type { BranchId, Content, EncounterId, Skill, Step } from '../content/types';
+import { befriended } from './creatures';
 import { interestWeight, poolKey, poolNear, unseen, weighted } from './pick';
 import { skillProgress, type Day, type ReviewPhase, type Save } from './save';
 
-/** A Daily review is three quick Encounters, one each from Skills mastered a while ago. */
+/** A Daily review, played as a Goldie battle, is three quick Encounters: one round each. */
 export const REVIEW_SIZE = 3;
 const MIN_MASTERED = 2;
 
-/** Mastered Skills with Encounters to bring back. The Story workshop has none, so it never comes up. */
+/**
+ * Skills with Encounters to bring back: the mastered ones once there are two, else every Skill taught and played at
+ * least once, so a new Student can battle too. The Story workshop has no Encounters, so it never comes up.
+ */
 function reviewable(content: Content, save: Save): Skill[] {
-  return content.branches
+  const playable = content.branches
     .filter((b) => b.marked)
     .flatMap((b) => content.skillsOf(b.id))
-    .filter((s) => skillProgress(save, s.id).mastered && poolNear(content, s.id, save.branches[s.branch].band).length > 0);
+    .filter((s) => poolNear(content, s.id, save.branches[s.branch].band).length > 0);
+  const mastered = playable.filter((s) => skillProgress(save, s.id).mastered);
+  if (mastered.length >= MIN_MASTERED) return mastered;
+  return playable.filter((s) => skillProgress(save, s.id).taught && skillProgress(save, s.id).done >= 1);
 }
 
 /** The day of the Skill's newest attempt. A Skill with none (restored from a Backup code) counts as longest ago. */
@@ -55,22 +62,28 @@ function pickSkills(save: Save, skills: Skill[], rand: () => number): Skill[] {
   return picked;
 }
 
-/** Today's Daily review: nothing until two Skills are mastered, and nothing once today's is done. */
+/**
+ * Today's Daily review: one Encounter from each picked Skill. With fewer than three Skills to pick from, the most
+ * needed come round again with a different Encounter, so a battle still has three rounds. Nothing once today's is done.
+ */
 export function reviewFor(content: Content, save: Save, today: Day, rand: () => number): EncounterId[] {
   if (save.reviewDay === today) return [];
-  const skills = reviewable(content, save);
-  if (skills.length < MIN_MASTERED) return [];
+  const skills = pickSkills(save, reviewable(content, save), rand);
+  if (skills.length === 0) return [];
   const weight = interestWeight(save.interests);
-  return pickSkills(save, skills, rand).flatMap((s) => {
-    const pool = poolNear(content, s.id, save.branches[s.branch].band);
-    const pick = weighted(unseen(pool, save.seen[poolKey(s.id, pool[0]!.band)]), rand, weight);
-    return pick ? [pick.id] : [];
-  });
+  const ids: EncounterId[] = [];
+  for (let i = 0; i < REVIEW_SIZE * 2 && ids.length < REVIEW_SIZE; i++) {
+    const s = skills[i % skills.length]!;
+    const pool = poolNear(content, s.id, save.branches[s.branch].band).filter((e) => !ids.includes(e.id));
+    const pick = pool.length ? weighted(unseen(pool, save.seen[poolKey(s.id, pool[0]!.band)]), rand, weight) : undefined;
+    if (pick) ids.push(pick.id);
+  }
+  return ids;
 }
 
-/** Whether a Daily review is waiting today. */
+/** Whether a Goldie battle is waiting today: there are rounds to play and a Creature to fight with. */
 export function reviewDue(content: Content, save: Save, today: Day): boolean {
-  return reviewFor(content, save, today, () => 0).length > 0;
+  return reviewFor(content, save, today, () => 0).length > 0 && befriended(content, save).length > 0;
 }
 
 /** The I do step that shows the mistake students usually make: what a rusty Skill replays before its review item. */

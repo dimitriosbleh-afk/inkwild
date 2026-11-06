@@ -1,3 +1,4 @@
+import type { Variant } from '../core/save';
 import { makeSprite, type SpriteDef } from './sprite';
 
 const ICONS = {
@@ -78,9 +79,54 @@ const ICONS = {
       '.....dd.....',
     ],
   },
+  /** ✦ The shiny badge: a four-point sparkle. */
+  shiny: {
+    pal: { s: '#8fd3ff', h: '#ffffff' },
+    rows: [
+      '....s....',
+      '....s....',
+      '...shs...',
+      '..shhhs..',
+      'sshhhhhss',
+      '..shhhs..',
+      '...shs...',
+      '....s....',
+      '....s....',
+    ],
+  },
+  /** ★ The golden badge. */
+  golden: {
+    pal: { y: '#ffd84a', h: '#fff6c8', o: '#c8901e' },
+    rows: [
+      '....y....',
+      '....h....',
+      '...yhy...',
+      'yyyhhyyyy',
+      '.yyhyyyo.',
+      '..yyyyo..',
+      '..yyoyo..',
+      '.yyo.ooo.',
+      '.yo...oo.',
+    ],
+  },
+  /** The champion badge: a crown. */
+  crown: {
+    pal: { y: '#f7c948', d: '#b07d1e', r: '#e8423a', b: '#4ac0f0' },
+    rows: [
+      'y...y...y',
+      'yy.yyy.yy',
+      'yyyyyyyyy',
+      'yryybyyry',
+      'yyyyyyyyy',
+      'ddddddddd',
+    ],
+  },
 } satisfies Record<string, SpriteDef>;
 
 export type IconName = keyof typeof ICONS;
+
+/** The badge for each rare variant. */
+export const VARIANT_ICON = { shiny: 'shiny', golden: 'golden', champion: 'crown' } as const satisfies Record<Exclude<Variant, 'plain'>, IconName>;
 
 /** A small pixel icon to sit in buttons and labels where an emoji would clash with the art. */
 export function iconCanvas(name: IconName, scale: number): HTMLCanvasElement {

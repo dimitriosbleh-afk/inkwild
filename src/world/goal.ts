@@ -18,7 +18,7 @@ export interface PlaceState {
   keeperReady: boolean;
   tide: BranchId | null;
   done: boolean;
-  /** Home only: a Daily review is waiting, or one is under way. */
+  /** Home only: today's Goldie battle (the Daily review) is waiting, or one is under way. */
   review: boolean;
 }
 
@@ -48,7 +48,7 @@ export function islandProgress(content: Content, save: Save, branch: BranchId): 
   return skills.filter(counts).length / skills.length;
 }
 
-/** A Daily review can start, or has started, from Home Island. Another activity left midway comes first. */
+/** A Goldie battle can start, or has started, from Home Island. Another activity left midway comes first. */
 export function reviewReady(content: Content, save: Save, today: Day): boolean {
   if (save.activity) return save.activity.kind === 'review';
   return reviewDue(content, save, today);
@@ -152,8 +152,8 @@ const ISLAND_RULES: Rule[] = [
 
 const HOME_RULES: Rule[] = [
   { when: (c) => !started(c.save) && !!nextIsland(c.content, c.save, c.today), kind: 'boat', line: (c) => `Your first rescue starts on ${nextIsland(c.content, c.save, c.today)!.island}. Walk to the dock and set sail!` },
+  { when: (c) => c.st.review, kind: 'grass', line: () => 'A Goldie wants to battle! Pick a Creature and fight.', label: 'GOLDIE BATTLE' },
   { when: (c) => !!c.st.tide, kind: 'board', line: (c) => `Today's tide quest is on ${c.content.branch(c.st.tide!).island}. Check the notice board!` },
-  { when: (c) => c.st.review, kind: 'grass', line: () => "Daily review: three quick moves from islands you've done.", label: 'REVIEW' },
   { when: (c) => !!nextIsland(c.content, c.save, c.today), kind: 'boat', line: (c) => `Walk to the dock and ${sailTo(c)}!` },
   { when: () => true, kind: 'boat', line: () => 'Every island is done! Walk to the dock and sail anywhere for a rematch.' },
 ];

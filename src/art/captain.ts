@@ -60,6 +60,9 @@ export function captainDef(look: CaptainLook): SpriteDef {
   };
 }
 
+/** One of Maxx's Goldies: a gold tracksuit and a gold cap. */
+export const GOLDIE_LOOK: CaptainLook = { skin: 2, hair: 0, hairColour: 0, outfit: 3, colour: 3 };
+
 export function captainCanvas(look: CaptainLook, scale: number): HTMLCanvasElement {
   return makeSprite(captainDef(look), scale);
 }

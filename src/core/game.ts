@@ -1,11 +1,12 @@
 import type { BranchId, Content, Encounter, EncounterId, Response, Skill, SkillId, Task } from '../content/types';
 import { recordForBand } from './bands';
 import { check, checkedBody } from './check';
+import { befriended, CHAMPION_WINS, GOLDEN_STREAK, skillOfCreature, variantsOf } from './creatures';
 import { tooFast } from './pace';
 import { interestWeight, poolKey, poolNear, weighted } from './pick';
 import { reviewFor, reviewPhase } from './review';
 import { isUnlocked, keeperOpen, masteredAt, unlockedSkills } from './route';
-import { skillProgress, type Activity, type Day, type Marks, type Outcome, type Save } from './save';
+import { addVariant, skillProgress, type Activity, type Day, type Marks, type Outcome, type Save, type SkillProgress, type Variant } from './save';
 import { cleanMarks } from './sentence';
 
 export interface Ctx {
@@ -23,10 +24,11 @@ export type Action =
   | { type: 'retreat' }
   /** `marks`: for each checklist item, the words of the Piece the Student tapped to show it. */
   | { type: 'piece'; skill: SkillId; title: string; text: string; marks: Marks }
-  | { type: 'receive'; creature: string; shiny: boolean }
+  | { type: 'receive'; creature: string; variant: Variant }
   /** `marks`: for each check, the words of the sentence the Student tapped to show it. */
   | { type: 'sentence'; skill: SkillId; text: string; marks: Marks }
-  | { type: 'review' };
+  /** Start today's Goldie battle, fighting with `creature`: one the Student has befriended. */
+  | { type: 'review'; creature: string };
 
 export type GameEvent =
   | { type: 'secondLook'; reason: string }
@@ -36,6 +38,8 @@ export type GameEvent =
   | { type: 'resolved'; outcome: Outcome; success: string; reason?: string }
   | { type: 'taught'; skill: SkillId }
   | { type: 'befriended'; skill: SkillId; creature: string; shiny: boolean }
+  /** A rarer version of a Creature already befriended. */
+  | { type: 'variant'; skill: SkillId; creature: string; variant: Exclude<Variant, 'plain'> }
   | { type: 'evolved'; skill: SkillId; creature: string }
   | { type: 'unlocked'; skill: SkillId }
   | { type: 'keeperOpen'; branch: BranchId }
@@ -44,9 +48,10 @@ export type GameEvent =
   | { type: 'retreated'; branch: BranchId }
   | { type: 'tide'; branch: BranchId }
   | { type: 'empty'; branch: BranchId }
-  | { type: 'received'; creature: string; shiny: boolean; already: boolean }
+  | { type: 'received'; creature: string; variant: Variant; already: boolean }
   | { type: 'wrote'; skill: SkillId }
-  | { type: 'reviewDone'; first: number; of: number };
+  /** The end of a Goldie battle. `wins` is the fighter's battle wins now; `right` counts rounds right first or second try. */
+  | { type: 'battleDone'; won: boolean; creature: string; wins: number; first: number; right: number; of: number };
 
 export interface Step {
   save: Save;
@@ -62,6 +67,29 @@ const TIDE_SHINY_ODDS = 16;
 export const RUSTY_AFTER = 2;
 export const KEEPER_HP = 100;
 export const HIT = { first: 25, second: 15, chip: 10, miss: 25 } as const;
+/** A Goldie battle: right first try is a full hit, second try a half, and an answer shown lets the Goldie hit you. */
+export const GOLDIE_HP = 100;
+export const GOLDIE_HIT = { first: 40, second: 20, back: 40 } as const;
+/** Rounds right, first or second try, that win a Goldie battle. */
+export const BATTLE_TO_WIN = 2;
+
+/** Whether a Goldie battle's rounds win it. */
+export function battleWon(rounds: readonly Outcome[]): boolean {
+  return rounds.filter((o) => o !== 'shown').length >= BATTLE_TO_WIN;
+}
+
+/** Each side's HP after these rounds, out of GOLDIE_HP. */
+export function battleHp(rounds: readonly Outcome[]): { you: number; foe: number } {
+  const dealt = (o: Outcome) => (o === 'first' ? GOLDIE_HIT.first : o === 'second' ? GOLDIE_HIT.second : 0);
+  const foe = rounds.reduce((hp, o) => hp - dealt(o), GOLDIE_HP);
+  const you = GOLDIE_HP - rounds.filter((o) => o === 'shown').length * GOLDIE_HIT.back;
+  return { you: Math.max(0, you), foe: Math.max(0, foe) };
+}
+
+/** A Skill's first-try streak after one more result. */
+export function streakAfter(streak: number, outcome: Outcome): number {
+  return outcome === 'first' ? streak + 1 : 0;
+}
 
 /** XP for one Encounter: the Creature slipped away when the answer had to be shown, so that earns none. */
 export function xpFor(outcome: Outcome): number {
@@ -122,11 +150,11 @@ class Run {
       case 'piece':
         return this.piece(action);
       case 'receive':
-        return this.receive(action.creature, action.shiny);
+        return this.receive(action.creature, action.variant);
       case 'sentence':
         return this.sentence(action);
       case 'review':
-        return this.startReview();
+        return this.startReview(action.creature);
     }
   }
 
@@ -170,11 +198,11 @@ class Run {
     };
   }
 
-  private startReview(): void {
-    if (this.save.activity) return;
+  private startReview(creature: string): void {
+    if (this.save.activity || !befriended(this.content, this.save).some((c) => c.creature === creature)) return;
     const ids = reviewFor(this.content, this.save, this.ctx.day, this.ctx.rand);
     if (ids.length === 0) return;
-    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, firsts: 0, phase: reviewPhase(this.content, this.save, ids[0]!) };
+    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, rounds: [], phase: reviewPhase(this.content, this.save, ids[0]!), fighter: creature };
   }
 
   /** A Write your own sentence: kept on the iPad, never marked, worth a little XP. */
@@ -216,7 +244,10 @@ class Run {
       marks,
       day: this.ctx.day,
     });
-    if (p.done === 0) this.events.push({ type: 'befriended', skill: skill.id, creature: skill.creature.id, shiny: false });
+    if (p.done === 0) {
+      addVariant(this.save, skill.creature.id, 'plain');
+      this.events.push({ type: 'befriended', skill: skill.id, creature: skill.creature.id, shiny: false });
+    }
     const firstFinish = !p.mastered;
     this.save.skills[skill.id] = { ...p, taught: true, done: p.done + 1, xp: p.xp + 30, mastered: true };
     if (firstFinish) this.events.push({ type: 'evolved', skill: skill.id, creature: skill.creature.id });
@@ -233,19 +264,25 @@ class Run {
     this.announceUnlocks(skill.branch, before);
   }
 
-  /** A Swap gives a copy: the giver keeps theirs. A Creature already owned (or already received) adds nothing new. */
-  private receive(creature: string, shiny: boolean): void {
-    const skill = this.content.branches.flatMap((b) => this.content.skillsOf(b.id)).find((s) => s.creature.id === creature);
+  /** A Swap gives a copy of one variant: the giver keeps theirs. A variant already owned adds nothing new. */
+  private receive(creature: string, variant: Variant): void {
+    const skill = skillOfCreature(this.content, creature);
     if (!skill) return;
-    const owned = (this.save.skills[skill.id]?.done ?? 0) > 0;
-    const had = this.save.received.find((r) => r.creature === creature);
-    const already = (owned && (!shiny || this.save.shinies.includes(creature))) || (!!had && (had.shiny || !shiny));
-    if (!already) {
-      if (owned && shiny) this.save.shinies.push(creature);
-      else if (had) had.shiny = true;
-      else this.save.received.push({ creature, shiny });
-    }
-    this.events.push({ type: 'received', creature, shiny, already });
+    const already = variantsOf(this.save, skill).includes(variant);
+    if (!already) addVariant(this.save, creature, variant);
+    this.events.push({ type: 'received', creature, variant, already });
+  }
+
+  /** A rarer variant, said once when it is new. */
+  private earn(skill: SkillId, creature: string, variant: Exclude<Variant, 'plain'>): void {
+    if (addVariant(this.save, creature, variant)) this.events.push({ type: 'variant', skill, creature, variant });
+  }
+
+  /** One more result on a Skill's Encounters, for its first-try streak. Five in a row earns its golden Creature. */
+  private streak(skill: SkillId, p: SkillProgress, outcome: Outcome): SkillProgress {
+    const streak = streakAfter(p.streak, outcome);
+    if (streak >= GOLDEN_STREAK) this.earn(skill, this.content.skill(skill).creature.id, 'golden');
+    return { ...p, streak };
   }
 
   /** Leaving a Keeper battle or a Daily review early. A review left early gives no credit and can be started again. */
@@ -336,14 +373,15 @@ class Run {
   }
 
   /**
-   * One Daily review answer. It gives XP and notes the attempt so this Skill waits longest for its next review, but
-   * never moves the Band, placement or mastery, and never counts as play on that Island. A miss counts towards rusty:
-   * two in a row and the Skill comes back first, after its trap step, until it is right first try again.
+   * One round of a Goldie battle, which is one Daily review answer. It gives XP and notes the attempt so this Skill
+   * waits longest for its next review, but never moves the Band, placement or mastery, and never counts as play on that
+   * Island. A miss counts towards rusty: two in a row and the Skill comes back first, after its trap step, until it is
+   * right first try again. It counts towards the Skill's first-try streak like any of its Encounters.
    */
   private reviewTurn(a: Extract<Activity, { kind: 'review' }>, outcome: Outcome): void {
     const { content, save, ctx } = this;
     const encounter = content.encounter(encounterOf(a));
-    const p = skillProgress(save, encounter.skill);
+    const p = this.streak(encounter.skill, skillProgress(save, encounter.skill), outcome);
     const misses = outcome === 'first' ? 0 : p.reviewMisses + 1;
     save.skills[encounter.skill] = {
       ...p,
@@ -358,15 +396,30 @@ class Run {
       save.daysPlayed += 1;
       save.lastPlayed = ctx.day;
     }
-    const firsts = a.firsts + (outcome === 'first' ? 1 : 0);
+    if (outcome === 'shown') this.events.push({ type: 'hit', target: 'you', amount: GOLDIE_HIT.back });
+    else this.events.push({ type: 'hit', target: 'foe', amount: outcome === 'first' ? GOLDIE_HIT.first : GOLDIE_HIT.second });
+    const rounds = [...a.rounds, outcome];
     const next = a.ids[a.at + 1];
     if (next) {
-      save.activity = { ...a, at: a.at + 1, tries: 0, firsts, phase: reviewPhase(content, save, next) };
+      save.activity = { ...a, at: a.at + 1, tries: 0, rounds, phase: reviewPhase(content, save, next) };
       return;
     }
     delete save.activity;
     save.reviewDay = ctx.day;
-    this.events.push({ type: 'reviewDone', first: firsts, of: a.ids.length });
+    this.battleDone(a.fighter, rounds);
+  }
+
+  /** A win counts for the fighter, if it is still one of the Student's Creatures. The third makes it a Champion. */
+  private battleDone(fighter: string, rounds: Outcome[]): void {
+    const won = battleWon(rounds);
+    const skill = skillOfCreature(this.content, fighter);
+    const counts = !!skill && variantsOf(this.save, skill).length > 0;
+    const wins = (this.save.wins[fighter] ?? 0) + (won && counts ? 1 : 0);
+    if (counts) this.save.wins[fighter] = wins;
+    const first = rounds.filter((o) => o === 'first').length;
+    const right = rounds.filter((o) => o !== 'shown').length;
+    this.events.push({ type: 'battleDone', won, creature: fighter, wins, first, right, of: rounds.length });
+    if (skill && counts && wins >= CHAMPION_WINS) this.earn(skill.id, fighter, 'champion');
   }
 
   private record(encounter: Encounter, outcome: Outcome): void {
@@ -376,16 +429,19 @@ class Run {
     const before = this.openState(skill.branch);
     const p = skillProgress(save, skill.id);
     const tide = save.tide?.day === ctx.day && save.tide.branch === skill.branch;
+    const creature = skill.creature.id;
 
+    // A shiny is only ever found on a first-try result, and only until the Student has one.
+    const hadShiny = (save.variants[creature] ?? []).includes('shiny');
+    const shiny = outcome === 'first' && !hadShiny && ctx.rand() < 1 / (tide ? TIDE_SHINY_ODDS : SHINY_ODDS);
     if (p.done === 0) {
-      const odds = tide ? TIDE_SHINY_ODDS : SHINY_ODDS;
-      const shiny = ctx.rand() < 1 / odds;
-      if (shiny) save.shinies.push(skill.creature.id);
-      this.events.push({ type: 'befriended', skill: skill.id, creature: skill.creature.id, shiny });
-    }
+      addVariant(save, creature, 'plain');
+      if (shiny) addVariant(save, creature, 'shiny');
+      this.events.push({ type: 'befriended', skill: skill.id, creature, shiny });
+    } else if (shiny) this.earn(skill.id, creature, 'shiny');
 
     const updated = {
-      ...p,
+      ...this.streak(skill.id, p, outcome),
       done: p.done + 1,
       xp: p.xp + xpFor(outcome) * (tide ? 2 : 1),
       recent: [...p.recent, { outcome, band: encounter.band, day: ctx.day }].slice(-RECENT_ATTEMPTS),
