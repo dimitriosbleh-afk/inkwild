@@ -153,7 +153,14 @@ export interface Skill {
   teach: Teach;
   creature: CreatureDef;
   /** Story workshop Skills only: a short mentor text, the writing prompt, and the Student's own checklist. Never marked. */
-  workshop?: { mentor: string; ask: string; checklist: string[] };
+  workshop?: {
+    mentor: string;
+    /** When the prompt offers more than one kind of writing: the label for `mentor`, and a mentor text for each other kind. */
+    label?: string;
+    more?: { label: string; mentor: string }[];
+    ask: string;
+    checklist: string[];
+  };
   /** Every marked Skill has one; the Story workshop is writing already. */
   write?: WriteTask;
 }

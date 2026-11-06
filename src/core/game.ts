@@ -202,7 +202,7 @@ class Run {
     if (this.save.activity || !befriended(this.content, this.save).some((c) => c.creature === creature)) return;
     const ids = reviewFor(this.content, this.save, this.ctx.day, this.ctx.rand);
     if (ids.length === 0) return;
-    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, rounds: [], phase: reviewPhase(this.content, this.save, ids[0]!), fighter: creature };
+    this.save.activity = { kind: 'review', ids, at: 0, tries: 0, rounds: [], phase: reviewPhase(this.content, this.save, ids[0]!), fighter: creature, day: this.ctx.day };
   }
 
   /** A Write your own sentence: kept on the iPad, never marked, worth a little XP. */
@@ -285,11 +285,18 @@ class Run {
     return { ...p, streak };
   }
 
-  /** Leaving a Keeper battle or a Daily review early. A review left early gives no credit and can be started again. */
+  /**
+   * Leaving a Keeper battle or a Goldie battle early. A battle left before any answer can be started again. Once the
+   * Student has answered, leaving ends it: the rounds not played count as lost, so retreating can't dodge a loss.
+   */
   private retreat(): void {
     const a = this.save.activity;
     if (a?.kind === 'review') {
       delete this.save.activity;
+      if (a.rounds.length === 0 && a.tries === 0) return;
+      this.save.reviewDay = a.day ?? this.ctx.day;
+      const rest: Outcome[] = a.ids.slice(a.rounds.length).map(() => 'shown');
+      this.battleDone(a.fighter, [...a.rounds, ...rest]);
       return;
     }
     if (a?.kind !== 'keeper') return;
@@ -405,7 +412,7 @@ class Run {
       return;
     }
     delete save.activity;
-    save.reviewDay = ctx.day;
+    save.reviewDay = a.day ?? ctx.day;
     this.battleDone(a.fighter, rounds);
   }
 

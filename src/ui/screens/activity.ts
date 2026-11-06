@@ -57,7 +57,7 @@ export function activityScreen(app: App, { branch, wrote }: { branch: BranchId; 
 }
 
 function header(app: App, branch: BranchId, a: Activity): HTMLElement {
-  const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' || a.kind === 'review' ? 'RETREAT' : 'ISLAND');
+  const back = h('button', { class: 'ghost', onclick: () => leave(app, branch, a.kind) }, a.kind === 'keeper' || a.kind === 'review' ? 'RETREAT' : 'ISLAND');
   const teaching = (a.kind === 'teach' && a.step === 0) || (a.kind === 'review' && a.phase === 'refresher');
   const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(content.skill(skillOf(a))) }, 'MOVE CARD');
   const title = a.kind === 'review' ? `GOLDIE BATTLE · ROUND ${a.at + 1} OF ${a.ids.length}` : content.branch(branch).island.toUpperCase();
@@ -68,12 +68,38 @@ function skillOf(a: Activity): SkillId {
   return a.kind === 'teach' ? a.skill : content.encounter(encounterOf(a)).skill;
 }
 
-/** A Keeper or Goldie battle ends when the Student leaves; anything else waits for them. A Goldie battle goes back Home, where it began. */
-function leave(app: App, branch: BranchId): void {
-  const kind = app.store.save.activity?.kind;
-  if (kind === 'keeper' || kind === 'review') app.store.dispatch({ type: 'retreat' });
-  if (kind === 'review') return app.go({ name: 'home' });
-  app.go({ name: 'island', branch });
+/**
+ * A Keeper or Goldie battle ends when the Student leaves; anything else waits for them. A Goldie battle goes back Home,
+ * where it began, even once it has finished. Leaving a Goldie battle after answering counts as a loss, so it asks first.
+ */
+function leave(app: App, branch: BranchId, started: Activity['kind']): void {
+  const a = app.store.save.activity;
+  const go = () => (started === 'review' ? app.go({ name: 'home' }) : app.go({ name: 'island', branch }));
+  if (a?.kind === 'review' && (a.rounds.length > 0 || a.tries > 0)) return confirmLeave(app, go);
+  if (a?.kind === 'keeper' || a?.kind === 'review') app.store.dispatch({ type: 'retreat' });
+  go();
+}
+
+function confirmLeave(app: App, go: () => void): void {
+  if (document.querySelector('.overlay.leave-battle')) return;
+  const close = () => overlay.remove();
+  const overlay = h(
+    'div',
+    { class: 'overlay leave-battle' },
+    h(
+      'div',
+      { class: 'panel pop' },
+      h('h2', {}, 'RUN AWAY?'),
+      h('p', { class: 'reading' }, readable('If you leave now, the Goldie wins this battle.')),
+      h(
+        'div',
+        { class: 'actions', style: 'justify-content:center' },
+        h('button', { class: 'big', onclick: close }, 'KEEP FIGHTING'),
+        h('button', { class: 'ghost', onclick: () => { close(); app.store.dispatch({ type: 'retreat' }); go(); } }, 'LEAVE'),
+      ),
+    ),
+  );
+  document.body.append(overlay);
 }
 
 function charting(app: App, branch: BranchId): ScreenView {
@@ -316,8 +342,9 @@ function nextButtons(app: App, branch: BranchId, events: GameEvent[], played?: S
 function battleResult(app: App, e: Extract<GameEvent, { type: 'battleDone' }>): HTMLElement {
   const mine = befriended(content, app.store.save).find((c) => c.creature === e.creature);
   const name = mine?.name ?? 'Your crew';
-  const won =
-    e.wins > CHAMPION_WINS
+  const won = !mine
+    ? 'You beat the Goldie!'
+    : e.wins > CHAMPION_WINS
       ? `${name} beat the Goldie! That's ${e.wins} wins for a Champion.`
       : e.wins === CHAMPION_WINS
         ? `${name} beat the Goldie! That's ${CHAMPION_WINS} wins.`
@@ -351,7 +378,8 @@ function arenaView(foe: HTMLCanvasElement, me: HTMLCanvasElement, foeName: strin
   foe.classList.add('bx', 'bob', 'foe-sprite');
   me.classList.add('bx', 'me-sprite');
   foe.style.cssText = 'right:70px;top:18px';
-  me.style.cssText = 'left:70px;bottom:30px';
+  // Capped so a big evolved fighter's head, and a Champion's crown, stay clear of the foe's HP box.
+  me.style.cssText = 'left:70px;bottom:30px;max-height:140px;width:auto;image-rendering:pixelated';
   const bar = (pct: number, cls: string) => h('div', { class: 'bar' }, h('i', { class: cls, style: `width:${pct}%` }));
   return h(
     'div',

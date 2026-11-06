@@ -54,6 +54,7 @@ export function guideScreen(app: App): ScreenView {
   };
 
   const detail = (e: GuideEntry) => {
+    if (document.querySelector('.overlay.guide-detail')) return;
     const close = () => overlay.remove();
     const body = e.kind === 'keeper' ? keeperDetail(e) : skillDetail(e);
     const overlay = h(
@@ -109,5 +110,5 @@ export function guideScreen(app: App): ScreenView {
     counts,
     ...islands.map((i) => h('div', { class: 'panel' }, h('h3', {}, i.branch.island.toUpperCase()), h('div', { class: 'grid' }, i.entries.map(card)))),
   );
-  return { el, stop: () => document.querySelector('.overlay.guide-detail')?.remove() };
+  return { el, stop: () => document.querySelectorAll('.overlay.guide-detail').forEach((o) => o.remove()) };
 }

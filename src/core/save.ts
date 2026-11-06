@@ -99,9 +99,10 @@ export type Activity =
   /**
    * A Goldie battle, which carries the Daily review: one round per Encounter, from Skills across Islands. `fighter` is
    * the Creature the Student picked to fight with, and `rounds` holds how each finished round went. A rusty Skill's
-   * item opens on its trap step (`refresher`) before the task.
+   * item opens on its trap step (`refresher`) before the task. `day` is the day it started, so a battle finished after
+   * midnight still counts as that day's.
    */
-  | { kind: 'review'; ids: EncounterId[]; at: number; tries: number; rounds: Outcome[]; phase: ReviewPhase; fighter: string };
+  | { kind: 'review'; ids: EncounterId[]; at: number; tries: number; rounds: Outcome[]; phase: ReviewPhase; fighter: string; day?: Day };
 
 export type ReviewPhase = 'refresher' | 'task';
 
@@ -165,9 +166,13 @@ interface Legacy {
  * so add a default there when Save gains a field.
  */
 export function upgradeSave(stored: Partial<Save> & Pick<Save, 'started'> & Legacy): Save {
-  const { shinies = [], received = [], ...rest } = stored;
+  const { shinies: oldShinies, received: oldReceived, ...rest } = stored;
+  const shinies = Array.isArray(oldShinies) ? oldShinies : [];
+  const received = Array.isArray(oldReceived) ? oldReceived.filter((r) => r && typeof r.creature === 'string') : [];
   const fresh = newSave(rest.started);
-  const save: Save = { ...fresh, ...rest, settings: { ...fresh.settings, ...rest.settings }, branches: { ...fresh.branches, ...rest.branches } };
+  const branches = { ...fresh.branches };
+  for (const id of Object.keys(branches) as BranchId[]) branches[id] = { ...fresh.branches[id], ...rest.branches?.[id] };
+  const save: Save = { ...fresh, ...rest, settings: { ...fresh.settings, ...rest.settings }, branches };
   const skills: Save['skills'] = {};
   for (const [id, p] of Object.entries(save.skills) as [SkillId, SkillProgress | undefined][]) if (p) skills[id] = { ...NO_PROGRESS, ...p };
   save.skills = skills;
@@ -192,7 +197,7 @@ function upgradeActivity(a: Activity): Activity {
   const old = a as StoredReview;
   const firsts = old.firsts ?? 0;
   const rounds = old.rounds ?? Array.from({ length: old.at }, (_, i): Outcome => (i < firsts ? 'first' : 'shown'));
-  return { kind: 'review', ids: old.ids, at: old.at, tries: old.tries, rounds, phase: old.phase ?? 'task', fighter: old.fighter ?? '' };
+  return { kind: 'review', ids: old.ids, at: old.at, tries: old.tries, rounds, phase: old.phase ?? 'task', fighter: old.fighter ?? '', ...(old.day !== undefined ? { day: old.day } : {}) };
 }
 
 /** Adds a variant of a Creature, kept in VARIANTS order. True when it is new. */

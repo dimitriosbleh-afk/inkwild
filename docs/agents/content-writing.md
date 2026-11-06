@@ -88,7 +88,7 @@ Use at least three different formats in each Band (`choose`, `tapText`, `order`,
 
 ## Reading Branches
 
-Branches 1 to 4 and 7 are about reading whole texts, so most of their Encounters need a passage in `text`. Passage lengths per Band: 60 to 120 words, 100 to 180, 150 to 250, then 200 to 350. Use original texts only: stories, diary entries, news reports, letters, ads, signs and Maxx Vantablack's streams. Vary the genre. The answer must be decidable from the passage alone, never from world knowledge the passage doesn't give.
+Branches 1 to 4 and 7 are about reading whole texts, so most of their Encounters need a passage in `text`. Passage lengths per Band: 60 to 120 words, 100 to 180, 150 to 250, then 200 to 350. Aim inside these; the check only rejects a passage more than 15% outside them. Use original texts only: stories, diary entries, news reports, letters, ads, signs and Maxx Vantablack's streams. Vary the genre. The answer must be decidable from the passage alone, never from world knowledge the passage doesn't give.
 
 ## Check your work
 

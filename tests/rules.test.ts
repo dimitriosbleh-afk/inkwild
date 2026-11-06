@@ -75,6 +75,16 @@ describe('content rule checks', () => {
     expect(problemsAfter((f) => (f.skill.teach.iDo.steps[0]!.say = 'word '.repeat(13))).join()).toMatch(/say is 13 words; keep it to 12/);
   });
 
+  it('reject a lead-in that names the answer before the student taps', () => {
+    const leak = problemsAfter((f) => {
+      const st = f.skill.teach.iDo.steps.find((s) => s.check.kind !== 'yesno')!;
+      const c = st.check;
+      const choices = c.kind === 'tap' ? (st.show ?? []).filter((p) => typeof p !== 'string').map((p) => p.text) : c.kind === 'pick' ? c.options.map((o) => o.text) : [];
+      st.say = `Look for ${choices[(c as { answer: number }).answer]}.`;
+    });
+    expect(leak.join()).toMatch(/say names the answer/);
+  });
+
   it('reject a tap step whose wrong chunk has no nudge', () => {
     expect(
       problemsAfter((f) => {

@@ -152,14 +152,47 @@ describe('playing a Daily review', () => {
     expect(next[0]).toBe('5.3');
   });
 
-  it('ends without credit on RETREAT', () => {
+  it('lets a Student back out before answering, at no cost', () => {
     const p = reviewer();
     p.do({ type: 'review', creature: 'c5.1' });
-    p.answerRight();
     p.do({ type: 'retreat' });
     expect(p.save.activity).toBeUndefined();
     expect(p.save.reviewDay).toBeUndefined();
     expect(reviewDue(content, p.save, TODAY)).toBe(true);
+  });
+
+  it('counts RETREAT after answering as a loss, so a battle going badly cannot be restarted', () => {
+    const p = reviewer();
+    p.do({ type: 'review', creature: 'c5.1' });
+    p.answerRight();
+    const events = p.do({ type: 'retreat' });
+    expect(events).toContainEqual(expect.objectContaining({ type: 'battleDone', won: false, right: 1, of: 3 }));
+    expect(p.save.activity).toBeUndefined();
+    expect(p.save.reviewDay).toBe(TODAY);
+    expect(reviewDue(content, p.save, TODAY)).toBe(false);
+    expect(p.save.wins['c5.1'] ?? 0).toBe(0);
+  });
+
+  it('counts a wrong try in the first round too', () => {
+    const p = reviewer();
+    p.do({ type: 'review', creature: 'c5.1' });
+    p.answerWrong();
+    p.do({ type: 'retreat' });
+    expect(p.save.reviewDay).toBe(TODAY);
+  });
+
+  it('gives a battle finished after midnight to the day it started', () => {
+    const p = reviewer();
+    p.do({ type: 'review', creature: 'c5.1' });
+    p.answerRight();
+    p.do({ type: 'advance' });
+    p.day = TODAY + 1;
+    while (p.save.activity?.kind === 'review') {
+      p.answerRight();
+      p.do({ type: 'advance' });
+    }
+    expect(p.save.reviewDay).toBe(TODAY);
+    expect(reviewDue(content, p.save, TODAY + 1)).toBe(true);
   });
 
   it('waits while another activity is midway', () => {

@@ -1,5 +1,5 @@
 import { content } from '../../app/content';
-import type { SkillId } from '../../content/types';
+import type { Skill, SkillId } from '../../content/types';
 import { isUnlocked } from '../../core/route';
 import type { Marks, Piece, Sentence } from '../../core/save';
 import type { App, ScreenView } from '../app';
@@ -41,6 +41,20 @@ export function showMyTeacher(piece: Shown): void {
   document.body.append(o);
 }
 
+/** The mentor text, with a tab for each kind of writing when the prompt offers a choice. */
+function mentorView(w: NonNullable<Skill['workshop']>): HTMLElement {
+  const passage = h('div', { class: 'passage reading' }, readable(w.mentor));
+  if (!w.more?.length) return passage;
+  const kinds = [{ label: w.label ?? 'MODEL', mentor: w.mentor }, ...w.more];
+  const tabs = kinds.map((k, i) =>
+    h('button', { class: i === 0 ? 'alt' : 'ghost', onclick: () => {
+      passage.replaceChildren(readable(k.mentor));
+      tabs.forEach((t, j) => (t.className = j === i ? 'alt' : 'ghost'));
+    } }, k.label.toUpperCase()),
+  );
+  return h('div', {}, h('div', { class: 'row mentor-tabs' }, h('b', { class: 'note' }, 'SEE ONE:'), ...tabs), passage);
+}
+
 export function writeScreen(app: App, { skill }: { skill: SkillId }): ScreenView {
   const sk = content.skill(skill);
   const w = sk.workshop!;
@@ -61,7 +75,7 @@ export function writeScreen(app: App, { skill }: { skill: SkillId }): ScreenView
   const checklist = h('div', { class: 'workshop-checklist' }, h('h3', {}, 'MY CHECKLIST'), w.checklist.map((item, i) => h('div', { class: 'write-check' }, h('span', { class: 'check-num' }, String(i + 1)), h('div', { class: 'reading' }, readable(item)))));
   const editing = [
     head,
-    h('div', { class: 'panel' }, h('h2', {}, sk.name.toUpperCase()), h('div', { class: 'passage reading' }, readable(w.mentor)), h('div', { class: 'prompt' }, readable(w.ask))),
+    h('div', { class: 'panel' }, h('h2', {}, sk.name.toUpperCase()), mentorView(w), h('div', { class: 'prompt' }, readable(w.ask))),
     h('div', { class: 'panel' }, checklist, title, text, h('div', { class: 'actions' }, finish)),
   ];
   const el = h('div', { class: 'centre workshop-screen' }, ...editing);

@@ -2,6 +2,7 @@ import { content } from './content';
 import { step, type Action, type GameEvent } from '../core/game';
 import { newSave, type Day, type Save } from '../core/save';
 import { loadSave, writeSave } from './persist';
+import { repairSave } from '../core/repair';
 
 export function today(now = new Date()): Day {
   return Math.floor((now.getTime() - now.getTimezoneOffset() * 60_000) / 86_400_000);
@@ -14,7 +15,8 @@ export class Store {
   private listeners = new Set<Listener>();
 
   constructor(save?: Save) {
-    this.save = save ?? loadSave() ?? newSave(today());
+    const loaded = save ?? loadSave();
+    this.save = loaded ? repairSave(content, loaded) : newSave(today());
   }
 
   get isNew(): boolean {

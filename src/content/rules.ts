@@ -204,8 +204,11 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
     const w = s.workshop;
     if (!w) add(id, 'Story workshop Skills need a workshop prompt');
     else {
-      const n = wordCount(w.mentor);
-      if (n < 50 || n > 160) add(id, `mentor text is ${n} words; aim for 50 to 160`);
+      for (const m of [w.mentor, ...(w.more ?? []).map((x) => x.mentor)]) {
+        const n = wordCount(m);
+        if (n < 50 || n > 160) add(id, `mentor text is ${n} words; aim for 50 to 160`);
+      }
+      if (w.more?.length && !w.label) add(id, 'a workshop with more than one mentor text needs a label for the first');
       if (wordCount(w.ask) > 30) add(id, `writing prompt is ${wordCount(w.ask)} words; keep it to 30`);
       if (w.checklist.length < 3 || w.checklist.length > 4) add(id, 'checklist needs 3 or 4 ticks');
       w.checklist.forEach((c, i) => wordCount(c) > 10 && add(id, `checklist item ${i + 1} is over 10 words`));
@@ -355,6 +358,15 @@ export function leaks(task: Task): string[] {
   return wrongs.some(([r, a]) => quotes(r, a)) ? ['a wrong-answer reason quotes the right answer; make it point at the clue instead'] : [];
 }
 
+const plainWords = (s: string) => ` ${s.toLowerCase().replace(/[‘’]/g, "'").replace(/[^a-z0-9' ]/g, ' ').replace(/(^|\s)'+|'+(?=\s|$)/g, ' ').replace(/\s+/g, ' ').trim()} `;
+
+/** The lead-in names the answer and none of the other choices, so a student can match it without thinking. */
+function saysOnly(say: string, answer: string, choices: string[]): boolean {
+  const said = plainWords(say);
+  const has = (t: string) => plainWords(t).trim().length > 2 && said.includes(plainWords(t));
+  return has(answer) && !choices.some((t) => t !== answer && has(t));
+}
+
 const showText = (show: Show) => show.map((p) => (typeof p === 'string' ? p : p.text)).join('');
 
 /** Tap to learn: every step makes the student do something, nudges every wrong move, and the lesson names the usual mistake. */
@@ -391,6 +403,9 @@ export function teachProblems(iDo: Teach['iDo'], id: string): Problem[] {
       if (c.options.some((o, k) => k !== c.answer && !o.reason)) add(where, 'every option that is not the answer needs a reason');
       if (c.options.length === 2) twoWay++;
     }
+    const choices = c.kind === 'tap' ? chunks.map((ch) => ch.text) : c.kind === 'pick' ? c.options.map((o) => o.text) : [];
+    const answer = c.kind === 'yesno' ? undefined : choices[c.answer];
+    if (answer && saysOnly(st.say, answer, choices)) add(where, `say names the answer "${answer}" before the student taps it`);
     const lines = [st.say, st.ask, st.win, ...(st.show ? [showText(st.show)] : []), ...chunks.flatMap((ch) => [ch.nudge ?? '']), ...(c.kind === 'yesno' ? [c.nudge] : []), ...(c.kind === 'pick' ? c.options.flatMap((o) => [o.text, o.reason ?? '']) : [])];
     for (const t of lines) {
       const us = t.match(US_SPELLINGS);
