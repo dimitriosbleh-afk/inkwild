@@ -11,26 +11,195 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Each kind of text has its own tools."
+            "say": "Here's step one of my mural how-to. Every step tells you what to do.",
+            "show": [
+              {
+                "text": "Hold",
+                "tag": "COMMAND VERB"
+              },
+              {
+                "text": "the ladder",
+                "nudge": "That's the thing you hold. Which word tells you what to do?"
+              },
+              {
+                "text": "with both hands.",
+                "nudge": "That says how. Which word is the job you must do?"
+              }
+            ],
+            "ask": "Tap the word that tells you what to do.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! 'Hold' is a bossy word that gives an order. It's called a command verb."
           },
           {
-            "say": "Instructions start with a bossy word that says what to do.",
-            "show": "**Hold** the ladder. **Climb** slowly."
+            "say": "Careful! Zed only checks the first word. But the command verb isn't always first.",
+            "show": [
+              {
+                "text": "Carefully",
+                "nudge": "That says how to do it. It isn't the job itself."
+              },
+              {
+                "text": "loosen",
+                "tag": "COMMAND VERB"
+              },
+              {
+                "text": "the string.",
+                "nudge": "That's the thing you loosen. Find the job word."
+              }
+            ],
+            "ask": "Tap the command verb.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Each step is built around a command verb. It's often first, but not always.",
+            "trap": true
           },
           {
-            "say": "That bossy word is called a command verb."
+            "say": "Some steps start by saying when. Which one is still a step for the reader?",
+            "ask": "Which one is a step?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "Once the paint dries, peel off the tape."
+                },
+                {
+                  "text": "Once the paint dried, Indi peeled off the tape.",
+                  "reason": "That tells what Indi did. A step tells the reader what to do."
+                },
+                {
+                  "text": "The tape should then be peeled off.",
+                  "reason": "Who peels it? It never tells you to. Look for a command verb."
+                }
+              ]
+            },
+            "win": "Yes! 'Peel' is the command verb, even though 'Once the paint dries' comes first."
           },
           {
-            "say": "Recounts already happened, so they use past tense.",
-            "show": "We **climbed** the tower and **ate** our lunch."
+            "say": "A recount tells what already happened. I listen to every verb.",
+            "show": [
+              "On Monday, Tully ",
+              {
+                "text": "swam",
+                "tag": "PAST TENSE",
+                "nudge": "Swam already happened. Find the verb that sounds like now."
+              },
+              " ten laps. Then she ",
+              {
+                "text": "races",
+                "tag": "PRESENT TENSE"
+              },
+              " her coach. She ",
+              {
+                "text": "won",
+                "tag": "PAST TENSE",
+                "nudge": "Won already happened. Find the verb that sounds like now."
+              },
+              " by a metre."
+            ],
+            "ask": "Tap the verb that doesn't sound like the past.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Races' sounds like now: present tense. A recount needs past tense, so 'raced'."
           },
           {
-            "say": "Reports use headings, so readers can find facts fast.",
-            "show": "**Food**: Possums eat seeds, berries and moths."
+            "say": "Reports and explanations give facts that are always true. So they use present tense.",
+            "ask": "Which sentence fits a report about bees?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Last week, the bees made honey.",
+                  "reason": "That retells one week. A report gives facts that are always true."
+                },
+                {
+                  "text": "Bees make honey from nectar."
+                },
+                {
+                  "text": "Make honey from nectar.",
+                  "reason": "That's a step with a command verb. Reports don't give orders."
+                }
+              ]
+            },
+            "win": "Yes! 'Make' is present tense. It's true every day, not just once."
+          },
+          {
+            "say": "Reports use headings, so readers can find facts fast. This part lost its heading.",
+            "show": [
+              "Penguins can zoom at 30 km an hour. Their flippers work like paddles.",
+              {
+                "text": "What They Eat",
+                "nudge": "Read the facts. Are they about food?"
+              },
+              {
+                "text": "How They Swim",
+                "tag": "HEADING"
+              },
+              {
+                "text": "Where They Nest",
+                "nudge": "The facts aren't about nests. What are they all about?"
+              }
+            ],
+            "ask": "Tap the heading that fits.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Every fact is about swimming. A heading names what the section is about."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "COMMAND VERB",
+              "means": "The word that tells the reader what to do. Often first, not always."
+            },
+            {
+              "term": "PAST TENSE",
+              "means": "Already happened: swam, won. Recounts use it."
+            },
+            {
+              "term": "PRESENT TENSE",
+              "means": "Happens now or is always true: make, zoom. Reports and explanations use it."
+            },
+            {
+              "term": "HEADING",
+              "means": "Names what a section is about, so readers find facts fast."
+            }
+          ],
+          "examples": [
+            [
+              "Once the paint dries, ",
+              {
+                "text": "peel",
+                "tag": "COMMAND VERB"
+              },
+              " off the tape."
+            ],
+            [
+              {
+                "text": "How They Swim",
+                "tag": "HEADING"
+              },
+              "Penguins ",
+              {
+                "text": "zoom",
+                "tag": "PRESENT TENSE"
+              },
+              " through the water."
+            ]
+          ],
+          "test": "What's the text for? Steps need command verbs. Recounts need past tense. Reports need present tense."
+        }
       },
       "weDo": [
         {
@@ -614,7 +783,7 @@
       "frame": "Mo is writing a ghost-hunting guide for Tower Six. The Fittlet is hiding behind his pencil case.",
       "text": "How to Hunt for Ghosts on Tower Six. The hut at the top of Tower Six is said to be haunted by a ghost who loves porridge. You will need a torch, a notebook, a spoon and a bowl of warm porridge. Wear soft shoes, because ghosts hate loud footsteps. Never bring Gus, because he always screams. Go on a still night, when the wind won't drown out any spooky noises. Step 1: Climb the ladder slowly, so that you don't scare the ghost away. Step 2: ___ Step 3: Place the porridge in the middle of the floor and switch off your torch. Step 4: Sit in the corner and count to one hundred, very quietly. Step 5: Switch your torch back on and check the bowl. If the porridge is gone, write down the time in your notebook. If it is still there, the ghost was not hungry tonight, so try again next week.",
       "prompt": "Build step 2 of Mo's ghost-hunting guide.",
-      "success": "'Knock' is the command verb, even though it isn't first. 'Open' is present tense, so it says when.",
+      "success": "'Knock' is the command verb, even though it isn't first. 'Once the door opens' tells you when to do it.",
       "body": {
         "format": "build",
         "tiles": [

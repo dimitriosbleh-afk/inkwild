@@ -10,27 +10,220 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some talk just fills space. Nothing happens.",
-            "show": "'Hi.' 'Hi.' 'How are you?' 'Good.'"
+            "say": "The crew is in the galley, waiting for dinner. Here's my first try at their talk.",
+            "show": [
+              {
+                "text": "'Hi, Zed.' 'Hi, Tully.' 'Nice night.' 'Yep.'",
+                "tag": "FILLS SPACE"
+              }
+            ],
+            "ask": "What has changed after these four lines?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Zed has found something.",
+                  "reason": "Read it again. Does Zed say he found anything?"
+                },
+                {
+                  "text": "Nothing. They just said hi."
+                },
+                {
+                  "text": "Somebody is in trouble.",
+                  "reason": "Nobody mentions trouble. They just chat."
+                }
+              ]
+            },
+            "win": "Right. Nothing changed. Talk like this just fills space. Real people say it, but stories cut it."
           },
           {
-            "say": "Good talk reveals something new.",
-            "show": "'**I've seen Maxx's van at the jetty.**'"
+            "say": "Talk in a story is called dialogue. Good dialogue changes something. Now Zed says one line.",
+            "show": [
+              {
+                "text": "'I've seen Maxx's van at the jetty,' said Zed.",
+                "tag": "NEWS"
+              }
+            ],
+            "ask": "What does the crew know now?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "that it's a nice night",
+                  "reason": "That was the old talk. What place does Zed name?"
+                },
+                {
+                  "text": "Zed's favourite game",
+                  "reason": "Zed doesn't mention games. What did he see?"
+                },
+                {
+                  "text": "where Maxx's van is"
+                }
+              ]
+            },
+            "win": "Yes! That's news. Now the crew can go to the jetty. The story moves on."
           },
           {
-            "say": "Or it starts trouble.",
-            "show": "'**Don't tell Wren,** but I let the Creature out.'"
+            "say": "News is one way to move a story on. Here are two more ways: trouble and a choice.",
+            "show": [
+              {
+                "text": "'Maxx's van is at the jetty.'",
+                "tag": "NEWS",
+                "lit": true,
+                "nudge": "That's news. But does anyone have to pick between two things?"
+              },
+              {
+                "text": "'Don't tell Wren, but I let the Creature out.'",
+                "tag": "TROUBLE",
+                "nudge": "That starts trouble! But does anyone have to pick between two things?"
+              },
+              {
+                "text": "'We can save the egg or the boat. Not both.'",
+                "tag": "CHOICE"
+              }
+            ],
+            "ask": "Tap the line that makes someone choose.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Egg or boat? Someone has to pick. News, trouble and choices all move a story on."
           },
           {
-            "say": "Or it forces someone to choose.",
-            "show": "'**We can save the egg or the boat. Not both.**'"
+            "say": "Careful. Mo's line is loud and excited. Zed says that means it moves the story on.",
+            "show": [
+              {
+                "text": "'WOW! This is SO cool!' shouted Mo.",
+                "tag": "FILLS SPACE"
+              }
+            ],
+            "ask": "Does Mo's line move the story on?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Yes. It's loud and exciting.",
+                  "reason": "Loud isn't the same as new. What does the crew know or do now?"
+                },
+                {
+                  "text": "Yes. It has an exclamation mark.",
+                  "reason": "Marks don't move a story. Ask: what does this line change?"
+                },
+                {
+                  "text": "No. Nothing changes after it."
+                }
+              ]
+            },
+            "win": "Right. Shouting doesn't change anything. Ask: after this line, what is different?",
+            "trap": true
           },
           {
-            "say": "Before you keep a line, ask: what does it change?"
+            "say": "With lots of talk, readers can forget who is speaking. So name the speaker.",
+            "show": [
+              {
+                "text": "'Too late,'",
+                "nudge": "Those are the words. Who said them?"
+              },
+              {
+                "text": "whispered",
+                "nudge": "That's how it was said. Which word tells you who?"
+              },
+              {
+                "text": "Zed.",
+                "tag": "SPEAKER"
+              }
+            ],
+            "ask": "Tap the word that tells you who is talking.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Name the speaker when it isn't clear. And start a new line each time a new person talks."
+          },
+          {
+            "say": "Back to the galley. Mo's line just fills space. Let's swap it for one that starts trouble.",
+            "show": [
+              {
+                "text": "'Nice night,' said Mo.",
+                "tag": "FILLS SPACE",
+                "lit": true
+              }
+            ],
+            "ask": "Which line should Mo say instead?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "'Hi again, everyone,' said Mo.",
+                  "reason": "Another hello. Nothing new happens. What could go wrong?"
+                },
+                {
+                  "text": "'Yes, a very nice night,' said Mo.",
+                  "reason": "Still chit-chat about the night. What would change after it?"
+                },
+                {
+                  "text": "'Don't panic, but dinner just crawled out of the pot,' said Mo."
+                }
+              ]
+            },
+            "win": "Yes! Dinner that crawls away is trouble. Now check every line of your own: what does it change?"
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "NEWS",
+              "means": "A line that tells the characters something new."
+            },
+            {
+              "term": "TROUBLE",
+              "means": "A line that starts a problem, like a secret or a mistake."
+            },
+            {
+              "term": "CHOICE",
+              "means": "A line that makes someone pick between two things."
+            },
+            {
+              "term": "FILLS SPACE",
+              "means": "Hellos and chit-chat. Nothing changes, so cut it."
+            },
+            {
+              "term": "SPEAKER",
+              "means": "The name that tells you who is talking."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "'We can save the egg or the boat. Not both,'",
+                "tag": "CHOICE"
+              },
+              " said ",
+              {
+                "text": "Tully.",
+                "tag": "SPEAKER"
+              }
+            ],
+            [
+              {
+                "text": "'Don't tell Wren, but I let the Creature out,'",
+                "tag": "TROUBLE"
+              },
+              " whispered ",
+              {
+                "text": "Mo.",
+                "tag": "SPEAKER"
+              }
+            ]
+          ],
+          "test": "After this line, what is different? If nothing, cut it."
+        }
       },
       "weDo": [
         {

@@ -10,23 +10,208 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Every paragraph is about one thing. The first sentence often says what.",
-            "show": "**Wombats are amazing diggers.**"
+            "say": "First I work out what the whole paragraph is about. Read every sentence.",
+            "show": [
+              {
+                "text": "Wombats are amazing diggers.",
+                "tag": "MAIN IDEA"
+              },
+              {
+                "text": "Their claws rip through hard dirt."
+              },
+              {
+                "text": "They can dig a tunnel in one night."
+              }
+            ],
+            "ask": "What is this paragraph about?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "what wombats eat",
+                  "reason": "Nothing here is about food. What does every sentence talk about?"
+                },
+                {
+                  "text": "how wombats dig"
+                },
+                {
+                  "text": "wombats' claws",
+                  "reason": "Claws are in one sentence. What do all three sentences talk about?"
+                }
+              ]
+            },
+            "win": "Yes! It's all about digging. That's the main idea. The first sentence often says it."
           },
           {
-            "say": "Each sentence should stick to that topic.",
-            "show": "Their **strong claws** rip through hard dirt."
+            "say": "A first sentence that tells the main idea is called a topic sentence. Now check the rest.",
+            "show": [
+              {
+                "text": "Wombats are amazing diggers.",
+                "tag": "MAIN IDEA",
+                "lit": true,
+                "nudge": "That one tells the main idea. Check the others against it."
+              },
+              {
+                "text": "Their claws rip through dirt.",
+                "nudge": "Claws that rip dirt are about digging. It belongs."
+              },
+              {
+                "text": "Mo's lunch box has a wombat.",
+                "tag": "WANDERS OFF"
+              },
+              {
+                "text": "They dig a tunnel in a night.",
+                "nudge": "A tunnel in one night shows how well they dig. It belongs."
+              }
+            ],
+            "ask": "Tap the sentence that isn't about digging.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Mo's lunch box isn't about digging. It wanders off, so cut it."
           },
           {
-            "say": "This one wanders off. It's about wombats, but not digging.",
-            "show": "**Wombats can live for fifteen years.**"
+            "say": "Here is a sneaky one. Every sentence is about wombats. Check each one against the main idea.",
+            "show": [
+              {
+                "text": "Wombats are amazing diggers.",
+                "tag": "MAIN IDEA",
+                "lit": true,
+                "nudge": "That one tells the main idea. Check the others against it."
+              },
+              {
+                "text": "Their claws rip through dirt.",
+                "nudge": "Claws that rip dirt are about digging. It belongs."
+              },
+              {
+                "text": "Wombats live for about fifteen years.",
+                "tag": "WANDERS OFF"
+              },
+              {
+                "text": "Their tunnels can be thirty metres long.",
+                "nudge": "Long tunnels show how much they dig. It belongs."
+              }
+            ],
+            "ask": "Tap the sentence that doesn't belong.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! It's about wombats, but not about digging. The same animal isn't enough.",
+            "trap": true
           },
           {
-            "say": "Cut it. Now every sentence is about digging."
+            "say": "Zed says, 'Cut anything someone thinks or says.' Let's test that on Gus's paragraph.",
+            "show": [
+              {
+                "text": "Gus's slime is super stretchy.",
+                "tag": "MAIN IDEA",
+                "lit": true,
+                "nudge": "That one tells the main idea. Check the others against it."
+              },
+              {
+                "text": "It stretches to the door.",
+                "nudge": "That shows how far it stretches. It belongs."
+              },
+              {
+                "text": "Mo says it stretches like pizza cheese.",
+                "tag": "BELONGS",
+                "nudge": "Mo's words are about the stretch, so they belong. Which sentence isn't?"
+              },
+              {
+                "text": "Gus's socks are green.",
+                "tag": "WANDERS OFF"
+              }
+            ],
+            "ask": "Tap the sentence that doesn't belong.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! Green socks have nothing to do with stretchy slime. What Mo says is about the slime, so it stays.",
+            "trap": true
+          },
+          {
+            "say": "After a cut, you can add a sentence that fits. Back to the wombats.",
+            "show": [
+              {
+                "text": "Wombats are amazing diggers.",
+                "tag": "MAIN IDEA",
+                "lit": true
+              }
+            ],
+            "ask": "Which sentence belongs in the digging paragraph?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Wombats sleep all day.",
+                  "reason": "That's about wombats, but is it about digging?"
+                },
+                {
+                  "text": "Baby wombats ride in a pouch.",
+                  "reason": "Still wombats, but not digging. Check it against the main idea."
+                },
+                {
+                  "text": "Their back feet kick the dirt away."
+                }
+              ]
+            },
+            "win": "Yes! Kicking dirt away is part of digging. Every sentence now sticks to the main idea."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "MAIN IDEA",
+              "means": "What the whole paragraph is about. The first sentence often says it."
+            },
+            {
+              "term": "WANDERS OFF",
+              "means": "Not about the main idea, even if it's the same animal or person."
+            },
+            {
+              "term": "BELONGS",
+              "means": "Sticks to the main idea. Someone's opinion can belong too."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Wombats are amazing diggers.",
+                "tag": "MAIN IDEA"
+              },
+              {
+                "text": "Their claws rip through dirt.",
+                "tag": "BELONGS"
+              },
+              {
+                "text": "Wombats live for fifteen years.",
+                "tag": "WANDERS OFF"
+              }
+            ],
+            [
+              {
+                "text": "Gus's slime is super stretchy.",
+                "tag": "MAIN IDEA"
+              },
+              {
+                "text": "Mo says it stretches like cheese.",
+                "tag": "BELONGS"
+              },
+              {
+                "text": "Gus's socks are green.",
+                "tag": "WANDERS OFF"
+              }
+            ]
+          ],
+          "test": "Find the main idea. Check each sentence against it. Cut the one that wanders off."
+        }
       },
       "weDo": [
         {

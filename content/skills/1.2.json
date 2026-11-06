@@ -10,25 +10,242 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Writers don't always tell you how a character feels."
+            "say": "Writers don't always tell you how someone feels. They show you. Watch Mo.",
+            "show": [
+              {
+                "text": "The bell rang.",
+                "nudge": "The bell rang by itself. What does Mo do?"
+              },
+              " ",
+              {
+                "text": "Mo slammed the door.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "His bag was blue.",
+                "nudge": "Blue is just a colour. What does Mo do?"
+              }
+            ],
+            "ask": "Tap what Mo does that shows a feeling.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Slamming a door is a clue. A clue is something the text shows you."
           },
           {
-            "say": "So find the clue. What does the character do?",
-            "show": "Mo **slammed the door** and **kicked his bag** across the room."
+            "say": "Now I add what I know about people. When do people slam doors?",
+            "show": [
+              {
+                "text": "Mo slammed the door.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "Pick what you know about slamming doors.",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "People slam doors when they're cross."
+                },
+                {
+                  "text": "People slam doors when they're sleepy.",
+                  "reason": "Sleepy people move slowly and quietly. Would a sleepy Mo slam a door?"
+                },
+                {
+                  "text": "People slam doors when they're proud.",
+                  "reason": "Proud people grin and show things off. Slamming doesn't fit."
+                }
+              ]
+            },
+            "win": "Yes! That's what I know about people. Now I put it together with the clue."
           },
           {
-            "say": "Now add what you know. When do people slam doors?"
+            "say": "Clue plus what I know. Put them together, and I work out the feeling.",
+            "show": [
+              {
+                "text": "Mo slammed the door.",
+                "tag": "CLUE",
+                "lit": true,
+                "nudge": "Mo slamming the door is in the text. Find the part that isn't."
+              },
+              " + ",
+              {
+                "text": "People slam doors when they're cross.",
+                "tag": "WHAT I KNOW",
+                "lit": true,
+                "nudge": "That's what I already knew about people. Which part did I work out?"
+              },
+              " = ",
+              {
+                "text": "Mo is angry.",
+                "tag": "INFERENCE"
+              }
+            ],
+            "ask": "Which part did I work out myself? The text never says it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The text never says 'Mo is angry'. Working it out is called inferring, or making an inference."
           },
           {
-            "say": "When they're angry! Clue plus what I know: Mo is angry."
+            "say": "Last, I check. Does the rest of the text agree that Mo is angry?",
+            "show": [
+              {
+                "text": "He had pasta for dinner.",
+                "nudge": "Pasta doesn't tell you a feeling. Find what Mo says or does."
+              },
+              " ",
+              {
+                "text": "'Leave me alone!' he yelled.",
+                "tag": "CHECK"
+              },
+              " ",
+              {
+                "text": "His room is upstairs.",
+                "nudge": "Where his room is doesn't show a feeling. Find what Mo says or does."
+              }
+            ],
+            "ask": "Tap the clue that agrees Mo is angry.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Yelling 'Leave me alone!' agrees. When the clues agree, I can trust my inference."
           },
           {
-            "say": "Last, check that the rest of the text agrees.",
-            "show": "**'Leave me alone!'** he yelled."
+            "say": "Feelings change. Make sure your clue comes from the right moment.",
+            "show": [
+              {
+                "text": "Ava's hands shook on the high diving board."
+              },
+              " ",
+              {
+                "text": "She jumped. Splash!"
+              },
+              " ",
+              {
+                "text": "At the side, she let out a huge breath."
+              }
+            ],
+            "ask": "How does Ava feel at the side of the pool?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "relieved"
+                },
+                {
+                  "text": "nervous",
+                  "reason": "She was nervous up on the board. Look at the clue from after the jump."
+                },
+                {
+                  "text": "bored",
+                  "reason": "Bored people don't shake or let out huge breaths. Look at the clues again."
+                }
+              ]
+            },
+            "win": "Yes! A huge breath once it's over shows relief. The shaking hands came before."
+          },
+          {
+            "say": "Careful! People sometimes say one thing, but their actions show another.",
+            "show": [
+              {
+                "text": "'I'm fine,' said Gus."
+              },
+              " ",
+              {
+                "text": "He stared at the floor."
+              },
+              " ",
+              {
+                "text": "He didn't touch his cake. Gus never skips cake!"
+              }
+            ],
+            "ask": "How does Gus really feel?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "upset"
+                },
+                {
+                  "text": "fine, like he says",
+                  "reason": "That's what he says. What does he do? Would a fine Gus skip cake?"
+                },
+                {
+                  "text": "excited",
+                  "reason": "Excited people bounce and chatter. Gus stares at the floor."
+                }
+              ]
+            },
+            "win": "Yes! Trust what people do, not just what they say. Every action points to upset.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLUE",
+              "means": "Something the character does or says. You can point to it in the text."
+            },
+            {
+              "term": "WHAT I KNOW",
+              "means": "What you know about people. When do people act like that?"
+            },
+            {
+              "term": "INFERENCE",
+              "means": "The feeling you work out. The text never says it."
+            },
+            {
+              "term": "CHECK",
+              "means": "Another clue that agrees. Make sure every clue fits your feeling."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Mo slammed the door.",
+                "tag": "CLUE"
+              },
+              " + ",
+              {
+                "text": "People slam doors when they're cross.",
+                "tag": "WHAT I KNOW"
+              },
+              " = ",
+              {
+                "text": "Mo is angry.",
+                "tag": "INFERENCE"
+              }
+            ],
+            [
+              {
+                "text": "Gus stared at the floor.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "He didn't touch his cake.",
+                "tag": "CHECK"
+              },
+              " = ",
+              {
+                "text": "Gus is upset.",
+                "tag": "INFERENCE"
+              }
+            ]
+          ],
+          "test": "Clue plus what I know gives the feeling. Then check: do all the clues agree?"
+        }
       },
       "weDo": [
         {

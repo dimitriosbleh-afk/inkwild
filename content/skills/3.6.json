@@ -11,25 +11,180 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Bias means a text leans to one side."
+            "say": "Maxx posted: 'I saved a lizard!' Here's what the ranger saw.",
+            "show": [
+              {
+                "text": "The lizard was green.",
+                "nudge": "Would the colour change what you think of Maxx?"
+              },
+              {
+                "text": "Maxx took it from its mum's log.",
+                "tag": "LEFT OUT"
+              },
+              {
+                "text": "Maxx wore a gold hat.",
+                "nudge": "A gold hat is silly, but does it change the rescue?"
+              }
+            ],
+            "ask": "Tap the fact that changes how Maxx's rescue looks.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! He took it from its mum. Maxx left that out, so he looks like a hero."
           },
           {
-            "say": "First trick: leave out the bits that look bad.",
-            "show": "Maxx: 'I **saved** a lizard!' He didn't say he **trapped it first**."
+            "say": "Maxx left out his gold hat too. Every text leaves things out.",
+            "ask": "Does leaving out the hat change what you think of the rescue?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Picture Maxx in a gold hat. Is the rescue better or worse now?"
+            },
+            "win": "Right! The hat doesn't matter. The mum does. Hiding what matters makes a text one-sided, or biased.",
+            "trap": true
           },
           {
-            "say": "Second trick: tell the same thing with tilted words.",
-            "show": "**Hero** Maxx **saves** lizard. / Maxx **takes** lizard **from its home**."
+            "say": "Everything Maxx said was true. He did carry the lizard to his van.",
+            "show": [
+              {
+                "text": "Maxx: 'I saved a lizard!'",
+                "tag": "ONE-SIDED"
+              }
+            ],
+            "ask": "So is Maxx's post fair?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "No. Every word is a lie.",
+                  "reason": "He did carry the lizard. The problem is what he left out."
+                },
+                {
+                  "text": "No. It's true, but one-sided."
+                },
+                {
+                  "text": "Yes. Nothing in it is false.",
+                  "reason": "True bits can still fool you. What did he leave out?"
+                }
+              ]
+            },
+            "win": "Yes! A one-sided text can fool you without telling a single lie.",
+            "trap": true
           },
           {
-            "say": "Both can be true. Both are one-sided."
+            "say": "Second trick: same facts, tilted words. The Rays beat the Crabs by one point.",
+            "show": [
+              "The Rays ",
+              {
+                "text": "smashed",
+                "tag": "TILTED WORD"
+              },
+              " ",
+              {
+                "text": "the Crabs",
+                "nudge": "That just names the other team. Which word makes the win sound huge?"
+              },
+              ", ",
+              {
+                "text": "41 to 40",
+                "nudge": "That's the score, a fact. Which word makes it sound huge?"
+              },
+              "."
+            ],
+            "ask": "Tap the word that tilts it.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! One point isn't smashing. 'Smashed' tilts the story towards the Rays."
           },
           {
-            "say": "So ask: what's missing? How would the other side tell it?"
+            "say": "So ask: how would the other side tell it?",
+            "ask": "Which headline would the ranger write?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Maxx wears a gold hat",
+                  "reason": "True, but the ranger cares about the lizard, not the hat."
+                },
+                {
+                  "text": "Maxx takes lizard from its mum's log"
+                },
+                {
+                  "text": "Hero Maxx saves lizard!",
+                  "reason": "That's Maxx's side. What would the ranger add?"
+                }
+              ]
+            },
+            "win": "Yes! The ranger tells the part Maxx left out. Now you have both sides."
+          },
+          {
+            "say": "The surf camp flyer says 'Sun, waves and fun!' It leaves out three things.",
+            "ask": "Which left-out fact would most change your mind?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Lunch is sandwiches.",
+                  "reason": "Most camps have sandwiches. Would that stop you going?"
+                },
+                {
+                  "text": "The bus is blue.",
+                  "reason": "Does the colour of the bus change anything?"
+                },
+                {
+                  "text": "There's no surf teacher this year."
+                }
+              ]
+            },
+            "win": "Yes! A surf camp with no teacher! Leaving that out is what makes the flyer one-sided."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "LEFT OUT",
+              "means": "A fact the text hides that would change your mind."
+            },
+            {
+              "term": "TILTED WORD",
+              "means": "A word that makes the same fact sound better or worse."
+            },
+            {
+              "term": "ONE-SIDED",
+              "means": "Tells only the side that suits the writer. Also called biased."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Maxx: 'I saved a lizard!'",
+                "tag": "ONE-SIDED"
+              },
+              " He left out: ",
+              {
+                "text": "he took it from its mum's log.",
+                "tag": "LEFT OUT"
+              }
+            ],
+            [
+              "The Rays ",
+              {
+                "text": "smashed",
+                "tag": "TILTED WORD"
+              },
+              " the Crabs, 41 to 40."
+            ]
+          ],
+          "test": "What's missing? Would it change my mind? Any tilted words? How would the other side tell it?"
+        }
       },
       "weDo": [
         {

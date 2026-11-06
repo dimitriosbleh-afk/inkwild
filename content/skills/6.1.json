@@ -10,28 +10,216 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A sentence is one whole thought. A full stop ends it.",
-            "show": "The yeti sneezed**.**"
+            "say": "Welcome to my kitchen diary! A sentence tells you who did something, and what they did.",
+            "show": [
+              {
+                "text": "Mo",
+                "tag": "DOER"
+              },
+              {
+                "text": "stirred",
+                "tag": "ACTION",
+                "nudge": "Stirred is what happened. Who did the stirring?"
+              },
+              {
+                "text": "the soup.",
+                "nudge": "The soup didn't do anything. It just got stirred!"
+              }
+            ],
+            "ask": "Tap who did something.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Mo did it, and stirred is what he did. That makes sense alone: a whole thought."
           },
           {
-            "say": "The next sentence starts with a capital letter.",
-            "show": "The yeti sneezed**.** **T**he igloo fell down."
+            "say": "Now my diary has two sentences, but no full stop. They crash together!",
+            "show": [
+              {
+                "text": "Mo stirred",
+                "nudge": "Mo stirred what? His sentence isn't finished yet. Read on."
+              },
+              " the ",
+              {
+                "text": "soup the"
+              },
+              " ",
+              {
+                "text": "yeti sneezed",
+                "nudge": "The yeti and sneezed belong together. Where did Mo's sentence finish?"
+              },
+              " in it."
+            ],
+            "ask": "Tap where the first sentence ends.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Mo stirred the soup' makes sense alone. Full stop there, then a capital: The yeti sneezed in it."
           },
           {
-            "say": "Put the stop in the wrong spot and things get weird.",
-            "show": "Mo was cooking his sister**.** Was starving."
+            "say": "Zed fixed it with a comma. Each part makes sense on its own. Is a comma enough?",
+            "show": [
+              {
+                "text": "Mo stirred the soup,",
+                "tag": "SENTENCE",
+                "lit": true
+              },
+              {
+                "text": "the yeti sneezed in it.",
+                "tag": "SENTENCE",
+                "lit": true
+              }
+            ],
+            "ask": "What should go after soup?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a full stop"
+                },
+                {
+                  "text": "a comma",
+                  "reason": "That's Zed's way. A comma is only a little pause. It can't end a sentence."
+                },
+                {
+                  "text": "nothing",
+                  "reason": "With nothing there, the two sentences crash together again."
+                }
+              ]
+            },
+            "win": "Right! A comma is too weak to hold two sentences apart. Use a full stop, then a capital.",
+            "trap": true
           },
           {
-            "say": "Stop after the whole thought. Phew, she's safe.",
-            "show": "Mo was cooking**.** **H**is sister was starving."
+            "say": "Capitals start every sentence. Names, days and the word I get one too, even in the middle.",
+            "show": [
+              "I met Gus at the ",
+              {
+                "text": "lodge",
+                "nudge": "Is lodge a name, or just a kind of building? Look for a name or a day."
+              },
+              " on ",
+              {
+                "text": "friday",
+                "tag": "CAPITAL"
+              },
+              " for ",
+              {
+                "text": "soup",
+                "nudge": "Soup is just food. Is it a name, a day or I?"
+              },
+              "."
+            ],
+            "ask": "Tap the word that needs a capital letter.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Friday is the name of a day, so it gets a capital F. Gus and I have theirs."
           },
           {
-            "say": "Names and the word I always get capitals too.",
-            "show": "**I** met **Gus** at **Mount Frostbite**."
+            "say": "Careful! Gus wants a full stop in the middle of this one. Say the first part alone.",
+            "show": [
+              "When the battery died, the robot froze."
+            ],
+            "ask": "How many sentences is this?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "one"
+                },
+                {
+                  "text": "two",
+                  "reason": "Say 'When the battery died' alone. Does it make sense, or leave you waiting?"
+                },
+                {
+                  "text": "none",
+                  "reason": "'The robot froze' makes sense on its own. So there is at least one."
+                }
+              ]
+            },
+            "win": "Yes! 'When the battery died' leaves you waiting. It hangs on to the rest. One sentence, one full stop.",
+            "trap": true
+          },
+          {
+            "say": "Your turn. Gus wrote this about my cake. Find where the crash is.",
+            "show": [
+              {
+                "text": "Gus dropped",
+                "nudge": "Gus dropped what? His sentence isn't finished yet. Read on."
+              },
+              " the ",
+              {
+                "text": "cake it"
+              },
+              " ",
+              {
+                "text": "landed on",
+                "nudge": "Landed is what 'it' did. That sentence is still going. Look earlier."
+              },
+              " the dog."
+            ],
+            "ask": "Tap where the full stop goes.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Gus dropped the cake' makes sense alone. Full stop there, and It gets a capital."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "DOER",
+              "means": "Who or what did something."
+            },
+            {
+              "term": "SENTENCE",
+              "means": "Says who did what and makes sense on its own. Ends with a full stop."
+            },
+            {
+              "term": "CAPITAL",
+              "means": "Starts every sentence. Names, days and the word I get one too."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Mo stirred the soup.",
+                "tag": "SENTENCE"
+              },
+              {
+                "text": "The yeti sneezed in it.",
+                "tag": "SENTENCE"
+              }
+            ],
+            [
+              {
+                "text": "I",
+                "tag": "CAPITAL"
+              },
+              " met ",
+              {
+                "text": "Gus",
+                "tag": "CAPITAL"
+              },
+              " on ",
+              {
+                "text": "Friday",
+                "tag": "CAPITAL"
+              },
+              "."
+            ]
+          ],
+          "test": "Who did what, and makes sense alone? Full stop, never a comma. Then a capital."
+        }
       },
       "weDo": [
         {

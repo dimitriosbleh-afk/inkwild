@@ -10,27 +10,179 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Linking words show how two ideas connect."
+            "say": "I practised my joke all week. Then I told it. Total silence! How do those ideas connect?",
+            "show": [
+              "Mo practised his joke all week. ___ nobody laughed."
+            ],
+            "ask": "Which linking word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "As a result,",
+                  "reason": "Did practising cause the silence? Practice should get laughs!"
+                },
+                {
+                  "text": "However,"
+                },
+                {
+                  "text": "In addition,",
+                  "reason": "Silence isn't one more good thing. It goes against what you'd expect."
+                }
+              ]
+            },
+            "win": "Yes! You'd expect laughs, but got silence. 'However' shows a surprise or the opposite: a contrast."
           },
           {
-            "say": "However shows a surprise, or the opposite.",
-            "show": "Mo practised his joke all week. **However,** nobody laughed."
+            "say": "Linking words, also called connectives, show how two ideas connect. Find the one that shows a result.",
+            "show": [
+              "Gus spilled slime. ",
+              {
+                "text": "As a result,",
+                "tag": "RESULT"
+              },
+              " the floor glowed green. ",
+              {
+                "text": "In addition,",
+                "tag": "ONE MORE IDEA",
+                "nudge": "That adds one more thing. Which word shows the spill caused something?"
+              },
+              " it smelled like feet. ",
+              {
+                "text": "Meanwhile,",
+                "tag": "SAME TIME",
+                "nudge": "That shows the same time. Which word shows the spill caused something?"
+              },
+              " Zed slept upstairs."
+            ],
+            "ask": "Tap the linking word that shows a result.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! The spill caused the glow. 'As a result' shows a result."
           },
           {
-            "say": "As a result shows what happened because of something.",
-            "show": "Gus spilled the slime. **As a result,** the floor glowed green."
+            "say": "Two things can happen at once, in two places. Which word shows that?",
+            "show": [
+              "Zed was gaming in the hut. ___ down at the beach, Wren was building a sandcastle."
+            ],
+            "ask": "Which linking word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "As a result,",
+                  "reason": "Did gaming make Wren build a sandcastle? Look at the two places."
+                },
+                {
+                  "text": "However,",
+                  "reason": "Is there a surprise? Two things are just happening at once."
+                },
+                {
+                  "text": "Meanwhile,"
+                }
+              ]
+            },
+            "win": "Yes! Same time, two places. 'Meanwhile' means at the same time, not next."
           },
           {
-            "say": "Meanwhile shows two things happening at the same time.",
-            "show": "Zed was gaming in the hut. **Meanwhile,** Mo was burning dinner."
+            "say": "Careful! Some people stick 'However' on anything. Check how the two ideas connect first.",
+            "show": [
+              "Zed forgot to charge his tablet. ___ it went flat in the boss fight."
+            ],
+            "ask": "Which linking word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "As a result,"
+                },
+                {
+                  "text": "However,",
+                  "reason": "Is it a surprise? A flat tablet is just what you'd expect!"
+                },
+                {
+                  "text": "Meanwhile,",
+                  "reason": "These don't happen at once. One thing causes the other."
+                }
+              ]
+            },
+            "win": "Yes! Forgetting to charge caused the flat tablet. Ask how the ideas connect before you pick.",
+            "trap": true
           },
           {
-            "say": "In addition adds one more idea.",
-            "show": "Wombats dig burrows. **In addition,** they do cube-shaped poo."
+            "say": "Same jobs, grown-up words. Nevertheless means however. Consequently means as a result. Furthermore means in addition.",
+            "show": [
+              "Gus's robot fell off the ladder. ",
+              {
+                "text": "Consequently,",
+                "tag": "RESULT",
+                "nudge": "That means 'as a result'. Did falling help it win?"
+              },
+              {
+                "text": "Nevertheless,",
+                "tag": "CONTRAST"
+              },
+              {
+                "text": "Furthermore,",
+                "tag": "ONE MORE IDEA",
+                "nudge": "That means 'in addition'. Is winning one more bad thing?"
+              },
+              " it still won the race."
+            ],
+            "ask": "Tap the word that fits before 'it still won the race'.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! You'd expect it to lose, but it won. 'Nevertheless' shows that contrast."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CONTRAST",
+              "means": "A surprise or the opposite: however, nevertheless, even so, on the other hand."
+            },
+            {
+              "term": "RESULT",
+              "means": "One thing caused the next: as a result, consequently, for this reason."
+            },
+            {
+              "term": "SAME TIME",
+              "means": "Two things at once: meanwhile, at that very moment."
+            },
+            {
+              "term": "ONE MORE IDEA",
+              "means": "Adds another: in addition, furthermore, on top of that, also."
+            }
+          ],
+          "examples": [
+            [
+              "Mo practised all week. ",
+              {
+                "text": "However,",
+                "tag": "CONTRAST"
+              },
+              " nobody laughed."
+            ],
+            [
+              "Gus spilled the slime. ",
+              {
+                "text": "As a result,",
+                "tag": "RESULT"
+              },
+              " the floor glowed green."
+            ]
+          ],
+          "test": "Ask how the ideas connect: a surprise, a cause, the same time, or one more?"
+        }
       },
       "weDo": [
         {

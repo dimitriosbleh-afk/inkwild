@@ -11,25 +11,161 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Before you write, ask: who is going to read this?"
+            "say": "Before I write, I ask: who's reading? Here's one question, said three ways.",
+            "show": [
+              {
+                "text": "Wanna come to the footy this arvo?",
+                "tag": "INFORMAL"
+              },
+              {
+                "text": "Can you come to the footy this afternoon?",
+                "nudge": "That's fine, but a bit careful for a best mate. Which one sounds like chatting?"
+              },
+              {
+                "text": "Would you like to attend the football this afternoon?",
+                "tag": "FORMAL",
+                "nudge": "That sounds like a letter! Would you text your best mate that?"
+              }
+            ],
+            "ask": "Tap the one you'd text your best mate.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! 'Wanna' and 'arvo' are informal, for mates. The last one is formal. The middle sits in between."
           },
           {
-            "say": "To a mate, you can be relaxed.",
-            "show": "**Hey Zed, wanna** come to the footy this **arvo**?"
+            "say": "It's a scale, from relaxed to careful. The less you know the reader, the more careful you get.",
+            "show": [
+              {
+                "text": "Yo Dr Lin!",
+                "tag": "INFORMAL",
+                "nudge": "That's how you greet a mate. Wren hardly knows Dr Lin."
+              },
+              {
+                "text": "Hey Dr Lin!",
+                "nudge": "Friendly, but a bit chatty for a vet she's met once."
+              },
+              {
+                "text": "Dear Dr Lin,",
+                "tag": "FORMAL"
+              },
+              {
+                "text": "To Whom It May Concern,",
+                "nudge": "Too stiff! Wren knows her name, so she can use it."
+              }
+            ],
+            "ask": "Wren is writing to a vet she met once. Tap the best opening.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Careful, but it still uses her name. Too chatty and too stiff are both wrong here."
           },
           {
-            "say": "To the principal, you pick careful, polite words.",
-            "show": "**Dear Ms Lee**, **may we** use the oval **this afternoon**?"
+            "say": "Careful! More formal is not always better. Tully is making a sign for five-year-olds.",
+            "ask": "Which line fits a sign for five-year-olds?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Participants must wear suitable headwear.",
+                  "reason": "Preps won't know those words. It's far too stiff for five-year-olds."
+                },
+                {
+                  "text": "Hi, Preps! Bring a hat and a big smile!"
+                },
+                {
+                  "text": "Hats. Now. No excuses.",
+                  "reason": "That's bossy, not friendly. Little kids need warm, simple words."
+                }
+              ]
+            },
+            "win": "Yes! Warm and simple fits little kids. Too formal is just as wrong as too casual.",
+            "trap": true
           },
           {
-            "say": "Relaxed is called informal. Careful and polite is called formal."
+            "say": "Fancy words can still sound rude. Mo is writing to the mayor about the oval.",
+            "ask": "Which line fits a letter to the mayor?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "We require the oval to be fixed immediately.",
+                  "reason": "It sounds formal, but 'require' and 'immediately' boss the mayor around."
+                },
+                {
+                  "text": "Can you fix the oval? It's so bad lol.",
+                  "reason": "'Lol' and 'so bad' are chat words for mates. The mayor needs careful ones."
+                },
+                {
+                  "text": "We respectfully ask you to fix the oval."
+                }
+              ]
+            },
+            "win": "Yes! Formal and polite: it asks, it doesn't boss. That fits someone important you don't know.",
+            "trap": true
           },
           {
-            "say": "Same message. Different reader. Different words."
+            "say": "One chatty word can spoil a careful letter. Find it in Indi's email.",
+            "show": [
+              "Dear Mr Bell, thank you for the ",
+              {
+                "text": "awesome",
+                "tag": "INFORMAL"
+              },
+              " tour of ",
+              {
+                "text": "the fire station",
+                "nudge": "That's just the place. Which word sounds like chatting with a mate?"
+              },
+              " on ",
+              {
+                "text": "Friday.",
+                "nudge": "That's just the day. Which word is chatty?"
+              }
+            ],
+            "ask": "Tap the word that's too casual for Mr Bell.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! 'Awesome' is chatty. 'Excellent' is warm but careful, so it fits."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "INFORMAL",
+              "means": "Relaxed words for mates and family, like 'Hey', 'wanna' and 'arvo'."
+            },
+            {
+              "term": "FORMAL",
+              "means": "Careful, polite words for people you don't know well, or serious jobs."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Yo Kai!",
+                "tag": "INFORMAL"
+              },
+              " Footy this arvo?"
+            ],
+            [
+              {
+                "text": "Dear Dr Lin,",
+                "tag": "FORMAL"
+              },
+              " thank you for helping our wombat."
+            ]
+          ],
+          "test": "It's a scale. Who's reading? The less you know them, the more careful. Too stiff can be wrong too."
+        }
       },
       "weDo": [
         {

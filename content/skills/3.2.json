@@ -10,28 +10,199 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A claim is something a writer wants you to believe.",
-            "show": "**Mo's pies are the best on Bluster Rock.**"
+            "say": "My slime is the stretchiest ever! Why should you believe me?",
+            "show": [
+              {
+                "text": "Gus's slime is the stretchiest ever.",
+                "tag": "CLAIM",
+                "nudge": "That's what Gus wants you to believe. Which part shows why?"
+              },
+              {
+                "text": "It stretched four metres in our test.",
+                "tag": "BACKING"
+              },
+              {
+                "text": "Buy some today!",
+                "nudge": "Telling you to buy isn't a reason to believe it. Which part shows why?"
+              }
+            ],
+            "ask": "Tap the part that shows why you should believe Gus.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! What Gus wants you to believe is his claim. The test holding it up is backing."
           },
           {
-            "say": "A bare claim stands alone. Nothing holds it up.",
-            "show": "Mo's pies are the best. **Buy one now!**"
+            "say": "Now Mo has a go. Is anything holding up his claim?",
+            "show": [
+              {
+                "text": "Mo's pies are the best on Bluster Rock.",
+                "tag": "BARE CLAIM"
+              },
+              " Buy one now!"
+            ],
+            "ask": "Does anything back up Mo's claim?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "'Buy one now!' tells you what to do. Does it show the pies are the best?"
+            },
+            "win": "Right! Nothing holds it up. A claim on its own is a bare claim."
           },
           {
-            "say": "A backed-up claim comes with a reason or some proof.",
-            "show": "Mo's pies are the best. **They won first prize at the show.**"
+            "say": "Careful! Mo added a 'because'. Does that fix it?",
+            "show": [
+              {
+                "text": "Mo's pies are the best,",
+                "tag": "CLAIM",
+                "lit": true
+              },
+              " because they are better than every other pie."
+            ],
+            "ask": "What does the 'because' part do?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "It gives proof.",
+                  "reason": "Say 'better than every other pie'. Now say 'the best'. Do they mean the same?"
+                },
+                {
+                  "text": "It tells you where to buy one.",
+                  "reason": "There's no shop or price here. Read the because part again."
+                },
+                {
+                  "text": "It says the claim again."
+                }
+              ]
+            },
+            "win": "Yes! 'Better than every other pie' just means 'the best'. Saying it twice isn't backing.",
+            "trap": true
           },
           {
-            "say": "Saying it again, or louder, is not backing.",
-            "show": "Mo's pies are the best! **THE BEST!**"
+            "say": "This 'because' is true. Mo's pies really are round.",
+            "show": [
+              {
+                "text": "Mo's pies are the best,",
+                "tag": "CLAIM",
+                "lit": true
+              },
+              " because they are round."
+            ],
+            "ask": "What's wrong with this backing?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Nothing. It's good backing.",
+                  "reason": "Lots of pies are round. Does being round make a pie the best?"
+                },
+                {
+                  "text": "It doesn't fit the claim."
+                },
+                {
+                  "text": "It isn't true.",
+                  "reason": "Mo's pies really are round. Being true isn't enough. Does round show they're the best?"
+                }
+              ]
+            },
+            "win": "Yes! Lots of pies are round. Backing has to show why the claim is true.",
+            "trap": true
           },
           {
-            "say": "Backing must fit the claim. A random fact holds nothing up.",
-            "show": "Mo's pies are the best. **Pies are round.**"
+            "say": "Zed says the library should get more comics. Here are his reasons.",
+            "show": [
+              {
+                "text": "Comics are the coolest.",
+                "nudge": "'Coolest' is only Zed's feeling. Does it show the library needs more?"
+              },
+              {
+                "text": "Every comic in the library is borrowed right now.",
+                "tag": "BACKING"
+              },
+              {
+                "text": "I love comics so much.",
+                "nudge": "Loving comics is a feeling. Which reason shows a real need?"
+              }
+            ],
+            "ask": "Tap the reason that really backs up Zed's claim.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Every comic borrowed shows kids want more. Feelings don't hold a claim up."
+          },
+          {
+            "say": "Last one. Vinnie's robot cat has three claims. Check each reason.",
+            "show": [
+              {
+                "text": "It's quiet. It hums softer than a fridge.",
+                "tag": "BACKED-UP CLAIM",
+                "nudge": "Humming softer than a fridge shows it is quiet. Try another."
+              },
+              {
+                "text": "It's the best pet. It comes in blue.",
+                "tag": "BARE CLAIM"
+              },
+              {
+                "text": "It's cheap. It costs $5 less than others.",
+                "tag": "BACKED-UP CLAIM",
+                "nudge": "Costing less than the others shows it is cheap. Try another."
+              }
+            ],
+            "ask": "Tap the claim that is still bare.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Coming in blue doesn't show it's the best. Nothing really holds that claim up."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLAIM",
+              "means": "What the writer wants you to believe."
+            },
+            {
+              "term": "BACKING",
+              "means": "A reason or proof that shows why the claim is true."
+            },
+            {
+              "term": "BARE CLAIM",
+              "means": "A claim with nothing holding it up."
+            },
+            {
+              "term": "BACKED-UP CLAIM",
+              "means": "A claim with backing that fits it."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Mo's pies are the best.",
+                "tag": "BARE CLAIM"
+              },
+              " Buy one now!"
+            ],
+            [
+              {
+                "text": "Gus's slime is the stretchiest ever.",
+                "tag": "CLAIM"
+              },
+              {
+                "text": "It stretched four metres in our test.",
+                "tag": "BACKING"
+              }
+            ]
+          ],
+          "test": "Find the claim. Does a reason or proof that fits hold it up? Yes: backed-up. No: bare."
+        }
       },
       "weDo": [
         {

@@ -11,28 +11,216 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A summary squeezes the whole text into one sentence.",
-            "show": "Mo flipped a pancake. It stuck to the ceiling. Everyone ate cereal instead."
+            "say": "A summary squeezes a whole story into one sentence. Here's a tiny story.",
+            "show": [
+              {
+                "text": "Mo flipped a pancake."
+              },
+              " ",
+              {
+                "text": "It stuck to the ceiling."
+              },
+              " ",
+              {
+                "text": "Everyone ate cereal instead."
+              }
+            ],
+            "ask": "Which sentence tells the whole story?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Mo flipped a pancake.",
+                  "reason": "That's only the start. What happened next?"
+                },
+                {
+                  "text": "Mo's pancake stuck to the ceiling, so everyone ate cereal."
+                },
+                {
+                  "text": "Mo made perfect pancakes for everyone.",
+                  "reason": "Perfect? It stuck to the ceiling! Check every part against the story."
+                }
+              ]
+            },
+            "win": "Yes! It covers the start, the middle and the end. That's the best summary."
           },
           {
-            "say": "Too narrow: it only grabs one small bit.",
-            "show": "**Mo flipped a pancake.**"
+            "say": "Each weak summary has its own problem. Let's name them.",
+            "show": [
+              {
+                "text": "Mo flipped a pancake.",
+                "tag": "TOO NARROW"
+              },
+              " ",
+              {
+                "text": "Something happened at breakfast.",
+                "nudge": "Breakfast is true, but is it one small bit? It hardly says anything."
+              },
+              " ",
+              {
+                "text": "Mo's pancake was perfect.",
+                "nudge": "Was it perfect? That one gets a fact wrong."
+              },
+              " ",
+              {
+                "text": "Mo's pancake stuck to the ceiling, so everyone ate cereal.",
+                "tag": "BEST SUMMARY",
+                "lit": true,
+                "nudge": "That's the best summary. Find one that grabs only one bit."
+              }
+            ],
+            "ask": "Tap the one that's true, but only tells one small bit.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! It's true, but it's only the start. That's too narrow."
           },
           {
-            "say": "Too broad: it's so vague it could fit any story.",
-            "show": "**Something happened in a kitchen.**"
+            "say": "This next problem is sneaky. The summary is true, but it doesn't say what happened.",
+            "show": [
+              {
+                "text": "Mo flipped a pancake.",
+                "tag": "TOO NARROW",
+                "lit": true,
+                "nudge": "That's the too-narrow one. It tells one small bit."
+              },
+              " ",
+              {
+                "text": "Something happened at breakfast.",
+                "tag": "TOO BROAD"
+              },
+              " ",
+              {
+                "text": "Mo's pancake was perfect.",
+                "tag": "UNTRUE",
+                "nudge": "That one isn't even true. Find one that's true but tells you nothing."
+              },
+              " ",
+              {
+                "text": "Mo's pancake stuck to the ceiling, so everyone ate cereal.",
+                "tag": "BEST SUMMARY",
+                "lit": true,
+                "nudge": "That's the best summary. It says exactly what happened."
+              }
+            ],
+            "ask": "Tap the one that's true, but doesn't say what happened.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Breakfast is true, but what happened? Too broad means so general it skips the story."
           },
           {
-            "say": "Untrue: it gets something wrong.",
-            "show": "**Mo's pancake was perfect.**"
+            "say": "Careful! Too broad can sound clever. Does it say what actually happened?",
+            "show": [
+              {
+                "text": "Rosie the school goat ate the footy."
+              },
+              " ",
+              {
+                "text": "With no ball, the game stopped."
+              },
+              " ",
+              {
+                "text": "So everyone played chasey with Rosie instead."
+              }
+            ],
+            "ask": "Which is the best summary?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "A school footy game did not go the way anyone planned.",
+                  "reason": "True, but what happened? It never says goat, footy or chasey. Too broad."
+                },
+                {
+                  "text": "Rosie ate the footy, so everyone played chasey with her instead."
+                },
+                {
+                  "text": "Rosie the school goat ate the footy.",
+                  "reason": "True, but it stops at the start. What did everyone do next? Too narrow."
+                }
+              ]
+            },
+            "win": "Yes! It covers the start and the end. 'Not the way anyone planned' sounds good, but says nothing.",
+            "trap": true
           },
           {
-            "say": "Just right covers the whole thing, and it's all true.",
-            "show": "**Mo's pancake stuck to the ceiling, so everyone ate cereal.**"
+            "say": "Last check. Is every part true? Test each part against the story.",
+            "show": [
+              {
+                "text": "Rosie the goat",
+                "nudge": "Rosie is the goat. That part's true."
+              },
+              " ",
+              {
+                "text": "ate the footy,",
+                "nudge": "She did eat the footy. That part's true."
+              },
+              " ",
+              {
+                "text": "so everyone went home.",
+                "tag": "UNTRUE"
+              }
+            ],
+            "ask": "Tap the part of this summary that's untrue.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Nobody went home. They played chasey. One wrong fact makes a summary untrue."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "BEST SUMMARY",
+              "means": "Covers the whole text, start to end, and every part is true."
+            },
+            {
+              "term": "TOO NARROW",
+              "means": "True, but only one small bit. It skips the rest."
+            },
+            {
+              "term": "TOO BROAD",
+              "means": "True, but so general it doesn't say what actually happened."
+            },
+            {
+              "term": "UNTRUE",
+              "means": "Gets a fact wrong. Check every part against the text."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Mo flipped a pancake.",
+                "tag": "TOO NARROW"
+              },
+              " ",
+              {
+                "text": "Mo's pancake stuck to the ceiling, so everyone ate cereal.",
+                "tag": "BEST SUMMARY"
+              }
+            ],
+            [
+              {
+                "text": "A school footy game did not go the way anyone planned.",
+                "tag": "TOO BROAD"
+              },
+              " ",
+              {
+                "text": "Rosie ate the footy, so everyone went home.",
+                "tag": "UNTRUE"
+              }
+            ]
+          ],
+          "test": "Does it cover the whole text? Is every part true? Does it say what happened?"
+        }
       },
       "weDo": [
         {

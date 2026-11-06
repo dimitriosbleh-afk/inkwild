@@ -11,24 +11,186 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Every text is written at a certain time."
+            "say": "Gus here. Every text is written at a certain time. This one is from 1910.",
+            "show": [
+              {
+                "text": "School rules, 1910.",
+                "tag": "WRITTEN IN"
+              },
+              {
+                "text": "Bring a slate and chalk every day.",
+                "tag": "DIFFERENT NOW"
+              },
+              {
+                "text": "Boys and girls must use separate doors.",
+                "tag": "DIFFERENT NOW"
+              }
+            ],
+            "ask": "Are these rules the same at school now?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Think about your school. Do you write on a slate? Do boys and girls share doors?"
+            },
+            "win": "Right! They're different now. The writer doesn't explain them, because in 1910 they were normal."
           },
           {
-            "say": "It shows what was normal back then.",
-            "show": "School rules, 1952: **All boys must wear a cap and tie.**"
+            "say": "So an old text shows what was normal when it was written.",
+            "show": [
+              {
+                "text": "Diary, 1975.",
+                "tag": "WRITTEN IN"
+              },
+              "I rang Nan from the phone box on the corner. It took three coins."
+            ],
+            "ask": "What does this diary show about 1975?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Everyone had a phone in their pocket.",
+                  "reason": "She went to a phone box with coins. Did she have a phone in her pocket?"
+                },
+                {
+                  "text": "Phone calls were always free.",
+                  "reason": "It took three coins! Calls cost money."
+                },
+                {
+                  "text": "People used coin phone boxes to ring someone."
+                }
+              ]
+            },
+            "win": "Yes! The writer treats phone boxes as normal. That shows us life in 1975."
           },
           {
-            "say": "The writer doesn't explain it. Everyone just did it."
+            "say": "Now find the line that shows how life has changed.",
+            "show": [
+              "Letter, 1938.",
+              {
+                "text": "Dad rode the horse to town.",
+                "tag": "DIFFERENT NOW"
+              },
+              {
+                "text": "I fed the chooks before school.",
+                "tag": "STILL THE SAME",
+                "nudge": "Lots of kids still feed chooks. Find something most people don't do now."
+              },
+              {
+                "text": "We had porridge for breakfast.",
+                "tag": "STILL THE SAME",
+                "nudge": "Lots of people still eat porridge. Find something that has changed."
+              }
+            ],
+            "ask": "Tap the line that shows life was different then.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Most people drive to town now. The letter treats the horse as normal."
           },
           {
-            "say": "Now compare it with today. Is it still the same?"
+            "say": "Careful! Not every line in an old text is different. Some things stay the same.",
+            "show": [
+              "Library rules, 1928.",
+              {
+                "text": "Girls and boys sit at separate tables.",
+                "tag": "DIFFERENT NOW",
+                "nudge": "Girls and boys sit together now. That rule has changed."
+              },
+              {
+                "text": "Return your book on time.",
+                "tag": "STILL THE SAME"
+              },
+              {
+                "text": "Only boys may borrow science books.",
+                "tag": "DIFFERENT NOW",
+                "nudge": "Anyone can borrow science books now. That rule has changed."
+              }
+            ],
+            "ask": "Tap the rule that is still the same now.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Libraries still want books back on time. Old texts mix things that changed with things that didn't.",
+            "trap": true
           },
           {
-            "say": "Different? Then the text shows how times have changed."
+            "say": "Old texts also show what people thought, not just what they used.",
+            "show": [
+              "Girls' page, 1955.",
+              {
+                "text": "Learn to cook and sew, so you can run a home one day!",
+                "tag": "DIFFERENT NOW"
+              }
+            ],
+            "ask": "What idea from 1955 does this page show?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Girls weren't allowed to read.",
+                  "reason": "This page was written for girls to read! What does it tell them to learn?"
+                },
+                {
+                  "text": "People thought running a home was a girl's job."
+                },
+                {
+                  "text": "Everyone learnt to sew, boys too.",
+                  "reason": "This page is only for girls. Who does it think will run a home?"
+                }
+              ]
+            },
+            "win": "Yes! Today, anyone can run a home or do any job. The page shows an idea from 1955."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WRITTEN IN",
+              "means": "When the text was written. It shows what was normal then."
+            },
+            {
+              "term": "DIFFERENT NOW",
+              "means": "Normal back then, but not now. It shows how times have changed."
+            },
+            {
+              "term": "STILL THE SAME",
+              "means": "Still true today. Not every line in an old text has changed."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "School rules, 1910.",
+                "tag": "WRITTEN IN"
+              },
+              {
+                "text": "Bring a slate and chalk every day.",
+                "tag": "DIFFERENT NOW"
+              }
+            ],
+            [
+              {
+                "text": "Library rules, 1928.",
+                "tag": "WRITTEN IN"
+              },
+              {
+                "text": "Only boys may borrow science books.",
+                "tag": "DIFFERENT NOW"
+              },
+              {
+                "text": "Return your book on time.",
+                "tag": "STILL THE SAME"
+              }
+            ]
+          ],
+          "test": "What does the writer treat as normal? Ask: is that still true now?"
+        }
       },
       "weDo": [
         {

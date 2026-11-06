@@ -10,26 +10,210 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Sometimes two edits are both good writing.",
-            "show": "Edit A: **The lava is very hot.** Edit B: **Lava can reach 1,200 °C.**"
+            "say": "I found a hurt joey! Here are three edits about it. The reader is the vet.",
+            "show": [
+              {
+                "text": "For: the vet",
+                "tag": "READER",
+                "lit": true,
+                "nudge": "That's who is reading. Now tap the edit that gives her what she needs."
+              },
+              {
+                "text": "A: It weighs 400 grams. One foot is cut.",
+                "tag": "EXACT FACTS"
+              },
+              {
+                "text": "B: It's as tiny as a mango!",
+                "tag": "EVERYDAY WORDS",
+                "nudge": "It's cute, but the vet can't weigh a mango. What does she need to know?"
+              },
+              {
+                "text": "C: Poor joey! Get well soon!",
+                "nudge": "It's kind, but it doesn't tell the vet what's wrong."
+              }
+            ],
+            "ask": "Tap the edit that gives the vet what she needs.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A vet needs exact facts: how heavy the joey is, and what's hurt."
           },
           {
-            "say": "So ask: who is going to read it?"
+            "say": "Now my cousin Pip, who is five, wants to hear about the joey. Same edits, new reader.",
+            "show": [
+              {
+                "text": "For: Pip, aged five",
+                "tag": "READER",
+                "lit": true
+              },
+              {
+                "text": "A: It weighs 400 grams. One foot is cut.",
+                "tag": "EXACT FACTS",
+                "lit": true
+              },
+              {
+                "text": "B: It's as tiny as a mango!",
+                "tag": "EVERYDAY WORDS",
+                "lit": true
+              }
+            ],
+            "ask": "Which suits Pip better, and why?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "A, because it has more facts.",
+                  "reason": "More facts help the vet. Does Pip know how heavy 400 grams is?"
+                },
+                {
+                  "text": "B, because Pip knows how small a mango is."
+                },
+                {
+                  "text": "B, because it has an exclamation mark.",
+                  "reason": "A mark won't help Pip picture the joey. Think about the words she knows."
+                }
+              ]
+            },
+            "win": "Yes! Same joey, new reader, new pick. Pip can picture a mango, but not 400 grams."
           },
           {
-            "say": "A five-year-old needs short, simple words.",
-            "show": "**The lava is very hot.**"
+            "say": "Gran will feed the joey while I'm at school. She has never fed one before.",
+            "show": [
+              {
+                "text": "For: Gran, first time",
+                "tag": "READER",
+                "lit": true
+              },
+              {
+                "text": "A: Feed the joey."
+              },
+              {
+                "text": "B: Give the joey warm milk at 3 pm, in the little bottle.",
+                "tag": "EXACT FACTS"
+              }
+            ],
+            "ask": "Which suits Gran better, and why?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "A, because it's shorter and quicker to read.",
+                  "reason": "Short is great for a quick look. But could Gran do the job from A?"
+                },
+                {
+                  "text": "B, because it sounds more grown-up.",
+                  "reason": "That isn't the point. What does Gran need to do the job right?"
+                },
+                {
+                  "text": "B, because it tells Gran what, when and how."
+                }
+              ]
+            },
+            "win": "Yes! Shorter isn't always better. Gran needs every detail, so the longer edit wins this time.",
+            "trap": true
           },
           {
-            "say": "A science report needs exact facts.",
-            "show": "**Lava can reach 1,200 °C.**"
+            "say": "Now a sign by the school gate. Kids read it while they run to the bus.",
+            "show": [
+              {
+                "text": "For: kids running past",
+                "tag": "READER",
+                "lit": true
+              },
+              {
+                "text": "A: Bus leaves at 3. Be quick!"
+              },
+              {
+                "text": "B: The bus leaves at three o'clock, so please be on time."
+              }
+            ],
+            "ask": "Which suits these kids better, and why?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "A, because they can read it in one quick look."
+                },
+                {
+                  "text": "B, because it uses full sentences.",
+                  "reason": "Full sentences are fine, but kids running past won't stop to read them all."
+                },
+                {
+                  "text": "B, because it gives the time.",
+                  "reason": "A gives the time too: 3. Which one can they read as they run?"
+                }
+              ]
+            },
+            "win": "Yes! This time short wins. Kids running past need it in one quick look."
           },
           {
-            "say": "Pick the edit that gives this reader what they need."
+            "say": "So I never pick by length or by sound. I start with one question.",
+            "ask": "Which question do I ask first?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Which edit is shorter?",
+                  "reason": "Short suited the bus kids, but not Gran. Length is not where you start."
+                },
+                {
+                  "text": "Who is reading, and what do they need?"
+                },
+                {
+                  "text": "Which edit uses the best words?",
+                  "reason": "Best for who? The vet and Pip needed different words."
+                }
+              ]
+            },
+            "win": "Yes! The reader is also called the audience. Ask about them first, then pick the edit."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "READER",
+              "means": "Who will read it. Ask about them first, every time."
+            },
+            {
+              "term": "EXACT FACTS",
+              "means": "Numbers, times and details. A vet, a coach or a helper needs these."
+            },
+            {
+              "term": "EVERYDAY WORDS",
+              "means": "Words a little kid knows, and things they can picture."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "For: the vet",
+                "tag": "READER"
+              },
+              {
+                "text": "It weighs 400 grams. One foot is cut.",
+                "tag": "EXACT FACTS"
+              }
+            ],
+            [
+              {
+                "text": "For: Pip, aged five",
+                "tag": "READER"
+              },
+              {
+                "text": "It's as tiny as a mango!",
+                "tag": "EVERYDAY WORDS"
+              }
+            ]
+          ],
+          "test": "Who's reading? What do they need? Pick the edit that gives them that, and say why."
+        }
       },
       "weDo": [
         {

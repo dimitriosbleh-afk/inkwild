@@ -11,27 +11,218 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Most stories have the same shape. It's like a hill."
+            "say": "Mo here! Stories have a shape. Here's mine, from last Sunday.",
+            "show": [
+              {
+                "text": "I had to bake a cake by noon.",
+                "nudge": "That's just the start. Nothing has gone wrong yet."
+              },
+              {
+                "text": "But I had no eggs!",
+                "tag": "COMPLICATION"
+              },
+              {
+                "text": "Gran showed me a cake with no eggs.",
+                "nudge": "That's how it gets fixed. What went wrong first?"
+              }
+            ],
+            "ask": "Tap the problem. Where does something go wrong?",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! No eggs is the story's problem. The problem is called the complication."
           },
           {
-            "say": "At the start, something goes wrong. That's the problem.",
-            "show": "Mo had to bake a cake by noon. **He had no eggs.**"
+            "say": "Now Pip's story. The start tells you who, where and when. Nothing has gone wrong yet.",
+            "show": [
+              {
+                "text": "Pip the penguin lived at the zoo.",
+                "tag": "ORIENTATION"
+              },
+              {
+                "text": "One hot day, her pool started to leak.",
+                "tag": "COMPLICATION",
+                "nudge": "Something goes wrong there! Find the part before it."
+              },
+              {
+                "text": "The keeper let her swim in the fountain.",
+                "nudge": "That's the ending. Find the very start."
+              }
+            ],
+            "ask": "Tap the start, before anything goes wrong.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Who and where, before the trouble. That start is called the orientation."
           },
           {
-            "say": "Next, something makes it even worse. That's the complication.",
-            "show": "**Then the oven blew up.**"
+            "say": "Last comes the part where the problem gets fixed.",
+            "show": [
+              {
+                "text": "Pip the penguin lived at the zoo.",
+                "tag": "ORIENTATION",
+                "lit": true,
+                "nudge": "That's the orientation, before anything goes wrong."
+              },
+              {
+                "text": "One hot day, her pool started to leak.",
+                "tag": "COMPLICATION",
+                "lit": true,
+                "nudge": "That's the complication. How does it get fixed?"
+              },
+              {
+                "text": "The keeper let her swim in the fountain.",
+                "tag": "RESOLUTION"
+              }
+            ],
+            "ask": "Tap how the problem gets solved.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The fountain fixes it. How the problem gets solved is called the resolution."
           },
           {
-            "say": "How it gets sorted out is the resolution.",
-            "show": "**Gran showed him a cake you don't have to bake.**"
+            "say": "Careful! Some stories get worse before they get better. Don't mix that up with the complication.",
+            "show": [
+              {
+                "text": "Wren's lizard escaped from its tank.",
+                "tag": "COMPLICATION"
+              },
+              {
+                "text": "Then it crawled into the school vent.",
+                "tag": "IT GETS WORSE",
+                "nudge": "That makes it worse. But what was the first problem?"
+              },
+              {
+                "text": "Wren got it out with a juicy cricket.",
+                "tag": "RESOLUTION",
+                "nudge": "That's the resolution. What went wrong at the start?"
+              }
+            ],
+            "ask": "Tap the complication, the story's problem.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! The escape is the problem the whole story is about. The vent just makes it worse.",
+            "trap": true
           },
           {
-            "say": "Last, ask what it says about life. That's the theme.",
-            "show": "**Asking for help isn't the same as giving up.**"
+            "say": "Indi was scared to show her painting. She showed it anyway, and it won!",
+            "show": [
+              {
+                "text": "Paintings always win prizes.",
+                "nudge": "Not always! What does Indi's story teach anyone about life?"
+              },
+              {
+                "text": "Indi is a painter.",
+                "nudge": "That's a fact about Indi. What does her story teach about life?"
+              },
+              {
+                "text": "Being brave can bring good things.",
+                "tag": "BIG IDEA"
+              }
+            ],
+            "ask": "Tap what the story says about life.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! That's the big idea. It's about life, for anyone, not just Indi. Some books call it the theme."
+          },
+          {
+            "say": "Careful! Some stories start at the end, then jump back.",
+            "show": [
+              {
+                "text": "Wren hugged the wet puppy."
+              },
+              {
+                "text": "An hour earlier, it had fallen into the dam.",
+                "tag": "COMPLICATION"
+              }
+            ],
+            "ask": "What happened first?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Wren hugged the puppy.",
+                  "reason": "That's told first. But 'an hour earlier' jumps back. What came before?"
+                },
+                {
+                  "text": "The puppy fell into the dam."
+                },
+                {
+                  "text": "Wren dried the puppy.",
+                  "reason": "That isn't in the story. Look for the words 'an hour earlier'."
+                }
+              ]
+            },
+            "win": "Yes! 'An hour earlier' jumps back in time. The problem came first, even though it's told second.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "ORIENTATION",
+              "means": "The start. Who, where and when, before anything goes wrong."
+            },
+            {
+              "term": "COMPLICATION",
+              "means": "The story's problem. The trouble the whole story is about."
+            },
+            {
+              "term": "IT GETS WORSE",
+              "means": "Something makes the problem even harder to fix."
+            },
+            {
+              "term": "RESOLUTION",
+              "means": "How the problem gets solved."
+            },
+            {
+              "term": "BIG IDEA",
+              "means": "What the story says about life, for anyone. Also called the theme."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Pip the penguin lived at the zoo.",
+                "tag": "ORIENTATION"
+              },
+              {
+                "text": "Her pool started to leak.",
+                "tag": "COMPLICATION"
+              },
+              {
+                "text": "She swam in the fountain.",
+                "tag": "RESOLUTION"
+              }
+            ],
+            [
+              {
+                "text": "Wren's lizard escaped.",
+                "tag": "COMPLICATION"
+              },
+              {
+                "text": "It crawled into a vent.",
+                "tag": "IT GETS WORSE"
+              },
+              {
+                "text": "Wren got it out with a cricket.",
+                "tag": "RESOLUTION"
+              }
+            ]
+          ],
+          "test": "Find the start, the problem, what makes it worse, and the fix. Then ask: what's it saying about life?"
+        }
       },
       "weDo": [
         {

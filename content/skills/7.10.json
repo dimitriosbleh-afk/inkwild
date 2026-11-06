@@ -10,25 +10,232 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Writers repeat key words on purpose.",
-            "show": "The **ladder** was old. Nobody trusted the **ladder**."
+            "say": "Here's the sign at the bottom of Tower Six. One word keeps coming back.",
+            "show": [
+              "The ",
+              {
+                "text": "ladder",
+                "tag": "KEY WORD"
+              },
+              " is old. The ",
+              {
+                "text": "ladder",
+                "tag": "KEY WORD"
+              },
+              " wobbles. Please keep off the ",
+              {
+                "text": "ladder.",
+                "tag": "KEY WORD"
+              }
+            ],
+            "ask": "Which word keeps coming back?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "old",
+                  "reason": "Old comes once. Which word do you read again and again?"
+                },
+                {
+                  "text": "wobbles",
+                  "reason": "Wobbles comes once. Count the words that come back."
+                },
+                {
+                  "text": "ladder"
+                }
+              ]
+            },
+            "win": "Yes! Ladder. The writer repeats this key word on purpose, so the sign stays about one thing."
           },
           {
-            "say": "The repeat tells you it's still the same thing."
+            "say": "You may have heard 'don't repeat words'. So Zed swapped 'echidna' for 'the thing'.",
+            "show": [
+              "The echidna hides in a log. At night, ",
+              {
+                "text": "the thing",
+                "tag": "VAGUE"
+              },
+              " waddles out to eat ants."
+            ],
+            "ask": "Is 'the thing' clearer than 'the echidna'?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "'The thing' could be anything: the log, an ant, a ghost! Which word tells you for sure?"
+            },
+            "win": "Right! 'The thing' is vague. Naming the echidna again keeps the chain clear.",
+            "trap": true
           },
           {
-            "say": "Writers also use other words for that same thing.",
-            "show": "The **storm** hit at noon. The **blizzard** raged all night."
+            "say": "Writers can also use a new name for the same thing. Watch the storm.",
+            "show": [
+              "The ",
+              {
+                "text": "storm",
+                "tag": "KEY WORD",
+                "nudge": "That's the storm itself. Find a new name for it."
+              },
+              " hit at noon. ",
+              {
+                "text": "The blizzard",
+                "tag": "OTHER NAME"
+              },
+              " howled all night. ",
+              {
+                "text": "The hut",
+                "nudge": "The hut is a building. It isn't the storm."
+              },
+              " shook."
+            ],
+            "ask": "Tap the words that name the same thing as 'storm'.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Storm, blizzard: two names, one thing. Together they make a chain."
           },
           {
-            "say": "Together they make a chain. It holds the text together."
+            "say": "A chain can have three or four links. Follow this one through Gus's lab.",
+            "show": [
+              "Gus made ",
+              {
+                "text": "slime.",
+                "tag": "KEY WORD"
+              },
+              {
+                "text": "The goo",
+                "tag": "OTHER NAME"
+              },
+              " dripped off the table. Mo stepped in ",
+              {
+                "text": "the green mess.",
+                "tag": "OTHER NAME"
+              }
+            ],
+            "ask": "Which words all name the slime?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "slime, table, Mo",
+                  "reason": "The table and Mo aren't slime! Which words could all drip?"
+                },
+                {
+                  "text": "slime, goo, green mess"
+                },
+                {
+                  "text": "goo, table, lab",
+                  "reason": "Tables and labs don't drip. Which words name the slime each time?"
+                }
+              ]
+            },
+            "win": "Yes! Three names, one slime. That chain holds the text together."
           },
           {
-            "say": "Follow the chain, and you'll know what the text is about."
+            "say": "Speeches repeat on purpose too. Listen to Wren's speech to the team.",
+            "show": [
+              "We trained in the rain. ",
+              {
+                "text": "We never stopped.",
+                "tag": "KEY WORD"
+              },
+              " We trained in the snow. ",
+              {
+                "text": "We never stopped.",
+                "tag": "KEY WORD"
+              }
+            ],
+            "ask": "What does repeating 'We never stopped' do?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "It shows Wren forgot what she said.",
+                  "reason": "Speakers repeat on purpose. What idea keeps coming back?"
+                },
+                {
+                  "text": "It ties the speech to one message."
+                },
+                {
+                  "text": "It tells you about the weather.",
+                  "reason": "The weather changes each time. What stays the same?"
+                }
+              ]
+            },
+            "win": "Yes! Every part comes back to one message: keep going. That's repetition on purpose."
+          },
+          {
+            "say": "A key word can also tie the ending back to the title, like an echo.",
+            "show": [
+              "THE LOST SOCK … At last, ",
+              {
+                "text": "Gus",
+                "nudge": "Gus isn't in the title. Which word in the title comes back?"
+              },
+              " found the ",
+              {
+                "text": "sock",
+                "tag": "KEY WORD"
+              },
+              " in the ",
+              {
+                "text": "fridge.",
+                "nudge": "The fridge isn't in the title. Which word in the title comes back?"
+              }
+            ],
+            "ask": "Tap the word in the last line that echoes the title.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Sock' takes the ending back to the title. It ends where it began, so it comes full circle."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "KEY WORD",
+              "means": "A word or phrase the writer repeats on purpose, to keep you on track."
+            },
+            {
+              "term": "OTHER NAME",
+              "means": "A new word for the same thing, like storm and blizzard."
+            },
+            {
+              "term": "VAGUE",
+              "means": "Words like 'the thing' could mean anything. They break the chain."
+            }
+          ],
+          "examples": [
+            [
+              "The ",
+              {
+                "text": "storm",
+                "tag": "KEY WORD"
+              },
+              " hit at noon. ",
+              {
+                "text": "The blizzard",
+                "tag": "OTHER NAME"
+              },
+              " howled all night."
+            ],
+            [
+              "The echidna hides. At night, ",
+              {
+                "text": "the thing",
+                "tag": "VAGUE"
+              },
+              " waddles out."
+            ]
+          ],
+          "test": "Follow the chain: the key word, plus other names for it. Vague word? Name it again."
+        }
       },
       "weDo": [
         {

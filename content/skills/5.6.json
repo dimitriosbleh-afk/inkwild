@@ -8,27 +8,267 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Here's a noun. It's a bit boring.",
-            "show": "a **car**"
+            "say": "'A car' is blurry. Which car? I'll add words in front so you can picture it.",
+            "show": [
+              {
+                "text": "a",
+                "nudge": "'A' just points at one car. Which word describes it?"
+              },
+              {
+                "text": "rusty",
+                "tag": "WHAT IT'S LIKE"
+              },
+              {
+                "text": "car",
+                "tag": "MAIN NOUN",
+                "nudge": "Car is the thing itself. Which word tells you what it is like?"
+              }
+            ],
+            "ask": "Tap the word that says what the car is like.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Rusty says what it is like. Car is the main noun: the thing itself."
           },
           {
-            "say": "Add what it's like.",
-            "show": "a **rusty** car"
+            "say": "Now I add what kind of car. That word goes right next to the main noun.",
+            "show": [
+              {
+                "text": "a",
+                "nudge": "'A' points at one car. Which word says what kind?"
+              },
+              {
+                "text": "rusty",
+                "tag": "WHAT IT'S LIKE",
+                "lit": true,
+                "nudge": "Rusty says what it is like. Look closer to the main noun."
+              },
+              {
+                "text": "racing",
+                "tag": "WHAT KIND"
+              },
+              {
+                "text": "car",
+                "tag": "MAIN NOUN",
+                "lit": true,
+                "nudge": "Car is the main noun. Which word says what kind of car?"
+              }
+            ],
+            "ask": "Tap the word that says what kind of car.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! A racing car is a kind of car. What-kind words sit right next to the main noun."
           },
           {
-            "say": "Add what kind. It goes right next to the noun.",
-            "show": "a rusty **racing** car"
+            "say": "Whose car? How many cars? Those words go at the very front. Here's Dad's car.",
+            "show": [
+              {
+                "text": "Dad's",
+                "tag": "WHICH ONE OR HOW MANY",
+                "lit": true
+              },
+              {
+                "text": "rusty",
+                "tag": "WHAT IT'S LIKE",
+                "lit": true
+              },
+              {
+                "text": "racing",
+                "tag": "WHAT KIND",
+                "lit": true
+              },
+              {
+                "text": "car",
+                "tag": "MAIN NOUN",
+                "lit": true
+              }
+            ],
+            "ask": "Which one is in the same order as Dad's car?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "rusty two racing cars",
+                  "reason": "How many goes at the very front. Where should 'two' go?"
+                },
+                {
+                  "text": "two rusty racing cars"
+                },
+                {
+                  "text": "two racing rusty cars",
+                  "reason": "What kind sits right next to the main noun. Which word says what kind?"
+                }
+              ]
+            },
+            "win": "Yes! How many, what it is like, what kind, then the main noun. All together, that is a noun group."
           },
           {
-            "say": "Add whose or how many at the very front.",
-            "show": "**Dad's** rusty racing car. **Two** rusty racing cars."
+            "say": "Mo says the main noun here is chocolate. Let's check. Ask: Mo's giant chocolate what?",
+            "show": [
+              {
+                "text": "Mo's",
+                "tag": "WHICH ONE OR HOW MANY",
+                "nudge": "Mo's tells you whose. Ask: Mo's giant chocolate what?"
+              },
+              {
+                "text": "giant",
+                "tag": "WHAT IT'S LIKE",
+                "nudge": "Giant says what it is like. Which word is the thing itself?"
+              },
+              {
+                "text": "chocolate",
+                "tag": "WHAT KIND",
+                "nudge": "Chocolate says what kind of cake. Is Mo eating a chocolate or a cake?"
+              },
+              {
+                "text": "cake",
+                "tag": "MAIN NOUN"
+              }
+            ],
+            "ask": "Tap the main noun.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! Chocolate just says what kind. The main noun is the thing itself, even when other words are nouns too.",
+            "trap": true
           },
           {
-            "say": "The whole lot is a noun group. Car stays at the end."
+            "say": "A good noun group picks out exactly the right one. Wren's dog is small and brown.",
+            "show": [
+              "At the vet: a big brown dog, a small brown dog and a small black dog."
+            ],
+            "ask": "Which noun group picks out only her dog?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "the small dog",
+                  "reason": "Two dogs are small. Which words pick out only one?"
+                },
+                {
+                  "text": "the brown dog",
+                  "reason": "Two dogs are brown. Which words pick out only one?"
+                },
+                {
+                  "text": "the small brown dog"
+                }
+              ]
+            },
+            "win": "Yes! Small and brown together pick out only her dog. Choose words that tell the reader exactly which one."
+          },
+          {
+            "say": "More words are not always better. Zed piled up four describing words in front of dog.",
+            "show": [
+              {
+                "text": "a"
+              },
+              {
+                "text": "big"
+              },
+              {
+                "text": "scary"
+              },
+              {
+                "text": "huge"
+              },
+              {
+                "text": "mean"
+              },
+              {
+                "text": "dog",
+                "tag": "MAIN NOUN",
+                "lit": true
+              }
+            ],
+            "ask": "Which noun group paints the sharpest picture?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a snarling guard dog"
+                },
+                {
+                  "text": "a big scary huge mean dog",
+                  "reason": "Big and huge say the same thing. Does each word add something new?"
+                },
+                {
+                  "text": "a dog",
+                  "reason": "That's blurry again. You can't picture it."
+                }
+              ]
+            },
+            "win": "Yes! Two sharp words beat four blurry ones. Each word should add something new.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "MAIN NOUN",
+              "means": "The thing itself. Ask: three sleepy what?"
+            },
+            {
+              "term": "WHICH ONE OR HOW MANY",
+              "means": "Goes at the very front: the, Dad's, two, every."
+            },
+            {
+              "term": "WHAT IT'S LIKE",
+              "means": "Describes it: rusty, sleepy, giant."
+            },
+            {
+              "term": "WHAT KIND",
+              "means": "Sits right next to the main noun: racing, footy, chocolate."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Dad's",
+                "tag": "WHICH ONE OR HOW MANY"
+              },
+              {
+                "text": "rusty",
+                "tag": "WHAT IT'S LIKE"
+              },
+              {
+                "text": "racing",
+                "tag": "WHAT KIND"
+              },
+              {
+                "text": "car",
+                "tag": "MAIN NOUN"
+              }
+            ],
+            [
+              {
+                "text": "two",
+                "tag": "WHICH ONE OR HOW MANY"
+              },
+              {
+                "text": "giant",
+                "tag": "WHAT IT'S LIKE"
+              },
+              {
+                "text": "chocolate",
+                "tag": "WHAT KIND"
+              },
+              {
+                "text": "cakes",
+                "tag": "MAIN NOUN"
+              }
+            ]
+          ],
+          "test": "Ask 'what?' to find the main noun. Then build it: which or how many, what it's like, what kind."
+        }
       },
       "weDo": [
         {
@@ -503,7 +743,7 @@
       "topic": "animals",
       "frame": "Wren's rescue log from the bay has one long noun group in it.",
       "prompt": "Tap the main noun in the noun group that starts with 'the four'.",
-      "success": "Turtles. Four, exhausted, baby and loggerhead all build it up, and the main noun comes last.",
+      "success": "Turtles. Four, exhausted, baby and loggerhead all build it up, and they all sit in front of the main noun.",
       "body": {
         "format": "tapText",
         "parts": [

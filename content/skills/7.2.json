@@ -11,25 +11,204 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Texts are built in stages, like a tower: bottom up."
+            "say": "Texts are built in stages, like a tower. Bottom first! Here's Mo's recount, all jumbled up.",
+            "show": [
+              {
+                "text": "They got home tired but proud.",
+                "tag": "ENDING",
+                "nudge": "That wraps it all up. What do you need to know first?"
+              },
+              {
+                "text": "Last Saturday, Gus and Mo climbed Tower Two.",
+                "tag": "OPENING"
+              },
+              {
+                "text": "Halfway up, Mo dropped the rope.",
+                "tag": "MIDDLE",
+                "nudge": "That's an event. Who, when and where come before it."
+              }
+            ],
+            "ask": "Tap the part that tells who, when and where.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It sets things up, so it's the opening. Events come in the middle. Then the ending."
           },
           {
-            "say": "A recount starts by telling who, when and where.",
-            "show": "**Last Saturday**, **Gus and Mo** climbed **Tower Two**."
+            "say": "In the middle comes what happened. Each event needs the one before. What must happen first?",
+            "show": [
+              {
+                "text": "Gus picked up the rope.",
+                "nudge": "He can't pick up a rope nobody has dropped! What comes first?"
+              },
+              {
+                "text": "Mo dropped the rope.",
+                "tag": "MIDDLE"
+              },
+              {
+                "text": "Gus handed it back.",
+                "nudge": "Handed back what? He needs it in his hands first."
+              }
+            ],
+            "ask": "Tap the event that must come first.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Drop, pick up, hand back. Each event needs the one before it."
           },
           {
-            "say": "Next come the events. Each one needs the one before.",
-            "show": "Mo **dropped the rope**. Gus **picked it up**."
+            "say": "Careful! All three start with a time word. Zed says that makes them all openings.",
+            "show": [
+              {
+                "text": "After that, Indi slid down the ice.",
+                "tag": "MIDDLE",
+                "nudge": "After what? 'After that' points back to something before it."
+              },
+              {
+                "text": "Last Friday, Indi and Zed hiked to the ice cave.",
+                "tag": "OPENING"
+              },
+              {
+                "text": "At the end, Zed said, 'Never again!'",
+                "tag": "ENDING",
+                "nudge": "That wraps up the day. It can't come first."
+              }
+            ],
+            "ask": "Tap the opening.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It tells who, when and where, and needs nothing before it. A time word isn't enough.",
+            "trap": true
           },
           {
-            "say": "Gus can't pick up a rope Mo hasn't dropped!"
+            "say": "A story has stages too. First it sets the scene. Then a problem starts and grows.",
+            "show": [
+              {
+                "text": "Bluey the bilby lived in a sandy burrow.",
+                "tag": "OPENING",
+                "nudge": "That sets the scene. Is anything going wrong yet?"
+              },
+              {
+                "text": "Then a flood filled the burrow with water.",
+                "tag": "MIDDLE"
+              },
+              {
+                "text": "Wren dug Bluey a new home on a hill.",
+                "tag": "ENDING",
+                "nudge": "That fixes things. Where does the trouble start?"
+              }
+            ],
+            "ask": "Tap where the problem starts.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Scene, problem, solved. Some books call these orientation, complication and resolution."
           },
           {
-            "say": "So ask: what must happen before this part makes sense?"
+            "say": "A persuasive text gives the writer's view first, then reasons. How does it end?",
+            "show": [
+              {
+                "text": "Firstly, fish teach us to care for animals.",
+                "tag": "MIDDLE",
+                "nudge": "That's a reason. It backs up the view. Find the part that sums up."
+              },
+              {
+                "text": "For all these reasons, please buy us a goldfish!",
+                "tag": "ENDING"
+              },
+              {
+                "text": "We believe every class needs a goldfish.",
+                "tag": "OPENING",
+                "nudge": "That gives the writer's view. It opens the letter."
+              }
+            ],
+            "ask": "Tap the ending stage.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It sums up and asks the reader to act. That's how a persuasive text ends."
+          },
+          {
+            "say": "A procedure opens with the goal and what you need. Then come the steps.",
+            "show": [
+              {
+                "text": "Pour the glue into the bowl.",
+                "tag": "MIDDLE",
+                "nudge": "That's a step. You can't pour glue you haven't got yet!"
+              },
+              {
+                "text": "How to Make Snot Slime",
+                "tag": "OPENING",
+                "nudge": "That's the goal itself. What do you need before the steps?"
+              },
+              {
+                "text": "You need: glue, green paint and a bowl.",
+                "tag": "OPENING"
+              }
+            ],
+            "ask": "Tap what goes right after the goal.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The goal, then what you need, then the steps. Each stage gets you ready for the next."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "OPENING",
+              "means": "Sets it up: who, when and where, the goal, or the writer's view."
+            },
+            {
+              "term": "MIDDLE",
+              "means": "Events, steps, reasons, or the problem. Each needs the one before."
+            },
+            {
+              "term": "ENDING",
+              "means": "Wraps it up: how it ended, the problem solved, or sum up and ask."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Last Friday, Indi and Zed hiked to the ice cave.",
+                "tag": "OPENING"
+              },
+              {
+                "text": "Indi slid down the ice.",
+                "tag": "MIDDLE"
+              },
+              {
+                "text": "They agreed it was the best day ever.",
+                "tag": "ENDING"
+              }
+            ],
+            [
+              {
+                "text": "Every class needs a goldfish.",
+                "tag": "OPENING"
+              },
+              {
+                "text": "Fish teach us to care for animals.",
+                "tag": "MIDDLE"
+              },
+              {
+                "text": "So please buy us a goldfish!",
+                "tag": "ENDING"
+              }
+            ]
+          ],
+          "test": "What must come before this part, so it makes sense? Build up from the opening."
+        }
       },
       "weDo": [
         {

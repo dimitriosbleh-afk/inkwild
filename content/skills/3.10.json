@@ -10,26 +10,214 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Good arguers don't pretend the other side isn't there."
+            "say": "My fish-finger custard is the best! But not everyone agrees with me.",
+            "show": [
+              {
+                "text": "Fish-finger custard is the best dessert.",
+                "nudge": "That's Mo's own side. Who disagrees?"
+              },
+              {
+                "text": "Some people say it's too lumpy.",
+                "tag": "COUNTER-ARGUMENT"
+              },
+              {
+                "text": "I make it every Friday.",
+                "nudge": "That just says when Mo makes it. Who disagrees?"
+              }
+            ],
+            "ask": "Tap what people who disagree with Mo think.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! That's the other side's view. Writers call it the counter-argument."
           },
           {
-            "say": "First, they say what the other side thinks.",
-            "show": "**Some people say** my custard is too lumpy."
+            "say": "Now I answer it with a reason.",
+            "show": [
+              {
+                "text": "Some say it's too lumpy,",
+                "tag": "COUNTER-ARGUMENT",
+                "lit": true
+              },
+              {
+                "text": "but the lumps are real banana.",
+                "tag": "REBUTTAL"
+              }
+            ],
+            "ask": "What does 'the lumps are real banana' do?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "names another worry",
+                  "reason": "Nobody is worrying in this half. It's Mo talking back."
+                },
+                {
+                  "text": "answers the worry with a reason"
+                },
+                {
+                  "text": "agrees the custard is bad",
+                  "reason": "Does Mo say his custard is bad? He explains the lumps."
+                }
+              ]
+            },
+            "win": "Yes! That answer is the rebuttal. Both halves together take account of the other side."
           },
           {
-            "say": "Then they answer it with a reason.",
-            "show": "**But** the lumps are real banana."
+            "say": "Careful! Zed's sign names the worry, then stops.",
+            "show": [
+              {
+                "text": "Some people say robot pets are too noisy.",
+                "tag": "COUNTER-ARGUMENT"
+              }
+            ],
+            "ask": "Does Zed take account of the other side?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Yes. He mentions the other side.",
+                  "reason": "Naming the worry is only half. Where's Zed's answer?"
+                },
+                {
+                  "text": "No. He ignores the other side.",
+                  "reason": "He does name it: 'too noisy'. What's missing after that?"
+                },
+                {
+                  "text": "No. He names the worry but doesn't answer it."
+                }
+              ]
+            },
+            "win": "Right! Only half doesn't count. A counter-argument needs a rebuttal.",
+            "trap": true
           },
           {
-            "say": "Both halves together take account of the other side.",
-            "show": "**Some say it's lumpy,** **but the lumps are real banana.**"
+            "say": "Careful! The word 'but' doesn't always bring an answer.",
+            "show": [
+              {
+                "text": "The lab has a sink, but no window.",
+                "nudge": "There's a but, but who disagrees? It's two facts about the lab."
+              },
+              {
+                "text": "Some say slime is messy, but it washes off with water."
+              },
+              {
+                "text": "Some say slime is messy.",
+                "tag": "COUNTER-ARGUMENT",
+                "nudge": "That's the worry with no answer. It's only half."
+              }
+            ],
+            "ask": "Tap the one that names the other side and answers it.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Worry, then answer. Look for both halves, not just the word but.",
+            "trap": true
           },
           {
-            "say": "Only one half? Then it doesn't count."
+            "say": "The answer has to fit the worry. Lumpy? Then talk about the lumps!",
+            "show": [
+              {
+                "text": "Some say Mo's custard is too lumpy, but...",
+                "tag": "COUNTER-ARGUMENT",
+                "lit": true
+              }
+            ],
+            "ask": "Which answer fits the worry?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "the lumps are real banana"
+                },
+                {
+                  "text": "it's only $2",
+                  "reason": "Cheap is nice, but the worry was lumps. Does $2 fix lumps?"
+                },
+                {
+                  "text": "custard is yummy",
+                  "reason": "That's Mo's side again. Does it say anything about lumps?"
+                }
+              ]
+            },
+            "win": "Yes! It talks about the lumps. A rebuttal that misses the worry doesn't work.",
+            "trap": true
+          },
+          {
+            "say": "Some writers don't use 'some say' or 'but'. Look for both halves anyway.",
+            "show": [
+              {
+                "text": "Although some kids think worms are gross,",
+                "tag": "COUNTER-ARGUMENT"
+              },
+              {
+                "text": "these worms live in a closed box, so you never touch them.",
+                "tag": "REBUTTAL"
+              }
+            ],
+            "ask": "Does the writer name the other side and answer it?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "No. There's no 'but'.",
+                  "reason": "You don't need a but. Who thinks worms are gross? What comes back?"
+                },
+                {
+                  "text": "No. It's only the writer's side.",
+                  "reason": "'Some kids think worms are gross' is the other side. It's named."
+                },
+                {
+                  "text": "Yes. 'Gross' is the worry, and the box is the answer."
+                }
+              ]
+            },
+            "win": "Yes! 'Although' brings the worry. Then comes the answer. That's a counter-argument and a rebuttal."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "COUNTER-ARGUMENT",
+              "means": "The other side's view: what people who disagree think."
+            },
+            {
+              "term": "REBUTTAL",
+              "means": "The writer's answer to the other side, with a reason that fits the worry."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Some say it's too lumpy,",
+                "tag": "COUNTER-ARGUMENT"
+              },
+              {
+                "text": "but the lumps are real banana.",
+                "tag": "REBUTTAL"
+              }
+            ],
+            [
+              {
+                "text": "Although some kids think worms are gross,",
+                "tag": "COUNTER-ARGUMENT"
+              },
+              {
+                "text": "these worms live in a closed box.",
+                "tag": "REBUTTAL"
+              }
+            ]
+          ],
+          "test": "Find both halves: what the other side thinks, then an answer that fits the worry."
+        }
       },
       "weDo": [
         {

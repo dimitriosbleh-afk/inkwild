@@ -4,17 +4,241 @@
     "name": "Fix tense slips",
     "codes": ["VC2E5LY11", "VC2E6LA06"],
     "why": "When verbs jump between times, readers lose track of when things happened.",
-    "how": "Find the draft's time first. Then check every verb stays in that time.",
+    "how": "Find the time clue. Check each verb fits it. True facts can stay in the present.",
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
-          { "say": "A story picks a time and sticks to it.", "show": "Mo **burnt** the toast. Smoke **filled** the kitchen." },
-          { "say": "Uh oh. One verb slipped into right now.", "show": "Mo burnt the toast. Smoke **fills** the kitchen." },
-          { "say": "That's a tense slip. Tense is the time in a verb." },
-          { "say": "Find the draft's time clue first.", "show": "**Yesterday**, Mo **cooked**. He **opens** a window." },
-          { "say": "Then snap the slipped verb back.", "show": "Yesterday, Mo cooked. He **opened** a window." }
-        ]
+        "steps": [
+          {
+            "say": "Every verb tells you when. So before I check the verbs, I find the clue that tells me when.",
+            "show": [
+              {
+                "text": "Yesterday,",
+                "tag": "TIME CLUE"
+              },
+              {
+                "text": "Mo burnt",
+                "nudge": "Mo is who, and burnt is what he did. Which word tells you when?"
+              },
+              {
+                "text": "the toast.",
+                "nudge": "The toast is the thing he burnt. Which word tells you when?"
+              }
+            ],
+            "ask": "Tap the word that tells you when.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Yesterday is the time clue. Yesterday is over, so the verbs should be past."
+          },
+          {
+            "say": "Now I check each verb against yesterday. Did it happen then, or is it happening now?",
+            "show": [
+              "Yesterday, Mo ",
+              {
+                "text": "burnt",
+                "nudge": "Burnt is past, like yesterday. That fits. Check the others."
+              },
+              " the toast. Smoke ",
+              {
+                "text": "fills",
+                "tag": "SLIP"
+              },
+              " the kitchen. Gus ",
+              {
+                "text": "opened",
+                "nudge": "Opened is past, like yesterday. That fits. Keep checking."
+              },
+              " a window."
+            ],
+            "ask": "Tap the verb in the wrong time.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Fills is now, but yesterday is over: filled. A verb in the wrong time is a tense slip."
+          },
+          {
+            "say": "Mo did it again! Say each verb with yesterday. Which one sounds right?",
+            "show": [
+              {
+                "text": "Yesterday,",
+                "tag": "TIME CLUE",
+                "lit": true
+              },
+              " Mo ___ the toast again."
+            ],
+            "ask": "Which verb fits yesterday?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "has burnt",
+                  "reason": "Has burnt doesn't go with a finished time like yesterday. Try a one-word verb."
+                },
+                {
+                  "text": "burns",
+                  "reason": "Burns is happening now. Yesterday is over."
+                },
+                {
+                  "text": "burnt"
+                }
+              ]
+            },
+            "win": "Yes! With a finished time like yesterday or last week, use burnt, not has burnt."
+          },
+          {
+            "say": "Not every draft is in the past. Some clues mean it happens again and again.",
+            "show": [
+              {
+                "text": "Every Friday,",
+                "tag": "TIME CLUE",
+                "lit": true,
+                "nudge": "That's the time clue. Now check each verb against it."
+              },
+              " Gus ",
+              {
+                "text": "makes",
+                "nudge": "Makes fits every Friday. It happens again and again. Keep checking."
+              },
+              " slime. He ",
+              {
+                "text": "adds",
+                "nudge": "Adds fits every Friday too. Keep checking."
+              },
+              " glue. Then he ",
+              {
+                "text": "threw",
+                "tag": "SLIP"
+              },
+              " it at Mo."
+            ],
+            "ask": "Tap the verb in the wrong time.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! Every Friday means again and again, so it stays now: then he throws it at Mo."
+          },
+          {
+            "say": "Careful! Some lines are meant to be now, even in a story about the past.",
+            "show": [
+              {
+                "text": "Last week,",
+                "tag": "TIME CLUE",
+                "lit": true,
+                "nudge": "That's the time clue. Now check each verb against it."
+              },
+              " we ",
+              {
+                "text": "visited",
+                "nudge": "Visited is past, like last week. That fits."
+              },
+              " the volcano. Lava ",
+              {
+                "text": "is",
+                "tag": "STAYS NOW",
+                "nudge": "Is lava still hot today? That's always true, so is stays."
+              },
+              " hotter than an oven. We ",
+              {
+                "text": "cook",
+                "tag": "SLIP"
+              },
+              " sausages on a rock."
+            ],
+            "ask": "Tap the verb that slipped.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! Cook should be cooked. But lava is still hot today, so is stays. True facts stay now.",
+            "trap": true
+          },
+          {
+            "say": "Diaries mix times too. Each verb follows its own time clue. Read Wren's diary.",
+            "show": [
+              {
+                "text": "This morning,",
+                "tag": "TIME CLUE",
+                "lit": true,
+                "nudge": "That's a time clue. Now check each verb against its clue."
+              },
+              " a joey ",
+              {
+                "text": "hopped",
+                "nudge": "Hopped is past, like this morning. That fits."
+              },
+              " into my tent and ",
+              {
+                "text": "eats",
+                "tag": "SLIP"
+              },
+              " my sock. ",
+              {
+                "text": "Tonight,",
+                "tag": "TIME CLUE",
+                "lit": true,
+                "nudge": "That's a time clue too. Check the verb that goes with it."
+              },
+              " I ",
+              {
+                "text": "am writing",
+                "tag": "STAYS NOW",
+                "nudge": "Check its own clue: tonight. Wren is writing right now, so it stays."
+              },
+              " this in bed."
+            ],
+            "ask": "Tap the verb that slipped.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Eats should be ate. But tonight is right now, so am writing stays.",
+            "trap": true
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TIME CLUE",
+              "means": "Words like yesterday, every Friday or tonight. They tell you when."
+            },
+            {
+              "term": "SLIP",
+              "means": "A verb in the wrong time for its clue. Snap it back."
+            },
+            {
+              "term": "STAYS NOW",
+              "means": "A fact that is always true, or a line about right now."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Yesterday,",
+                "tag": "TIME CLUE"
+              },
+              " Mo burnt the toast. Smoke ",
+              {
+                "text": "fills",
+                "tag": "SLIP"
+              },
+              " the room."
+            ],
+            [
+              "Last week, we visited the volcano. Lava ",
+              {
+                "text": "is",
+                "tag": "STAYS NOW"
+              },
+              " hot."
+            ]
+          ],
+          "test": "Find the time clue. Check each verb against it. Leave true facts and right-now lines alone."
+        }
       },
       "weDo": [
         {

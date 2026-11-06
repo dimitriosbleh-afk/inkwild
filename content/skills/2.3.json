@@ -10,25 +10,181 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Two people can tell the same event very differently."
+            "say": "Indi here! Gus and Tully both saw the same footy save. First, Gus tells it.",
+            "show": [
+              "Gus: I made a brilliant diving save. The crowd went wild."
+            ],
+            "ask": "How does Gus seem in his own telling?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "clumsy",
+                  "reason": "Gus says he made a brilliant save. Does that sound clumsy?"
+                },
+                {
+                  "text": "like a hero"
+                },
+                {
+                  "text": "unlucky",
+                  "reason": "Nothing goes wrong in Gus's telling. Look at the word brilliant."
+                }
+              ]
+            },
+            "win": "Yes! Gus is the narrator here, so he picks what we hear. He sounds like a hero."
           },
           {
-            "say": "Here's Gus telling what happened.",
-            "show": "Gus: I made a **brilliant diving save**. The crowd **went wild**."
+            "say": "Now Tully tells the same save. Listen to what she puts in.",
+            "show": [
+              "Tully: Gus tripped over his shoelace. The ball hit his bottom and bounced away."
+            ],
+            "ask": "How does Gus seem in Tully's telling?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "like a hero",
+                  "reason": "That's Gus's telling. In Tully's, what does Gus trip over?"
+                },
+                {
+                  "text": "lazy",
+                  "reason": "Gus is trying to save it. But what happens with his shoelace?"
+                },
+                {
+                  "text": "clumsy, but lucky"
+                }
+              ]
+            },
+            "win": "Yes! Same save, different narrator. Now Gus seems clumsy. The narrator changes how a character seems."
           },
           {
-            "say": "Now here's Tully telling the same thing.",
-            "show": "Tully: Gus **tripped over his shoelace**, and the ball **hit his bottom**."
+            "say": "Put the two tellings side by side. What did Gus leave out?",
+            "show": [
+              {
+                "text": "Gus stopped the ball.",
+                "tag": "BOTH TELLINGS",
+                "nudge": "Both tellings have the save. Did Gus mention his shoelace?"
+              },
+              {
+                "text": "Gus tripped on his shoelace.",
+                "tag": "ONLY ONE TELLING"
+              },
+              {
+                "text": "The crowd went wild.",
+                "tag": "ONLY ONE TELLING",
+                "nudge": "That's only in Gus's telling. Find what Gus left out."
+              }
+            ],
+            "ask": "Tap the detail Gus left out of his telling.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Gus left out the shoelace. Each narrator picks what to put in, and what to leave out."
           },
           {
-            "say": "Same event! In Gus's telling he's a hero. In Tully's, he's clumsy."
+            "say": "Mo says the other person's telling is always the true one. Read these two.",
+            "show": [
+              {
+                "text": "Sam: A magpie swooped me for no reason!"
+              },
+              {
+                "text": "Magpie: A noisy bike raced under my chicks' nest."
+              }
+            ],
+            "ask": "Which telling is the whole truth?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Sam's telling",
+                  "reason": "Sam never mentions the chicks. That's a big thing to leave out."
+                },
+                {
+                  "text": "the magpie's telling",
+                  "reason": "The magpie never says it swooped at Sam's head!"
+                },
+                {
+                  "text": "neither: each one leaves something out"
+                }
+              ]
+            },
+            "win": "Right! Neither is the whole truth. Each narrator picks what to notice and what to leave out.",
+            "trap": true
           },
           {
-            "say": "Always ask: who's telling, and what do they want you to think?"
+            "say": "Same swoop, two narrators. So what is the magpie like?",
+            "show": [
+              {
+                "text": "Sam: A magpie swooped me for no reason!"
+              },
+              {
+                "text": "Magpie: A noisy bike raced under my chicks' nest."
+              }
+            ],
+            "ask": "How does the magpie seem in each telling?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "a bully in both tellings",
+                  "reason": "In its own telling, it's guarding its chicks. Does that sound like a bully?"
+                },
+                {
+                  "text": "a bully to Sam, but a caring parent in its own telling"
+                },
+                {
+                  "text": "a caring parent in both tellings",
+                  "reason": "Sam never mentions chicks. To Sam, it swoops for no reason."
+                }
+              ]
+            },
+            "win": "Yes! Same swoop, two narrators, two very different magpies. Always ask: who is telling, and what do they leave out?"
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "BOTH TELLINGS",
+              "means": "Both narrators tell this part. It really is the same event."
+            },
+            {
+              "term": "ONLY ONE TELLING",
+              "means": "One narrator puts this in. The other leaves it out."
+            }
+          ],
+          "examples": [
+            [
+              "Gus:",
+              {
+                "text": "I made a save.",
+                "tag": "BOTH TELLINGS"
+              },
+              {
+                "text": "The crowd went wild.",
+                "tag": "ONLY ONE TELLING"
+              }
+            ],
+            [
+              "Tully:",
+              {
+                "text": "Gus made a save.",
+                "tag": "BOTH TELLINGS"
+              },
+              {
+                "text": "First he tripped on his shoelace.",
+                "tag": "ONLY ONE TELLING"
+              }
+            ]
+          ],
+          "test": "Same event, different narrator. What does each one put in, and leave out? Neither tells it all."
+        }
       },
       "weDo": [
         {

@@ -11,26 +11,211 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A metaphor says one thing IS another thing.",
-            "show": "Zed's bedroom **is a rubbish tip**."
+            "say": "Gus looked into my room and said this. Rude!",
+            "show": [
+              "Zed's bedroom is a rubbish tip."
+            ],
+            "ask": "What does Gus really mean?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "Zed's room is very messy."
+                },
+                {
+                  "text": "Zed's room has a real garbage truck in it.",
+                  "reason": "A garbage truck can't fit in a bedroom! Gus doesn't mean it's really true."
+                },
+                {
+                  "text": "Zed's room is next door to the tip.",
+                  "reason": "Gus says the room IS a tip, not next to one. What's a tip full of?"
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! It isn't really a tip. Reading it as really true is called taking it literally."
           },
           {
-            "say": "It isn't really true. His room isn't a real tip."
+            "say": "So how did I work it out? I asked: what do my room and a tip share?",
+            "show": [
+              {
+                "text": "Zed's bedroom",
+                "tag": "THING",
+                "lit": true
+              },
+              " is ",
+              {
+                "text": "a rubbish tip.",
+                "tag": "COMPARED TO",
+                "lit": true
+              }
+            ],
+            "ask": "What do the room and a tip share?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "Both are full of junk."
+                },
+                {
+                  "text": "Both smell like roses.",
+                  "reason": "Tips don't smell like roses! What is piled up in a tip?"
+                },
+                {
+                  "text": "Both have a big front gate.",
+                  "reason": "My room has a door, not a gate. What is piled up everywhere?"
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! Junk everywhere. Saying one thing IS another, with no like or as, is a metaphor."
           },
           {
-            "say": "So ask: what do his room and a tip share?"
+            "say": "A simile says like. A metaphor just says it IS. Can you spot the difference?",
+            "show": [
+              {
+                "text": "My room is like a tip.",
+                "nudge": "That one uses like, so it's a simile. Find the one with no like or as."
+              },
+              {
+                "text": "My room is very messy.",
+                "nudge": "That one is plain. It's really true, with no picture in it."
+              },
+              {
+                "text": "My room is a tip.",
+                "tag": "METAPHOR"
+              }
+            ],
+            "ask": "Tap the metaphor.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! No like or as. It just says my room IS a tip."
           },
           {
-            "say": "Both are full of junk! That's what it means.",
-            "show": "Zed's bedroom is **very messy**."
+            "say": "Careful! Gus thinks every metaphor needs the word is. But some hide in a doing word.",
+            "show": [
+              {
+                "text": "Mrs Patel",
+                "nudge": "Mrs Patel is a real person. Look at what she did."
+              },
+              {
+                "text": "buzzed",
+                "tag": "METAPHOR"
+              },
+              {
+                "text": "from the oven to the till.",
+                "nudge": "The oven and the till are real. Which word can't be really true?"
+              }
+            ],
+            "ask": "Tap the word that can't be really true.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! She isn't a bee. Buzzed is a metaphor. It shows she rushed about, very busy.",
+            "trap": true
           },
           {
-            "say": "No like or as. That's how it differs from a simile.",
-            "show": "Simile: his room is **like** a tip."
+            "say": "Now you unpack one. Ask what the two things share.",
+            "show": [
+              "The captain ",
+              {
+                "text": "bulldozed",
+                "tag": "METAPHOR",
+                "lit": true
+              },
+              " through the pack."
+            ],
+            "ask": "What does bulldozed tell you about the captain?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "He drove a real bulldozer onto the ground.",
+                  "reason": "That's taking it literally. No bulldozers allowed on the footy ground!"
+                },
+                {
+                  "text": "He pushed through hard, and nobody stopped him."
+                },
+                {
+                  "text": "He walked slowly around the pack.",
+                  "reason": "A bulldozer goes straight through things, not around them."
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! A bulldozer pushes through anything in its way. So did the captain."
+          },
+          {
+            "say": "Last trick. The word is doesn't always mean a metaphor. Some sentences with is are really true.",
+            "show": [
+              {
+                "text": "Sam is our goalkeeper.",
+                "nudge": "That's really true. Sam really plays in goal."
+              },
+              {
+                "text": "Sam is a brick wall.",
+                "tag": "METAPHOR"
+              },
+              {
+                "text": "Sam is the smallest player.",
+                "nudge": "That could be really true too. Find the one that can't be."
+              }
+            ],
+            "ask": "Tap the metaphor. Which one can't be really true?",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Sam can't be a real wall. It means nothing gets past her.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "METAPHOR",
+              "means": "Says a thing IS something else, or does what that thing does. No like or as."
+            },
+            {
+              "term": "THING",
+              "means": "What the writer is really talking about."
+            },
+            {
+              "term": "COMPARED TO",
+              "means": "The different thing. Ask what the two things share."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Zed's bedroom",
+                "tag": "THING"
+              },
+              " is ",
+              {
+                "text": "a rubbish tip.",
+                "tag": "COMPARED TO"
+              }
+            ],
+            [
+              {
+                "text": "Mrs Patel",
+                "tag": "THING"
+              },
+              {
+                "text": "buzzed",
+                "tag": "METAPHOR"
+              },
+              " from the oven to the till."
+            ]
+          ],
+          "test": "Can it be really true? If not, ask what the two things share. That's what it means."
+        }
       },
       "weDo": [
         {
@@ -58,7 +243,7 @@
         },
         {
           "prompt": "Put each sentence with the device it uses.",
-          "hint": "Look for like or as first. No like or as? Check if it says one thing IS another.",
+          "hint": "Look for like or as first. No like or as? Check which part can't be really true.",
           "success": "Similes say one thing is like another. Metaphors say one thing is another.",
           "body": {
             "format": "sort",

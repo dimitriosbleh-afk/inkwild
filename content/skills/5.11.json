@@ -8,26 +8,214 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "This sentence is true, but it leaves me with questions.",
-            "show": "I painted a mural."
+            "say": "I painted a mural. You want to know more, right? I added two chunks of words.",
+            "show": [
+              {
+                "text": "On Saturday,",
+                "tag": "WHEN"
+              },
+              {
+                "text": "I painted a mural",
+                "nudge": "That's what I did. Which chunk gives a time?"
+              },
+              {
+                "text": "on the canteen wall.",
+                "tag": "WHERE",
+                "nudge": "You could point to that. It's a place. Which chunk is a time?"
+              }
+            ],
+            "ask": "Tap the chunk that tells you when.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! On Saturday tells you when. On the canteen wall tells you where."
           },
           {
-            "say": "When? Where? Add a group of words for each.",
-            "show": "**On Saturday**, I painted a mural **on the canteen wall**."
+            "say": "Here is another chunk. It tells you the way I did it.",
+            "show": [
+              {
+                "text": "I painted it",
+                "nudge": "That's what I did. Which chunk tells the way I did it?"
+              },
+              {
+                "text": "with a giant roller",
+                "tag": "HOW"
+              },
+              {
+                "text": "after school.",
+                "tag": "WHEN",
+                "nudge": "That's a time. It tells you when. Which chunk is the way I did it?"
+              }
+            ],
+            "ask": "Tap the chunk that tells you how.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! With a giant roller is the way I did it. It tells you how."
           },
           {
-            "say": "How? Why? Groups can answer those too.",
-            "show": "I painted it **with a giant roller** **to cover Maxx's ugly poster**."
+            "say": "Now a reason. Look carefully. There's no 'because' in it.",
+            "show": [
+              {
+                "text": "I painted the wall",
+                "nudge": "That's what I did. Which chunk gives a reason?"
+              },
+              {
+                "text": "on Monday",
+                "tag": "WHEN",
+                "nudge": "That's a time. Which chunk tells you why?"
+              },
+              {
+                "text": "to cover Maxx's ugly poster.",
+                "tag": "WHY"
+              }
+            ],
+            "ask": "Tap the chunk that tells you why.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! That's the reason. A why chunk doesn't always start with 'because'."
           },
           {
-            "say": "These are adverb groups. Each one answers one question only."
+            "say": "These chunks tell how, when, where or why. This Skill calls them adverb groups.",
+            "show": [
+              {
+                "text": "at midnight",
+                "tag": "WHEN",
+                "nudge": "At midnight is a time. That's when."
+              },
+              {
+                "text": "under the bridge",
+                "tag": "WHERE",
+                "nudge": "Under the bridge is a place. That's where."
+              },
+              {
+                "text": "very carefully",
+                "tag": "HOW"
+              }
+            ],
+            "ask": "Tap the chunk that tells you how.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Very carefully is the way something is done. That's how."
           },
           {
-            "say": "So first ask: what does my reader most need to know?"
+            "say": "Careful! 'On the top shelf' sounds like a where. But look at the word just before it.",
+            "show": [
+              {
+                "text": "The cake"
+              },
+              {
+                "text": "on the top shelf",
+                "tag": "WHICH ONE"
+              },
+              {
+                "text": "is for Nan."
+              }
+            ],
+            "ask": "What does 'on the top shelf' tell you here?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "which cake it is"
+                },
+                {
+                  "text": "where something happened",
+                  "reason": "Nothing happens on the shelf. Look at the word just before it."
+                },
+                {
+                  "text": "when Nan gets it",
+                  "reason": "On the top shelf is a place, not a time. Look at the word before it."
+                }
+              ]
+            },
+            "win": "Yes! It sits right after the noun cake and tells you which cake. It's about the noun, not an action.",
+            "trap": true
+          },
+          {
+            "say": "Dad asked me when the bus comes. Answer his question!",
+            "show": [
+              "The bus comes ___."
+            ],
+            "ask": "Which chunk answers Dad?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "to the school gate",
+                  "reason": "That's a place. It tells you where. Dad asked when."
+                },
+                {
+                  "text": "at half past eight"
+                },
+                {
+                  "text": "very slowly",
+                  "reason": "That's the way it comes. It tells you how. Dad asked when."
+                }
+              ]
+            },
+            "win": "Yes! Pick the chunk that answers the question your reader has."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WHEN",
+              "means": "A time: on Saturday, after school, at midnight."
+            },
+            {
+              "term": "WHERE",
+              "means": "A place you could point to: on the canteen wall."
+            },
+            {
+              "term": "HOW",
+              "means": "The way it is done: with a giant roller, very carefully."
+            },
+            {
+              "term": "WHY",
+              "means": "A reason: to cover the poster, because it rained."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "On Saturday,",
+                "tag": "WHEN"
+              },
+              {
+                "text": "I painted a mural"
+              },
+              {
+                "text": "on the canteen wall.",
+                "tag": "WHERE"
+              }
+            ],
+            [
+              {
+                "text": "I painted it"
+              },
+              {
+                "text": "with a giant roller",
+                "tag": "HOW"
+              },
+              {
+                "text": "to cover Maxx's poster.",
+                "tag": "WHY"
+              }
+            ]
+          ],
+          "test": "Ask how, when, where or why. The chunk that answers it does that job."
+        }
       },
       "weDo": [
         {

@@ -7,32 +7,194 @@
       "L7"
     ],
     "why": "Commas hug extra information, so readers can tell it's a bonus detail.",
-    "how": "Lift it out. If the sentence still means the same thing, put commas around it.",
+    "how": "Does the part tell you which one? No commas. Just a bonus detail? Commas around it.",
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some sentences carry a bonus detail.",
-            "show": "Gus, **who hates snow**, went skiing."
+            "say": "Wren here. Some sentences carry a bonus detail. It tells you more about someone you already know.",
+            "show": [
+              {
+                "text": "Gus,",
+                "nudge": "Gus is the one who sneezed. Which part just tells you more about him?"
+              },
+              {
+                "text": "our engineer,",
+                "tag": "BONUS DETAIL"
+              },
+              {
+                "text": "sneezed on the map.",
+                "nudge": "That is what Gus did. You need it! Which part is just extra?"
+              }
+            ],
+            "ask": "Tap the part that just tells you more about Gus.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Our engineer' is a bonus detail. You already knew who Gus was. Commas hug it."
           },
           {
-            "say": "Lift it out. The sentence still works.",
-            "show": "**Gus went skiing.**"
+            "say": "A bonus detail opens with a comma and closes with one. One comma is missing here!",
+            "show": [
+              "Gus, ",
+              {
+                "text": "who",
+                "nudge": "Who... what? The bonus detail has only just started."
+              },
+              " ",
+              {
+                "text": "hates",
+                "nudge": "Hates what? The bonus detail isn't finished yet."
+              },
+              " ",
+              {
+                "text": "snow"
+              },
+              " ",
+              {
+                "text": "went",
+                "nudge": "Went is what Gus did. Where did the bonus detail stop?"
+              },
+              " skiing."
+            ],
+            "ask": "Tap the word the missing comma goes after.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Without it, the snow went skiing! 'Who hates snow' opens and closes with a comma."
           },
           {
-            "say": "So the extra part gets a comma on each side.",
-            "show": "Gus**,** who hates snow**,** went skiing."
+            "say": "Now a tricky one. Only some kids ate Mo's pie. Just those kids went sledding.",
+            "show": [
+              {
+                "text": "The kids",
+                "nudge": "That says kids, but which kids? Read on."
+              },
+              {
+                "text": "who ate Mo's pie",
+                "tag": "WHICH ONE"
+              },
+              {
+                "text": "went sledding.",
+                "nudge": "That is what they did. Which part tells you which kids?"
+              }
+            ],
+            "ask": "Tap the part that tells you which kids.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It picks out which kids. Take it out and it sounds like all the kids went."
           },
           {
-            "say": "Miss the second comma and the snow went skiing!",
-            "show": "Gus, who hates **snow went skiing**."
+            "say": "Zed put commas around it. Watch what happens to the meaning.",
+            "show": [
+              "The kids, who ate Mo's pie, went sledding."
+            ],
+            "ask": "Now who went sledding?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "all the kids"
+                },
+                {
+                  "text": "only the kids who ate pie",
+                  "reason": "Commas make it a bonus detail. A bonus detail can't pick out which kids."
+                },
+                {
+                  "text": "nobody",
+                  "reason": "Read the main part again: the kids went sledding. Which kids?"
+                }
+              ]
+            },
+            "win": "Right! Commas make it a bonus detail. Now all the kids went, and all of them ate pie.",
+            "trap": true
           },
           {
-            "say": "At the end, the full stop does the closing job.",
-            "show": "We met Gus**,** who hates snow**.**"
+            "say": "So ask: does it tell you which one? No commas. Just a bonus detail? Commas.",
+            "show": [
+              {
+                "text": "The kids who ate pie felt sick.",
+                "nudge": "Does 'who ate pie' tell you which kids? Then it needs no commas."
+              },
+              {
+                "text": "Tully who is our captain kicked a goal."
+              },
+              {
+                "text": "The players who were late ran laps.",
+                "nudge": "Does 'who were late' tell you which players? Then it needs no commas."
+              }
+            ],
+            "ask": "Tap the one that needs commas.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! There's only one Tully. 'Who is our captain' is a bonus detail, so commas hug it."
+          },
+          {
+            "say": "A bonus detail can come at the end. Then the full stop does the closing job.",
+            "show": [
+              "We ",
+              {
+                "text": "met",
+                "nudge": "That comma would split met from who we met. Where does the bonus detail start?"
+              },
+              " ",
+              {
+                "text": "Gus"
+              },
+              " who ",
+              {
+                "text": "hates",
+                "nudge": "That comma would split the bonus detail in half. Where does it start?"
+              },
+              " snow."
+            ],
+            "ask": "Tap the word the comma goes after.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! We met Gus, who hates snow. One comma opens the bonus detail. The full stop closes it."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "BONUS DETAIL",
+              "means": "Extra news about someone you already know. Commas go around it."
+            },
+            {
+              "term": "WHICH ONE",
+              "means": "Picks out which person or thing you mean. No commas."
+            }
+          ],
+          "examples": [
+            [
+              "Gus, ",
+              {
+                "text": "who hates snow",
+                "tag": "BONUS DETAIL"
+              },
+              ", went skiing."
+            ],
+            [
+              "The kids ",
+              {
+                "text": "who ate Mo's pie",
+                "tag": "WHICH ONE"
+              },
+              " went sledding."
+            ]
+          ],
+          "test": "Does it tell you which one? No commas. Just a bonus detail? Commas around it."
+        }
       },
       "weDo": [
         {
@@ -59,7 +221,7 @@
         },
         {
           "prompt": "One comma is missing. Tap the word it should go after.",
-          "hint": "Find the part you could lift out. Where does it end?",
+          "hint": "Find the bonus detail. Where does it end?",
           "success": "'A famous dancer' is a bonus detail. A comma after 'dancer' closes it.",
           "body": {
             "format": "tapText",

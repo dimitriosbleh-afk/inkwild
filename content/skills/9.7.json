@@ -10,26 +10,198 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "In a game you can swap players. Stories can swap too."
+            "say": "Little Red Riding Hood: a girl visits Gran. A wolf gets there first and dresses up as Gran.",
+            "show": [
+              {
+                "text": "The wolf ran to Gran's house and jumped into her bed.",
+                "tag": "OUTSIDE"
+              }
+            ],
+            "ask": "Who is telling this?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "the wolf",
+                  "reason": "Does the wolf say I or my? Look again."
+                },
+                {
+                  "text": "Gran",
+                  "reason": "Gran doesn't say anything. Is there an I in it?"
+                },
+                {
+                  "text": "someone outside the story"
+                }
+              ]
+            },
+            "win": "Right. Nobody says I. We just watch from the outside. That is the usual way."
           },
           {
-            "say": "Here's Goldilocks, told the usual way.",
-            "show": "**Goldilocks** ate the porridge and broke a chair."
+            "say": "In a game, you can swap players. Stories can swap too. Now the wolf tells it.",
+            "show": [
+              {
+                "text": "I",
+                "tag": "TELLER"
+              },
+              " ",
+              {
+                "text": "ran to Gran's house",
+                "nudge": "That's where he went. Which word shows the wolf is telling it?"
+              },
+              " and jumped into ",
+              {
+                "text": "her bed.",
+                "nudge": "Her means Gran. Find the word the wolf uses for himself."
+              }
+            ],
+            "ask": "Tap the word that shows the wolf is telling it.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! I. The wolf tells his own story now. Telling it as I is called first person."
           },
           {
-            "say": "Now tell it as Baby Bear, using I.",
-            "show": "**I** came home and **my** chair was in bits."
+            "say": "Saying I is not enough. Readers want to know what the wolf thinks and feels.",
+            "show": [
+              {
+                "text": "I ran to Gran's house.",
+                "nudge": "That's what he did. Which part shows how he feels?"
+              },
+              {
+                "text": "I knocked on the door.",
+                "nudge": "That's another action. Which part shows how he feels?"
+              },
+              {
+                "text": "Honestly, I was so hungry I felt dizzy.",
+                "tag": "THOUGHTS"
+              }
+            ],
+            "ask": "Tap the part that shows how the wolf feels.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Now we know what it's like to be him. His thoughts and feelings make it his story."
           },
           {
-            "say": "Add what this character thinks and feels.",
-            "show": "**Who smashes a kid's chair and runs? I was furious.**"
+            "say": "Careful. The wolf can only tell what he sees, hears and thinks. One line breaks that.",
+            "show": [
+              {
+                "text": "I hid behind a tree.",
+                "nudge": "The wolf knows this. He's the one hiding!"
+              },
+              {
+                "text": "At home, Red's mum was baking.",
+                "tag": "CAN'T KNOW"
+              },
+              {
+                "text": "My tummy growled so loudly!",
+                "nudge": "That's the wolf's own tummy. He knows how he feels."
+              }
+            ],
+            "ask": "Tap the line the wolf could NOT know.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The wolf wasn't at Red's house. He can't know what her mum was doing.",
+            "trap": true
           },
           {
-            "say": "Same events. A whole new story."
+            "say": "Now Gran tells it. But lots of lines say I. Check who the I is, and where they are.",
+            "ask": "Which line is told through Gran's eyes?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "I knocked, and an old lady opened the door.",
+                  "reason": "Who did the knocking? That I is outside the door, not Gran."
+                },
+                {
+                  "text": "I heard a knock, and a hairy voice said, 'It's me, Gran!'"
+                },
+                {
+                  "text": "Gran opened the door and screamed.",
+                  "reason": "Nobody says I here. We're watching Gran from outside."
+                }
+              ]
+            },
+            "win": "Yes! Gran is inside, hearing the knock. Saying I isn't enough. Check who the I is.",
+            "trap": true
+          },
+          {
+            "say": "The Tortoise and the Hare: a fast hare naps in a race. A slow tortoise wins.",
+            "ask": "Which first line tells it through the hare's eyes?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "The hare lay down under a tree and slept.",
+                  "reason": "Nobody says I. We're watching the hare from outside."
+                },
+                {
+                  "text": "I plodded on, slow and steady, past the sleeping hare.",
+                  "reason": "This I walks past the sleeping hare. That's the tortoise!"
+                },
+                {
+                  "text": "I only shut my eyes for one minute. One!"
+                }
+              ]
+            },
+            "win": "Yes! It's I, it's the hare, and you can hear how cross he is. Now pick your character."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TELLER",
+              "means": "The character telling the story. They say I, me and my."
+            },
+            {
+              "term": "THOUGHTS",
+              "means": "What the teller thinks and feels."
+            },
+            {
+              "term": "CAN'T KNOW",
+              "means": "Something your teller didn't see, hear or think. Leave it out."
+            },
+            {
+              "term": "OUTSIDE",
+              "means": "Nobody in the story says I. We watch from outside."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "I",
+                "tag": "TELLER"
+              },
+              " knocked on Gran's door. ",
+              {
+                "text": "Honestly, I was so hungry I felt dizzy.",
+                "tag": "THOUGHTS"
+              }
+            ],
+            [
+              {
+                "text": "I",
+                "tag": "TELLER"
+              },
+              " built this bridge myself. ",
+              {
+                "text": "Then a goat ate my daisies, and nobody cared.",
+                "tag": "THOUGHTS"
+              }
+            ]
+          ],
+          "test": "Who is the I? Did they see it, hear it or think it? If not, cut it."
+        }
       },
       "weDo": [
         {

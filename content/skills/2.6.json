@@ -11,25 +11,192 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "The setting is when and where a story happens."
+            "say": "Tully here! Writers hide clues to when and where a story happens. Read this camp story.",
+            "show": [
+              {
+                "text": "Owls hooted, and everyone was asleep.",
+                "tag": "WHEN"
+              },
+              {
+                "text": "Mo's sausage roll sat on the table.",
+                "tag": "NOT A SETTING CLUE",
+                "nudge": "Sausage rolls get eaten any time! Which clue tells you the time?"
+              },
+              {
+                "text": "Gus's hat was green.",
+                "tag": "NOT A SETTING CLUE",
+                "nudge": "A hat can be green at any time. Which clue tells you the time?"
+              }
+            ],
+            "ask": "Tap the clue to the time of day.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Owls and sleeping people point to night. That's a clue to when."
           },
           {
-            "say": "Writers often drop clues instead of telling you.",
-            "show": "The town had **no power lines yet**, so Ma lit the lamp."
+            "say": "When can mean the time of day, the season, or the year. Where is the place.",
+            "show": [
+              {
+                "text": "It was the middle of winter.",
+                "tag": "WHEN",
+                "nudge": "Winter is a season. That's when. Find a place."
+              },
+              {
+                "text": "The year was 1853.",
+                "tag": "WHEN",
+                "nudge": "1853 is a year. That's when. Find a place."
+              },
+              {
+                "text": "Tom dug for gold beside the creek.",
+                "tag": "WHERE"
+              }
+            ],
+            "ask": "Tap the clue to where.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! A gold creek is a place. When and where together are called the setting."
           },
           {
-            "say": "That's a clue to when. It's long ago."
+            "say": "Often there's no date at all. Then objects tell you when.",
+            "show": [
+              {
+                "text": "We rode the horse and cart to town.",
+                "tag": "WHEN"
+              },
+              {
+                "text": "Ma lit the lamp, because there was no power yet.",
+                "tag": "WHEN"
+              }
+            ],
+            "ask": "When is this story set?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "today",
+                  "reason": "Today most homes have power. What does Ma have to light?"
+                },
+                {
+                  "text": "long ago"
+                },
+                {
+                  "text": "in the future",
+                  "reason": "Nothing here is new. They ride a horse and cart!"
+                }
+              ]
+            },
+            "win": "Yes! A horse and cart and no power both point to long ago. Add the clues up."
           },
           {
-            "say": "Now hunt for clues to where.",
-            "show": "**Red dust** blew between **the tents of the goldfield**."
+            "say": "Careful! Not every detail is a clue to when or where.",
+            "show": [
+              {
+                "text": "At noon, the sun was right overhead.",
+                "tag": "WHEN",
+                "nudge": "Noon is a time of day. That's a clue to when."
+              },
+              {
+                "text": "The race was in a stone stadium.",
+                "tag": "WHERE",
+                "nudge": "A stadium is a place. That's a clue to where."
+              },
+              {
+                "text": "Gus hummed a happy song.",
+                "tag": "NOT A SETTING CLUE"
+              }
+            ],
+            "ask": "Tap the detail that is not a setting clue.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Gus could hum at any time, in any place. It isn't a setting clue.",
+            "trap": true
           },
           {
-            "say": "Add them up. Long ago, at a goldfield."
+            "say": "Add up ALL the clues. One clue on its own can trick you.",
+            "show": [
+              {
+                "text": "Ma lit candles, because there was no power.",
+                "tag": "WHEN"
+              },
+              {
+                "text": "Grandad says the lights went out for good in 2190.",
+                "tag": "WHEN"
+              }
+            ],
+            "ask": "When is this story set?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "long ago",
+                  "reason": "Candles seem old. But check the year Grandad talks about."
+                },
+                {
+                  "text": "today",
+                  "reason": "Today we have power. And look at Grandad's year."
+                },
+                {
+                  "text": "in the future, after 2190"
+                }
+              ]
+            },
+            "win": "Yes! Candles looked like long ago, but 2190 is in Grandad's past. So it's the future.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WHEN",
+              "means": "Time of day, season or year. Look for dates, sky, weather and old or new things."
+            },
+            {
+              "term": "WHERE",
+              "means": "The place. Look for buildings, transport, land, sea, and what people do there."
+            },
+            {
+              "term": "NOT A SETTING CLUE",
+              "means": "A detail that could happen at any time, in any place."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "It was the middle of winter.",
+                "tag": "WHEN"
+              },
+              {
+                "text": "Tom dug for gold beside the creek.",
+                "tag": "WHERE"
+              }
+            ],
+            [
+              {
+                "text": "At noon,",
+                "tag": "WHEN"
+              },
+              {
+                "text": "in the stone stadium,",
+                "tag": "WHERE"
+              },
+              {
+                "text": "Gus hummed a happy song.",
+                "tag": "NOT A SETTING CLUE"
+              }
+            ]
+          ],
+          "test": "Hunt for clues to when and where. Add up all of them, not just one."
+        }
       },
       "weDo": [
         {

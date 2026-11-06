@@ -11,27 +11,196 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A fact is something you could check.",
-            "show": "The Reef Rays **won by 12 points**."
+            "say": "The Reef Rays won on Saturday! Here are three things I posted.",
+            "show": [
+              {
+                "text": "The Rays won by 12 points.",
+                "tag": "FACT CLAIM"
+              },
+              {
+                "text": "The Rays are the best team ever.",
+                "tag": "OPINION",
+                "nudge": "Could you check 'the best'? A Sand Crabs fan would pick their own team."
+              },
+              {
+                "text": "Everyone should love the Rays.",
+                "tag": "OPINION",
+                "nudge": "Could you check 'should'? That's just what Tully thinks."
+              }
+            ],
+            "ask": "Tap the one you could check.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Look at the scoreboard: 12 points. A sentence you could check is a fact claim."
           },
           {
-            "say": "Look at the scoreboard. It's either true or false."
+            "say": "Now the other two. Could anyone prove the Rays are the best?",
+            "show": [
+              {
+                "text": "The Rays are the best team ever.",
+                "tag": "OPINION",
+                "lit": true
+              }
+            ],
+            "ask": "How could you check 'the best team ever'?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Count the players.",
+                  "reason": "Every team has players. Counting them doesn't show who's best."
+                },
+                {
+                  "text": "You can't. It's what Tully thinks."
+                },
+                {
+                  "text": "Look at the scoreboard.",
+                  "reason": "The scoreboard shows points. Fans still argue about who's best."
+                }
+              ]
+            },
+            "win": "Right! Nobody can prove 'the best'. What someone thinks or feels is an opinion."
           },
           {
-            "say": "An opinion is what someone thinks. You can't prove it.",
-            "show": "The Reef Rays are **the best team ever**."
+            "say": "Careful! This one has a number AND an opinion word. Check each part.",
+            "show": [
+              "Turbo Kart's ",
+              {
+                "text": "ten tracks",
+                "tag": "FACT CLAIM",
+                "nudge": "You could count the tracks. Which part is only what someone thinks?"
+              },
+              " are ",
+              {
+                "text": "the best",
+                "tag": "OPINION"
+              },
+              " in any game."
+            ],
+            "ask": "Tap the part you can't check.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! You can count ten tracks. You can't check 'the best'.",
+            "trap": true
           },
           {
-            "say": "Watch for words like best, boring and should.",
-            "show": "Everyone **should** watch footy. It's **never boring**."
+            "say": "The sentence is really saying one thing: these tracks are the best.",
+            "ask": "So what is 'Its ten tracks are the best in any game'?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "a question",
+                  "reason": "There's no question mark. Read it again. Can you check 'the best'?"
+                },
+                {
+                  "text": "a fact claim, because of the number",
+                  "reason": "A number doesn't make it a fact claim. Can you check 'the best'?"
+                },
+                {
+                  "text": "an opinion"
+                }
+              ]
+            },
+            "win": "Yes! It's an opinion. Don't stop at the number. Look for the part you can't check.",
+            "trap": true
           },
           {
-            "say": "Careful! A fact can be checked, even when it's wrong.",
-            "show": "Maxx: '**I have rescued 500 Creatures.**' False, but you can check it. Fact."
+            "say": "Maxx says this. Then I checked the rescue records. They say 3, not 500.",
+            "show": [
+              {
+                "text": "Maxx: 'I have rescued 500 Creatures.'",
+                "tag": "FACT CLAIM"
+              }
+            ],
+            "ask": "So what is Maxx's sentence?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a fact claim, and a false one"
+                },
+                {
+                  "text": "an opinion, because it isn't true",
+                  "reason": "Could you check it? Yes, you just did. If you can check it, it's a fact claim."
+                },
+                {
+                  "text": "a true fact",
+                  "reason": "The records say 3, not 500. You can check it, but it isn't true."
+                }
+              ]
+            },
+            "win": "Yes! You can check it, so it's a fact claim. Checking showed it's false.",
+            "trap": true
+          },
+          {
+            "say": "Careful! Don't just hunt for words like best. Ask: could I check it?",
+            "show": [
+              {
+                "text": "The storm knocked down forty fences.",
+                "tag": "FACT CLAIM",
+                "nudge": "'Knocked down' sounds strong, but you could count the fences."
+              },
+              {
+                "text": "Homework is a waste of a good afternoon.",
+                "tag": "OPINION"
+              },
+              {
+                "text": "The best-selling pie at the canteen is beef.",
+                "tag": "FACT CLAIM",
+                "nudge": "'Best-selling' sounds like best, but you could check the canteen's sales."
+              }
+            ],
+            "ask": "Tap the opinion.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Nobody could check that homework is a waste. It's what someone thinks.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "FACT CLAIM",
+              "means": "You could check it. Checking shows if it's true or false."
+            },
+            {
+              "term": "OPINION",
+              "means": "What someone thinks or feels. Nobody can prove it."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The Rays won by 12 points.",
+                "tag": "FACT CLAIM"
+              },
+              {
+                "text": "They are the best team ever.",
+                "tag": "OPINION"
+              }
+            ],
+            [
+              {
+                "text": "Maxx: 'I have rescued 500 Creatures.'",
+                "tag": "FACT CLAIM"
+              },
+              " The records say 3."
+            ]
+          ],
+          "test": "Could I check it? Yes: fact claim, even if it's false. No: opinion."
+        }
       },
       "weDo": [
         {

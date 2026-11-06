@@ -10,25 +10,197 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Sometimes writers stretch the truth on purpose.",
-            "show": "My school bag weighs **a thousand kilos**."
+            "say": "I packed my own school bag today. Listen to me moan about it.",
+            "show": [
+              "My bag weighs ",
+              {
+                "text": "a thousand kilos!",
+                "tag": "HYPERBOLE"
+              }
+            ],
+            "ask": "Could a school bag really weigh that much?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "A thousand kilos is heavier than a car. Could you carry a car to school?"
+            },
+            "win": "No way! I made it sound much bigger than it is. That's called stretching the truth."
           },
           {
-            "say": "Could a school bag really weigh that much? No way!"
+            "say": "So what am I really saying? Shrink it back to normal size.",
+            "show": [
+              "My bag weighs ",
+              {
+                "text": "a thousand kilos!",
+                "tag": "HYPERBOLE",
+                "lit": true
+              }
+            ],
+            "ask": "What do I really mean?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "My bag is really heavy."
+                },
+                {
+                  "text": "My bag weighs as much as a car.",
+                  "reason": "Nobody could lift that. I'm stretching. What's the normal-size meaning?"
+                },
+                {
+                  "text": "My bag is nearly empty.",
+                  "reason": "Then why would I moan? I'm saying the opposite of empty."
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! A huge stretch like this, made on purpose, is called hyperbole."
           },
           {
-            "say": "A big stretch like that is called hyperbole."
+            "say": "Hyperbole isn't a lie. I know you won't believe me, and you know I'm stretching.",
+            "show": [
+              {
+                "text": "Mo: My bag weighs a thousand kilos!",
+                "tag": "HYPERBOLE",
+                "nudge": "Nobody believes a bag weighs that. Mo wants you to spot the stretch."
+              },
+              {
+                "text": "Gus: I'm so hungry I could eat a whale!",
+                "tag": "HYPERBOLE",
+                "nudge": "Nobody can eat a whale. Gus knows you won't believe it."
+              },
+              {
+                "text": "Zed: I caught a three-metre croc.",
+                "tag": "FIB"
+              },
+              " (It was one metre.)"
+            ],
+            "ask": "Tap the fib. Who wants you to believe them?",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Zed wants you to believe it. A fib tricks you. Hyperbole wants you to spot it.",
+            "trap": true
           },
           {
-            "say": "Ask what it really means.",
-            "show": "My bag is **really, really heavy**."
+            "say": "Ads use hyperbole to sell things. When persuaders do it, it's called exaggeration.",
+            "show": [
+              "Maxx's Mega-Gum: one chew lasts ",
+              {
+                "text": "a thousand years!",
+                "tag": "HYPERBOLE"
+              }
+            ],
+            "ask": "Why does Maxx's ad stretch the truth?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "to give you the exact facts about the gum",
+                  "reason": "Gum can't last a thousand years. Is that an exact fact?"
+                },
+                {
+                  "text": "to make the gum sound amazing so you buy it"
+                },
+                {
+                  "text": "to warn you not to chew too much of it",
+                  "reason": "He's boasting, not warning. What does every ad want you to do?"
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Exaggeration makes things sound bigger, so you'll want them. Ask what's really true."
           },
           {
-            "say": "It makes a feeling bigger, and often funnier. Like my jokes."
+            "say": "Careful! Big numbers aren't always hyperbole. Some were really counted.",
+            "show": [
+              {
+                "text": "Our oval is 160 metres long.",
+                "tag": "COULD BE TRUE",
+                "nudge": "160 metres is big, but you could measure it. It could be true."
+              },
+              {
+                "text": "Coach made us run twelve laps.",
+                "tag": "COULD BE TRUE",
+                "nudge": "Twelve laps is a lot, but it could really happen."
+              },
+              {
+                "text": "Then my legs fell off!",
+                "tag": "HYPERBOLE"
+              }
+            ],
+            "ask": "Tap the hyperbole. Which one can't be true?",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Legs can't fall off. Don't just spot a big number. Ask: could this really happen?",
+            "trap": true
+          },
+          {
+            "say": "People use hyperbole every day without noticing. Mum says this one to me a lot.",
+            "show": [
+              {
+                "text": "I told you at breakfast.",
+                "nudge": "That could really happen. Look for the huge stretch."
+              },
+              {
+                "text": "I've told you a million times!",
+                "tag": "HYPERBOLE"
+              },
+              {
+                "text": "I told you twice.",
+                "nudge": "Twice could easily be true. Which one could nobody really count to?"
+              }
+            ],
+            "ask": "Tap the everyday hyperbole.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Nobody says anything a million times. It just means very, very often."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "HYPERBOLE",
+              "means": "A huge stretch of the truth, on purpose. You're meant to spot it."
+            },
+            {
+              "term": "COULD BE TRUE",
+              "means": "Big, but it could really happen, or be counted or measured."
+            },
+            {
+              "term": "FIB",
+              "means": "Something false the speaker wants you to believe."
+            }
+          ],
+          "examples": [
+            [
+              "My bag weighs ",
+              {
+                "text": "a thousand kilos!",
+                "tag": "HYPERBOLE"
+              }
+            ],
+            [
+              {
+                "text": "Coach made us run twelve laps.",
+                "tag": "COULD BE TRUE"
+              },
+              " ",
+              {
+                "text": "My legs fell off!",
+                "tag": "HYPERBOLE"
+              }
+            ]
+          ],
+          "test": "Could it really be true? If not, ask what it really means, and why."
+        }
       },
       "weDo": [
         {

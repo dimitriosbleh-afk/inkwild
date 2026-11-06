@@ -5,32 +5,227 @@
     "codes": [
       "VC2E5LY11"
     ],
-    "why": "Repeats make readers drift off. Cut them and every word earns its place.",
-    "how": "Spot the repeat. Cut it or swap it. Check every event and detail survived.",
+    "why": "Repeats that add nothing slow readers down. Cut those so every word counts.",
+    "how": "Spot the repeat. Cut or swap it, unless it keeps things clear. Check every event survived.",
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "This draft keeps saying and then. Readers get bored.",
-            "show": "We ate **and then** we swam **and then** we slept."
+            "say": "My game diary keeps saying and then. Read it aloud. Count what actually happens.",
+            "show": [
+              {
+                "text": "We ate",
+                "tag": "EVENT"
+              },
+              {
+                "text": "and then",
+                "tag": "AND THEN"
+              },
+              {
+                "text": "we swam",
+                "tag": "EVENT"
+              },
+              {
+                "text": "and then",
+                "tag": "AND THEN"
+              },
+              {
+                "text": "we slept.",
+                "tag": "EVENT"
+              }
+            ],
+            "ask": "How many events happen?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "two",
+                  "reason": "Count each thing we did: ate, swam... is there one more?"
+                },
+                {
+                  "text": "three"
+                },
+                {
+                  "text": "five",
+                  "reason": "And then isn't something we did. Count only the events."
+                }
+              ]
+            },
+            "win": "Yes! Three events: ate, swam, slept. The and thens just join them, so they can go."
           },
           {
-            "say": "Cut the extra joins. Keep every event.",
-            "show": "We **ate**, **swam** and **slept**."
+            "say": "Now I cut the and thens. My rule: every event stays, in the same order.",
+            "ask": "Which edit follows my rule?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "We ate and slept.",
+                  "reason": "Where did the swim go? Every event must stay."
+                },
+                {
+                  "text": "We swam, ate and slept.",
+                  "reason": "All three are there, but the order changed. We ate first."
+                },
+                {
+                  "text": "We ate, swam and slept."
+                }
+              ]
+            },
+            "win": "Yes! Same three events, same order, and no and then."
           },
           {
-            "say": "Repeated words drag too. Spot the one that keeps coming back.",
-            "show": "**The slime** grew. **The slime** stank."
+            "say": "There's another fix. Start new sentences with time words, like after that.",
+            "ask": "Which edit uses time words and keeps every event?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "We ate. After that, we swam. At last, we slept."
+                },
+                {
+                  "text": "We ate. And then we swam. And then we slept.",
+                  "reason": "The full stops are new, but the and thens are still there."
+                },
+                {
+                  "text": "We ate. After that, we slept.",
+                  "reason": "The time word is good, but the swim has vanished."
+                }
+              ]
+            },
+            "win": "Yes! Time words like after that and at last can take the place of and then."
           },
           {
-            "say": "Swap the second one for it. Same meaning, less drag.",
-            "show": "The slime grew. **It** stank."
+            "say": "Repeated words slow readers down too. Read Gus's line. Which words come back?",
+            "show": [
+              {
+                "text": "Gus made some slime,",
+                "nudge": "That's where we first meet the slime. The reader needs it named once."
+              },
+              {
+                "text": "and the slime",
+                "tag": "REPEAT"
+              },
+              {
+                "text": "ate his sock.",
+                "nudge": "That's what happened. Look for words we already heard."
+              }
+            ],
+            "ask": "Tap the words you could swap for the word it.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Gus made some slime, and it ate his sock. Words like it and he are pronouns."
           },
           {
-            "say": "Last check: did every event survive? Then the edit works."
+            "say": "Careful! Before I swap in the word it, I check it can only mean one thing.",
+            "show": [
+              "Zed put the egg on the rock. Then he painted ",
+              {
+                "text": "the egg",
+                "tag": "KEEP"
+              },
+              " gold."
+            ],
+            "ask": "Should Zed swap 'the egg' for the word it?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Yes, because the egg is a repeat.",
+                  "reason": "Try it: 'he painted it gold.' Which did he paint, the egg or the rock?"
+                },
+                {
+                  "text": "No, because it could mean the rock."
+                },
+                {
+                  "text": "Yes, because repeats always bore readers.",
+                  "reason": "Not always. Here the repeat tells the reader exactly which thing got painted."
+                }
+              ]
+            },
+            "win": "Yes! Keep this repeat. It holds the text together, so we know it's the egg.",
+            "trap": true
+          },
+          {
+            "say": "Some sentences repeat a whole fact. Find the one that tells you nothing new.",
+            "show": [
+              {
+                "text": "Gus's sock stank.",
+                "nudge": "That's the first news. Cut it, and we don't know about the smell."
+              },
+              {
+                "text": "The cat ran from it.",
+                "nudge": "That's new. It tells you what the cat did."
+              },
+              {
+                "text": "It had a very bad smell.",
+                "tag": "REPEAT"
+              },
+              {
+                "text": "Gus put it in a jar.",
+                "nudge": "That's new. It tells you where the sock went."
+              }
+            ],
+            "ask": "Tap the sentence you can cut.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Stank already means a bad smell. Saying it twice adds nothing, so cut it."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "AND THEN",
+              "means": "A join that slows readers. Cut it, or start a new sentence with a time word."
+            },
+            {
+              "term": "EVENT",
+              "means": "Something that happens. Every event must stay, in the same order."
+            },
+            {
+              "term": "REPEAT",
+              "means": "Said again for no reason. Cut it, or swap in a word like it."
+            },
+            {
+              "term": "KEEP",
+              "means": "A repeat that makes the meaning clear. Leave it in."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "We ate",
+                "tag": "EVENT"
+              },
+              {
+                "text": "and then",
+                "tag": "AND THEN"
+              },
+              {
+                "text": "we swam.",
+                "tag": "EVENT"
+              }
+            ],
+            [
+              "Gus made slime, and ",
+              {
+                "text": "the slime",
+                "tag": "REPEAT"
+              },
+              " ate his sock."
+            ]
+          ],
+          "test": "Cut repeats that add nothing. Keep every event in order. Keep a repeat that makes things clear."
+        }
       },
       "weDo": [
         {

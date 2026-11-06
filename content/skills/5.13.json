@@ -8,33 +8,264 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A sentence is one whole thought. Who did what?",
-            "show": "**The slime** **exploded**."
+            "say": "My slime exploded! Is that a real sentence? First, find what the slime did.",
+            "show": [
+              {
+                "text": "The slime",
+                "tag": "DOER",
+                "nudge": "The slime is the doer. What did it do?"
+              },
+              {
+                "text": "exploded",
+                "tag": "ACTION"
+              },
+              {
+                "text": "all over the ceiling.",
+                "nudge": "That says where. What did the slime do?"
+              }
+            ],
+            "ask": "Tap the verb. What did the slime do?",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A doer and a verb that make sense alone. That is a main clause. Every sentence needs one."
           },
           {
-            "say": "Uh oh. Two thoughts jammed together. That's a run-on.",
-            "show": "**The slime exploded** **it went all over the ceiling**."
+            "say": "This one has a doer and a verb too. Zed says it is a sentence. Say it alone.",
+            "show": [
+              {
+                "text": "Because",
+                "tag": "JOINING WORD",
+                "lit": true
+              },
+              {
+                "text": "the dogs get bored.",
+                "tag": "DEPENDENT CLAUSE"
+              }
+            ],
+            "ask": "Is it a sentence?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Yes: it has a doer and a verb.",
+                  "reason": "It does. But say it alone: 'Because the dogs get bored.' Is it finished?"
+                },
+                {
+                  "text": "No: it leaves you waiting."
+                },
+                {
+                  "text": "Yes: it ends with a full stop.",
+                  "reason": "A full stop alone doesn't make a sentence. Say it aloud. Is it finished?"
+                }
+              ]
+            },
+            "win": "Right! It's only a dependent clause. A piece of a sentence like this is called a fragment.",
+            "trap": true
           },
           {
-            "say": "Fix it with a full stop.",
-            "show": "The slime exploded**.** **It** went all over the ceiling."
+            "say": "Hook it onto a main clause. Read the whole thing.",
+            "show": [
+              {
+                "text": "Our dogs bark all night",
+                "tag": "MAIN CLAUSE",
+                "lit": true
+              },
+              {
+                "text": "because they get bored.",
+                "tag": "DEPENDENT CLAUSE",
+                "lit": true
+              }
+            ],
+            "ask": "Is it a whole sentence now?",
+            "check": {
+              "kind": "yesno",
+              "answer": true,
+              "nudge": "Read it all: 'Our dogs bark all night because they get bored.' Does it leave you waiting?"
+            },
+            "win": "Yes! The because part hangs on the main clause. Now it is one whole sentence."
           },
           {
-            "say": "Or join it with a comma and a joining word.",
-            "show": "The slime exploded**, and** it went all over the ceiling."
+            "say": "Here's another fragment. What's missing this time?",
+            "show": [
+              {
+                "text": "Under the jetty.",
+                "tag": "FRAGMENT",
+                "lit": true
+              }
+            ],
+            "ask": "What is this fragment missing?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a doer and a verb"
+                },
+                {
+                  "text": "a joining word",
+                  "reason": "A joining word won't fix it. Who did something here? What did they do?"
+                },
+                {
+                  "text": "nothing, it is a sentence",
+                  "reason": "Say it alone: 'Under the jetty.' Who did what?"
+                }
+              ]
+            },
+            "win": "Right! It only says where. Add a doer and a verb: 'A crab hid under the jetty.'"
           },
           {
-            "say": "This is a fragment. What went all over the ceiling?",
-            "show": "**All over the ceiling.**"
+            "say": "Careful! An -ing word looks like a verb, but it cannot be the verb by itself.",
+            "show": [
+              {
+                "text": "A crab",
+                "tag": "DOER",
+                "lit": true
+              },
+              {
+                "text": "hiding"
+              },
+              {
+                "text": "under the jetty."
+              }
+            ],
+            "ask": "Which one fixes it?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "A crab hiding under the jetty!",
+                  "reason": "An exclamation mark won't fix it. 'Hiding' still needs a helper word."
+                },
+                {
+                  "text": "A crab, hiding under the jetty.",
+                  "reason": "A comma won't fix it. 'Hiding' needs a word like 'was' in front."
+                },
+                {
+                  "text": "A crab was hiding under the jetty."
+                }
+              ]
+            },
+            "win": "Yes! 'Was hiding' works. An -ing word needs was, were, is or am to be the verb.",
+            "trap": true
+          },
+          {
+            "say": "Each main clause is a complete thought. Two jammed together with nothing between them make a run-on.",
+            "show": [
+              {
+                "text": "The slime exploded.",
+                "nudge": "That has one main clause and a full stop. It is a whole sentence."
+              },
+              {
+                "text": "The slime exploded it went everywhere.",
+                "tag": "RUN-ON"
+              },
+              {
+                "text": "All over the ceiling.",
+                "tag": "FRAGMENT",
+                "nudge": "No doer, no verb. That is a fragment."
+              }
+            ],
+            "ask": "Tap the run-on.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Two main clauses are jammed together with nothing between. Fix it with a full stop after exploded."
+          },
+          {
+            "say": "Gus put a comma in. A comma alone cannot join two main clauses.",
+            "show": [
+              {
+                "text": "The slime exploded,",
+                "tag": "MAIN CLAUSE",
+                "lit": true
+              },
+              {
+                "text": "it went everywhere.",
+                "tag": "MAIN CLAUSE",
+                "lit": true
+              }
+            ],
+            "ask": "Which one fixes it?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The slime exploded it went everywhere.",
+                  "reason": "Now there's nothing between the clauses. That's a run-on again."
+                },
+                {
+                  "text": "The slime exploded, and it went everywhere."
+                },
+                {
+                  "text": "The slime exploded, it went everywhere!",
+                  "reason": "An exclamation mark won't fix it. There's still only a comma between the clauses."
+                }
+              ]
+            },
+            "win": "Yes! A comma plus a joining word like 'and', 'but' or 'so' can join two main clauses.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "MAIN CLAUSE",
+              "means": "A doer and a verb that make sense alone. Every sentence needs one."
+            },
+            {
+              "term": "FRAGMENT",
+              "means": "Only a piece: no doer, no verb, or no main clause. 'Under the jetty.'"
+            },
+            {
+              "term": "RUN-ON",
+              "means": "Two main clauses with nothing, or only a comma, between them."
+            },
+            {
+              "term": "JOINING WORD",
+              "means": "Goes after the comma to join two main clauses: 'and', 'but', 'so'."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The slime exploded.",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "It went everywhere.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            [
+              {
+                "text": "The slime exploded,",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "and",
+                "tag": "JOINING WORD"
+              },
+              {
+                "text": "it went everywhere.",
+                "tag": "MAIN CLAUSE"
+              }
+            ]
+          ],
+          "test": "Find the main clause. None? Fragment. Two with nothing between? Run-on. Split or join them."
+        }
       },
       "weDo": [
         {
           "prompt": "Which one is a complete sentence?",
-          "hint": "A complete sentence says who, says what they did, and stops at the end of one thought.",
+          "hint": "A complete sentence has a doer and a verb that make sense alone, with nothing jammed on.",
           "success": "'Gus sneezed into the slime.' It says who and what he did, and it's one complete thought.",
           "body": {
             "format": "choose",
@@ -140,7 +371,7 @@
       "topic": "gaming",
       "frame": "Zed's game chat is a mess. Help the Mendlet sort the messages.",
       "prompt": "Match each message to the right rock.",
-      "success": "A sentence is one complete thought. A fragment is part of one, and a run-on is two jammed together.",
+      "success": "A sentence needs a main clause. A fragment has none, and a run-on jams two together with no join.",
       "body": {
         "format": "sort",
         "bins": ["complete sentence", "fragment", "run-on"],

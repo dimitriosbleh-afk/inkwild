@@ -11,25 +11,197 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Sometimes writers make things act like people.",
-            "show": "The fridge **grumbled about** all the leftovers."
+            "say": "Mo's fridge is full of leftovers. Listen to what the fridge did.",
+            "show": [
+              {
+                "text": "The fridge",
+                "tag": "THING",
+                "nudge": "Fridges are real. What is the fridge doing?"
+              },
+              {
+                "text": "grumbled about",
+                "tag": "PEOPLE ACTION"
+              },
+              {
+                "text": "all the leftovers.",
+                "nudge": "Leftovers are just food. Which part is something people do?"
+              }
+            ],
+            "ask": "Tap the part only a person could really do.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A fridge can hum, but it can't grumble about things. Only people do that."
           },
           {
-            "say": "Can a fridge really grumble about leftovers? No! Only people can."
+            "say": "Your turn. Find the bike that's acting like a person.",
+            "ask": "Which bike is doing something only people do?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "The old bike had a flat tyre.",
+                  "reason": "Bikes really get flat tyres. That's a bike thing, not a people thing."
+                },
+                {
+                  "text": "The old bike sulked in the shed."
+                },
+                {
+                  "text": "Mo rode the old bike to the jetty.",
+                  "reason": "Mo is a person, so riding is normal for him. Look for a thing acting human."
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Bikes can't sulk. A thing acting like a person is called personification."
           },
           {
-            "say": "That's personification: a thing doing what people do."
+            "say": "Careful! Animals count too, but only when they do a people thing.",
+            "show": [
+              {
+                "text": "The magpie sang in the gum tree.",
+                "nudge": "Magpies really sing. That's a magpie thing."
+              },
+              {
+                "text": "The crab ran sideways.",
+                "nudge": "Crabs really run sideways. That's a crab thing."
+              },
+              {
+                "text": "The magpie gossiped about the neighbours.",
+                "tag": "PERSONIFICATION"
+              }
+            ],
+            "ask": "Tap the personification.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Magpies really sing, but they can't gossip. Only people gossip.",
+            "trap": true
           },
           {
-            "say": "Now ask why. How does it make the scene feel?",
-            "show": "The moon **peeked shyly** over the hill."
+            "say": "People doing people things don't count either. Find the thing acting human.",
+            "show": [
+              {
+                "text": "The crowd cheered.",
+                "nudge": "The crowd are real people. Cheering is normal for them."
+              },
+              {
+                "text": "The wind teased the players.",
+                "tag": "PERSONIFICATION"
+              },
+              {
+                "text": "The ball flew high.",
+                "nudge": "Balls really fly when you kick them. That's not a people thing."
+              }
+            ],
+            "ask": "Tap the personification.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Wind can blow, but it can't tease. Only people tease.",
+            "trap": true
           },
           {
-            "say": "A shy moon feels gentle. A grumbling fridge feels funny."
+            "say": "Now ask why. Personification shows you how a thing seems.",
+            "show": [
+              "The moon ",
+              {
+                "text": "peeked shyly",
+                "tag": "PEOPLE ACTION",
+                "lit": true
+              },
+              " over the hill."
+            ],
+            "ask": "How does the moon seem?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "gentle and friendly"
+                },
+                {
+                  "text": "angry and scary",
+                  "reason": "Shy people don't scare anyone. Picture someone peeking shyly."
+                },
+                {
+                  "text": "loud and bossy",
+                  "reason": "Shy people are quiet. What is a shy person like?"
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! A shy person is gentle. So the moon seems gentle too."
+          },
+          {
+            "say": "Change the doing word, and the feeling changes. Look at what the sea does.",
+            "show": [
+              {
+                "text": "The sea yawned and stretched.",
+                "nudge": "Yawning is sleepy, not angry. Which one sounds like someone cross?"
+              },
+              {
+                "text": "The sea shoved our boat.",
+                "tag": "PEOPLE ACTION"
+              },
+              {
+                "text": "The sea giggled on the sand.",
+                "nudge": "Giggling is happy. Which one sounds like someone cross?"
+              }
+            ],
+            "ask": "Tap the one that makes the sea seem angry.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Angry people shove. The doing word tells you how the thing seems."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "PERSONIFICATION",
+              "means": "A thing or animal doing something only people do."
+            },
+            {
+              "term": "THING",
+              "means": "Not a person: an object, the weather, or an animal."
+            },
+            {
+              "term": "PEOPLE ACTION",
+              "means": "The doing word. Something only people do, like grumble, sulk or tease."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The fridge",
+                "tag": "THING"
+              },
+              {
+                "text": "grumbled about",
+                "tag": "PEOPLE ACTION"
+              },
+              " the leftovers."
+            ],
+            [
+              {
+                "text": "The magpie",
+                "tag": "THING"
+              },
+              {
+                "text": "gossiped",
+                "tag": "PEOPLE ACTION"
+              },
+              " about the neighbours."
+            ]
+          ],
+          "test": "Find a thing that isn't a person. Is its doing word something only people do?"
+        }
       },
       "weDo": [
         {

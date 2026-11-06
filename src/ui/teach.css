@@ -1,0 +1,43 @@
+/* Tap to learn: labelled chunks. Colour slots c1 to c5 follow the order tags first appear in a Skill. */
+.c1 { --bg: #ffe9a8; --bd: #e0a92e; --tag: #f2c14e; }
+.c2 { --bg: #c9ecff; --bd: #3c8fd0; --tag: #8fd3ff; }
+.c3 { --bg: #ffd2c9; --bd: #d9583b; --tag: #ffa594; }
+.c4 { --bg: #d3f4d8; --bd: #3aa55a; --tag: #7fe08f; }
+.c5 { --bg: #eadcff; --bd: #8a5cd6; --tag: #c7a8ff; }
+.c0 { --bg: #e7e4f2; --bd: #8a86a8; --tag: #cfcbe6; }
+
+.chunks { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 8px; font-weight: 700; font-size: calc(var(--read-size) * 1.15); line-height: 1.3; color: var(--paper-ink); }
+.chunks .plain { padding: 6px 0; }
+.ch { display: inline-flex; flex-direction: column; align-items: stretch; border: 0; background: none; color: inherit; padding: 0; margin: 0; font: inherit; text-align: left; border-radius: 6px; }
+.ch-t { display: block; padding: 6px 8px; border-radius: 6px; border-bottom: 5px solid transparent; }
+.ch-tag {
+  display: block; align-self: flex-start; margin-top: 5px; padding: 3px 6px 2px;
+  font: 700 11px/1.3 var(--pixel); letter-spacing: 0.5px; color: #10142c; white-space: nowrap;
+  background: var(--tag); border: 2px solid var(--line); visibility: hidden;
+}
+.ch.no-tag > .ch-tag { display: none; }
+.ch.on > .ch-tag { visibility: visible; animation: pop 0.4s ease-out; }
+.ch.on > .ch-t { background: var(--bg); border-bottom-color: var(--bd); }
+button.ch.tapme { cursor: pointer; min-height: 56px; }
+button.ch.tapme > .ch-t { background: #fff3c4; border: 2px dashed #8a7a3a; border-bottom-width: 5px; min-height: 52px; display: flex; align-items: center; }
+button.ch.tapme.on > .ch-t { background: var(--bg); border: 2px solid var(--bd); border-bottom-width: 5px; }
+button.ch.tapme:active:not(:disabled) { transform: translateY(2px); }
+button.ch.tapme.tried { opacity: 0.55; }
+button.ch:disabled { cursor: default; opacity: 1; }
+
+.step-body { flex: 1; min-width: 0; }
+.step-say { margin-bottom: 14px; }
+.step-show { margin: 0 0 12px; }
+.step-ask { margin: 6px 0 10px; }
+.step-choices { margin-bottom: 8px; }
+.step-choices .answer { min-height: 56px; }
+.step-choices .answer.right { outline: 4px solid var(--good); }
+.step-choices .answer.tried { opacity: 0.55; }
+.step-fb { min-height: 8px; }
+
+.card-terms { display: grid; gap: 10px; margin: 10px 0 14px; }
+.card-term { display: flex; gap: 12px; align-items: center; background: var(--paper); color: var(--paper-ink); border: 4px solid var(--line); padding: 8px 10px; }
+.card-term .ch-tag { margin-top: 0; }
+.card-example { margin-bottom: 10px; }
+.card-test { background: var(--panel2); border: 4px solid var(--line); padding: 10px 12px; margin-top: 4px; }
+.card-test b { display: block; font-family: var(--pixel); font-size: 11px; color: var(--gold); margin-bottom: 6px; }

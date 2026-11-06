@@ -10,25 +10,199 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "When the teller says I, they're inside the story."
+            "say": "Zed here. The narrator is the one telling the story. When they say I, they're in it.",
+            "show": [
+              {
+                "text": "I hid behind the couch.",
+                "nudge": "The narrator did that. Of course they know it!"
+              },
+              {
+                "text": "Mo walked into the room.",
+                "tag": "SAW OR HEARD IT",
+                "nudge": "From behind the couch, the narrator can see Mo walk in."
+              },
+              {
+                "text": "Mo secretly wished he'd brought snacks.",
+                "tag": "CAN'T KNOW IT"
+              }
+            ],
+            "ask": "Tap the sentence the narrator can't know.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Nobody can see inside Mo's head, and Mo didn't say it. So the narrator can't know."
           },
           {
-            "say": "So they only know what they see, hear or get told."
+            "say": "So how does this narrator find things out? Here's one way.",
+            "show": [
+              "I was at the beach all day.",
+              {
+                "text": "Gus told me",
+                "tag": "WAS TOLD IT"
+              },
+              "that Mo ate the whole cake."
+            ],
+            "ask": "How does the narrator know Mo ate the cake?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "They watched Mo eat it.",
+                  "reason": "The narrator was at the beach all day. Could they watch Mo?"
+                },
+                {
+                  "text": "They heard Mo eating it.",
+                  "reason": "From the beach? Look at who gave them the news."
+                },
+                {
+                  "text": "Gus told them."
+                }
+              ]
+            },
+            "win": "Yes! They weren't there, but Gus told them. Being told, or reading it, counts too."
           },
           {
-            "say": "They can't see inside someone else's head.",
-            "show": "I watched Mo stir the soup. **He secretly wished it was pancakes.**"
+            "say": "Mo says far away always means can't know. Let's test that.",
+            "show": [
+              "Gran lives far away in Perth.",
+              {
+                "text": "She rang and told me",
+                "tag": "WAS TOLD IT"
+              },
+              "her cat stole a sausage."
+            ],
+            "ask": "Can the narrator know about the cat?",
+            "check": {
+              "kind": "yesno",
+              "answer": true,
+              "nudge": "Perth is far away. But read again. What did Gran do?"
+            },
+            "win": "Yes! Gran told them on the phone. Don't just spot far away. Ask: did they see, hear or get told?",
+            "trap": true
           },
           {
-            "say": "They can't see far away, or behind closed doors.",
-            "show": "I was at school. **At home, the dog ate my homework.**"
+            "say": "Careful! Narrators sometimes say things as if they're sure. Check each one.",
+            "show": [
+              {
+                "text": "I won the swim race by a fingertip.",
+                "tag": "SAW OR HEARD IT",
+                "nudge": "The narrator saw the finish. They know that."
+              },
+              {
+                "text": "Ash shook my hand and said, 'Good race.'",
+                "tag": "SAW OR HEARD IT",
+                "nudge": "The narrator heard Ash say it. Hearing counts."
+              },
+              {
+                "text": "Ash let me win on purpose.",
+                "tag": "CAN'T KNOW IT"
+              }
+            ],
+            "ask": "Tap the sentence the narrator can't know.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Ash never said why. It sounds sure, but it's only the narrator's guess.",
+            "trap": true
           },
           {
-            "say": "If they weren't there and nobody told them, they can't know it!"
+            "say": "That rule is for narrators who say I. A narrator who says he or she is different.",
+            "show": [
+              "Mo stirred the soup.",
+              {
+                "text": "He secretly wished it was pancakes."
+              }
+            ],
+            "ask": "Can this narrator know Mo's secret wish?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "No. Nobody can ever know thoughts.",
+                  "reason": "A narrator who says I can't. But this one says he, and is outside the story."
+                },
+                {
+                  "text": "Only if Mo says it out loud.",
+                  "reason": "That's the rule for narrators who say I. This one says he."
+                },
+                {
+                  "text": "Yes. A narrator outside the story can know thoughts."
+                }
+              ]
+            },
+            "win": "Yes! Outside narrators can know thoughts. Narrators who say I only know what they see, hear or get told."
+          },
+          {
+            "say": "Back to a narrator who says I. They're stuck in the bathroom at Mo's party.",
+            "show": [
+              {
+                "text": "Through the door, I heard a crash.",
+                "tag": "SAW OR HEARD IT",
+                "nudge": "The narrator heard it through the door. Hearing counts."
+              },
+              {
+                "text": "Mo yelled, 'My cake!'",
+                "tag": "SAW OR HEARD IT",
+                "nudge": "The narrator heard Mo yell. Hearing counts."
+              },
+              {
+                "text": "Gus had sat on the cake.",
+                "tag": "CAN'T KNOW IT"
+              }
+            ],
+            "ask": "Tap the sentence the narrator can't know.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! They heard a crash and a yell. Nobody said who did it, so Gus is only a guess."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SAW OR HEARD IT",
+              "means": "The narrator was there. They saw, heard or smelled it."
+            },
+            {
+              "term": "WAS TOLD IT",
+              "means": "Someone told them, or they read it, or watched it on a screen."
+            },
+            {
+              "term": "CAN'T KNOW IT",
+              "means": "Thoughts, or things nobody saw or said. It's only a guess."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Through the door, I heard a crash.",
+                "tag": "SAW OR HEARD IT"
+              },
+              {
+                "text": "Gus had sat on the cake.",
+                "tag": "CAN'T KNOW IT"
+              }
+            ],
+            [
+              {
+                "text": "Gran rang and said her cat stole a sausage.",
+                "tag": "WAS TOLD IT"
+              },
+              {
+                "text": "The cat felt very proud.",
+                "tag": "CAN'T KNOW IT"
+              }
+            ]
+          ],
+          "test": "Was the narrator there? Did they see it, hear it, or get told? No? Then they can't know."
+        }
       },
       "weDo": [
         {

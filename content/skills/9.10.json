@@ -11,26 +11,208 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "The crew has three writing jobs. Each has its own shape."
+            "say": "The crew has three writing jobs. First, a news report. Readers want the facts, fast.",
+            "show": [
+              {
+                "text": "Yesterday at 6pm,",
+                "tag": "WHEN",
+                "nudge": "That's when it happened. Which part tells you where?"
+              },
+              {
+                "text": "forty Creatures",
+                "tag": "WHO",
+                "nudge": "That's who it happened to. Which part tells you where?"
+              },
+              {
+                "text": "vanished",
+                "tag": "WHAT",
+                "nudge": "That's what happened. Which part tells you where?"
+              },
+              {
+                "text": "from Comma Cay.",
+                "tag": "WHERE"
+              }
+            ],
+            "ask": "Tap the part that tells you where it happened.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! One line gives who, what, when and where. A news report informs, straight away."
           },
           {
-            "say": "A news report tells what happened, fast.",
-            "show": "**Yesterday at 6pm, forty Creatures vanished from Comma Cay.**"
+            "say": "Second job: a persuasive letter. Now I want the mayor to do something.",
+            "show": [
+              {
+                "text": "Please ban drones over the bay,",
+                "tag": "ASK",
+                "nudge": "That's what I want. Find the part that says why."
+              },
+              {
+                "text": "because they scare nesting birds.",
+                "tag": "REASON"
+              },
+              {
+                "text": "Yours sincerely, Wren",
+                "nudge": "That's just how I finish the letter. Find the part that says why."
+              }
+            ],
+            "ask": "Tap the reason I give.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A persuasive letter asks for something and gives reasons. Its job is to persuade."
           },
           {
-            "say": "A persuasive letter gives reasons to change someone's mind.",
-            "show": "Please ban drones over the bay, **because they scare nesting birds**."
+            "say": "Third job: an exposé. Say it ex-POH-zay. It catches someone telling a lie.",
+            "show": [
+              {
+                "text": "Maxx says he sets every Creature free.",
+                "tag": "CLAIM",
+                "nudge": "That's what Maxx says. Which part shows it isn't true?"
+              },
+              {
+                "text": "Here is a photo of forty Creatures in his cages.",
+                "tag": "PROOF"
+              },
+              {
+                "text": "We were very upset.",
+                "nudge": "That's how we feel. Which part shows Maxx is lying?"
+              }
+            ],
+            "ask": "Tap the proof that Maxx is lying.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! First his claim, then proof that it is false. An exposé exposes a lie."
           },
           {
-            "say": "An exposé shows the proof behind a lie.",
-            "show": "Maxx says he rescues Creatures. **Here is a photo of his cages.**"
+            "say": "Zed wrote this and called it an exposé. Careful: exposé sounds like exposition, but they're different jobs.",
+            "show": [
+              "Maxx's stream should be banned, because he is mean and horrible."
+            ],
+            "ask": "What does Zed's line need to be an exposé?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "more opinions about Maxx",
+                  "reason": "Opinions and reasons argue a side. That's an exposition. What does an exposé show?"
+                },
+                {
+                  "text": "proof that Maxx said something false"
+                },
+                {
+                  "text": "the word because",
+                  "reason": "It already has because. Reasons argue. What does an exposé show?"
+                }
+              ]
+            },
+            "win": "Yes! An exposition argues an opinion. An exposé shows proof that someone lied. No proof, no exposé.",
+            "trap": true
           },
           {
-            "say": "So first decide: am I telling, persuading or exposing?"
+            "say": "My desk is a mess. Here are three scraps from three different jobs.",
+            "show": [
+              {
+                "text": "Maxx's boat sank on Friday.",
+                "tag": "NEWS REPORT",
+                "nudge": "That reports what happened and when. Does it catch a lie?"
+              },
+              {
+                "text": "Please make lunch longer, because we need to play.",
+                "tag": "PERSUASIVE LETTER",
+                "nudge": "That asks for something and gives a reason. Does it catch a lie?"
+              },
+              {
+                "text": "Maxx says he sleeps at night. Here's his 2am stream.",
+                "tag": "EXPOSÉ"
+              }
+            ],
+            "ask": "Tap the scrap from an exposé.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! A claim, then proof that it's false. Look at the labels: three jobs."
+          },
+          {
+            "say": "So first, decide your job. Gus wants the mayor to fix the broken jetty.",
+            "ask": "Which writing job should Gus pick?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "a news report",
+                  "reason": "News reports what happened. Gus wants the mayor to do something."
+                },
+                {
+                  "text": "an exposé",
+                  "reason": "Nobody is lying here. Gus wants to change the mayor's mind."
+                },
+                {
+                  "text": "a persuasive letter"
+                }
+              ]
+            },
+            "win": "Yes! He wants to persuade, so he writes a letter with reasons. Now pick your job: inform, persuade or expose?"
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "NEWS REPORT",
+              "means": "Informs. Tells who, what, when and where, straight away."
+            },
+            {
+              "term": "PERSUASIVE LETTER",
+              "means": "Persuades. Asks someone to do something, and gives reasons."
+            },
+            {
+              "term": "EXPOSÉ",
+              "means": "Exposes a lie with proof. Not an exposition, which argues an opinion."
+            },
+            {
+              "term": "CLAIM",
+              "means": "What someone says is true."
+            },
+            {
+              "term": "PROOF",
+              "means": "Photos, facts or records that show if a claim is true."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Maxx says his Creatures eat organic food.",
+                "tag": "CLAIM"
+              },
+              " ",
+              {
+                "text": "Our video shows a bucket of stale chips.",
+                "tag": "PROOF"
+              }
+            ],
+            [
+              {
+                "text": "Please ban drones over the bay,",
+                "tag": "ASK"
+              },
+              " ",
+              {
+                "text": "because they scare nesting birds.",
+                "tag": "REASON"
+              }
+            ]
+          ],
+          "test": "First ask: am I informing, persuading or exposing a lie? Then give facts, reasons or proof."
+        }
       },
       "weDo": [
         {

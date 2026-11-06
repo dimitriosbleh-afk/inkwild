@@ -10,27 +10,231 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A problem solved straight away is no story.",
-            "show": "The dog ate my lunch. **Mum made another one.** The end."
+            "say": "I wrote a whole story. It is very short. Can you see why?",
+            "show": [
+              {
+                "text": "The dog ate my lunch.",
+                "tag": "PROBLEM"
+              },
+              " ",
+              {
+                "text": "Mum made me another one.",
+                "tag": "EASY FIX"
+              },
+              " The end."
+            ],
+            "ask": "Why is my story over so fast?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The dog is too small.",
+                  "reason": "The story never says how big the dog is. Look at what Mum does."
+                },
+                {
+                  "text": "The problem gets fixed straight away."
+                },
+                {
+                  "text": "Lunch is boring.",
+                  "reason": "Lunch can be funny! Look at what happens right after the problem."
+                }
+              ]
+            },
+            "win": "Yes! One line of trouble, one line of fix. The problem in a story is also called the complication."
           },
           {
-            "say": "So make the first fix go wrong.",
-            "show": "I chased the dog. **He ran into the neighbour's pool.**"
+            "say": "So I tried again. This time, my fix goes wrong.",
+            "show": [
+              {
+                "text": "The dog ate my lunch.",
+                "tag": "PROBLEM",
+                "lit": true,
+                "nudge": "That's where the trouble starts. Read on. What goes wrong next?"
+              },
+              {
+                "text": "I chased him.",
+                "tag": "FIX",
+                "nudge": "That's my fix. What happened because of it?"
+              },
+              {
+                "text": "He ran into the neighbour's pool.",
+                "tag": "WORSE"
+              }
+            ],
+            "ask": "Tap the part where things get worse.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! My fix made it worse. Now there is a wet dog and an angry neighbour."
           },
           {
-            "say": "Then make things worse again.",
-            "show": "**The neighbour's alarm went off. So did their sprinklers.**"
+            "say": "Now the dog is in the pool. Make it worse again!",
+            "show": [
+              {
+                "text": "He ran into the neighbour's pool.",
+                "tag": "WORSE",
+                "lit": true
+              }
+            ],
+            "ask": "Which line makes it worse again?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "The dog climbed out of the pool, and everything was fine again.",
+                  "reason": "That fixes it. Is anyone in more trouble now?"
+                },
+                {
+                  "text": "My favourite colour is green, and I like blue as well.",
+                  "reason": "That's a random fact. It has nothing to do with the dog or the pool."
+                },
+                {
+                  "text": "I jumped in to get him, and the neighbour's alarm went off."
+                }
+              ]
+            },
+            "win": "Yes! Each step makes the trouble bigger. Lunch, then the pool, then the alarm."
           },
           {
-            "say": "Each step up the ladder raises the stakes.",
-            "show": "**Lunch**, then **the pool**, then **the alarm**, then **the whole street watching**."
+            "say": "Zed wants a happy surprise next. Nice, right? Let's check what it does to the story.",
+            "show": [
+              {
+                "text": "Then a kind man gave me his lunch.",
+                "tag": "EASY FIX"
+              }
+            ],
+            "ask": "What does Zed's line do to the story?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "It ends the trouble too soon."
+                },
+                {
+                  "text": "It makes the trouble bigger.",
+                  "reason": "Is anyone in more trouble now? Or is lunch sorted?"
+                },
+                {
+                  "text": "It adds a new problem.",
+                  "reason": "A free lunch isn't a problem! It solves one."
+                }
+              ]
+            },
+            "win": "Right. Lucky help ends the story too early. Save the real fix for the very end.",
+            "trap": true
           },
           {
-            "say": "Save the fix for the very end."
+            "say": "Here is the trick from my slime story. Watch what my own fix does.",
+            "show": [
+              {
+                "text": "The slime slid into the air vent.",
+                "tag": "PROBLEM",
+                "nudge": "That's the trouble. Which part is me trying to fix it?"
+              },
+              {
+                "text": "I turned on the fan to blow it out.",
+                "tag": "FIX"
+              },
+              {
+                "text": "The fan sprayed slime all over the ship.",
+                "tag": "WORSE",
+                "nudge": "That's what happened next. What did I do that caused it?"
+              }
+            ],
+            "ask": "Tap the part where I try to fix it.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The fan was my fix, and it caused the next problem. That is how trouble grows."
+          },
+          {
+            "say": "Mo spilt glue on his homework. He tried to dry it with a hair dryer.",
+            "show": [
+              {
+                "text": "Mo dried the glue with a hair dryer.",
+                "tag": "FIX",
+                "lit": true
+              }
+            ],
+            "ask": "Which line makes it worse, because of Mo's fix?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Then a spaceship landed on the school.",
+                  "reason": "That's big trouble, but Mo's fix didn't cause it. It came from nowhere."
+                },
+                {
+                  "text": "The hair dryer blew his pages all over the street."
+                },
+                {
+                  "text": "The glue dried, and the homework was fine.",
+                  "reason": "That fixes it too soon. Is Mo in more trouble?"
+                }
+              ]
+            },
+            "win": "Yes! His own fix caused it. In your story, start each step: 'That made it worse, because…'",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "PROBLEM",
+              "means": "The trouble at the start. Also called the complication."
+            },
+            {
+              "term": "FIX",
+              "means": "What the character tries, to solve the problem."
+            },
+            {
+              "term": "WORSE",
+              "means": "What goes wrong because of the fix. The trouble gets bigger."
+            },
+            {
+              "term": "EASY FIX",
+              "means": "Lucky help that ends the trouble too soon."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The dog ate my lunch.",
+                "tag": "PROBLEM"
+              },
+              " ",
+              {
+                "text": "I chased him.",
+                "tag": "FIX"
+              },
+              " ",
+              {
+                "text": "He ran into the neighbour's pool.",
+                "tag": "WORSE"
+              }
+            ],
+            [
+              {
+                "text": "I turned on the fan.",
+                "tag": "FIX"
+              },
+              " ",
+              {
+                "text": "It sprayed slime all over the ship.",
+                "tag": "WORSE"
+              }
+            ]
+          ],
+          "test": "After each fix, ask: is my character in more trouble now? Save the real fix for the end."
+        }
       },
       "weDo": [
         {
@@ -61,7 +265,7 @@
           "frame": "Tully's footy is stuck on the school roof. Gus is planning what happens next.",
           "prompt": "Put each event in the right bin.",
           "hint": "Does Tully end up in more trouble, or out of it?",
-          "success": "Bending pipes, flying shoes and a stuck Tully raise the stakes. Easy rescues end the story too early.",
+          "success": "Bending pipes, flying shoes and a stuck Tully make the trouble bigger. Easy rescues end the story too early.",
           "body": {
             "format": "sort",
             "bins": [

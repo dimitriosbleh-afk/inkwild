@@ -10,26 +10,195 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some words are picked to make you feel something.",
-            "show": "The council **snatched** our **beloved** skate park."
+            "say": "The council closed our skate park. Zed wrote about it. He's cross!",
+            "show": [
+              "The ",
+              {
+                "text": "council",
+                "tag": "NEUTRAL",
+                "nudge": "'Council' just names who did it. Which word makes them sound mean?"
+              },
+              " ",
+              {
+                "text": "snatched",
+                "tag": "EMOTIVE"
+              },
+              " our ",
+              {
+                "text": "skate park",
+                "tag": "NEUTRAL",
+                "nudge": "'Skate park' just names the place. Which word makes you feel cross?"
+              },
+              "."
+            ],
+            "ask": "Tap the word picked to make you feel angry.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Snatched makes the council sound like thieves. A word that pushes your feelings is emotive."
           },
           {
-            "say": "We call them emotive words. They push your feelings."
+            "say": "Now let's say it calmly. Keep what happened. Drop the push.",
+            "show": [
+              "The council ",
+              {
+                "text": "snatched",
+                "tag": "EMOTIVE",
+                "lit": true
+              },
+              " our skate park."
+            ],
+            "ask": "Which says Zed's sentence without the push?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Sadly, the council snatched our skate park.",
+                  "reason": "Snatched is still there, and 'sadly' adds more feeling."
+                },
+                {
+                  "text": "The council closed our skate park."
+                },
+                {
+                  "text": "The cruel council stole our skate park.",
+                  "reason": "'Cruel' and 'stole' still push you to be angry."
+                }
+              ]
+            },
+            "win": "Yes! 'Closed' says what happened with no push. A calm word like that is neutral."
           },
           {
-            "say": "Happy ones count too. They push you the other way.",
-            "show": "Mo's **heavenly**, **mouth-watering** custard."
+            "say": "Careful! Not every describing word is emotive. This ad has two.",
+            "show": [
+              "Mo's ",
+              {
+                "text": "warm",
+                "tag": "NEUTRAL",
+                "nudge": "'Warm' tells you how hot it is. You could check it. Which word pushes?"
+              },
+              " custard is ",
+              {
+                "text": "heavenly",
+                "tag": "EMOTIVE"
+              },
+              " and costs ",
+              {
+                "text": "$3",
+                "tag": "NEUTRAL",
+                "nudge": "A price just tells you. It carries no feeling."
+              },
+              "."
+            ],
+            "ask": "Tap the emotive word.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Heavenly pushes you to want it. Happy words can be emotive too.",
+            "trap": true
           },
           {
-            "say": "To say it neutrally, keep what happened. Drop the feeling.",
-            "show": "The council **closed** our skate park."
+            "say": "Careful! A calm word must still tell the truth.",
+            "show": [
+              "Gus's slime made a ",
+              {
+                "text": "terrifying",
+                "tag": "EMOTIVE",
+                "lit": true
+              },
+              " bang."
+            ],
+            "ask": "Which calm word keeps the facts?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "quiet",
+                  "reason": "Quiet is calm, but is it true? A terrifying bang isn't quiet."
+                },
+                {
+                  "text": "scary",
+                  "reason": "'Scary' still pushes a feeling. Find a calm word."
+                },
+                {
+                  "text": "loud"
+                }
+              ]
+            },
+            "win": "Yes! Loud keeps how big the bang was. Quiet is calm, but it changes what happened.",
+            "trap": true
           },
           {
-            "say": "Don't change the facts. Closed is calm. Fixed is wrong!"
+            "say": "Emotive words can come in a group. Find the whole push.",
+            "show": [
+              {
+                "text": "Vinnie",
+                "tag": "NEUTRAL",
+                "nudge": "That just names who. Which words push you to be angry?"
+              },
+              " is ",
+              {
+                "text": "ripping people off",
+                "tag": "EMOTIVE"
+              },
+              " with his ",
+              {
+                "text": "$10",
+                "tag": "NEUTRAL",
+                "nudge": "A price just tells you. Which words push a feeling?"
+              },
+              " ",
+              {
+                "text": "ghost tour",
+                "tag": "NEUTRAL",
+                "nudge": "That just names the tour. Which words push a feeling?"
+              },
+              "."
+            ],
+            "ask": "Tap the emotive words.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Ripping people off' pushes you to be angry. A neutral swap is 'charging people'."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "EMOTIVE",
+              "means": "A word picked to push your feelings, happy or angry."
+            },
+            {
+              "term": "NEUTRAL",
+              "means": "A calm word that just tells you what happened."
+            }
+          ],
+          "examples": [
+            [
+              "The council ",
+              {
+                "text": "snatched",
+                "tag": "EMOTIVE"
+              },
+              " our skate park."
+            ],
+            [
+              "The council ",
+              {
+                "text": "closed",
+                "tag": "NEUTRAL"
+              },
+              " our skate park."
+            ]
+          ],
+          "test": "Does this word push a feeling? Swap it for a calm word that keeps the facts."
+        }
       },
       "weDo": [
         {

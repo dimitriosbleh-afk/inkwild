@@ -53,3 +53,8 @@ Sources: island-1-2.md, island-3-4.md, island-5.md, island-6-7.md and island-8-9
 
 - Which teaching design: A tap to learn, B build it, C talk it through, or a mix.
 - 5.11 calls every when, where, how or why chunk an "adverb group". Should the umbrella term be "adverbial"? The reviewer and I aren't sure how the VC v2.0 glossary words it.
+
+## Open after Wave 2
+- **3.3:** the Skill name and piles use "evidence" for numbers or records only. The I do bridges this ("all three are evidence; our piles use evidence for numbers or records"). The clean fix renames the pile to "numbers or records" across the tasks and changes the Skill list name. James should decide that.
+- **Island 2:** the Encounters and We do still say "teller". The I do now says "narrator", the one telling the story. Rename "teller" in the tasks.
+- **2.9:** the piles still say "long and colourful" for Marigold. The I do now says "often long, but not always".

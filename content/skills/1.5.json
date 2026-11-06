@@ -11,26 +11,216 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Stuck on a word? Don't panic. Look at its neighbours.",
-            "show": "After footy, Jai was **ravenous**. He ate four pies."
+            "say": "Stuck on a tricky word? Don't panic. Look at its neighbours.",
+            "show": [
+              {
+                "text": "After footy,",
+                "nudge": "Lots of feelings come after footy. Find what Jai did."
+              },
+              " ",
+              {
+                "text": "Jai was ravenous.",
+                "nudge": "That's the tricky word itself. Look at its neighbours."
+              },
+              " ",
+              {
+                "text": "He ate four pies.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Tap the clue that tells you what ravenous means.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Four pies is the clue. The words around a word are called its context."
           },
           {
-            "say": "Ask: what do the other words tell me?",
-            "show": "Jai was ravenous. **He ate four pies.**"
+            "say": "Now I guess. Careful! A guess can fit the sentence but not the clue.",
+            "show": [
+              "After footy, Jai was ravenous. ",
+              {
+                "text": "He ate four pies.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "What does ravenous mean?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "really hungry"
+                },
+                {
+                  "text": "really tired",
+                  "reason": "Tired fits after footy. But do tired people eat four pies? Check the clue."
+                },
+                {
+                  "text": "really fast",
+                  "reason": "Nothing here is about speed. What did Jai do?"
+                }
+              ]
+            },
+            "win": "Yes! Really hungry. Tired fits after footy, but the pie clue points to hungry.",
+            "trap": true
           },
           {
-            "say": "Four pies? He must be really, really hungry."
+            "say": "Now I test it. I swap my meaning in where the tricky word was.",
+            "show": [
+              "After footy, Jai was ",
+              {
+                "text": "really hungry.",
+                "tag": "MEANING"
+              },
+              " He ate four pies."
+            ],
+            "ask": "Does it still make sense?",
+            "check": {
+              "kind": "yesno",
+              "answer": true,
+              "nudge": "Read it aloud. Would a really hungry person eat four pies?"
+            },
+            "win": "Yes! It makes sense, so I've cracked it. Ravenous means really hungry."
           },
           {
-            "say": "Now test it. Put your guess where the word was.",
-            "show": "After footy, Jai was **really hungry**. He ate four pies."
+            "say": "Watch for but. It tells you the next part goes the opposite way.",
+            "show": [
+              {
+                "text": "Gus shook with nerves,",
+                "nudge": "That tells you about Gus. Find the little word that flips things."
+              },
+              " ",
+              {
+                "text": "but",
+                "tag": "OPPOSITE CLUE"
+              },
+              " ",
+              {
+                "text": "Wren was serene.",
+                "nudge": "Serene is the tricky word. Find the little word before it."
+              }
+            ],
+            "ask": "Tap the word that tells you to flip the meaning.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! But is an opposite clue. On the other hand works the same way."
           },
           {
-            "say": "Still makes sense? Then you've cracked it."
+            "say": "Gus shook with nerves. But flips it. So what is Wren like?",
+            "show": [
+              "Gus shook with nerves, ",
+              {
+                "text": "but",
+                "tag": "OPPOSITE CLUE",
+                "lit": true
+              },
+              " Wren was serene. She sipped her tea."
+            ],
+            "ask": "What does serene mean?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "calm"
+                },
+                {
+                  "text": "nervous",
+                  "reason": "But flips it. Wren is the opposite of shaky Gus."
+                },
+                {
+                  "text": "loud",
+                  "reason": "Nothing here is about noise. What's the opposite of shaking with nerves?"
+                }
+              ]
+            },
+            "win": "Yes! Calm. Gus is nervous, but Wren is the opposite. Sipping tea fits too."
+          },
+          {
+            "say": "Some words have more than one meaning. The clues tell you which one you need.",
+            "show": [
+              "The ",
+              {
+                "text": "elephant",
+                "tag": "CLUE"
+              },
+              " lifted its trunk and ",
+              {
+                "text": "sprayed water",
+                "tag": "CLUE"
+              },
+              " at Mo."
+            ],
+            "ask": "What does trunk mean here?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a long nose"
+                },
+                {
+                  "text": "the back of a car",
+                  "reason": "That is another meaning. Can a car spray water at Mo? Find the clue."
+                },
+                {
+                  "text": "the thick middle of a tree",
+                  "reason": "Trees have trunks too, but this trunk belongs to an elephant."
+                }
+              ]
+            },
+            "win": "Yes! A long nose. Elephant and sprayed water are the clues. A tree would need different clues."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLUE",
+              "means": "Words nearby that show what the tricky word means. Often the next sentence."
+            },
+            {
+              "term": "OPPOSITE CLUE",
+              "means": "But, or on the other hand. The word means the opposite of what came before."
+            },
+            {
+              "term": "MEANING",
+              "means": "Your guess. Swap it in. Still makes sense? You cracked it."
+            }
+          ],
+          "examples": [
+            [
+              "Jai was ravenous. ",
+              {
+                "text": "He ate four pies.",
+                "tag": "CLUE"
+              },
+              " → ",
+              {
+                "text": "really hungry",
+                "tag": "MEANING"
+              }
+            ],
+            [
+              "Gus shook with nerves, ",
+              {
+                "text": "but",
+                "tag": "OPPOSITE CLUE"
+              },
+              " Wren was serene. → ",
+              {
+                "text": "calm",
+                "tag": "MEANING"
+              }
+            ]
+          ],
+          "test": "Find the clue nearby. Guess. Swap your guess in. Does it still make sense?"
+        }
       },
       "weDo": [
         {

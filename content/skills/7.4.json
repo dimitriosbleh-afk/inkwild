@@ -10,25 +10,199 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A paragraph is a group of sentences about one idea."
+            "say": "Here's a paragraph about Mo's cooking. One sentence tells you what all of it is about.",
+            "show": [
+              {
+                "text": "Mo's cooking is dangerous.",
+                "tag": "TOPIC SENTENCE"
+              },
+              {
+                "text": "His toast set off three alarms.",
+                "tag": "DETAIL",
+                "nudge": "That's one thing that happened. Which sentence covers them all?"
+              },
+              {
+                "text": "His soup melted a spoon.",
+                "tag": "DETAIL",
+                "nudge": "That's one more thing that happened. Which sentence covers them all?"
+              }
+            ],
+            "ask": "Tap the sentence the whole paragraph is about.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! It gives the big idea, and the others back it up. That's the topic sentence."
           },
           {
-            "say": "The first sentence often tells you that idea.",
-            "show": "**Mo's cooking is dangerous.** His toast set off three alarms."
+            "say": "Now I check every sentence. Does it back up the topic sentence?",
+            "show": [
+              {
+                "text": "Mo's cooking is dangerous.",
+                "tag": "TOPIC SENTENCE",
+                "lit": true,
+                "nudge": "That's the topic sentence. Check the others against it."
+              },
+              {
+                "text": "His pie exploded.",
+                "tag": "DETAIL",
+                "nudge": "An exploding pie is dangerous! That backs it up."
+              },
+              {
+                "text": "Mo likes green socks.",
+                "tag": "OFF TOPIC"
+              },
+              {
+                "text": "His chilli made Gus cry.",
+                "tag": "DETAIL",
+                "nudge": "Chilli that makes you cry is dangerous. That backs it up."
+              }
+            ],
+            "ask": "Tap the sentence that doesn't back it up.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Socks aren't cooking. It's off topic, so it doesn't belong."
           },
           {
-            "say": "That's the topic sentence. It's the boss of the paragraph."
+            "say": "Careful! A topic sentence must cover every detail, not just one. Zed's sister wrote this.",
+            "show": [
+              "She beat Zed at Lava Run. She won at chess. She even won Snap with her eyes shut."
+            ],
+            "ask": "Which topic sentence covers all three details?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Zed's sister is good at Lava Run.",
+                  "reason": "That's only one detail. What about chess and Snap?"
+                },
+                {
+                  "text": "Zed's sister beats him at every game."
+                },
+                {
+                  "text": "Zed's family likes games.",
+                  "reason": "That's too big. It doesn't say who keeps winning."
+                },
+                {
+                  "text": "Zed's sister has a pet frog.",
+                  "reason": "None of the details are about pets."
+                }
+              ]
+            },
+            "win": "Yes! Lava Run is just one detail. The topic sentence covers them all.",
+            "trap": true
           },
           {
-            "say": "Every other sentence backs the boss up.",
-            "show": "Mo's cooking is dangerous. **His toast set off three alarms.**"
+            "say": "Careful! A sentence can be true and still not belong. Check it against the topic sentence.",
+            "show": [
+              {
+                "text": "Dolphins are speedy swimmers.",
+                "tag": "TOPIC SENTENCE",
+                "lit": true,
+                "nudge": "That's the topic sentence. Check the others against it."
+              },
+              {
+                "text": "They can zoom past boats.",
+                "tag": "DETAIL",
+                "nudge": "That's about speed. It backs it up."
+              },
+              {
+                "text": "They live in groups called pods.",
+                "tag": "OFF TOPIC"
+              },
+              {
+                "text": "Their strong tails push them along.",
+                "tag": "DETAIL",
+                "nudge": "That's about how they swim. It backs it up."
+              }
+            ],
+            "ask": "Tap the sentence that's true but doesn't belong.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Pods are a true fact, but they aren't about speed. So it doesn't back up the topic sentence.",
+            "trap": true
           },
           {
-            "say": "If a sentence doesn't back up the boss, it doesn't belong."
+            "say": "The topic sentence is often first. But sometimes it comes last, like a big finish.",
+            "show": [
+              {
+                "text": "Snow fell for a week.",
+                "tag": "DETAIL",
+                "nudge": "That's one detail. Which sentence sums up all of them?"
+              },
+              {
+                "text": "The ladders froze solid.",
+                "tag": "DETAIL",
+                "nudge": "That's one detail. Which sentence sums up all of them?"
+              },
+              {
+                "text": "Nobody could leave the hut.",
+                "tag": "DETAIL",
+                "nudge": "That's one detail. Which sentence sums up all of them?"
+              },
+              {
+                "text": "It was the worst storm in years.",
+                "tag": "TOPIC SENTENCE"
+              }
+            ],
+            "ask": "Tap the topic sentence.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! It sums up every detail, even though it comes last. Don't just tap the first one."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TOPIC SENTENCE",
+              "means": "Tells what the whole paragraph is about. Often first, sometimes last."
+            },
+            {
+              "term": "DETAIL",
+              "means": "One example or fact that backs up the topic sentence."
+            },
+            {
+              "term": "OFF TOPIC",
+              "means": "Might be true, but doesn't back up the topic sentence."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Mo's cooking is dangerous.",
+                "tag": "TOPIC SENTENCE"
+              },
+              {
+                "text": "His toast set off three alarms.",
+                "tag": "DETAIL"
+              }
+            ],
+            [
+              {
+                "text": "Dolphins are speedy swimmers.",
+                "tag": "TOPIC SENTENCE"
+              },
+              {
+                "text": "They can zoom past boats.",
+                "tag": "DETAIL"
+              },
+              {
+                "text": "They live in pods.",
+                "tag": "OFF TOPIC"
+              }
+            ]
+          ],
+          "test": "Does it cover every detail, not just one? Then it's the topic sentence."
+        }
       },
       "weDo": [
         {
@@ -57,7 +231,7 @@
         {
           "prompt": "Tap the sentence that doesn't back up the topic sentence.",
           "hint": "The topic sentence is about inventions going wrong. Which sentence isn't?",
-          "success": "Toast with honey isn't an invention going wrong. It doesn't back up the boss.",
+          "success": "Toast with honey isn't an invention going wrong. It doesn't back up the topic sentence.",
           "body": {
             "format": "tapText",
             "parts": [

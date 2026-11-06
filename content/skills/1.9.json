@@ -10,25 +10,213 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Two texts about one thing can work as a team."
+            "say": "Two texts about one thing can work as a team. I always ask: what's new in Text B?",
+            "show": [
+              "Text A: ",
+              {
+                "text": "The oval is closed today.",
+                "nudge": "That's Text A. Find something new in Text B."
+              },
+              " Text B: ",
+              {
+                "text": "The oval is closed",
+                "tag": "IN BOTH",
+                "nudge": "Text A already said that. If both texts say it, it isn't new."
+              },
+              " ",
+              {
+                "text": "because a sinkhole opened up.",
+                "tag": "REASON"
+              }
+            ],
+            "ask": "Tap the part of Text B that Text A didn't tell you.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Only Text B tells you why. Here, Text B adds a reason."
           },
           {
-            "say": "Text A gives you some facts.",
-            "show": "Text A: **The footy oval is closed today.**"
+            "say": "Text B can do different jobs. Read these two.",
+            "show": [
+              "Text A: ",
+              {
+                "text": "Cockatoos love to chew wood."
+              },
+              " Text B: ",
+              {
+                "text": "Yesterday our cockatoo chewed a leg off Mo's chair!",
+                "tag": "EXAMPLE"
+              }
+            ],
+            "ask": "What does Text B add to Text A?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a real example"
+                },
+                {
+                  "text": "a reason why",
+                  "reason": "Does Text B say WHY cockatoos chew? Look again."
+                },
+                {
+                  "text": "a correction: Text A is wrong",
+                  "reason": "Does Text B say Text A is wrong? It agrees with Text A!"
+                }
+              ]
+            },
+            "win": "Yes! Text B shows Text A happening for real. A real case like that is an example."
           },
           {
-            "say": "Text B adds something new. Here, it's the reason.",
-            "show": "Text B: The oval is closed **because a sinkhole opened up**."
+            "say": "Sometimes Text B disagrees with Text A. Read Zed's game review.",
+            "show": [
+              "Text A (the game box): ",
+              {
+                "text": "Fifty huge levels!"
+              },
+              " Text B (Zed's review): ",
+              {
+                "text": "The box says fifty, but there are only twelve.",
+                "tag": "CORRECTION"
+              }
+            ],
+            "ask": "What does Text B add to Text A?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "a reason why",
+                  "reason": "Does Text B say why there are fewer levels? Look again."
+                },
+                {
+                  "text": "a correction: Text A is wrong"
+                },
+                {
+                  "text": "a real example",
+                  "reason": "An example agrees with Text A. Does Text B agree?"
+                }
+              ]
+            },
+            "win": "Yes! Text B shows that Text A got it wrong. That's a correction."
           },
           {
-            "say": "So ask: what does B tell me that A didn't?"
+            "say": "Text B can also bring news. Check when each one was written.",
+            "show": [
+              "Text A (Monday): ",
+              {
+                "text": "Training is on Wednesday."
+              },
+              " Text B (Tuesday): ",
+              {
+                "text": "Wet oval! Training has moved to Thursday.",
+                "tag": "UPDATE"
+              }
+            ],
+            "ask": "What does Text B add to Text A?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "an update: something has changed"
+                },
+                {
+                  "text": "a correction: Text A was always wrong",
+                  "reason": "Text A was right on Monday. Then something changed. Is that a mistake?"
+                },
+                {
+                  "text": "a real example",
+                  "reason": "Does Text B show Text A happening? It changes the plan."
+                }
+              ]
+            },
+            "win": "Yes! Text A was right when it was written. Text B tells you what changed. That's an update."
           },
           {
-            "say": "Careful: if both texts say it, it isn't new."
+            "say": "Careful! If both texts say it, it isn't new. Read Gus's note.",
+            "show": [
+              "Text A (poster): ",
+              {
+                "text": "Slime show, Friday, in the library."
+              },
+              " Text B (Gus's note): ",
+              {
+                "text": "The show is on Friday.",
+                "tag": "IN BOTH"
+              },
+              " ",
+              {
+                "text": "Wear a raincoat. It gets messy."
+              }
+            ],
+            "ask": "What does Text B add to Text A?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "that the show is on Friday",
+                  "reason": "Both texts say Friday. If both say it, it isn't new."
+                },
+                {
+                  "text": "a warning to wear a raincoat"
+                },
+                {
+                  "text": "where the show is",
+                  "reason": "Only Text A says the library. That isn't from Text B."
+                }
+              ]
+            },
+            "win": "Yes! Only Text B warns you about the mess. Things in both texts aren't new.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "REASON",
+              "means": "Text B tells you why something in Text A happened."
+            },
+            {
+              "term": "EXAMPLE",
+              "means": "Text B shows what Text A says, happening for real."
+            },
+            {
+              "term": "CORRECTION",
+              "means": "Text B shows that Text A got something wrong."
+            },
+            {
+              "term": "UPDATE",
+              "means": "Text B tells you what changed after Text A was written."
+            },
+            {
+              "term": "IN BOTH",
+              "means": "Both texts say it, so it isn't new."
+            }
+          ],
+          "examples": [
+            [
+              "A: The oval is closed. B: ",
+              {
+                "text": "A sinkhole opened up.",
+                "tag": "REASON"
+              }
+            ],
+            [
+              "A: Fifty huge levels! B: ",
+              {
+                "text": "There are only twelve.",
+                "tag": "CORRECTION"
+              }
+            ]
+          ],
+          "test": "Ask: what does Text B tell me that Text A didn't? If both say it, it isn't new."
+        }
       },
       "weDo": [
         {

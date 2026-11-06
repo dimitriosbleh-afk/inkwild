@@ -10,26 +10,183 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Every sentence leaves clues about what came before it."
+            "say": "My sentences fell off the whiteboard! Only one of them can start the paragraph.",
+            "show": [
+              {
+                "text": "It exploded.",
+                "nudge": "It? What exploded? You'd need to know that first."
+              },
+              {
+                "text": "Gus built a robot.",
+                "tag": "STARTS IT"
+              },
+              {
+                "text": "Then he fixed it.",
+                "nudge": "Then? After what? And who is he?"
+              }
+            ],
+            "ask": "Tap the sentence that needs nothing before it.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It tells you who and what. The others point back to it."
           },
           {
-            "say": "Words like he, it and they point back.",
-            "show": "**Gus** built a robot. **It** exploded."
+            "say": "Some words point back to an earlier sentence. Let's find them.",
+            "show": [
+              "Gus built a robot. ",
+              {
+                "text": "Then",
+                "tag": "LINKING WORD",
+                "nudge": "Then points back to a time. Which word stands for the robot?"
+              },
+              {
+                "text": "it",
+                "tag": "POINTS BACK"
+              },
+              {
+                "text": "exploded.",
+                "nudge": "That's what happened. Which word means the robot?"
+              }
+            ],
+            "ask": "Tap the word that means the robot.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'It' points back to the robot. 'Then' points back too: then, after what?"
           },
           {
-            "say": "Words like then and but link to the sentence before.",
-            "show": "Gus fixed it. **Then** it exploded again."
+            "say": "Careful! Zed put this sentence first, because it starts with a name.",
+            "show": [
+              {
+                "text": "Wren",
+                "nudge": "A name can start a paragraph. Keep reading the sentence."
+              },
+              {
+                "text": "also",
+                "tag": "POINTS BACK"
+              },
+              {
+                "text": "found a frog.",
+                "nudge": "That's what she did. Which word means 'as well'?"
+              }
+            ],
+            "ask": "Tap the word that means something came before.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Also' means as well as something else. So this can't come first.",
+            "trap": true
           },
           {
-            "say": "So start with the sentence that needs nothing before it.",
-            "show": "**A girl called Nell** found a key."
+            "say": "Now I chain them. I look for the sentence that picks up the last one.",
+            "show": [
+              {
+                "text": "Mo baked a pie.",
+                "tag": "STARTS IT",
+                "lit": true
+              }
+            ],
+            "ask": "Which sentence comes next?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Then the raven flew off.",
+                  "reason": "Which raven? No raven has come yet. What picks up Mo or the pie?"
+                },
+                {
+                  "text": "He put it on the windowsill."
+                },
+                {
+                  "text": "The windowsill was icy.",
+                  "reason": "Which windowsill? It hasn't come yet. What picks up Mo or the pie?"
+                }
+              ]
+            },
+            "win": "Yes! 'He' and 'it' pick up Mo and the pie. Each sentence hooks onto the one before."
           },
           {
-            "say": "Then follow the clues, one link at a time."
+            "say": "Careful! Time words can point back too. Which of these could start a story?",
+            "show": [
+              {
+                "text": "The next day, Indi added a goat.",
+                "nudge": "The next day after what? It needs a day before it."
+              },
+              {
+                "text": "However, it rained.",
+                "nudge": "'However' points back. However, after what?"
+              },
+              {
+                "text": "One morning, Indi started a mural.",
+                "tag": "STARTS IT"
+              }
+            ],
+            "ask": "Tap the sentence that could start the paragraph.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'One morning' needs nothing before it. 'The next day' needs a day before it.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "STARTS IT",
+              "means": "Needs nothing before it. It names who or what."
+            },
+            {
+              "term": "POINTS BACK",
+              "means": "Words like he, it, they, also and those. They need something before them."
+            },
+            {
+              "term": "LINKING WORD",
+              "means": "Words like then, however and meanwhile. They link to the sentence before."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Gus built a robot.",
+                "tag": "STARTS IT"
+              },
+              {
+                "text": "Then",
+                "tag": "LINKING WORD"
+              },
+              {
+                "text": "it",
+                "tag": "POINTS BACK"
+              },
+              " exploded."
+            ],
+            [
+              {
+                "text": "Mo baked a pie.",
+                "tag": "STARTS IT"
+              },
+              {
+                "text": "He",
+                "tag": "POINTS BACK"
+              },
+              " put ",
+              {
+                "text": "it",
+                "tag": "POINTS BACK"
+              },
+              " on the windowsill."
+            ]
+          ],
+          "test": "Find the sentence that needs nothing before it. Then follow the clues, one link at a time."
+        }
       },
       "weDo": [
         {

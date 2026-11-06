@@ -10,26 +10,190 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "An opinion is what you think about a story.",
-            "show": "**Gran is the bravest character.**"
+            "say": "Tully here! An opinion is what you think. Mine: Gran is the bravest character.",
+            "show": [
+              {
+                "text": "Gran wore a red hat.",
+                "nudge": "A red hat isn't brave. Which one takes courage?"
+              },
+              {
+                "text": "Gran walked into the dark cave alone.",
+                "tag": "EVIDENCE"
+              },
+              {
+                "text": "Gran had a cup of tea.",
+                "nudge": "Tea isn't brave! Which one takes courage?"
+              }
+            ],
+            "ask": "Tap the sentence that shows Gran is brave.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Walking into a dark cave alone takes courage. Proof from the story is called evidence."
           },
           {
-            "say": "Anyone can say anything. So you need proof from the story."
+            "say": "Indi thinks Pip is greedy. Careful! Good evidence must pass two tests.",
+            "show": [
+              {
+                "text": "Pip ate all twelve cupcakes before the party.",
+                "tag": "EVIDENCE"
+              },
+              {
+                "text": "She wore a pink party hat."
+              }
+            ],
+            "ask": "Which evidence backs Indi up?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Pip stole her brother's pocket money.",
+                  "reason": "That isn't in the story. Evidence has to really be there."
+                },
+                {
+                  "text": "Pip wore a pink party hat.",
+                  "reason": "That's in the story, but a hat isn't greedy. It doesn't back Indi up."
+                },
+                {
+                  "text": "Pip ate all twelve cupcakes before the party."
+                }
+              ]
+            },
+            "win": "Yes! It's really in the story, and it shows greed. Good evidence passes both tests.",
+            "trap": true
           },
           {
-            "say": "Find words in the story that show your opinion.",
-            "show": "Gran **walked into the dark cave alone**."
+            "say": "Here's Indi's whole answer. It has three parts.",
+            "show": [
+              {
+                "text": "I think Pip is greedy.",
+                "tag": "OPINION",
+                "nudge": "That's Indi's opinion: what she thinks. Which part explains it?"
+              },
+              {
+                "text": "She ate all twelve cupcakes.",
+                "tag": "EVIDENCE",
+                "nudge": "That's the evidence from the story. Which part explains it?"
+              },
+              {
+                "text": "So her guests got none at all.",
+                "tag": "WHY IT FITS"
+              }
+            ],
+            "ask": "Tap the part that explains why the evidence shows greed.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Opinion, then evidence, then why it fits. That order makes an answer strong."
           },
           {
-            "say": "Proof from the text is called evidence. It must really be there."
+            "say": "Evidence can be the writer's own words. Indi thinks this house is creepy.",
+            "show": [
+              {
+                "text": "The house had a green door.",
+                "nudge": "A green door isn't creepy. Which words did the writer pick to scare you?"
+              },
+              {
+                "text": "Its windows watched the street like hungry eyes.",
+                "tag": "WORD CHOICE"
+              },
+              {
+                "text": "A man walked past with his dog.",
+                "nudge": "That's ordinary. Which words make the house seem alive?"
+              }
+            ],
+            "ask": "Tap the writer's words that make the house creepy.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The writer chose 'hungry eyes' on purpose. Pointing at word choice is strong evidence."
           },
           {
-            "say": "And check it backs your opinion, not a different one.",
-            "show": "Gran **wore a red hat**. True, but does that show she's brave?"
+            "say": "Writers also repeat words on purpose. This line comes three times in Kai's story.",
+            "show": [
+              {
+                "text": "'Still no letter from Dad.'",
+                "tag": "REPEATED WORDS"
+              }
+            ],
+            "ask": "Which opinion does this repeated line back up?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Kai's dad writes to him every day.",
+                  "reason": "The line says still no letter. Does that sound like every day?"
+                },
+                {
+                  "text": "Kai is waiting, and missing his dad more each time."
+                },
+                {
+                  "text": "Kai doesn't like getting letters.",
+                  "reason": "Then why does the story keep telling us there's none? He's waiting for one."
+                }
+              ]
+            },
+            "win": "Yes! Each time the line comes back, you feel the wait grow. Repeating words is a feature too."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "OPINION",
+              "means": "What you think about a character or a story."
+            },
+            {
+              "term": "EVIDENCE",
+              "means": "Proof from the story. It must really be there, and show your opinion."
+            },
+            {
+              "term": "WHY IT FITS",
+              "means": "Explain how the evidence shows your opinion."
+            },
+            {
+              "term": "WORD CHOICE",
+              "means": "Words the writer picked on purpose, like 'hungry eyes'."
+            },
+            {
+              "term": "REPEATED WORDS",
+              "means": "Words the writer says again and again, so you feel something."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "I think Pip is greedy.",
+                "tag": "OPINION"
+              },
+              {
+                "text": "She ate all twelve cupcakes.",
+                "tag": "EVIDENCE"
+              },
+              {
+                "text": "So her guests got none.",
+                "tag": "WHY IT FITS"
+              }
+            ],
+            [
+              {
+                "text": "Indi thinks the house is creepy.",
+                "tag": "OPINION"
+              },
+              {
+                "text": "Its windows watched like hungry eyes.",
+                "tag": "WORD CHOICE"
+              }
+            ]
+          ],
+          "test": "Is it really in the story? Does it show my opinion? Then say why it fits."
+        }
       },
       "weDo": [
         {

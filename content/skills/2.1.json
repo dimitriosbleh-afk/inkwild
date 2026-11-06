@@ -10,26 +10,261 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Every story has a teller. Who is talking to you?"
+            "say": "Mo here! Every story has a narrator, the one telling the story. Here's a story.",
+            "show": [
+              {
+                "text": "I",
+                "tag": "FIRST PERSON"
+              },
+              "slipped on a pancake.",
+              {
+                "text": "My",
+                "tag": "FIRST PERSON"
+              },
+              "elbow went in the jam."
+            ],
+            "ask": "Who is the narrator of this story?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "someone watching from outside",
+                  "reason": "Look at I and my. The narrator is talking about their own elbow!"
+                },
+                {
+                  "text": "the one who slipped on the pancake"
+                },
+                {
+                  "text": "the pancake",
+                  "reason": "The pancake didn't slip. Who says I slipped?"
+                }
+              ]
+            },
+            "win": "Yes! The narrator says I and my, so the narrator is in the story. That's called first person."
           },
           {
-            "say": "If the teller says I or my, they're in the story.",
-            "show": "**I** slipped on a pancake. **My** elbow went in the jam."
+            "say": "First person has more words than I and my. Find one here.",
+            "show": [
+              {
+                "text": "We",
+                "tag": "FIRST PERSON"
+              },
+              "ate",
+              {
+                "text": "the burnt pancakes.",
+                "nudge": "Pancakes can't tell a story! Who ate them?"
+              },
+              {
+                "text": "The dog",
+                "nudge": "The dog only sniffed them. Find the word for who ate them."
+              },
+              "just sniffed them."
+            ],
+            "ask": "Tap the word that shows the narrator is in the story.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! We means the narrator ate too. I, me, my, we, us and our all show first person."
           },
           {
-            "say": "That's first person. The teller is a character."
+            "say": "Now a different story. Is there an I or a we?",
+            "show": [
+              {
+                "text": "Gus",
+                "tag": "THIRD PERSON"
+              },
+              "slipped on a pancake.",
+              {
+                "text": "His",
+                "tag": "THIRD PERSON"
+              },
+              "elbow went in the jam."
+            ],
+            "ask": "Who is telling this story?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Gus",
+                  "reason": "Gus never says I or my. Someone else is telling us about Gus."
+                },
+                {
+                  "text": "the jam",
+                  "reason": "The jam never says I or my. Who is telling us about Gus?"
+                },
+                {
+                  "text": "someone outside the story"
+                }
+              ]
+            },
+            "win": "Yes! The narrator is outside the story and says Gus and his. That's called third person."
           },
           {
-            "say": "If the teller says he, she or a name, it's third person.",
-            "show": "**Gus** slipped on a pancake. **His** elbow went in the jam."
+            "say": "Careful! This story has an I in it. Look at where the I is.",
+            "show": [
+              {
+                "text": "'I'm fine,'",
+                "tag": "CHARACTER TALKING"
+              },
+              {
+                "text": "Gus",
+                "tag": "THIRD PERSON"
+              },
+              "groaned.",
+              {
+                "text": "He",
+                "tag": "THIRD PERSON"
+              },
+              "was not fine."
+            ],
+            "ask": "How is this story told?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "first person, with Gus as the narrator",
+                  "reason": "Gus says I'm, but inside speech marks. Outside them, the narrator calls him he."
+                },
+                {
+                  "text": "third person, with the narrator outside the story"
+                },
+                {
+                  "text": "it has no narrator",
+                  "reason": "'He was not fine' isn't in speech marks. Someone is telling us that."
+                }
+              ]
+            },
+            "win": "Yes! An I inside speech marks is a character talking. It doesn't count. Outside them, the narrator says he.",
+            "trap": true
           },
           {
-            "say": "Careful! An I inside speech marks doesn't count.",
-            "show": "'**I'm** fine,' **Gus** groaned. **He** was not fine."
+            "say": "Narrators aren't always people. Read this one closely.",
+            "show": [
+              {
+                "text": "My",
+                "tag": "FIRST PERSON"
+              },
+              "lid rattled. Mo stirred",
+              {
+                "text": "me",
+                "tag": "FIRST PERSON"
+              },
+              "so hard that",
+              {
+                "text": "I",
+                "tag": "FIRST PERSON"
+              },
+              "got dizzy."
+            ],
+            "ask": "Who is the narrator?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Mo",
+                  "reason": "Mo is doing the stirring. Who gets stirred and says me?"
+                },
+                {
+                  "text": "the pot Mo is stirring"
+                },
+                {
+                  "text": "someone outside the story",
+                  "reason": "The narrator says my, me and I. So the narrator is in the story."
+                }
+              ]
+            },
+            "win": "Yes! The pot says my lid and stirred me. It's in the story, so it's first person."
+          },
+          {
+            "say": "This narrator knows what Tully feels inside. Zed says that makes it first person. Check it.",
+            "show": [
+              {
+                "text": "Tully",
+                "tag": "THIRD PERSON"
+              },
+              "lined up the kick. Inside,",
+              {
+                "text": "she",
+                "tag": "THIRD PERSON"
+              },
+              "was shaking with fear."
+            ],
+            "ask": "How is this story told?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "first person, because it tells Tully's feelings",
+                  "reason": "Feelings aren't the test. Look for I or we outside speech marks."
+                },
+                {
+                  "text": "first person, told by Tully",
+                  "reason": "Tully never says I. The narrator calls her she."
+                },
+                {
+                  "text": "third person, told by someone outside the story"
+                }
+              ]
+            },
+            "win": "Yes! A narrator outside the story can still know feelings. Only I or we outside speech marks means first person.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "FIRST PERSON",
+              "means": "The narrator is in the story and says I, me, my, we, us or our."
+            },
+            {
+              "term": "THIRD PERSON",
+              "means": "The narrator is outside the story and says he, she, they or a name."
+            },
+            {
+              "term": "CHARACTER TALKING",
+              "means": "Words inside speech marks. An I in here doesn't count."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "I",
+                "tag": "FIRST PERSON"
+              },
+              "slipped on a pancake.",
+              {
+                "text": "My",
+                "tag": "FIRST PERSON"
+              },
+              "elbow went in the jam."
+            ],
+            [
+              {
+                "text": "'I'm fine,'",
+                "tag": "CHARACTER TALKING"
+              },
+              {
+                "text": "Gus",
+                "tag": "THIRD PERSON"
+              },
+              "groaned.",
+              {
+                "text": "He",
+                "tag": "THIRD PERSON"
+              },
+              "was not fine."
+            ]
+          ],
+          "test": "Skip speech marks. Any I or we left? First person. Only he, she or names? Third person."
+        }
       },
       "weDo": [
         {

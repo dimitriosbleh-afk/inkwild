@@ -11,27 +11,231 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "The answer is hiding in the text. Your job: find it."
+            "say": "Mo's banana bread is gone! The question is: what did the possum steal?",
+            "show": [
+              {
+                "text": "At midnight,",
+                "nudge": "At midnight tells you when. Look for a word like steal."
+              },
+              " ",
+              {
+                "text": "a possum",
+                "nudge": "That's who did it. Look for a word like steal."
+              },
+              " ",
+              {
+                "text": "stole",
+                "tag": "KEY WORD"
+              },
+              " ",
+              {
+                "text": "Mo's banana bread",
+                "nudge": "Read the words again. Which one means steal?"
+              },
+              " ",
+              {
+                "text": "off the bench.",
+                "nudge": "That tells you where. Look for a word like steal."
+              }
+            ],
+            "ask": "Find a word in the text that matches steal. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Stole is steal, just in the past. That's the key word. It can change a little."
           },
           {
-            "say": "First, pick the key word in the question.",
-            "show": "What did the possum **steal**?"
+            "say": "Now I read the words right next to the key word.",
+            "show": [
+              {
+                "text": "At midnight,",
+                "nudge": "At midnight tells you when. The question asks what."
+              },
+              " ",
+              {
+                "text": "a possum",
+                "nudge": "The possum did the stealing. What did it take?"
+              },
+              " ",
+              {
+                "text": "stole",
+                "tag": "KEY WORD",
+                "lit": true,
+                "nudge": "That's the key word. Read the words right after it."
+              },
+              " ",
+              {
+                "text": "Mo's banana bread",
+                "tag": "ANSWER"
+              },
+              " ",
+              {
+                "text": "off the bench.",
+                "nudge": "Off the bench tells you where. The question asks what."
+              }
+            ],
+            "ask": "What did the possum steal? Tap the answer.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! Mo's banana bread. Those exact words answer the question."
           },
           {
-            "say": "Now hunt for that word in the text.",
-            "show": "At midnight, a possum **stole** Mo's banana bread off the bench."
+            "say": "Every detail answers some question. The question word tells you which detail you need.",
+            "show": [
+              "At midnight, a possum stole Mo's banana bread ",
+              {
+                "text": "off the bench."
+              }
+            ],
+            "ask": "Which question does 'off the bench' answer?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "Where?"
+                },
+                {
+                  "text": "When?",
+                  "reason": "When wants a time, like at midnight. Is a bench a time?"
+                },
+                {
+                  "text": "Who?",
+                  "reason": "Who wants a person or an animal. Is a bench a who?"
+                }
+              ]
+            },
+            "win": "Yes! Where wants a place. When wants a time. Who wants a person."
           },
           {
-            "say": "Read the words right next to it. There's your answer.",
-            "show": "A possum stole **Mo's banana bread** off the bench."
+            "say": "Careful! The first place you find the key word isn't always the answer.",
+            "show": [
+              {
+                "text": "The possum tried to steal Gus's chips,",
+                "nudge": "Steal is here, but read on. Did the possum get the chips?"
+              },
+              " ",
+              {
+                "text": "but Gus held on tight.",
+                "nudge": "Gus kept his chips. So what did the possum get?"
+              },
+              " ",
+              {
+                "text": "Then it stole Wren's sandwich.",
+                "tag": "ANSWER"
+              }
+            ],
+            "ask": "What did the possum steal? Tap the part that tells you.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The first part says steal, but the possum only tried. Check it answers the question.",
+            "trap": true
           },
           {
-            "say": "Careful! Nearby details can trick you. Check it answers the question.",
-            "show": "**At midnight** tells you when. **Off the bench** tells you where."
+            "say": "Sometimes the text uses a different word that means the same thing.",
+            "show": [
+              {
+                "text": "The Rays lost on Sunday.",
+                "nudge": "Sunday is a day, but that game is over. Find the next one."
+              },
+              " ",
+              {
+                "text": "Their next match is on Friday night.",
+                "tag": "ANSWER"
+              },
+              " ",
+              {
+                "text": "Gus will bring the oranges.",
+                "nudge": "That tells you who brings oranges. The question asks when."
+              }
+            ],
+            "ask": "When is the next game? Tap the part that tells you.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Match means game here. Hunt for words that mean the same, not only the same word."
+          },
+          {
+            "say": "Last one. Only count what the text really says. Read this.",
+            "show": [
+              {
+                "text": "Gumdrop the koala sleeps all day."
+              },
+              " ",
+              {
+                "text": "At night, she munches gum leaves."
+              }
+            ],
+            "ask": "Does the text say this? Gumdrop is grey.",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The text says this.",
+                  "reason": "Point to the words that tell you her colour. Can you find them?"
+                },
+                {
+                  "text": "The text doesn't say this."
+                },
+                {
+                  "text": "The text says the opposite.",
+                  "reason": "The opposite would say she isn't grey. Is that in the text?"
+                }
+              ]
+            },
+            "win": "Right! Most koalas are grey, but the text never says. Only count words you can point to.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "KEY WORD",
+              "means": "The word you hunt for. It can change a little: steal, stole."
+            },
+            {
+              "term": "ANSWER",
+              "means": "The exact words that answer the question. You can point to them."
+            }
+          ],
+          "examples": [
+            [
+              "A possum ",
+              {
+                "text": "stole",
+                "tag": "KEY WORD"
+              },
+              " ",
+              {
+                "text": "Mo's banana bread",
+                "tag": "ANSWER"
+              },
+              " off the bench."
+            ],
+            [
+              "Wren ",
+              {
+                "text": "found",
+                "tag": "KEY WORD"
+              },
+              " the baby bird ",
+              {
+                "text": "in the laundry sink.",
+                "tag": "ANSWER"
+              }
+            ]
+          ],
+          "test": "Find the key word. Read the words around it. Does it answer THIS question?"
+        }
       },
       "weDo": [
         {

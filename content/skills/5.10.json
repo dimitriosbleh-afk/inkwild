@@ -10,26 +10,230 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Went is a weak verb. It's true, but flat.",
-            "show": "Jai **went** across the oval as fast as he could."
+            "say": "Went is a weak verb. It's true, but it's flat.",
+            "show": [
+              {
+                "text": "Jai",
+                "nudge": "Jai is the doer. Which word says what he did?"
+              },
+              {
+                "text": "went",
+                "tag": "WEAK VERB"
+              },
+              {
+                "text": "across the oval",
+                "nudge": "That says where. Which word is the verb?"
+              },
+              {
+                "text": "as fast as he could.",
+                "nudge": "That's about how. Which word is the flat verb?"
+              }
+            ],
+            "ask": "Tap the weak verb.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Went says he moved, but not how. A strong verb would show it."
           },
           {
-            "say": "Look for the clue. How did he go?",
-            "show": "Jai went across the oval **as fast as he could**."
+            "say": "Now look for the clue. How did Jai go?",
+            "show": [
+              {
+                "text": "Jai",
+                "nudge": "Jai is who moved. Which part tells you how?"
+              },
+              {
+                "text": "went",
+                "tag": "WEAK VERB",
+                "lit": true,
+                "nudge": "That's the flat verb. Which part tells you how he moved?"
+              },
+              {
+                "text": "across the oval",
+                "nudge": "That says where he went. Which part tells you how?"
+              },
+              {
+                "text": "as fast as he could.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Tap the clue about how Jai moved.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! As fast as he could. That's the clue for a sharper verb, like sprinted."
           },
           {
-            "say": "Fast, on foot, across an oval? He sprinted!",
-            "show": "Jai **sprinted** across the oval."
+            "say": "Now I try some strong verbs. The right one fits every clue.",
+            "show": [
+              {
+                "text": "Jai"
+              },
+              {
+                "text": "went",
+                "tag": "WEAK VERB",
+                "lit": true
+              },
+              {
+                "text": "across the oval"
+              },
+              {
+                "text": "as fast as he could.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "Which strong verb could replace 'went'?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "strolled",
+                  "reason": "Strolling is slow and relaxed. Check the clue: as fast as he could."
+                },
+                {
+                  "text": "sprinted"
+                },
+                {
+                  "text": "crawled",
+                  "reason": "Crawling is on hands and knees. Check the clue. How fast was he?"
+                }
+              ]
+            },
+            "win": "Yes! Sprinted fits every clue. Now I don't even need 'as fast as he could'."
           },
           {
-            "say": "Now I don't even need 'as fast as he could'."
+            "say": "Careful! Strong doesn't mean fancy. It means the verb that fits.",
+            "show": [
+              {
+                "text": "Mia"
+              },
+              {
+                "text": "___",
+                "tag": "STRONG VERB"
+              },
+              {
+                "text": "to the shop for milk."
+              },
+              {
+                "text": "She was in no hurry.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "Which verb fits the clues?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "walked"
+                },
+                {
+                  "text": "sprinted",
+                  "reason": "Check the clue: no hurry. Would she sprint?"
+                },
+                {
+                  "text": "stormed",
+                  "reason": "Storming is marching angrily. Is Mia angry?"
+                }
+              ]
+            },
+            "win": "Yes! Walked tells the truth here. A plain verb is right when it fits the clues.",
+            "trap": true
           },
           {
-            "say": "So hunt the clues first. Then pick the verb that fits."
+            "say": "A strong verb can show a feeling too. Use one when the feeling matters.",
+            "show": [
+              {
+                "text": "'You ate my chips!'"
+              },
+              {
+                "text": "Gus"
+              },
+              {
+                "text": "___,",
+                "tag": "STRONG VERB"
+              },
+              {
+                "text": "stamping his foot.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "Which verb fits the clues?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "whispered",
+                  "reason": "Would someone stamping their foot whisper? Check the clue."
+                },
+                {
+                  "text": "giggled",
+                  "reason": "Giggling is happy. Does stamping your foot sound happy?"
+                },
+                {
+                  "text": "yelled"
+                }
+              ]
+            },
+            "win": "Yes! Yelled shows he's angry and loud. Most of the time, though, 'said' is fine."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WEAK VERB",
+              "means": "True but flat, like went or got. It doesn't show how."
+            },
+            {
+              "term": "STRONG VERB",
+              "means": "Shows exactly how it happened, and fits every clue."
+            },
+            {
+              "term": "CLUE",
+              "means": "Words that tell you how fast, how loud, or what feeling."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Jai"
+              },
+              {
+                "text": "sprinted",
+                "tag": "STRONG VERB"
+              },
+              {
+                "text": "across the oval."
+              }
+            ],
+            [
+              {
+                "text": "Mia"
+              },
+              {
+                "text": "walked",
+                "tag": "STRONG VERB"
+              },
+              {
+                "text": "to the shop."
+              },
+              {
+                "text": "She was in no hurry.",
+                "tag": "CLUE"
+              }
+            ]
+          ],
+          "test": "Find the clues. Pick the verb that fits them all, even if it's a plain one."
+        }
       },
       "weDo": [
         {

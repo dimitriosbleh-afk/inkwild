@@ -3,31 +3,212 @@
     "id": "5.9",
     "name": "Specialist and technical words in context",
     "codes": ["VC2E5LA08"],
-    "why": "Footy, science, art: each has exact words. Use them to sound like an expert.",
+    "why": "Each subject has exact words. Use them so readers know exactly what you mean.",
     "how": "Use nearby clues to work out a technical word. Write with the word an expert uses.",
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Scientists have special words for exact jobs.",
-            "show": "Water **evaporates** when you heat it."
+            "say": "Science has exact words for exact jobs. Don't know one? Check the words around it.",
+            "show": [
+              {
+                "text": "The puddle",
+                "nudge": "That's what changed. Which part tells you what happened to its water?"
+              },
+              {
+                "text": "evaporated",
+                "tag": "SPECIALIST WORD",
+                "nudge": "That's the hard word. Which words tell you what it means?"
+              },
+              {
+                "text": "overnight.",
+                "nudge": "That says when. Read the next sentence for the meaning."
+              },
+              {
+                "text": "Its water turned from a liquid into a gas.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Tap the clue that tells you what evaporated means.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! So evaporate means turning from a liquid into a gas. The clue was right next to it."
           },
           {
-            "say": "Don't know it? Check the words around it.",
-            "show": "It **turns from a liquid into a gas**."
+            "say": "Animal experts have exact words too. Look for the clue.",
+            "show": [
+              {
+                "text": "Koalas are"
+              },
+              {
+                "text": "herbivores.",
+                "tag": "SPECIALIST WORD",
+                "lit": true
+              },
+              {
+                "text": "They eat only plants.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "What does herbivore mean?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "an animal that sleeps in trees",
+                  "reason": "Koalas do sleep in trees, but what does the next sentence say?"
+                },
+                {
+                  "text": "an animal that eats plants"
+                },
+                {
+                  "text": "an animal that hunts",
+                  "reason": "Check the clue. What do koalas eat?"
+                }
+              ]
+            },
+            "win": "Yes! The clue 'eat only plants' told you. Herbivore is the expert's word for it."
           },
           {
-            "say": "So evaporate means turning into a gas. Whoosh!"
+            "say": "Careful! Some everyday words mean something new in a subject. Gus is writing about science.",
+            "show": [
+              {
+                "text": "Your body is made of millions of tiny"
+              },
+              {
+                "text": "cells.",
+                "tag": "SPECIALIST WORD",
+                "lit": true
+              }
+            ],
+            "ask": "What does 'cell' mean here?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a tiny building block of living things"
+                },
+                {
+                  "text": "a small room in a jail",
+                  "reason": "That is the everyday meaning. Is your body made of jail rooms?"
+                },
+                {
+                  "text": "a drop of blood",
+                  "reason": "Blood is only one part of you. The clue says your whole body is made of them."
+                }
+              ]
+            },
+            "win": "Yes! In science, a cell is a tiny living building block. Check which subject you are in.",
+            "trap": true
           },
           {
-            "say": "Some everyday words change jobs. In science, a cell isn't a jail!",
-            "show": "A **cell** is a tiny building block of living things."
+            "say": "When you write a report, use the exact word. It tells the reader exactly what happened.",
+            "show": [
+              "The ice ___ in the sun and made a puddle."
+            ],
+            "ask": "Which science word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "evaporated",
+                  "reason": "Evaporate means a liquid turning into a gas. Is ice a liquid?"
+                },
+                {
+                  "text": "froze",
+                  "reason": "Froze means a liquid turning solid. The ice was already frozen."
+                },
+                {
+                  "text": "melted"
+                }
+              ]
+            },
+            "win": "Yes! Melted means a solid turning into a liquid. The puddle is the clue."
           },
           {
-            "say": "When you write a report, use the expert's word."
+            "say": "Music has specialist words too. The clue is in the same sentence.",
+            "show": [
+              {
+                "text": "The drummer sped up the"
+              },
+              {
+                "text": "tempo,",
+                "tag": "SPECIALIST WORD",
+                "lit": true
+              },
+              {
+                "text": "so everyone danced faster.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "What is tempo?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "how fast the music goes"
+                },
+                {
+                  "text": "how loud the music is",
+                  "reason": "Check the clue: sped up, danced faster. Is that about loudness?"
+                },
+                {
+                  "text": "the name of the song",
+                  "reason": "You can't speed up a name. What got faster?"
+                }
+              ]
+            },
+            "win": "Yes! Tempo is the music word for speed. Specialist words like this are also called technical words."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SPECIALIST WORD",
+              "means": "An exact word for one subject, like evaporate or tempo. Also called a technical word."
+            },
+            {
+              "term": "CLUE",
+              "means": "Nearby words that tell you what the specialist word means."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Koalas are"
+              },
+              {
+                "text": "herbivores.",
+                "tag": "SPECIALIST WORD"
+              },
+              {
+                "text": "They eat only plants.",
+                "tag": "CLUE"
+              }
+            ],
+            [
+              {
+                "text": "The drummer sped up the"
+              },
+              {
+                "text": "tempo,",
+                "tag": "SPECIALIST WORD"
+              },
+              {
+                "text": "so everyone danced faster.",
+                "tag": "CLUE"
+              }
+            ]
+          ],
+          "test": "Use the clues around the word. In a subject, an everyday word can mean something new."
+        }
       },
       "weDo": [
         {

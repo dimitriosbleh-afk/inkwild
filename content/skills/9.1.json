@@ -10,27 +10,195 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A game that starts with a loading screen? Boring. Stories too.",
-            "show": "It was a nice day. I woke up and ate toast."
+            "say": "A game that opens on a loading screen? I quit. Readers quit boring first lines too.",
+            "show": [
+              {
+                "text": "It was a nice day.",
+                "nudge": "Nothing has happened yet. Would you need the next line?"
+              },
+              {
+                "text": "The bin was growling.",
+                "tag": "HOOK"
+              },
+              {
+                "text": "This is a story about my bin.",
+                "nudge": "It tells you what the story is about. It doesn't make you wonder anything."
+              }
+            ],
+            "ask": "Tap the first line that makes you want to read on.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A growling bin? You need to know why. A first line that makes you read on is a hook."
           },
           {
-            "say": "So drop your reader right into the action.",
-            "show": "**I was halfway up the flagpole** when the principal walked out."
+            "say": "Here is how I test a first line. I read it, then ask: do I need the next line?",
+            "show": [
+              {
+                "text": "The bin was growling.",
+                "tag": "HOOK",
+                "lit": true
+              }
+            ],
+            "ask": "Why does this line make you read on?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "It's the shortest line.",
+                  "reason": "Short isn't enough. 'It was a nice day' is short too. What is the bin doing?"
+                },
+                {
+                  "text": "It makes you ask a question: why is it growling?"
+                },
+                {
+                  "text": "It tells you what the weather is like.",
+                  "reason": "There is no weather in it. Look at what the bin is doing."
+                }
+              ]
+            },
+            "win": "Right. A hook makes the reader ask a question. Only the next lines can answer it."
           },
           {
-            "say": "Or start with something so strange it needs explaining.",
-            "show": "**My little brother's goldfish had started barking.**"
+            "say": "There are a few ways to hook a reader. Here are three. One has someone talking.",
+            "show": [
+              {
+                "text": "I was halfway up the flagpole.",
+                "tag": "ACTION",
+                "nudge": "Something is happening! But is anyone saying anything?"
+              },
+              {
+                "text": "My goldfish had started barking.",
+                "tag": "STRANGE DETAIL",
+                "nudge": "That is very strange! But look for speech marks. Is anyone talking?"
+              },
+              {
+                "text": "'Don't open the bin,' whispered Nan.",
+                "tag": "SOMEONE TALKING"
+              }
+            ],
+            "ask": "Tap the hook where someone is talking.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Nan's warning makes you need to see inside. Look at the labels: three ways to hook."
           },
           {
-            "say": "Or ask a question your reader can't stop thinking about.",
-            "show": "**Have you ever been followed home by a seagull?**"
+            "say": "Questions can hook too. But 'Have you ever…?' is so common that readers skip it.",
+            "show": [
+              {
+                "text": "Have you ever had a bad day?",
+                "nudge": "That's the one readers skip. It asks about you, not the story."
+              },
+              {
+                "text": "Do you like dogs?",
+                "nudge": "You can answer yes or no, then stop reading. It's about you, not the story."
+              },
+              {
+                "text": "Why was there a goat in the school library?",
+                "tag": "STORY QUESTION"
+              }
+            ],
+            "ask": "Tap the question that only the story can answer.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! You can't answer it yourself, so you read on. That's a story question.",
+            "trap": true
           },
           {
-            "say": "Then test it: would you turn the page?"
+            "say": "My first draft started like this. It is the other kind of start that readers skip.",
+            "show": [
+              {
+                "text": "It was a sunny day and I woke up and had toast.",
+                "tag": "SLOW START"
+              }
+            ],
+            "ask": "Which line should take its place?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "It was a very, very sunny day.",
+                  "reason": "Still the weather. Has anything happened yet?"
+                },
+                {
+                  "text": "I woke up at seven and had toast with jam.",
+                  "reason": "Every day starts with waking up. Start where the trouble starts."
+                },
+                {
+                  "text": "The seagull was back, and this time it had brought friends."
+                }
+              ]
+            },
+            "win": "Yes! A seagull with friends means trouble is coming. Skip the weather and waking up. Start with the trouble.",
+            "trap": true
+          },
+          {
+            "say": "Use the test on any first line, even your own. Do I need the next line?",
+            "show": [
+              {
+                "text": "Hi, my name is Mo and I like cooking.",
+                "tag": "SLOW START"
+              }
+            ],
+            "ask": "Does Mo's first line hook you?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Use the test. Has anything happened yet? Do you need the next line?"
+            },
+            "win": "Right. It's just facts about Mo. Now test your own first line the same way."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "HOOK",
+              "means": "A first line that makes the reader ask a question and read on."
+            },
+            {
+              "term": "ACTION",
+              "means": "Start in the middle of something happening."
+            },
+            {
+              "term": "STRANGE DETAIL",
+              "means": "Start with something so odd that it needs explaining."
+            },
+            {
+              "term": "SOMEONE TALKING",
+              "means": "Start with a character's words, like a warning or a secret."
+            },
+            {
+              "term": "STORY QUESTION",
+              "means": "A question only the story can answer. Not 'Have you ever…?'"
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "'Don't open the bin,'",
+                "tag": "SOMEONE TALKING"
+              },
+              " whispered Nan."
+            ],
+            [
+              {
+                "text": "I was halfway up the flagpole",
+                "tag": "ACTION"
+              },
+              " when the principal walked out."
+            ]
+          ],
+          "test": "Read your first line. Do you need the next one? If not, start where the trouble starts."
+        }
       },
       "weDo": [
         {

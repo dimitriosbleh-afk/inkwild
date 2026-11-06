@@ -10,26 +10,218 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Most stories start with someone who wants something.",
-            "show": "Mo **wants to win the island cook-off**."
+            "say": "Mo here! Most stories start with someone who wants something. Read about Biscuit.",
+            "show": [
+              "Biscuit the dog wanted",
+              {
+                "text": "a sausage more than anything.",
+                "tag": "WANT"
+              },
+              "Dad was cooking on the barbecue."
+            ],
+            "ask": "What does Biscuit want most?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "a walk",
+                  "reason": "There's no walk in the story. Look for 'more than anything'."
+                },
+                {
+                  "text": "a sausage"
+                },
+                {
+                  "text": "a nap by the barbecue",
+                  "reason": "Nothing says Biscuit wants a nap. Look for 'more than anything'."
+                }
+              ]
+            },
+            "win": "Yes! 'More than anything' is a big clue. That's what Biscuit wants most."
           },
           {
-            "say": "Then something gets in the way.",
-            "show": "But **his oven is full of seagulls**."
+            "say": "Then something gets in the way. Find it.",
+            "show": [
+              {
+                "text": "Biscuit sat and begged.",
+                "nudge": "That's Biscuit trying. It doesn't stop him."
+              },
+              {
+                "text": "But Dad built a tall fence round the barbecue.",
+                "tag": "IN THE WAY"
+              },
+              {
+                "text": "Next door, a magpie sang.",
+                "nudge": "A singing magpie can't stop Biscuit. What stands between him and the sausage?"
+              }
+            ],
+            "ask": "Tap what stands in Biscuit's way.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The fence stands between Biscuit and the sausage. Watch for the word but."
           },
           {
-            "say": "The want plus the problem. That's the dilemma."
+            "say": "Sometimes the thing in the way is inside the character, like a fear.",
+            "show": [
+              "Remy wants to win the ocean swim.",
+              "He's the fastest in Year 5.",
+              {
+                "text": "But in deep water, he panics.",
+                "tag": "IN THE WAY"
+              }
+            ],
+            "ask": "What stands in Remy's way?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "He isn't a good swimmer.",
+                  "reason": "He's the fastest in Year 5! What happens in deep water?"
+                },
+                {
+                  "text": "The beach is closed.",
+                  "reason": "Nothing says the beach is closed. What happens to Remy?"
+                },
+                {
+                  "text": "His own fear of deep water."
+                }
+              ]
+            },
+            "win": "Yes! Nothing outside stops him. His own fear is what stands in the way."
           },
           {
-            "say": "Sometimes the problem is another want.",
-            "show": "Mo **wants the trophy**, but he **also wants to help his mate**."
+            "say": "Gus wants to win the slime contest. Careful! Some things only sound like problems.",
+            "show": [
+              {
+                "text": "His jar had a crack, but he taped it.",
+                "tag": "DOESN'T STOP THEM",
+                "nudge": "He taped the crack, so the jar is fine. Keep looking."
+              },
+              {
+                "text": "The judge was late, but she came.",
+                "tag": "DOESN'T STOP THEM",
+                "nudge": "The judge turned up. That doesn't stop Gus."
+              },
+              {
+                "text": "His slime kept drying into a rock.",
+                "tag": "IN THE WAY"
+              }
+            ],
+            "ask": "Tap what really stands in Gus's way.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The crack and the late judge got sorted. The slime drying out really stops him.",
+            "trap": true
           },
           {
-            "say": "So ask: what do they want? What's stopping them?"
+            "say": "Sometimes the thing in the way is another want. Read Mo's problem.",
+            "show": [
+              {
+                "text": "Mo wants to win the cook-off.",
+                "tag": "WANT"
+              },
+              {
+                "text": "But he also wants to go to his mate's party, at the same time.",
+                "tag": "WANT"
+              }
+            ],
+            "ask": "What stands in Mo's way?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The cook-off is cancelled.",
+                  "reason": "Nothing says it's cancelled. What else is on at the same time?"
+                },
+                {
+                  "text": "Something else he wants: his mate's party."
+                },
+                {
+                  "text": "His oven is broken.",
+                  "reason": "Nothing says the oven is broken. What else is on at the same time?"
+                }
+              ]
+            },
+            "win": "Yes! Two wants pull against each other, so Mo must choose. That's called a dilemma."
+          },
+          {
+            "say": "Careful! Not every problem is a dilemma. A dilemma means choosing between two wants.",
+            "show": [
+              {
+                "text": "Biscuit wants sausages. A fence stops him.",
+                "tag": "IN THE WAY",
+                "nudge": "A fence is in the way, but there's no choice to make."
+              },
+              {
+                "text": "Remy wants to win. Fear stops him.",
+                "tag": "IN THE WAY",
+                "nudge": "Fear is in the way. But is Remy choosing between two wants?"
+              },
+              {
+                "text": "Tia wants to win, and wants her slow friend on her team.",
+                "tag": "DILEMMA"
+              }
+            ],
+            "ask": "Tap the one that is a dilemma.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Tia must choose: winning, or her friend. Two wants, one choice. That's a dilemma.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WANT",
+              "means": "What the character wants most. Look for clues like 'more than anything'."
+            },
+            {
+              "term": "IN THE WAY",
+              "means": "What stops them. It can be outside, like a fence, or inside, like fear."
+            },
+            {
+              "term": "DILEMMA",
+              "means": "When two wants pull apart, and the character must choose one."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Biscuit wanted a sausage more than anything.",
+                "tag": "WANT"
+              },
+              {
+                "text": "But Dad built a tall fence.",
+                "tag": "IN THE WAY"
+              }
+            ],
+            [
+              {
+                "text": "Tia wants to win.",
+                "tag": "WANT"
+              },
+              {
+                "text": "She also wants to pick her slow mate.",
+                "tag": "WANT"
+              },
+              {
+                "text": "She must choose.",
+                "tag": "DILEMMA"
+              }
+            ]
+          ],
+          "test": "What do they want most? What stops them? If it's another want, it's a dilemma."
+        }
       },
       "weDo": [
         {

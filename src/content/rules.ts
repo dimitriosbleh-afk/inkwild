@@ -1,6 +1,6 @@
 import { normalise, piecesNeeded, taps, tilesFor } from '../core/check';
 import type { SkillFile } from './bank';
-import { BANDS, CREW, INTERESTS, type Band, type Body, type Task } from './types';
+import { BANDS, CREW, INTERESTS, type Band, type Body, type Chunk, type Show, type Task, type Teach } from './types';
 
 export interface Problem {
   where: string;
@@ -10,7 +10,7 @@ export interface Problem {
 export const ENCOUNTERS_PER_BAND = 6;
 
 /** Word limits for the words around a task, read by every Band, so a nine-year-old can follow them. */
-export const LIMITS = { beat: 12, show: 16, why: 14, how: 16, feedback: 20 } as const;
+export const LIMITS = { say: 20, ask: 14, show: 24, means: 16, why: 14, how: 16, feedback: 20 } as const;
 
 export const BAND_TARGETS: Record<Band, { sentence: number; passage: [number, number] }> = {
   1: { sentence: 12, passage: [60, 120] },
@@ -161,7 +161,7 @@ function taskProblems(task: Task, where: string, band?: Band): Problem[] {
     const us = t.match(US_SPELLINGS);
     if (us) add(`US spelling "${us[0]}"`);
   }
-  if (/drag/i.test(task.prompt)) add('prompt says drag, but students tap to place: say "match", "put" or "tap"');
+  if (/\bdrag/i.test(task.prompt)) add('prompt says drag, but students tap to place: say "match", "put" or "tap"');
   const ww = task.prompt.match(WORD_WORK);
   if (ww) add(`word work in the prompt ("${ww[0]}")`);
   const reading = readingSentences(task);
@@ -186,12 +186,7 @@ export function skillFileProblems(file: SkillFile, listed?: { name: string; code
   } else add(id, 'not on the Skill list');
   if (!s.why.trim() || !s.how.trim()) add(id, 'needs a WHY line and a HOW line');
   if (!CREW.includes(s.teach.crew)) add(id, `unknown crew member ${s.teach.crew}`);
-  const beats = s.teach.iDo.beats ?? [];
-  if (beats.length < 3 || beats.length > 5) add(id, `I do needs 3 to 5 beats, not ${beats.length}`);
-  beats.forEach((b, i) => {
-    if (wordCount(b.say) > LIMITS.beat) add(`${id} I do beat ${i + 1}`, `says ${wordCount(b.say)} words; keep it to ${LIMITS.beat}`);
-    if (b.show && wordCount(b.show.replace(/\*/g, '')) > LIMITS.show) add(`${id} I do beat ${i + 1}`, `example is ${wordCount(b.show)} words; keep it to ${LIMITS.show}`);
-  });
+  out.push(...teachProblems(s.teach.iDo, id));
   if (wordCount(s.why) > LIMITS.why) add(id, `why is ${wordCount(s.why)} words; keep it to ${LIMITS.why}`);
   if (wordCount(s.how) > LIMITS.how) add(id, `how is ${wordCount(s.how)} words; keep it to ${LIMITS.how}`);
   s.teach.weDo.forEach((t, i) => {
@@ -342,4 +337,66 @@ export function leaks(task: Task): string[] {
     if (right) t.forEach((p, i) => i !== answer && wrongs.push([p.reason, right]));
   }
   return wrongs.some(([r, a]) => quotes(r, a)) ? ['a wrong-answer reason quotes the right answer; make it point at the clue instead'] : [];
+}
+
+const showText = (show: Show) => show.map((p) => (typeof p === 'string' ? p : p.text)).join('');
+
+/** Tap to learn: every step makes the student do something, nudges every wrong move, and the lesson names the usual mistake. */
+export function teachProblems(iDo: Teach['iDo'], id: string): Problem[] {
+  const out: Problem[] = [];
+  const steps = iDo.steps ?? [];
+  const add = (where: string, problem: string) => out.push({ where: `${id} ${where}`, problem });
+  if (steps.length < 4 || steps.length > 8) add('I do', `needs 4 to 8 steps, not ${steps.length}`);
+  if (!steps.some((st) => st.trap)) add('I do', 'one step must show the usual mistake and why it is wrong (trap: true)');
+  let twoWay = 0;
+  steps.forEach((st, i) => {
+    const where = `I do step ${i + 1}`;
+    const long = (label: string, text: string, max: number) => wordCount(text) > max && add(where, `${label} is ${wordCount(text)} words; keep it to ${max}`);
+    long('say', st.say, LIMITS.say);
+    long('ask', st.ask, LIMITS.ask);
+    long('win', st.win, LIMITS.feedback);
+    if (st.show) long('example', showText(st.show), LIMITS.show);
+    const chunks = (st.show ?? []).filter((p): p is Chunk => typeof p !== 'string');
+    for (const c of chunks) if (c.nudge) long('nudge', c.nudge, LIMITS.feedback);
+    const c = st.check;
+    if (c.kind === 'tap') {
+      if (chunks.length < 2) add(where, 'a tap check needs at least 2 chunks to tap');
+      if (c.answer < 0 || c.answer >= chunks.length) add(where, `tap answer ${c.answer} is not one of the ${chunks.length} chunks`);
+      if (chunks.some((ch, k) => k !== c.answer && !ch.nudge)) add(where, 'every chunk that is not the answer needs a nudge');
+      if (chunks.length === 2) twoWay++;
+    }
+    if (c.kind === 'yesno') {
+      twoWay++;
+      long('nudge', c.nudge, LIMITS.feedback);
+    }
+    if (c.kind === 'pick') {
+      if (c.options.length < 2) add(where, 'a pick check needs at least 2 options');
+      if (c.answer < 0 || c.answer >= c.options.length) add(where, `pick answer ${c.answer} is not one of the options`);
+      if (c.options.some((o, k) => k !== c.answer && !o.reason)) add(where, 'every option that is not the answer needs a reason');
+      if (c.options.length === 2) twoWay++;
+    }
+    const lines = [st.say, st.ask, st.win, ...(st.show ? [showText(st.show)] : []), ...chunks.flatMap((ch) => [ch.nudge ?? '']), ...(c.kind === 'yesno' ? [c.nudge] : []), ...(c.kind === 'pick' ? c.options.flatMap((o) => [o.text, o.reason ?? '']) : [])];
+    for (const t of lines) {
+      const us = t.match(US_SPELLINGS);
+      if (us) add(where, `US spelling "${us[0]}"`);
+      const ww = t.match(WORD_WORK);
+      if (ww) add(where, `word work ("${ww[0]}") is out of scope`);
+      if (t === st.ask && /\bdrag/i.test(t)) add(where, 'students tap, never drag');
+    }
+  });
+  if (twoWay > steps.length / 2) add('I do', `${twoWay} of ${steps.length} steps are a two-way choice; give more steps three or more things to tap`);
+  const card = iDo.card;
+  if (!card) add('Move card', 'missing');
+  else {
+    if (card.terms.length < 2 || card.terms.length > 5) add('Move card', `needs 2 to 5 terms, not ${card.terms.length}`);
+    if (card.examples.length !== 2) add('Move card', 'needs exactly 2 labelled examples');
+    if (wordCount(card.test) > LIMITS.feedback) add('Move card', `test is ${wordCount(card.test)} words; keep it to ${LIMITS.feedback}`);
+    // The card reminds; it must not be the first place a student meets a term.
+    const tags = new Set(steps.flatMap((st) => st.show ?? []).flatMap((p) => (typeof p !== 'string' && p.tag ? [p.tag] : [])));
+    for (const t of card.terms) {
+      if (wordCount(t.means) > LIMITS.means) add('Move card', `"${t.term}" means is ${wordCount(t.means)} words; keep it to ${LIMITS.means}`);
+      if (!tags.has(t.term)) add('Move card', `term "${t.term}" is never used as a label in the lesson steps, so the card would be the first place a student meets it`);
+    }
+  }
+  return out;
 }

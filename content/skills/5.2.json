@@ -10,26 +10,217 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Two doers, two actions. So two clauses.",
-            "show": "When **the joey** **sneezed**, **Wren** **grabbed** a tissue."
+            "say": "The joey sneezed on me again! So I grabbed a tissue.",
+            "show": [
+              {
+                "text": "Wren",
+                "tag": "DOER"
+              },
+              {
+                "text": "grabbed",
+                "tag": "ACTION",
+                "nudge": "Grabbed is what happened. Who did the grabbing?"
+              },
+              {
+                "text": "a tissue.",
+                "nudge": "The tissue didn't do anything. It just got grabbed!"
+              }
+            ],
+            "ask": "Tap the doer. Who did something?",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Wren is the doer. Grabbed is the action she did."
           },
           {
-            "say": "Say this part alone. Does it work?",
-            "show": "**Wren grabbed a tissue.**"
+            "say": "Now read it out loud. You know who did it, and what she did.",
+            "show": [
+              {
+                "text": "Wren",
+                "tag": "DOER",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "grabbed",
+                "tag": "ACTION",
+                "lit": true
+              },
+              " a tissue."
+            ],
+            "ask": "Does it make sense on its own?",
+            "check": {
+              "kind": "yesno",
+              "answer": true,
+              "nudge": "Read it once more. Do you know what happened? Is anything missing?"
+            },
+            "win": "Yes! It makes sense by itself. It could be a sentence on its own."
           },
           {
-            "say": "Yep! It stands on its own. That's the main clause."
+            "say": "This part has a doer and an action too. Zed says that makes it a sentence. Listen.",
+            "show": [
+              "When ",
+              {
+                "text": "the joey",
+                "tag": "DOER",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "sneezed",
+                "tag": "ACTION",
+                "lit": true
+              }
+            ],
+            "ask": "Does it make sense on its own?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Say it out loud: 'When the joey sneezed...' Then what happened? Do you know?"
+            },
+            "win": "Right! A doer and an action aren't enough. When the joey sneezed... what? It leaves you waiting.",
+            "trap": true
           },
           {
-            "say": "This part leaves you hanging. When the joey sneezed... what?",
-            "show": "**When the joey sneezed**..."
+            "say": "One little word makes it wait. Can you find it?",
+            "show": [
+              {
+                "text": "When",
+                "tag": "JOINING WORD"
+              },
+              {
+                "text": "the joey",
+                "nudge": "The joey is the doer. Try the little word at the start."
+              },
+              {
+                "text": "sneezed",
+                "nudge": "Sneezed is the action. Try the little word at the start."
+              }
+            ],
+            "ask": "Tap the word that leaves it waiting.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Without when, 'The joey sneezed' works. When is a joining word, also called a conjunction."
           },
           {
-            "say": "It's a dependent clause. Like a joey, it can't go alone."
+            "say": "A part with a doer and an action is called a clause. This sentence has two clauses.",
+            "show": [
+              {
+                "text": "When the joey sneezed,",
+                "tag": "DEPENDENT CLAUSE",
+                "nudge": "That clause starts with when, so it leaves you waiting. Try the other one."
+              },
+              {
+                "text": "Wren grabbed a tissue.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            "ask": "Tap the clause that could be a sentence by itself.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! That's the main clause. The other one depends on it, so it's a dependent clause."
+          },
+          {
+            "say": "Some sentences have three clauses. Only one is the main clause.",
+            "show": [
+              {
+                "text": "After lunch ended,",
+                "tag": "DEPENDENT CLAUSE",
+                "nudge": "After lunch ended... then what? It leaves you waiting."
+              },
+              {
+                "text": "Mo napped in the hammock",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "until the bell rang.",
+                "tag": "DEPENDENT CLAUSE",
+                "nudge": "Until the bell rang... what happened? It leaves you waiting."
+              }
+            ],
+            "ask": "Tap the main clause.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Mo napped in the hammock' makes sense alone. The other two hang on to it."
+          },
+          {
+            "say": "Careful! This one starts with when too. Say it out loud.",
+            "show": [
+              {
+                "text": "When did the joey sneeze?",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            "ask": "What is 'When did the joey sneeze?'",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a main clause"
+                },
+                {
+                  "text": "a dependent clause",
+                  "reason": "Say it alone. Does it leave you waiting, or is it a whole question?"
+                },
+                {
+                  "text": "not a clause",
+                  "reason": "It has a doer, the joey, and an action, sneeze. So it is a clause."
+                }
+              ]
+            },
+            "win": "Yes! It's a whole question, so it makes sense alone. Don't just spot when. Say it.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "MAIN CLAUSE",
+              "means": "Makes sense by itself. It could be a sentence on its own."
+            },
+            {
+              "term": "DEPENDENT CLAUSE",
+              "means": "Starts with a joining word and leaves you waiting. It needs a main clause."
+            },
+            {
+              "term": "JOINING WORD",
+              "means": "A small word like when, because, if, after or until."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "When the joey sneezed,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              {
+                "text": "Wren grabbed a tissue.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            [
+              {
+                "text": "Gus held his nose",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "because the slime stank.",
+                "tag": "DEPENDENT CLAUSE"
+              }
+            ]
+          ],
+          "test": "Say it alone. Makes sense? Main clause. Leaves you waiting? Dependent clause."
+        }
       },
       "weDo": [
         {

@@ -8,26 +8,259 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Spot the doer and the action.",
-            "show": "**The slime** **bubbled**."
+            "say": "Look what my slime did! First, find what happened.",
+            "show": [
+              {
+                "text": "The slime",
+                "tag": "DOER",
+                "nudge": "The slime is who did it. What did the slime do?"
+              },
+              {
+                "text": "bubbled",
+                "tag": "ACTION"
+              },
+              {
+                "text": "in the jar.",
+                "nudge": "In the jar says where. What did the slime actually do?"
+              }
+            ],
+            "ask": "Tap the word that says what the slime did.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Bubbled is the action, the verb. The slime is the doer (the subject). Together they make a clause."
           },
           {
-            "say": "That chunk is a clause. Just one? It's a simple sentence."
+            "say": "That sentence has one clause, so it is a simple sentence. This one has more.",
+            "show": [
+              {
+                "text": "The slime",
+                "tag": "DOER",
+                "lit": true,
+                "nudge": "The slime is the first doer. Look after 'and'. Who else did something?"
+              },
+              {
+                "text": "bubbled,",
+                "tag": "ACTION",
+                "lit": true,
+                "nudge": "Bubbled is the first verb. Look after 'and' for another doer."
+              },
+              {
+                "text": "and",
+                "tag": "JOINING WORD",
+                "nudge": "'And' joins the two parts. Who did something after it?"
+              },
+              {
+                "text": "Mo",
+                "tag": "DOER"
+              },
+              {
+                "text": "ran",
+                "tag": "ACTION",
+                "nudge": "Ran is the second verb. Who ran?"
+              },
+              {
+                "text": "for the door.",
+                "nudge": "That says where. Who ran for the door?"
+              }
+            ],
+            "ask": "Tap the second doer. Who else did something?",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! Mo ran. Two clauses that could each stand alone, joined by 'and', make a compound sentence."
           },
           {
-            "say": "Glue two clauses with and, but or or. Now it's compound.",
-            "show": "The slime bubbled, **and** Mo ran for the door."
+            "say": "Now I add a when part. It has a doer and a verb too. Say each part alone.",
+            "show": [
+              {
+                "text": "When I added vinegar,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              {
+                "text": "the slime bubbled.",
+                "tag": "MAIN CLAUSE",
+                "nudge": "Say it alone: 'The slime bubbled.' That makes sense. Try the other part."
+              }
+            ],
+            "ask": "Tap the part that can't be a sentence on its own.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! That's a dependent clause. It leaves you waiting. The other is the main clause (some books say independent clause)."
           },
           {
-            "say": "Start a clause with when or because. It can't stand alone now.",
-            "show": "**When I added vinegar**, the slime bubbled."
+            "say": "Careful! This starts with 'because', like a dependent clause. Check it for a doer and a verb.",
+            "show": [
+              {
+                "text": "Because of the smell,",
+                "tag": "PHRASE"
+              },
+              {
+                "text": "Gus wore a peg on his nose.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            "ask": "What is 'because of the smell'?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "a dependent clause",
+                  "reason": "A clause needs a doer and a verb. Can you find a verb in it?"
+                },
+                {
+                  "text": "a main clause",
+                  "reason": "Say it alone: 'Because of the smell.' It doesn't make sense by itself."
+                },
+                {
+                  "text": "not a clause"
+                }
+              ]
+            },
+            "win": "Yes! It has no verb, so it is a phrase, not a clause. 'Because' alone doesn't make a clause.",
+            "trap": true
           },
           {
-            "say": "Add a clause like that, and the sentence is complex."
+            "say": "One clause: simple. Two main clauses: compound. A main clause plus a dependent clause: complex.",
+            "show": [
+              {
+                "text": "Mo burnt the toast.",
+                "tag": "SIMPLE",
+                "nudge": "Burnt is the only verb, so there's one clause. That's simple."
+              },
+              {
+                "text": "Mo burnt the toast, and the alarm beeped.",
+                "tag": "COMPOUND",
+                "nudge": "Both clauses could be sentences on their own. That's compound."
+              },
+              {
+                "text": "When Mo burnt the toast, the alarm beeped.",
+                "tag": "COMPLEX"
+              }
+            ],
+            "ask": "Tap the complex sentence.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'When Mo burnt the toast' can't stand alone. That makes the sentence complex."
+          },
+          {
+            "say": "Now the joining word. All three of these fit the meaning. Only one joins two equal clauses.",
+            "show": [
+              "Mo's cake looked great ___ it tasted like socks."
+            ],
+            "ask": "Which joining word makes it a compound sentence?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "although",
+                  "reason": "'Although it tasted like socks' can't stand alone. That makes the sentence complex."
+                },
+                {
+                  "text": "but"
+                },
+                {
+                  "text": "even though",
+                  "reason": "'Even though it tasted like socks' can't stand alone either. So it's complex."
+                }
+              ]
+            },
+            "win": "Yes! 'But' joins two equal clauses. Each one could be a sentence on its own. That's compound."
+          },
+          {
+            "say": "Zed says 'and' always means compound. Let's test that. Find the verbs first.",
+            "show": [
+              {
+                "text": "Dolphins and seals",
+                "tag": "DOER"
+              },
+              {
+                "text": "were swimming",
+                "tag": "ACTION"
+              },
+              {
+                "text": "beside our boat."
+              }
+            ],
+            "ask": "What kind of sentence is this?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "simple"
+                },
+                {
+                  "text": "compound",
+                  "reason": "Count the verbs. 'Were swimming' is the only one, so how many clauses are there?"
+                },
+                {
+                  "text": "complex",
+                  "reason": "Is there a part that leaves you waiting? Look for a second doer and verb."
+                }
+              ]
+            },
+            "win": "Yes! 'And' joins two animals, not two clauses. One doer, one verb: simple. Find the verbs first.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SIMPLE",
+              "means": "One clause: a doer and a verb. 'The slime bubbled.'"
+            },
+            {
+              "term": "COMPOUND",
+              "means": "Two main clauses joined by a word like 'and' or 'but'."
+            },
+            {
+              "term": "COMPLEX",
+              "means": "A main clause plus a dependent clause, which can't stand alone."
+            },
+            {
+              "term": "PHRASE",
+              "means": "Words with no verb, like 'because of the smell'. Not a clause."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The jar cracked,",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "but",
+                "tag": "JOINING WORD"
+              },
+              {
+                "text": "the slime stayed in.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            [
+              {
+                "text": "When I added vinegar,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              {
+                "text": "the slime bubbled.",
+                "tag": "MAIN CLAUSE"
+              }
+            ]
+          ],
+          "test": "Find each verb and its doer. Then ask: could this part be a sentence on its own?"
+        }
       },
       "weDo": [
         {

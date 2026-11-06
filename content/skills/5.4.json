@@ -5,28 +5,237 @@
     "codes": [
       "VC2E5LA05"
     ],
-    "why": "Clause order picks what the reader meets first. Save the big moment for last!",
-    "how": "Move the dependent clause to the front. Add a comma. Don't add and or but.",
+    "why": "Clause order picks what the reader meets first. Choose it on purpose.",
+    "how": "Move the dependent clause to the front. Add a comma. Don't add and, but or so.",
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "This sentence blurts out the big moment first.",
-            "show": "**The floor gave way** as Zed reached the last level."
+            "say": "Same two clauses, two orders. Both are correct. Here is the first order.",
+            "show": [
+              {
+                "text": "The floor gave way",
+                "tag": "MAIN CLAUSE",
+                "nudge": "'The floor gave way' makes sense alone. That's the main clause. Try the other part."
+              },
+              {
+                "text": "as Zed reached the last level.",
+                "tag": "DEPENDENT CLAUSE"
+              }
+            ],
+            "ask": "Tap the dependent clause.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Here the main clause comes first. You get the big news straight away."
           },
           {
-            "say": "Flip it. Lead with the dependent clause.",
-            "show": "**As Zed reached the last level**, the floor gave way."
+            "say": "Now flip it. Lead with the dependent clause, and put a comma after it.",
+            "show": [
+              {
+                "text": "As Zed reached the last level,",
+                "tag": "DEPENDENT CLAUSE",
+                "lit": true
+              },
+              {
+                "text": "the floor gave way.",
+                "tag": "MAIN CLAUSE",
+                "lit": true
+              }
+            ],
+            "ask": "What does leading with the dependent clause do here?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "You wait, and the big moment lands last."
+                },
+                {
+                  "text": "It makes the sentence shorter.",
+                  "reason": "Count the words. Same words, same length. What do you meet first now?"
+                },
+                {
+                  "text": "It explains why the floor broke.",
+                  "reason": "Neither order says why. What do you meet first now, and what last?"
+                }
+              ]
+            },
+            "win": "Yes! You walk with Zed first, then the floor drops. The comma marks where the main clause starts."
           },
           {
-            "say": "Now you wait. The big moment lands at the end. Boss level!"
+            "say": "Leading with it isn't only for suspense. Signs do it too.",
+            "show": [
+              {
+                "text": "If you see a snake,",
+                "tag": "DEPENDENT CLAUSE",
+                "lit": true
+              },
+              {
+                "text": "stand very still.",
+                "tag": "MAIN CLAUSE",
+                "lit": true
+              }
+            ],
+            "ask": "Why does the sign start with the if part?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The dependent clause must always go first.",
+                  "reason": "Both orders are correct. 'Stand very still if you see a snake' works too."
+                },
+                {
+                  "text": "You find out when the rule applies first."
+                },
+                {
+                  "text": "It hides the instruction.",
+                  "reason": "The instruction is still there. What do you find out first?"
+                }
+              ]
+            },
+            "win": "Yes! You meet the situation first, then the instruction. Pick the order the reader needs."
           },
           {
-            "say": "Put a comma after it. No and or but needed.",
-            "show": "As Zed reached the last level**,** the floor gave way."
+            "say": "Careful! Zed added an extra joining word. This is a very common mistake.",
+            "show": [
+              {
+                "text": "Although the boss looked tiny,",
+                "tag": "DEPENDENT CLAUSE",
+                "nudge": "The although clause is fine. It already does the joining. Look after the comma."
+              },
+              {
+                "text": "but",
+                "tag": "JOINING WORD"
+              },
+              {
+                "text": "it knocked Zed out.",
+                "tag": "MAIN CLAUSE",
+                "nudge": "'It knocked Zed out' is the main clause. It has to stay. Look just before it."
+              }
+            ],
+            "ask": "Tap the word that has to go.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Although' already joins them. After the comma, the main clause starts. No extra 'but' or 'so'.",
+            "trap": true
+          },
+          {
+            "say": "This starts like a dependent clause. Check it for a doer and a verb.",
+            "show": [
+              {
+                "text": "After lunch,",
+                "tag": "PHRASE"
+              },
+              {
+                "text": "Zed beat the boss.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            "ask": "Does this sentence lead with a dependent clause?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Yes: it starts with 'after'.",
+                  "reason": "'After' can start a phrase too. Can you find a verb in 'after lunch'?"
+                },
+                {
+                  "text": "Yes: it has a comma.",
+                  "reason": "A phrase can have a comma too. Does 'after lunch' have a doer and a verb?"
+                },
+                {
+                  "text": "No: 'after lunch' has no verb."
+                }
+              ]
+            },
+            "win": "Right! 'After lunch' is a phrase. 'After lunch was over' has a verb, so that's a dependent clause.",
+            "trap": true
+          },
+          {
+            "say": "Now you choose. Zed wants the bat to be the surprise at the very end.",
+            "show": [
+              {
+                "text": "a bat flew out",
+                "tag": "MAIN CLAUSE",
+                "lit": true
+              },
+              {
+                "text": "when Zed opened the chest",
+                "tag": "DEPENDENT CLAUSE",
+                "lit": true
+              }
+            ],
+            "ask": "Which version saves the bat for last, with the right punctuation?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "A bat flew out when Zed opened the chest.",
+                  "reason": "The bat comes first, so the surprise is gone. What should the reader meet last?"
+                },
+                {
+                  "text": "When Zed opened the chest, a bat flew out."
+                },
+                {
+                  "text": "When Zed opened the chest a bat flew out.",
+                  "reason": "Look after 'chest'. Leading with a dependent clause needs a comma there."
+                }
+              ]
+            },
+            "win": "Yes! The when clause, then a comma, then the bat. Boss level!"
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "DEPENDENT CLAUSE",
+              "means": "Can't stand alone. Starts with a word like 'when', 'if' or 'although'."
+            },
+            {
+              "term": "MAIN CLAUSE",
+              "means": "Makes sense on its own. When it comes second, a comma goes before it."
+            },
+            {
+              "term": "JOINING WORD",
+              "means": "Joins the clauses, like 'when' or 'although'. Use just one: no extra 'but' or 'so'."
+            },
+            {
+              "term": "PHRASE",
+              "means": "Words with no verb, like 'after lunch'. Not a dependent clause."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "As Zed reached the last level,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              {
+                "text": "the floor gave way.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            [
+              {
+                "text": "If you see a snake,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              {
+                "text": "stand very still.",
+                "tag": "MAIN CLAUSE"
+              }
+            ]
+          ],
+          "test": "Lead with what the reader should meet first. Then a comma. No extra 'and', 'but' or 'so'."
+        }
       },
       "weDo": [
         {

@@ -10,25 +10,251 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Stories drop clues before something big happens.",
-            "show": "The ground **shook**. A **huge shadow** fell over Zed."
+            "say": "Stories drop clues before something big happens. I keep my eyes open.",
+            "show": [
+              {
+                "text": "It was Tuesday.",
+                "nudge": "Tuesday is just the day. What strange thing happens?"
+              },
+              " ",
+              {
+                "text": "The ground shook: thump, thump.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "Mo's pie was cold.",
+                "nudge": "A cold pie is sad, but it doesn't warn you of anything."
+              }
+            ],
+            "ask": "Tap the clue that something big is coming.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Shaking ground is a clue. Thump, thump... something is on its way."
           },
           {
-            "say": "I spot the clues: shaking ground, a huge shadow."
+            "say": "Then a huge shadow falls over Zed. That's me! What do the clues point to?",
+            "show": [
+              {
+                "text": "The ground shook: thump, thump.",
+                "tag": "CLUE",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "A huge shadow fell over Zed.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "What will happen next?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "Something giant will stomp into view."
+                },
+                {
+                  "text": "A tiny mouse will run past.",
+                  "reason": "A tiny mouse can't shake the ground or make a huge shadow."
+                },
+                {
+                  "text": "It will start to snow.",
+                  "reason": "Snow doesn't go thump. No clue points to snow."
+                }
+              ]
+            },
+            "win": "Yes! A guess that the clues back up is called a prediction."
           },
           {
-            "say": "I ask what they point to. Something giant is coming!"
+            "say": "Mo has a guess too. He's hungry, so he yells, 'It's the pizza delivery!'",
+            "show": [
+              {
+                "text": "The ground shook: thump, thump.",
+                "tag": "CLUE",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "A huge shadow fell over Zed.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "Which guess is a wish, not a prediction?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "A pizza is coming, because Mo is hungry."
+                },
+                {
+                  "text": "Something giant is coming.",
+                  "reason": "Shaking ground and a huge shadow back this up. It's a prediction."
+                },
+                {
+                  "text": "A huge truck is coming.",
+                  "reason": "A truck could shake the ground. The clues back this up."
+                }
+              ]
+            },
+            "win": "Yes! No clue points to pizza. Mo just wants one. That's a wish, not a prediction.",
+            "trap": true
           },
           {
-            "say": "That guess is called a prediction. Clues back it up."
+            "say": "Now I read on to check my prediction.",
+            "show": [
+              {
+                "text": "Something giant is coming.",
+                "tag": "PREDICTION",
+                "lit": true,
+                "nudge": "That's my prediction. Read on. Which part shows if I was right?"
+              },
+              " Then: ",
+              {
+                "text": "Zed looked up.",
+                "nudge": "Looking up doesn't tell you what's there. Read on."
+              },
+              " ",
+              {
+                "text": "A giant robot stomped round the corner.",
+                "tag": "CHECK"
+              },
+              " ",
+              {
+                "text": "Mo dropped his pie.",
+                "nudge": "Poor pie! But what came round the corner?"
+              }
+            ],
+            "ask": "Tap the part that checks my prediction.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! A giant robot. My prediction was right. Good readers always read on to check."
           },
           {
-            "say": "Then I read on to check if I was right.",
-            "show": "A **giant robot** stomped round the corner. Nailed it."
+            "say": "Sometimes the check shows I was wrong. Then I change my prediction.",
+            "show": [
+              {
+                "text": "Dark clouds rolled in."
+              },
+              " ",
+              {
+                "text": "Thunder rumbled."
+              },
+              " ",
+              {
+                "text": "Then the wind blew the clouds away, and the sun came out."
+              }
+            ],
+            "ask": "I predicted rain. What should I do now?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "Change it. Rain is less likely now."
+                },
+                {
+                  "text": "Keep it. Clouds always mean rain.",
+                  "reason": "Read the last part again. Where did the clouds go?"
+                },
+                {
+                  "text": "Stop reading. I already made my guess.",
+                  "reason": "Good readers keep reading and checking. New clues can change things."
+                }
+              ]
+            },
+            "win": "Yes! New clues can change a prediction. Check, then change it if you need to."
+          },
+          {
+            "say": "Tully predicts the Reef Rays will win on Saturday. Some details help predict. Some don't.",
+            "show": [
+              {
+                "text": "The Rays have won ten games in a row.",
+                "nudge": "Ten wins in a row makes a win more likely. That helps."
+              },
+              " ",
+              {
+                "text": "Their best player hurt her knee.",
+                "nudge": "A hurt player makes a win less likely. That still helps."
+              },
+              " ",
+              {
+                "text": "Their socks are new and green."
+              }
+            ],
+            "ask": "Tap the detail that doesn't help predict who wins.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! New socks won't change the score. Think about every clue, and skip the ones that don't matter."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLUE",
+              "means": "A detail that hints at what might happen next."
+            },
+            {
+              "term": "PREDICTION",
+              "means": "Your best guess about what comes next, backed up by clues."
+            },
+            {
+              "term": "CHECK",
+              "means": "Read on. Were you right? If not, change your prediction."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The ground shook.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "A huge shadow fell.",
+                "tag": "CLUE"
+              },
+              " → ",
+              {
+                "text": "Something giant is coming.",
+                "tag": "PREDICTION"
+              }
+            ],
+            [
+              {
+                "text": "The dog stared at Mo's pie.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "Mo turned his back.",
+                "tag": "CLUE"
+              },
+              " → ",
+              {
+                "text": "The dog will grab the pie.",
+                "tag": "PREDICTION"
+              },
+              " ",
+              {
+                "text": "Gulp! The pie was gone.",
+                "tag": "CHECK"
+              }
+            ]
+          ],
+          "test": "Spot the clues. Guess where they point. Read on and check. A wish is not a prediction."
+        }
       },
       "weDo": [
         {

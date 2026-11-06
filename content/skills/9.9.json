@@ -11,27 +11,208 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Compare two things with like or as. That's a simile.",
-            "show": "The jelly wobbled **like a nervous belly**."
+            "say": "Jelly time! I want you to see how wobbly my jelly is. Watch.",
+            "show": [
+              {
+                "text": "The jelly",
+                "nudge": "That's the thing I'm describing. What is it compared to?"
+              },
+              {
+                "text": "wobbled",
+                "nudge": "That's what it does. Find the part that compares it to something."
+              },
+              {
+                "text": "like a nervous belly.",
+                "tag": "SIMILE"
+              }
+            ],
+            "ask": "Tap the part that compares the jelly to something.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Like a nervous belly. A comparison with like or as is called a simile."
           },
           {
-            "say": "Say it IS the thing. That's a metaphor.",
-            "show": "The jelly **was a nervous belly**."
+            "say": "Now I'll take out the like. I'll say the jelly IS the thing.",
+            "show": [
+              {
+                "text": "The jelly was a nervous belly.",
+                "tag": "METAPHOR"
+              }
+            ],
+            "ask": "How is this different from the simile?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "It's about a different jelly.",
+                  "reason": "Same jelly! Look for the little word like."
+                },
+                {
+                  "text": "It's a longer line.",
+                  "reason": "It's actually shorter. Which word is missing?"
+                },
+                {
+                  "text": "It has no like. It says the jelly is a belly."
+                }
+              ]
+            },
+            "win": "Yes! Saying one thing IS another is a metaphor. The jelly isn't really a belly, of course!"
           },
           {
-            "say": "Make a thing act human. That's personification.",
-            "show": "The jelly **shivered and hid** behind the custard."
+            "say": "One more. Now I'll make the jelly act like a person.",
+            "show": [
+              {
+                "text": "The jelly",
+                "nudge": "That's the jelly itself. What does it do that a person does?"
+              },
+              {
+                "text": "tried to hide",
+                "tag": "PERSONIFICATION"
+              },
+              {
+                "text": "behind the custard.",
+                "nudge": "That's where it went. What does it do like a person?"
+              }
+            ],
+            "ask": "Tap the part where the jelly acts like a person.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Jelly can't hide. Giving a thing human actions is personification."
           },
           {
-            "say": "Skip tired comparisons. Make yours fresh and surprising.",
-            "show": "Not 'as cold as ice' but '**as cold as a dentist's hands**'."
+            "say": "These are writing tools, called devices. Choose the feeling first. I want Maxx's cage room to feel creepy.",
+            "ask": "Which line makes the cage room feel creepy?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The cages were as shiny as a birthday present.",
+                  "reason": "It's fresh, but birthday presents feel happy. Is that creepy?"
+                },
+                {
+                  "text": "The cages stood in rows like broken teeth."
+                },
+                {
+                  "text": "The cages were as big as really big cages.",
+                  "reason": "That compares cages to cages. It tells us nothing new."
+                }
+              ]
+            },
+            "win": "Yes! Broken teeth feel sharp and scary. A pretty comparison can give the wrong feeling.",
+            "trap": true
           },
           {
-            "say": "Then ask: what do I want my reader to feel?"
+            "say": "Some comparisons are so old that readers don't even picture them. Like 'as cold as ice'.",
+            "ask": "Which comparison is fresh?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "as cold as ice",
+                  "reason": "Readers have heard this so often that they don't picture it."
+                },
+                {
+                  "text": "as cold as snow",
+                  "reason": "Snow is nearly the same as ice. It's still the first thing everyone thinks of."
+                },
+                {
+                  "text": "as cold as a dentist's hands"
+                }
+              ]
+            },
+            "win": "Yes! You can almost feel those hands. Fresh means surprising, but still true.",
+            "trap": true
+          },
+          {
+            "say": "Zed loved devices so much that he put one in every sentence. Read it.",
+            "show": [
+              {
+                "text": "The sun was a lemon.",
+                "tag": "METAPHOR"
+              },
+              " ",
+              {
+                "text": "The sky smiled.",
+                "tag": "PERSONIFICATION"
+              },
+              " ",
+              {
+                "text": "The wind howled like a dog.",
+                "tag": "SIMILE"
+              },
+              " ",
+              {
+                "text": "The clouds were pillows.",
+                "tag": "METAPHOR"
+              }
+            ],
+            "ask": "What's wrong with Zed's writing?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "There are no devices.",
+                  "reason": "Look again: lemon, smiled, like a dog. They're everywhere!"
+                },
+                {
+                  "text": "They are all similes.",
+                  "reason": "Only one uses like. The problem is how many there are."
+                },
+                {
+                  "text": "Too many devices. The reader gets tired."
+                }
+              ]
+            },
+            "win": "Right. One or two strong ones work better than four in a row. Now choose a feeling for your scene."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SIMILE",
+              "means": "Compares two things using like or as."
+            },
+            {
+              "term": "METAPHOR",
+              "means": "Says one thing IS another, with no like or as."
+            },
+            {
+              "term": "PERSONIFICATION",
+              "means": "Gives a thing human actions or feelings."
+            }
+          ],
+          "examples": [
+            [
+              "The jelly wobbled ",
+              {
+                "text": "like a nervous belly.",
+                "tag": "SIMILE"
+              }
+            ],
+            [
+              {
+                "text": "The bay was a sheet of black ink.",
+                "tag": "METAPHOR"
+              },
+              " ",
+              {
+                "text": "The waves whispered to the sand.",
+                "tag": "PERSONIFICATION"
+              }
+            ]
+          ],
+          "test": "Choose the feeling first. Does your comparison give that feeling, and is it fresh?"
+        }
       },
       "weDo": [
         {

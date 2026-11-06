@@ -10,27 +10,209 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Plain words just tell you what happened.",
-            "show": "The dog **ate** its dinner."
+            "say": "Biscuit the dog was starving. Which line lets you see how she ate?",
+            "show": [
+              {
+                "text": "The dog had its dinner.",
+                "nudge": "Had is plain. You can't picture how she ate."
+              },
+              {
+                "text": "The dog ate its dinner.",
+                "nudge": "Ate is plain too. Which one lets you see the gulping?"
+              },
+              {
+                "text": "The dog wolfed down its dinner.",
+                "tag": "VIVID WORD"
+              }
+            ],
+            "ask": "Tap the line that lets you see it happen.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Wolfed down shows her gulping fast. A strong word like that is a vivid word."
           },
           {
-            "say": "Vivid words let you see it happen.",
-            "show": "The dog **wolfed down** its dinner."
+            "say": "Now pick a vivid word yourself. Read the clue first.",
+            "show": [
+              {
+                "text": "Gus hadn't eaten for two whole days.",
+                "tag": "CLUE"
+              },
+              " He ___ the pie."
+            ],
+            "ask": "Which word fits the gap best?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "nibbled",
+                  "reason": "Nibbling is tiny, slow bites. He hasn't eaten for two days!"
+                },
+                {
+                  "text": "gobbled"
+                },
+                {
+                  "text": "sniffed",
+                  "reason": "Sniffing isn't eating. He's starving. What would he do?"
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Two days without food? He'd gobble it fast. The clue told you."
           },
           {
-            "say": "Some vivid words carry a feeling too. That's emotive.",
-            "show": "The puppy **whimpered** at the door."
+            "say": "Careful! Zed always picks the strongest word. But it has to fit the clues.",
+            "show": [
+              "The sick puppy ___ its dinner, ",
+              {
+                "text": "one tiny bite at a time.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Which word fits the gap best?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "wolfed down",
+                  "reason": "Wolfed down is strong, but the clue says one tiny bite at a time."
+                },
+                {
+                  "text": "gobbled",
+                  "reason": "Gobbling is fast. This puppy is sick and takes tiny bites."
+                },
+                {
+                  "text": "nibbled"
+                }
+              ],
+              "answer": 2
+            },
+            "win": "Yes! Sick puppies nibble. Starving dogs gobble. Check the clues, not just the strength.",
+            "trap": true
           },
           {
-            "say": "But the word has to fit the clues.",
-            "show": "The **sick** dog **nibbled** its dinner."
+            "say": "Vivid words can set a feeling too. Find the creepy one.",
+            "show": [
+              "Zed ",
+              {
+                "text": "walked",
+                "nudge": "Walked is plain. It doesn't make anything creepy."
+              },
+              " into the cave. He ",
+              {
+                "text": "looked",
+                "nudge": "Looked is plain too. Which word lets you hear something?"
+              },
+              " around. Something ",
+              {
+                "text": "shuffled",
+                "tag": "VIVID WORD"
+              },
+              " in the dark."
+            ],
+            "ask": "Tap the vivid word that makes the cave sound creepy.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Shuffled lets you hear something moving in the dark. Creepy!"
           },
           {
-            "say": "Sick dogs nibble. Starving dogs wolf. Check the clues first!"
+            "say": "Listen to this puppy. How does it feel?",
+            "show": [
+              "The puppy ",
+              {
+                "text": "whimpered",
+                "tag": "EMOTIVE WORD"
+              },
+              " at the door."
+            ],
+            "ask": "How does the puppy feel?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "happy",
+                  "reason": "Happy puppies bark and wag. Whimpering is a soft, sad cry."
+                },
+                {
+                  "text": "lonely and sad"
+                },
+                {
+                  "text": "angry",
+                  "reason": "Angry dogs growl. Whimpering is soft and sad."
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Whimpered carries a sad feeling. Words that carry a feeling are called emotive words."
+          },
+          {
+            "say": "Emotive words can make you like or dislike something. Ads use them to push you.",
+            "show": [
+              {
+                "text": "Gus's cosy cabin",
+                "nudge": "Cosy is small in a nice, warm way. That's praise."
+              },
+              {
+                "text": "Gus's small cabin",
+                "nudge": "Small is plain. It has no feeling in it."
+              },
+              {
+                "text": "Gus's cramped cabin",
+                "tag": "EMOTIVE WORD"
+              }
+            ],
+            "ask": "Tap the one that says the writer dislikes the cabin.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Cramped is small in a squashed, horrible way. Same cabin, different feeling."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "VIVID WORD",
+              "means": "A strong word that lets you see or hear exactly what happened."
+            },
+            {
+              "term": "CLUE",
+              "means": "Details nearby that tell you which word fits."
+            },
+            {
+              "term": "EMOTIVE WORD",
+              "means": "A word that carries a feeling, like whimpered, cramped or stormed."
+            }
+          ],
+          "examples": [
+            [
+              "The dog ",
+              {
+                "text": "wolfed down",
+                "tag": "VIVID WORD"
+              },
+              " its dinner ",
+              {
+                "text": "in three big gulps.",
+                "tag": "CLUE"
+              }
+            ],
+            [
+              "The lost puppy ",
+              {
+                "text": "whimpered",
+                "tag": "EMOTIVE WORD"
+              },
+              " at the door."
+            ]
+          ],
+          "test": "Read the clues. Pick the word that fits them exactly, not just the strongest."
+        }
       },
       "weDo": [
         {

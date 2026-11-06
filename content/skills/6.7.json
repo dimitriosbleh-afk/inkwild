@@ -8,13 +8,175 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
-          { "say": "Sometimes a thing belongs to someone. We show that with marks." },
-          { "say": "The tail belongs to the possum. Add 's to the owner.", "show": "the possum**'s** tail" },
-          { "say": "That little mark is called an apostrophe." },
-          { "say": "No owner? No apostrophe. More than one just gets s.", "show": "Three possum**s** climbed the snow gum." },
-          { "say": "Check: can you say 'the tail of the possum'? Then use 's." }
-        ]
+        "steps": [
+          {
+            "say": "Wren here. Sometimes a thing belongs to someone. Look at this possum.",
+            "show": [
+              "The ",
+              {
+                "text": "possum's",
+                "tag": "OWNER"
+              },
+              " ",
+              {
+                "text": "tail",
+                "nudge": "The tail is the thing that belongs to someone. Who owns it?"
+              },
+              " hit the ",
+              {
+                "text": "lamp",
+                "nudge": "The lamp just got hit. Does it own anything here?"
+              },
+              "."
+            ],
+            "ask": "Whose tail is it? Tap the owner.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! The tail belongs to the possum. The owner gets 's: the possum's tail."
+          },
+          {
+            "say": "This one is missing its 's. Find the owner first.",
+            "show": [
+              {
+                "text": "Mo",
+                "nudge": "Mo did the burning. Does he own anything here?"
+              },
+              " ",
+              {
+                "text": "burnt",
+                "nudge": "Burnt is what Mo did. Whose pie was it?"
+              },
+              " ",
+              {
+                "text": "Zed",
+                "tag": "OWNER"
+              },
+              " ",
+              {
+                "text": "pie",
+                "nudge": "The pie is the thing owned. Who owns it?"
+              },
+              "."
+            ],
+            "ask": "Tap the owner. That word needs 's.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Zed's pie. That mark is an apostrophe. Some books call it a possessive apostrophe."
+          },
+          {
+            "say": "Not every s needs an apostrophe. Ask: does it own something?",
+            "show": [
+              "Three ",
+              {
+                "text": "possum's",
+                "tag": "MORE THAN ONE"
+              },
+              " climbed ",
+              {
+                "text": "Wren's",
+                "nudge": "Ask: whose tree? Wren's. She owns it, so that 's is right."
+              },
+              " ",
+              {
+                "text": "tree",
+                "nudge": "Tree has no apostrophe. Check the words that do."
+              },
+              "."
+            ],
+            "ask": "One apostrophe is wrong. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! The possums don't own anything. There's just more than one. So just add s: possums.",
+            "trap": true
+          },
+          {
+            "say": "Test it: ask 'whose?'. The word that answers gets 's.",
+            "show": [
+              "Gus and the ",
+              {
+                "text": "twins",
+                "tag": "MORE THAN ONE",
+                "nudge": "Do the twins own anything here? No. It just means more than one twin."
+              },
+              " ate ",
+              {
+                "text": "Tullys",
+                "tag": "OWNER"
+              },
+              " ",
+              {
+                "text": "lunch",
+                "nudge": "Lunch is the thing owned. Whose lunch is it?"
+              },
+              "."
+            ],
+            "ask": "Tap the word that needs an apostrophe.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Whose lunch? Tully's. Twins is just more than one, so it gets no apostrophe."
+          },
+          {
+            "say": "Mo doesn't own his brother! But ask: whose brother? The test still works.",
+            "ask": "Which one is right?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Mos brother lost his boots.",
+                  "reason": "Ask: whose brother? Mo's. So Mo needs 's."
+                },
+                {
+                  "text": "Mo's brother lost his boots."
+                },
+                {
+                  "text": "Mo's brother lost his boot's.",
+                  "reason": "Ask: do the boots own anything? No. There is just more than one."
+                }
+              ]
+            },
+            "win": "Yes! Whose brother? Mo's. If a word answers whose, it gets 's."
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "OWNER",
+              "means": "Who something belongs to. Add 's straight after it."
+            },
+            {
+              "term": "MORE THAN ONE",
+              "means": "Just add s. No apostrophe, because nothing is owned."
+            }
+          ],
+          "examples": [
+            [
+              "the ",
+              {
+                "text": "possum's",
+                "tag": "OWNER"
+              },
+              " tail"
+            ],
+            [
+              "Three ",
+              {
+                "text": "possums",
+                "tag": "MORE THAN ONE"
+              },
+              " climbed the tree."
+            ]
+          ],
+          "test": "Ask: whose is it? The owner gets 's. Just more than one? Add s only."
+        }
       },
       "weDo": [
         {

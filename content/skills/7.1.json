@@ -10,27 +10,230 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Every text has a job. Ask: what does the writer want?"
+            "say": "Three notes blew off the hut wall. Each one has a different job.",
+            "show": [
+              {
+                "text": "Snow gums have peeling bark.",
+                "tag": "INFORM",
+                "nudge": "That gives a fact. Does it tell you to do anything?"
+              },
+              {
+                "text": "Last Sunday, Mo fell in the creek.",
+                "tag": "RETELL",
+                "nudge": "That tells what happened to Mo. Which one tells you what to do?"
+              },
+              {
+                "text": "Hold the rope with both hands.",
+                "tag": "INSTRUCT"
+              }
+            ],
+            "ask": "Tap the note that tells you what to do.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'Hold' tells you what to do, so it instructs. The other two inform and retell."
           },
           {
-            "say": "A made-up story entertains. A recount retells real events.",
-            "show": "**Last Saturday**, **our class** climbed the big ladder."
+            "say": "Two of these tell what happened. One is made up. One is real.",
+            "show": [
+              {
+                "text": "Once, a snowman learnt to sing.",
+                "nudge": "Can snowmen sing? That's made up, to entertain you. Find the real one."
+              },
+              {
+                "text": "Snow is frozen water.",
+                "tag": "INFORM",
+                "nudge": "That's a fact, not something that happened. Find the real event."
+              },
+              {
+                "text": "On Saturday, our class climbed Tower Two.",
+                "tag": "RETELL"
+              }
+            ],
+            "ask": "Tap the one that retells a real event.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'Climbed' already happened, in past tense. Retelling real events is a recount. Made-up stories narrate."
           },
           {
-            "say": "A report gives facts. An explanation says how or why.",
-            "show": "Snow melts **because** the sun warms it."
+            "say": "Now a whole poster. I read it all, then ask: what does the writer want from me?",
+            "show": [
+              {
+                "text": "Every kid should try Mo's pie.",
+                "tag": "PERSUADE"
+              },
+              {
+                "text": "It's the tastiest lunch on the island.",
+                "tag": "PERSUADE"
+              },
+              {
+                "text": "Buy one today!",
+                "tag": "PERSUADE"
+              }
+            ],
+            "ask": "What does this poster want?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "to get you to buy a pie"
+                },
+                {
+                  "text": "to give facts about pies",
+                  "reason": "'The tastiest lunch' is an opinion, not a fact. And look at the last line."
+                },
+                {
+                  "text": "to tell you how to bake a pie",
+                  "reason": "There are no steps here. What does 'Buy one today!' want you to do?"
+                }
+              ]
+            },
+            "win": "Yes! 'Should', 'tastiest' and 'Buy one today!' all push you. That's persuade."
           },
           {
-            "say": "A procedure tells you how to do something.",
-            "show": "**Hold** the rope. **Climb** to the next ladder."
+            "say": "These two both give facts about wombats. But they do different jobs.",
+            "show": [
+              {
+                "text": "Wombats have thick, brown fur.",
+                "tag": "INFORM",
+                "nudge": "That says what wombats are like. Which one gives a reason?"
+              },
+              {
+                "text": "Wombats dig burrows because burrows stay cool.",
+                "tag": "EXPLAIN"
+              }
+            ],
+            "ask": "Tap the one that says why.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Because' gives the reason. Saying how or why something happens is explain."
           },
           {
-            "say": "A persuasive text wants you to agree, or to act.",
-            "show": "Everyone **should** visit Scaffold Peaks. **Book now!**"
+            "say": "Careful! Both titles start with 'How'. Zed says they must do the same job.",
+            "show": [
+              {
+                "text": "How to Build a Snowman",
+                "tag": "INSTRUCT"
+              },
+              {
+                "text": "How Snow Turns to Ice",
+                "tag": "EXPLAIN"
+              }
+            ],
+            "ask": "What job does 'How Snow Turns to Ice' do?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "explain"
+                },
+                {
+                  "text": "instruct",
+                  "reason": "Can you follow steps to turn snow to ice? There's no 'to' after 'How'."
+                },
+                {
+                  "text": "inform",
+                  "reason": "It doesn't just say what ice is like. It says how one thing leads to the next."
+                }
+              ]
+            },
+            "win": "Yes! 'How to' gives steps, so it instructs. 'How' alone says how something happens: explain.",
+            "trap": true
+          },
+          {
+            "say": "Maxx says his post is just facts. I read to the end before I decide.",
+            "show": [
+              {
+                "text": "Maxx Kicks have bright gold laces.",
+                "tag": "INFORM"
+              },
+              {
+                "text": "They're the coolest shoes alive.",
+                "tag": "PERSUADE"
+              },
+              {
+                "text": "Buy a pair now!",
+                "tag": "PERSUADE"
+              }
+            ],
+            "ask": "What is Maxx's post really for?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "to give facts about shoes",
+                  "reason": "One line is a fact. But read to the end. What does Maxx want you to do?"
+                },
+                {
+                  "text": "to get you to buy his shoes"
+                },
+                {
+                  "text": "to tell you how to tie laces",
+                  "reason": "There are no steps here. What does 'Buy a pair now!' want?"
+                }
+              ]
+            },
+            "win": "Yes! A fact or two doesn't make it inform. Ask what the whole text wants from you.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "INSTRUCT",
+              "means": "Tells you what to do, step by step."
+            },
+            {
+              "term": "RETELL",
+              "means": "Tells real events that already happened. That's a recount."
+            },
+            {
+              "term": "INFORM",
+              "means": "Gives facts about what something is like."
+            },
+            {
+              "term": "EXPLAIN",
+              "means": "Says how or why something happens."
+            },
+            {
+              "term": "PERSUADE",
+              "means": "Wants you to agree, or to do something."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Wombats have thick fur.",
+                "tag": "INFORM"
+              },
+              {
+                "text": "They dig because burrows stay cool.",
+                "tag": "EXPLAIN"
+              }
+            ],
+            [
+              {
+                "text": "Hold the rope.",
+                "tag": "INSTRUCT"
+              },
+              {
+                "text": "Everyone should join the club!",
+                "tag": "PERSUADE"
+              }
+            ]
+          ],
+          "test": "Read to the end. What does the writer want? Entertain, retell, inform, explain, instruct or persuade?"
+        }
       },
       "weDo": [
         {

@@ -11,26 +11,195 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Good readers keep asking: does this still make sense?"
+            "say": "Good readers keep asking: does this still make sense? Read about Noodle.",
+            "show": [
+              {
+                "text": "Noodle is a pure white dog.",
+                "tag": "FACT",
+                "nudge": "That's the fact. Does every other sentence agree with it?"
+              },
+              " ",
+              {
+                "text": "His white fur gets dirty fast.",
+                "nudge": "White fur agrees with a white dog. Keep looking."
+              },
+              " ",
+              {
+                "text": "In the sun, his black fur shone.",
+                "tag": "CONTRADICTION"
+              },
+              " ",
+              {
+                "text": "He loves the beach.",
+                "nudge": "A white dog can love the beach. That fits."
+              }
+            ],
+            "ask": "One sentence can't be true if the others are. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Noodle can't be pure white AND have black fur. That's a contradiction."
           },
           {
-            "say": "First, the text gives us a fact.",
-            "show": "**Noodle is a pure white dog.**"
+            "say": "A contradiction means two sentences can't both be true. So what should I do?",
+            "show": [
+              {
+                "text": "Noodle is a pure white dog.",
+                "tag": "FACT",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "In the sun, his black fur shone.",
+                "tag": "CONTRADICTION",
+                "lit": true
+              }
+            ],
+            "ask": "What does a good reader do next?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "Go back and re-read the fact."
+                },
+                {
+                  "text": "Ignore it and keep going.",
+                  "reason": "If you ignore it, you might get the whole text wrong. Stop and check."
+                },
+                {
+                  "text": "Skip to the end.",
+                  "reason": "The end won't fix it. Go back to where the trouble started."
+                }
+              ]
+            },
+            "win": "Yes! Go back to the fact and check. Checking as you read is called monitoring."
           },
           {
-            "say": "Then another sentence backs it up.",
-            "show": "**His white fur** gets dirty fast."
+            "say": "Careful! A surprise isn't always a contradiction. Read this one.",
+            "show": [
+              {
+                "text": "Noodle is a pure white dog.",
+                "tag": "FACT",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "Then he rolled in mud and came out brown."
+              }
+            ],
+            "ask": "Do these two sentences contradict each other?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Can a white dog get muddy? After a bath, is he white again?"
+            },
+            "win": "Right! Mud doesn't change his real fur. Both can be true, so they don't clash.",
+            "trap": true
           },
           {
-            "say": "This sentence clashes. Both can't be true.",
-            "show": "Noodle sat in the sun. **His black fur** shone."
+            "say": "Some clashes take a bit of thinking. Count carefully.",
+            "show": [
+              {
+                "text": "Three kids ran the race: Kira, Josh and Mo.",
+                "tag": "FACT",
+                "nudge": "That's the fact to count from. Three runners."
+              },
+              " ",
+              {
+                "text": "Josh came first.",
+                "nudge": "Someone has to win. Josh first fits."
+              },
+              " ",
+              {
+                "text": "Mo came second.",
+                "nudge": "Second fits with three runners. Keep counting."
+              },
+              " ",
+              {
+                "text": "Kira came fourth.",
+                "tag": "CONTRADICTION"
+              }
+            ],
+            "ask": "Tap the sentence that can't be true.",
+            "check": {
+              "kind": "tap",
+              "answer": 3
+            },
+            "win": "Yes! There were only three runners, so nobody can come fourth."
           },
           {
-            "say": "That's a contradiction. Tap the sentence that breaks the rest."
+            "say": "Your turn. Find the fact first. Then test every sentence against it.",
+            "show": [
+              {
+                "text": "Ari has never seen the sea.",
+                "tag": "FACT",
+                "nudge": "That's the fact. Test the other sentences against it."
+              },
+              " ",
+              {
+                "text": "He lives in the desert.",
+                "nudge": "The desert is far from the sea. That fits."
+              },
+              " ",
+              {
+                "text": "Last summer, he swam in the sea.",
+                "tag": "CONTRADICTION"
+              },
+              " ",
+              {
+                "text": "He hopes to see waves.",
+                "nudge": "He hopes to see waves because he never has. That fits."
+              }
+            ],
+            "ask": "Tap the sentence that contradicts the rest.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Ari has never seen the sea, so he can't have swum in it."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "FACT",
+              "means": "A sentence the rest of the text agrees with. Keep it in your head."
+            },
+            {
+              "term": "CONTRADICTION",
+              "means": "A sentence that can't be true if the fact is true. The two clash."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Noodle is a pure white dog.",
+                "tag": "FACT"
+              },
+              " ",
+              {
+                "text": "In the sun, his black fur shone.",
+                "tag": "CONTRADICTION"
+              }
+            ],
+            [
+              {
+                "text": "Ari has never seen the sea.",
+                "tag": "FACT"
+              },
+              " ",
+              {
+                "text": "Last summer, he swam in the sea.",
+                "tag": "CONTRADICTION"
+              }
+            ]
+          ],
+          "test": "Can both be true? If not, go back to the fact and find the sentence that breaks it."
+        }
       },
       "weDo": [
         {

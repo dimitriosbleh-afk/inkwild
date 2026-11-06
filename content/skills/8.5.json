@@ -11,23 +11,243 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Editors hunt for blurry words, like thing.",
-            "show": "The **thing** woke me up."
+            "say": "Read my diary line. One word could mean almost anything. Can you find it?",
+            "show": [
+              "A ",
+              {
+                "text": "thing",
+                "tag": "BLURRY WORD"
+              },
+              " ",
+              {
+                "text": "woke",
+                "nudge": "Woke is clear. We know exactly what happened."
+              },
+              " me up at ",
+              {
+                "text": "seven",
+                "nudge": "Seven is exact. We know the time."
+              },
+              " o'clock."
+            ],
+            "ask": "Tap the word that could mean almost anything.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Thing could be a dog, a phone or a drum. That's a blurry word."
           },
           {
-            "say": "Thing could mean anything. So read the clues.",
-            "show": "It **ticked** all night and **rang at seven**."
+            "say": "To sharpen it, I read the clues. Then I pick the word that fits every clue.",
+            "show": [
+              "The ",
+              {
+                "text": "thing",
+                "tag": "BLURRY WORD",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "ticked all night",
+                "tag": "CLUE"
+              },
+              " and ",
+              {
+                "text": "rang at seven.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Which word fits every clue?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "phone",
+                  "reason": "Phones ring, but do they tick all night? Check every clue."
+                },
+                {
+                  "text": "alarm clock"
+                },
+                {
+                  "text": "rooster",
+                  "reason": "A rooster can wake you, but can it tick? Check every clue."
+                }
+              ]
+            },
+            "win": "Yes! A clock ticks and rings. It fits every clue, not just one."
           },
           {
-            "say": "A phone? Phones don't tick. A clock fits every clue."
+            "say": "Bad is blurry too. Bad how? The clues in Zed's review will tell me.",
+            "show": [
+              "Zed's game was ",
+              {
+                "text": "bad.",
+                "tag": "BLURRY WORD",
+                "lit": true
+              },
+              " It ",
+              {
+                "text": "froze every five minutes",
+                "tag": "CLUE"
+              },
+              " and ",
+              {
+                "text": "crashed twice.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Which word says exactly what was wrong?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "boring",
+                  "reason": "Boring means dull. The clues are about the game breaking."
+                },
+                {
+                  "text": "scary",
+                  "reason": "Scary means it frightens you. Check the clues: freezing and crashing."
+                },
+                {
+                  "text": "glitchy"
+                }
+              ]
+            },
+            "win": "Yes! Glitchy fits freezing and crashing. Now the reader knows exactly what went wrong."
           },
           {
-            "say": "Swap it in. Now the reader can picture it.",
-            "show": "The **alarm clock** woke me up."
+            "say": "Blurry words can hide amounts too. Read Gus's notes. One word doesn't say how many.",
+            "show": [
+              "Gus ",
+              {
+                "text": "found",
+                "nudge": "Found is clear. We know what Gus did."
+              },
+              " ",
+              {
+                "text": "three",
+                "nudge": "Three is exact. We know how many beetles."
+              },
+              " beetles and ",
+              {
+                "text": "some",
+                "tag": "BLURRY WORD"
+              },
+              " worms ",
+              {
+                "text": "under",
+                "nudge": "Under is clear. We know where they were."
+              },
+              " a log."
+            ],
+            "ask": "Tap the blurry word.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Some doesn't say how many worms. Two? Fifty? Words like some and lots make readers guess."
+          },
+          {
+            "say": "Verbs can be blurry too. Went doesn't show how something moved.",
+            "show": [
+              "The ghost ",
+              {
+                "text": "went",
+                "tag": "BLURRY WORD",
+                "lit": true
+              },
+              " down the hall. ",
+              {
+                "text": "Its feet never touched the floor.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "Which verb shows how the ghost moved?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "floated"
+                },
+                {
+                  "text": "stomped",
+                  "reason": "Stomping feet hit the floor hard. Check the clue about its feet."
+                },
+                {
+                  "text": "ran",
+                  "reason": "Running feet touch the floor. Check the clue again."
+                }
+              ]
+            },
+            "win": "Yes! Feet that never touch the floor mean the ghost floated."
+          },
+          {
+            "say": "Careful! Sharp doesn't mean bigger or fancier. Indi's draft says, 'The wave was big.'",
+            "show": [
+              {
+                "text": "The wave was very, very big.",
+                "nudge": "Very, very makes it bigger, but can you see how big?"
+              },
+              {
+                "text": "The wave was taller than the lighthouse.",
+                "tag": "SHARP"
+              },
+              {
+                "text": "The wave was the biggest wave ever.",
+                "nudge": "Biggest compared to what? It's a boast. We still can't picture it."
+              }
+            ],
+            "ask": "Tap the edit that lets you picture the wave.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! You can picture a lighthouse. Sharp means clear, not bigger or fancier.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "BLURRY WORD",
+              "means": "A word like thing, bad, some or went. It could mean almost anything."
+            },
+            {
+              "term": "CLUE",
+              "means": "Words nearby that tell you what the blurry word really means."
+            },
+            {
+              "term": "SHARP",
+              "means": "Fits every clue, so the reader can picture it exactly."
+            }
+          ],
+          "examples": [
+            [
+              "Zed's game was ",
+              {
+                "text": "bad.",
+                "tag": "BLURRY WORD"
+              },
+              " It ",
+              {
+                "text": "froze every five minutes.",
+                "tag": "CLUE"
+              }
+            ],
+            [
+              {
+                "text": "The wave was taller than the lighthouse.",
+                "tag": "SHARP"
+              }
+            ]
+          ],
+          "test": "Find the blurry word. Read the clues. Pick the word that fits every clue, not the fanciest."
+        }
       },
       "weDo": [
         {

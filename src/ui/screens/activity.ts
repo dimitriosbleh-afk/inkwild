@@ -11,6 +11,7 @@ import { SORT_LOOK } from '../../core/check';
 import { passage, widget } from '../formats';
 import { burst, shake } from '../fx';
 import { readable } from '../speech';
+import { moveCardBody, teachPlayer } from '../teach';
 import '../task.css';
 import { nextPrompt, writeScreen } from './write';
 
@@ -38,7 +39,7 @@ export function activityScreen(app: App, { branch }: { branch: BranchId }): Scre
 function header(app: App, branch: BranchId, a: Activity): HTMLElement {
   const back = h('button', { class: 'ghost', onclick: () => leave(app, branch) }, a.kind === 'keeper' ? 'RETREAT' : 'ISLAND');
   const teaching = a.kind === 'teach' && a.step === 0;
-  const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(moveCardFor(content.skill(skillOf(a)))) }, 'MOVE CARD');
+  const card = teaching ? null : h('button', { class: 'alt', onclick: () => openMoveCard(content.skill(skillOf(a))) }, 'MOVE CARD');
   return h('div', { class: 'row spread task-head' }, h('div', { class: 'row' }, back, card), h('div', { class: 'frame' }, content.branch(branch).island.toUpperCase()));
 }
 
@@ -61,45 +62,17 @@ function charting(app: App, branch: BranchId): ScreenView {
   };
 }
 
-/** Text with **marked** parts lit up, each in its own colour, and every word tappable to hear. */
-function lit(text: string): HTMLElement {
-  const out = h('div', { class: 'reading show' });
-  text.split(/(\*\*[^*]+\*\*)/).forEach((part, i) => {
-    if (!part) return;
-    const m = part.match(/^\*\*([^*]+)\*\*$/);
-    if (m) out.append(h('span', { class: `hl hl-${(Math.floor(i / 2) % 3) + 1}` }, readable(m[1]!)));
-    else out.append(readable(part));
-  });
-  return out;
-}
-
-/** What a Move card shows. Kept apart from Skill so a later teaching redesign can feed it something else. */
-export interface MoveCard {
-  name: string;
-  beats: readonly { say: string; show?: string }[];
-  why: string;
-}
-
-export function moveCardFor(skill: Skill): MoveCard {
-  return { name: skill.name, beats: skill.teach.iDo.beats, why: skill.why };
-}
-
-export function openMoveCard(card: MoveCard): void {
+export function openMoveCard(skill: Skill): void {
   const close = h('button', { class: 'big', onclick: () => overlay.remove() }, 'CLOSE');
   const overlay = h(
     'div',
-    { class: 'overlay move-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': `Move card: ${card.name}` },
+    { class: 'overlay move-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': `Move card: ${skill.name}` },
     h(
       'div',
       { class: 'panel pop move-card-panel' },
       h('div', { class: 'frame' }, 'MOVE CARD'),
-      h('h2', {}, card.name.toUpperCase()),
-      h(
-        'ol',
-        { class: 'move-beats' },
-        card.beats.map((b) => h('li', {}, h('div', { class: 'reading' }, readable(b.say)), b.show ? lit(b.show) : null)),
-      ),
-      h('div', { class: 'why' }, h('b', {}, 'WHY: '), readable(card.why)),
+      h('h2', {}, skill.name.toUpperCase()),
+      ...moveCardBody(skill),
       h('div', { class: 'actions move-card-close' }, close),
     ),
   );
@@ -107,40 +80,10 @@ export function openMoveCard(card: MoveCard): void {
 }
 
 function iDo(app: App, branch: BranchId, a: Extract<Activity, { kind: 'teach' }>): HTMLElement {
-  const skill = content.skill(a.skill);
-  const person = crew[skill.teach.crew];
-  const beats = skill.teach.iDo.beats;
-  let at = 0;
-  const portrait = crewCanvas(skill.teach.crew, 6);
-  portrait.classList.add('bob');
-  const bubble = h('div', { class: 'speech beat' });
-  const dots = h('div', { class: 'dots' });
-  const next = h('button', { class: 'big' }, 'NEXT');
-  const draw = () => {
-    const beat = beats[at]!;
-    bubble.replaceChildren(h('b', {}, person.name.toUpperCase()), h('div', { class: 'reading pop' }, readable(beat.say)), ...(beat.show ? [lit(beat.show)] : []));
-    dots.replaceChildren(...beats.map((_, i) => h('i', { class: i <= at ? 'on' : '' })));
-    next.textContent = at < beats.length - 1 ? 'NEXT' : 'MY TURN';
-  };
-  next.addEventListener('click', () => {
-    if (at < beats.length - 1) {
-      at++;
-      draw();
-      return;
-    }
+  return teachPlayer(content.skill(a.skill), () => {
     app.store.dispatch({ type: 'advance' });
     app.go({ name: 'activity', branch });
   });
-  draw();
-  return h(
-    'div',
-    { class: 'panel teach' },
-    h('div', { class: 'frame' }, `NEW MOVE · ${person.name.toUpperCase()} THE ${person.role.toUpperCase()}`),
-    h('h2', {}, skill.name.toUpperCase()),
-    h('div', { class: 'row teach-row' }, portrait, bubble),
-    h('div', { class: 'why' }, h('b', {}, 'WHY: '), readable(skill.why)),
-    h('div', { class: 'bar-actions' }, dots, next),
-  );
 }
 
 function said(cls: string, text: string): HTMLElement {

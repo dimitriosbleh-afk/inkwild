@@ -10,27 +10,225 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Must is super strong. You get no choice.",
-            "show": "You **must** wear a hat."
+            "say": "Three signs at the pool. They all talk about hats.",
+            "show": [
+              {
+                "text": "You must wear a hat.",
+                "tag": "STRONG"
+              },
+              {
+                "text": "You should wear a hat.",
+                "tag": "MEDIUM",
+                "nudge": "Should is good advice. You could still say no. Which gives no choice?"
+              },
+              {
+                "text": "You might need a hat.",
+                "tag": "WEAK",
+                "nudge": "Might means maybe. It's just possible. Which gives no choice?"
+              }
+            ],
+            "ask": "Tap the sign that gives you no choice.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Must is strong: no choice. Should is medium: good advice. Might is weak: just possible."
           },
           {
-            "say": "Should is medium. It's good advice, but you could say no.",
-            "show": "You **should** wear a hat."
+            "say": "These words also show how sure a writer is. Here are three forecasts.",
+            "show": [
+              {
+                "text": "It will rain.",
+                "tag": "STRONG",
+                "nudge": "Will is very sure. It leaves no doubt. Which is only a maybe?"
+              },
+              {
+                "text": "It will probably rain.",
+                "tag": "MEDIUM",
+                "nudge": "Probably is fairly sure. Which one is only a maybe?"
+              },
+              {
+                "text": "It might rain.",
+                "tag": "WEAK"
+              }
+            ],
+            "ask": "Tap the forecast that is least sure.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Might is not very sure. Will is very sure. Probably is in the middle: fairly sure."
           },
           {
-            "say": "Might and could are weak. It's just possible.",
-            "show": "You **might** need a hat."
+            "say": "Other words do the same jobs. Find the one that makes a rule.",
+            "show": [
+              "Players ",
+              {
+                "text": "have to",
+                "tag": "STRONG"
+              },
+              " wear boots. You ",
+              {
+                "text": "ought to",
+                "tag": "MEDIUM",
+                "nudge": "Ought to is like should: good advice. That's medium."
+              },
+              " bring water. It ",
+              {
+                "text": "may",
+                "tag": "WEAK",
+                "nudge": "May is like might: just possible. That's weak."
+              },
+              " get windy."
+            ],
+            "ask": "Tap the strong word.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! 'Have to' makes a rule, just like must."
           },
           {
-            "say": "Same for guessing. Will is sure. Might is a maybe.",
-            "show": "It **will** rain. It **might** rain."
+            "say": "Strong, medium and weak. Teachers call this high, medium and low modality.",
+            "show": [
+              "The bus ",
+              {
+                "text": "will",
+                "tag": "STRONG",
+                "nudge": "Will is very sure. That's high modality."
+              },
+              " leave at 8. It ",
+              {
+                "text": "should",
+                "tag": "MEDIUM",
+                "nudge": "Should is in the middle. That's medium modality."
+              },
+              " be on time. It ",
+              {
+                "text": "could",
+                "tag": "WEAK"
+              },
+              " be full."
+            ],
+            "ask": "Tap the word with low modality.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Could is low modality. It's only possible."
           },
           {
-            "say": "These are modal words. Persuaders love the strong ones."
+            "say": "Careful! Must can do a second job. Listen.",
+            "show": [
+              "Tully says: The lights are off. Gus ",
+              {
+                "text": "must",
+                "tag": "STRONG",
+                "lit": true
+              },
+              " be asleep."
+            ],
+            "ask": "What does must mean here?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Gus has no choice. Sleeping is a rule.",
+                  "reason": "Is anyone giving Gus a rule? Tully is guessing from a clue: the lights."
+                },
+                {
+                  "text": "Tully isn't sure at all.",
+                  "reason": "Must is a strong word. How sure does Tully sound?"
+                },
+                {
+                  "text": "Tully is very sure."
+                }
+              ]
+            },
+            "win": "Yes! Here must means very sure, not a rule. Must is strong either way.",
+            "trap": true
+          },
+          {
+            "say": "Careful! Big words sell. Small words hide in the small print.",
+            "show": [
+              "Gold Pass ",
+              {
+                "text": "will",
+                "tag": "STRONG",
+                "lit": true
+              },
+              " make you a better player!* (*It ",
+              {
+                "text": "may",
+                "tag": "WEAK"
+              },
+              " help some players.)"
+            ],
+            "ask": "How sure is the seller, really?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "fairly sure",
+                  "reason": "Fairly sure is probably. The small print says may. That's weaker."
+                },
+                {
+                  "text": "not very sure"
+                },
+                {
+                  "text": "very sure",
+                  "reason": "The big word is will. Now read the small print. What does may tell you?"
+                }
+              ]
+            },
+            "win": "Yes! The tiny 'may' is the seller's way out. Always read the small print.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "STRONG",
+              "means": "Must, have to, will, definitely. No choice, or very sure. High modality."
+            },
+            {
+              "term": "MEDIUM",
+              "means": "Should, ought to, probably. Good advice, or fairly sure."
+            },
+            {
+              "term": "WEAK",
+              "means": "Might, could, may. Just possible, or not very sure. Low modality."
+            }
+          ],
+          "examples": [
+            [
+              "You ",
+              {
+                "text": "must",
+                "tag": "STRONG"
+              },
+              " wear a hat. It ",
+              {
+                "text": "might",
+                "tag": "WEAK"
+              },
+              " rain."
+            ],
+            [
+              "The lights are off. Gus ",
+              {
+                "text": "must",
+                "tag": "STRONG"
+              },
+              " be asleep."
+            ]
+          ],
+          "test": "Find the must, should or might word. Is it a rule or a guess? How strong is it?"
+        }
       },
       "weDo": [
         {

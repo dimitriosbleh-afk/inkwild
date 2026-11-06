@@ -1,5 +1,5 @@
 import type { SkillFile } from './bank';
-import type { Body, Task } from './types';
+import type { Body, Step, Task } from './types';
 
 /**
  * Grammar and literature terms a Student may not know yet. Each matches its plural and simple variants.
@@ -19,7 +19,7 @@ export const TERMS: Record<string, RegExp> = {
   adverb: /\badverbs?\b/i,
   preposition: /\bprepositions?(al)?\b/i,
   pronoun: /\bpronouns?\b/i,
-  tense: /(past|present|future|verb|the|same|wrong|right) tenses?|tenses|tense (slips?|changes?|shifts?)/i,
+  tense: /\b(past|present|future|verb) tenses?\b|\btenses\b|\btense (slips?|changes?|shifts?)\b/i,
   modality: /\bmodal(ity|s)?\b/i,
   cohesion: /\bcohesi(on|ve)\b/i,
   nominalisation: /\bnominali[sz]ation\b/i,
@@ -41,7 +41,7 @@ export const TERMS: Record<string, RegExp> = {
   'evaluative language': /\bevaluative\b/i,
   'rhetorical question': /\brhetorical\b/i,
   emotive: /\bemotive\b/i,
-  'point of view': /(first|second|third)[- ]person/i,
+  'point of view': /\b(first|second|third)[- ]person\b/i,
   orientation: /\borientation\b/i,
   complication: /\bcomplication\b/i,
   resolution: /\bresolution\b/i,
@@ -83,26 +83,45 @@ function bodyLines(b: Body, label: string): [string, string][] {
   }
 }
 
-/** A term counts as taught once a crew member says it in the I do of this Skill or an earlier Skill on the same Island. */
-function taughtBy(file: SkillFile, files: SkillFile[]): Set<string> {
+const termsIn = (text: string) => new Set(Object.entries(TERMS).filter(([, re]) => re.test(text)).map(([term]) => term));
+const stepTeaches = (st: Step) => [st.say, st.win, ...(st.show ?? []).flatMap((p) => (typeof p !== 'string' && p.tag ? [p.tag] : []))];
+
+function islandSkills(file: SkillFile, files: SkillFile[], include: boolean): SkillFile[] {
   const [branch, order] = file.skill.id.split('.').map(Number);
-  const earlier = files.filter((f) => {
+  return files.filter((f) => {
     const [b, o] = f.skill.id.split('.').map(Number);
-    return b === branch && o! <= order!;
+    return b === branch && (include ? o! <= order! : o! < order!);
   });
-  const said = earlier.flatMap((f) => f.skill.teach.iDo.beats.map((b) => b.say)).join(' ');
-  return new Set(Object.entries(TERMS).filter(([, re]) => re.test(said)).map(([term]) => term));
+}
+
+/** A term counts as taught once a crew member says or labels it in the I do of this Skill or an earlier Skill on the same Island. */
+function taughtBy(file: SkillFile, files: SkillFile[]): Set<string> {
+  return termsIn(islandSkills(file, files, true).flatMap((f) => (f.skill.teach.iDo.steps ?? []).flatMap(stepTeaches)).join(' '));
+}
+
+/** Show before you name: a step may only ask about a term an earlier step, its own line or an earlier Skill has already given. */
+function askedTooSoon(file: SkillFile, files: SkillFile[]): Untaught[] {
+  const known = termsIn(islandSkills(file, files, false).flatMap((f) => (f.skill.teach.iDo.steps ?? []).flatMap(stepTeaches)).join(' '));
+  const out: Untaught[] = [];
+  (file.skill.teach.iDo.steps ?? []).forEach((st, i) => {
+    for (const t of termsIn(st.say)) known.add(t);
+    for (const t of termsIn(st.ask)) if (!known.has(t)) out.push({ term: t, where: `I do step ${i + 1} ask` });
+    for (const t of termsIn(stepTeaches(st).join(' '))) known.add(t);
+  });
+  return out;
 }
 
 /** Terms a Skill shows a Student before any crew member has explained them. */
 export function untaughtTerms(file: SkillFile, files: SkillFile[]): Untaught[] {
   const taught = taughtBy(file, files);
+  const card = file.skill.teach.iDo.card;
   const lines: [string, string][] = [
     ['why', file.skill.why],
+    ...(card ? card.terms.map((t) => ['Move card', t.means] as [string, string]).concat([['Move card', card.test]]) : []),
     ...file.skill.teach.weDo.flatMap((t, i) => taskLines(t, `weDo ${i + 1}`)),
     ...file.encounters.flatMap((e) => taskLines(e, e.id)),
   ];
-  const out: Untaught[] = [];
+  const out: Untaught[] = askedTooSoon(file, files);
   for (const [where, text] of lines)
     for (const [term, re] of Object.entries(TERMS)) if (!taught.has(term) && re.test(text)) out.push({ term, where });
   return out;

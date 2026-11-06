@@ -10,27 +10,218 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Most writers only tell us what a place looks like.",
-            "show": "The canteen was big and had lots of tables."
+            "say": "I'm painting the school canteen, but I need words first. Here's my first try.",
+            "show": [
+              {
+                "text": "The canteen was big and had lots of tables.",
+                "tag": "SIGHT"
+              }
+            ],
+            "ask": "Which sense does my line use?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "sound: what you hear",
+                  "reason": "Is there any noise in it? Read it again."
+                },
+                {
+                  "text": "sight: what you see"
+                },
+                {
+                  "text": "smell: what you sniff",
+                  "reason": "Nothing smells in it. There is just big and tables."
+                }
+              ]
+            },
+            "win": "Right. Only sight. You can see the canteen, but you're not in it yet."
           },
           {
-            "say": "Add a sound. Now we can hear it.",
-            "show": "The canteen **hummed with forty kids slurping noodles**."
+            "say": "So I added more. Read each line. Listen, sniff and feel.",
+            "show": [
+              {
+                "text": "The canteen hummed with kids slurping noodles.",
+                "tag": "SOUND"
+              },
+              {
+                "text": "The air stank of burnt toast.",
+                "tag": "SMELL",
+                "nudge": "You'd sniff that, not hear it. Which line makes a noise?"
+              },
+              {
+                "text": "The benches were sticky with sauce.",
+                "tag": "TOUCH",
+                "nudge": "You'd feel that on your skin. Which line makes a noise?"
+              }
+            ],
+            "ask": "Tap the line you could hear.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Humming and slurping are sounds. The other labels show smell and touch."
           },
           {
-            "say": "Add a smell. Smells stick in the memory.",
-            "show": "It **stank of burnt toast and pine floor cleaner**."
+            "say": "Smell is the sense writers forget most. Here is the pool on a hot day.",
+            "show": [
+              {
+                "text": "Whistles shrieked.",
+                "tag": "SOUND",
+                "nudge": "You'd hear that one. Which line could you sniff?"
+              },
+              {
+                "text": "The concrete burnt my feet.",
+                "tag": "TOUCH",
+                "nudge": "You'd feel that one on your skin. Which line could you sniff?"
+              },
+              {
+                "text": "The air stank of chlorine and hot chips.",
+                "tag": "SMELL"
+              }
+            ],
+            "ask": "Tap the smell.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Chlorine and hot chips. Now you're at the pool. Writers call these sensory details."
           },
           {
-            "say": "Add touch, or even taste.",
-            "show": "**The bench was sticky with old tomato sauce.**"
+            "say": "Careful! Zed's line says smelled. Is that enough to make it a smell detail?",
+            "show": [
+              {
+                "text": "The canteen smelled nice.",
+                "tag": "OPINION"
+              }
+            ],
+            "ask": "What's wrong with Zed's line?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Smell isn't a sense.",
+                  "reason": "It is! Sniffing is a sense. Look at the last word."
+                },
+                {
+                  "text": "It's too short.",
+                  "reason": "Short is fine. 'It stank of burnt toast' is short too. What's missing?"
+                },
+                {
+                  "text": "It doesn't say what it smelled of."
+                }
+              ]
+            },
+            "win": "Yes! Nice is an opinion. Burnt toast is a smell you can almost sniff. Say what you sense.",
+            "trap": true
           },
           {
-            "say": "Two or three senses is plenty. Pick surprising ones."
+            "say": "Let's fix my first try. Keep the canteen, but use senses other than sight.",
+            "show": [
+              {
+                "text": "The canteen was big and had lots of tables.",
+                "tag": "SIGHT",
+                "lit": true
+              }
+            ],
+            "ask": "Which line puts you inside the canteen?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The canteen was very, very big and nice.",
+                  "reason": "Very big is still sight, and nice is an opinion. Can you smell or feel anything?"
+                },
+                {
+                  "text": "The canteen stank of burnt toast, and the benches were sticky with sauce."
+                },
+                {
+                  "text": "The canteen had tables, chairs and a big blue door.",
+                  "reason": "That's a list of things to see. Is there a smell or a feel?"
+                }
+              ]
+            },
+            "win": "Yes! A smell and a touch. Now you're in there with the sticky sauce."
+          },
+          {
+            "say": "Zed says the best setting uses all five senses in one line. Read his beach.",
+            "show": [
+              {
+                "text": "I heard, smelt, tasted, touched and saw the noisy, smelly, salty, sticky, shiny beach.",
+                "tag": "TOO MUCH"
+              }
+            ],
+            "ask": "What's the problem with Zed's line?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "It uses no senses.",
+                  "reason": "Count them! It uses all five. Is it easy to picture?"
+                },
+                {
+                  "text": "Too many senses at once. You can't picture any of them."
+                },
+                {
+                  "text": "It's about the beach.",
+                  "reason": "Beaches are great places to write about. Count how many senses are in one line."
+                }
+              ]
+            },
+            "win": "Yes! Two or three senses is plenty. Now pick your place. What would you hear, smell and feel?",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SIGHT",
+              "means": "What you see. Good, but add another sense too."
+            },
+            {
+              "term": "SOUND",
+              "means": "What you hear, like whistles shrieking or kids slurping."
+            },
+            {
+              "term": "SMELL",
+              "means": "What you sniff. Say what it smells of, not just 'nice'."
+            },
+            {
+              "term": "TOUCH",
+              "means": "What your skin feels: hot, sticky, scratchy or freezing."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The air stank of chlorine,",
+                "tag": "SMELL"
+              },
+              " and ",
+              {
+                "text": "the concrete burnt my feet.",
+                "tag": "TOUCH"
+              }
+            ],
+            [
+              {
+                "text": "The canteen hummed with kids slurping noodles,",
+                "tag": "SOUND"
+              },
+              " and ",
+              {
+                "text": "the benches were sticky with sauce.",
+                "tag": "TOUCH"
+              }
+            ]
+          ],
+          "test": "Cover the sight words. Can you still hear, smell or feel the place? If not, add one."
+        }
       },
       "weDo": [
         {

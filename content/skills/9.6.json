@@ -10,26 +10,210 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some endings just stop. Others land like a perfect jump."
+            "say": "Tully's story starts: 'Tully never passed the ball to anyone.' Now it needs an ending.",
+            "show": [
+              {
+                "text": "Then everyone went home for tea.",
+                "nudge": "That's just the next thing that happened. Is anything different about Tully?"
+              },
+              {
+                "text": "With one second left, Tully passed to Mo, and he kicked the goal.",
+                "tag": "CHANGE"
+              },
+              {
+                "text": "And that was the game.",
+                "nudge": "It just stops. Did anything about Tully change?"
+              }
+            ],
+            "ask": "Tap the ending that feels finished.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It feels finished, like a perfect landing after a jump. Writers say an ending like that lands."
           },
           {
-            "say": "'It was all a dream' cheats the reader. Skip it."
+            "say": "Why does it work? Put the first line and the last line side by side.",
+            "show": [
+              {
+                "text": "Tully never passed the ball to anyone.",
+                "tag": "START",
+                "lit": true
+              },
+              " … ",
+              {
+                "text": "Tully passed to Mo.",
+                "tag": "CHANGE",
+                "lit": true
+              }
+            ],
+            "ask": "What is different about Tully at the end?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "She is taller now.",
+                  "reason": "The story never says that. Look at what she does with the ball."
+                },
+                {
+                  "text": "She is the coach now.",
+                  "reason": "She's still a player. What does she do that she never did before?"
+                },
+                {
+                  "text": "She passes the ball now."
+                }
+              ]
+            },
+            "win": "Yes! At the start she never passed. At the end she does. Tully has changed."
           },
           {
-            "say": "Land it by showing how the character changed.",
-            "show": "Tully, who never passed to anyone, **handed Mo the ball**."
+            "say": "Here's another way. This story starts: 'The bin was growling.' Look for a link at the end.",
+            "show": [
+              {
+                "text": "The bin went to the tip.",
+                "nudge": "That is an ending, but does it link back? Say the first line again."
+              },
+              {
+                "text": "Then everyone went inside.",
+                "nudge": "It doesn't link back to the start. Which one is about the bin's noise?"
+              },
+              {
+                "text": "The bin was purring.",
+                "tag": "CALLBACK"
+              }
+            ],
+            "ask": "Tap the ending that links back to the first line.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Growling at the start, purring at the end. Going back to the start is a callback."
           },
           {
-            "say": "Or circle back to your very first line.",
-            "show": "Start: **The bin was growling.** End: **The bin was purring.**"
+            "say": "Or end on a picture the reader can still see after the story ends.",
+            "show": [
+              {
+                "text": "It was a good day, and I was happy.",
+                "nudge": "Good and happy are telling words. Can you see anything?"
+              },
+              {
+                "text": "The last firefly blinked once, then flew out to sea.",
+                "tag": "PICTURE"
+              },
+              {
+                "text": "Then we all went to bed.",
+                "nudge": "It's true, but there's nothing to picture. Which one can you see?"
+              }
+            ],
+            "ask": "Tap the ending you can see in your head.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! You can see that firefly. A last picture stays with the reader after the story ends."
           },
           {
-            "say": "Or end on a picture that stays in your head.",
-            "show": "**The last firefly blinked once, then flew out to sea.**"
+            "say": "Zed ends every story like this. He says it is a great surprise.",
+            "show": [
+              {
+                "text": "Then I woke up. It was all a dream.",
+                "tag": "CHEAT ENDING"
+              }
+            ],
+            "ask": "What does a dream ending do to the story?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "It solves the problem.",
+                  "reason": "If it was a dream, the problem never happened. Was anything really solved?"
+                },
+                {
+                  "text": "It cancels everything that happened."
+                },
+                {
+                  "text": "It shows how the character changed.",
+                  "reason": "Nobody changed. They just woke up. Did any of it count?"
+                }
+              ]
+            },
+            "win": "Right. It feels like a cheat. Writers say an ending like that falls flat. Lucky surprises do the same.",
+            "trap": true
+          },
+          {
+            "say": "In my story, a possum is stuck in a drainpipe. The ending that solves it is the resolution.",
+            "show": [
+              {
+                "text": "A possum was stuck in the drainpipe.",
+                "tag": "START",
+                "lit": true
+              }
+            ],
+            "ask": "Which ending did I earn?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Suddenly the possum grew wings and flew out.",
+                  "reason": "Where did wings come from? I didn't do anything, so I didn't earn it."
+                },
+                {
+                  "text": "Then I woke up in my bed.",
+                  "reason": "A dream ending. It cancels the whole rescue."
+                },
+                {
+                  "text": "I built a ramp from an old plank, and the possum climbed out."
+                }
+              ]
+            },
+            "win": "Yes! I did it myself, so I earned it. Now land your story: a change, a callback or a picture."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CHANGE",
+              "means": "The character does something they never did at the start."
+            },
+            {
+              "term": "CALLBACK",
+              "means": "The last line links back to the first line."
+            },
+            {
+              "term": "PICTURE",
+              "means": "A last picture the reader can still see after the story ends."
+            },
+            {
+              "term": "CHEAT ENDING",
+              "means": "A dream or a lucky surprise. It cancels the story."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Start: The bin was growling.",
+                "tag": "START"
+              },
+              " … ",
+              {
+                "text": "End: The bin was purring.",
+                "tag": "CALLBACK"
+              }
+            ],
+            [
+              {
+                "text": "Tully, who never passed to anyone, handed Mo the ball.",
+                "tag": "CHANGE"
+              }
+            ]
+          ],
+          "test": "Read your first and last lines together. Is the problem solved? Has someone changed, or does it link back?"
+        }
       },
       "weDo": [
         {

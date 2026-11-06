@@ -71,8 +71,28 @@ describe('content rule checks', () => {
     }).join()).toMatch(/needs 4 options/);
   });
 
-  it('reject a Teach beat that is too long', () => {
-    expect(problemsAfter((f) => (f.skill.teach.iDo.beats[0]!.say = 'word '.repeat(20))).join()).toMatch(/keep it to 12/);
+  it('reject a teaching step that is too long', () => {
+    expect(problemsAfter((f) => (f.skill.teach.iDo.steps[0]!.say = 'word '.repeat(25))).join()).toMatch(/keep it to 20/);
+  });
+
+  it('reject a tap step whose wrong chunk has no nudge', () => {
+    expect(
+      problemsAfter((f) => {
+        const st = f.skill.teach.iDo.steps.find((s) => s.check.kind === 'tap')!;
+        const c = st.check;
+        if (c.kind !== 'tap') return;
+        const wrong = st.show!.filter((p) => typeof p !== 'string').find((_, k) => k !== c.answer);
+        if (wrong && typeof wrong !== 'string') delete wrong.nudge;
+      }).join(),
+    ).toMatch(/needs a nudge/);
+  });
+
+  it('reject a lesson that never shows the usual mistake', () => {
+    expect(problemsAfter((f) => f.skill.teach.iDo.steps.forEach((s) => delete s.trap)).join()).toMatch(/usual mistake/);
+  });
+
+  it('reject a Move card term the lesson never uses as a label', () => {
+    expect(problemsAfter((f) => (f.skill.teach.iDo.card.terms[0]!.term = 'NEVER SHOWN')).join()).toMatch(/never used as a label in the lesson steps/);
   });
 
   it('reject a Skill whose right answers are usually the longest option', () => {

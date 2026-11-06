@@ -11,27 +11,195 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Writers help you picture things by comparing them.",
-            "show": "**The mud** was like **chocolate pudding**."
+            "say": "I'm painting the mangrove mud for my mural. Here's how I described it.",
+            "show": [
+              {
+                "text": "The mud",
+                "tag": "THING",
+                "nudge": "That's the thing I'm describing. What did I say it was like?"
+              },
+              {
+                "text": "was like",
+                "tag": "LIKE OR AS",
+                "nudge": "Like links the two things. What comes after it?"
+              },
+              {
+                "text": "chocolate pudding.",
+                "tag": "COMPARED TO"
+              }
+            ],
+            "ask": "What is the mud compared to? Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The mud is compared to chocolate pudding. The word like links them."
           },
           {
-            "say": "Spot the joining word: like or as. That's a simile.",
-            "show": "The mud was **like** chocolate pudding."
+            "say": "Now think like a painter. Why pudding? Read my next line too.",
+            "show": [
+              "The mud was like chocolate pudding. My boots sank right in."
+            ],
+            "ask": "Why did I compare the mud to pudding?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "The mud was soft and gooey."
+                },
+                {
+                  "text": "The mud was sweet to eat.",
+                  "reason": "Mud isn't sweet, yuck! Read the next line. What did my boots do?"
+                },
+                {
+                  "text": "The mud was made of real chocolate.",
+                  "reason": "That's taking it literally, as if it's really true. It's mud, not pudding!"
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! Soft and gooey. Comparing two things using like or as is called a simile."
           },
           {
-            "say": "Now ask why. What do mud and pudding share?",
-            "show": "My boots **sank right in**."
+            "say": "Careful! This sentence has as in it. Zed says that makes it a simile.",
+            "show": [
+              "As soon as the bell rang, we ran to the boat."
+            ],
+            "ask": "Is anything compared here?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Say it aloud. As soon as tells you when. Is anything said to be like something else?"
+            },
+            "win": "Right! As soon as tells you when. Nothing is compared, so it isn't a simile.",
+            "trap": true
           },
           {
-            "say": "Both are soft and gooey! That's why the writer chose it."
+            "say": "Like can trick you too. Only one of these compares two things.",
+            "ask": "Which one is a simile?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "I like chocolate pudding.",
+                  "reason": "Here like means enjoy. Nothing is compared to anything."
+                },
+                {
+                  "text": "We ate treats like pudding and cake.",
+                  "reason": "Here like means such as. It's a list, not a comparison."
+                },
+                {
+                  "text": "Mo's custard looked like wet cement."
+                }
+              ],
+              "answer": 2
+            },
+            "win": "Yes! Mo's custard is compared to wet cement. Lumpy and grey. Yum?",
+            "trap": true
           },
           {
-            "say": "Careful. 'I like pudding' isn't a simile. Nothing is compared.",
-            "show": "I **like** pudding."
+            "say": "A simile compares two different kinds of thing. Watch out for plain facts.",
+            "show": [
+              {
+                "text": "Tully is as tall as Mo.",
+                "nudge": "Tully and Mo are both kids. That's just a fact about how tall they are."
+              },
+              {
+                "text": "Tully is taller than Gus.",
+                "nudge": "Two kids again. It's a plain fact, with no picture in it."
+              },
+              {
+                "text": "Tully is as tall as a lamp post.",
+                "tag": "SIMILE"
+              }
+            ],
+            "ask": "Tap the simile.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! A kid and a lamp post are different kinds of thing. That makes a picture."
+          },
+          {
+            "say": "Writers pick the simile that shows what they mean. The old ferry was very slow.",
+            "show": [
+              "The old ferry crossed the bay ..."
+            ],
+            "ask": "Which simile shows how slow the ferry was?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "like a jet ski",
+                  "reason": "Jet skis zoom! Think of something that moves very slowly."
+                },
+                {
+                  "text": "like a sleepy turtle"
+                },
+                {
+                  "text": "like a red fire engine",
+                  "reason": "A fire engine is red and loud. That's not about being slow."
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Sleepy turtles are slow. Ask what the two things share. That shows why the writer chose it."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SIMILE",
+              "means": "Compares two different kinds of thing, using like or as."
+            },
+            {
+              "term": "THING",
+              "means": "What the writer is describing."
+            },
+            {
+              "term": "LIKE OR AS",
+              "means": "The linking words. But 'as soon as' and 'I like' don't compare."
+            },
+            {
+              "term": "COMPARED TO",
+              "means": "The different thing. Ask what the two things share."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The mud",
+                "tag": "THING"
+              },
+              {
+                "text": "was like",
+                "tag": "LIKE OR AS"
+              },
+              {
+                "text": "chocolate pudding.",
+                "tag": "COMPARED TO"
+              }
+            ],
+            [
+              {
+                "text": "The egret",
+                "tag": "THING"
+              },
+              "stood ",
+              {
+                "text": "as still as",
+                "tag": "LIKE OR AS"
+              },
+              {
+                "text": "a statue.",
+                "tag": "COMPARED TO"
+              }
+            ]
+          ],
+          "test": "Find like or as. Are two different kinds of thing compared? Ask what they share."
+        }
       },
       "weDo": [
         {

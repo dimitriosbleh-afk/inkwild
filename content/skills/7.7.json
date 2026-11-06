@@ -10,27 +10,199 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A paragraph is a group of sentences about one thing."
+            "say": "Gus wrote his slime diary as one big paragraph. Where does it really change?",
+            "show": [
+              "Gus mixed a bucket of slime.",
+              {
+                "text": "It glowed green.",
+                "nudge": "Same day, same slime. Has anything changed yet?"
+              },
+              {
+                "text": "He hid it under his bed.",
+                "nudge": "Still the same day. Look for a jump in time."
+              },
+              {
+                "text": "Two weeks later, it had eaten his slippers.",
+                "tag": "TIME"
+              }
+            ],
+            "ask": "Tap where a new paragraph should start.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'Two weeks later' jumps in time. A time change starts a new paragraph."
           },
           {
-            "say": "When the time changes, start a new paragraph.",
-            "show": "**The next morning,** the snow had gone."
+            "say": "Places change too. Read it, then find the jump.",
+            "show": [
+              "Mo cooked pancakes in the hut.",
+              {
+                "text": "The pan began to smoke.",
+                "nudge": "Still in the hut. Has the place changed?"
+              },
+              {
+                "text": "Mo flapped a tea towel.",
+                "nudge": "Still in the hut. Look for a new place."
+              },
+              {
+                "text": "Down at the creek, Wren spotted a platypus.",
+                "tag": "PLACE"
+              }
+            ],
+            "ask": "Tap where a new paragraph should start.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! We moved from the hut to the creek. New place, new paragraph."
           },
           {
-            "say": "Start a new one when the place changes, too.",
-            "show": "**Back at the ship,** Mo was burning toast."
+            "say": "In a chat, every new speaker gets a new paragraph. Tully speaks first.",
+            "show": [
+              "'Who ate my pie?' asked Tully.",
+              {
+                "text": "She glared at the crumbs.",
+                "nudge": "That's still Tully. Has anyone else spoken yet?"
+              },
+              {
+                "text": "'Not me,' said Mo, licking his lips.",
+                "tag": "SPEAKER"
+              },
+              {
+                "text": "He had pastry on his chin.",
+                "nudge": "That's about Mo, after he speaks. Where did he start?"
+              }
+            ],
+            "ask": "Tap where the next paragraph starts.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Mo starts talking. Each new speaker gets a new paragraph, so readers know who's talking."
           },
           {
-            "say": "A new topic gets a new paragraph.",
-            "show": "Wombats have strong claws. **Wombat poo** is shaped like a cube."
+            "say": "Reports change topic too, often with no time or place word. Ask: what is it about?",
+            "show": [
+              "Pygmy possums are smaller than a mouse.",
+              {
+                "text": "Their fur is thick and grey.",
+                "nudge": "Still about the body. Where does the topic change?"
+              },
+              {
+                "text": "They feast on bogong moths.",
+                "tag": "TOPIC"
+              },
+              {
+                "text": "They also nibble seeds.",
+                "nudge": "That's about food too. But where did the food part begin?"
+              }
+            ],
+            "ask": "Tap where the topic changes.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The report moves from body to food. A new topic gets a new paragraph."
           },
           {
-            "say": "And every new speaker gets a new paragraph.",
-            "show": "'Who ate my pie?' asked Tully. **'Not me,' said Mo.**"
+            "say": "Careful! 'Meanwhile' sounds like a time word. But it means at the same time.",
+            "show": [
+              "Gus mixed slime in his lab. ",
+              {
+                "text": "Meanwhile, up on the roof,",
+                "tag": "PLACE"
+              },
+              " Zed flew a kite."
+            ],
+            "ask": "What changed at 'Meanwhile, up on the roof'?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "the time",
+                  "reason": "'Meanwhile' means at the same time. So the time stayed. What moved?"
+                },
+                {
+                  "text": "the place"
+                },
+                {
+                  "text": "the speaker",
+                  "reason": "Nobody is talking here. Look at where each part happens."
+                }
+              ]
+            },
+            "win": "Yes! Same time, new place. That's why it gets a new paragraph.",
+            "trap": true
+          },
+          {
+            "say": "Careful! Not every time word means a new paragraph. 'Then' is often just the next moment.",
+            "show": [
+              "Mo cracked an egg.",
+              {
+                "text": "Then he dropped the bowl.",
+                "nudge": "'Then' is a tiny step. Same kitchen, same moment. Look for a bigger change."
+              },
+              {
+                "text": "He swept up the mess.",
+                "nudge": "Still the same scene. Has the time, place or topic changed?"
+              },
+              {
+                "text": "Next summer, Mo opened a café.",
+                "tag": "TIME"
+              }
+            ],
+            "ask": "Tap where a new paragraph should start.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'Next summer' is a big jump. 'Then' just moves to the next moment.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TIME",
+              "means": "Jumps to a new time, like 'Two weeks later' or 'Next summer'."
+            },
+            {
+              "term": "PLACE",
+              "means": "Moves somewhere new, like 'Down at the creek'."
+            },
+            {
+              "term": "TOPIC",
+              "means": "Moves to a new idea, like from a possum's body to its food."
+            },
+            {
+              "term": "SPEAKER",
+              "means": "Someone new starts talking."
+            }
+          ],
+          "examples": [
+            [
+              "Gus hid the slime. ",
+              {
+                "text": "Two weeks later,",
+                "tag": "TIME"
+              },
+              " it had eaten his slippers."
+            ],
+            [
+              "Gus mixed slime. ",
+              {
+                "text": "Meanwhile, up on the roof,",
+                "tag": "PLACE"
+              },
+              " Zed flew a kite."
+            ]
+          ],
+          "test": "Compare the sentences either side. Has the time, place, topic or speaker changed? Start a new paragraph."
+        }
       },
       "weDo": [
         {

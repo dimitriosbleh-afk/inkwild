@@ -11,27 +11,186 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Before you believe a text, check who's behind it."
+            "say": "I'm reading about snakes at camp. First check: who wrote it?",
+            "show": [
+              {
+                "text": "Written by Dr Lee, a snake scientist.",
+                "tag": "TRUST IT MORE"
+              },
+              {
+                "text": "Written by Vinnie, who sells snake spray.",
+                "tag": "WARNING SIGN",
+                "nudge": "Selling spray doesn't make Vinnie a snake expert. Who studies snakes?"
+              },
+              {
+                "text": "Written by NoName123.",
+                "tag": "WARNING SIGN",
+                "nudge": "Who is NoName123? You can't tell what they know."
+              }
+            ],
+            "ask": "Tap the writer who really knows about snakes.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Dr Lee studies snakes. Ask: who wrote it, and do they know the topic?"
           },
           {
-            "say": "Who wrote it? Do they really know the topic?",
-            "show": "Written by **Dr Lee, snake scientist**."
+            "say": "Next check: what do they gain? Here's Vinnie's page.",
+            "show": [
+              "Snakes are everywhere this summer! ",
+              {
+                "text": "Buy Vinnie's snake spray, only $20!",
+                "tag": "WARNING SIGN"
+              }
+            ],
+            "ask": "What does Vinnie gain if you believe him?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "He wins a prize for writing.",
+                  "reason": "There's no prize. Look at what's for sale."
+                },
+                {
+                  "text": "He sells more spray."
+                },
+                {
+                  "text": "Nothing. He just likes snakes.",
+                  "reason": "Read the end. What is Vinnie selling?"
+                }
+              ]
+            },
+            "win": "Yes! Scared readers buy spray. When a writer gains, that's a warning sign."
           },
           {
-            "say": "What do they gain? Sellers want your money.",
-            "show": "**Buy my snake spray!** Snakes hate it!"
+            "say": "Next check: do they show evidence, or just say it?",
+            "show": [
+              {
+                "text": "Trust me, it works!",
+                "tag": "WARNING SIGN",
+                "nudge": "'Trust me' is just saying it. Where's the proof?"
+              },
+              {
+                "text": "In our test, 40 of 50 snakes stayed away.",
+                "tag": "TRUST IT MORE"
+              },
+              {
+                "text": "Everyone says it's great.",
+                "tag": "WARNING SIGN",
+                "nudge": "Who is everyone? Nobody counted anything."
+              }
+            ],
+            "ask": "Tap the evidence.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A test with numbers is evidence you can check. 'Trust me' is not."
           },
           {
-            "say": "Do they show evidence, or just say it?",
-            "show": "**We tested it on fifty snakes.**"
+            "say": "Careful! Old pages can still be right. Age matters for things that change, like beaches.",
+            "ask": "Which page from nine years ago should worry you most?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "one saying the moon goes round Earth",
+                  "reason": "The moon still goes round Earth. Some facts don't change."
+                },
+                {
+                  "text": "one saying the beach has no jellyfish"
+                },
+                {
+                  "text": "one saying bilbies have long ears",
+                  "reason": "Bilbies' ears haven't changed in nine years. Old is fine here."
+                }
+              ]
+            },
+            "win": "Yes! Jellyfish come and go, so old beach news could be wrong now. Ask: could it have changed?",
+            "trap": true
           },
           {
-            "say": "How old is it? Old news can be wrong now.",
-            "show": "Posted **nine years ago**."
+            "say": "Careful! Vinnie gains from sales, but he might still be right. How can you find out?",
+            "ask": "How could Zed check Vinnie's claim?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Read Vinnie's page again, slowly.",
+                  "reason": "Reading it twice won't change it. Who else could Zed check with?"
+                },
+                {
+                  "text": "Ask Vinnie if he's sure.",
+                  "reason": "Vinnie gains from your fear. Ask someone with nothing to sell."
+                },
+                {
+                  "text": "Read the ranger's snake count."
+                }
+              ]
+            },
+            "win": "Yes! Best check of all: what do other sources say? If the ranger agrees, Vinnie was right.",
+            "trap": true
+          },
+          {
+            "say": "Now use every check. Which source should I trust most?",
+            "ask": "Which should Zed trust most about snakes at camp this week?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "the camp ranger's snake count from Monday"
+                },
+                {
+                  "text": "Vinnie's ad: 'Snakes everywhere!'",
+                  "reason": "Vinnie gains from sales, and he shows no count."
+                },
+                {
+                  "text": "a snake book from 1990",
+                  "reason": "A scientist may have written it, but snake numbers change. Is it about this week?"
+                }
+              ]
+            },
+            "win": "Yes! The ranger knows snakes, gains nothing, counted them, and it's new."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TRUST IT MORE",
+              "means": "The writer knows the topic, gains nothing, shows evidence, and it's up to date."
+            },
+            {
+              "term": "WARNING SIGN",
+              "means": "A clue to check somewhere else: a seller, no proof, old news, or no name."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Ranger Mia counted the snakes on Monday.",
+                "tag": "TRUST IT MORE"
+              }
+            ],
+            [
+              {
+                "text": "Buy Vinnie's snake spray!",
+                "tag": "WARNING SIGN"
+              },
+              {
+                "text": "Trust me, it works!",
+                "tag": "WARNING SIGN"
+              }
+            ]
+          ],
+          "test": "Who wrote it? What do they gain? Evidence? Could it have changed? What do other sources say?"
+        }
       },
       "weDo": [
         {

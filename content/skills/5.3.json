@@ -10,26 +10,259 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Joining words aren't just glue. Each one has a job."
+            "say": "We played footy today. The joining word tells you how the two ideas connect.",
+            "show": [
+              {
+                "text": "We played footy",
+                "nudge": "That says what we did. Which part says why we did it?"
+              },
+              {
+                "text": "because",
+                "tag": "REASON",
+                "nudge": "'Because' is the joining word. It says a reason comes next. Tap the reason."
+              },
+              {
+                "text": "it was sunny."
+              }
+            ],
+            "ask": "Tap the reason. What was the weather like?",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Sunny weather is the reason. 'Because' is a reason word. It answers 'why?'"
           },
           {
-            "say": "Mud is the reason for boots. A reason needs because.",
-            "show": "I wore my boots **because** it was muddy."
+            "say": "Here are three footy days. One of them isn't what you'd expect.",
+            "show": [
+              {
+                "text": "We played footy because it was sunny.",
+                "tag": "REASON",
+                "nudge": "Sunny weather is a good reason to play. Nothing surprising there."
+              },
+              {
+                "text": "We played footy although it was pouring.",
+                "tag": "SURPRISE"
+              },
+              {
+                "text": "We played footy, and it was fun.",
+                "nudge": "Having fun at footy isn't a surprise. Which one would you not expect?"
+              }
+            ],
+            "ask": "Tap the sentence with a surprise in it.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! You'd expect rain to stop the game. 'Although' warns you a surprise is coming."
           },
           {
-            "say": "Thongs in the mud? That's a surprise. Use although.",
-            "show": "I wore my thongs **although** it was muddy."
+            "say": "'Until' is about time. It means 'up to that moment'.",
+            "show": [
+              {
+                "text": "We played footy"
+              },
+              {
+                "text": "until",
+                "tag": "TIME"
+              },
+              {
+                "text": "it got dark."
+              }
+            ],
+            "ask": "When did we stop playing?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "when it got dark"
+                },
+                {
+                  "text": "before it got dark",
+                  "reason": "'Until' means up to that moment. Did we stop early, or keep going right up to it?"
+                },
+                {
+                  "text": "we never stopped",
+                  "reason": "'Until' tells you there was a stopping point. What was it?"
+                }
+              ]
+            },
+            "win": "Yes! We kept playing right up to dark, then stopped. 'Until' answers 'up to when?'"
           },
           {
-            "say": "Until is about time. Unless sets a condition.",
-            "show": "We train **until** dark. No footy **unless** the rain stops."
+            "say": "'Unless' means 'if not'. Read it again with 'if' and 'not' in it.",
+            "show": [
+              {
+                "text": "We'll play footy"
+              },
+              {
+                "text": "unless",
+                "tag": "CONDITION"
+              },
+              {
+                "text": "it rains."
+              }
+            ],
+            "ask": "What does this sentence mean?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "We'll play until it rains.",
+                  "reason": "That's 'until'. Swap 'unless' for 'if not': we'll play if it does not rain."
+                },
+                {
+                  "text": "If it doesn't rain, we'll play."
+                },
+                {
+                  "text": "We'll play because it rains.",
+                  "reason": "Rain isn't the reason. Swap 'unless' for 'if not' and read it again."
+                }
+              ]
+            },
+            "win": "Yes! We only play if it doesn't rain. That's a condition: something that must be true first."
           },
           {
-            "say": "So ask first: reason, surprise, time or condition?"
+            "say": "'Until' and 'unless' sound alike, so lots of people mix them up. Try each one.",
+            "show": [
+              "Mo will miss the bus ___ he runs."
+            ],
+            "ask": "Which joining word fits?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "until",
+                  "reason": "Swap in 'up to the moment': miss the bus up to the moment he runs? That's strange."
+                },
+                {
+                  "text": "because",
+                  "reason": "Running isn't a reason to miss a bus. Try 'if he does not run'."
+                },
+                {
+                  "text": "unless"
+                }
+              ]
+            },
+            "win": "Yes! Mo misses the bus if he doesn't run. Remember the swap: 'unless' means 'if not'.",
+            "trap": true
+          },
+          {
+            "say": "Some joining words are longer. 'Provided that' and 'as long as' both mean 'only if'.",
+            "show": [
+              {
+                "text": "The rocket launched because the wind dropped.",
+                "tag": "REASON",
+                "nudge": "Because gives a reason. The wind dropping is why it launched."
+              },
+              {
+                "text": "The rocket launched although the wind was wild.",
+                "tag": "SURPRISE",
+                "nudge": "Although sets up a surprise. Find the one that means 'only if'."
+              },
+              {
+                "text": "The rocket will launch provided that the wind drops.",
+                "tag": "CONDITION"
+              }
+            ],
+            "ask": "Tap the sentence with a condition.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! It can only launch if the wind drops. 'Since' and 'given that' are reason words, like 'because'."
+          },
+          {
+            "say": "'Whereas' puts two different things side by side.",
+            "show": [
+              {
+                "text": "Mo loves spiders,"
+              },
+              {
+                "text": "whereas",
+                "tag": "DIFFERENCE"
+              },
+              {
+                "text": "Gus runs from them."
+              }
+            ],
+            "ask": "What does 'whereas' show here?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "how Mo and Gus are different"
+                },
+                {
+                  "text": "why Gus runs",
+                  "reason": "Mo loving spiders isn't why Gus runs. Look at Mo and Gus side by side."
+                },
+                {
+                  "text": "when Gus runs",
+                  "reason": "Nothing here says when. Look at Mo and Gus side by side."
+                }
+              ]
+            },
+            "win": "Yes! Mo loves spiders, Gus doesn't. 'Whereas' shows how two things are different."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "REASON",
+              "means": "Says why: 'because', 'since', 'given that'."
+            },
+            {
+              "term": "SURPRISE",
+              "means": "Not what you'd expect: 'although', 'even though'."
+            },
+            {
+              "term": "TIME",
+              "means": "Says when, or up to when: 'until', 'after', 'when'."
+            },
+            {
+              "term": "CONDITION",
+              "means": "Must be true first: 'unless' (if not), 'if', 'provided that', 'as long as'."
+            },
+            {
+              "term": "DIFFERENCE",
+              "means": "Two different things side by side: 'whereas'."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "We played footy"
+              },
+              {
+                "text": "although",
+                "tag": "SURPRISE"
+              },
+              {
+                "text": "it was pouring."
+              }
+            ],
+            [
+              {
+                "text": "We'll play footy"
+              },
+              {
+                "text": "unless",
+                "tag": "CONDITION"
+              },
+              {
+                "text": "it rains."
+              }
+            ]
+          ],
+          "test": "Read the whole sentence. Is it a reason, a surprise, a time or a condition? Pick that word."
+        }
       },
       "weDo": [
         {

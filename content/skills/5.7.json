@@ -10,27 +10,213 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some details won't fit in front of a noun.",
-            "show": "the **wombat**"
+            "say": "I've got two wombats in the clinic. Some details won't fit in front, so I hook them on after.",
+            "show": [
+              {
+                "text": "The wombat",
+                "tag": "NOUN",
+                "nudge": "That's the noun. Which words tell you which wombat?"
+              },
+              {
+                "text": "with the sore paw",
+                "tag": "PHRASE"
+              },
+              {
+                "text": "is asleep in my bag.",
+                "nudge": "That says what it is doing. Which words pick out the wombat?"
+              }
+            ],
+            "ask": "Tap the words that tell you which wombat.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'With the sore paw' sits right after the noun. It has no verb, so it's a phrase."
           },
           {
-            "say": "So I hook them on after.",
-            "show": "the wombat **with the sore paw**"
+            "say": "This detail has a verb in it. Find the action.",
+            "show": [
+              {
+                "text": "the wombat",
+                "tag": "NOUN",
+                "nudge": "That's the noun. Look in the detail after it for a verb."
+              },
+              {
+                "text": "that",
+                "nudge": "'That' hooks the detail on. Which word says what the wombat did?"
+              },
+              {
+                "text": "dug",
+                "tag": "ACTION"
+              },
+              {
+                "text": "under the fence",
+                "nudge": "That says where. Which word is the action?"
+              }
+            ],
+            "ask": "Tap the verb in the detail.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Dug is the verb. A detail with its own verb is a clause, like Indi's embedded clauses."
           },
           {
-            "say": "That bit has no action word. It's a phrase."
+            "say": "Three possums live at our place. Only one detail has its own verb.",
+            "show": [
+              "the possum",
+              {
+                "text": "in the roof",
+                "tag": "PHRASE",
+                "nudge": "In the roof says where it lives. Can you find a verb?"
+              },
+              ", the possum",
+              {
+                "text": "that bit Gus",
+                "tag": "CLAUSE"
+              },
+              "and the possum",
+              {
+                "text": "with one ear",
+                "tag": "PHRASE",
+                "nudge": "With one ear has no verb. Look for an action."
+              }
+            ],
+            "ask": "Tap the detail that is a clause.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Bit is a verb, so 'that bit Gus' is a clause. The other two are phrases."
           },
           {
-            "say": "This one has an action, dug. So it's a clause.",
-            "show": "the wombat that **dug** under the fence"
+            "say": "'Whose' hooks on something the noun owns.",
+            "show": [
+              "the girl ___ kite got stuck in the tree"
+            ],
+            "ask": "Which word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "who",
+                  "reason": "Say it: 'the girl who kite got stuck'. Something's wrong. The kite belongs to her."
+                },
+                {
+                  "text": "which",
+                  "reason": "'Which' is for animals and things, and the kite belongs to the girl."
+                },
+                {
+                  "text": "whose"
+                }
+              ]
+            },
+            "win": "Yes! The kite belongs to the girl. 'Whose' hooks on something the noun owns."
           },
           {
-            "say": "Keep it by its noun, or things get weird.",
-            "show": "I patted the fence **with the sore paw**. Poor fence!"
+            "say": "Keep the detail right next to its noun, or things get weird.",
+            "ask": "Which one says the joey has the sore tail?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Wren fed the joey in the kitchen with the sore tail.",
+                  "reason": "The detail sits after kitchen now. Does the kitchen have a sore tail?"
+                },
+                {
+                  "text": "Wren fed the joey with the sore tail in the kitchen."
+                },
+                {
+                  "text": "With the sore tail, Wren fed the joey in the kitchen.",
+                  "reason": "Now it sounds like Wren has the sore tail! Where should the detail sit?"
+                }
+              ]
+            },
+            "win": "Yes! The detail sits right after joey, so the sore tail belongs to the joey.",
+            "trap": true
+          },
+          {
+            "say": "Careful! A phrase after a noun can be about the action instead. Ask what it tells you.",
+            "show": [
+              {
+                "text": "Tully kicked"
+              },
+              {
+                "text": "the ball",
+                "tag": "NOUN",
+                "lit": true
+              },
+              {
+                "text": "with her left foot.",
+                "tag": "PHRASE",
+                "lit": true
+              }
+            ],
+            "ask": "What does 'with her left foot' tell you?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "how Tully kicked"
+                },
+                {
+                  "text": "which ball it was",
+                  "reason": "Does the ball have a left foot? Think about the kicking."
+                },
+                {
+                  "text": "where the ball went",
+                  "reason": "It doesn't say where. Whose foot is it, and what did it do?"
+                }
+              ]
+            },
+            "win": "Yes! It is about how she kicked. A detail about a noun tells you which one.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "NOUN",
+              "means": "The person, animal or thing the detail is about."
+            },
+            {
+              "term": "PHRASE",
+              "means": "Detail with no verb, like 'with the sore paw'."
+            },
+            {
+              "term": "CLAUSE",
+              "means": "Detail with its own verb. Starts with a word like who, which, that or whose."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "the wombat",
+                "tag": "NOUN"
+              },
+              {
+                "text": "with the sore paw",
+                "tag": "PHRASE"
+              }
+            ],
+            [
+              {
+                "text": "the girl",
+                "tag": "NOUN"
+              },
+              {
+                "text": "whose kite got stuck",
+                "tag": "CLAUSE"
+              }
+            ]
+          ],
+          "test": "Put the detail right after its noun. Has a verb? Clause. No verb? Phrase."
+        }
       },
       "weDo": [
         {

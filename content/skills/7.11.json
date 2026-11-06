@@ -10,25 +10,171 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Most texts have a usual shape.",
-            "show": "Recipe: **what you need**, then **the steps**."
+            "say": "Instructions usually just list the steps. I wrote teeth-brushing steps for the Preps, in a new way!",
+            "show": [
+              {
+                "text": "Dear Toothbrush,",
+                "tag": "BENT"
+              },
+              {
+                "text": "First, I wet you under the tap.",
+                "tag": "KEPT",
+                "nudge": "That's a step, in order. Instructions always have those. What's unusual?"
+              },
+              {
+                "text": "Then I add a pea of paste.",
+                "tag": "KEPT",
+                "nudge": "Another step. Find the part instructions don't usually have."
+              }
+            ],
+            "ask": "Tap the part instructions don't usually have.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Instructions don't start with 'Dear'. I kept the steps but bent the shape into a letter."
           },
           {
-            "say": "Sometimes an author bends that shape on purpose."
+            "say": "Authors bend a shape on purpose. So I always ask: why?",
+            "ask": "Why write the steps as a letter for the Preps?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Because I forgot some steps.",
+                  "reason": "The steps are all there, in order. Authors bend shapes on purpose."
+                },
+                {
+                  "text": "To make the steps fun, so Preps remember them."
+                },
+                {
+                  "text": "To hide the steps from readers.",
+                  "reason": "Every step is still there. What does a letter add?"
+                }
+              ]
+            },
+            "win": "Yes! A fun shape helps little kids remember. The job stays the same: brush your teeth."
           },
           {
-            "say": "Here's a recipe, bent into a poem.",
-            "show": "**Crack two eggs** and whisk them well. **Fry them** till the kitchen smells."
+            "say": "Stories usually go from start to end. This one starts at the end.",
+            "show": [
+              {
+                "text": "Mo stood in a puddle of melted ice-cream.",
+                "tag": "BENT",
+                "nudge": "That's how the story starts. But did it happen first? Look for 'earlier'."
+              },
+              " An hour earlier, ",
+              {
+                "text": "he bought six scoops."
+              },
+              " Then ",
+              {
+                "text": "he stopped to tie his shoe.",
+                "nudge": "'Then' means after something. What came before it?"
+              }
+            ],
+            "ask": "Tap what really happened first.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'An hour earlier' jumps back. Starting at the end makes you wonder how it happened."
           },
           {
-            "say": "First ask: what's the usual shape? Then: what changed?"
+            "say": "Careful! Zed thinks a bent text throws everything away. Check what stayed.",
+            "show": [
+              {
+                "text": "Today's bat forecast:",
+                "tag": "BENT"
+              },
+              {
+                "text": "hanging upside down until dusk, then a big chance of moths.",
+                "tag": "KEPT"
+              }
+            ],
+            "ask": "What did the writer keep from a usual report?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "the usual headings and lists",
+                  "reason": "There are no headings or lists. It sounds like a weather forecast. What's still true?"
+                },
+                {
+                  "text": "nothing at all",
+                  "reason": "Look again. Do you learn real things about bats?"
+                },
+                {
+                  "text": "the facts about bats"
+                }
+              ]
+            },
+            "win": "Yes! Bats hang upside down by day and hunt moths at night. The facts stayed. The shape changed.",
+            "trap": true
           },
           {
-            "say": "Last, ask why. What does the new shape give you?"
+            "say": "Authors can bend who is talking, too. Read this letter about a busy road.",
+            "show": [
+              {
+                "text": "Dear drivers,",
+                "nudge": "People write 'Dear' too. Find something only an animal would say."
+              },
+              {
+                "text": "please slow down near the creek.",
+                "nudge": "A person could ask that. Read on."
+              },
+              {
+                "text": "I dig my burrow beside it.",
+                "tag": "BENT"
+              }
+            ],
+            "ask": "Tap the first clue that the writer isn't a person.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! People don't dig burrows. The writer is a wombat, so you hear its side."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "KEPT",
+              "means": "What stays the same: the job, the facts or the steps."
+            },
+            {
+              "term": "BENT",
+              "means": "What the author changed: the shape, the order, or who is talking."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Dear Toothbrush,",
+                "tag": "BENT"
+              },
+              {
+                "text": "First, I wet you under the tap.",
+                "tag": "KEPT"
+              }
+            ],
+            [
+              {
+                "text": "Today's bat forecast:",
+                "tag": "BENT"
+              },
+              {
+                "text": "upside down until dusk, then moths.",
+                "tag": "KEPT"
+              }
+            ]
+          ],
+          "test": "Know the usual shape. Spot what changed. Then ask why the author changed it."
+        }
       },
       "weDo": [
         {

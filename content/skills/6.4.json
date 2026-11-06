@@ -10,28 +10,192 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some sentences start with a part that can't stand alone.",
-            "show": "**When the bell rang**, we ran."
+            "say": "Zed here. This part has a doer and an action. Does that make it a sentence? Say it out loud.",
+            "show": [
+              {
+                "text": "When",
+                "tag": "JOINING WORD"
+              },
+              " the bell rang"
+            ],
+            "ask": "Does it make sense on its own?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Say it again. When the bell rang... then what happened? Do you know?"
+            },
+            "win": "Right! It leaves you waiting. When is a joining word, also called a conjunction."
           },
           {
-            "say": "That's a dependent clause. It leans on the main part.",
-            "show": "When the bell rang, **we ran**."
+            "say": "A part with a doer and an action is called a clause. This sentence has three.",
+            "show": [
+              {
+                "text": "When the bell rang,",
+                "tag": "DEPENDENT CLAUSE",
+                "nudge": "When the bell rang... then what? It leaves you waiting. Try another part."
+              },
+              {
+                "text": "we ran outside",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "because it was snowing.",
+                "tag": "DEPENDENT CLAUSE",
+                "nudge": "Because it was snowing... what happened? It leaves you waiting."
+              }
+            ],
+            "ask": "Tap the part that makes sense on its own.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! That's the main clause (some books say independent clause). The other two are dependent clauses."
           },
           {
-            "say": "Put a comma where the dependent clause ends.",
-            "show": "When the bell rang**,** we ran."
+            "say": "A dependent clause at the start needs a comma where it ends.",
+            "show": [
+              "When ",
+              {
+                "text": "Zed",
+                "nudge": "When Zed... did what? The when part isn't finished yet."
+              },
+              " ",
+              {
+                "text": "sneezed"
+              },
+              " his ",
+              {
+                "text": "game",
+                "nudge": "That comma would split the game from what it did. Where does the when part end?"
+              },
+              " froze."
+            ],
+            "ask": "Tap the word the comma goes after.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'When Zed sneezed' is the dependent clause. The comma goes where it ends."
           },
           {
-            "say": "Miss it, and the crew seems to eat the yeti!",
-            "show": "While the crew ate the yeti watched."
+            "say": "Miss the comma, and this one sounds like the crew ate the yeti!",
+            "show": [
+              "While the ",
+              {
+                "text": "crew",
+                "nudge": "While the crew... did what? The while part isn't finished yet."
+              },
+              " ",
+              {
+                "text": "ate"
+              },
+              " the ",
+              {
+                "text": "yeti",
+                "nudge": "Now the crew ate the yeti! Where does the while part really end?"
+              },
+              " watched."
+            ],
+            "ask": "Tap the word the comma goes after, so the yeti is safe.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Phew! While the crew ate, the yeti watched. Nobody eats the yeti.",
+            "trap": true
           },
           {
-            "say": "Comma in. Now the yeti is just watching.",
-            "show": "While the crew ate**,** the yeti watched."
+            "say": "Long one! Find the doer of the main clause. The comma goes just before it.",
+            "show": [
+              "As soon as ",
+              {
+                "text": "the last snowflake",
+                "nudge": "The snowflake belongs to the 'as soon as' part. Who does the main thing?"
+              },
+              " ",
+              {
+                "text": "fell",
+                "nudge": "Fell is an action, not a doer. Who did something in the main clause?"
+              },
+              " ",
+              {
+                "text": "the penguins",
+                "tag": "DOER"
+              },
+              " came out to play."
+            ],
+            "ask": "Tap the doer of the main clause.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The main clause starts with the penguins. So the comma goes after fell, just before it."
+          },
+          {
+            "say": "Gus always adds a comma. But in these, the main clause comes first.",
+            "ask": "Which one is punctuated right?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "We ran outside when the bell rang."
+                },
+                {
+                  "text": "We ran outside, when the bell rang.",
+                  "reason": "The main clause comes first here, so nothing is hanging on at the start. Does it need a comma?"
+                },
+                {
+                  "text": "We ran outside. When the bell rang.",
+                  "reason": "Say 'When the bell rang.' alone. It leaves you waiting, so it can't be a sentence."
+                }
+              ]
+            },
+            "win": "Yes! Main clause first? No comma needed. The comma is for a dependent clause at the start.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "DEPENDENT CLAUSE",
+              "means": "Starts with a joining word like when or if. It leaves you waiting."
+            },
+            {
+              "term": "MAIN CLAUSE",
+              "means": "Makes sense on its own. It could be a sentence by itself."
+            },
+            {
+              "term": "JOINING WORD",
+              "means": "A small word like when, if, because, although or while."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "When the bell rang,",
+                "tag": "DEPENDENT CLAUSE"
+              },
+              {
+                "text": "we ran outside.",
+                "tag": "MAIN CLAUSE"
+              }
+            ],
+            [
+              {
+                "text": "We ran outside",
+                "tag": "MAIN CLAUSE"
+              },
+              {
+                "text": "when the bell rang.",
+                "tag": "DEPENDENT CLAUSE"
+              }
+            ]
+          ],
+          "test": "Dependent clause first? Comma where it ends. Main clause first? No comma."
+        }
       },
       "weDo": [
         {

@@ -11,25 +11,203 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Sometimes a text shows what happened, but not why.",
-            "show": "Mo **opened every window** in the house."
+            "say": "Texts show you what happened, but not always why. Why did Mo open every window?",
+            "show": [
+              {
+                "text": "Mo opened every window.",
+                "nudge": "That's what happened. Find a clue to why it happened."
+              },
+              " ",
+              {
+                "text": "The kitchen was full of smoke.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "The cat was asleep.",
+                "nudge": "A sleeping cat doesn't explain open windows. Try another."
+              }
+            ],
+            "ask": "Tap the clue that helps explain why.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Smoke is the clue. Now I add what I know about smoke."
           },
           {
-            "say": "So look for a clue nearby.",
-            "show": "Mo opened every window. **The kitchen was full of smoke.**"
+            "say": "I know smoke stings your eyes. Open windows let it out.",
+            "show": [
+              "Mo opened every window. ",
+              {
+                "text": "The kitchen was full of smoke.",
+                "tag": "CLUE",
+                "lit": true
+              }
+            ],
+            "ask": "So why did Mo open every window?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "to let the smoke out"
+                },
+                {
+                  "text": "to let the cat out",
+                  "reason": "The cat was asleep. Look at the clue about the kitchen."
+                },
+                {
+                  "text": "to wave to his friends",
+                  "reason": "No clue in the text is about friends. Look at the clue about the kitchen."
+                }
+              ]
+            },
+            "win": "Yes! The text never says why. I worked it out from a clue. That's an inference."
           },
           {
-            "say": "Add what you know. Smoke fills a room when food burns."
+            "say": "Now I check. Does another clue in the text fit my reason?",
+            "show": [
+              "My reason: ",
+              {
+                "text": "Mo wanted the smoke out.",
+                "tag": "INFERENCE",
+                "lit": true,
+                "nudge": "That's my reason. Find a clue in the text that fits it."
+              },
+              " The text: ",
+              {
+                "text": "Mo's socks were red.",
+                "nudge": "Red socks don't make smoke. Find a clue about the smoke."
+              },
+              " ",
+              {
+                "text": "The toast was black and smoking.",
+                "tag": "CHECK"
+              },
+              " ",
+              {
+                "text": "It was Tuesday.",
+                "nudge": "Tuesday doesn't explain smoke. Find a clue about the smoke."
+              }
+            ],
+            "ask": "Tap the clue that fits my reason.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Burnt toast explains the smoke. My reason fits."
           },
           {
-            "say": "So the why: Mo burnt something and needed fresh air."
+            "say": "Zed has another idea: Mo was just hot. Here's the start of the story.",
+            "show": [
+              {
+                "text": "It was a freezing winter morning.",
+                "tag": "CHECK"
+              },
+              " ",
+              {
+                "text": "Mo opened every window.",
+                "nudge": "That's what Mo did. Which clue shows he wasn't hot?"
+              },
+              " ",
+              {
+                "text": "The kitchen was full of smoke.",
+                "nudge": "Smoke is the real reason. Which clue shows Mo wasn't hot?"
+              }
+            ],
+            "ask": "Tap the clue that shows Zed's idea is wrong.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Nobody is hot on a freezing morning. A reason from your head must fit ALL the clues.",
+            "trap": true
           },
           {
-            "say": "Check it. The text never said it, but the clues do."
+            "say": "One more. Pick the reason that every clue backs up.",
+            "show": [
+              {
+                "text": "Pickle hid under the bed and shook."
+              },
+              " ",
+              {
+                "text": "Outside, thunder boomed."
+              },
+              " ",
+              {
+                "text": "When the storm stopped, he came out."
+              }
+            ],
+            "ask": "Why did Pickle hide?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "He was scared of the thunder."
+                },
+                {
+                  "text": "He was in trouble for chewing a shoe.",
+                  "reason": "Dogs do hide when they're in trouble. But does any clue say he chewed something?"
+                },
+                {
+                  "text": "He was playing hide and seek.",
+                  "reason": "Playing dogs wag and bounce. Pickle shook. Look at when he came out."
+                }
+              ]
+            },
+            "win": "Yes! Thunder boomed, and he came out when it stopped. Every clue fits."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLUE",
+              "means": "Words in the text that point to the reason."
+            },
+            {
+              "term": "INFERENCE",
+              "means": "The why you work out. The text never says it."
+            },
+            {
+              "term": "CHECK",
+              "means": "Another clue. Your reason must fit every clue, not just one."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The kitchen was full of smoke.",
+                "tag": "CLUE"
+              },
+              " → ",
+              {
+                "text": "Mo wanted the smoke out.",
+                "tag": "INFERENCE"
+              }
+            ],
+            [
+              {
+                "text": "Thunder boomed.",
+                "tag": "CLUE"
+              },
+              " ",
+              {
+                "text": "Pickle came out when it stopped.",
+                "tag": "CHECK"
+              },
+              " → ",
+              {
+                "text": "He was scared of the thunder.",
+                "tag": "INFERENCE"
+              }
+            ]
+          ],
+          "test": "Ask why. Find the clue, add what you know, then check it fits ALL the clues."
+        }
       },
       "weDo": [
         {

@@ -11,25 +11,190 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some comparisons are so old they're worn out.",
-            "show": "My feet were **as cold as ice**."
+            "say": "Here's the first line of my footy report. It was freezing at the ground.",
+            "show": [
+              "At the footy, my feet were ",
+              {
+                "text": "as cold as ice.",
+                "tag": "CLICHÉ"
+              }
+            ],
+            "ask": "Where else do people say as cold as ice?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "about almost anything cold: hands, drinks, wind"
+                },
+                {
+                  "text": "only about real ice cubes",
+                  "reason": "People say it about cold hands and cold drinks too. It's not about ice."
+                },
+                {
+                  "text": "only at the footy",
+                  "reason": "There's no ice at the footy. People say it everywhere, about anything."
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! It's a set saying, used for anything cold. It's been said so often it's worn out."
           },
           {
-            "say": "A worn-out comparison is called a cliché."
+            "say": "A worn-out comparison like that is called a cliché. Readers skip right past it.",
+            "show": [
+              {
+                "text": "as quiet as an empty classroom",
+                "tag": "FRESH",
+                "nudge": "That's a new picture. You can see the empty desks."
+              },
+              {
+                "text": "as quiet as a mouse",
+                "tag": "CLICHÉ"
+              },
+              {
+                "text": "as quiet as socks on carpet",
+                "tag": "FRESH",
+                "nudge": "That's new too. It isn't a set saying."
+              }
+            ],
+            "ask": "Tap the cliché.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! People say quiet as a mouse about anything. The others are new, so they're fresh."
           },
           {
-            "say": "Readers have heard it so often, they skip right past."
+            "say": "Let's swap my cliché. The best fresh picture comes from inside the scene.",
+            "show": [
+              {
+                "text": "At the footy,",
+                "tag": "SCENE",
+                "lit": true
+              },
+              " my feet were as cold as ..."
+            ],
+            "ask": "Which fresh picture comes from the footy?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "as cold as a penguin's toes",
+                  "reason": "That's fresh, but there are no penguins at the footy. Look around the ground."
+                },
+                {
+                  "text": "as cold as the metal seats in the stand"
+                },
+                {
+                  "text": "as cold as ice",
+                  "reason": "That's the cliché we're swapping out."
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! I'm sitting on those cold metal seats. The picture comes from inside the scene.",
+            "trap": true
           },
           {
-            "say": "Swap it for a fresh picture that fits the scene.",
-            "show": "At the footy, my feet were **as cold as two meat pies from the freezer**."
+            "say": "Careful! Being in the scene isn't enough. The picture has to fit the detail too.",
+            "show": [
+              {
+                "text": "At the beach,",
+                "tag": "SCENE",
+                "lit": true
+              },
+              " the sand was as hot as ..."
+            ],
+            "ask": "Which picture is in the scene AND fits?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "the cold drinks in the esky",
+                  "reason": "The esky is at the beach, but cold drinks aren't hot! It has to fit."
+                },
+                {
+                  "text": "a volcano in a movie",
+                  "reason": "That's hot, but there's no volcano at the beach. Look around the scene."
+                },
+                {
+                  "text": "the barbecue plate beside us"
+                }
+              ],
+              "answer": 2
+            },
+            "win": "Yes! The barbecue plate is at the beach, and it's hot. It's in the scene, and it fits.",
+            "trap": true
           },
           {
-            "say": "Footy, so meat pies. The fresh picture fits where you are."
+            "say": "Some idioms are clichés too. They're fine when you talk. In a story, a fresh picture works harder.",
+            "show": [
+              {
+                "text": "The queue curled round the canteen like a sleepy python.",
+                "tag": "FRESH",
+                "nudge": "That's a new picture, made for this scene. Look for a set saying."
+              },
+              {
+                "text": "Mo took to cooking like a duck to water.",
+                "tag": "CLICHÉ"
+              },
+              {
+                "text": "His pancakes flopped like wet beach towels.",
+                "tag": "FRESH",
+                "nudge": "That's a new picture too. Look for a set saying."
+              }
+            ],
+            "ask": "Tap the cliché.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Like a duck to water is an idiom and a cliché. Fresh pictures make readers look."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLICHÉ",
+              "means": "A set saying used so often it's worn out. Readers skip past it."
+            },
+            {
+              "term": "FRESH",
+              "means": "A new picture, made for this scene, that fits its details."
+            },
+            {
+              "term": "SCENE",
+              "means": "Where you are and what's around you. Find your picture there."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "At the footy,",
+                "tag": "SCENE"
+              },
+              " my feet were ",
+              {
+                "text": "as cold as ice.",
+                "tag": "CLICHÉ"
+              }
+            ],
+            [
+              {
+                "text": "At the footy,",
+                "tag": "SCENE"
+              },
+              " my feet were ",
+              {
+                "text": "as cold as the metal seats in the stand.",
+                "tag": "FRESH"
+              }
+            ]
+          ],
+          "test": "Is it a set saying? Swap in a picture from the scene that fits the details."
+        }
       },
       "weDo": [
         {

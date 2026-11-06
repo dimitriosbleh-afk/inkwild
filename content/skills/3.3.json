@@ -10,27 +10,196 @@
     "teach": {
       "crew": "rescuer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Backing holds up a claim. It comes in three kinds.",
-            "show": "Claim: **Bilbies need our help.**"
+            "say": "Bilbies need our help! Here are three pieces of backing. They're all different kinds.",
+            "show": [
+              {
+                "text": "Rangers counted half as many bilbies as in 2015.",
+                "tag": "NUMBERS OR RECORDS"
+              },
+              {
+                "text": "Dr Lin, a bilby scientist, says so.",
+                "tag": "EXPERT",
+                "nudge": "This is what one person says. Where is the count?"
+              },
+              {
+                "text": "Last week, a bilby lost her burrow.",
+                "tag": "EXAMPLE",
+                "nudge": "This is one bilby, one time. Where's a count of lots?"
+              }
+            ],
+            "ask": "Tap the numbers or records you could check.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! A ranger count is numbers or records. You could look it up and check it."
           },
           {
-            "say": "Evidence is numbers or records you could check.",
-            "show": "**Rangers counted half as many bilbies as ten years ago.**"
+            "say": "Now look at the other two pieces.",
+            "show": [
+              {
+                "text": "Rangers counted half as many bilbies as in 2015.",
+                "tag": "NUMBERS OR RECORDS",
+                "lit": true,
+                "nudge": "That's the ranger count. Which one is a person who knows?"
+              },
+              {
+                "text": "Dr Lin, a bilby scientist, says so.",
+                "tag": "EXPERT"
+              },
+              {
+                "text": "Last week, a bilby lost her burrow.",
+                "tag": "EXAMPLE",
+                "nudge": "That's a bilby, not someone who studies bilbies. Try again."
+              }
+            ],
+            "ask": "Tap the backing from someone who knows a lot.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Dr Lin studies bilbies, so she's an expert. The burrow story is one real case: an example."
           },
           {
-            "say": "An expert is someone who knows a lot about it.",
-            "show": "**Dr Lin, a bilby scientist,** says they need help."
+            "say": "All three kinds are evidence. But our piles use 'evidence' for numbers or records only.",
+            "show": [
+              {
+                "text": "Rangers counted 40 bilbies.",
+                "tag": "NUMBERS OR RECORDS"
+              }
+            ],
+            "ask": "Which pile does the ranger count go in?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "example: one real case",
+                  "reason": "Is it one thing that happened once? It's a count of many."
+                },
+                {
+                  "text": "evidence: numbers or records"
+                },
+                {
+                  "text": "expert: someone who knows",
+                  "reason": "Is a person who knows a lot talking? It's a count."
+                }
+              ]
+            },
+            "win": "Yes! Counts and records go in the evidence pile. Experts and examples have their own piles."
           },
           {
-            "say": "An example is one real case that shows it.",
-            "show": "**Last week, a bilby called Pip lost her burrow in a fire.**"
+            "say": "Careful! This one has a number in it. Is it numbers or records?",
+            "show": [
+              {
+                "text": "Last Tuesday, Mo's custard set off three smoke alarms.",
+                "tag": "EXAMPLE"
+              }
+            ],
+            "ask": "What kind of backing is it?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "evidence: numbers or records",
+                  "reason": "It happened once, last Tuesday. Is it a count of lots of times?"
+                },
+                {
+                  "text": "expert: someone who knows",
+                  "reason": "Is anyone who knows a lot talking here?"
+                },
+                {
+                  "text": "example: one real case"
+                }
+              ]
+            },
+            "win": "Yes! It's one thing that happened, one time. A number doesn't make it a count.",
+            "trap": true
           },
           {
-            "say": "So ask: numbers, a person who knows, or one case?"
+            "say": "Backing can be strong or weak. I say fruit cups would sell well at the canteen.",
+            "ask": "Which backing is the weakest?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "Sam ate a fruit cup once and liked it."
+                },
+                {
+                  "text": "80 of 100 kids said they'd buy one.",
+                  "reason": "Eighty kids is a big count you could check. That's strong."
+                },
+                {
+                  "text": "The canteen's records show fruit cups sold out every day.",
+                  "reason": "Records you can check are strong. Which one is just one kid?"
+                }
+              ]
+            },
+            "win": "Yes! One kid, one time, might be a fluke. One example on its own is weak.",
+            "trap": true
+          },
+          {
+            "say": "Strong backing can be checked. You can find out who said it.",
+            "ask": "Which expert could you check up on?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "my mate's uncle, who 'knows heaps'",
+                  "reason": "Who is he? What does he know? You can't check."
+                },
+                {
+                  "text": "a man online who says he's an expert",
+                  "reason": "Anyone can say that online. Can you find out who he is?"
+                },
+                {
+                  "text": "Dr Lin, a bilby scientist at Bluster Zoo"
+                }
+              ]
+            },
+            "win": "Yes! You can look up Dr Lin and her job. Backing you can check is stronger."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "NUMBERS OR RECORDS",
+              "means": "Counts, tests or records you can check. The piles call this evidence."
+            },
+            {
+              "term": "EXPERT",
+              "means": "Someone who knows a lot about the topic, like a scientist."
+            },
+            {
+              "term": "EXAMPLE",
+              "means": "One real case: one thing that happened, one time."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Rangers counted half as many bilbies as in 2015.",
+                "tag": "NUMBERS OR RECORDS"
+              }
+            ],
+            [
+              {
+                "text": "Dr Lin, a bilby scientist, says they need help.",
+                "tag": "EXPERT"
+              },
+              {
+                "text": "Last week, a bilby lost her burrow.",
+                "tag": "EXAMPLE"
+              }
+            ]
+          ],
+          "test": "A count, someone who knows, or one case? Then ask: can I check it? Is it enough?"
+        }
       },
       "weDo": [
         {

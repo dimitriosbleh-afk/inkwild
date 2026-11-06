@@ -11,26 +11,201 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Feelings come and go. Character is what someone is usually like."
+            "say": "Indi here! Writers rarely say what someone is like. They leave clues. Clue one: what they do.",
+            "show": [
+              "Pip",
+              {
+                "text": "gave her last lolly to the new kid.",
+                "tag": "WHAT THEY DO"
+              }
+            ],
+            "ask": "What is Pip like?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "greedy",
+                  "reason": "A greedy kid keeps the lolly. What did Pip do with hers?"
+                },
+                {
+                  "text": "kind"
+                },
+                {
+                  "text": "bossy",
+                  "reason": "Pip didn't tell anyone what to do. Look at what she gave away."
+                }
+              ]
+            },
+            "win": "Yes! Giving away her last lolly shows Pip is kind. What a character does is a big clue."
           },
           {
-            "say": "Clue one: what do they do?",
-            "show": "Pip **gave her last lolly** to the new kid."
+            "say": "Clue two is what they say. Clue three is how other people react to them.",
+            "show": [
+              {
+                "text": "Pip handed out the oranges.",
+                "tag": "WHAT THEY DO",
+                "nudge": "That's what Pip does. Look for what the other kids do."
+              },
+              {
+                "text": "'You have the big one,' said Pip.",
+                "tag": "WHAT THEY SAY",
+                "nudge": "That's what Pip says. Look for what the other kids do."
+              },
+              {
+                "text": "The whole team cheered for Pip.",
+                "tag": "HOW OTHERS REACT"
+              }
+            ],
+            "ask": "Tap how the other kids react to Pip.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The team cheers for her. How others treat someone tells you what they're like."
           },
           {
-            "say": "Clue two: what do they say?",
-            "show": "**'You can go first,'** said Pip."
+            "say": "Pick the word that fits the clues exactly. Some words are close, but wrong.",
+            "show": [
+              "Priya burnt the soup again.",
+              {
+                "text": "'My recipe is perfect,' she said.",
+                "tag": "WHAT THEY SAY"
+              },
+              {
+                "text": "She said no to every idea.",
+                "tag": "WHAT THEY DO"
+              }
+            ],
+            "ask": "What is Priya like?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "brave",
+                  "reason": "Brave means doing something scary. Is anything scary here?"
+                },
+                {
+                  "text": "careful",
+                  "reason": "Careful people listen and check. Priya says no to every idea."
+                },
+                {
+                  "text": "stubborn"
+                }
+              ]
+            },
+            "win": "Yes! She won't listen or change, even when it goes wrong. That's stubborn."
           },
           {
-            "say": "Clue three: how do other people treat them?",
-            "show": "**Everyone wanted Pip on their team.**"
+            "say": "Careful! What a character says about themselves can trick you.",
+            "show": [
+              {
+                "text": "'I'm not scared of anything,' said Jett.",
+                "tag": "WHAT THEY SAY"
+              },
+              {
+                "text": "A twig snapped. Jett hid behind Mo.",
+                "tag": "WHAT THEY DO"
+              }
+            ],
+            "ask": "What is Jett really like?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "brave, because he says so",
+                  "reason": "That's only his words. What does he do when the twig snaps?"
+                },
+                {
+                  "text": "all talk: his words don't match what he does"
+                },
+                {
+                  "text": "kind, because he stays near Mo",
+                  "reason": "He hides behind Mo. Is that kind, or scared?"
+                }
+              ]
+            },
+            "win": "Yes! His words say brave, but his actions say scared. When they don't match, believe the actions.",
+            "trap": true
           },
           {
-            "say": "Add up the clues. Pip is kind."
+            "say": "One clue on its own can trick you. The best word fits every clue.",
+            "show": [
+              {
+                "text": "Mrs Gruber scowled at the kids.",
+                "tag": "WHAT THEY DO"
+              },
+              {
+                "text": "But she fixed Leni's bike for free.",
+                "tag": "WHAT THEY DO"
+              }
+            ],
+            "ask": "Which word fits all the clues?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "grumpy and mean",
+                  "reason": "That fits the scowl. But what did she do for Leni?"
+                },
+                {
+                  "text": "kind and cheerful",
+                  "reason": "She fixed the bike, but she scowled. Does cheerful fit a scowl?"
+                },
+                {
+                  "text": "gruff outside, but kind underneath"
+                }
+              ]
+            },
+            "win": "Yes! The scowl and the free fix both fit. Check every clue before you pick."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WHAT THEY DO",
+              "means": "Their actions. What they choose to do is a big clue."
+            },
+            {
+              "term": "WHAT THEY SAY",
+              "means": "Their words. Check that their words match what they do."
+            },
+            {
+              "term": "HOW OTHERS REACT",
+              "means": "How other characters treat them, like cheering, hiding or rolling their eyes."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "'You can go first,'",
+                "tag": "WHAT THEY SAY"
+              },
+              "said Pip.",
+              {
+                "text": "Everyone wanted Pip on their team.",
+                "tag": "HOW OTHERS REACT"
+              }
+            ],
+            [
+              {
+                "text": "'I'm not scared,'",
+                "tag": "WHAT THEY SAY"
+              },
+              "said Jett.",
+              {
+                "text": "Then he hid behind Mo.",
+                "tag": "WHAT THEY DO"
+              }
+            ]
+          ],
+          "test": "Check what they do, say, and how others react. Pick the word that fits every clue."
+        }
       },
       "weDo": [
         {

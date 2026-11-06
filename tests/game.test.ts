@@ -298,7 +298,7 @@ describe('Story workshop', () => {
         codes: ['VC2E5LE05'],
         why: 'why',
         how: 'how',
-        teach: { crew: 'artist' as const, iDo: { beats: [{ say: 'look' }] }, weDo: [content.skill('5.1').teach.weDo[0], content.skill('5.1').teach.weDo[1]] as [never, never] },
+        teach: { crew: 'artist' as const, iDo: { steps: [{ say: 'watch me', ask: 'Is it?', check: { kind: 'yesno' as const, answer: true, nudge: 'look' }, win: 'yes' }], card: { terms: [], examples: [], test: 'test' } }, weDo: [content.skill('5.1').teach.weDo[0], content.skill('5.1').teach.weDo[1]] as [never, never] },
         creature: { id: `w${id}`, name: `Inky ${id}`, evolved: `Big Inky ${id}`, blurb: '' },
         workshop: { mentor: 'Once upon a time.', ask: 'Write an opening.', checklist: ['It hooks the reader'] },
       },

@@ -11,26 +11,216 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Persuaders have three favourite tricks. Let's catch them."
+            "say": "My pies are so hot they could melt a ute! Could that really happen?",
+            "show": [
+              {
+                "text": "My pies are so hot they could melt a ute!",
+                "tag": "EXAGGERATION"
+              }
+            ],
+            "ask": "What is Mo doing?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "asking you a question",
+                  "reason": "There's no question here. Is a pie really that hot?"
+                },
+                {
+                  "text": "making it sound way bigger than it is"
+                },
+                {
+                  "text": "telling you a fact you could check",
+                  "reason": "Could a pie melt a metal ute? Mo knows it can't. He's blowing it up."
+                }
+              ]
+            },
+            "win": "Yes! I blew it way up to sound amazing. That's exaggeration. Its fancy name is hyperbole."
           },
           {
-            "say": "Exaggeration makes things sound way bigger than they are.",
-            "show": "My pies are **so hot they could melt a ute**."
+            "say": "Next trick. Here's my sign for Pie Club.",
+            "show": [
+              {
+                "text": "Your mates have already joined. Don't get left behind!",
+                "tag": "EVERYONE'S DOING IT"
+              }
+            ],
+            "ask": "What does the sign want you to do?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "count how many mates joined",
+                  "reason": "The sign doesn't want you to count. It wants you to follow."
+                },
+                {
+                  "text": "answer a question",
+                  "reason": "There's no question here. Who does it say has joined?"
+                },
+                {
+                  "text": "join the crowd, so you don't miss out"
+                }
+              ]
+            },
+            "win": "Yes! Join the crowd or miss out. That trick is 'everyone's doing it'. Some call it the bandwagon trick."
           },
           {
-            "say": "'Everyone's doing it' says join the crowd or miss out.",
-            "show": "**Your mates have already signed up.** Don't get left behind!"
+            "say": "Last trick. Here's a question on my sign.",
+            "show": [
+              {
+                "text": "Who wouldn't want a free pie?",
+                "tag": "RHETORICAL QUESTION"
+              }
+            ],
+            "ask": "Does Mo want you to answer it?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "No. The answer is built in."
+                },
+                {
+                  "text": "Yes. He wants a list of names.",
+                  "reason": "Would Mo wait for names? What answer does he hope you will think?"
+                },
+                {
+                  "text": "Yes. It's a quiz.",
+                  "reason": "In a quiz you work out the answer. Mo already knows the one he wants."
+                }
+              ]
+            },
+            "win": "Right! You're meant to think, 'Everyone would!' That's a rhetorical question: the answer is built in."
           },
           {
-            "say": "A rhetorical question has its answer built in.",
-            "show": "**Who wouldn't want a free pie?**"
+            "say": "Careful! Not every question is a trick. Some need a real answer.",
+            "show": [
+              {
+                "text": "Who wouldn't want a free pie?",
+                "tag": "RHETORICAL QUESTION",
+                "nudge": "Mo already knows the answer he wants: everyone would! Try another."
+              },
+              {
+                "text": "What size pie would you like?",
+                "tag": "NO TRICK"
+              },
+              {
+                "text": "Why eat soggy sandwiches when pies exist?",
+                "tag": "RHETORICAL QUESTION",
+                "nudge": "The answer's built in: don't eat soggy sandwiches! Try another."
+              }
+            ],
+            "ask": "Tap the real question, the one Mo needs you to answer.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Mo really needs to know your size. A real question is no trick.",
+            "trap": true
           },
           {
-            "say": "Spot the trick. Then ask: is it actually true?"
+            "say": "Careful! A crowd or a big claim can be a plain fact too.",
+            "show": [
+              {
+                "text": "Two hundred kids came last year.",
+                "tag": "NO TRICK",
+                "nudge": "That's a count from last year. Does it push you to join?"
+              },
+              {
+                "text": "Your whole class has tickets. Don't miss out!",
+                "tag": "EVERYONE'S DOING IT"
+              },
+              {
+                "text": "The ferry is so popular it sells out on Fridays.",
+                "tag": "NO TRICK",
+                "nudge": "That could really happen. Is it blown up, or just true?"
+              }
+            ],
+            "ask": "Tap the line that uses a trick.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It pushes you to join the crowd. The other two are just information.",
+            "trap": true
+          },
+          {
+            "say": "Spot the trick. Then ask: is it actually true?",
+            "show": [
+              {
+                "text": "Three million players have joined Lava League!",
+                "tag": "EVERYONE'S DOING IT",
+                "lit": true
+              }
+            ],
+            "ask": "Does that prove the game is good for you?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Yes. That many people can't be wrong.",
+                  "reason": "Lots of people can like something you would hate. Does the crowd know you?"
+                },
+                {
+                  "text": "Yes, because the number is real.",
+                  "reason": "Even if the number is true, it's about them, not you."
+                },
+                {
+                  "text": "No. Lots of players doesn't mean it suits you."
+                }
+              ]
+            },
+            "win": "Yes! Answering back like that is called a rebuttal. Now the trick has lost its power."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "EXAGGERATION",
+              "means": "Blows something up way bigger than it could be. Also called hyperbole."
+            },
+            {
+              "term": "EVERYONE'S DOING IT",
+              "means": "Says join the crowd, or you'll miss out."
+            },
+            {
+              "term": "RHETORICAL QUESTION",
+              "means": "A question with the answer built in. You're not meant to reply."
+            },
+            {
+              "term": "NO TRICK",
+              "means": "Plain information, or a real question that needs an answer."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "My pies are so hot they could melt a ute!",
+                "tag": "EXAGGERATION"
+              },
+              {
+                "text": "Who wouldn't want one?",
+                "tag": "RHETORICAL QUESTION"
+              }
+            ],
+            [
+              {
+                "text": "Your mates have already joined.",
+                "tag": "EVERYONE'S DOING IT"
+              },
+              {
+                "text": "Pies cost $4.",
+                "tag": "NO TRICK"
+              }
+            ]
+          ],
+          "test": "Blown up? Join the crowd? Answer built in? Name the trick, then ask: is it true?"
+        }
       },
       "weDo": [
         {

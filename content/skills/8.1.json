@@ -8,13 +8,197 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
-          { "say": "Every writer slips. Editors read the draft back, slowly." },
-          { "say": "Listen for a missing word.", "show": "Mo walked to **the** and bought pies." },
-          { "say": "Listen for words in a jumble.", "show": "**The bin took out Mo.**" },
-          { "say": "Listen for ideas that clash.", "show": "It was pouring, **so we left our raincoats at home**." },
-          { "say": "Found one? Tap it, then fix it." }
-        ]
+        "steps": [
+          {
+            "say": "Here's Mo's cake review. Every sentence sounds fine. So first, I find the fact the rest must fit.",
+            "show": [
+              {
+                "text": "Mo's cake was rock hard.",
+                "tag": "KEY FACT"
+              },
+              {
+                "text": "Tully cracked a tooth on it.",
+                "nudge": "That's what happened to Tully. Which sentence says what the cake is like?"
+              },
+              {
+                "text": "Gus used a slice as a doorstop.",
+                "nudge": "That's what Gus did with it. Which sentence says what the cake itself is like?"
+              }
+            ],
+            "ask": "Tap the sentence that says what the cake is like.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Rock hard is the key fact. Every other sentence has to fit it."
+          },
+          {
+            "say": "Mo added one more line. Now I check every sentence against rock hard.",
+            "show": [
+              {
+                "text": "Mo's cake was rock hard.",
+                "tag": "KEY FACT",
+                "lit": true,
+                "nudge": "That's the key fact. Check the other sentences against it."
+              },
+              {
+                "text": "Tully cracked a tooth.",
+                "nudge": "A rock hard cake could crack a tooth. That fits."
+              },
+              {
+                "text": "It melted on her tongue.",
+                "tag": "CLASH"
+              },
+              {
+                "text": "Gus used it as a doorstop.",
+                "nudge": "A rock hard cake could hold a door open. That fits."
+              }
+            ],
+            "ask": "Tap the sentence that doesn't fit the key fact.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Melting doesn't fit rock hard. Two sentences that can't both be true make a clash."
+          },
+          {
+            "say": "Zed read the draft and said every sentence was fine. Each one does sound fine alone!",
+            "show": [
+              {
+                "text": "It melted on her tongue.",
+                "tag": "CLASH",
+                "lit": true
+              }
+            ],
+            "ask": "So why did Zed miss the slip?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "He read each sentence alone, not against the key fact."
+                },
+                {
+                  "text": "He skipped the last sentence.",
+                  "reason": "He read them all. What didn't he check each sentence against?"
+                },
+                {
+                  "text": "A word is missing from it.",
+                  "reason": "Read it aloud. No word is missing. The problem is how it fits with the rest."
+                }
+              ]
+            },
+            "win": "Yes! Slips hide between sentences. Always check each one against the key fact.",
+            "trap": true
+          },
+          {
+            "say": "Some slips are smaller. I read aloud, slowly, the way I'd say it. Listen.",
+            "show": [
+              {
+                "text": "Gran the scones in the oven.",
+                "tag": "MISSING WORD"
+              }
+            ],
+            "ask": "Which word is missing?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "hot",
+                  "reason": "Say it: 'Gran hot the scones.' What did Gran do? You need a doing word."
+                },
+                {
+                  "text": "put"
+                },
+                {
+                  "text": "and",
+                  "reason": "'Gran and the scones in the oven'? Now Gran is in the oven too! What did she do?"
+                }
+              ]
+            },
+            "win": "Yes! Gran put the scones in the oven. Reading aloud helps you hear the gap."
+          },
+          {
+            "say": "Jumbled words can flip who does what. Read each one and picture it.",
+            "show": [
+              {
+                "text": "Mo caught the fish.",
+                "nudge": "Picture it. Mo can catch a fish. That makes sense."
+              },
+              {
+                "text": "The fish caught Mo.",
+                "tag": "JUMBLE"
+              },
+              {
+                "text": "The fish was caught by Mo.",
+                "nudge": "Read it slowly. Who caught the fish? Mo did. That makes sense."
+              }
+            ],
+            "ask": "Tap the sentence that doesn't make sense.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A fish can't catch Mo. The words got jumbled, so the meaning flipped."
+          },
+          {
+            "say": "Zed wants to fix 'The fish was caught by Mo', because Mo comes last.",
+            "show": [
+              {
+                "text": "The fish was caught by Mo."
+              }
+            ],
+            "ask": "Does this sentence need fixing?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Read it again. Do you know who caught what? If it makes sense, it's fine."
+            },
+            "win": "Right! It makes sense, so leave it. Mo can come last. Only fix what doesn't make sense.",
+            "trap": true
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "KEY FACT",
+              "means": "The fact every other sentence has to fit."
+            },
+            {
+              "term": "CLASH",
+              "means": "A sentence that can't be true if the key fact is true."
+            },
+            {
+              "term": "MISSING WORD",
+              "means": "A gap you hear when you read the sentence aloud."
+            },
+            {
+              "term": "JUMBLE",
+              "means": "Words in the wrong spots, so the meaning goes silly."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The pool was empty.",
+                "tag": "KEY FACT"
+              },
+              {
+                "text": "Tully dived in with a splash.",
+                "tag": "CLASH"
+              }
+            ],
+            [
+              {
+                "text": "The fish caught Mo.",
+                "tag": "JUMBLE"
+              },
+              " Fix it: Mo caught the fish."
+            ]
+          ],
+          "test": "Find the key fact. Check every sentence against it. Read aloud for gaps and jumbles."
+        }
       },
       "weDo": [
         {
@@ -40,8 +224,8 @@
         {
           "text": "Tully ran down the wing. A goal kicked Tully. The crowd went wild.",
           "prompt": "Which edit makes the draft make sense?",
-          "hint": "Who did the kicking? The doer should come first.",
-          "success": "Tully is the doer, so she comes first. A goal can't kick anyone.",
+          "hint": "Picture it. Can a goal kick someone? Who really did the kicking?",
+          "success": "Tully did the kicking, so now it makes sense. A goal can't kick anyone.",
           "body": {
             "format": "choose",
             "options": [
@@ -138,7 +322,7 @@
       "topic": "funny",
       "frame": "Indi's comic caption says: 'The bin took out Mo on Monday.' The Nodrake nearly fell off its rock.",
       "prompt": "Tap the pieces in order so the caption makes sense.",
-      "success": "Mo took out the bin. Now the doer comes first, and the bin is the thing taken out.",
+      "success": "Mo took out the bin. A bin can't take out Mo, so Mo has to be the one doing it.",
       "body": {
         "format": "build",
         "tiles": ["Mo", "took out", "the bin", "on Monday."],
@@ -269,7 +453,7 @@
       "topic": "robots",
       "frame": "The robot club's newsletter says: 'After lunch, the floor swept the robot.' The Nodrake is staring at it.",
       "prompt": "Tap the pieces in order so the sentence makes sense.",
-      "success": "The robot swept the floor. The doer comes first, then the action, then the thing it swept.",
+      "success": "The robot swept the floor. A floor can't sweep a robot, so the robot does the sweeping.",
       "body": {
         "format": "build",
         "tiles": ["After lunch,", "the floor", "the robot", "swept", "the floor.", "the robot."],

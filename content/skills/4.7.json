@@ -11,27 +11,263 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Read this out loud. Hear the same start?",
-            "show": "**Silly seagulls snatch sausages**."
+            "say": "I wrote this for the crew. Read it out loud. Listen to the start of each word.",
+            "show": [
+              {
+                "text": "Silly seagulls snatch sausages.",
+                "tag": "ALLITERATION"
+              }
+            ],
+            "ask": "What sounds the same in these words?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "the starting sounds"
+                },
+                {
+                  "text": "the ending sounds",
+                  "reason": "Say silly and sausages. Do they end the same? Listen to the start."
+                },
+                {
+                  "text": "nothing at all",
+                  "reason": "Say it slowly. Listen to the very first sound of each word."
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! Same starting sounds, close together. That's called alliteration."
           },
           {
-            "say": "Same starting sounds close together: that's alliteration."
+            "say": "Some words sound like the noise they name. Listen to the mud.",
+            "show": [
+              {
+                "text": "The mud",
+                "nudge": "Mud is a thing. Which word makes a noise?"
+              },
+              {
+                "text": "went",
+                "nudge": "Went tells you what happened. Which word sounds like a noise?"
+              },
+              {
+                "text": "squelch!",
+                "tag": "ONOMATOPOEIA"
+              }
+            ],
+            "ask": "Tap the word that sounds like its noise.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Squelch sounds like boots in mud. A noise word like this is onomatopoeia."
           },
           {
-            "say": "These words sound like their noise. That's onomatopoeia.",
-            "show": "The mud went **squelch**. The frog went **plop**."
+            "say": "Poems often rhyme. Listen to the ends of the words.",
+            "show": [
+              "We ",
+              {
+                "text": "paddle",
+                "nudge": "Say paddle and twist. Do the endings sound the same?"
+              },
+              " through the ",
+              {
+                "text": "mist.",
+                "tag": "RHYME"
+              },
+              " A ",
+              {
+                "text": "crab",
+                "nudge": "Say crab and twist. Listen to how each word ends."
+              },
+              " gives us a ",
+              {
+                "text": "twist.",
+                "tag": "RHYME",
+                "lit": true,
+                "nudge": "That's twist itself! Which other word sounds like it?"
+              }
+            ],
+            "ask": "Tap the word that rhymes with twist.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Mist and twist end with the same sound. That's rhyme."
           },
           {
-            "say": "Poems can rhyme at the ends of lines.",
-            "show": "We paddle through the **mist**. / A crab gives us a **twist**."
+            "say": "Careful! Mo says hard rhymes with high, because they start the same. Listen.",
+            "show": [
+              "Kick it ",
+              {
+                "text": "high,",
+                "tag": "RHYME",
+                "lit": true
+              },
+              " up to the ",
+              {
+                "text": "sky!",
+                "tag": "RHYME"
+              }
+            ],
+            "ask": "Which word rhymes with high?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "hard",
+                  "reason": "Hard starts like high, but the ends sound different. That's not rhyme."
+                },
+                {
+                  "text": "sky"
+                },
+                {
+                  "text": "hit",
+                  "reason": "Hit starts like high too. Listen to the end of each word."
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Rhyme is about how words end, even inside one line. Same starts are alliteration.",
+            "trap": true
           },
           {
-            "say": "A steady beat, like a footy chant, is rhythm.",
-            "show": "**Go**, Rays, **go**! **Go**, Rays, **go**!"
+            "say": "Clap this footy chant. Can you feel the steady beat?",
+            "show": [
+              {
+                "text": "Go, Rays, go! Go, Rays, go!",
+                "tag": "RHYTHM"
+              }
+            ],
+            "ask": "Which one has the same beat?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "Run, Rays, run! Run, Rays, run!"
+                },
+                {
+                  "text": "We all went down to the beach on a sunny day.",
+                  "reason": "Clap it. It's long, and the beat wanders about."
+                },
+                {
+                  "text": "Seagulls.",
+                  "reason": "That's one word. There's no beat to repeat."
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! Clap, clap, clap. A steady beat you can clap is called rhythm."
+          },
+          {
+            "say": "Then ask why. The sounds can match what is happening.",
+            "show": [
+              {
+                "text": "The sea sighs softly on the sand.",
+                "tag": "ALLITERATION"
+              }
+            ],
+            "ask": "What do all those soft s sounds do?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "make the line sound sharp and loud",
+                  "reason": "Say it softly. Does it sound like shouting?"
+                },
+                {
+                  "text": "make the line rhyme",
+                  "reason": "Rhyme is about how words end. These share their first sound."
+                },
+                {
+                  "text": "make the line sound hushed and calm"
+                }
+              ],
+              "answer": 2
+            },
+            "win": "Yes! Soft sounds feel calm, like the quiet sea. The sound matches the scene."
+          },
+          {
+            "say": "Rhythm has a job too. Read these lines out loud, fast.",
+            "show": [
+              {
+                "text": "Run. Faster. Go! Nearly. There!",
+                "tag": "RHYTHM"
+              }
+            ],
+            "ask": "How do short, punchy lines feel?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "fast and exciting"
+                },
+                {
+                  "text": "slow and sleepy",
+                  "reason": "Read them out loud. Do they feel sleepy, or quick?"
+                },
+                {
+                  "text": "sad and quiet",
+                  "reason": "Nothing here is sad. Feel how quickly you read them."
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! Short lines feel fast, like quick footsteps. Long lines slow you down."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "ALLITERATION",
+              "means": "Words close together with the same starting sound."
+            },
+            {
+              "term": "ONOMATOPOEIA",
+              "means": "A word that sounds like the noise it names: squelch, splash, buzz."
+            },
+            {
+              "term": "RHYME",
+              "means": "Words whose endings sound the same, like mist and twist."
+            },
+            {
+              "term": "RHYTHM",
+              "means": "A steady beat you can clap. Short lines feel fast."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Five fat frogs",
+                "tag": "ALLITERATION"
+              },
+              " go ",
+              {
+                "text": "plop",
+                "tag": "ONOMATOPOEIA"
+              },
+              " into the pond."
+            ],
+            [
+              {
+                "text": "Go, Rays, go!",
+                "tag": "RHYTHM"
+              },
+              " We'll win it ",
+              {
+                "text": "tonight",
+                "tag": "RHYME"
+              },
+              " with all our ",
+              {
+                "text": "might!",
+                "tag": "RHYME"
+              }
+            ]
+          ],
+          "test": "Read it aloud. Listen for same starts, noise words, same endings and a beat. Then ask why."
+        }
       },
       "weDo": [
         {

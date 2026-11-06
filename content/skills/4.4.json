@@ -6,30 +6,225 @@
       "VC2E6LA08"
     ],
     "why": "Idioms are everywhere in talk and stories. Taken literally, they make no sense.",
-    "how": "Notice when the words can't be literally true. Use the story around it.",
+    "how": "Ask: does the plain meaning fit the story? If not, use the clues.",
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Some sayings don't mean what the words say.",
-            "show": "Mo **spilled the beans**."
+            "say": "Mo told me all about my own surprise party. Then Gus said this.",
+            "show": [
+              "Mo ",
+              {
+                "text": "spilled the beans",
+                "tag": "IDIOM"
+              },
+              " about ",
+              {
+                "text": "the surprise party.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "What does Gus mean?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "Mo told the secret."
+                },
+                {
+                  "text": "Mo dropped a tin of beans.",
+                  "reason": "Check the clue: the surprise party. Did anyone drop beans?"
+                },
+                {
+                  "text": "Mo cooked beans for the party.",
+                  "reason": "Nobody cooked. What happens when someone talks about a surprise?"
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! He told the secret. The words say beans, but the clue says secret."
           },
           {
-            "say": "Did Mo drop a tin of beans? Not this time!"
+            "say": "A set saying like that is called an idiom. Everyone uses the same words.",
+            "show": [
+              {
+                "text": "Mo spilled the peas.",
+                "nudge": "Nobody says spilled the peas. An idiom always uses the same words."
+              },
+              {
+                "text": "Mo let the cat out of the bag.",
+                "tag": "IDIOM"
+              },
+              {
+                "text": "Mo told everyone the secret.",
+                "nudge": "That one is plain. It means just what it says."
+              }
+            ],
+            "ask": "Tap the idiom.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! It's a set saying. It means told the secret too. No cat, no bag!"
           },
           {
-            "say": "Check the story around it for clues.",
-            "show": "Mo **spilled the beans** about Tully's **surprise** party."
+            "say": "Don't know what an idiom means? Hunt for a clue in the story.",
+            "show": [
+              {
+                "text": "Tully was over the moon.",
+                "tag": "IDIOM",
+                "nudge": "That's the idiom. Find the part that shows how Tully felt."
+              },
+              {
+                "text": "She jumped and hugged everyone.",
+                "tag": "CLUE"
+              },
+              {
+                "text": "Then she ate a pie.",
+                "nudge": "Eating a pie doesn't show a feeling. Which part shows how Tully felt?"
+              }
+            ],
+            "ask": "Tap the clue that shows what over the moon means.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Jumping and hugging show she's very happy. That's what over the moon means."
           },
           {
-            "say": "So it means Mo told a secret. That's an idiom."
+            "say": "Careful! Gus thinks an idiom can never be really true. But the same words can mean what they say.",
+            "show": [
+              {
+                "text": "Zed got cold feet from paddling in the creek.",
+                "tag": "MEANS WHAT IT SAYS",
+                "nudge": "Creek water really makes feet cold. Those words mean just what they say."
+              },
+              {
+                "text": "Zed got cold feet and pulled out of the show.",
+                "tag": "IDIOM"
+              },
+              {
+                "text": "Zed put socks on his cold feet.",
+                "tag": "MEANS WHAT IT SAYS",
+                "nudge": "Socks warm up real feet. Those words mean just what they say."
+              }
+            ],
+            "ask": "Tap the one where cold feet is an idiom.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! He got scared and pulled out. The rest of the sentence tells you which.",
+            "trap": true
           },
           {
-            "say": "Aussies love them. 'Spit the dummy' means throw a tantrum.",
-            "show": "Zed **spat the dummy** when he lost."
+            "say": "So first, try the plain meaning. Does it fit the story? If not, use the clues.",
+            "show": [
+              "Mo burnt the toast again. Now he is ",
+              {
+                "text": "in hot water",
+                "tag": "IDIOM"
+              },
+              " with the crew."
+            ],
+            "ask": "What does in hot water mean here?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "in a warm bath",
+                  "reason": "Try it. Is Mo in a bath? The clue is the burnt toast."
+                },
+                {
+                  "text": "in trouble"
+                },
+                {
+                  "text": "very hungry",
+                  "reason": "Nothing says he's hungry. What happens when you burn the toast again?"
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! A bath doesn't fit burnt toast. The clue tells you: he's in trouble."
+          },
+          {
+            "say": "Aussies love idioms. Here's one of my favourites.",
+            "show": [
+              "Zed ",
+              {
+                "text": "spat the dummy",
+                "tag": "IDIOM"
+              },
+              " when he lost. ",
+              {
+                "text": "He threw the controller on the couch.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "What does spat the dummy mean?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "He threw a tantrum."
+                },
+                {
+                  "text": "He spat out a baby's dummy.",
+                  "reason": "Zed isn't a baby! Look at the clue. What did he do with the controller?"
+                },
+                {
+                  "text": "He said well done to the winner.",
+                  "reason": "People who throw the controller aren't saying well done. Check the clue."
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! Spitting the dummy means throwing a tantrum, just like a cross toddler."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "IDIOM",
+              "means": "A set saying. Its meaning isn't the words, like spill the beans."
+            },
+            {
+              "term": "CLUE",
+              "means": "Words in the story that show what the saying means."
+            },
+            {
+              "term": "MEANS WHAT IT SAYS",
+              "means": "The same words, but really true, like cold feet from a creek."
+            }
+          ],
+          "examples": [
+            [
+              "Mo ",
+              {
+                "text": "spilled the beans",
+                "tag": "IDIOM"
+              },
+              " about ",
+              {
+                "text": "the surprise party.",
+                "tag": "CLUE"
+              }
+            ],
+            [
+              {
+                "text": "Zed got cold feet",
+                "tag": "IDIOM"
+              },
+              " and ",
+              {
+                "text": "pulled out of the show.",
+                "tag": "CLUE"
+              }
+            ]
+          ],
+          "test": "Try the plain meaning. Does it fit the story? If not, use the clues."
+        }
       },
       "weDo": [
         {

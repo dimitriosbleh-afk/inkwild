@@ -8,13 +8,224 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
-          { "say": "A comma is tiny, but it can change everything." },
-          { "say": "No comma here, so Grandma is on the menu!", "show": "Let's eat **Grandma**." },
-          { "say": "Add a comma. Now we're talking to Grandma.", "show": "Let's eat**,** Grandma." },
-          { "say": "Commas split a list. This comma makes three things, not two.", "show": "We bought chocolate**,** milk and bread." },
-          { "say": "So read it both ways. Which one means what you mean?" }
-        ]
+        "steps": [
+          {
+            "say": "A comma is tiny, but it can change everything. Read this note from my kitchen.",
+            "show": [
+              "Let's eat Grandma."
+            ],
+            "ask": "What does it say?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "We're going to eat Grandma."
+                },
+                {
+                  "text": "Grandma, come and eat with us.",
+                  "reason": "That needs a comma to keep Grandma apart. Is there one?"
+                },
+                {
+                  "text": "Grandma is doing the eating.",
+                  "reason": "Read it again: let's eat... who? Who is the food?"
+                }
+              ]
+            },
+            "win": "Yikes! With no comma, Grandma is dinner. Let's fix that."
+          },
+          {
+            "say": "I'm calling Grandma to dinner. A comma keeps her name apart from the rest.",
+            "show": [
+              {
+                "text": "Come",
+                "nudge": "Come, and eat Grandma? She is still the food! Try again."
+              },
+              " ",
+              {
+                "text": "and",
+                "nudge": "Come and, eat Grandma? She is still the food! Try again."
+              },
+              " ",
+              {
+                "text": "eat"
+              },
+              " ",
+              {
+                "text": "Grandma",
+                "tag": "TALKING TO",
+                "nudge": "A comma after Grandma? The sentence is already over there."
+              },
+              "."
+            ],
+            "ask": "Tap the word the comma goes after, so Grandma is safe.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Phew! Come and eat, Grandma. Now we're talking to her, not eating her."
+          },
+          {
+            "say": "Talking to someone? A comma keeps their name apart. The name can come first, too.",
+            "show": [
+              {
+                "text": "Wren fed the possums.",
+                "nudge": "This tells what Wren did. Is anyone talking to her?"
+              },
+              {
+                "text": "Wren, feed the possums."
+              },
+              {
+                "text": "Mo fed the possums with Wren.",
+                "nudge": "Here Wren is helping. Is Mo calling her name?"
+              }
+            ],
+            "ask": "Tap the one where Mo is talking to Wren.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The comma after Wren shows Mo is calling her name. Then he tells her what to do."
+          },
+          {
+            "say": "Tully wants the captain to phone her. She wrote this, but forgot the commas.",
+            "show": [
+              "Call me ",
+              {
+                "text": "Captain",
+                "tag": "TALKING TO"
+              },
+              " when you land."
+            ],
+            "ask": "Which one shows Tully is talking to the captain?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Call me Captain when you land.",
+                  "reason": "With no commas, Tully wants to be called Captain! Keep the name apart."
+                },
+                {
+                  "text": "Call me, Captain, when you land."
+                },
+                {
+                  "text": "Call me, Captain when you land.",
+                  "reason": "The name is in the middle. Does it need a comma on one side, or both?"
+                }
+              ]
+            },
+            "win": "Yes! Name in the middle? A comma on each side. Without them, Tully wants a new name!",
+            "trap": true
+          },
+          {
+            "say": "Commas change lists too. I made this for lunch. Count the commas carefully.",
+            "show": [
+              "Mo served ",
+              {
+                "text": "jelly",
+                "tag": "ITEM"
+              },
+              ", ",
+              {
+                "text": "beans",
+                "tag": "ITEM"
+              },
+              " and ",
+              {
+                "text": "chips",
+                "tag": "ITEM"
+              },
+              "."
+            ],
+            "ask": "How many things did Mo serve?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "two",
+                  "reason": "That would be jelly beans and chips. Is there a comma after jelly?"
+                },
+                {
+                  "text": "four",
+                  "reason": "Count again. Chips is the last thing, after and."
+                },
+                {
+                  "text": "three"
+                }
+              ]
+            },
+            "win": "Yes! The comma splits jelly from beans. Three things. Gross, but that is my cooking."
+          },
+          {
+            "say": "Last one. Read it with no comma. Who sat very still?",
+            "show": [
+              "While ",
+              {
+                "text": "Zed",
+                "nudge": "While Zed... was doing what? That part isn't finished yet."
+              },
+              " was ",
+              {
+                "text": "drawing"
+              },
+              " the ",
+              {
+                "text": "yeti",
+                "nudge": "Now Zed is drawing the yeti, and 'sat very still' has no doer. Where does the while part end?"
+              },
+              " sat very still."
+            ],
+            "ask": "Tap the word the comma goes after.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! While Zed was drawing, the yeti sat very still. Read it both ways to check."
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TALKING TO",
+              "means": "The person you are speaking to. A comma keeps their name apart."
+            },
+            {
+              "term": "ITEM",
+              "means": "One thing on a list. Commas keep the items apart."
+            }
+          ],
+          "examples": [
+            [
+              "Let's eat, ",
+              {
+                "text": "Grandma",
+                "tag": "TALKING TO"
+              },
+              "."
+            ],
+            [
+              "Mo served ",
+              {
+                "text": "jelly",
+                "tag": "ITEM"
+              },
+              ", ",
+              {
+                "text": "beans",
+                "tag": "ITEM"
+              },
+              " and ",
+              {
+                "text": "chips",
+                "tag": "ITEM"
+              },
+              "."
+            ]
+          ],
+          "test": "Read it with and without the comma. Which one means what you mean?"
+        }
       },
       "weDo": [
         {

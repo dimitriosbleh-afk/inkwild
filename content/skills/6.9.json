@@ -8,13 +8,198 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
-          { "say": "Squash 'it is' into it's. That's shortening. The apostrophe marks the gap.", "show": "It is snowing. → **It's** snowing." },
-          { "say": "It's can be 'it has' too.", "show": "**It's** been snowing all day." },
-          { "say": "Owning is different. Its has no apostrophe at all.", "show": "The possum licked **its** paw." },
-          { "say": "Who's and whose follow the same rule.", "show": "**Who's** coming? **Whose** sled is this?" },
-          { "say": "So test it: say 'it is' or 'who is'. Does it work?" }
-        ]
+        "steps": [
+          {
+            "say": "Zed here! Some words get squashed together. Say this one in full.",
+            "show": [
+              {
+                "text": "It's",
+                "tag": "SHORTENING"
+              },
+              " snowing again!"
+            ],
+            "ask": "What does it's mean here?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "it is"
+                },
+                {
+                  "text": "it has",
+                  "reason": "Say it: 'it has snowing again'. Does that sound right?"
+                },
+                {
+                  "text": "belongs to it",
+                  "reason": "Nothing is owned here. Say it in full and listen."
+                }
+              ]
+            },
+            "win": "Yes! It's is short for 'it is'. That's a shortening, also called a contraction."
+          },
+          {
+            "say": "It's can stand for two different things. Say this one in full.",
+            "show": [
+              {
+                "text": "It's",
+                "tag": "SHORTENING"
+              },
+              " been snowing all day."
+            ],
+            "ask": "What does it's mean here?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "it is",
+                  "reason": "Say it: 'it is been snowing'. Does that sound right?"
+                },
+                {
+                  "text": "it has"
+                },
+                {
+                  "text": "belongs to it",
+                  "reason": "Nothing is owned here. Say it in full and listen."
+                }
+              ]
+            },
+            "win": "Yes! It's can mean 'it has' too. Say it in full. If it fits, use it's."
+          },
+          {
+            "say": "Careful! You learnt 's shows owning. So it's looks like owning. It isn't!",
+            "show": [
+              {
+                "text": "his",
+                "tag": "OWNING WORD",
+                "lit": true
+              },
+              " paw, ",
+              {
+                "text": "her",
+                "tag": "OWNING WORD",
+                "lit": true
+              },
+              " paw, ",
+              {
+                "text": "___",
+                "tag": "OWNING WORD"
+              },
+              " paw"
+            ],
+            "ask": "Which word goes with his paw and her paw?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "it's",
+                  "reason": "It's means 'it is'. Say 'it is paw'. Does that work?"
+                },
+                {
+                  "text": "its"
+                },
+                {
+                  "text": "its'",
+                  "reason": "Its' isn't a word. His and her have no apostrophe. Neither does this one."
+                }
+              ]
+            },
+            "win": "Yes! His, her, its. Owning words like these never have an apostrophe.",
+            "trap": true
+          },
+          {
+            "say": "Now you check. Say each one in full: it is, or it has?",
+            "show": [
+              {
+                "text": "It's",
+                "nudge": "Say it in full: 'It is sad.' That works, so it's is right."
+              },
+              " sad. The yeti lost ",
+              {
+                "text": "its",
+                "nudge": "Say it in full: 'lost it is hat'? No. This one is owning, like his hat."
+              },
+              " hat. ",
+              {
+                "text": "Its"
+              },
+              " freezing!"
+            ],
+            "ask": "One word is wrong. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'It is freezing' works, so it needs it's. Say it in full every time."
+          },
+          {
+            "say": "Who's and whose work the same way. Say 'who is' or 'who has'.",
+            "show": [
+              {
+                "text": "Who's",
+                "nudge": "Say it in full: 'Who is coming?' That works, so who's is right."
+              },
+              " coming? ",
+              {
+                "text": "Whose",
+                "tag": "OWNING WORD",
+                "nudge": "Say it in full: 'Who is hat is this?' No. It asks who owns the hat."
+              },
+              " hat is this? ",
+              {
+                "text": "Who's"
+              },
+              " sled is that?"
+            ],
+            "ask": "One word is wrong. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! 'Who is sled' makes no sense. It asks who owns the sled, so it's whose."
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SHORTENING",
+              "means": "Two words squashed together. It's means it is or it has."
+            },
+            {
+              "term": "OWNING WORD",
+              "means": "Like his and her. No apostrophe: its, whose."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "It's",
+                "tag": "SHORTENING"
+              },
+              " snowing, so the possum hid ",
+              {
+                "text": "its",
+                "tag": "OWNING WORD"
+              },
+              " nose."
+            ],
+            [
+              {
+                "text": "Who's",
+                "tag": "SHORTENING"
+              },
+              " coming? ",
+              {
+                "text": "Whose",
+                "tag": "OWNING WORD"
+              },
+              " sled is this?"
+            ]
+          ],
+          "test": "Say it in full: it is, it has, who is, who has. Fits? Use the apostrophe."
+        }
       },
       "weDo": [
         {

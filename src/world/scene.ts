@@ -161,7 +161,8 @@ export class Scene {
   private keysUp = (e: KeyboardEvent) => this.key(e, false);
 
   constructor(private view: HTMLCanvasElement, setup: SceneSetup) {
-    const rect = { w: view.clientWidth || innerWidth, h: view.clientHeight || innerHeight };
+    // A hidden page can report a 0x0 view; fall back to an iPad's shape rather than build an impossible island.
+    const rect = { w: view.clientWidth || innerWidth || 1024, h: view.clientHeight || innerHeight || 768 };
     this.H = Math.max(200, Math.min(420, Math.round((this.W * rect.h) / rect.w)));
     this.lo = document.createElement('canvas');
     this.lo.width = this.W;

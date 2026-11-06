@@ -10,26 +10,204 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Telling names the feeling. It's quick, but it's flat.",
-            "show": "Mo was **nervous**."
+            "say": "This is me before the cooking contest. Three lines about me. Only one lets you see me.",
+            "show": [
+              {
+                "text": "Mo was nervous.",
+                "tag": "TELLING",
+                "nudge": "This just names the feeling. Can you see Mo do anything?"
+              },
+              {
+                "text": "Mo was in the kitchen.",
+                "nudge": "Now we know where I am. But can you see me do anything?"
+              },
+              {
+                "text": "Mo chewed his sleeve and checked the oven nine times.",
+                "tag": "ACTION"
+              }
+            ],
+            "ask": "Tap the line where you can see Mo do something.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Sleeve chewing and nine oven checks. You can see me do it. That's an action."
           },
           {
-            "say": "Showing lets the reader spot the feeling for themselves."
+            "say": "Nobody said how I feel in that line. But you can still tell.",
+            "show": [
+              {
+                "text": "Mo chewed his sleeve and checked the oven nine times.",
+                "tag": "ACTION",
+                "lit": true
+              }
+            ],
+            "ask": "How is Mo feeling?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "sleepy",
+                  "reason": "Sleepy people don't check an oven nine times. Look at what Mo does."
+                },
+                {
+                  "text": "proud",
+                  "reason": "Proud people stand tall. Mo is chewing his sleeve. Why would he?"
+                },
+                {
+                  "text": "nervous"
+                }
+              ]
+            },
+            "win": "Yes! You worked it out. 'Mo was nervous' tells you. The action shows you. That's show, not tell."
           },
           {
-            "say": "You can show it with an action.",
-            "show": "Mo **chewed his sleeve and checked the oven nine times**."
+            "say": "You can show a feeling with what someone says, too. Listen to me at the contest.",
+            "show": [
+              {
+                "text": "Mo was worried about the oven.",
+                "tag": "TELLING",
+                "nudge": "This names the feeling: worried. Which line lets Mo's own words show it?"
+              },
+              {
+                "text": "'It's fine. It's totally fine. Is it on fire?'",
+                "tag": "SPEECH"
+              },
+              {
+                "text": "The oven was very hot.",
+                "nudge": "That's about the oven, not Mo. Which line has Mo talking?"
+              }
+            ],
+            "ask": "Tap the line where Mo's words show the feeling.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Nobody says nervous. But 'Is it on fire?' tells you everything. That's speech."
           },
           {
-            "say": "Or show it with what they say.",
-            "show": "**'It's fine. It's totally fine. Is it on fire?'**"
+            "say": "Zed fixed 'Mo was nervous' for me. He wrote this. Is it showing now?",
+            "show": [
+              {
+                "text": "Mo was very, very, VERY nervous.",
+                "tag": "TELLING"
+              }
+            ],
+            "ask": "Is Zed's line showing or telling?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Showing. Very, very makes it bigger.",
+                  "reason": "Bigger isn't showing. Can you see Mo do anything?"
+                },
+                {
+                  "text": "Telling. It still names the feeling."
+                },
+                {
+                  "text": "Showing. Nervous is a strong word.",
+                  "reason": "A strong feeling word is still a feeling word. What does Mo do or say?"
+                }
+              ]
+            },
+            "win": "Right. A bigger feeling word is still telling. So is a new one, like terrified. Show what I do.",
+            "trap": true
           },
           {
-            "say": "Now we know Mo's nervous, and we never said it."
+            "say": "Your go. Tully kicked the winning goal. My draft says 'Tully was proud.' Let's show it.",
+            "show": [
+              {
+                "text": "Tully was proud.",
+                "tag": "TELLING",
+                "lit": true
+              }
+            ],
+            "ask": "Which line shows that Tully is proud?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Tully felt very happy and proud.",
+                  "reason": "Two feeling words, but still telling. What would a proud Tully do or say?"
+                },
+                {
+                  "text": "Tully was super proud of her goal.",
+                  "reason": "Super proud still names the feeling. Show what she does or says."
+                },
+                {
+                  "text": "Tully pointed at her name on her jumper. 'Did everyone see that?'"
+                }
+              ]
+            },
+            "win": "Yes! An action and her own words. We never needed the word proud."
+          },
+          {
+            "say": "Last trick. Writers often show a feeling, then tell it anyway. Find the extra bit.",
+            "show": [
+              {
+                "text": "Gus slammed the door",
+                "tag": "ACTION",
+                "nudge": "Keep that! It shows the feeling. Find the part that names it."
+              },
+              {
+                "text": "and yelled, 'Nobody touch my slime!'",
+                "tag": "SPEECH",
+                "nudge": "Keep that too. His words show it. Find the part that names it."
+              },
+              {
+                "text": "He was so angry.",
+                "tag": "TELLING"
+              }
+            ],
+            "ask": "Tap the part you could cut.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Cut it. The door and the yelling already show it. Now cover the feeling words in your story."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TELLING",
+              "means": "Names the feeling, like angry or nervous. Quick, but dull."
+            },
+            {
+              "term": "ACTION",
+              "means": "What the character does, like chewing a sleeve or slamming a door."
+            },
+            {
+              "term": "SPEECH",
+              "means": "What the character says, in speech marks."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Mo chewed his sleeve and checked the oven nine times.",
+                "tag": "ACTION"
+              }
+            ],
+            [
+              {
+                "text": "Gus slammed the door",
+                "tag": "ACTION"
+              },
+              " and ",
+              {
+                "text": "yelled, 'Nobody touch my slime!'",
+                "tag": "SPEECH"
+              }
+            ]
+          ],
+          "test": "Cover every feeling word. Can a reader still tell how the character feels?"
+        }
       },
       "weDo": [
         {

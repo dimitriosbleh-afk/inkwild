@@ -6,34 +6,268 @@
       "VC2E5LY09"
     ],
     "why": "Finding the main idea helps you remember what a whole text is about.",
-    "how": "Ask what most sentences are about. A fun fact about one bit is a detail.",
+    "how": "Find the big point most sentences back up. A fact that doesn't is a fun extra.",
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "The main idea is what the whole text is about.",
-            "show": "**Wombats are built tough.** Thick skulls. Bony bums. Claws like shovels."
+            "say": "Here's my wombat fact file. First, what is every sentence about?",
+            "show": [
+              {
+                "text": "Wombats are built tough."
+              },
+              " ",
+              {
+                "text": "Their skulls are thick."
+              },
+              " ",
+              {
+                "text": "Their bums are as hard as rock."
+              },
+              " ",
+              {
+                "text": "Their poo comes out in cubes."
+              }
+            ],
+            "ask": "Pick what the text is about.",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "wombats"
+                },
+                {
+                  "text": "rocks",
+                  "reason": "Rock only comes up once. What is every sentence about?"
+                },
+                {
+                  "text": "poo",
+                  "reason": "Poo only comes up once. What is every sentence about?"
+                }
+              ]
+            },
+            "win": "Yes! Wombats. What a text is about, in a word or two, is the topic."
           },
           {
-            "say": "Details back it up. Each one is a smaller bit.",
-            "show": "Wombats are built tough. **Thick skulls.** **Bony bums.** **Claws like shovels.**"
+            "say": "But what does the text SAY about wombats? I look for the big point.",
+            "show": [
+              {
+                "text": "Wombats are built tough.",
+                "tag": "MAIN IDEA"
+              },
+              " ",
+              {
+                "text": "Their skulls are thick.",
+                "nudge": "Thick skulls is one example. Which sentence do the examples back up?"
+              },
+              " ",
+              {
+                "text": "Their bums are as hard as rock.",
+                "nudge": "A rock-hard bum is one example. Which sentence does it back up?"
+              },
+              " ",
+              {
+                "text": "Their poo comes out in cubes.",
+                "nudge": "Cube poo is fun, but it isn't the big point. Try again."
+              }
+            ],
+            "ask": "Tap the sentence the others back up.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! That's the main idea: the big point a text makes about its topic."
           },
           {
-            "say": "Some details are just fun. Fun isn't the same as main.",
-            "show": "Also, wombat poo comes out in **cubes**."
+            "say": "Careful! Gus says the main idea is just 'wombats'. Is he right?",
+            "show": [
+              "Topic: ",
+              {
+                "text": "wombats",
+                "tag": "TOPIC",
+                "lit": true
+              }
+            ],
+            "ask": "Which one is the main idea?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "wombats",
+                  "reason": "That's the topic. It only names what the text is about. What does it say?"
+                },
+                {
+                  "text": "Wombats are built tough."
+                },
+                {
+                  "text": "Wombat poo comes out in cubes.",
+                  "reason": "That's one fun fact. Do the other sentences back it up?"
+                }
+              ]
+            },
+            "win": "Yes! A topic is a word or two. A main idea is a whole point about the topic.",
+            "trap": true
           },
           {
-            "say": "Test it: does most of the text fit under it?"
+            "say": "Funny doesn't mean extra. Ask: does it show wombats are tough?",
+            "show": [
+              {
+                "text": "Wombats are built tough.",
+                "tag": "MAIN IDEA",
+                "lit": true,
+                "nudge": "That's the main idea itself. Find a detail that backs it up."
+              },
+              " ",
+              {
+                "text": "Their bums are as hard as rock.",
+                "tag": "BACKS IT UP"
+              },
+              " ",
+              {
+                "text": "Their poo comes out in cubes.",
+                "nudge": "Cube poo is funny, but does it show wombats are tough?"
+              }
+            ],
+            "ask": "Tap the funny detail that backs up the main idea.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A rock-hard bum is funny, AND it shows they're tough. So it backs it up."
+          },
+          {
+            "say": "Last wombat sentence. It is true, and very fun. Where does it go?",
+            "show": [
+              {
+                "text": "Wombats are built tough.",
+                "tag": "MAIN IDEA",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "Their poo comes out in cubes.",
+                "tag": "FUN EXTRA"
+              }
+            ],
+            "ask": "Which box does the cube poo go in?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "main idea",
+                  "reason": "Do the other sentences back up cube poo? Find the big point."
+                },
+                {
+                  "text": "detail that backs it up",
+                  "reason": "Does cube poo show wombats are tough? Ask the question."
+                },
+                {
+                  "text": "fun extra"
+                }
+              ]
+            },
+            "win": "Yes! It doesn't show they're tough. A true fact that doesn't back up the main idea is a fun extra."
+          },
+          {
+            "say": "Your turn. Here's my footy report. Find the big point.",
+            "show": [
+              {
+                "text": "The Rays run ten kilometres at training.",
+                "tag": "BACKS IT UP",
+                "nudge": "Ten kilometres is one example. What big point does it back up?"
+              },
+              " ",
+              {
+                "text": "They are the fittest team around.",
+                "tag": "MAIN IDEA"
+              },
+              " ",
+              {
+                "text": "They never run out of breath.",
+                "tag": "BACKS IT UP",
+                "nudge": "That's one example. Which sentence does it back up?"
+              },
+              " ",
+              {
+                "text": "Their coach owns a goose.",
+                "tag": "FUN EXTRA",
+                "nudge": "A goose doesn't make the team fit. That's a fun extra."
+              }
+            ],
+            "ask": "Tap the main idea.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Running and never running out of breath both back it up. The goose is a fun extra. Honk!"
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "TOPIC",
+              "means": "What the text is about, in a word or two."
+            },
+            {
+              "term": "MAIN IDEA",
+              "means": "The big point the text makes about its topic. Most sentences back it up."
+            },
+            {
+              "term": "BACKS IT UP",
+              "means": "A detail that shows the main idea is true. It can be funny!"
+            },
+            {
+              "term": "FUN EXTRA",
+              "means": "A true, fun fact that doesn't back up the main idea."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Wombats are built tough.",
+                "tag": "MAIN IDEA"
+              },
+              " ",
+              {
+                "text": "Their bums are as hard as rock.",
+                "tag": "BACKS IT UP"
+              },
+              " ",
+              {
+                "text": "Their poo comes out in cubes.",
+                "tag": "FUN EXTRA"
+              }
+            ],
+            [
+              {
+                "text": "the Reef Rays",
+                "tag": "TOPIC"
+              },
+              " → ",
+              {
+                "text": "They are the fittest team around.",
+                "tag": "MAIN IDEA"
+              },
+              " ",
+              {
+                "text": "They run ten kilometres at training.",
+                "tag": "BACKS IT UP"
+              }
+            ]
+          ],
+          "test": "Find the sentence most others back up. That's the main idea. Funny can still back it up."
+        }
       },
       "weDo": [
         {
           "text": "Sharks are amazing hunters. They can smell blood from far away. They can feel tiny movements in the water. One shark was found with a number plate in its tummy.",
           "prompt": "What is the main idea?",
           "hint": "Which one do most of the sentences back up?",
-          "success": "Smelling and feeling both show sharks are great hunters. The number plate is just a fun detail.",
+          "success": "Smelling and feeling both show sharks are great hunters. The number plate is just a fun extra.",
           "body": {
             "format": "choose",
             "options": [
@@ -68,7 +302,7 @@
               {
                 "text": "Mo's kitchen is a disaster.",
                 "bin": 0,
-                "reason": "This is about the whole kitchen. Every other sentence fits under it."
+                "reason": "This is the big point about the kitchen. The mess details back it up."
               },
               {
                 "text": "The sink is full of green water.",

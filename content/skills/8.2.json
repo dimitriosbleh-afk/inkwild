@@ -8,13 +8,249 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
-          { "say": "A sentence is one whole thought. Who did what?", "show": "**The lava** **bubbled**." },
-          { "say": "Two thoughts jammed together make a run-on.", "show": "**The lava bubbled** **it smelt like eggs**." },
-          { "say": "Snip it with a full stop and a capital.", "show": "The lava bubbled**.** **It** smelt like eggs." },
-          { "say": "Half a thought is a fragment. It can't stand alone.", "show": "It smelt awful. **Because of the gas.**" },
-          { "say": "Read the draft back aloud. Fix the one you hear." }
-        ]
+        "steps": [
+          {
+            "say": "A whole thought says who did what, like 'The lava bubbled.' Read Gus's line aloud.",
+            "show": [
+              {
+                "text": "The lava bubbled it smelt like rotten eggs.",
+                "tag": "RUN-ON"
+              }
+            ],
+            "ask": "How many whole thoughts are in Gus's line?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "one",
+                  "reason": "Find each who did what. The lava bubbled. Then what smelt?"
+                },
+                {
+                  "text": "two"
+                },
+                {
+                  "text": "three",
+                  "reason": "Count each who did what: the lava bubbled, it smelt. Is there any more?"
+                }
+              ]
+            },
+            "win": "Yes! Two whole thoughts, jammed together with nothing between them. That's a run-on."
+          },
+          {
+            "say": "One fix is a full stop and a capital, right between the two thoughts.",
+            "show": [
+              {
+                "text": "The lava bubbled it smelt like rotten eggs.",
+                "tag": "RUN-ON",
+                "lit": true
+              }
+            ],
+            "ask": "Which edit fixes the run-on?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "The lava bubbled it. Smelt like rotten eggs.",
+                  "reason": "Read the second part alone: 'Smelt like rotten eggs.' What smelt? The stop is in the wrong spot."
+                },
+                {
+                  "text": "The lava bubbled. It smelt like rotten eggs."
+                },
+                {
+                  "text": "The lava. Bubbled it smelt like rotten eggs.",
+                  "reason": "'The lava.' doesn't say what it did. Put the stop between the two whole thoughts."
+                }
+              ]
+            },
+            "win": "Yes! Now each sentence has one whole thought: who or what, and what it did."
+          },
+          {
+            "say": "Zed fixed it with just a comma. Lots of writers do this. Read it aloud.",
+            "show": [
+              {
+                "text": "The lava bubbled,",
+                "tag": "WHOLE THOUGHT",
+                "lit": true
+              },
+              {
+                "text": "it smelt like rotten eggs.",
+                "tag": "WHOLE THOUGHT",
+                "lit": true
+              }
+            ],
+            "ask": "Is Zed's sentence fixed?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Count the whole thoughts. Can one comma, all by itself, hold two of them together?"
+            },
+            "win": "Right! A comma alone can't hold two whole thoughts. It's still a run-on.",
+            "trap": true
+          },
+          {
+            "say": "Here's the other fix. Keep the comma, but put a joining word after it.",
+            "show": [
+              {
+                "text": "The lava bubbled,",
+                "tag": "WHOLE THOUGHT",
+                "lit": true
+              },
+              {
+                "text": "___",
+                "tag": "JOINING WORD"
+              },
+              {
+                "text": "it smelt like rotten eggs.",
+                "tag": "WHOLE THOUGHT",
+                "lit": true
+              }
+            ],
+            "ask": "Which edit joins the two thoughts properly?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "The lava bubbled, it smelt like rotten eggs.",
+                  "reason": "That's Zed's run-on again. The comma needs a joining word like and or but after it."
+                },
+                {
+                  "text": "The lava bubbled and, it smelt like rotten eggs.",
+                  "reason": "The comma goes before and, not after it. Read it aloud and listen for the pause."
+                },
+                {
+                  "text": "The lava bubbled, and it smelt like rotten eggs."
+                }
+              ]
+            },
+            "win": "Yes! And is a joining word, also called a conjunction. With a comma, it joins two whole thoughts."
+          },
+          {
+            "say": "Careful! However sounds a lot like but. Mo wrote this about his soup. Read it aloud.",
+            "show": [
+              {
+                "text": "Mo's soup smelt great, however it tasted like socks.",
+                "tag": "RUN-ON"
+              }
+            ],
+            "ask": "Which edit is right?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Mo's soup smelt great, however, it tasted like socks.",
+                  "reason": "More commas can't help. However can't join two whole thoughts. It needs a full stop before it."
+                },
+                {
+                  "text": "Mo's soup smelt great. However, it tasted like socks."
+                },
+                {
+                  "text": "Mo's soup smelt great however it tasted like socks.",
+                  "reason": "Now nothing sits between the two whole thoughts. However needs a full stop before it."
+                }
+              ]
+            },
+            "win": "Yes! However isn't a joining word like but. Put a full stop before it, and a comma after.",
+            "trap": true
+          },
+          {
+            "say": "Now the opposite problem. Read Mo's next lines aloud. One part only gives half a thought.",
+            "show": [
+              {
+                "text": "The soup smelt odd.",
+                "nudge": "'The soup smelt odd' says what smelt and how. It's a whole thought."
+              },
+              {
+                "text": "Because of the socks.",
+                "tag": "FRAGMENT"
+              },
+              {
+                "text": "Gus held his nose.",
+                "nudge": "'Gus held his nose' says who did what. It's a whole thought."
+              }
+            ],
+            "ask": "Tap the part that can't stand alone.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Because of the socks' doesn't say who did what. Half a thought is called a fragment."
+          },
+          {
+            "say": "This part has who did what. But read it aloud. Does it leave you waiting?",
+            "show": [
+              {
+                "text": "Tully grabbed the ball.",
+                "nudge": "Who did what? Tully grabbed the ball. It can stand alone."
+              },
+              {
+                "text": "When she kicked the goal.",
+                "tag": "FRAGMENT"
+              },
+              {
+                "text": "The crowd went wild.",
+                "nudge": "Who did what? The crowd went wild. It can stand alone."
+              }
+            ],
+            "ask": "Tap the fragment.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! When leaves you waiting. Join it on: When she kicked the goal, the crowd went wild.",
+            "trap": true
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "WHOLE THOUGHT",
+              "means": "Says who or what did something. It could be a sentence on its own."
+            },
+            {
+              "term": "RUN-ON",
+              "means": "Two whole thoughts jammed together, or held by a comma alone."
+            },
+            {
+              "term": "JOINING WORD",
+              "means": "And or but. After a comma, it joins two whole thoughts."
+            },
+            {
+              "term": "FRAGMENT",
+              "means": "Half a thought. It can't stand alone, so join it to a sentence."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The lava bubbled,",
+                "tag": "WHOLE THOUGHT"
+              },
+              {
+                "text": "and",
+                "tag": "JOINING WORD"
+              },
+              {
+                "text": "it smelt like eggs.",
+                "tag": "WHOLE THOUGHT"
+              }
+            ],
+            [
+              {
+                "text": "It smelt odd.",
+                "tag": "WHOLE THOUGHT"
+              },
+              {
+                "text": "Because of the socks.",
+                "tag": "FRAGMENT"
+              }
+            ]
+          ],
+          "test": "Two whole thoughts? Full stop, or comma plus and or but. Half a thought? Join it on."
+        }
       },
       "weDo": [
         {

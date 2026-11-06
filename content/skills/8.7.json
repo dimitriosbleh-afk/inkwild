@@ -11,26 +11,240 @@
     "teach": {
       "crew": "joker",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Editors hunt for broken punctuation in other people's drafts."
+            "say": "Let's edit my cafe menu. First, check how each sentence ends. Is it telling or asking?",
+            "show": [
+              {
+                "text": "Who wants soup.",
+                "tag": "END MARK"
+              },
+              {
+                "text": "It is made from fish.",
+                "nudge": "'It is made from fish' tells you something, so a full stop is right."
+              },
+              {
+                "text": "Do you want a bowl?",
+                "nudge": "'Do you want a bowl' asks, and it has a question mark. That's right."
+              }
+            ],
+            "ask": "Tap the sentence with the wrong end mark.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! 'Who wants soup' asks something, so it needs a question mark, not a full stop."
           },
           {
-            "say": "First, check how each sentence ends.",
-            "show": "Where is my soup**?** It was right here**.**"
+            "say": "Next, check the start. Every sentence starts with a capital letter, and so does every name.",
+            "show": [
+              {
+                "text": "The soup bubbled.",
+                "nudge": "It starts with a capital T and ends with a full stop. It's fine."
+              },
+              {
+                "text": "then it exploded.",
+                "tag": "CAPITAL"
+              },
+              {
+                "text": "Gus hid under the table.",
+                "nudge": "Gus is a name, and it starts with a capital. It's fine."
+              }
+            ],
+            "ask": "Tap the sentence that needs a capital.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Then starts a new sentence, so it needs a capital T."
           },
           {
-            "say": "Next, check each sentence starts with a capital.",
-            "show": "The lava rose. **Mo** ran."
+            "say": "Now the tricky pair: its and it's. My trick: say 'it is' instead. Does it still work?",
+            "show": [
+              {
+                "text": "___ hot in this kitchen!",
+                "tag": "ITS OR IT'S"
+              }
+            ],
+            "ask": "Which word goes in the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Its",
+                  "reason": "Say 'it is' instead: 'It is hot in this kitchen!' That works, so it needs the apostrophe."
+                },
+                {
+                  "text": "It's"
+                },
+                {
+                  "text": "Its'",
+                  "reason": "No word looks like that. Say 'it is' in the gap. Does it work?"
+                }
+              ]
+            },
+            "win": "Yes! 'It is hot' works, so write it's. It's a short form, and the apostrophe marks the missing i."
           },
           {
-            "say": "Then check the little marks: apostrophes and commas.",
-            "show": "**Don't** eat my eggs**,** jam or toast."
+            "say": "Careful! Owners usually get an apostrophe, like Mo's soup. But the word its is different.",
+            "show": [
+              {
+                "text": "The volcano lost ___ top.",
+                "tag": "ITS OR IT'S"
+              }
+            ],
+            "ask": "Which word goes in the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "its"
+                },
+                {
+                  "text": "it's",
+                  "reason": "Say 'it is': 'The volcano lost it is top.' That's silly, so no apostrophe."
+                },
+                {
+                  "text": "its'",
+                  "reason": "No word looks like that. The top belongs to the volcano. Try 'it is' first."
+                }
+              ]
+            },
+            "win": "Yes! Its means 'belongs to it', and it never has an apostrophe. Only 'it is' becomes it's.",
+            "trap": true
           },
           {
-            "say": "Only fix real mistakes. Don't add marks for fun."
+            "say": "Extra detail can sit in the middle of a sentence. Try covering each part up.",
+            "show": [
+              {
+                "text": "Krak,",
+                "nudge": "Krak is who roared. Cover that, and we don't know who!"
+              },
+              {
+                "text": "who was covered in ink,",
+                "tag": "EXTRA DETAIL"
+              },
+              {
+                "text": "roared at us.",
+                "nudge": "That's what Krak did. Cover it, and the sentence breaks."
+              }
+            ],
+            "ask": "Tap the part you could cover up, and the sentence still works.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Who was covered in ink' is extra detail about Krak. It sits between two commas."
+          },
+          {
+            "say": "Gus wrote this and forgot one comma. Lots of writers do. Cover the extra detail.",
+            "show": [
+              {
+                "text": "Gus, the slime expert ate the slime."
+              }
+            ],
+            "ask": "Which edit is right?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Gus the slime expert, ate the slime.",
+                  "reason": "Now the first comma is missing. Extra detail needs a comma on each side."
+                },
+                {
+                  "text": "Gus, the slime, expert ate the slime.",
+                  "reason": "The commas must go around all of the extra detail: the slime expert."
+                },
+                {
+                  "text": "Gus, the slime expert, ate the slime."
+                }
+              ]
+            },
+            "win": "Yes! A comma on both sides. Cover the detail, and 'Gus ate the slime' still works.",
+            "trap": true
+          },
+          {
+            "say": "Last, speech. Wren's sentence is split in two by 'said Wren'. Each half needs its marks.",
+            "show": [
+              {
+                "text": "“Hurry up Gus” said Wren “or we'll miss the boat.”",
+                "tag": "SPLIT SPEECH"
+              }
+            ],
+            "ask": "Which edit fixes Wren's line?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "“Hurry up Gus,” said Wren, “or we'll miss the boat.”",
+                  "reason": "Wren is talking to Gus. Put a comma before his name: Hurry up, Gus."
+                },
+                {
+                  "text": "“Hurry up, Gus,” said Wren, “or we'll miss the boat.”"
+                },
+                {
+                  "text": "“Hurry up, Gus,” said Wren, “Or we'll miss the boat.”",
+                  "reason": "Her sentence keeps going after 'said Wren', so or keeps a small letter."
+                },
+                {
+                  "text": "“Hurry up, Gus” said Wren “or we'll miss the boat.”",
+                  "reason": "Check both sides of 'said Wren'. Each side needs a comma."
+                }
+              ]
+            },
+            "win": "Yes! It's one sentence split in two. Commas on both sides of 'said Wren', and no new capital."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "END MARK",
+              "means": "A full stop for telling. A question mark for asking."
+            },
+            {
+              "term": "CAPITAL",
+              "means": "Starts every sentence and every name."
+            },
+            {
+              "term": "ITS OR IT'S",
+              "means": "Say 'it is'. If it works, write it's. If not, write its."
+            },
+            {
+              "term": "EXTRA DETAIL",
+              "means": "You can cover it up. It needs a comma on both sides."
+            },
+            {
+              "term": "SPLIT SPEECH",
+              "means": "One spoken sentence cut in two. Commas on both sides, no new capital."
+            }
+          ],
+          "examples": [
+            [
+              "Krak, ",
+              {
+                "text": "the editor,",
+                "tag": "EXTRA DETAIL"
+              },
+              " roared. The volcano lost ",
+              {
+                "text": "its",
+                "tag": "ITS OR IT'S"
+              },
+              " top."
+            ],
+            [
+              {
+                "text": "“Hurry up, Gus,” said Wren, “or we'll miss the boat.”",
+                "tag": "SPLIT SPEECH"
+              }
+            ]
+          ],
+          "test": "End mark? Capital? Its or it's? Commas on both sides of extra detail and split speech."
+        }
       },
       "weDo": [
         {

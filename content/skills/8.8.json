@@ -11,26 +11,175 @@
     "teach": {
       "crew": "gamer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A checklist is a list of jobs the writing must do.",
-            "show": "**1.** Has a title. **2.** Says where. **3.** Ends with a question."
+            "say": "Here's my game club notice. The checklist has three items. I check one item at a time.",
+            "show": [
+              {
+                "text": "Come and play Lava Leap!",
+                "tag": "PROOF"
+              },
+              {
+                "text": "We start after lunch.",
+                "nudge": "That's about when. Item 1 asks for the name of the game."
+              },
+              {
+                "text": "Meet in the library.",
+                "nudge": "That's about where. Item 1 asks for the name of the game."
+              }
+            ],
+            "ask": "Item 1: Names the game. Tap the line that shows it.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! That line is the proof, so item 1 is done. On to the next item."
           },
           {
-            "say": "Check one item at a time, like a quest list."
+            "say": "Item 2: Gives the exact start time. Does my notice have proof? Read the item's words carefully.",
+            "show": [
+              {
+                "text": "Come and play Lava Leap!",
+                "tag": "PROOF",
+                "lit": true
+              },
+              {
+                "text": "We start after lunch.",
+                "tag": "NEAR MISS"
+              },
+              {
+                "text": "Meet in the library."
+              }
+            ],
+            "ask": "Does my notice meet item 2?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Read item 2 again: exact start time. Could you set a clock by 'after lunch'?"
+            },
+            "win": "Right! After lunch is about time, but it isn't exact. Near enough still fails the item.",
+            "trap": true
           },
           {
-            "say": "For each item, find the proof in the draft.",
-            "show": "Title: **Lava Day**. Where: **at the crater**."
+            "say": "So I fix item 2. But careful: a fix mustn't break an item that already passed.",
+            "ask": "Which edit fixes item 2 and keeps every other item?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Change 'after lunch' to 'soon after lunch'.",
+                  "reason": "Soon still isn't a clock time. Item 2 wants an exact time."
+                },
+                {
+                  "text": "Change the first line to 'Come and play at 1.30 pm!'",
+                  "reason": "Now there is a time, but where did Lava Leap go? Item 1 breaks."
+                },
+                {
+                  "text": "Change 'after lunch' to 'at 1.30 pm'."
+                }
+              ]
+            },
+            "win": "Yes! 1.30 pm is exact, and the game and the place are still there. Every item passes."
           },
           {
-            "say": "No proof? That's the item the draft fails.",
-            "show": "Ends with a question? **The lava was hot.** Nope!"
+            "say": "Mo's recipe checklist says: Each step starts with a command verb, like Mix or Pour.",
+            "show": [
+              {
+                "text": "Mix the flour and milk.",
+                "nudge": "Mix tells you what to do. That's a command verb, so it passes."
+              },
+              {
+                "text": "The eggs go in next.",
+                "tag": "NO PROOF"
+              },
+              {
+                "text": "Stir it until smooth.",
+                "nudge": "Stir tells you what to do, so it passes."
+              }
+            ],
+            "ask": "Tap the step that fails the item.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'The eggs go in' doesn't tell you to do anything. Fix it: Add the eggs next."
           },
           {
-            "say": "Fix that item. Leave the parts that work alone."
+            "say": "Tully's sign. Checklist: 1. What was found. 2. Where it was found. 3. Who to see.",
+            "show": [
+              {
+                "text": "FOUND: a red footy boot,",
+                "tag": "PROOF"
+              },
+              {
+                "text": "outside the canteen door.",
+                "tag": "PROOF"
+              },
+              {
+                "text": "See Tully in 6B.",
+                "tag": "PROOF"
+              }
+            ],
+            "ask": "Which item does Tully's sign fail?",
+            "check": {
+              "kind": "pick",
+              "answer": 3,
+              "options": [
+                {
+                  "text": "Item 1: what was found",
+                  "reason": "'A red footy boot' is the proof. Item 1 passes."
+                },
+                {
+                  "text": "Item 2: where it was found",
+                  "reason": "'Outside the canteen door' is the proof. Item 2 passes."
+                },
+                {
+                  "text": "Item 3: who to see",
+                  "reason": "'See Tully in 6B' is the proof. Item 3 passes."
+                },
+                {
+                  "text": "None. It passes every item."
+                }
+              ]
+            },
+            "win": "Yes! Every item has proof. Don't hunt for a problem that isn't there.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "PROOF",
+              "means": "Words in the draft that show an item is done."
+            },
+            {
+              "term": "NEAR MISS",
+              "means": "Close to what the item asks, but not exactly. It still fails."
+            },
+            {
+              "term": "NO PROOF",
+              "means": "Nothing in the draft does this item. That's the one to fix."
+            }
+          ],
+          "examples": [
+            [
+              "Names the game? ",
+              {
+                "text": "Come and play Lava Leap!",
+                "tag": "PROOF"
+              }
+            ],
+            [
+              "Exact start time? ",
+              {
+                "text": "We start after lunch.",
+                "tag": "NEAR MISS"
+              }
+            ]
+          ],
+          "test": "Take one item at a time. Find the proof. Near enough fails. After a fix, check every item."
+        }
       },
       "weDo": [
         {

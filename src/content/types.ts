@@ -76,10 +76,43 @@ export interface Encounter extends Task {
   topic: Topic;
 }
 
+/** A piece of an example sentence. A tagged chunk is labelled (for example MAIN CLAUSE) once the step is won, or from the start if lit. */
+export interface Chunk {
+  text: string;
+  tag?: string;
+  lit?: boolean;
+  /** Said when a student taps this chunk and it isn't the answer. */
+  nudge?: string;
+}
+export type Show = (string | Chunk)[];
+
+/** What the student must do before a teaching step lets them move on. A tap answer counts Chunks only, from 0. */
+export type Check =
+  | { kind: 'tap'; answer: number }
+  | { kind: 'yesno'; answer: boolean; nudge: string }
+  | { kind: 'pick'; options: Choice[]; answer: number };
+
+export interface Step {
+  say: string;
+  show?: Show;
+  ask: string;
+  check: Check;
+  win: string;
+  /** This step shows the mistake students usually make and why it's wrong. */
+  trap?: boolean;
+}
+
+/** The reminder a student can open mid-task: what each term means, two labelled examples, and the quick test. */
+export interface MoveCard {
+  terms: { term: string; means: string }[];
+  examples: Show[];
+  test: string;
+}
+
 export interface Teach {
   crew: CrewId;
-  /** One short beat at a time. `show` is an example; wrap the parts to light up in **double stars**. */
-  iDo: { beats: { say: string; show?: string }[] };
+  /** Tap to learn: short steps, each with one thing to do before moving on, then the Move card. */
+  iDo: { steps: Step[]; card: MoveCard };
   weDo: [Task & { hint: string }, Task & { hint: string }];
 }
 

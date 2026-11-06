@@ -8,13 +8,171 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
-          { "say": "One owner gets 's. You know this one.", "show": "the dog**'s** kennel" },
-          { "say": "Many owners? Write the word for many first.", "show": "dogs" },
-          { "say": "It ends in s already. Just add the apostrophe after.", "show": "the dogs**'** kennel" },
-          { "say": "Some words for many don't end in s. Add 's.", "show": "the children**'s** sleds, the men**'s** team" },
-          { "say": "So write the owners first. Then ask: does it end in s?" }
-        ]
+        "steps": [
+          {
+            "say": "Tully here. You know one owner gets 's. Now lots of owners share one thing.",
+            "show": [
+              {
+                "text": "Three dogs",
+                "tag": "OWNERS"
+              },
+              {
+                "text": "share",
+                "nudge": "Share is what the dogs do. Who owns the kennel?"
+              },
+              {
+                "text": "one kennel.",
+                "nudge": "The kennel is the thing owned. Who owns it?"
+              }
+            ],
+            "ask": "Tap the owners.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Three dogs own it. So first, write the word for the owners: dogs."
+          },
+          {
+            "say": "Write the owners: dogs. Now check: does it end in s?",
+            "show": [
+              "Three dogs share one kennel. It is the ___ kennel."
+            ],
+            "ask": "Which word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "dog's",
+                  "reason": "Dog's means one dog. How many dogs share the kennel?"
+                },
+                {
+                  "text": "dogs'"
+                },
+                {
+                  "text": "dogs",
+                  "reason": "Nothing shows the kennel belongs to them. Which mark shows owning?"
+                }
+              ]
+            },
+            "win": "Yes! Dogs already ends in s, so just add ' after it: the dogs' kennel."
+          },
+          {
+            "say": "Some words for many don't end in s. My footy team is all women!",
+            "show": [
+              "The ___ team won the final."
+            ],
+            "ask": "Which word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "women's"
+                },
+                {
+                  "text": "womens'",
+                  "reason": "Write the owners first: women. Did you add an s that isn't there?"
+                },
+                {
+                  "text": "woman's",
+                  "reason": "Woman's is one woman. The whole team owns it."
+                }
+              ]
+            },
+            "win": "Yes! Women has no s on the end, so add 's. Many owners, but still 's."
+          },
+          {
+            "say": "Watch out! Zed added an s that isn't really there. Write each owner word first.",
+            "show": [
+              "The ",
+              {
+                "text": "childrens'",
+                "tag": "NO S"
+              },
+              " ",
+              {
+                "text": "sleds",
+                "nudge": "Sleds are the things owned. Check the owner words instead."
+              },
+              " and the ",
+              {
+                "text": "teachers'",
+                "tag": "ENDS IN S",
+                "nudge": "Write the owners: teachers. Ends in s? Then ' goes after it. This one is right."
+              },
+              " cars got snowed in."
+            ],
+            "ask": "One apostrophe is wrong. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Write the owners: children. No s on the end, so it's children's. Never childrens'.",
+            "trap": true
+          },
+          {
+            "say": "Where the apostrophe sits tells you how many owners there are.",
+            "show": [
+              "The ",
+              {
+                "text": "men's",
+                "nudge": "Men means many. It has no s on the end, so it gets 's."
+              },
+              " team, the ",
+              {
+                "text": "boys'",
+                "nudge": "The apostrophe comes after the s. That shows many boys."
+              },
+              " coach and the ",
+              {
+                "text": "umpire's"
+              },
+              " whistle all froze."
+            ],
+            "ask": "Tap the word with just one owner.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Umpire's: one umpire, then 's. Men's and boys' both have many owners."
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "OWNERS",
+              "means": "Who it belongs to. Write that word first."
+            },
+            {
+              "term": "ENDS IN S",
+              "means": "The owner word already ends in s? Add ' after it."
+            },
+            {
+              "term": "NO S",
+              "means": "The word for many has no s? Add 's."
+            }
+          ],
+          "examples": [
+            [
+              "the ",
+              {
+                "text": "dogs'",
+                "tag": "ENDS IN S"
+              },
+              " kennel"
+            ],
+            [
+              "the ",
+              {
+                "text": "children's",
+                "tag": "NO S"
+              },
+              " sleds"
+            ]
+          ],
+          "test": "Write the owners first. Ends in s? Add '. No s? Add 's."
+        }
       },
       "weDo": [
         {

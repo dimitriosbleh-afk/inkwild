@@ -8,27 +8,209 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Here's a sentence with a bonus bit tucked inside.",
-            "show": "The mural **that Indi painted** has a secret door."
+            "say": "Our school has three murals. Only one has a secret door.",
+            "show": [
+              {
+                "text": "The mural",
+                "tag": "NOUN",
+                "nudge": "That's the thing we're talking about. Which words pick out the mural?"
+              },
+              {
+                "text": "that Indi painted",
+                "tag": "EMBEDDED CLAUSE"
+              },
+              {
+                "text": "has a secret door.",
+                "nudge": "That says what the mural has. Which words tell you which mural?"
+              }
+            ],
+            "ask": "Tap the words that tell you which mural.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'That Indi painted' is tucked in right after mural. It has a verb, painted. It's an embedded clause."
           },
           {
-            "say": "Take it out. The sentence still works.",
-            "show": "The mural has a secret door."
+            "say": "Let's take it out and read what's left.",
+            "show": [
+              "The mural has a secret door."
+            ],
+            "ask": "What do you lose?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "which mural it is"
+                },
+                {
+                  "text": "what the mural has",
+                  "reason": "The secret door is still there. Do you still know which mural?"
+                },
+                {
+                  "text": "nothing at all",
+                  "reason": "There are three murals. Which one has the door now?"
+                }
+              ]
+            },
+            "win": "Yes! With no commas, the clause tells you which one. You need it."
           },
           {
-            "say": "That tucked bit is an embedded clause. It says which mural."
+            "say": "We have only one bus. This clause sits between commas. It just adds an extra fact.",
+            "show": [
+              {
+                "text": "Our bus,",
+                "tag": "NOUN",
+                "lit": true
+              },
+              {
+                "text": "which was late again,",
+                "tag": "EMBEDDED CLAUSE",
+                "lit": true
+              },
+              {
+                "text": "broke down."
+              }
+            ],
+            "ask": "Read it without the part between commas. What's left?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Our bus which was late.",
+                  "reason": "That's the part to take out. Read what's around it."
+                },
+                {
+                  "text": "Was late again broke down.",
+                  "reason": "Keep the noun. Read 'Our bus' and then the end."
+                },
+                {
+                  "text": "Our bus broke down."
+                }
+              ]
+            },
+            "win": "Yes! It still works, and you know which bus. Commas mean an extra fact you can lift out."
           },
           {
-            "say": "Who is for people. Which is for animals and things.",
-            "show": "The boy **who sneezed** ran. The bus, **which was late**, broke down."
+            "say": "'Who' is for people. 'Which' is for animals and things.",
+            "show": [
+              "The coach, ___ wears a red cap, blew the whistle."
+            ],
+            "ask": "Which word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "which",
+                  "reason": "'Which' is for animals and things. Is a coach a person or a thing?"
+                },
+                {
+                  "text": "who"
+                },
+                {
+                  "text": "what",
+                  "reason": "'What' doesn't start this kind of clause. Try a word for a person."
+                }
+              ]
+            },
+            "win": "Yes! A coach is a person, so it's 'who'. 'Who wears a red cap' adds a fact about the coach."
           },
           {
-            "say": "That works for both. Just never put it after a comma.",
-            "show": "The kid **that sneezed** ran. The cake **that Mo burnt** stank."
+            "say": "'That' works for people, animals and things. But it never sits after a comma.",
+            "show": [
+              "The fridge, ___ hums all night, is older than Mum."
+            ],
+            "ask": "Which word fits the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "which"
+                },
+                {
+                  "text": "that",
+                  "reason": "Look at the comma before the gap. 'That' never sits after a comma."
+                },
+                {
+                  "text": "who",
+                  "reason": "'Who' is for people. Is a fridge a person?"
+                }
+              ]
+            },
+            "win": "Yes! 'Which' is for things, and it can sit after a comma. 'That' can't.",
+            "trap": true
+          },
+          {
+            "say": "Careful! 'Who' and 'that' have other jobs too. Zed thinks every 'who' starts an embedded clause.",
+            "show": [
+              {
+                "text": "Who ate my sandwich?",
+                "nudge": "That's a question. 'Who' is asking, not tucked in after a noun."
+              },
+              {
+                "text": "The kid who ate my sandwich is in trouble."
+              },
+              {
+                "text": "That sandwich had pickles in it.",
+                "nudge": "'That' points at the sandwich here. Is a clause tucked in after a noun?"
+              }
+            ],
+            "ask": "Tap the sentence with an embedded clause.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'Who ate my sandwich' sits right after kid and tells you which kid. In a question, 'who' just asks.",
+            "trap": true
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "NOUN",
+              "means": "The person, animal or thing. The embedded clause sits right after it."
+            },
+            {
+              "term": "EMBEDDED CLAUSE",
+              "means": "Tucked in after a noun. Starts with who (people), which (animals, things) or that (both)."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The mural",
+                "tag": "NOUN"
+              },
+              {
+                "text": "that Indi painted",
+                "tag": "EMBEDDED CLAUSE"
+              },
+              {
+                "text": "has a secret door."
+              }
+            ],
+            [
+              {
+                "text": "Our bus,",
+                "tag": "NOUN"
+              },
+              {
+                "text": "which was late again,",
+                "tag": "EMBEDDED CLAUSE"
+              },
+              {
+                "text": "broke down."
+              }
+            ]
+          ],
+          "test": "No commas: it tells you which one. Commas: it adds an extra fact, and never use 'that'."
+        }
       },
       "weDo": [
         {

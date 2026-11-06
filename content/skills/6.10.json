@@ -8,13 +8,209 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
-          { "say": "Speech marks hug the exact words someone says.", "show": "**“**Brr, it's cold!**”** said Wren." },
-          { "say": "The comma, question mark or ! goes inside the marks.", "show": "“Pass the cocoa**,**” said Mo." },
-          { "say": "Speaker first? Put a comma before the marks open.", "show": "Mo said**,** “**P**ass the cocoa.”" },
-          { "say": "Spoken words start with a capital letter." },
-          { "say": "New person speaking? Start a new line, like a new speech bubble." }
-        ]
+        "steps": [
+          {
+            "say": "Indi here. Speech marks go around the exact words someone says. So find those words first.",
+            "show": [
+              {
+                "text": "Brr, my nose is frozen!",
+                "tag": "SPOKEN WORDS"
+              },
+              {
+                "text": "said Wren",
+                "tag": "WHO SAID IT",
+                "nudge": "Wren didn't say 'said Wren'. That part tells you who spoke."
+              },
+              {
+                "text": "with a shiver.",
+                "nudge": "That tells how she said it. Did she say 'with a shiver'?"
+              }
+            ],
+            "ask": "Tap the words Wren really said.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Those are her exact words. Speech marks hug them. Some books call them quotation marks."
+          },
+          {
+            "say": "When Mo stops talking, a mark goes inside the speech marks, just before they close.",
+            "show": [
+              "“Pass the cocoa___” said Mo."
+            ],
+            "ask": "What goes in the gap?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "a comma"
+                },
+                {
+                  "text": "a full stop",
+                  "reason": "The sentence isn't over. 'said Mo' is still coming. Which mark shows a pause?"
+                },
+                {
+                  "text": "nothing",
+                  "reason": "Mo's words stop, but the sentence carries on. Something goes inside to show it."
+                }
+              ]
+            },
+            "win": "Yes! “Pass the cocoa,” said Mo. The comma sits inside the marks."
+          },
+          {
+            "say": "Now Mo is asking a question. What does a question need, and where?",
+            "show": [
+              {
+                "text": "“Is that a yeti,” asked Mo.",
+                "nudge": "Is Mo telling or asking? A comma does not show asking."
+              },
+              {
+                "text": "“Is that a yeti”? asked Mo.",
+                "nudge": "The question belongs to Mo's words. Which side of the marks should it go?"
+              },
+              {
+                "text": "“Is that a yeti?” asked Mo."
+              }
+            ],
+            "ask": "Tap the one that's punctuated right.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! The question mark goes inside the marks. No comma is needed as well."
+          },
+          {
+            "say": "Now the speaker comes first. Mo's words come after said.",
+            "ask": "Which one is right?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Mo said “Pass the cocoa.”",
+                  "reason": "Speaker first? Something goes after said, before the marks open."
+                },
+                {
+                  "text": "Mo said, “pass the cocoa.”",
+                  "reason": "Mo's words start a sentence of his own. How does a sentence start?"
+                },
+                {
+                  "text": "Mo said, “Pass the cocoa.”"
+                }
+              ]
+            },
+            "win": "Yes! Speaker first: a comma before the marks. Mo's words start a sentence, so a capital P."
+          },
+          {
+            "say": "Careful! Indi's words are split in two by 'said Indi'. Zed gave both halves a capital.",
+            "show": [
+              {
+                "text": "“Hold",
+                "nudge": "Hold starts Indi's words, so it needs its capital."
+              },
+              " still,” said ",
+              {
+                "text": "Indi,",
+                "nudge": "Indi is a name. Names always get capitals."
+              },
+              " “",
+              {
+                "text": "Or",
+                "tag": "SECOND HALF"
+              },
+              " your nose goes green!”"
+            ],
+            "ask": "One capital is wrong. Tap it.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! It's one sentence, split by 'said Indi'. The second half carries on, so it starts with a small letter.",
+            "trap": true
+          },
+          {
+            "say": "But look here. The first half ends with a full stop after Indi.",
+            "show": [
+              "“That isn't paint,” said Indi. “it's Gus's slime.”"
+            ],
+            "ask": "Does it's need a capital letter here?",
+            "check": {
+              "kind": "yesno",
+              "answer": true,
+              "nudge": "Look after 'said Indi'. Is that a full stop? Then a new sentence starts."
+            },
+            "win": "Yes! A full stop means a new sentence starts. So It's gets a capital I."
+          },
+          {
+            "say": "Last one. Each new speaker gets a new line, like a new speech bubble.",
+            "show": [
+              "“Is that paint?” ",
+              {
+                "text": "asked Mo.",
+                "nudge": "Mo is still the speaker here. Who speaks next, and where do their words start?"
+              },
+              " ",
+              {
+                "text": "“No,"
+              },
+              " it's slime,” ",
+              {
+                "text": "said Gus.",
+                "nudge": "Gus is already talking by now. Where do his words start?"
+              }
+            ],
+            "ask": "Tap where the new line should start.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Gus speaks next, so his words start a new line. New speaker, new line."
+          }
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "SPOKEN WORDS",
+              "means": "The exact words someone says. Speech marks hug them."
+            },
+            {
+              "term": "WHO SAID IT",
+              "means": "Tells who spoke, like said Mo. It goes outside the marks."
+            },
+            {
+              "term": "SECOND HALF",
+              "means": "The rest of a split sentence of speech. It starts with a small letter."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "“Pass the cocoa,”",
+                "tag": "SPOKEN WORDS"
+              },
+              {
+                "text": "said Mo.",
+                "tag": "WHO SAID IT"
+              }
+            ],
+            [
+              {
+                "text": "“Hold still,”",
+                "tag": "SPOKEN WORDS"
+              },
+              {
+                "text": "said Indi,",
+                "tag": "WHO SAID IT"
+              },
+              {
+                "text": "“or your nose goes green!”",
+                "tag": "SECOND HALF"
+              }
+            ]
+          ],
+          "test": "Marks hug the exact words. Their comma or ? goes inside. New speaker, new line."
+        }
       },
       "weDo": [
         {
@@ -303,7 +499,7 @@
           { "text": "Mo asked, “Who wants a snow pie?”", "bin": 0, "reason": "Comma after asked, capital to start, question mark inside. That's right." },
           { "text": "“Not me!” shouted everyone at once.", "bin": 0, "reason": "The ! is inside the marks, and nothing else is needed. That's right." },
           { "text": "“It tastes like feet” said Gus.", "bin": 1, "reason": "A comma is missing inside the marks after 'feet'." },
-          { "text": "Tully said, “maybe just a small slice.”", "bin": 1, "reason": "Spoken words start with a capital, so 'maybe' needs a capital M." },
+          { "text": "Tully said, “maybe just a small slice.”", "bin": 1, "reason": "This is the start of what Tully says, not a split, so 'maybe' needs a capital M." },
           { "text": "“Is it supposed to be blue?,” asked Wren.", "bin": 1, "reason": "The question mark does the job. Don't add a comma after it." }
         ]
       }
@@ -415,7 +611,7 @@
       "topic": "sport",
       "frame": "Tully is checking the quotes for her report on the Comma Cay snow footy grand final.",
       "prompt": "Match each quote to what it needs.",
-      "success": "Spoken words start with a capital. A comma comes after the speaker, or inside the marks before them.",
+      "success": "Speech starts with a capital, except a split's second half. A comma goes after the speaker or inside the marks.",
       "body": {
         "format": "sort",
         "bins": ["correct already", "needs a capital letter", "needs a comma"],

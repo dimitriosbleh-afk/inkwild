@@ -10,26 +10,201 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Objective words stick to things anyone could check.",
-            "show": "Bluster Rock is **340 metres** tall."
+            "say": "I'm writing about Bluster Rock. Most of my words anyone can check. One is just my feeling.",
+            "show": [
+              "Bluster Rock is ",
+              {
+                "text": "red",
+                "tag": "OBJECTIVE",
+                "nudge": "Anyone can look and see it's red. Which word is a feeling?"
+              },
+              ", ",
+              {
+                "text": "340 metres tall",
+                "tag": "OBJECTIVE",
+                "nudge": "Anyone could measure that. Which word is a feeling?"
+              },
+              " and ",
+              {
+                "text": "breathtaking",
+                "tag": "SUBJECTIVE"
+              },
+              "."
+            ],
+            "ask": "Tap the word that's only Tully's feeling.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Breathtaking is my feeling. A word that shows a feeling or judgement is subjective."
           },
           {
-            "say": "Subjective words show what the writer feels or thinks.",
-            "show": "Bluster Rock is **breathtaking**."
+            "say": "Red and 340 metres are objective. Anyone could check them and get the same answer.",
+            "show": [
+              "Mo's soup is ",
+              {
+                "text": "orange",
+                "tag": "OBJECTIVE"
+              },
+              ", ",
+              {
+                "text": "delicious",
+                "tag": "SUBJECTIVE",
+                "nudge": "'Delicious' is Mo's feeling. Could anyone check it?"
+              },
+              " and ",
+              {
+                "text": "too spicy",
+                "tag": "SUBJECTIVE",
+                "nudge": "'Too spicy' is a judgement. Some people love spice."
+              },
+              "."
+            ],
+            "ask": "Tap the objective word.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Anyone can see orange. Delicious and too spicy are Mo's judgements."
           },
           {
-            "say": "Test it. Would everyone agree, or could someone argue?"
+            "say": "One feeling word can tip a whole sentence.",
+            "show": [
+              {
+                "text": "Sadly",
+                "tag": "SUBJECTIVE"
+              },
+              ", the bus was ",
+              {
+                "text": "late",
+                "tag": "OBJECTIVE",
+                "nudge": "You could check the bus was late. Which word adds a feeling?"
+              },
+              " by ",
+              {
+                "text": "ten minutes",
+                "tag": "OBJECTIVE",
+                "nudge": "Anyone could time ten minutes. Which word adds a feeling?"
+              },
+              "."
+            ],
+            "ask": "Tap the word that makes it subjective.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Sadly is the writer's feeling. Take it out, and the sentence is objective."
           },
           {
-            "say": "One feeling word can make a whole sentence subjective.",
-            "show": "**Sadly**, the rock is 340 metres tall."
+            "say": "Careful! Zed says a number always makes a sentence objective. Check this one.",
+            "show": [
+              "The ticket costs a ",
+              {
+                "text": "shocking",
+                "tag": "SUBJECTIVE"
+              },
+              " $50."
+            ],
+            "ask": "Is this sentence objective?",
+            "check": {
+              "kind": "yesno",
+              "answer": false,
+              "nudge": "Anyone could check $50. But could anyone check 'shocking'?"
+            },
+            "win": "Right! A number doesn't make it objective. 'Shocking' is a judgement.",
+            "trap": true
           },
           {
-            "say": "Reports use objective words. Persuaders love subjective ones."
+            "say": "And 'I' doesn't make a sentence subjective. Check the other words.",
+            "show": [
+              "I went to the footy on Friday."
+            ],
+            "ask": "What is 'I went to the footy on Friday'?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "objective"
+                },
+                {
+                  "text": "subjective, because it says I",
+                  "reason": "'I' just tells you who went. Is there a feeling word?"
+                },
+                {
+                  "text": "subjective, because it's about Tully",
+                  "reason": "Is there a feeling word? You could check what day she went."
+                }
+              ]
+            },
+            "win": "Yes! There's no feeling word, and you could check it. 'I' just tells you who went.",
+            "trap": true
+          },
+          {
+            "say": "Now fix one. Make 'The pool is freezing and horrible' objective.",
+            "ask": "Which rewrite is objective?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "The pool is chilly and no fun.",
+                  "reason": "'No fun' is still a judgement. Could anyone check it?"
+                },
+                {
+                  "text": "Sadly, the pool is 18 degrees.",
+                  "reason": "The number is fine, but 'sadly' adds a feeling."
+                },
+                {
+                  "text": "The pool is 18 degrees."
+                }
+              ]
+            },
+            "win": "Yes! Anyone could measure 18 degrees. No feelings are left."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "OBJECTIVE",
+              "means": "Sticks to what anyone could check, like sizes, colours, dates and prices."
+            },
+            {
+              "term": "SUBJECTIVE",
+              "means": "Shows a feeling or judgement, like sadly, breathtaking or too spicy."
+            }
+          ],
+          "examples": [
+            [
+              "Bluster Rock is ",
+              {
+                "text": "340 metres tall",
+                "tag": "OBJECTIVE"
+              },
+              " and ",
+              {
+                "text": "breathtaking",
+                "tag": "SUBJECTIVE"
+              },
+              "."
+            ],
+            [
+              {
+                "text": "Sadly",
+                "tag": "SUBJECTIVE"
+              },
+              ", the bus was ",
+              {
+                "text": "ten minutes",
+                "tag": "OBJECTIVE"
+              },
+              " late."
+            ]
+          ],
+          "test": "Test each word. Could anyone check it? Objective. A feeling or judgement? Subjective."
+        }
       },
       "weDo": [
         {
@@ -56,7 +231,7 @@
         },
         {
           "prompt": "Tully described Maxx's jet ski. Tap the subjective word.",
-          "hint": "Which words could someone argue with?",
+          "hint": "Could anyone check each word, or is one just Tully's feeling?",
           "success": "'Ridiculous' is Tully's opinion. Maxx would say his jet ski is perfect.",
           "body": {
             "format": "tapText",

@@ -4,23 +4,35 @@ You are writing reading and writing tasks for Inkwild, a creature-collecting iPa
 
 ## What you produce
 
-One JSON file per Skill at `content/skills/<id>.json`. The shape is the `SkillFile` type in `src/content/bank.ts`, built from `src/content/types.ts`. `content/skills/5.3.json` is the model for Encounters. For the Teach sequence, follow the beats format below, which replaced the older `lines` format in that file.
+One JSON file per Skill at `content/skills/<id>.json`. The shape is the `SkillFile` type in `src/content/bank.ts`, built from `src/content/types.ts`. `content/skills/5.3.json` is the model for Encounters. For the I do, follow the Tap to learn format below. `content/skills/5.2.json` is the model I do.
 
 Each file has:
 
 - `skill.name` and `skill.codes` copied exactly from `docs/curriculum/skill-list.md`.
 - `why`: why the Skill matters, in 14 words or fewer. `how`: how to do it, in 16 words or fewer.
 - `teach`: a crew member (`content/crew.json` ids), an I do, and two We do tasks with a `hint`.
-  - **I do is 3 to 5 beats**, shown one at a time. Each beat has `say`, at most 12 words, spoken by the crew member, and an optional `show`, an example of at most 16 words. In `show`, wrap the parts to light up in `**double stars**`, e.g. `"**The slime** **bubbled**."`.
-  - **Write for a nine-year-old who is a weak reader.** Use one idea per beat and everyday words. Introduce one grammar term at a time, and only after showing it. Prefer "the doer" and "the action" first, then the term.
-  - A strong reader can skip the I do, so don't pad it. Funny is good.
+  - **I do is Tap to learn: 4 to 8 steps.** The types are `Step` and `MoveCard` in `src/content/types.ts`, and `content/skills/5.2.json` is the model.
+    - Each step has:
+      - `say`: one line from the crew member, at most 20 words.
+      - `show`: an example made of chunks. A chunk can have a `tag` (a label such as MAIN CLAUSE, in capitals) and `lit: true` to show the label from the start.
+      - `ask`: what to do, at most 14 words.
+      - `check`: one of these:
+        - **`tap`** a chunk. `answer` counts chunks only, from 0. Every other chunk needs a `nudge`.
+        - **`yesno`**, with a `nudge`.
+        - **`pick`** from options. Every wrong option needs a `reason`.
+      - `win`: what the crew member says once the student gets it.
+    - The student can't move on until they get the check right. A wrong tap gets the nudge and another go, with no penalty.
+    - **Show before you name.** First let the student see the idea work on a concrete sentence. Name the term in a `win` or a `tag` only after that. A step's `ask` may only use a term that an earlier step, its own `say`, or an earlier Skill on the island has already given. The jargon check enforces this.
+    - **Think aloud.** Over the steps, walk through one worked example the way an expert would check it ("Say it alone. Does it make sense?"). Don't just state the rule.
+    - **Name the trap.** At least one step has `trap: true`. It shows the mistake students actually make, or the shortcut that fails, and why it fails. For example, "When did the joey sneeze?" starts with when but is a main clause. Use `.scratch/review/ido-errors.md` and the review files to find the trap for your Skill.
+    - **Three or more things to choose from in most steps.** No more than half the steps may be a two-way choice (yes/no, or two chunks or options).
+    - **Bridge once to the curriculum word.** For example: "When is a joining word, also called a conjunction." Use "main clause (some books say independent clause)" and "doer (the subject)" the same way.
+    - **Write for a nine-year-old who is a weak reader.** One idea per step, everyday words, no idioms an EAL learner would read literally. Funny is good. Keep the whole lesson to about two minutes.
+  - **The Move card** is the reminder a student opens mid-task:
+    - `terms`: 2 to 5 terms, each one a tag used in the lesson so the colours match, with `means` of at most 16 kid words.
+    - `examples`: 2 example sentences made of tagged chunks.
+    - `test`: the one-line test, at most 20 words.
 
-  Example of the right size:
-  ```
-  { "say": "Every sentence needs someone doing something.", "show": "**The slime** **bubbled**." },
-  { "say": "That's one chunk. We call it a clause." },
-  { "say": "Glue two clauses with and, but or so.", "show": "The slime bubbled **and** Mo ran." }
-  ```
 - `creature`: an original Creature for this Skill. Base it loosely on Australian wildlife or landscape, never on First Nations cultural beings. Give it a two- or three-syllable invented name and an evolved name, both new words not used by any existing game or brand, and a blurb of one or two sentences that ties it to the Skill.
 - `encounters`: exactly 6 per Band, Bands 1 to 4, 24 in all. Ids are `<skill>-b<band>-<n>`.
 

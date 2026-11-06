@@ -10,26 +10,198 @@
     "teach": {
       "crew": "engineer",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Writers don't repeat names all the time. They use short words.",
-            "show": "**Gus** built a robot. **He** called **it** Snotbot."
+            "say": "Writers don't repeat names all the time. They use short words instead.",
+            "show": [
+              {
+                "text": "Gus",
+                "tag": "POINTS TO"
+              },
+              " built ",
+              {
+                "text": "a robot.",
+                "nudge": "'It' is the robot. So who called the robot Snotbot?"
+              },
+              {
+                "text": "He",
+                "tag": "PRONOUN",
+                "nudge": "That's the short word. Tap who it stands for."
+              },
+              " called it Snotbot."
+            ],
+            "ask": "Tap who 'He' points back to.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! He means Gus. Short words like he, she, it and they are called pronouns."
           },
           {
-            "say": "He points back to Gus. It points back to the robot."
+            "say": "To check, I swap each one in for 'It'. Which one makes sense?",
+            "show": [
+              {
+                "text": "Gus",
+                "nudge": "Gus is a 'he', not an 'it'. Try the others."
+              },
+              " built ",
+              {
+                "text": "a robot",
+                "tag": "POINTS TO"
+              },
+              " in ",
+              {
+                "text": "the shed.",
+                "nudge": "Swap it in: 'The shed beeped and waved.' Can a shed wave?"
+              },
+              {
+                "text": "It",
+                "tag": "PRONOUN",
+                "nudge": "That's the pronoun. Tap what it stands for."
+              },
+              " beeped and waved."
+            ],
+            "ask": "Tap what 'It' stands for.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! 'The robot beeped and waved.' Swap it in, and it makes sense."
           },
           {
-            "say": "These pointing words are called pronouns.",
-            "show": "**he** **she** **it** **they** **them** **his** **her**"
+            "say": "Careful! 'It' isn't always the last thing named. Swap both in.",
+            "show": [
+              {
+                "text": "The wombat",
+                "tag": "POINTS TO"
+              },
+              " pushed over ",
+              {
+                "text": "the bin.",
+                "nudge": "Swap it in: 'The bin climbed inside.' Can a bin climb?"
+              },
+              " Then ",
+              {
+                "text": "it",
+                "tag": "PRONOUN",
+                "nudge": "That's the pronoun. Tap what it stands for."
+              },
+              " climbed inside."
+            ],
+            "ask": "Tap what 'it' stands for.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! The bin came last, but bins can't climb. Always swap it in to check.",
+            "trap": true
           },
           {
-            "say": "To check, swap the noun in where the pronoun was.",
-            "show": "Gus called **the robot** Snotbot."
+            "say": "'They' and 'them' mean more than one. Use that clue.",
+            "show": [
+              {
+                "text": "Tully",
+                "nudge": "Tully is one person. 'Them' means more than one."
+              },
+              " threw ",
+              {
+                "text": "the balls",
+                "tag": "POINTS TO"
+              },
+              " to ",
+              {
+                "text": "Zed.",
+                "nudge": "Zed is one person, and he did the dropping. What did he drop?"
+              },
+              " He dropped ",
+              {
+                "text": "them",
+                "tag": "PRONOUN",
+                "nudge": "That's the pronoun. Tap what it stands for."
+              },
+              " all."
+            ],
+            "ask": "Tap what 'them' stands for.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! The balls. 'Them' means more than one, and Zed dropped the balls."
           },
           {
-            "say": "Still makes sense? Then you've found the right one."
+            "say": "Here's a tricky one. Swap each one in before you choose.",
+            "show": [
+              "Zed left his ice block next to the heater. By lunch, ",
+              {
+                "text": "it",
+                "tag": "PRONOUN"
+              },
+              " was a puddle."
+            ],
+            "ask": "What was a puddle?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "the heater",
+                  "reason": "Swap it in: 'The heater was a puddle.' Can a heater melt?"
+                },
+                {
+                  "text": "lunch",
+                  "reason": "Swap it in: 'Lunch was a puddle.' What could melt by lunch?"
+                },
+                {
+                  "text": "the ice block"
+                },
+                {
+                  "text": "Zed",
+                  "reason": "Zed is a 'he', not an 'it'. And he didn't melt!"
+                }
+              ]
+            },
+            "win": "Yes! The ice block melted. The heater was named last, but only ice melts into a puddle."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "PRONOUN",
+              "means": "A short word like he, she, it or they. It points back."
+            },
+            {
+              "term": "POINTS TO",
+              "means": "The noun the pronoun stands for. Swap it in to check."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The wombat",
+                "tag": "POINTS TO"
+              },
+              " pushed over the bin. Then ",
+              {
+                "text": "it",
+                "tag": "PRONOUN"
+              },
+              " climbed inside."
+            ],
+            [
+              {
+                "text": "Gus",
+                "tag": "POINTS TO"
+              },
+              " built a robot. ",
+              {
+                "text": "He",
+                "tag": "PRONOUN"
+              },
+              " called it Snotbot."
+            ]
+          ],
+          "test": "Find the pronoun. Look back for who or what it means. Swap it in. Does it make sense?"
+        }
       },
       "weDo": [
         {

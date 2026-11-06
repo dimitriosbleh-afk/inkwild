@@ -10,26 +10,205 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Every persuasive text is aimed at someone."
+            "say": "Mo is selling dinners from his van. Who is his ad talking to?",
+            "show": [
+              {
+                "text": "Busy after work?",
+                "tag": "CLUE"
+              },
+              {
+                "text": "Grab a hot dinner",
+                "tag": "WHAT THEY WANT",
+                "nudge": "Anyone could want a hot dinner. Which part tells you about the reader's day?"
+              },
+              {
+                "text": "in five minutes.",
+                "nudge": "Anyone likes fast food. Which part tells you who the reader is?"
+              }
+            ],
+            "ask": "Tap the clue that tells you who the reader is.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! 'After work' points to grown-ups with jobs. That's who the ad is aimed at."
           },
           {
-            "say": "Look for clues about who the reader is.",
-            "show": "**Parents!** Pack a healthy snack in **your child's lunchbox**."
+            "say": "Then ask: what does the writer want the reader to do?",
+            "show": [
+              {
+                "text": "Busy after work?",
+                "tag": "CLUE",
+                "lit": true
+              },
+              {
+                "text": "Grab a hot dinner at Mo's van,",
+                "tag": "WHAT THEY WANT"
+              },
+              " ready in five minutes."
+            ],
+            "ask": "What does Mo want busy workers to do?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "work late",
+                  "reason": "'After work' tells you who. What does Mo want them to buy?"
+                },
+                {
+                  "text": "buy dinner from his van"
+                },
+                {
+                  "text": "cook dinner at home",
+                  "reason": "Mo wants you to skip cooking. Who sells the dinner?"
+                }
+              ]
+            },
+            "win": "Yes! Mo wants busy workers to buy his dinners. First who, then what they should do."
           },
           {
-            "say": "Prices, places and favourite things are clues too.",
-            "show": "Only **$2**, the perfect **recess** snack for **Year 5s**!"
+            "say": "Why does Mo say 'ready in five minutes'? Every line is picked for the reader.",
+            "ask": "Why is 'ready in five minutes' in the ad?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "Mo likes to cook slowly.",
+                  "reason": "Five minutes is fast, not slow. Who needs dinner fast?"
+                },
+                {
+                  "text": "Busy workers don't have time to wait."
+                },
+                {
+                  "text": "Kids like the number five.",
+                  "reason": "This ad isn't aimed at kids. Who is busy after work?"
+                }
+              ]
+            },
+            "win": "Yes! Fast fits busy people. Persuaders pick lines that fit what the reader cares about."
           },
           {
-            "say": "Then ask: what does the writer want them to do?",
-            "show": "**Buy it.** **Vote for it.** **Sign up.** **Come along.**"
+            "say": "Careful! This ad talks about kids. Zed says it's aimed at kids.",
+            "show": [
+              {
+                "text": "Sick of picking up your kids' socks?",
+                "tag": "CLUE"
+              },
+              " The Sock-Bot does it for you!"
+            ],
+            "ask": "Who is the Sock-Bot ad aimed at?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "kids",
+                  "reason": "It says 'your kids'. Who would say that? Who picks up the socks?"
+                },
+                {
+                  "text": "teachers",
+                  "reason": "Teachers don't pick up socks at home. Who does?"
+                },
+                {
+                  "text": "parents"
+                }
+              ]
+            },
+            "win": "Yes! 'Your kids' speaks to the grown-ups. An ad about kids isn't always aimed at kids.",
+            "trap": true
           },
           {
-            "say": "If it's aimed at you, ask: is it good for me?"
+            "say": "Some clues fit anyone. Look for the one that fits only one group.",
+            "show": [
+              {
+                "text": "Open every day.",
+                "nudge": "Lots of shops are open every day. Who does that tell you about?"
+              },
+              {
+                "text": "Free water bowls for your pup.",
+                "tag": "CLUE"
+              },
+              {
+                "text": "Parking out the front.",
+                "nudge": "Anyone who drives needs parking. Which clue fits one group?"
+              }
+            ],
+            "ask": "Tap the clue that fits only one group of readers.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! Only dog owners need a water bowl for a pup. This cafe wants them.",
+            "trap": true
+          },
+          {
+            "say": "If it's aimed at you, ask: is it good for me?",
+            "show": [
+              {
+                "text": "Kids! Win a gold phone! Just send us your password.",
+                "tag": "WHAT THEY WANT"
+              }
+            ],
+            "ask": "Is this good for you?",
+            "check": {
+              "kind": "pick",
+              "answer": 0,
+              "options": [
+                {
+                  "text": "No. Never share a password. Tell a grown-up."
+                },
+                {
+                  "text": "Yes. A free phone is great.",
+                  "reason": "Does anyone give phones away for nothing? What do they really want from you?"
+                },
+                {
+                  "text": "Yes, if I send it fast.",
+                  "reason": "Speed doesn't make it safe. What are they asking for?"
+                }
+              ]
+            },
+            "win": "Yes! It's aimed at kids, but it's only good for the sender. Always tell a grown-up."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "CLUE",
+              "means": "Words, places, prices or ages that show who the reader is."
+            },
+            {
+              "term": "WHAT THEY WANT",
+              "means": "What the writer wants the reader to do: buy, vote, join or come."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "Busy after work?",
+                "tag": "CLUE"
+              },
+              {
+                "text": "Grab a hot dinner at Mo's van.",
+                "tag": "WHAT THEY WANT"
+              }
+            ],
+            [
+              {
+                "text": "Free water bowls for your pup!",
+                "tag": "CLUE"
+              },
+              {
+                "text": "Drop in for a coffee.",
+                "tag": "WHAT THEY WANT"
+              }
+            ]
+          ],
+          "test": "Find a clue that fits only one group. Then ask: what does the writer want them to do?"
+        }
       },
       "weDo": [
         {

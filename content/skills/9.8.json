@@ -10,26 +10,225 @@
     "teach": {
       "crew": "nav",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "A plot is what happens. A setting is where and when."
+            "say": "The Gingerbread Man: a biscuit man jumps out of the oven and runs. A fox tricks him.",
+            "show": [
+              {
+                "text": "In a cottage by the woods,",
+                "tag": "SETTING"
+              },
+              {
+                "text": "a gingerbread man jumps out of the oven",
+                "tag": "PLOT",
+                "nudge": "That's what happens. Which part tells you where?"
+              },
+              {
+                "text": "and runs away.",
+                "tag": "PLOT",
+                "nudge": "That's what happens next. Which part tells you where?"
+              }
+            ],
+            "ask": "Tap the part that tells you where it happens.",
+            "check": {
+              "kind": "tap",
+              "answer": 0
+            },
+            "win": "Yes! Where and when is the setting. What happens is the plot."
           },
           {
-            "say": "Take Little Red Riding Hood. Keep what happens.",
-            "show": "**A girl visits Gran. A wolf gets there first.**"
+            "say": "Now let's move it. Same plot, but a new place: a space station!",
+            "show": [
+              {
+                "text": "On a space station,",
+                "tag": "SETTING",
+                "lit": true
+              },
+              " a gingerbread man ",
+              {
+                "text": "floats",
+                "tag": "NEW DETAIL"
+              },
+              " out of the oven and gets away."
+            ],
+            "ask": "What stayed the same as the old story?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "He lives in a cottage.",
+                  "reason": "The cottage is gone. Where is he now?"
+                },
+                {
+                  "text": "He jumps out of the oven and gets away."
+                },
+                {
+                  "text": "He floats.",
+                  "reason": "Floating is new! It changed because of space. What didn't change?"
+                }
+              ]
+            },
+            "win": "Yes! The plot stayed. Only the setting moved. Floating is a new detail that fits space."
           },
           {
-            "say": "Now move it. Same plot, new place.",
-            "show": "**On a space station**, Red floats to Gran's pod."
+            "say": "Every detail has to fit the new place. In the old story, a fox tricks him.",
+            "show": [
+              {
+                "text": "A fox tricks the gingerbread man.",
+                "tag": "OLD DETAIL"
+              }
+            ],
+            "ask": "What should trick him on the space station?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "a fox hiding in the woods",
+                  "reason": "That is the old setting. There are no woods on a space station."
+                },
+                {
+                  "text": "a pirate on a ship at sea",
+                  "reason": "That's a different new place. Stick to space."
+                },
+                {
+                  "text": "a robot vacuum that sucks up everything"
+                }
+              ]
+            },
+            "win": "Yes! The vacuum does the fox's job, and it belongs in space. New place, new details."
           },
           {
-            "say": "Change the details to match the new place.",
-            "show": "The wolf becomes **a robot vacuum that eats everything**."
+            "say": "Zed tried it too. He changed the place, but look at the rest of his line.",
+            "show": [
+              {
+                "text": "On a space station,",
+                "tag": "SETTING",
+                "lit": true,
+                "nudge": "That's the new setting. Good! Which detail doesn't fit it?"
+              },
+              {
+                "text": "the gingerbread man ran",
+                "nudge": "He still runs. That's the plot. Which detail doesn't belong in space?"
+              },
+              {
+                "text": "down the country lane past the cows.",
+                "tag": "OLD DETAIL"
+              }
+            ],
+            "ask": "Tap the detail that doesn't fit space.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Cows in space? Changing the place name isn't enough. Every detail has to move too.",
+            "trap": true
           },
           {
-            "say": "The plot stays the same. Everything around it changes."
+            "say": "Mo tried too. His story is in space. Now check what happens in it.",
+            "show": [
+              {
+                "text": "On a space station,",
+                "tag": "SETTING",
+                "lit": true
+              },
+              " ",
+              {
+                "text": "a gingerbread man opens a bakery and gets rich.",
+                "tag": "NEW PLOT"
+              }
+            ],
+            "ask": "What went wrong in Mo's version?",
+            "check": {
+              "kind": "pick",
+              "answer": 1,
+              "options": [
+                {
+                  "text": "He kept the old setting.",
+                  "reason": "It's on a space station. That's new! Now check what happens."
+                },
+                {
+                  "text": "He changed the plot."
+                },
+                {
+                  "text": "Nothing. It's perfect.",
+                  "reason": "Does anyone chase him? Does anything trick him? Check what happens."
+                }
+              ]
+            },
+            "win": "Right. Nobody chases him, so it's a new plot. Keep what happens. Change only where it happens.",
+            "trap": true
+          },
+          {
+            "say": "Your turn. Goldilocks: a girl sneaks into the bears' house and tries their things. The bears find her.",
+            "ask": "Which one keeps the plot but moves the setting?",
+            "check": {
+              "kind": "pick",
+              "answer": 2,
+              "options": [
+                {
+                  "text": "Goldilocks eats the bears' porridge in their cottage, and they find her.",
+                  "reason": "Same plot, but it's still the cottage. Where's the new setting?"
+                },
+                {
+                  "text": "Goldilocks and three bears play games online and become best friends.",
+                  "reason": "That's a new plot. Nobody sneaks in, and nobody gets found."
+                },
+                {
+                  "text": "Goldilocks sneaks into the bears' flat, tries their game controllers, and gets caught."
+                }
+              ]
+            },
+            "win": "Yes! Same sneaking in, same getting caught. New place, new details. Now move your own story."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "PLOT",
+              "means": "What happens in the story."
+            },
+            {
+              "term": "SETTING",
+              "means": "Where and when the story happens."
+            },
+            {
+              "term": "OLD DETAIL",
+              "means": "A detail from the old place. It doesn't fit the new one."
+            },
+            {
+              "term": "NEW DETAIL",
+              "means": "A detail that belongs in the new place."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "On a space station,",
+                "tag": "SETTING"
+              },
+              " ",
+              {
+                "text": "a robot vacuum",
+                "tag": "NEW DETAIL"
+              },
+              " tricks the gingerbread man."
+            ],
+            [
+              {
+                "text": "In a flat on Bear Street,",
+                "tag": "SETTING"
+              },
+              " Goldilocks tries ",
+              {
+                "text": "three game controllers.",
+                "tag": "NEW DETAIL"
+              }
+            ]
+          ],
+          "test": "Check what happens: same as the old story? Check every detail: does it fit the new place?"
+        }
       },
       "weDo": [
         {

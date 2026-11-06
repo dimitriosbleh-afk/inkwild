@@ -10,25 +10,241 @@
     "teach": {
       "crew": "artist",
       "iDo": {
-        "beats": [
+        "steps": [
           {
-            "say": "Writers choose pictures to make you feel something.",
-            "show": "The fog crept in **like a cold, wet hand**."
+            "say": "I'm writing a spooky story. Read my first line and picture it.",
+            "show": [
+              "The fog crept in ",
+              {
+                "text": "like a cold, wet hand.",
+                "tag": "PICTURE"
+              }
+            ],
+            "ask": "How does that picture make you feel?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "cosy",
+                  "reason": "Would a cold, wet hand on your neck feel cosy?"
+                },
+                {
+                  "text": "creepy"
+                },
+                {
+                  "text": "excited",
+                  "reason": "Picture a cold, wet hand reaching for you. Is that fun?"
+                }
+              ],
+              "answer": 1
+            },
+            "win": "Yes! Creepy. How a place feels to be in is called its mood."
           },
           {
-            "say": "Ask yourself: how does that picture make me feel?"
+            "say": "Now watch. Same fog, different picture.",
+            "show": [
+              "The fog drifted in ",
+              {
+                "text": "like a soft grey blanket.",
+                "tag": "PICTURE"
+              }
+            ],
+            "ask": "What's the mood now?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "scary",
+                  "reason": "Is a soft blanket scary? Picture snuggling into one."
+                },
+                {
+                  "text": "angry",
+                  "reason": "Nobody is cross. What's a soft blanket like?"
+                },
+                {
+                  "text": "cosy"
+                }
+              ],
+              "answer": 2
+            },
+            "win": "Yes! Swap the picture, and the whole mood changes. Writers choose pictures on purpose."
           },
           {
-            "say": "A cold, wet hand feels creepy. That feeling is the mood."
+            "say": "A picture can be a simile, a metaphor or personification. Find the cosy one.",
+            "show": [
+              {
+                "text": "The kettle screamed for attention.",
+                "nudge": "A screaming kettle is loud and jumpy. Is that cosy?"
+              },
+              {
+                "text": "The soup purred like a sleepy cat.",
+                "tag": "PICTURE"
+              },
+              {
+                "text": "The wind was a hungry wolf.",
+                "nudge": "A hungry wolf is scary, not cosy."
+              }
+            ],
+            "ask": "Tap the picture that makes the kitchen feel cosy.",
+            "check": {
+              "kind": "tap",
+              "answer": 1
+            },
+            "win": "Yes! A sleepy, purring cat is warm and calm. So the kitchen feels cosy."
           },
           {
-            "say": "Swap the picture, and the whole mood changes.",
-            "show": "The fog drifted in **like a soft grey blanket**."
+            "say": "Careful! Mood is how the whole place feels, not how one person feels.",
+            "show": [
+              {
+                "text": "Balloons bounced like giggles.",
+                "tag": "PICTURE"
+              },
+              " Everyone danced on the sand. Only Mo was grumpy. He'd dropped his pie."
+            ],
+            "ask": "What is the mood of the beach party?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "joyful"
+                },
+                {
+                  "text": "grumpy",
+                  "reason": "That's just how Mo feels. Look at the balloons and the dancing."
+                },
+                {
+                  "text": "scary",
+                  "reason": "Nothing here is scary. What are bouncing balloons like?"
+                }
+              ],
+              "answer": 0
+            },
+            "win": "Yes! One grumpy Mo doesn't change the mood. The picture makes the whole party joyful.",
+            "trap": true
           },
           {
-            "say": "Now the fog feels cosy. Same fog, new mood!"
+            "say": "Moods can change. Find the picture where the calm turns.",
+            "show": [
+              {
+                "text": "The waves lapped like a cat drinking milk.",
+                "nudge": "A cat lapping milk is calm. The mood hasn't turned yet."
+              },
+              {
+                "text": "Gulls bobbed like rubber ducks.",
+                "nudge": "Rubber ducks are fun and calm. Keep looking."
+              },
+              {
+                "text": "Then a black cloud spread like spilled ink.",
+                "tag": "PICTURE"
+              }
+            ],
+            "ask": "Tap the picture where the mood turns.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Spilled ink is dark and spreading. The calm morning suddenly feels worrying."
+          },
+          {
+            "say": "Last, check that the rest of the story agrees with the mood.",
+            "show": [
+              "Zed crept up to the old shed. ",
+              {
+                "text": "Its windows stared like empty eyes.",
+                "tag": "PICTURE"
+              },
+              " ",
+              {
+                "text": "He backed away, then ran.",
+                "tag": "CLUE"
+              }
+            ],
+            "ask": "What mood do the staring windows make?",
+            "check": {
+              "kind": "pick",
+              "options": [
+                {
+                  "text": "funny",
+                  "reason": "Check the rest. Zed backs away and runs. Is he laughing?"
+                },
+                {
+                  "text": "friendly",
+                  "reason": "Check the rest. Would Zed run from a friendly shed?"
+                },
+                {
+                  "text": "creepy"
+                }
+              ],
+              "answer": 2
+            },
+            "win": "Yes! Empty, staring eyes are creepy, and Zed running away agrees."
+          },
+          {
+            "say": "Let's put it together. One word names how the place feels.",
+            "show": [
+              {
+                "text": "The soup purred like a sleepy cat,",
+                "tag": "PICTURE",
+                "nudge": "That's the picture the writer chose. Which word says how the place feels?"
+              },
+              {
+                "text": "so the galley felt",
+                "nudge": "This part links them. Which word says how the place feels?"
+              },
+              {
+                "text": "cosy.",
+                "tag": "MOOD"
+              }
+            ],
+            "ask": "Tap the word that names the mood.",
+            "check": {
+              "kind": "tap",
+              "answer": 2
+            },
+            "win": "Yes! Cosy is the mood. The purring-cat picture is what makes it feel that way."
           }
-        ]
+        ],
+        "card": {
+          "terms": [
+            {
+              "term": "PICTURE",
+              "means": "A simile, metaphor or other image the writer chose on purpose."
+            },
+            {
+              "term": "MOOD",
+              "means": "How the whole place feels to be in: cosy, creepy, joyful."
+            },
+            {
+              "term": "CLUE",
+              "means": "Other parts of the story that agree with the mood."
+            }
+          ],
+          "examples": [
+            [
+              {
+                "text": "The soup purred like a sleepy cat,",
+                "tag": "PICTURE"
+              },
+              " so the galley felt ",
+              {
+                "text": "cosy.",
+                "tag": "MOOD"
+              }
+            ],
+            [
+              {
+                "text": "The fog crept in like a cold, wet hand.",
+                "tag": "PICTURE"
+              },
+              " ",
+              {
+                "text": "Wren ran for the boat.",
+                "tag": "CLUE"
+              }
+            ]
+          ],
+          "test": "Find the picture. How does it make the place feel? Check the rest agrees."
+        }
       },
       "weDo": [
         {
